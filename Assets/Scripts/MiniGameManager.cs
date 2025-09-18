@@ -103,15 +103,15 @@ public class MiniGameManager : MonoBehaviour
 
     void Success()
     {
-        FishermanController.instance.isCanMove =  HungerSystem.instance.canDecrease = GameManager.instance.myFish.canMove = true;
+        FishermanController.instance.isCanMove =  HungerSystem.instance.canDecrease = GameManager.Instance.myFish.canMove = true;
         HungerSystem.instance.AddHunger(75f);
         FishController.instance.DestrouWorm();
 
-        for (int i = 0; i < GameManager.instance.AllFishPlayers.Count; i++)
+        for (int i = 0; i < GameManager.Instance.AllFishPlayers.Count; i++)
         {
-            if (GameManager.instance.AllFishPlayers[i] != null)
+            if (GameManager.Instance.AllFishPlayers[i] != null)
             {
-                GameManager.instance.AllFishPlayers[i].ChangeTag("Fish");
+                GameManager.Instance.AllFishPlayers[i].ChangeTag("Fish");
             }
             else
             {

@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     public Slider castingMeter; // Assign this in Inspector
 
-    public static GameManager instance;
+    public static GameManager Instance;
 
     public GameObject gameOverPanel;
     public Text gameOverText;
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
     public FishController myFish;
     private void Awake()    
     {
-        instance = this;
+        Instance = this;
 
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
@@ -157,6 +157,6 @@ public class GameManager : MonoBehaviour
         fisherman = fc;
     }
 
-
+    //For Prepare ChangeHost
 
 }

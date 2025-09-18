@@ -2,7 +2,6 @@
 using FishNet.Object;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
 
 public class FishController : NetworkBehaviour
 {
@@ -37,6 +36,7 @@ public class FishController : NetworkBehaviour
 
     public PolygonCollider2D myColider;
 
+    public AdvancedHostMigration advancedHostMigration;
     private void Awake()
     {
         if (instance == null)
@@ -71,8 +71,26 @@ public class FishController : NetworkBehaviour
         
     void Update()
     {
+        
+
         if (!IsOwner)
             return;
+
+        
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            AdvancedHostMigration migrationManager = FindObjectOfType<AdvancedHostMigration>();
+            if (migrationManager != null)
+            {
+                Debug.Log("fgasgdsytaSUDSA");
+                migrationManager.BecomeNewHost();
+            }
+            else
+            {
+                Debug.LogError("nuljjasduyssudsdiysd");
+            }
+        }
 
         if (!canMove)
         {
@@ -112,17 +130,17 @@ public class FishController : NetworkBehaviour
     IEnumerator SetObjectainGamemanager()
     {
         yield return new WaitForSeconds(2f);
-        if (GameManager.instance != null)
+        if (GameManager.Instance != null)
         {
             if (IsOwner)
             {
-                if (GameManager.instance.myFish == null)
+                if (GameManager.Instance.myFish == null)
                 {
-                    GameManager.instance.myFish = this;
+                    GameManager.Instance.myFish = this;
                 }
             }
 
-            GameManager.instance.AllFishPlayers.Add(this);
+            GameManager.Instance.AllFishPlayers.Add(this);
         }
     }
  
@@ -153,10 +171,10 @@ public class FishController : NetworkBehaviour
         // Trigger event
         OnFishDied?.Invoke(this);
 
-        if (GameManager.instance != null && GameManager.instance.gameOverText != null)
+        if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
         {
             canMove = false;
-            GameManager gm = GameManager.instance;
+            GameManager gm = GameManager.Instance;
             myColider.enabled = false;
             gm.gameOverPanel.SetActive(true);
             gm.ShowGameOverMessage("You Lose!");
@@ -227,7 +245,7 @@ public class FishController : NetworkBehaviour
 
             if(IsOwner)
             {
-                GameManager.instance.LoadMakeFisherMan();
+                GameManager.Instance.LoadMakeFisherMan();
             }
         }
 
@@ -281,7 +299,7 @@ public class FishController : NetworkBehaviour
 
         JunkSpawner.instance.canSpawn = true;
         JunkSpawner.instance.LoadSpaenLoop();
-        var fishermanObj = Instantiate(GameManager.instance.fishermanPrefab,
+        var fishermanObj = Instantiate(GameManager.Instance.fishermanPrefab,
             new Vector3(0f, 8.75f, 0f), Quaternion.identity);
         Spawn(fishermanObj.gameObject);
     }
@@ -290,7 +308,7 @@ public class FishController : NetworkBehaviour
     public void SetFisherMan(FishermanController fm)
     {
         Debug.Log("SetFisherMan"); 
-        GameManager.instance.fisherman = fm;    
+        GameManager.Instance.fisherman = fm;    
     }
 
     public void DropJunkToHook(GameObject worm)
@@ -422,7 +440,7 @@ public class FishController : NetworkBehaviour
         if (IsOwner)
         {
             canMove = false;
-            GameManager gm = GameManager.instance;
+            GameManager gm = GameManager.Instance;
             myColider.enabled = false;
             gm.gameOverPanel.SetActive(true);
             if (isFishWin)
@@ -470,7 +488,7 @@ public class FishController : NetworkBehaviour
             if (gameObject.tag == "CatchdFish")
             {
                 canMove = false;
-                GameManager gm = GameManager.instance;
+                GameManager gm = GameManager.Instance;
                 myColider.enabled = false;
                 gm.gameOverPanel.SetActive(true);
                 gm.ShowGameOverMessage("You Lose!");

@@ -71,7 +71,7 @@ public class FishermanController : NetworkBehaviour
         base.OnStartClient();
         if (IsOwner || IsClient)
         {
-            GameManager.instance.AssignFisherman(this);
+            GameManager.Instance.AssignFisherman(this);
         }
     }
 
@@ -178,7 +178,7 @@ public class FishermanController : NetworkBehaviour
             if (worms > 0)
             {
                 worms--;
-                GameManager.instance.UpdateUI(worms);
+                GameManager.Instance.UpdateUI(worms);
                 Debug.Log($"[SERVER] Worm used! Remaining: {worms}");
             }
         }
@@ -226,7 +226,7 @@ public class FishermanController : NetworkBehaviour
         {
             if (isfisherMan)
             {
-                GameManager gm = GameManager.instance;
+                GameManager gm = GameManager.Instance;
                 for (int i = 0; i < gm.AllFishPlayers.Count; i++)
                 {
                     gm.AllFishPlayers[i].ShowGameOver(false);
@@ -250,7 +250,7 @@ public class FishermanController : NetworkBehaviour
             if (isfisherMan)
             {
                 Debug.Log("zzzCheckWormsCheckWorms");
-                GameManager gm = GameManager.instance;
+                GameManager gm = GameManager.Instance;
 
                 for (int i = 0; i < gm.AllFishPlayers.Count; i++)
                 {

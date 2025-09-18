@@ -196,11 +196,11 @@ public class Hook : NetworkBehaviour
         }
 
 
-        for (int i = 0; i < GameManager.instance.AllFishPlayers.Count; i++)
+        for (int i = 0; i < GameManager.Instance.AllFishPlayers.Count; i++)
         {
-            if (GameManager.instance.AllFishPlayers[i] != null)
+            if (GameManager.Instance.AllFishPlayers[i] != null)
             {
-                GameManager.instance.AllFishPlayers[i].CatchByFishermanLocal();
+                GameManager.Instance.AllFishPlayers[i].CatchByFishermanLocal();
             }
         }
 
@@ -258,11 +258,11 @@ public class Hook : NetworkBehaviour
 
     public void ShowGameOver()
     {
-        for (int i = 0; i < GameManager.instance.AllFishPlayers.Count; i++)
+        for (int i = 0; i < GameManager.Instance.AllFishPlayers.Count; i++)
         {
-            if (GameManager.instance.AllFishPlayers[i] != null)
+            if (GameManager.Instance.AllFishPlayers[i] != null)
             {
-                GameManager.instance.AllFishPlayers[i].CatchByFishermanLocal();
+                GameManager.Instance.AllFishPlayers[i].CatchByFishermanLocal();
             }
         }
     }

@@ -150,6 +150,7 @@ MonoBehaviour:
   carriedJunk: {fileID: 0}
   CatchedWorm: {fileID: 0}
   myColider: {fileID: 8710102643049221350}
+  advancedHostMigration: {fileID: 0}
   localPlayer: {fileID: 0}
   Autospeed: 3
 --- !u!114 &7404564085461583181
@@ -173,6 +174,7 @@ MonoBehaviour:
   NetworkBehaviours:
   - {fileID: -1274918432938720004}
   - {fileID: 7768821825720358031}
+  - {fileID: 0}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
   RuntimeParentNetworkBehaviour: {fileID: 0}

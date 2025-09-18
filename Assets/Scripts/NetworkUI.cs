@@ -2,9 +2,10 @@
 using FishNet.Managing;
 using FishNet.Managing.Scened;
 using FishNet.Transporting;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 
 public class NetworkUI : MonoBehaviour
 {
@@ -54,6 +55,10 @@ public class NetworkUI : MonoBehaviour
         }
     }
 
+    public void Update()
+    {
+       
+    }
     public void StartHost()
     {
         // Maximum connections limit सेट करें (playersRequired + 1 host को include करने के लिए)
@@ -227,4 +232,8 @@ public class NetworkUI : MonoBehaviour
         }
         return null;
     }
+
+    //for Change Host
+
+
 }

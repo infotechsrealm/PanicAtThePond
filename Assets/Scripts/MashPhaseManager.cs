@@ -23,11 +23,12 @@ public class MashPhaseManager : NetworkBehaviour
         instance = this;
     }
 
+    
     IEnumerator Start()
     {
         yield return new WaitForSeconds(1f);
 
-        GameManager gm = GameManager.instance;
+        GameManager gm = GameManager.Instance;
 
         mashPanel = gm.mashPanel;
         mashSlider = gm.mashSlider;
@@ -62,7 +63,7 @@ public class MashPhaseManager : NetworkBehaviour
 
     private void ExecuteFunctionLocal()
     {
-        if (FishermanController.instance.isfisherMan || GameManager.instance.myFish.isCatchedFish)
+        if (FishermanController.instance.isfisherMan || GameManager.Instance.myFish.isCatchedFish)
         {
             JunkSpawner.instance.canSpawn = WormSpawner.instance.canSpawn = FishermanController.instance.isCanMove = HungerSystem.instance.canDecrease = false;
 
@@ -76,7 +77,13 @@ public class MashPhaseManager : NetworkBehaviour
 
     void Update()
     {
+        if (IsServer)
+        {
+            Debug.Log("i m Server");
+        }
         if (!active) return;
+
+
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -149,15 +156,15 @@ public class MashPhaseManager : NetworkBehaviour
            WormSpawner.instance.canSpawn =
            FishermanController.instance.isCanMove =
            HungerSystem.instance.canDecrease =
-           GameManager.instance.myFish.canMove = true;
+           GameManager.Instance.myFish.canMove = true;
             HungerSystem.instance.AddHunger(75f);
             Debug.Log("Fisherman won the mash phase! Caught fish.");
 
-            for (int i = 0; i < GameManager.instance.AllFishPlayers.Count; i++)
+            for (int i = 0; i < GameManager.Instance.AllFishPlayers.Count; i++)
             {
-                if (GameManager.instance.AllFishPlayers[i] != null)
+                if (GameManager.Instance.AllFishPlayers[i] != null)
                 {
-                    GameManager.instance.AllFishPlayers[i].ChangeTag("Fish");
+                    GameManager.Instance.AllFishPlayers[i].ChangeTag("Fish");
                 }
                 else
                 {

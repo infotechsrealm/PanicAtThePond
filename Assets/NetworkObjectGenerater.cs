@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class NetworkObjectGenerater : NetworkBehaviour
 {
-
     public GameObject MashPhase;
 
     public Text clientText;
@@ -14,18 +13,12 @@ public class NetworkObjectGenerater : NetworkBehaviour
     {
         if(IsServer)
         {
-            SpawnWorm();
+            SpawnWormmashPhase();
                 clientText.text  = "ClientId = " +  Owner.ClientId;
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void SpawnWorm()
+    void SpawnWormmashPhase()
     {
         GameObject mashPhase = Instantiate(MashPhase);
         Spawn(mashPhase);

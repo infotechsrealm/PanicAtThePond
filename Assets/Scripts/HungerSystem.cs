@@ -30,7 +30,7 @@ public class HungerSystem : MonoBehaviour
     {
         if (!canDecrease) return;
 
-        if (GameManager.instance != null)
+        if (GameManager.Instance != null)
         {
             currentHunger -= hungerDecreaseSpeed * Time.deltaTime;
             currentHunger = Mathf.Clamp(currentHunger, 0f, maxHunger);
