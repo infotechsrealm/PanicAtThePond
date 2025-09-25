@@ -47,6 +47,14 @@ MonoBehaviour:
   - SetupHookRodRPC
   - EnableWormColliderRPC
   - DropWormRpc
+  - SetJunkInFish
+  - SetJunkInHook
+  - LoadReturnToRod
+  - RequestDestroy
+  - StartMashPhase
+  - DestroyAllWorms
+  - LoadDestroyAllWormsRPC
+  - PreloderOnOff
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class JunkSpawner : MonoBehaviour
@@ -11,7 +12,7 @@ public class JunkSpawner : MonoBehaviour
     public float xRange = 8f;
     public float yRange = 4f;
 
-    internal bool canSpawn = true;
+    internal bool canSpawn = false;
     public static JunkSpawner instance;
 
     private List<GameObject> activeJunks = new List<GameObject>(); // track all junks
@@ -26,16 +27,19 @@ public class JunkSpawner : MonoBehaviour
 
     void Start()
     {
-
-        if (PhotonNetwork.IsMasterClient)
-        {
-            StartCoroutine(SpawnLoop());
-        }
     }
 
-    IEnumerator SpawnLoop()
+
+    public void LoadSpawnJunk()
     {
-        while (canSpawn)
+        if (PhotonNetwork.IsMasterClient)
+        {
+            StartCoroutine(SpawnJunk());
+        }
+    }
+    IEnumerator SpawnJunk()
+    {
+        if (canSpawn)
         {
             if (activeJunks.Count < 2)
             {
@@ -44,20 +48,18 @@ public class JunkSpawner : MonoBehaviour
                 Vector2 pos = new Vector2(x, y);
 
                 GameObject prefab = junkPrefabs[Random.Range(0, junkPrefabs.Length)];
-                GameObject newJunk = Instantiate(prefab, pos, Quaternion.identity);
+
+                GameObject newJunk = PhotonNetwork.Instantiate(prefab.name, pos, Quaternion.identity).gameObject;
 
                 activeJunks.Add(newJunk);
-
-                Junk junkScript = newJunk.AddComponent<Junk>();
-                junkScript.onDestroyed = () => { activeJunks.Remove(newJunk); };
             }
-
-            float delay = Random.Range(minSpawnDelay, maxSpawnDelay);
-            yield return new WaitForSeconds(delay);
         }
+        float delay = Random.Range(minSpawnDelay, maxSpawnDelay);
+        yield return new WaitForSeconds(delay);
+        StartCoroutine(SpawnJunk());
     }
 
-    public void StopSpawning()
+    public void StopSpawning()  
     {
         canSpawn = false;
     }
@@ -70,18 +72,13 @@ public class JunkSpawner : MonoBehaviour
         }
         activeJunks.Clear();
     }
-}
-
-// Helper script
-public class Junk : MonoBehaviour
-{
-    public System.Action onDestroyed;
 
     void OnDestroy()
     {
-        if (onDestroyed != null)
-        {
-            onDestroyed.Invoke();
-        }
+        activeJunks.Remove(this.gameObject);
     }
 }
+
+
+
+

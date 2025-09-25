@@ -1,7 +1,6 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -45,19 +44,28 @@ public class FishermanController : MonoBehaviourPunCallbacks
     {
         if (instance == null)
             instance = this;
+
+        
     }
     void Start()
     {
-        currentRod = leftRod;
-        if (castingMeter != null)
-        {
-            castingMeter.value = 0;
-        }
 
         if (PhotonNetwork.IsMasterClient)
         {
+            currentRod = leftRod;
+            if (castingMeter != null)
+            {
+                castingMeter.value = 0;
+            }
+            castingMeter = GameManager.instance.castingMeter;
+            worms = GameManager.instance.fishermanWorms;
             GameManager.instance.hungerBar.SetActive(false);
             GameManager.instance.fisherManObjects.SetActive(true);
+            GameManager.instance.LoadPreloderOnOff(false);
+            JunkSpawner.instance.canSpawn = true;
+            WormSpawner.instance.canSpawn = true;
+            JunkSpawner.instance.LoadSpawnJunk();
+            WormSpawner.instance.LoadSpawnWorm();
         }
 
     }
@@ -66,22 +74,13 @@ public class FishermanController : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            Debug.Log("✅ I am the MasterClient now!");
 
             if (isCanMove)
             {
                 HandleMovement();
             }
-
             HandleRodSelection();
             HandleCasting();
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                // Here you can check if a hook has a fish attached
-                // For now, just print a log
-                Debug.Log("Tug-of-war action! Space pressed while fish is hooked.");
-            }
         }
     }
 
@@ -201,6 +200,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
         castingMeter.value = 0;
     }
+
     [PunRPC]
     void SetupHookRodRPC(int hookID,Vector3 curruntRod)
     {
@@ -213,6 +213,11 @@ public class FishermanController : MonoBehaviourPunCallbacks
             {
                 hook.rodTip = curruntRod;
                 Debug.Log("Hook GEted");
+            }
+            else
+            {
+                Debug.Log("Hook null");
+
             }
 
         }   

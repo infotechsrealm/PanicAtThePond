@@ -1,11 +1,11 @@
 ﻿using Photon.Pun;
-using System.Collections;
+using Photon.Realtime;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourPunCallbacks
 {
     [Header("Player Setup")]
     public int totalPlayers = 7;
@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject hungerBar;
     public GameObject fisherManObjects;
+    public GameObject preloderUI;
 
     private void Awake()
     {
@@ -92,42 +93,25 @@ public class GameManager : MonoBehaviour
         Debug.Log("Fish Spawned: " + fishes.Count);
     }
 
+    public void LoadSpawnFisherman()
+    {
+        LoadPreloderOnOff(true);
+        Invoke(nameof(SpawnFisherman),4f);
+    }
+
     public void SpawnFisherman()
     {
         // Spawn Fisherman
-        GameObject fisherman  =  PhotonNetwork.Instantiate("FisherMan", new Vector3(0f, 1.75f, 0f), Quaternion.identity).gameObject;
+         PhotonNetwork.Instantiate("FisherMan", new Vector3(0f, 1.75f, 0f), Quaternion.identity);
 
         // Worm calculation
         int fishCount = totalPlayers - 1;
         fishermanWorms = fishCount * baseWormMultiplier;
         maxWorms = fishermanWorms;
         Debug.Log("Fisherman Worms: " + fishermanWorms);
-
-        // Assign castingMeter to FishermanController
-        FishermanController fc = fisherman.GetComponent<FishermanController>();
-        if (fc != null)
-        {
-            fc.castingMeter = castingMeter;
-            fc.worms = fishermanWorms;
-            UpdateUI(fc.worms);
-
-            if (!PhotonNetwork.IsMasterClient)
-            {
-                fc.GetIdAndChangeHost();
-            }
-        }
-        else
-        {
-            Debug.LogWarning("FishermanController not found on FishermanPrefab!");
-        }
     }
 
-    IEnumerator DestroySelfAfterDelay(float delay,FishermanController fc)
-    {
-        yield return new WaitForSeconds(delay);
-        fc.GetIdAndChangeHost();
-    }
-
+   
     public void ShowGameOver(string message)
     {
         if (gameOverPanel != null)
@@ -145,5 +129,77 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GetIdAndChangeHost()
+    {
+        int myId = PhotonNetwork.LocalPlayer.ActorNumber;
+        Debug.Log("✅ My Client ID = " + myId);
+
+        photonView.RPC(nameof(ChangeHostById), RpcTarget.MasterClient, myId);
+    }
+
+    public void LoadGetIdAndChangeHost()
+    {
+        LoadPreloderOnOff(true);
+
+        Invoke(nameof(GetIdAndChangeHost), 4f);
+    }
+
+    [PunRPC]
+    public void ChangeHostById(int clientId)
+    {
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            Debug.LogWarning("❌ Sirf current MasterClient hi host change kar sakta hai!");
+            return;
+        }
+
+        Player targetPlayer = null;
+
+        foreach (Player p in PhotonNetwork.PlayerList)
+        {
+            if (p.ActorNumber == clientId)
+            {
+                targetPlayer = p;
+                break;
+            }
+        }
+
+        if (targetPlayer != null)
+        {
+            PhotonNetwork.SetMasterClient(targetPlayer);
+            Debug.Log("✅ Host changed to Player with ID: " + clientId);
+        }
+        else
+        {
+            Debug.LogWarning("❌ Client ID not found: " + clientId);
+        }
+    }
+
+    public override void OnMasterClientSwitched(Player newMasterClient)
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            SpawnFisherman();
+        }
+            Debug.Log("👑 New Master is: " + newMasterClient.NickName + " (ID: " + newMasterClient.ActorNumber + ")");
+
+
+
+        // 👉 Yaha apna custom logic add kar sakte ho
+        // Example: UI update, extra permissions, game flow change, etc.
+    }
+
+    public void LoadPreloderOnOff(bool res)
+    {
+        photonView.RPC("PreloderOnOff", RpcTarget.All, res);
+
+    }
+
+    [PunRPC]
+    public void PreloderOnOff(bool res)
+    {
+        preloderUI.SetActive(res);
     }
 }

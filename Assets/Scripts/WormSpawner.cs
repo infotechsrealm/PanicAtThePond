@@ -1,8 +1,9 @@
-using Photon.Pun;
+﻿using Photon.Pun;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class WormSpawner : MonoBehaviour
+public class WormSpawner : MonoBehaviourPunCallbacks
 {
     public GameObject wormPrefab, goldWormPrefab;
     public float spawnInterval = 3f;
@@ -12,6 +13,9 @@ public class WormSpawner : MonoBehaviour
     internal bool canSpawn = true;
 
     public static WormSpawner instance;
+
+
+    private List<GameObject> activeWorms = new List<GameObject>(); // track all junks
 
 
     private void Awake()
@@ -28,7 +32,6 @@ public class WormSpawner : MonoBehaviour
         {
             LoadSpawnWorm();
             SpawnGoldWorm();
-           //Invoke("SpawnGoldWorm",1f);
         }
     }
 
@@ -46,9 +49,11 @@ public class WormSpawner : MonoBehaviour
             float y = Random.Range(-yRange, 1);
             Vector2 pos = new Vector2(x, y);
 
-            PhotonNetwork.Instantiate("Worm", pos, Quaternion.identity);
+            GameObject worm =  PhotonNetwork.Instantiate("Worm", pos, Quaternion.identity).gameObject;
+            activeWorms.Add(worm);
 
         }
+
         yield return new WaitForSeconds(Random.Range(3f, 7f));
         StartCoroutine(SpawnWorm());
 
@@ -56,13 +61,11 @@ public class WormSpawner : MonoBehaviour
 
     void SpawnGoldWorm()
     {
-
-        Debug.Log("SpawnGoldWorm called");
         float x = Random.Range(-xRange, xRange);
         float y = Random.Range(-yRange, 1);
         Vector2 pos = new Vector2(x, y);
 
-        PhotonNetwork.Instantiate("GoldWorm", pos, Quaternion.identity);
+         PhotonNetwork.Instantiate("GoldWorm", pos, Quaternion.identity);
     }
 
     public void StopSpawning()
@@ -72,23 +75,33 @@ public class WormSpawner : MonoBehaviour
 
     public void DestroyAllWorms()
     {
-        GameObject[] worms = GameObject.FindGameObjectsWithTag("Worm");
-        foreach (GameObject worm in worms)
+        canSpawn = false;
+
+        if (!PhotonNetwork.IsMasterClient)
         {
-            Destroy(worm);
+            // सिर्फ MasterClient ही destroy करेगा
+            Debug.LogWarning("⚠️ Only MasterClient can destroy worms!");
+            return;
         }
 
-        GameObject[] worms2 = GameObject.FindGameObjectsWithTag("Worm2");
-        foreach (GameObject worm in worms2)
+        foreach (GameObject worm in activeWorms)
         {
-            Destroy(worm);
+            if (worm != null)
+            {
+                PhotonView pv = worm.GetComponent<PhotonView>();
+                if (pv != null)
+                {
+                    PhotonNetwork.Destroy(worm); // ✅ direct object pass करो, दुबारा Find मत करो
+                }
+            }
         }
 
-        GameObject[] goldTrouts = GameObject.FindGameObjectsWithTag("GoldTrout");
-        foreach (GameObject trout in goldTrouts)
-        {
-            Destroy(trout);
-        }
+        activeWorms.Clear();
+    }
 
+
+    void OnDestroy()
+    {
+        activeWorms.Remove(this.gameObject);
     }
 }

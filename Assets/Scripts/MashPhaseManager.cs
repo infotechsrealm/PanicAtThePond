@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using Photon.Pun;
+using UnityEngine;
 using UnityEngine.UI;
 
-public class MashPhaseManager : MonoBehaviour
+public class MashPhaseManager : MonoBehaviourPunCallbacks
 {
     public static MashPhaseManager instance;
 
@@ -21,28 +22,43 @@ public class MashPhaseManager : MonoBehaviour
         instance = this;
     }
 
+
+    /*public void CallMashPhaseRPC()
+    {
+        photonView.RPC("StartMashPhase", RpcTarget.MasterClient);
+    }*/
+
     public void StartMashPhase()
     {
-        JunkSpawner.instance.canSpawn = WormSpawner.instance.canSpawn = FishermanController.instance.isCanMove = HungerSystem.instance.canDecrease = false;
-
-        if (mashPanel != null) mashPanel.SetActive(true);
-        if (mashSlider != null) mashSlider.value = 0.5f; 
+        Debug.Log("afsjguafibsjdfhkjskdkdj");
+        if (mashPanel != null)
+        {
+            mashPanel.SetActive(true);
+        }
+        if (mashSlider != null)
+        {
+            mashSlider.value = 0f;
+        }
 
         active = true;
         mashText.text = "MASH SPACE BAR!";
+
+        if(PhotonNetwork.IsMasterClient)
+        {
+            WormSpawner.instance.canSpawn = false;
+            JunkSpawner.instance.canSpawn = false;
+            FishController.instance.canMove = false;
+        }
+
+
+       // CallMashPhaseRPC();
     }
 
     void Update()
     {
         if (!active) return;
 
-        if (Input.GetKey(KeyCode.Space))
-        {
-            mashSlider.value -= mashSpeed * Time.deltaTime * 60;
-        }
-
-        // Fisherman  input 
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             mashSlider.value += mashSpeed * Time.deltaTime * 60;
         }

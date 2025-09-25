@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Photon.Pun;
 
-public class MiniGameManager : MonoBehaviour
+public class MiniGameManager : MonoBehaviourPunCallbacks
 {
     public static MiniGameManager instance;
 
@@ -14,7 +15,7 @@ public class MiniGameManager : MonoBehaviour
     private int progress;
     private bool active = false;
 
-    private float timeLimit = 5f;
+    private float timeLimit = 30f;
     private float timeRemaining;
 
     internal GameObject catchedFish;
@@ -101,27 +102,45 @@ public class MiniGameManager : MonoBehaviour
 
     void Success()
     {
-        FishermanController.instance.isCanMove =  HungerSystem.instance.canDecrease = FishController.instance.canMove = true;
+        HungerSystem.instance.canDecrease = FishController.instance.canMove = true;
         HungerSystem.instance.AddHunger(75f);
 
         active = false;
         miniGamePanel.transform.localScale = Vector3.zero;
-        Destroy(catchedFish);
-        Hook.instance.LoadReturnToRod();
+        int viewID = catchedFish.GetComponent<PhotonView>().ViewID;
+        photonView.RPC("DestroyWormRPC", RpcTarget.MasterClient, viewID);
+
+        Hook.instance.CallRpcToReturnRod();
         Debug.Log("Mini-game Success! Fish escaped with worm!");
         if (timerText != null) timerText.text = "";
     }
         
     void Fail()
     {
+        Debug.Log("Mini-game Failed! Fisherman caught the fish!");
 
 
         active = false;
         miniGamePanel.transform.localScale = Vector3.zero;
-        Destroy(catchedFish);
-        Hook.instance.LoadReturnToRod();
-        MashPhaseManager.instance.StartMashPhase();
-        Debug.Log("Mini-game Failed! Fisherman caught the fish!");
+        int viewID = catchedFish.GetComponent<PhotonView>().ViewID;
+        photonView.RPC("DestroyWormRPC", RpcTarget.MasterClient, viewID);
+
+        Hook.instance.CallRpcToReturnRod();
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            MashPhaseManager.instance.StartMashPhase();
+        }
+
         if (timerText != null) timerText.text = "";
+    }
+
+    [PunRPC]
+    void DestroyWormRPC(int viewID)
+    {
+        PhotonView target = PhotonView.Find(viewID);
+        if (target != null)
+        {
+            PhotonNetwork.Destroy(target.gameObject);
+        }
     }
 }

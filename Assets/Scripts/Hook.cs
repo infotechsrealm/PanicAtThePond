@@ -28,7 +28,6 @@ public class Hook : MonoBehaviourPunCallbacks
             instance = this;
         }
 
-        rodTip = FishermanController.instance.currentRod.position;
          
     }
 
@@ -145,6 +144,12 @@ public class Hook : MonoBehaviourPunCallbacks
     }
 
 
+    public void CallRpcToReturnRod()
+    {
+        photonView.RPC("LoadReturnToRod", RpcTarget.MasterClient);
+    }
+
+    [PunRPC]
     public void LoadReturnToRod()
     {
         StartCoroutine(ReturnToRod());

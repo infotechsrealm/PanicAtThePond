@@ -30,6 +30,8 @@ public class FishController : MonoBehaviourPunCallbacks
     // Event for fish death
     public static event System.Action<FishController> OnFishDied;
 
+    public int myPlayerID;
+
     private void Awake()
     {
         if (instance == null)
@@ -44,6 +46,8 @@ public class FishController : MonoBehaviourPunCallbacks
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        int myId = PhotonNetwork.LocalPlayer.ActorNumber;
+
     }
 
 
@@ -135,102 +139,149 @@ public class FishController : MonoBehaviourPunCallbacks
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-
-        if (other.CompareTag("HookWorm"))
-        {
-            other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
-
-            if (carriedJunk != null)
-            {
-                DropJunkToHook(other.gameObject);
-                return;
-            }
-            MiniGameManager.instance.StartMiniGame();
-            MiniGameManager.instance.catchedFish = other.gameObject;
-        }
-
-        if (other.CompareTag("GoldTrout"))
+        if (photonView.IsMine)
         {
 
-            if (PhotonNetwork.IsMasterClient)
+            if (other.CompareTag("HookWorm"))
             {
-                PhotonNetwork.Destroy(other.gameObject);
-                GameManager.instance.SpawnFisherman();
-                PhotonNetwork.Destroy(gameObject);
-            }
-            else
-            {
-                // Tell the master client to destroy the object via an RPC
-                photonView.RPC("DestroyWormRPC", RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
-                GameManager.instance.SpawnFisherman();
-                PhotonNetwork.Destroy(gameObject);
-            }
-        }
+                other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
 
-        if (other.CompareTag("Worm"))
-        {
-            if (PhotonNetwork.IsMasterClient)
-            {
-                PhotonNetwork.Destroy(other.gameObject);
-                HungerSystem.instance.AddHunger(25f);
+                if (carriedJunk != null)
+                {
+                    if (other.gameObject.GetComponent<PhotonView>() != null)
+                    {
+                        PhotonNetwork.Destroy(other.gameObject);
+                    }
+                    DropJunkToHook();
+                    return;
+                }
+                MiniGameManager.instance.StartMiniGame();
+                MiniGameManager.instance.catchedFish = other.gameObject;
             }
-            else
-            {
-                // Tell the master client to destroy the object via an RPC
-                photonView.RPC("DestroyWormRPC", RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
-                HungerSystem.instance.AddHunger(25f);
-            }
-        }
 
-        if (other.CompareTag("Junk") && carriedJunk == null)
-        {
-            carriedJunk = other.gameObject;
-            carriedJunk.transform.SetParent(junkHolder);
-            carriedJunk.transform.localPosition = Vector3.zero;
+            if (other.CompareTag("GoldTrout"))
+            {
+
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    WormSpawner.instance.DestroyAllWorms();
+                    PhotonNetwork.Destroy(other.gameObject);
+                    GameManager.instance.LoadSpawnFisherman();
+                    PhotonNetwork.Destroy(gameObject);
+
+                }
+                else
+                {
+                    photonView.RPC("LoadDestroyAllWormsRPC", RpcTarget.MasterClient);
+                    photonView.RPC("DestroyWormRPC", RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
+                    GameManager.instance.LoadGetIdAndChangeHost();
+                    PhotonNetwork.Destroy(gameObject);
+                }
+
+            }
+
+            if (other.CompareTag("Worm"))
+            {
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    PhotonNetwork.Destroy(other.gameObject);
+                    HungerSystem.instance.AddHunger(25f);
+                }
+                else
+                {
+                    photonView.RPC("DestroyWormRPC", RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
+                    HungerSystem.instance.AddHunger(25f);
+                }
+
+            }
+
+            if (other.CompareTag("Junk") && carriedJunk == null)
+            {
+                carriedJunk = other.gameObject;
+                carriedJunk.transform.SetParent(junkHolder);
+                carriedJunk.transform.localPosition = Vector3.zero;
+                carriedJunk.GetComponent<PolygonCollider2D>().enabled = false;
+                int viewId = other.GetComponent<PhotonView>().ViewID;
+                photonView.RPC("SetJunkInFish", RpcTarget.OthersBuffered, viewId);
+
+
+            }
         }
     }
 
-   
+
 
     [PunRPC]
-void DestroyWormRPC(int viewID)
-{
-    PhotonView target = PhotonView.Find(viewID);
-    if (target != null)
+    public void LoadDestroyAllWormsRPC()
     {
-        PhotonNetwork.Destroy(target.gameObject);
+        WormSpawner.instance.DestroyAllWorms();
     }
-}
 
-
-    void DropJunkToHook(GameObject Fish)
+    [PunRPC]
+    void RequestDestroy(int viewId)
     {
-        Transform wormParent = Hook.instance.wormParent;
+        GameObject obj = PhotonView.Find(viewId).gameObject;
+        PhotonNetwork.Destroy(obj);
+    }
 
-        if (wormParent != null)
+    [PunRPC]
+    void SetJunkInFish(int viewId)
+    {
+        Debug.Log("asmfhsffiadfakdhgasoasd"); 
+        carriedJunk = PhotonView.Find(viewId).gameObject;
+        carriedJunk.GetComponent<PolygonCollider2D>().enabled = false;
+        carriedJunk.transform.SetParent(junkHolder);
+        carriedJunk.transform.localPosition = Vector3.zero;
+    }
+
+    [PunRPC]
+    void DestroyWormRPC(int viewID)
+    {
+        PhotonView target = PhotonView.Find(viewID);
+        if (target != null)
         {
-            HungerSystem.instance.canDecrease = canMove = true;
+            PhotonNetwork.Destroy(target.gameObject);
+        }
+    }
+
+
+    void DropJunkToHook()
+    {
+        Hook hook = Hook.instance;
+
+        if (hook != null)
+        {
             HungerSystem.instance.AddHunger(75f);
-            carriedJunk.transform.SetParent(wormParent);
-            carriedJunk.GetComponent<PolygonCollider2D>().enabled = false;
+
+            carriedJunk.transform.SetParent(hook.wormParent);
             carriedJunk.transform.localPosition = Vector3.zero;
+
+            int viewId = hook.GetComponent<PhotonView>().ViewID;
+            photonView.RPC(nameof(SetJunkInHook), RpcTarget.OthersBuffered, viewId);
+
             Debug.Log("Fish dropped junk on hook! Fisherman pranked!");
-            Hook.instance.LoadReturnToRod();
-            Destroy(Fish);
         }
         else
         {
             Debug.LogWarning("wormParent not found inside Hook!");
         }
 
-        Hook.instance.LoadReturnToRod();
+
+
+         hook.CallRpcToReturnRod();
 
         carriedJunk = null;
     }
-  
 
+    [PunRPC]
+    void SetJunkInHook(int viewId)
+    {
+        Debug.Log("asmfhsffiadfakdhgasoasd");
+        Hook hook = PhotonView.Find(viewId).GetComponent<Hook>();
+        carriedJunk.GetComponent<PolygonCollider2D>().enabled = false;
+        carriedJunk.transform.SetParent(hook.wormParent);
+        carriedJunk.transform.localPosition = Vector3.zero;
+        carriedJunk = null;
+
+    }
 }

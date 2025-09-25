@@ -329,6 +329,7 @@ MonoBehaviour:
   canMove: 1
   floatSpeed: 2
   junkHolder: {fileID: 4626417357385204189}
+  myPlayerID: 0
   Autospeed: 3
 --- !u!114 &4218648480345521623
 MonoBehaviour:
