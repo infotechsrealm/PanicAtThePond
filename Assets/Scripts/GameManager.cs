@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Photon.Pun;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,9 +9,8 @@ public class GameManager : MonoBehaviour
 {
     [Header("Player Setup")]
     public int totalPlayers = 7;
-    public FishermanController fishermanPrefab;
+    public GameObject fishermanPrefab;
     public GameObject fishPrefab;
-    public Transform camera;
 
     [Header("Worm Settings")]
     public int baseWormMultiplier = 3;
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     public Slider castingMeter; // Assign this in Inspector
 
-    public static GameManager Instance;
+    public static GameManager instance;
 
     public GameObject gameOverPanel;
     public Text gameOverText;
@@ -41,44 +42,20 @@ public class GameManager : MonoBehaviour
     public Image bucketImage;   // assign bucket Image (UI Image)
     public Text wormCountText;
 
-    [Header("UI")]
-    public GameObject mashPanel;
-    public Slider mashSlider;   // 0 = escape (fish), 1 = capture (fisherman)
-    public Text mashText;
+    public GameObject hungerBar;
+    public GameObject fisherManObjects;
 
-    public List<GameObject> DisabledObjects = new List<GameObject>();
-
-    public List<FishController> AllFishPlayers = new List<FishController>();
-
-    public FishController myFish;
-    private void Awake()    
+    private void Awake()
     {
-        Instance = this;
+        instance = this;
 
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
     }
     void Start()
     {
-        // SetupGame();
-
-    }
-    public void EnableAll()
-    {
-
-        for (int i = 0; i < DisabledObjects.Count; i++)
-        {
-            if (DisabledObjects[i] != null && !DisabledObjects[i].activeSelf)
-            {
-                DisabledObjects[i].SetActive(true);
-                Debug.Log("Is not enable");
-            }
-            else
-            {
-                Debug.Log("Is  enable");
-            }
-        }
-    }
+        SpawnPlayer();
+    } 
     public void UpdateUI(int currunt_Warms)
     {
         // Text
@@ -101,62 +78,72 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public FishermanController fisherman;
 
-    public void LoadMakeFisherMan()
+    void SpawnPlayer()
     {
-        Debug.Log("LoadMakeFisherMan");
-        Invoke(nameof(MakeFisherMan),1f);
+        // Spawn Fish
+        float x = Random.Range(minBounds.x, maxBounds.x);
+        float y = Random.Range(minBounds.y, maxBounds.y);
+        Vector3 spawnPos = new Vector3(x, y, 0);
+
+        GameObject fish = PhotonNetwork.Instantiate("FishPrefab", spawnPos, Quaternion.identity);
+        fishes.Add(fish);
+
+        Debug.Log("Fish Spawned: " + fishes.Count);
     }
 
-    internal void MakeFisherMan()
+    public void SpawnFisherman()
     {
-        if (fisherman != null)
-        {
-            camera.transform.position = new Vector3(0f, 10f, -10f);
-            fisherman.isfisherMan = true;   
-            HungerSystem.instance.gameObject.SetActive(false);
-            castingMeter.gameObject.SetActive(true);
-            bucketImage.gameObject.SetActive(true);
-            // Worm calculation
-            int fishCount = totalPlayers - 1;
-            fishermanWorms = fishCount * baseWormMultiplier;
-            maxWorms = fishermanWorms;
-            Debug.Log("Fisherman Worms: " + fishermanWorms);
+        // Spawn Fisherman
+        GameObject fisherman  =  PhotonNetwork.Instantiate("FisherMan", new Vector3(0f, 1.75f, 0f), Quaternion.identity).gameObject;
 
-            // Assign castingMeter to FishermanController
-            FishermanController fc = fisherman;
-            if (fc != null)
+        // Worm calculation
+        int fishCount = totalPlayers - 1;
+        fishermanWorms = fishCount * baseWormMultiplier;
+        maxWorms = fishermanWorms;
+        Debug.Log("Fisherman Worms: " + fishermanWorms);
+
+        // Assign castingMeter to FishermanController
+        FishermanController fc = fisherman.GetComponent<FishermanController>();
+        if (fc != null)
+        {
+            fc.castingMeter = castingMeter;
+            fc.worms = fishermanWorms;
+            UpdateUI(fc.worms);
+
+            if (!PhotonNetwork.IsMasterClient)
             {
-                fc.castingMeter = castingMeter;
-                fc.worms = fishermanWorms;
-                fc.worms = 500;
-                UpdateUI(fc.worms);
+                fc.GetIdAndChangeHost();
             }
-            else
-            {
-                Debug.LogWarning("FishermanController not found on FishermanPrefab!");
-            }
+        }
+        else
+        {
+            Debug.LogWarning("FishermanController not found on FishermanPrefab!");
         }
     }
 
-    public void ShowGameOverMessage(string message)
+    IEnumerator DestroySelfAfterDelay(float delay,FishermanController fc)
     {
-        gameOverText.text = message;
+        yield return new WaitForSeconds(delay);
+        fc.GetIdAndChangeHost();
+    }
+
+    public void ShowGameOver(string message)
+    {
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+        }
+
+        if (gameOverText != null)
+        {
+            gameOverText.text = message;
+        }
     }
 
     // Restart Button function
     public void RestartGame()
     {
-        SceneManager.LoadScene("Dash");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
-    public void AssignFisherman(FishermanController fc)
-    {
-        Debug.Log("Fisherman assigned on client!");
-        fisherman = fc;
-    }
-
-    //For Prepare ChangeHost
-
 }

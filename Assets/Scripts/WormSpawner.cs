@@ -1,16 +1,18 @@
-﻿using UnityEngine;
-using FishNet.Object;
+using Photon.Pun;
+using System.Collections;
+using UnityEngine;
 
-public class WormSpawner : NetworkBehaviour
+public class WormSpawner : MonoBehaviour
 {
     public GameObject wormPrefab, goldWormPrefab;
     public float spawnInterval = 3f;
     public float xRange = 8f;
     public float yRange = 4f;
 
-    public bool canSpawn = true;
+    internal bool canSpawn = true;
 
     public static WormSpawner instance;
+
 
     private void Awake()
     {
@@ -22,44 +24,45 @@ public class WormSpawner : NetworkBehaviour
 
     void Start()
     {
-        Debug.Log($"[WormSpawner] IsServer={IsServer}, IsClient={IsClient}, IsHost={IsHost}");
-
-        if (IsServer)
+        if (PhotonNetwork.IsMasterClient)
         {
-            Debug.Log("I M Server");
-            Invoke("SpawnWorm",0f);
-            Invoke("SpawnGoldWorm", Random.Range(5f, 10f));
+            LoadSpawnWorm();
+            SpawnGoldWorm();
+           //Invoke("SpawnGoldWorm",1f);
         }
     }
 
-    void SpawnWorm()
+
+    public void LoadSpawnWorm()
+    {
+        StartCoroutine(SpawnWorm());
+    }
+
+    IEnumerator SpawnWorm()
     {
         if (canSpawn)
         {
             float x = Random.Range(-xRange, xRange);
-            float y = Random.Range(-yRange, yRange);
+            float y = Random.Range(-yRange, 1);
             Vector2 pos = new Vector2(x, y);
 
-            GameObject worm = Instantiate(wormPrefab, pos, Quaternion.identity);
-            if (IsServer)
-                Spawn(worm);
-        }
+            PhotonNetwork.Instantiate("Worm", pos, Quaternion.identity);
 
-        Invoke("SpawnWorm", Random.Range(2, 5));
+        }
+        yield return new WaitForSeconds(Random.Range(3f, 7f));
+        StartCoroutine(SpawnWorm());
 
     }
 
-
     void SpawnGoldWorm()
     {
-        if (!canSpawn) return;
 
+        Debug.Log("SpawnGoldWorm called");
         float x = Random.Range(-xRange, xRange);
-        float y = Random.Range(-yRange, yRange);
+        float y = Random.Range(-yRange, 1);
         Vector2 pos = new Vector2(x, y);
 
-        GameObject goldWorm = Instantiate(goldWormPrefab, pos, Quaternion.identity);
-        Spawn(goldWorm);
+        PhotonNetwork.Instantiate("GoldWorm", pos, Quaternion.identity);
     }
 
     public void StopSpawning()
@@ -86,7 +89,6 @@ public class WormSpawner : NetworkBehaviour
         {
             Destroy(trout);
         }
+
     }
-
-
 }

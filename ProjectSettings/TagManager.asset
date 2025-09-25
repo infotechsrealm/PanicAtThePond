@@ -10,8 +10,8 @@ TagManager:
   - GoldTrout
   - Junk
   - Worm2
-  - DropedWorm
-  - CatchdFish
+  - Bullet
+  - HookWorm
   layers:
   - Default
   - TransparentFX
@@ -19,7 +19,7 @@ TagManager:
   - 
   - Water
   - UI
-  - fish
+  - Fish
   - 
   - 
   - 

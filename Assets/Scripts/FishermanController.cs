@@ -1,9 +1,11 @@
-﻿using FishNet.Object;
+﻿using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FishermanController : NetworkBehaviour
+public class FishermanController : MonoBehaviourPunCallbacks
 {
     [Header("Movement")]
     public float moveSpeed = 5f;
@@ -11,7 +13,8 @@ public class FishermanController : NetworkBehaviour
     [Header("Rod Selection")]
     public Transform leftRod;
     public Transform rightRod;
-    public Transform currentRod;
+
+    internal Transform currentRod;
 
     [Header("Casting")]
     public KeyCode castKey1 = KeyCode.X;
@@ -21,18 +24,15 @@ public class FishermanController : NetworkBehaviour
     public float maxCastDistance = 10f; // max distance hook can go
 
     [Header("Worms")]
-    public int worms ;
-
-    [Header("Hook")]
-    public GameObject hookPrefab;
+    internal int worms ;
 
     internal bool isCasting = false;
     internal bool isCanMove = true;
-    internal bool isfisherMan = false;
     private bool meterIncreasing = true;
+    public bool isFisherMan = false;
 
-    [HideInInspector] public bool leftHook = false;
-    [HideInInspector] public bool rightHook = false;
+    [HideInInspector] public GameObject leftHook = null;
+    [HideInInspector] public GameObject rightHook = null;
 
     [Header("Horizontal Bounds")]
     public float minX = -8f;
@@ -40,9 +40,6 @@ public class FishermanController : NetworkBehaviour
 
     public static FishermanController instance;
 
-    public int catchadFishes = 0;
-
-    public FishController catchedFish;
    
     private void Awake()
     {
@@ -53,51 +50,54 @@ public class FishermanController : NetworkBehaviour
     {
         currentRod = leftRod;
         if (castingMeter != null)
+        {
             castingMeter.value = 0;
-       
+        }
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            GameManager.instance.hungerBar.SetActive(false);
+            GameManager.instance.fisherManObjects.SetActive(true);
+        }
+
     }
 
     void Update()
     {
-        if (isfisherMan)
+        if (PhotonNetwork.IsMasterClient)
         {
-            HandleCasting();
-            HandleMovement();
+            Debug.Log("✅ I am the MasterClient now!");
+
+            if (isCanMove)
+            {
+                HandleMovement();
+            }
+
             HandleRodSelection();
-        }
-    }
-    public override void OnStartClient()
-    {
-        base.OnStartClient();
-        if (IsOwner || IsClient)
-        {
-            GameManager.Instance.AssignFisherman(this);
+            HandleCasting();
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                // Here you can check if a hook has a fish attached
+                // For now, just print a log
+                Debug.Log("Tug-of-war action! Space pressed while fish is hooked.");
+            }
         }
     }
 
     void HandleMovement()
     {
-        if (leftHook == false && rightHook == false && !isCasting && isCanMove)
+        if (leftHook == null && rightHook == null && !isCasting)
         {
             float moveInput = Input.GetAxisRaw("Horizontal");
-            if (Mathf.Abs(moveInput) > 0.01f)
-            {
-                Debug.Log($"Sending input to server: {moveInput}");
-                SendMoveInputServerRpc(moveInput, Time.fixedDeltaTime);
-            }
+            Vector3 move = new Vector3(moveInput * moveSpeed * Time.deltaTime, 0, 0);
+            transform.position += move;
+
+            // Clamp only X position
+            Vector3 clampedPos = transform.position;
+            clampedPos.x = Mathf.Clamp(clampedPos.x, minX, maxX);
+            transform.position = clampedPos;
         }
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    private void SendMoveInputServerRpc(float moveInput, float deltaTime)
-    {
-        Debug.Log($"[SERVER] Received input: {moveInput}");
-        Vector3 move = new Vector3(moveInput * moveSpeed * deltaTime, 0, 0);
-        transform.position += move;
-
-        Vector3 clampedPos = transform.position;
-        clampedPos.x = Mathf.Clamp(clampedPos.x, minX, maxX);
-        transform.position = clampedPos;
     }
 
     void HandleRodSelection()
@@ -113,20 +113,18 @@ public class FishermanController : NetworkBehaviour
         // X + V held down → start casting meter
         if (!isCasting && Input.GetKey(castKey1) && Input.GetKey(castKey2))
         {
-            if (( leftHook != false) || (rightHook != false))
+            if ((leftHook != null) || (rightHook != null))
             {
                 Debug.Log("Rod already has a hook!");
                 return;
             }
 
-
             isCasting = true;
             StartCoroutine(CastMeterRoutine());
-
         }
 
         // Release → cast hook with meter value
-        if (500 > 0)
+        if (worms > 0)
         {
             if (isCasting && (!Input.GetKey(castKey1) || !Input.GetKey(castKey2)))
             {
@@ -134,7 +132,6 @@ public class FishermanController : NetworkBehaviour
             }
         }
     }
-   
 
     IEnumerator CastMeterRoutine()
     {
@@ -156,118 +153,134 @@ public class FishermanController : NetworkBehaviour
 
     void ReleaseCast()
     {
-        isCanMove = isCasting = false;
-        StartCoroutine(CastMeterRoutine());
+        isCasting = false;
+        StopCoroutine(CastMeterRoutine());
 
-        if (hookPrefab != null && currentRod != null)
+        if (currentRod != null)
         {
-            // Client -> Server ko request bheje
-            float castDistance = castingMeter.value * maxCastDistance;
-            ReleaseCastServerRpc(currentRod == leftRod, castDistance);
+            Hook hook = PhotonNetwork.Instantiate("hookPrefab", currentRod.position, Quaternion.identity).GetComponent<Hook>();
+
+            if (hook != null)
+            {
+                int hookID = hook.GetComponent<PhotonView>().ViewID;
+
+                // Send RPC to all clients to set rodTip
+                photonView.RPC("SetupHookRodRPC", RpcTarget.AllBuffered, hookID,currentRod.position);
+
+                hook.rodTip = currentRod.position;
+
+                // Automatic worm attach
+                hook.AttachWorm();
+
+                // Launch hook based on meter value
+                float castDistance = castingMeter.value * maxCastDistance;
+                hook.LaunchDownWithDistance(castDistance);
+            }
+            else
+            {
+                Debug.Log("Hook is null");
+            }
 
             // Track hook per rod
             if (currentRod == leftRod)
             {
-                leftHook = true;
+                leftHook = hook.gameObject;
             }
             else
             {
-                rightHook = true;
+                rightHook = hook.gameObject;
             }
 
             if (worms > 0)
             {
                 worms--;
-                GameManager.Instance.UpdateUI(worms);
-                Debug.Log($"[SERVER] Worm used! Remaining: {worms}");
+                GameManager.instance.UpdateUI(worms);
+                Debug.Log("Worm used! Remaining: " + worms);
             }
         }
+
+        castingMeter.value = 0;
     }
-
-    [ServerRpc(RequireOwnership = false)]
-    private void ReleaseCastServerRpc(bool isLeftRod, float castDistance)
+    [PunRPC]
+    void SetupHookRodRPC(int hookID,Vector3 curruntRod)
     {
-        Transform rod = isLeftRod ? leftRod : currentRod;
+        PhotonView hookView = PhotonView.Find(hookID);
 
-        GameObject hook = Instantiate(hookPrefab, rod.position, Quaternion.identity);
-        hook.name = "Hook";
-
-        Hook hookScript = hook.GetComponent<Hook>();
-        if (hookScript != null)
+        if (hookView != null)
         {
-            hookScript.rodTip = rod;
-            hookScript.LaunchDownWithDistance(castDistance);
-        }
+            Hook hook = hookView.GetComponent<Hook>();
+            if (hook != null)
+            {
+                hook.rodTip = curruntRod;
+                Debug.Log("Hook GEted");
+            }
 
-        // Server spawn karega
-        Spawn(hook);
-
-        // Worm count decrease
-       
+        }   
     }
 
     public void ClearHookReference(GameObject hook)
     {
-        if (hook == leftHook) leftHook = false;
-        if (hook == rightHook) rightHook = false;
-    }
-
-    [ObserversRpc]
-    public void SetCurruntRodinHook(Transform tip)
-    {
-        Debug.Log("SetCurruntRodinHook");
-        Hook.instance.rodTip = tip;
+        if (hook == leftHook) leftHook = null;
+        if (hook == rightHook) rightHook = null;
     }
 
     // Check worms and print lose message
     public void CheckWorms()
     {
-        if(catchadFishes >= NetworkUI.instence.playersRequired-1)
+        return;
+        if (worms <= 0)
         {
-            if (isfisherMan)
+            if (GameManager.instance != null && GameManager.instance.gameOverText != null)
             {
-                GameManager gm = GameManager.Instance;
-                for (int i = 0; i < gm.AllFishPlayers.Count; i++)
-                {
-                    gm.AllFishPlayers[i].ShowGameOver(false);
-                }
-                gm.gameOverPanel.SetActive(true);
-                gm.ShowGameOverMessage("Fisherman Win!");
-                WormSpawner.instance.canSpawn = isCanMove = HungerSystem.instance.canDecrease = FishController.instance.canMove = false;
-
-                // Optional: stop all fishing actions
-                leftHook = false;
-                rightHook = false;
-                isCasting = false;
+                GameManager.instance.ShowGameOver("Fisherman Lose!\nFishes Win!");
             }
+           WormSpawner.instance.canSpawn =  FishermanController.instance.isCanMove = HungerSystem.instance.canDecrease = FishController.instance.canMove = false;
+
+            // Optional: stop all fishing actions
+            leftHook = null;
+            rightHook = null;
+            isCasting = false;
+        }
+    }
+
+    public void GetIdAndChangeHost()
+    {
+        int myId = PhotonNetwork.LocalPlayer.ActorNumber;
+        Debug.Log("✅ My Client ID = " + myId);
+
+        photonView.RPC(nameof(ChangeHostById), RpcTarget.MasterClient, myId);
+    }
+
+
+    [PunRPC]
+    public void ChangeHostById(int clientId)
+    {
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            Debug.LogWarning("❌ Sirf current MasterClient hi host change kar sakta hai!");
             return;
         }
 
+        Player targetPlayer = null;
 
-
-        if (worms <= 0)
+        foreach (Player p in PhotonNetwork.PlayerList)
         {
-            if (isfisherMan)
+            if (p.ActorNumber == clientId)
             {
-                Debug.Log("zzzCheckWormsCheckWorms");
-                GameManager gm = GameManager.Instance;
-
-                for (int i = 0; i < gm.AllFishPlayers.Count; i++)
-                {
-                    gm.AllFishPlayers[i].ShowGameOver(true);
-                }
-                gm.gameOverPanel.SetActive(true);
-
-                gm.ShowGameOverMessage("Fisherman Lose!");
-                WormSpawner.instance.canSpawn = isCanMove = HungerSystem.instance.canDecrease = FishController.instance.canMove = false;
-                // Optional: stop all fishing actions
-                leftHook = false;
-                rightHook = false;
-                isCasting = false;
+                targetPlayer = p;
+                break;
             }
         }
 
+        if (targetPlayer != null)
+        {
+            PhotonNetwork.SetMasterClient(targetPlayer);
+            Debug.Log("✅ Host changed to Player with ID: " + clientId);
+        }
+        else
+        {
+            Debug.LogWarning("❌ Client ID not found: " + clientId);
+        }
     }
-
 
 }

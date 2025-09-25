@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class MiniGameManager : MonoBehaviour
-
 {
     public static MiniGameManager instance;
 
@@ -18,9 +17,8 @@ public class MiniGameManager : MonoBehaviour
     private float timeLimit = 5f;
     private float timeRemaining;
 
+    internal GameObject catchedFish;
 
-
-    
     void Awake()
     {
         instance = this;
@@ -28,7 +26,7 @@ public class MiniGameManager : MonoBehaviour
 
     public void StartMiniGame()
     {
-        FishermanController.instance.isCasting =HungerSystem.instance.canDecrease =  FishController.instance.canMove = false;
+        FishermanController.instance.isCasting = HungerSystem.instance.canDecrease =  FishController.instance.canMove = false;
 
         active = true;
         progress = 0;
@@ -97,47 +95,33 @@ public class MiniGameManager : MonoBehaviour
             yield return null;
         }
 
+        if (active)
             Fail();
     }
 
-
     void Success()
     {
-        FishermanController.instance.isCanMove =  HungerSystem.instance.canDecrease = GameManager.Instance.myFish.canMove = true;
+        FishermanController.instance.isCanMove =  HungerSystem.instance.canDecrease = FishController.instance.canMove = true;
         HungerSystem.instance.AddHunger(75f);
-        FishController.instance.DestrouWorm();
-
-        for (int i = 0; i < GameManager.Instance.AllFishPlayers.Count; i++)
-        {
-            if (GameManager.Instance.AllFishPlayers[i] != null)
-            {
-                GameManager.Instance.AllFishPlayers[i].ChangeTag("Fish");
-            }
-            else
-            {
-                Debug.Log("FishController is null");
-            }
-        }
 
         active = false;
         miniGamePanel.transform.localScale = Vector3.zero;
+        Destroy(catchedFish);
         Hook.instance.LoadReturnToRod();
         Debug.Log("Mini-game Success! Fish escaped with worm!");
         if (timerText != null) timerText.text = "";
-
-
     }
         
     void Fail()
     {
+
+
         active = false;
         miniGamePanel.transform.localScale = Vector3.zero;
-
+        Destroy(catchedFish);
+        Hook.instance.LoadReturnToRod();
         MashPhaseManager.instance.StartMashPhase();
-
         Debug.Log("Mini-game Failed! Fisherman caught the fish!");
         if (timerText != null) timerText.text = "";
-
     }
-    
 }
