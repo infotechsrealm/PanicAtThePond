@@ -55,6 +55,13 @@ MonoBehaviour:
   - DestroyAllWorms
   - LoadDestroyAllWormsRPC
   - PreloderOnOff
+  - DisableMashPhase
+  - EndMashPhase
+  - PutFishInHook
+  - FindCatchadFish
+  - CallMashPhaseRPC
+  - DestroyCatchFish
+  - SetchatchFishIdOnServer
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

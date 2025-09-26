@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class RoomManager : MonoBehaviourPunCallbacks
 {
     [Header("Room Settings")]
-    internal int maxPlayers = 2; // Max players per room
+    internal int maxPlayers = 3; // Max players per room
 
     [Header("References")]
     internal PhotonLauncher PhotonLauncher;

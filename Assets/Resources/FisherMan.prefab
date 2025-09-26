@@ -112,7 +112,6 @@ MonoBehaviour:
   castingMeter: {fileID: 0}
   meterSpeed: 2
   maxCastDistance: 10
-  isFisherMan: 0
   leftHook: {fileID: 0}
   rightHook: {fileID: 0}
   minX: -8

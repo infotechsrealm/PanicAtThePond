@@ -23,12 +23,14 @@ public class FishermanController : MonoBehaviourPunCallbacks
     public float maxCastDistance = 10f; // max distance hook can go
 
     [Header("Worms")]
-    internal int worms ;
+    internal int worms;
+    internal int catchadFish = 0;
 
     internal bool isCasting = false;
     internal bool isCanMove = true;
+    internal bool isFisherMan = false;
+    internal bool isCanCast = true;
     private bool meterIncreasing = true;
-    public bool isFisherMan = false;
 
     [HideInInspector] public GameObject leftHook = null;
     [HideInInspector] public GameObject rightHook = null;
@@ -38,13 +40,11 @@ public class FishermanController : MonoBehaviourPunCallbacks
     public float maxX = 8f;
 
     public static FishermanController instance;
-
    
     private void Awake()
     {
         if (instance == null)
             instance = this;
-
         
     }
     void Start()
@@ -74,16 +74,17 @@ public class FishermanController : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-
-            if (isCanMove)
+            if (isCanCast)
             {
-                HandleMovement();
+                if (isCanMove)
+                {
+                    HandleMovement();
+                }
+                HandleRodSelection();
+                HandleCasting();
             }
-            HandleRodSelection();
-            HandleCasting();
         }
     }
-
     void HandleMovement()
     {
         if (leftHook == null && rightHook == null && !isCasting)
@@ -164,7 +165,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
                 int hookID = hook.GetComponent<PhotonView>().ViewID;
 
                 // Send RPC to all clients to set rodTip
-                photonView.RPC("SetupHookRodRPC", RpcTarget.AllBuffered, hookID,currentRod.position);
+                photonView.RPC(nameof(SetupHookRodRPC), RpcTarget.AllBuffered, hookID,currentRod.position);
 
                 hook.rodTip = currentRod.position;
 
@@ -217,9 +218,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             else
             {
                 Debug.Log("Hook null");
-
             }
-
         }   
     }
 
@@ -232,19 +231,39 @@ public class FishermanController : MonoBehaviourPunCallbacks
     // Check worms and print lose message
     public void CheckWorms()
     {
-        return;
+
+        if(catchadFish >= GameManager.instance.totalPlayers-1)
+        {
+            if (GameManager.instance != null && GameManager.instance.gameOverText != null)
+            {
+                GameManager.instance.ShowGameOver("Fisherman Win!");
+            }
+            WormSpawner.instance.canSpawn = isCanMove = false;
+
+            // Optional: stop all fishing actions
+            leftHook = null;
+            rightHook = null;
+            isCasting = false;
+            Debug.Log("CheckWorms Clled");
+
+            return;
+
+        }
+
         if (worms <= 0)
         {
             if (GameManager.instance != null && GameManager.instance.gameOverText != null)
             {
                 GameManager.instance.ShowGameOver("Fisherman Lose!\nFishes Win!");
             }
-           WormSpawner.instance.canSpawn =  FishermanController.instance.isCanMove = HungerSystem.instance.canDecrease = FishController.instance.canMove = false;
+           WormSpawner.instance.canSpawn =  isCanMove = false;
 
             // Optional: stop all fishing actions
             leftHook = null;
             rightHook = null;
             isCasting = false;
+            Debug.Log("CheckWorms Clled");
+
         }
     }
 
@@ -287,5 +306,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             Debug.LogWarning("❌ Client ID not found: " + clientId);
         }
     }
+
+   
 
 }

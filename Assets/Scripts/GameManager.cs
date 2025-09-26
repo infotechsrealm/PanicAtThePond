@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviourPunCallbacks
 {
     [Header("Player Setup")]
-    public int totalPlayers = 7;
+    public int totalPlayers = 3;
     public GameObject fishermanPrefab;
     public GameObject fishPrefab;
 
@@ -46,6 +46,9 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject fisherManObjects;
     public GameObject preloderUI;
 
+    public FishController myFish;
+
+    internal int chatchFishID;
     private void Awake()
     {
         instance = this;

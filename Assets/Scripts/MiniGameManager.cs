@@ -18,7 +18,6 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
     private float timeLimit = 30f;
     private float timeRemaining;
 
-    internal GameObject catchedFish;
 
     void Awake()
     {
@@ -102,16 +101,18 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
 
     void Success()
     {
+        Debug.Log("Mini-game Success! Fish escaped with worm!");
+
         HungerSystem.instance.canDecrease = FishController.instance.canMove = true;
         HungerSystem.instance.AddHunger(75f);
 
         active = false;
         miniGamePanel.transform.localScale = Vector3.zero;
-        int viewID = catchedFish.GetComponent<PhotonView>().ViewID;
-        photonView.RPC("DestroyWormRPC", RpcTarget.MasterClient, viewID);
-
+        if (GameManager.instance.myFish != null)
+        {
+            GameManager.instance.myFish.catchadeFish = false;
+        }
         Hook.instance.CallRpcToReturnRod();
-        Debug.Log("Mini-game Success! Fish escaped with worm!");
         if (timerText != null) timerText.text = "";
     }
         
@@ -119,13 +120,9 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Mini-game Failed! Fisherman caught the fish!");
 
-
         active = false;
         miniGamePanel.transform.localScale = Vector3.zero;
-        int viewID = catchedFish.GetComponent<PhotonView>().ViewID;
-        photonView.RPC("DestroyWormRPC", RpcTarget.MasterClient, viewID);
 
-        Hook.instance.CallRpcToReturnRod();
         if (!PhotonNetwork.IsMasterClient)
         {
             MashPhaseManager.instance.StartMashPhase();

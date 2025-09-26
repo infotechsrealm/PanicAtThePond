@@ -23,36 +23,60 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
     }
 
 
-    /*public void CallMashPhaseRPC()
+    [PunRPC]
+    public void CallMashPhaseRPC()
     {
-        photonView.RPC("StartMashPhase", RpcTarget.MasterClient);
-    }*/
+        active = true;
 
-    public void StartMashPhase()
-    {
-        Debug.Log("afsjguafibsjdfhkjskdkdj");
         if (mashPanel != null)
         {
             mashPanel.SetActive(true);
         }
+
         if (mashSlider != null)
         {
             mashSlider.value = 0f;
         }
 
-        active = true;
         mashText.text = "MASH SPACE BAR!";
 
-        if(PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient)
         {
             WormSpawner.instance.canSpawn = false;
             JunkSpawner.instance.canSpawn = false;
-            FishController.instance.canMove = false;
+            FishermanController.instance.isCanCast = false;
+        }
+    }
+
+    public void StartMashPhase()
+    {
+        active = true;
+
+        if (mashPanel != null)
+        {
+            mashPanel.SetActive(true);
         }
 
+        if (mashSlider != null)
+        {
+            mashSlider.value = 0f;
+        }
 
-       // CallMashPhaseRPC();
+        mashText.text = "MASH SPACE BAR!";
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            WormSpawner.instance.canSpawn = false;
+            JunkSpawner.instance.canSpawn = false;
+            FishermanController.instance.isCanCast = false;
+        }
+        else
+        {
+            photonView.RPC(nameof(CallMashPhaseRPC), RpcTarget.MasterClient);
+           
+        }
     }
+
 
     void Update()
     {
@@ -64,33 +88,68 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
         }
 
         // Check end conditions
-        if (mashSlider.value <= 0f)
+        if (mashSlider.value >= 1f)
         {
-            EndMashPhase(true);  // Fish escaped
-        }
-        else if (mashSlider.value >= 1f)
-        {
-            EndMashPhase(false); // Fisherman caught
+
+            if (PhotonNetwork.IsMasterClient)
+            {
+                FishermanController.instance.catchadFish++;
+                photonView.RPC(nameof(EndMashPhase), RpcTarget.All,true);
+            }
+            else
+            {
+                if (GameManager.instance.myFish)
+                {
+                    photonView.RPC(nameof(EndMashPhase), RpcTarget.All,false);
+                }
+
+            }
         }
     }
 
-    void EndMashPhase(bool fishWon)
+    [PunRPC]
+    public void EndMashPhase(bool fisherManIsWin)
     {
-
-        active = false;
+        WormSpawner.instance.canSpawn = true;
+        JunkSpawner.instance.canSpawn = true;
+        FishermanController.instance.isCanCast = true;
         if (mashPanel != null) mashPanel.SetActive(false);
 
-        JunkSpawner.instance.canSpawn = WormSpawner.instance.canSpawn = FishermanController.instance.isCanMove = HungerSystem.instance.canDecrease = FishController.instance.canMove = true;
-       
-        if (fishWon)
+        if (fisherManIsWin)
         {
-            HungerSystem.instance.AddHunger(75f);
+            photonView.RPC(nameof(FindCatchadFish), RpcTarget.Others);
             Debug.Log("Fish won the mash phase! Escaped hook.");
-
         }
         else
         {
+            HungerSystem.instance.AddHunger(75f);
+            GameManager.instance.myFish.canMove = true;
+            GameManager.instance.myFish.catchadeFish = false;
             Debug.Log("Fisherman won the mash phase! Caught fish.");
+
+            if (PhotonNetwork.IsMasterClient)
+            {
+                Hook.instance.CallRpcToReturnRod();
+            }
+        }
+
+        active = false;
+
+    }
+
+    [PunRPC]
+    public void FindCatchadFish()
+    {
+        FishController fish = GameManager.instance.myFish;
+        if (fish != null)
+        {
+            if (fish.catchadeFish)
+            {
+                fish.PutFishInHookRPC();
+            }
         }
     }
+
+   
+
 }

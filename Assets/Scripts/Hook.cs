@@ -54,13 +54,11 @@ public class Hook : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsMasterClient)
         {
-
             if (Input.GetMouseButtonDown(1) && !isReturning) // 1 = right mouse button
             {
                 LoadReturnToRod();
             }
         }
-
     }
 
     public void AttachWorm()
@@ -146,7 +144,7 @@ public class Hook : MonoBehaviourPunCallbacks
 
     public void CallRpcToReturnRod()
     {
-        photonView.RPC("LoadReturnToRod", RpcTarget.MasterClient);
+        photonView.RPC(nameof(LoadReturnToRod), RpcTarget.MasterClient);
     }
 
     [PunRPC]
@@ -158,7 +156,11 @@ public class Hook : MonoBehaviourPunCallbacks
 
     private IEnumerator ReturnToRod()
     {
-
+        if (isReturning)
+        {
+            Debug.Log("ReturnToRod all rady returning");
+            yield return null;
+        }
         isReturning = true;
         Vector3 target = rodTip;
 
@@ -166,7 +168,7 @@ public class Hook : MonoBehaviourPunCallbacks
         if (wormInstance != null)
         {
             PhotonView wormPV = wormInstance.GetComponent<PhotonView>();
-            photonView.RPC("DropWormRpc", RpcTarget.AllBuffered, wormPV.ViewID);
+            photonView.RPC(nameof(DropWormRpc), RpcTarget.AllBuffered, wormPV.ViewID);
             wormInstance.transform.parent = null; // worm ko hook se alag kar do
             wormInstance = null; // reference clear
             hasWorm = false;
@@ -178,7 +180,7 @@ public class Hook : MonoBehaviourPunCallbacks
             yield return null;
         }
 
-        PhotonNetwork.Destroy(gameObject); // hook destroy
+        PhotonNetwork.Destroy(gameObject); // hook destroyd
     }
 
     [PunRPC]
@@ -200,8 +202,8 @@ public class Hook : MonoBehaviourPunCallbacks
         if (fc != null)
         {
             fc.ClearHookReference(this.gameObject);
-            fc.CheckWorms();
-
+            //fc.CheckWorms();
         }
     }
+
 }
