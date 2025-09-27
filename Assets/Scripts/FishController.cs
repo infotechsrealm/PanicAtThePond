@@ -153,7 +153,6 @@ public class FishController : MonoBehaviourPunCallbacks
         {
             if (other.CompareTag("HookWorm"))
             {
-                catchadeFish = true;
                 other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
                 photonView.RPC("DestroyWormRPC", RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
                 if (carriedJunk != null)
@@ -161,6 +160,7 @@ public class FishController : MonoBehaviourPunCallbacks
                     DropJunkToHook();
                     return;
                 }
+                catchadeFish = true;
                 MiniGameManager.instance.StartMiniGame();
             }
 
@@ -192,7 +192,7 @@ public class FishController : MonoBehaviourPunCallbacks
                 }
                 else
                 {
-                    photonView.RPC("DestroyWormRPC", RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
+                  //  photonView.RPC("DestroyWormRPC", RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
                     HungerSystem.instance.AddHunger(25f);
                 }
             }
@@ -262,6 +262,7 @@ public class FishController : MonoBehaviourPunCallbacks
             Debug.LogWarning("wormParent not found inside Hook!");
         }
 
+     
         hook.CallRpcToReturnRod();
         carriedJunk = null;
     }
@@ -295,15 +296,25 @@ public class FishController : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
+    public void GetCatchadFishId()
+    {
+        if (catchadeFish)
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
+    }
+
+    [PunRPC]
     public void PutFishInHook(int fishId,int hookId)
     {
         GameObject fish = PhotonView.Find(fishId).gameObject;
         Hook hook = PhotonView.Find(hookId).GetComponent<Hook>();
         Transform fishParent = hook.wormParent;
+        fish.transform.GetComponent<PolygonCollider2D>().enabled = false;
         fish.transform.SetParent(fishParent);
         fish.transform.localPosition = Vector3.zero;
         fish.transform.eulerAngles = new Vector3(0f, 0f, -90f);
-
+        fish.GetComponent<PhotonTransformViewClassic>().enabled = false;
         if (catchadeFish)
         {
             hook.CallRpcToReturnRod();          
@@ -320,7 +331,10 @@ public class FishController : MonoBehaviourPunCallbacks
     {
         if(catchadeFish)
         {
-            PhotonNetwork.Destroy(gameObject);
+            if (photonView.IsMine)
+            {
+                PhotonNetwork.Destroy(gameObject);
+            }
         }
     }
 

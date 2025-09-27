@@ -154,6 +154,8 @@ public class Hook : MonoBehaviourPunCallbacks
 
     }
 
+
+
     private IEnumerator ReturnToRod()
     {
         if (isReturning)
@@ -174,13 +176,23 @@ public class Hook : MonoBehaviourPunCallbacks
             hasWorm = false;
         }
 
+       
+
+        FishController[] fishes = GetComponentsInChildren<FishController>();
+        
         while (Vector3.Distance(transform.position, target) > 0.05f)
         {
             transform.position = Vector3.MoveTowards(transform.position, target, dropSpeed * 1.5f * Time.deltaTime);
             yield return null;
         }
 
-        PhotonNetwork.Destroy(gameObject); // hook destroyd
+
+        foreach (FishController f in fishes)
+        {
+            f.transform.localScale = Vector3.zero;
+        }
+
+        DestroyParentWithChildren(this.gameObject);
     }
 
     [PunRPC]
@@ -198,12 +210,43 @@ public class Hook : MonoBehaviourPunCallbacks
     // ✅ Updated to avoid obsolete warning
     void OnDestroy()
     {
-        FishermanController fc = Object.FindFirstObjectByType<FishermanController>();
-        if (fc != null)
+        if (PhotonNetwork.IsMasterClient)
         {
-            fc.ClearHookReference(this.gameObject);
-            //fc.CheckWorms();
+            FishermanController fc = Object.FindFirstObjectByType<FishermanController>();
+            if (fc != null)
+            {
+                fc.ClearHookReference(this.gameObject);
+                fc.CheckWorms();
+            }
+        }
+        else
+        {
+            FishController myFish = GameManager.instance.myFish;
+            if (myFish != null)
+            {
+                if (myFish.catchadeFish)
+                {
+                    myFish.CallDestroyCatchFishRPC();
+                }
+            }
+        }
+       
+    }
+
+
+    public void DestroyParentWithChildren(GameObject parent)
+    {
+        PhotonNetwork.Destroy(parent);
+
+        foreach (PhotonView pv in parent.GetComponentsInChildren<PhotonView>())
+        {
+            if (pv != null && pv.gameObject != parent)
+            {
+                PhotonNetwork.Destroy(pv.gameObject);
+            }
         }
     }
+
+   
 
 }

@@ -112,10 +112,13 @@ MonoBehaviour:
   castingMeter: {fileID: 0}
   meterSpeed: 2
   maxCastDistance: 10
+  worms: 0
+  catchadFish: 0
   leftHook: {fileID: 0}
   rightHook: {fileID: 0}
   minX: -8
   maxX: 8
+  catchadeFishID: 0
 --- !u!114 &5874070845168669621
 MonoBehaviour:
   m_ObjectHideFlags: 0

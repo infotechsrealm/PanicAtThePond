@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviourPunCallbacks
 {
     [Header("Player Setup")]
-    public int totalPlayers = 3;
+    internal int totalPlayers = 3;
     public GameObject fishermanPrefab;
     public GameObject fishPrefab;
 
@@ -48,7 +48,6 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public FishController myFish;
 
-    internal int chatchFishID;
     private void Awake()
     {
         instance = this;
@@ -90,7 +89,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         float y = Random.Range(minBounds.y, maxBounds.y);
         Vector3 spawnPos = new Vector3(x, y, 0);
 
-        GameObject fish = PhotonNetwork.Instantiate("FishPrefab", spawnPos, Quaternion.identity);
+        GameObject fish = PhotonNetwork.Instantiate(fishPrefab.name, spawnPos, Quaternion.identity);
         fishes.Add(fish);
 
         Debug.Log("Fish Spawned: " + fishes.Count);
@@ -108,7 +107,7 @@ public class GameManager : MonoBehaviourPunCallbacks
          PhotonNetwork.Instantiate("FisherMan", new Vector3(0f, 1.75f, 0f), Quaternion.identity);
 
         // Worm calculation
-        int fishCount = totalPlayers - 1;
+        int fishCount = totalPlayers-1;
         fishermanWorms = fishCount * baseWormMultiplier;
         maxWorms = fishermanWorms;
         Debug.Log("Fisherman Worms: " + fishermanWorms);
@@ -131,7 +130,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     // Restart Button function
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        PhotonNetwork.Disconnect();
+        SceneManager.LoadScene("Dash");
     }
 
     public void GetIdAndChangeHost()
@@ -205,4 +205,5 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         preloderUI.SetActive(res);
     }
+
 }

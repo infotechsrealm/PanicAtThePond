@@ -23,8 +23,8 @@ public class FishermanController : MonoBehaviourPunCallbacks
     public float maxCastDistance = 10f; // max distance hook can go
 
     [Header("Worms")]
-    internal int worms;
-    internal int catchadFish = 0;
+    public int worms;
+    public int catchadFish = 0;
 
     internal bool isCasting = false;
     internal bool isCanMove = true;
@@ -40,6 +40,8 @@ public class FishermanController : MonoBehaviourPunCallbacks
     public float maxX = 8f;
 
     public static FishermanController instance;
+
+    public int catchadeFishID;
    
     private void Awake()
     {
@@ -231,8 +233,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
     // Check worms and print lose message
     public void CheckWorms()
     {
-
-        if(catchadFish >= GameManager.instance.totalPlayers-1)
+        if(catchadFish >= GameManager.instance.totalPlayers)
         {
             if (GameManager.instance != null && GameManager.instance.gameOverText != null)
             {
