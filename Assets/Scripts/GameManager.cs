@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -46,7 +47,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject fisherManObjects;
     public GameObject preloderUI;
 
+    public Transform camera;
+
     public FishController myFish;
+    public List<FishController> allFishes = new List<FishController> ();
 
     private void Awake()
     {
@@ -104,8 +108,9 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void SpawnFisherman()
     {
         // Spawn Fisherman
-         PhotonNetwork.Instantiate("FisherMan", new Vector3(0f, 1.75f, 0f), Quaternion.identity);
+         PhotonNetwork.Instantiate("FisherMan", new Vector3(0f, 8.25f, 0f), Quaternion.identity);
 
+        camera.position = new Vector3(0f, 10f, -10f);
         // Worm calculation
         int fishCount = totalPlayers-1;
         fishermanWorms = fishCount * baseWormMultiplier;
@@ -113,7 +118,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         Debug.Log("Fisherman Worms: " + fishermanWorms);
     }
 
-   
     public void ShowGameOver(string message)
     {
         if (gameOverPanel != null)

@@ -98,10 +98,8 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
             }
             else
             {
-                if (GameManager.instance.myFish)
-                {
                     photonView.RPC(nameof(EndMashPhase), RpcTarget.All,false);
-                }
+               
 
             }
         }
@@ -122,10 +120,15 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            HungerSystem.instance.AddHunger(75f);
-            GameManager.instance.myFish.canMove = true;
-            GameManager.instance.myFish.catchadeFish = false;
-            Debug.Log("Fisherman won the mash phase! Caught fish.");
+
+            if (GameManager.instance.myFish)
+            {
+                HungerSystem.instance.AddHunger(75f);
+                GameManager.instance.myFish.canMove = true;
+                GameManager.instance.myFish.animator.SetBool("isFight", false);
+                GameManager.instance.myFish.catchadeFish = false;
+                Debug.Log("Fisherman won the mash phase! Caught fish.");
+            }
 
             if (PhotonNetwork.IsMasterClient)
             {

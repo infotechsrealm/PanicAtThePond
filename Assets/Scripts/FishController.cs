@@ -1,6 +1,6 @@
-﻿using Photon.Pun;
+﻿using UnityEngine;
+using Photon.Pun;
 using System.Collections;
-using UnityEngine;
 
 public class FishController : MonoBehaviourPunCallbacks
 {
@@ -33,6 +33,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
     public int myPlayerID;
 
+    public Animator animator;
     private void Awake()
     {
         if (instance == null)
@@ -53,6 +54,7 @@ public class FishController : MonoBehaviourPunCallbacks
         {
             GameManager.instance.myFish = this;
         }
+        GameManager.instance.allFishes.Add(this);
     }
 
 
@@ -80,8 +82,22 @@ public class FishController : MonoBehaviourPunCallbacks
             return;
         }
 
-        float moveX = Input.GetAxis("Horizontal");
-        float moveY = Input.GetAxis("Vertical");
+
+
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+        // Jab bhi koi key press ho (X ya Y), tab function call karo
+        if (moveX != 0 || moveY != 0)
+        {
+            animator.SetBool("isMove", true);
+        }
+        else
+        {
+            animator.SetBool("isMove", false);
+        }
+
+
 
         rb.linearVelocity = new Vector2(moveX, moveY) * speed;
 
@@ -104,12 +120,15 @@ public class FishController : MonoBehaviourPunCallbacks
             isDead = true;
             canMove = false;
             rb.linearVelocity = Vector2.zero;
+            transform.GetComponent<PolygonCollider2D>().enabled = false;
             StartCoroutine(FloatToSurface());
         }
     }
 
     private IEnumerator FloatToSurface()
     {
+        animator.SetBool("isFight", false);
+        animator.SetBool("isDead", true);
         canMove = false;
         float targetY = maxBounds.y; // Surface
         while (transform.position.y < targetY)
@@ -126,7 +145,6 @@ public class FishController : MonoBehaviourPunCallbacks
             GameManager.instance.ShowGameOver("You lose!");
         }
         HungerSystem.instance.canDecrease = false;
-
     }
 
     // Optional: Auto swim logic when player control is off
@@ -142,7 +160,6 @@ public class FishController : MonoBehaviourPunCallbacks
         transform.localScale = (direction.x < 0) ? new Vector3(originalScaleX, originalScaleY, 1)
                                                  : new Vector3(-originalScaleX, originalScaleY, 1);
 
-
         transform.position += direction * Autospeed * Time.deltaTime;
         transform.position = new Vector3(transform.position.x, -2f, transform.position.z);
     }
@@ -153,6 +170,7 @@ public class FishController : MonoBehaviourPunCallbacks
         {
             if (other.CompareTag("HookWorm"))
             {
+                animator.SetTrigger("isEat");
                 other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
                 photonView.RPC("DestroyWormRPC", RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
                 if (carriedJunk != null)
@@ -160,13 +178,15 @@ public class FishController : MonoBehaviourPunCallbacks
                     DropJunkToHook();
                     return;
                 }
+                animator.SetBool("isFight", true);
+                animator.SetBool("isMove", false);
                 catchadeFish = true;
                 MiniGameManager.instance.StartMiniGame();
             }
 
             if (other.CompareTag("GoldTrout"))
             {
-
+                animator.SetTrigger("isEat");
                 if (PhotonNetwork.IsMasterClient)
                 {
                     WormSpawner.instance.DestroyAllWorms();
@@ -185,6 +205,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
             if (other.CompareTag("Worm"))
             {
+                animator.SetTrigger("isEat");
                 if (PhotonNetwork.IsMasterClient)
                 {
                     PhotonNetwork.Destroy(other.gameObject);
@@ -192,13 +213,14 @@ public class FishController : MonoBehaviourPunCallbacks
                 }
                 else
                 {
-                  //  photonView.RPC("DestroyWormRPC", RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
+                    photonView.RPC("DestroyWormRPC", RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
                     HungerSystem.instance.AddHunger(25f);
                 }
             }
 
             if (other.CompareTag("Junk") && carriedJunk == null)
             {
+                animator.SetTrigger("isEat");
                 carriedJunk = other.gameObject;
                 carriedJunk.transform.SetParent(junkHolder);
                 carriedJunk.transform.localPosition = Vector3.zero;
@@ -283,13 +305,14 @@ public class FishController : MonoBehaviourPunCallbacks
         Debug.Log("PutFishInHookRPC callled");
         int fishViewID = GameManager.instance.myFish.GetComponent<PhotonView>().ViewID;
         int hookViewID = Hook.instance.GetComponent<PhotonView>().ViewID;
-        photonView.RPC(nameof(PutFishInHook), RpcTarget.AllBuffered, fishViewID, hookViewID);
+        photonView.RPC(nameof(PutFishInHook), RpcTarget.All, fishViewID, hookViewID);
         if (photonView.IsMine)
         {
             if (GameManager.instance != null && GameManager.instance.gameOverText != null)
             {
                 GameManager.instance.ShowGameOver("You lose!");
                 canMove = false;
+                isDead = true;
                 HungerSystem.instance.canDecrease = false;
             }
         }
@@ -301,6 +324,25 @@ public class FishController : MonoBehaviourPunCallbacks
         if (catchadeFish)
         {
             PhotonNetwork.Destroy(gameObject);
+        }
+    }
+
+    public void CallWinFishRPC()
+    {
+        photonView.RPC(nameof(WinFish), RpcTarget.Others);
+    }
+
+    [PunRPC]
+    public void WinFish()
+    {
+        if (photonView.IsMine && !isDead)
+        {
+            GameManager.instance.ShowGameOver("You win!");
+            canMove = false;
+            HungerSystem.instance.canDecrease = false;
+            isDead = true;
+            animator.SetBool("isJoyful", true);
+
         }
     }
 
@@ -338,5 +380,5 @@ public class FishController : MonoBehaviourPunCallbacks
         }
     }
 
-  
+
 }

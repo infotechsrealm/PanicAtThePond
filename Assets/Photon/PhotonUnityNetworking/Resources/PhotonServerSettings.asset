@@ -63,6 +63,7 @@ MonoBehaviour:
   - DestroyCatchFish
   - SetchatchFishIdOnServer
   - GetCatchadFishId
+  - WinFish
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -42,6 +42,8 @@ public class FishermanController : MonoBehaviourPunCallbacks
     public static FishermanController instance;
 
     public int catchadeFishID;
+
+    public float valc = 0;
    
     private void Awake()
     {
@@ -215,12 +217,8 @@ public class FishermanController : MonoBehaviourPunCallbacks
             if (hook != null)
             {
                 hook.rodTip = curruntRod;
-                Debug.Log("Hook GEted");
             }
-            else
-            {
-                Debug.Log("Hook null");
-            }
+            
         }   
     }
 
@@ -233,7 +231,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
     // Check worms and print lose message
     public void CheckWorms()
     {
-        if(catchadFish >= GameManager.instance.totalPlayers)
+        if(catchadFish >= GameManager.instance.totalPlayers-1)
         {
             if (GameManager.instance != null && GameManager.instance.gameOverText != null)
             {
@@ -245,8 +243,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
             leftHook = null;
             rightHook = null;
             isCasting = false;
-            Debug.Log("CheckWorms Clled");
-
             return;
 
         }
@@ -257,13 +253,20 @@ public class FishermanController : MonoBehaviourPunCallbacks
             {
                 GameManager.instance.ShowGameOver("Fisherman Lose!\nFishes Win!");
             }
-           WormSpawner.instance.canSpawn =  isCanMove = false;
+
+            WormSpawner.instance.canSpawn =  isCanMove = false;
+            for (int i = 0; i < GameManager.instance.allFishes.Count; i++)
+            {
+                if (GameManager.instance.allFishes[i]!=null)
+                {
+                    GameManager.instance.allFishes[i].CallWinFishRPC();
+                }
+            }
 
             // Optional: stop all fishing actions
             leftHook = null;
             rightHook = null;
             isCasting = false;
-            Debug.Log("CheckWorms Clled");
 
         }
     }

@@ -186,8 +186,8 @@ MonoBehaviour:
   dropSpeed: 3
   wormPrefab: {fileID: 7213787239234744724, guid: ed9be4f8a38e17c45abcef0b0b7bb870, type: 3}
   wormParent: {fileID: 7448163867579369296}
-  minDistance: 3
-  maxDistance: 8
+  minDistance: 6.5
+  maxDistance: 14
 --- !u!120 &2015050245431887086
 LineRenderer:
   serializedVersion: 2

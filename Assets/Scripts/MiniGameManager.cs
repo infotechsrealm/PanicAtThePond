@@ -105,7 +105,7 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
 
         HungerSystem.instance.canDecrease = FishController.instance.canMove = true;
         HungerSystem.instance.AddHunger(75f);
-
+        FishController.instance.animator.SetBool("isFight", false);
         active = false;
         miniGamePanel.transform.localScale = Vector3.zero;
         if (GameManager.instance.myFish != null)
