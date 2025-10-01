@@ -4,7 +4,7 @@ using UnityEngine;
 public class PhotonLauncher : MonoBehaviourPunCallbacks
 {
 
-    public GameObject buttons;
+    internal GameObject buttons;
 
     public static PhotonLauncher Instance;
 

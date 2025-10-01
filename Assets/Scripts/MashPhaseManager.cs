@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,9 +14,9 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
 
     [Header("Settings")]
     public float mashSpeed = 0.01f; 
-    public float decayRate = 0.002f; 
+    public float decayRate = 0.002f;
 
-    private bool active = false;
+    internal bool active = false;
 
     void Awake()
     {
@@ -42,6 +43,7 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsMasterClient)
         {
+            FishermanController.instance.OnFightAnimation(true);
             WormSpawner.instance.canSpawn = false;
             JunkSpawner.instance.canSpawn = false;
             FishermanController.instance.isCanCast = false;
@@ -73,7 +75,6 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
         else
         {
             photonView.RPC(nameof(CallMashPhaseRPC), RpcTarget.MasterClient);
-           
         }
     }
 
@@ -105,6 +106,8 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
         }
     }
 
+
+
     [PunRPC]
     public void EndMashPhase(bool fisherManIsWin)
     {
@@ -133,6 +136,8 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
             if (PhotonNetwork.IsMasterClient)
             {
                 Hook.instance.CallRpcToReturnRod();
+                FishermanController.instance.OnFightAnimation(false);
+
             }
         }
 

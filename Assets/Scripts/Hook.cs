@@ -14,7 +14,7 @@ public class Hook : MonoBehaviourPunCallbacks
     private GameObject wormInstance;
 
     private bool hasWorm = false;
-    private bool isReturning = false;
+    private bool isReturning = false,isComming = true;
 
     public float minDistance = 2f;   // Minimum hook drop distance
     public float maxDistance = 15f;  // Maximum hook drop distance
@@ -54,7 +54,7 @@ public class Hook : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsMasterClient)
         {
-            if (Input.GetMouseButtonDown(1) && !isReturning) // 1 = right mouse button
+            if (Input.GetMouseButtonDown(1) && !isComming && !isReturning && !MiniGameManager.instance.active && !MashPhaseManager.instance.active) // 1 = right mouse button
             {
                 LoadReturnToRod();
             }
@@ -125,6 +125,7 @@ public class Hook : MonoBehaviourPunCallbacks
         PhotonView wormPV = wormInstance.GetComponent<PhotonView>();
         photonView.RPC("EnableWormColliderRPC", RpcTarget.AllBuffered, wormPV.ViewID,true);
 
+        isComming = false;
 
        // wormInstance.GetComponent<PolygonCollider2D>().enabled = true;
 
@@ -175,9 +176,24 @@ public class Hook : MonoBehaviourPunCallbacks
             wormInstance = null; // reference clear
             hasWorm = false;
         }
+        
 
-       
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if (wormParent.childCount != 0)
+            {
+                if(wormParent.GetChild(0).GetComponent<FishController>())
+                {
+                    FishermanController.instance.OnFightAnimation(false);
+                }
+                FishermanController.instance.OnFishGoatAnimation(true);
 
+            }
+            else
+            {
+                FishermanController.instance.OnFightAnimation(false);
+            }
+        }
         FishController[] fishes = GetComponentsInChildren<FishController>();
         
         while (Vector3.Distance(transform.position, target) > 0.05f)
@@ -186,7 +202,16 @@ public class Hook : MonoBehaviourPunCallbacks
             yield return null;
         }
 
+        if (PhotonNetwork.IsMasterClient)
+        {
+            FishermanController.instance.OnFishGoatAnimation(false);
+        }
 
+        if (PhotonNetwork.IsMasterClient)
+        {
+            FishermanController.instance.isCanMove = true;
+            FishermanController.instance.isCanCast = true;
+        }
         foreach (FishController f in fishes)
         {
             f.transform.localScale = Vector3.zero;

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Right Oar To Left Pole Facing Right
+  m_Name: Move Reverse Forward
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 00ef1ef14bd135e43acc3a876db106a3, type: 3}
+      value: {fileID: 21300000, guid: c9edcc7ffad6ebb4689b0397bdb1b62f, type: 3}
     - time: 0.21666667
-      value: {fileID: 21300000, guid: 84c61b7d240fd554f874170962d93c2a, type: 3}
+      value: {fileID: 21300000, guid: ba6efbe496c5b024f994ada066329fd7, type: 3}
     - time: 0.45
-      value: {fileID: 21300000, guid: a9ff7b4c9cc4c654dae9b1f39657cc20, type: 3}
+      value: {fileID: 21300000, guid: ad689aaefc8d8734a9688193903b1d1a, type: 3}
     - time: 0.6666667
-      value: {fileID: 21300000, guid: a3981387dd66979429bcbe314e36b0d3, type: 3}
+      value: {fileID: 21300000, guid: 0830f7e6888d5c947a1ebe6bc8bf2f93, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,10 +50,10 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 00ef1ef14bd135e43acc3a876db106a3, type: 3}
-    - {fileID: 21300000, guid: 84c61b7d240fd554f874170962d93c2a, type: 3}
-    - {fileID: 21300000, guid: a9ff7b4c9cc4c654dae9b1f39657cc20, type: 3}
-    - {fileID: 21300000, guid: a3981387dd66979429bcbe314e36b0d3, type: 3}
+    - {fileID: 21300000, guid: c9edcc7ffad6ebb4689b0397bdb1b62f, type: 3}
+    - {fileID: 21300000, guid: ba6efbe496c5b024f994ada066329fd7, type: 3}
+    - {fileID: 21300000, guid: ad689aaefc8d8734a9688193903b1d1a, type: 3}
+    - {fileID: 21300000, guid: 0830f7e6888d5c947a1ebe6bc8bf2f93, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

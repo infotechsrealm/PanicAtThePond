@@ -1,6 +1,8 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
+using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,7 +23,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public Vector2 maxBounds = new Vector2(8f, 4f);
 
     [Header("Runtime Info")]
-    public int fishermanWorms;
+    internal int fishermanWorms;
     public int maxWorms;
 
     public List<GameObject> fishes = new List<GameObject>();
@@ -51,6 +53,10 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public FishController myFish;
     public List<FishController> allFishes = new List<FishController> ();
+
+    public Text messageText;
+
+    public bool fisherManIsSpawned = false;
 
     private void Awake()
     {
@@ -108,7 +114,9 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void SpawnFisherman()
     {
         // Spawn Fisherman
-         PhotonNetwork.Instantiate("FisherMan", new Vector3(0f, 8.25f, 0f), Quaternion.identity);
+        photonView.RPC("FisherManSpawned", RpcTarget.All, true);
+
+        PhotonNetwork.Instantiate("FisherMan", new Vector3(0f, 10f, 0f), Quaternion.identity);
 
         camera.position = new Vector3(0f, 10f, -10f);
         // Worm calculation
@@ -134,9 +142,32 @@ public class GameManager : MonoBehaviourPunCallbacks
     // Restart Button function
     public void RestartGame()
     {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            StartCoroutine(RestartAfterDisconnect());
+        }
+        else
+        {
+            // Agar master client nahi ho to simply room leave karo
+            PhotonNetwork.LeaveRoom();
+        }
+    }
+
+    IEnumerator RestartAfterDisconnect()
+    {
         PhotonNetwork.Disconnect();
+        // wait jab tak disconnect complete na ho jaye
+        yield return new WaitUntil(() => PhotonNetwork.IsConnected == false);
         SceneManager.LoadScene("Dash");
     }
+
+    // Ye callback use karo non-master clients ke liye bhi safe restart karne ke liye
+    public override void OnLeftRoom()
+    {
+        SceneManager.LoadScene("Dash");
+    }
+
+
 
     public void GetIdAndChangeHost()
     {
@@ -186,11 +217,22 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public override void OnMasterClientSwitched(Player newMasterClient)
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (!fisherManIsSpawned)
         {
-            SpawnFisherman();
-        }
+            if (PhotonNetwork.IsMasterClient)
+            {
+                SpawnFisherman();
+
+            }
             Debug.Log("👑 New Master is: " + newMasterClient.NickName + " (ID: " + newMasterClient.ActorNumber + ")");
+        }
+        else
+        {
+            if(myFish!=null)
+            {
+                myFish.CallAllWinFishRPC();
+            }
+        }
 
 
 
@@ -208,6 +250,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void PreloderOnOff(bool res)
     {
         preloderUI.SetActive(res);
+    }
+
+
+    [PunRPC]
+    public void FisherManSpawned(bool res)
+    {
+        fisherManIsSpawned = res;
     }
 
 }

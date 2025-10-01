@@ -332,6 +332,11 @@ public class FishController : MonoBehaviourPunCallbacks
         photonView.RPC(nameof(WinFish), RpcTarget.Others);
     }
 
+    public void CallAllWinFishRPC()
+    {
+        photonView.RPC(nameof(WinFish), RpcTarget.All);
+    }
+
     [PunRPC]
     public void WinFish()
     {
@@ -375,7 +380,10 @@ public class FishController : MonoBehaviourPunCallbacks
         {
             if (photonView.IsMine)
             {
-                PhotonNetwork.Destroy(gameObject);
+                if (transform.localScale == Vector3.zero)
+                {
+                    PhotonNetwork.Destroy(gameObject);
+                }
             }
         }
     }
