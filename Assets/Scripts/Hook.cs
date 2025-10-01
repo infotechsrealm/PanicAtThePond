@@ -227,6 +227,7 @@ public class Hook : MonoBehaviourPunCallbacks
         if (wormView != null)
         {
             Transform col = wormView.GetComponent<Transform>();
+            col.tag = "Worm";
             if (col != null)
                 col.parent = null; // worm ko hook se alag kar do
         }
