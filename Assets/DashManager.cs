@@ -3,25 +3,44 @@ using UnityEngine;
 
 public class DashManager : MonoBehaviour
 {
-    public bool coustomCreate;
-    public GameObject coustomButtons, randomButtons;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public GameObject coustomButtons, randomButtons,selectButtons,randomeRoomManager,coustomeRoomManager;
+    
+
+    public void OnClickAction(string action)
     {
-        if (coustomCreate)
+        switch (action)
+        {
+            case "Coustome":
+                {
+                    EnableButtons(true);
+                    break;
+                }
+
+            case "Random":
+                {
+                    EnableButtons(false);
+                    break;
+                }
+        }
+    }
+
+    void EnableButtons(bool res)
+    {
+        if (res)
         {
             coustomButtons.SetActive(true);
             randomButtons.SetActive(false);
+            randomeRoomManager.SetActive(false);
+            selectButtons.SetActive(false);
             PhotonLauncher.Instance.buttons = coustomButtons;
         }
         else
         {
             randomButtons.SetActive(true);
             coustomButtons.SetActive(false);
+            coustomeRoomManager.SetActive(false);
+            selectButtons.SetActive(false);
             PhotonLauncher.Instance.buttons = randomButtons;
-
         }
     }
-
-   
 }

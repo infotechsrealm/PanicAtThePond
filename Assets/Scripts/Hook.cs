@@ -6,6 +6,7 @@ using UnityEngine;
 public class Hook : MonoBehaviourPunCallbacks
 {
     internal Vector3 rodTip;
+
     public LineRenderer lineRenderer;
     public float dropSpeed = 3f;
 
@@ -21,14 +22,19 @@ public class Hook : MonoBehaviourPunCallbacks
 
     public static Hook instance;
 
+
+    public AudioSource hookBack;
+
+    //this clips for fisherman
+    public AudioClip fishCatched;
+    public AudioClip smallVictory;
+
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
         }
-
-         
     }
 
     void Start()
@@ -65,17 +71,9 @@ public class Hook : MonoBehaviourPunCallbacks
     {
         if (wormPrefab != null && !hasWorm && wormParent != null)
         {
-            //  wormInstance = Instantiate(wormPrefab, wormParent.position, Quaternion.identity, wormParent);
-            wormInstance = PhotonNetwork.Instantiate("HookWorm", wormParent.position,Quaternion.identity).gameObject;
-
+            wormInstance = PhotonNetwork.Instantiate("HookWorm", wormParent.position, Quaternion.identity).gameObject;
             int wormID = wormInstance.GetComponent<PhotonView>().ViewID;
-
-              photonView.RPC("SetupWormRPC", RpcTarget.AllBuffered, wormID);
-
-            /*  wormInstance.transform.SetParent(wormParent.transform,false);
-              wormInstance.transform.localPosition = Vector3.zero;
-              wormInstance.GetComponent<PolygonCollider2D>().enabled = false;
-              hasWorm = true;*/
+            photonView.RPC(nameof(SetupWormRPC), RpcTarget.AllBuffered, wormID);
         }
     }
 
@@ -87,19 +85,13 @@ public class Hook : MonoBehaviourPunCallbacks
         if (wormView != null)
         {
             Transform worm = wormView.transform;
-
-            // Parent set karo
             worm.SetParent(wormParent.transform, false);
-
-            // Local pos reset karo
             worm.localPosition = Vector3.zero;
-
-            // Collider disable karo
             PolygonCollider2D col = worm.GetComponent<PolygonCollider2D>();
+
             if (col != null)
                 col.enabled = false;
 
-            // Bool set karo
             hasWorm = true;
         }
     }
@@ -110,8 +102,6 @@ public class Hook : MonoBehaviourPunCallbacks
         distance = Mathf.Clamp(distance, minDistance, maxDistance);
         StartCoroutine(MoveDown(distance));
     }
-
-
     private IEnumerator MoveDown(float distance)
     {
         Vector3 target = transform.position + Vector3.down * distance;
@@ -120,16 +110,11 @@ public class Hook : MonoBehaviourPunCallbacks
             transform.position = Vector3.MoveTowards(transform.position, target, dropSpeed * Time.deltaTime);
             yield return null;
         }
-
-        // Master client ya koi bhi client call kare
         PhotonView wormPV = wormInstance.GetComponent<PhotonView>();
-        photonView.RPC("EnableWormColliderRPC", RpcTarget.AllBuffered, wormPV.ViewID,true);
-
+        photonView.RPC(nameof(EnableWormColliderRPC), RpcTarget.AllBuffered, wormPV.ViewID,true);
         isComming = false;
-
-       // wormInstance.GetComponent<PolygonCollider2D>().enabled = true;
-
     }
+
     [PunRPC]
     void EnableWormColliderRPC(int wormID,bool enable)
     {
@@ -142,7 +127,6 @@ public class Hook : MonoBehaviourPunCallbacks
         }
     }
 
-
     public void CallRpcToReturnRod()
     {
         photonView.RPC(nameof(LoadReturnToRod), RpcTarget.MasterClient);
@@ -152,18 +136,16 @@ public class Hook : MonoBehaviourPunCallbacks
     public void LoadReturnToRod()
     {
         StartCoroutine(ReturnToRod());
-
     }
-
-
 
     private IEnumerator ReturnToRod()
     {
-        if (isReturning)
+        if (isReturning || !PhotonNetwork.IsMasterClient)
         {
-            Debug.Log("ReturnToRod all rady returning");
             yield return null;
         }
+
+        hookBack.Play();
         isReturning = true;
         Vector3 target = rodTip;
 
@@ -176,42 +158,44 @@ public class Hook : MonoBehaviourPunCallbacks
             wormInstance = null; // reference clear
             hasWorm = false;
         }
-        
 
-        if (PhotonNetwork.IsMasterClient)
+        FishermanController fc = FishermanController.instance;
+        if (wormParent.childCount != 0)
         {
-            if (wormParent.childCount != 0)
+            if (wormParent.GetChild(0).GetComponent<FishController>())
             {
-                if(wormParent.GetChild(0).GetComponent<FishController>())
-                {
-                    FishermanController.instance.OnFightAnimation(false);
-                }
-                FishermanController.instance.OnFishGoatAnimation(true);
+                fc.OnFightAnimation(false);
+            }
+            fc.OnFishGoatAnimation(true);
 
-            }
-            else
-            {
-                FishermanController.instance.OnFightAnimation(false);
-            }
         }
+        else
+        {
+            fc.OnFightAnimation(false);
+        }
+
         FishController[] fishes = GetComponentsInChildren<FishController>();
-        
+
         while (Vector3.Distance(transform.position, target) > 0.05f)
         {
             transform.position = Vector3.MoveTowards(transform.position, target, dropSpeed * 1.5f * Time.deltaTime);
             yield return null;
         }
 
-        if (PhotonNetwork.IsMasterClient)
+        if (wormParent.childCount != 0)
         {
-            FishermanController.instance.OnFishGoatAnimation(false);
+            fc.PlaySFX(fishCatched);
+            if (wormParent.GetChild(0).GetComponent<FishController>())
+            {
+                fc.PlaySFX(smallVictory);
+            }
         }
 
-        if (PhotonNetwork.IsMasterClient)
-        {
-            FishermanController.instance.isCanMove = true;
-            FishermanController.instance.isCanCast = true;
-        }
+            fc.isCanMove = true;
+        fc.isCanCast = true;
+        fc.OnFishGoatAnimation(false);
+        fc.OnReeling();
+
         foreach (FishController f in fishes)
         {
             f.transform.localScale = Vector3.zero;
@@ -228,8 +212,9 @@ public class Hook : MonoBehaviourPunCallbacks
         {
             Transform col = wormView.GetComponent<Transform>();
             col.tag = "Worm";
+
             if (col != null)
-                col.parent = null; // worm ko hook se alag kar do
+                col.parent = null; 
         }
     }
 
@@ -256,7 +241,6 @@ public class Hook : MonoBehaviourPunCallbacks
                 }
             }
         }
-       
     }
 
 
@@ -272,7 +256,5 @@ public class Hook : MonoBehaviourPunCallbacks
             }
         }
     }
-
-   
 
 }

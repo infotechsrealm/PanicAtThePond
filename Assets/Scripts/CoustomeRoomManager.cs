@@ -7,19 +7,21 @@ using UnityEngine.UI;
 public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 {
     [Header("Room Settings")]
-    internal int maxPlayers = 3; // Max players per room
+    internal int maxPlayers; // Max players per room
 
     [Header("References")]
     internal PhotonLauncher PhotonLauncher;
 
     public Text createRoomName, joinRoomName;
-    public Text status;
+    public Text status; 
 
     public Text playersListText; // Assign in Inspector
+    public Text waitingText;
 
     private void Start()
     {
         PhotonLauncher = PhotonLauncher.Instance;
+        maxPlayers = PhotonLauncher.maxPlayers;
         PhotonNetwork.AutomaticallySyncScene = true;
     }
 
@@ -28,12 +30,16 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         switch (action)
         {
             case "Create":
-                CreateCustomeRoom();
-                break;
+                {
+                    CreateCustomeRoom();
+                    break;
+                }
 
             case "Join":
-                JoinCustomeRoom();
-                break;
+                {
+                    JoinCustomeRoom();
+                    break;
+                }
         }
     }
 
@@ -57,7 +63,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             Plugins = null // Must be null for PUN 2 Cloud
         };
 
-        RoomStatus("RoomName = '" + roomName + "' Trying to create Room...");
+        RoomStatus("RoomName = '" + roomName + "' Trying to create Room...", false);
         PhotonNetwork.CreateRoom(roomName, options, TypedLobby.Default);
     }
 
@@ -74,19 +80,14 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
         string roomName = joinRoomName.text;
         Debug.Log("roomName = " + roomName);
-        RoomStatus("RoomName = '" + roomName + "' Trying to join...");
+        RoomStatus("RoomName = '" + roomName + "' Trying to join...", false);
 
         // Join only, do not create if room doesn't exist
         PhotonNetwork.JoinRoom(roomName);
     }
 
     // ------------------ Room Callbacks ------------------
-    public override void OnCreatedRoom()
-    {
-        Debug.Log("Room Created: " + PhotonNetwork.CurrentRoom.Name +
-                  " | MaxPlayers: " + PhotonNetwork.CurrentRoom.MaxPlayers);
-        RoomStatus("RoomName = '" + PhotonNetwork.CurrentRoom.Name + "' Room created successfully.");
-    }
+   
 
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
@@ -115,7 +116,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
                 break;
         }
 
-        RoomStatus(displayMessage);
+        RoomStatus(displayMessage, false);
     }
 
     public override void OnJoinedRoom()
@@ -124,7 +125,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
                   " | Players: " + PhotonNetwork.CurrentRoom.PlayerCount +
                   " | MaxPlayers: " + maxPlayers);
 
-        RoomStatus("RoomName = '" + PhotonNetwork.CurrentRoom.Name + "' Joined successfully.");
+        RoomStatus("RoomName = '" + PhotonNetwork.CurrentRoom.Name + "' Joined successfully.",true);
 
         if (PhotonNetwork.InRoom)
         {
@@ -138,27 +139,12 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         // If room full, lock it and load PlayScene (only MasterClient)
         if (PhotonNetwork.CurrentRoom.PlayerCount >= maxPlayers)
         {
-            PhotonNetwork.CurrentRoom.IsOpen = false;
-            PhotonNetwork.CurrentRoom.IsVisible = false;
+           
             Debug.Log("Room is now full. No more players can join.");
 
             photonView.RPC(nameof(LoadPlaySceneMasterClient), RpcTarget.MasterClient);
         }
     }
-
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        Debug.Log("New Player Joined: " + newPlayer.NickName);
-        UpdatePlayerListUI();
-    }
-
-    public override void OnPlayerLeftRoom(Player otherPlayer)
-    {
-        Debug.Log("Player Left: " + otherPlayer.NickName);
-        UpdatePlayerListUI();
-    }
-
-    // ------------------ Player List UI ------------------
     void UpdatePlayerListUI()
     {
         if (playersListText == null || PhotonNetwork.CurrentRoom == null) return;
@@ -167,7 +153,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
         playersListText.text = "Players = " + currentPlayers + " / " + maxPlayers;
     }
-
 
     [PunRPC]
     void LoadPlaySceneMasterClient()
@@ -179,29 +164,61 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         }
     }
 
+
     private IEnumerator StartPlaySceneCountdown()
     {
         int countdown = 3;
 
         while (countdown >= 0)
         {
-            photonView.RPC(nameof(UpdateCountdownAllClients), RpcTarget.All, countdown);
+            if (PhotonNetwork.CurrentRoom.PlayerCount >= maxPlayers)
+            {
+                photonView.RPC(nameof(UpdateCountdownAllClients), RpcTarget.All, countdown);
 
-            yield return new WaitForSeconds(1f);
-            if (countdown <= 0)
-                status.gameObject.SetActive(false);
+                yield return new WaitForSeconds(1f);
+                if (countdown <= 0)
+                    status.gameObject.SetActive(false);
 
-            countdown--;
+                countdown--;
+            }
+            else
+            {
+                break;
+            }
         }
 
-        Debug.Log("MasterClient loading Play Scene...");
-        PhotonNetwork.LoadLevel("Play");
+        if (PhotonNetwork.CurrentRoom.PlayerCount >= maxPlayers)
+        {
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+            PhotonNetwork.CurrentRoom.IsVisible = false;
+            Debug.Log("MasterClient loading Play Scene...");
+            PhotonNetwork.LoadLevel("Play");
+        }
+    }
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        Debug.Log("New Player Joined: " + newPlayer.NickName);
+        UpdatePlayerListUI();
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        UpdatePlayerListUI();
+        Debug.Log("Player Left: " + otherPlayer.NickName);
+        RoomStatus("RoomName = '" + PhotonNetwork.CurrentRoom.Name + "' Room created successfully.", true);
     }
 
     [PunRPC]
     void UpdateCountdownAllClients(int seconds)
     {
-        RoomStatus("Loading Play Scene in... seconds = " + seconds);
+        RoomStatus("Loading Play Scene in... seconds = " + seconds,false);
+    }
+
+    public override void OnCreatedRoom()
+    {
+        Debug.Log("Room Created: " + PhotonNetwork.CurrentRoom.Name +
+                  " | MaxPlayers: " + PhotonNetwork.CurrentRoom.MaxPlayers);
+        RoomStatus("RoomName = '" + PhotonNetwork.CurrentRoom.Name + "' Room created successfully.", true);
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
@@ -227,11 +244,12 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
                 break;
         }
 
-        RoomStatus(displayMessage);
+        RoomStatus(displayMessage,false);
     }
 
-    public void RoomStatus(string meassage)
+    public void RoomStatus(string meassage,bool isOn)
     {
         status.text = meassage;
+        waitingText.gameObject.SetActive(isOn);
     }
 }

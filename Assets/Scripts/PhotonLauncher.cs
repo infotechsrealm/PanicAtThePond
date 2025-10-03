@@ -1,13 +1,14 @@
-using Photon.Pun;
+﻿using Photon.Pun;
 using UnityEngine;
 
 public class PhotonLauncher : MonoBehaviourPunCallbacks
 {
 
-    internal GameObject buttons;
+    public GameObject buttons;
 
     public static PhotonLauncher Instance;
 
+    public int maxPlayers = 3;
 
     private void Awake()
     {
@@ -15,12 +16,40 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
         {
             Instance = this;
         }
+
+       DontDestroyOnLoad(Instance);
     }
     void Start()
     {
-        ShowButton(false);
-        PhotonNetwork.ConnectUsingSettings(); // Auto connect to Photon Cloud
+        LaunchGame();
     }
+
+    public void LaunchGame()
+    {
+        ShowButton(false);
+
+        if (!PhotonNetwork.IsConnected)
+        {
+            // Not connected → Connect to Photon
+            PhotonNetwork.ConnectUsingSettings();
+        }
+        else
+        {
+            // Already connected
+            ShowButton(true);
+
+            // Agar lobby me nahi ho to join karo
+            if (!PhotonNetwork.InLobby)
+            {
+                PhotonNetwork.JoinLobby();
+            }
+            else
+            {
+                Debug.Log("Already in Lobby!");
+            }
+        }
+    }
+
 
     public override void OnConnectedToMaster()
     {
@@ -37,5 +66,18 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
     public void ShowButton(bool isEnable)
     {
         buttons.SetActive(isEnable);
+    }
+
+
+    private void OnApplicationQuit()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+
+        }
+        else
+        {
+            PhotonNetwork.LeaveRoom();
+        }
     }
 }

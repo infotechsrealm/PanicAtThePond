@@ -16,6 +16,10 @@ public class JunkSpawner : MonoBehaviour
 
     private List<GameObject> activeJunks = new List<GameObject>(); // track all junks
 
+    public Transform posRefrence;
+
+   
+
     private void Awake()
     {
         if (instance == null)
@@ -26,8 +30,8 @@ public class JunkSpawner : MonoBehaviour
 
     void Start()
     {
-    }
 
+    }
 
     public void LoadSpawnJunk()
     {
@@ -40,15 +44,23 @@ public class JunkSpawner : MonoBehaviour
     {
         if (canSpawn)
         {
+            for (int i = 0; i < activeJunks.Count; i++)
+            {
+                if (activeJunks[i] == null)
+                {
+                    activeJunks.Remove(activeJunks[i]);
+                }
+            }
             if (activeJunks.Count < 2)
             {
                 float x = Random.Range(-xRange, xRange);
                 float y = yRange;
-                Vector2 pos = new Vector2(x, y);
+                Vector2 pos = new Vector2(x, posRefrence.position.y);
 
                 GameObject prefab = junkPrefabs[Random.Range(0, junkPrefabs.Length)];
 
-                GameObject newJunk = PhotonNetwork.Instantiate(prefab.name, pos, Quaternion.identity).gameObject;
+                GameObject newJunk = PhotonNetwork.Instantiate(prefab.name, pos, Quaternion.identity);
+
 
                 activeJunks.Add(newJunk);
             }

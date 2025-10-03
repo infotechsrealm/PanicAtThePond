@@ -50,6 +50,10 @@ public class WormSpawner : MonoBehaviourPunCallbacks
             Vector2 pos = new Vector2(x, y);
 
             GameObject worm =  PhotonNetwork.Instantiate("Worm", pos, Quaternion.identity).gameObject;
+            if(FishermanController.instance!=null)
+            {
+                worm.GetComponent<AudioSource>().mute = true;
+            }
             activeWorms.Add(worm);
 
         }

@@ -2,8 +2,6 @@
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,7 +9,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviourPunCallbacks
 {
     [Header("Player Setup")]
-    internal int totalPlayers = 3;
+    internal int totalPlayers;
     public GameObject fishermanPrefab;
     public GameObject fishPrefab;
 
@@ -57,6 +55,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public Text messageText;
 
     public bool fisherManIsSpawned = false;
+    public bool isFisherMan = false;
 
     private void Awake()
     {
@@ -67,6 +66,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     void Start()
     {
+        totalPlayers = PhotonLauncher.Instance.maxPlayers;
         SpawnPlayer();
     } 
     public void UpdateUI(int currunt_Warms)
@@ -217,16 +217,15 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public override void OnMasterClientSwitched(Player newMasterClient)
     {
-        if (!fisherManIsSpawned)
+        if (!fisherManIsSpawned && isFisherMan)
         {
             if (PhotonNetwork.IsMasterClient)
             {
                 SpawnFisherman();
-
             }
             Debug.Log("👑 New Master is: " + newMasterClient.NickName + " (ID: " + newMasterClient.ActorNumber + ")");
         }
-        else
+        else 
         {
             if(myFish!=null)
             {
@@ -235,14 +234,13 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
 
 
-
         // 👉 Yaha apna custom logic add kar sakte ho
         // Example: UI update, extra permissions, game flow change, etc.
     }
 
     public void LoadPreloderOnOff(bool res)
     {
-        photonView.RPC("PreloderOnOff", RpcTarget.All, res);
+        photonView.RPC(nameof(PreloderOnOff), RpcTarget.All, res);
 
     }
 
@@ -252,6 +250,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         preloderUI.SetActive(res);
     }
 
+    public void CallFisherManSpawnedRPC(bool res)
+    {
+        photonView.RPC(nameof(FisherManSpawned), RpcTarget.All, res);
+    }
 
     [PunRPC]
     public void FisherManSpawned(bool res)

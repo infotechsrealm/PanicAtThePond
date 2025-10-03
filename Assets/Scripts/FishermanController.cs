@@ -1,7 +1,6 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -51,6 +50,16 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
     public float valc = 0;
 
+    //this audio is play random time
+    public AudioSource cricketChirping;
+
+    public AudioSource fisherManSounds;
+
+    public AudioSource boatMoveSound;
+
+    public AudioClip throwWorm;
+    public AudioClip stopBoat;
+
     private void Awake()
     {
         if (instance == null)
@@ -77,8 +86,31 @@ public class FishermanController : MonoBehaviourPunCallbacks
             WormSpawner.instance.LoadSpawnWorm();
             GameManager.instance.UpdateUI(worms);
 
+            StartCoroutine(PlayCricketRandomly());
+            GameManager.instance.CallFisherManSpawnedRPC(true);
+
         }
 
+    }
+
+    IEnumerator PlayCricketRandomly()
+    {
+        while (true)
+        {
+            // Random wait before playing sound (20–30 seconds)
+            float waitBeforePlay = Random.Range(20f, 30f);
+            yield return new WaitForSeconds(waitBeforePlay);
+
+            // Play the sound
+            cricketChirping.Play();
+
+            // Random duration to play the sound (2–5 seconds)
+            float playDuration = Random.Range(2f, 5f);
+            yield return new WaitForSeconds(playDuration);
+
+            // Stop the sound
+            cricketChirping.Pause();
+        }
     }
 
     void Update()
@@ -112,48 +144,54 @@ public class FishermanController : MonoBehaviourPunCallbacks
             clampedPos.x = Mathf.Clamp(clampedPos.x, minX, maxX);
             transform.position = clampedPos;
 
-            Debug.Log(moveInput);
             isMoving = false;
 
+            Debug.Log("moveInput = "+moveInput);
 
             if (moveInput != 0)
             {
+                if (!boatMoveSound.isPlaying)
+                {
+                    boatMoveSound.Play();
+                }
+
                 isMoving = true;
                 isIdel = false;
-                if (currentRod != null)
-                {
-                    currentRod = null;
-                }
+
+                // Drop rod when moving
+                currentRod = null;
+
+                // Reset fishing triggers (always do this once)
+                animator.ResetTrigger("leftOurToPole_l");
+                animator.ResetTrigger("rightOurToPole_r");
 
                 if (isLeft)
                 {
+                    // Cancel fishing
                     animator.SetBool("fishing_l", false);
 
-                    if (moveInput > 0)
-                    {
-                        animator.SetBool("moveBackward_l", true);
-                    }
-                    else
-                    {
-                        animator.SetBool("moveForward_l", true);
-                    }
+                    // Movement (mutually exclusive)
+                    animator.SetBool("moveForward_l", moveInput < 0);
+                    animator.SetBool("moveBackward_l", moveInput > 0);
                 }
                 else if (isRight)
                 {
                     animator.SetBool("fishing_r", false);
 
-                    if (moveInput > 0)
-                    {
-                        animator.SetBool("moveReverceForward_r", true);
-                    }
-                    else
-                    {
-                        animator.SetBool("moveReverceBackward_r", true);
-                    }
+                    animator.SetBool("moveReverceForward_r", moveInput > 0);
+                    animator.SetBool("moveReverceBackward_r", moveInput < 0);
                 }
             }
             else
             {
+                
+
+                if (boatMoveSound.isPlaying)
+                {
+                    boatMoveSound.Stop();
+                    PlaySFX(stopBoat);
+                }
+                // No movement → reset all movement states
                 if (isLeft)
                 {
                     animator.SetBool("moveForward_l", false);
@@ -165,6 +203,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
                     animator.SetBool("moveReverceBackward_r", false);
                 }
             }
+
         }
     }
 
@@ -184,18 +223,11 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
             if (currentRod != leftRod)
             {
-                if (isIdel)
-                {
-                    animator.SetTrigger("leftOurToPole_l");
-                }
                 animator.SetBool("idel_r", false);
                 animator.SetBool("idel_l", true);
                 animator.SetBool("fishing_l", true);
                 animator.SetBool("fishing_r", false);
-                if (!isIdel)
-                {
-                    animator.SetTrigger("leftOurToPole_l");
-                }
+                animator.SetTrigger("leftOurToPole_l");
                 SelectRoad(leftRod);
             }
         }
@@ -207,20 +239,11 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
             if (currentRod != rightRod)
             {
-                if (isIdel)
-                {
-                    animator.SetTrigger("rightOurToPole_r");
-                }
                 animator.SetBool("idel_l", false);
                 animator.SetBool("idel_r", true);
                 animator.SetBool("fishing_l", false);
                 animator.SetBool("fishing_r", true);
-
-                if (!isIdel)
-                {
-                    animator.SetTrigger("rightOurToPole_r");
-                }
-
+                animator.SetTrigger("rightOurToPole_r");
                 SelectRoad(rightRod);
 
             }
@@ -290,6 +313,8 @@ public class FishermanController : MonoBehaviourPunCallbacks
     {
         isCasting = false;
         isCanMove = false;
+
+        PlaySFX(throwWorm);
 
         StopCoroutine(CastMeterRoutine());
 
@@ -490,7 +515,22 @@ public class FishermanController : MonoBehaviourPunCallbacks
         }
     }
 
+    internal void OnReeling()
+    {
+        if (isRight)
+        {
+            animator.SetTrigger("isReeling_r");
+        }
+        else if (isLeft)
+        {
+            animator.SetTrigger("isReeling_l");
+        }
+    }
 
-
+    internal void PlaySFX(AudioClip playClip)
+    {
+        fisherManSounds.clip = playClip;
+        fisherManSounds.Play();
+    }
 
 }
