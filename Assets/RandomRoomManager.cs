@@ -45,6 +45,9 @@ public class RandomRoomManager : MonoBehaviourPunCallbacks
         if (PhotonLauncher != null)
             PhotonLauncher.ShowButton(false);
 
+        DashManager.instance.backButton.SetActive(false);
+
+
         string randomRoomName = "Room_" + Random.Range(1000, 9999);
 
         RoomOptions options = new RoomOptions
@@ -64,6 +67,9 @@ public class RandomRoomManager : MonoBehaviourPunCallbacks
         if (PhotonLauncher != null)
             PhotonLauncher.ShowButton(false);
 
+        DashManager.instance.backButton.SetActive(false);
+
+
         PhotonNetwork.JoinRandomRoom();
         Debug.Log("Trying to join a random room...");
     }
@@ -74,6 +80,8 @@ public class RandomRoomManager : MonoBehaviourPunCallbacks
     {
         if (PhotonLauncher != null)
             PhotonLauncher.ShowButton(true);
+
+        DashManager.instance.backButton.SetActive(true);
 
         Debug.Log("Room Creation Failed: " + message);
         RoomStatus("Room creation failed: " + message, false);
@@ -125,6 +133,7 @@ public class RandomRoomManager : MonoBehaviourPunCallbacks
         {
             RoomStatus("", false);
             playersListText.text = timerText.text = "";
+            DashManager.instance.backButton.SetActive(true);
             PhotonNetwork.LeaveRoom();
         }
         else

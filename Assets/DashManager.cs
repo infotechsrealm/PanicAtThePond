@@ -3,9 +3,14 @@ using UnityEngine;
 
 public class DashManager : MonoBehaviour
 {
-    public GameObject coustomButtons, randomButtons,selectButtons,randomeRoomManager,coustomeRoomManager;
-    
+    public GameObject coustomButtons, randomButtons,backButton,selectButtons,randomeRoomManager,coustomeRoomManager;
 
+    public static DashManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     public void OnClickAction(string action)
     {
         switch (action)
@@ -21,6 +26,12 @@ public class DashManager : MonoBehaviour
                     EnableButtons(false);
                     break;
                 }
+
+            case "Back":
+                {
+                    Back();
+                    break;
+                }
         }
     }
 
@@ -32,6 +43,7 @@ public class DashManager : MonoBehaviour
             randomButtons.SetActive(false);
             randomeRoomManager.SetActive(false);
             selectButtons.SetActive(false);
+            backButton.SetActive(true);
             PhotonLauncher.Instance.buttons = coustomButtons;
         }
         else
@@ -40,7 +52,22 @@ public class DashManager : MonoBehaviour
             coustomButtons.SetActive(false);
             coustomeRoomManager.SetActive(false);
             selectButtons.SetActive(false);
+            backButton.SetActive(true);
+
             PhotonLauncher.Instance.buttons = randomButtons;
         }
+    }
+
+    void Back()
+    {
+        coustomButtons.SetActive(false);
+        randomButtons.SetActive(false);
+
+        coustomeRoomManager.SetActive(true);
+        randomeRoomManager.SetActive(true);
+        selectButtons.SetActive(true);
+        backButton.SetActive(false);
+
+        PhotonLauncher.Instance.buttons = null;
     }
 }

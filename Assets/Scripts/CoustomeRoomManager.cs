@@ -53,6 +53,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         if (PhotonLauncher != null)
             PhotonLauncher.ShowButton(false);
 
+        DashManager.instance.backButton.SetActive(false);
+
         string roomName = createRoomName.text;
         Debug.Log("roomName = " + roomName);
 
@@ -78,6 +80,9 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         if (PhotonLauncher != null)
             PhotonLauncher.ShowButton(false);
 
+        DashManager.instance.backButton.SetActive(false);
+
+
         string roomName = joinRoomName.text;
         Debug.Log("roomName = " + roomName);
         RoomStatus("RoomName = '" + roomName + "' Trying to join...", false);
@@ -93,6 +98,9 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     {
         if (PhotonLauncher != null)
             PhotonLauncher.ShowButton(true);
+
+        DashManager.instance.backButton.SetActive(true);
+
 
         Debug.Log("Room Creation Failed: " + message);
         string displayMessage = "";

@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using Photon.Chat.Demo;
+using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using UnityEngine;
@@ -395,19 +396,45 @@ public class FishermanController : MonoBehaviourPunCallbacks
     // Check worms and print lose message
     public void CheckWorms()
     {
-        if (catchadFish >= GameManager.instance.totalPlayers - 1)
+        int curruntPlayer = PhotonNetwork.CurrentRoom.PlayerCount;
+        Debug.Log("catchadFish = "+ catchadFish + " GameManager.instance.totalPlayers = " + GameManager.instance.totalPlayers );
+        //when fisherma target achived , he win 
+        if (catchadFish >= (GameManager.instance.totalPlayers - 1))
         {
-            if (GameManager.instance != null && GameManager.instance.gameOverText != null)
+            if (catchadFish > 0)
+            {
+                if (GameManager.instance != null && GameManager.instance.gameOverText != null)
+                {
+                    if (isRight)
+                    {
+                        animator.SetBool("isWin_r", true);
+                    }
+                    else if (isLeft)
+                    {
+                        animator.SetBool("isWin_l", true);
+                    }
+                    else
+                    {
+                        animator.SetBool("isWin_r", true);
+                    }
+                    GameManager.instance.ShowGameOver("Fisherman Win!");
+                }
+            }
+            else
             {
                 if (isRight)
                 {
-                    animator.SetBool("isWin_r", true);
+                    animator.SetBool("isCrying_r", true);
                 }
                 else if (isLeft)
                 {
-                    animator.SetBool("isWin_l", true);
+                    animator.SetBool("isCrying_l", true);
                 }
-                GameManager.instance.ShowGameOver("Fisherman Win!");
+                else
+                {
+                    animator.SetBool("isWin_r", true);
+                }
+                GameManager.instance.ShowGameOver("GameOver!");
             }
             WormSpawner.instance.canSpawn = isCanMove = false;
 
@@ -416,9 +443,10 @@ public class FishermanController : MonoBehaviourPunCallbacks
             rightHook = null;
             isCasting = false;
             return;
-
         }
+        
 
+        //When Worm is over fisher man is loss and fishes are wins
         if (worms <= 0)
         {
             if (GameManager.instance != null && GameManager.instance.gameOverText != null)

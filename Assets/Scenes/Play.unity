@@ -322,7 +322,7 @@ MonoBehaviour:
   mashPanel: {fileID: 1841162808}
   mashSlider: {fileID: 1841162810}
   mashText: {fileID: 1428516270}
-  mashSpeed: 0.01
+  mashSpeed: 0.05
   decayRate: 0.002
 --- !u!114 &112170144
 MonoBehaviour:
@@ -1637,7 +1637,6 @@ MonoBehaviour:
   myFish: {fileID: 0}
   allFishes: []
   messageText: {fileID: 8690754849316405257}
-  fisherManIsSpawned: 0
 --- !u!4 &821744897
 Transform:
   m_ObjectHideFlags: 0

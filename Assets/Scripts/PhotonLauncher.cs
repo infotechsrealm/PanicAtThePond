@@ -17,7 +17,6 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
             Instance = this;
         }
 
-       DontDestroyOnLoad(Instance);
     }
     void Start()
     {
@@ -45,6 +44,7 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
             }
             else
             {
+                ShowButton(true);
                 Debug.Log("Already in Lobby!");
             }
         }
@@ -53,31 +53,25 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        UnityEngine.Debug.Log("Connected to Photon!");
+        Debug.Log("Connected to Photon!");
+
+
         ShowButton(true);
+
+
         PhotonNetwork.JoinLobby(); // Optional: auto join lobby
     }
 
     public override void OnDisconnected(Photon.Realtime.DisconnectCause cause)
     {
-        UnityEngine.Debug.Log("Disconnected: " + cause);
+        Debug.Log("Disconnected: " + cause);
     }
 
     public void ShowButton(bool isEnable)
     {
-        buttons.SetActive(isEnable);
-    }
-
-
-    private void OnApplicationQuit()
-    {
-        if (PhotonNetwork.IsMasterClient)
-        {
-
-        }
+        if (buttons != null)
+            buttons.SetActive(isEnable);
         else
-        {
-            PhotonNetwork.LeaveRoom();
-        }
+            Debug.LogWarning("Buttons reference missing!");
     }
 }

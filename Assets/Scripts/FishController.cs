@@ -1,7 +1,6 @@
 ﻿using Photon.Pun;
 using System.Collections;
 using UnityEngine;
-using Photon.Realtime;
 
 public class FishController : MonoBehaviourPunCallbacks
 {
@@ -92,8 +91,6 @@ public class FishController : MonoBehaviourPunCallbacks
             return;
         }
 
-
-
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
@@ -116,8 +113,6 @@ public class FishController : MonoBehaviourPunCallbacks
             animator.SetBool("isMove", false);
         }
 
-
-
         rb.linearVelocity = new Vector2(moveX, moveY) * speed;
 
         // Flip fish based on direction
@@ -136,20 +131,26 @@ public class FishController : MonoBehaviourPunCallbacks
         // Check hunger
         if (!isDead && HungerSystem.instance != null && HungerSystem.instance.hungerBar.value <= 0)
         {
-            isDead = true;
             canMove = false;
             rb.linearVelocity = Vector2.zero;
             transform.GetComponent<PolygonCollider2D>().enabled = false;
             StartCoroutine(FloatToSurface());
         }
     }
-
     private IEnumerator FloatToSurface()
     {
         animator.SetBool("isFight", false);
         animator.SetBool("isDead", true);
         canMove = false;
+        isDead = true;
+
+        gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         float targetY = maxBounds.y; // Surface
+        HungerSystem.instance.canDecrease = false;
+        if (GameManager.instance != null && GameManager.instance.gameOverText != null)
+        {
+            GameManager.instance.ShowGameOver("You lose!");
+        }
         while (transform.position.y < targetY)
         {
             transform.position += Vector3.up * floatSpeed * Time.deltaTime;
@@ -158,16 +159,12 @@ public class FishController : MonoBehaviourPunCallbacks
 
         PlaySFX(fishCameToSurfaceSound);
 
-
         transform.position = new Vector3(transform.position.x, targetY, transform.position.z);
+
         // Trigger event
         OnFishDied?.Invoke(this);
 
-        if (GameManager.instance != null && GameManager.instance.gameOverText != null)
-        {
-            GameManager.instance.ShowGameOver("You lose!");
-        }
-        HungerSystem.instance.canDecrease = false;
+        PhotonNetwork.LeaveRoom();
     }
 
     // Optional: Auto swim logic when player control is off
@@ -198,29 +195,30 @@ public class FishController : MonoBehaviourPunCallbacks
 
             if (other.CompareTag("HookWorm"))
             {
-
                 PlaySFX(fishEatWarmSound);
                 animator.SetTrigger("isEat");
                 other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+
                 photonView.RPC(nameof(DestroyWormRPC), RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
                 if (carriedJunk != null)
                 {
                     DropJunkToHook();
                     return;
                 }
+
                 animator.SetBool("isFight", true);
                 animator.SetBool("isMove", false);
                 catchadeFish = true;
+
                 MiniGameManager.instance.StartMiniGame();
             }
 
             if (other.CompareTag("GoldTrout"))
             {
                 PlaySFX(fishEatWarmSound);
-                GameManager.instance.isFisherMan = true;
+                GameManager.instance.goldWormEatByFish = true;
                 audioSource.Play();
                 StartCoroutine(ChangeHost(other.gameObject));
-
             }
 
             if (other.CompareTag("Worm"))
@@ -357,6 +355,7 @@ public class FishController : MonoBehaviourPunCallbacks
                 canMove = false;
                 isDead = true;
                 HungerSystem.instance.canDecrease = false;
+                
             }
         }
     }
@@ -435,5 +434,16 @@ public class FishController : MonoBehaviourPunCallbacks
     {
         audioSource.clip = playClip;
         audioSource.Play();
+    }
+
+    private void OnDestroy()
+    {
+        if(photonView.IsMine && isDead)
+        {
+            if(!PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.LeaveRoom();
+            }
+        }
     }
 }
