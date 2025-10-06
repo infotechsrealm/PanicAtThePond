@@ -184,6 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 4102529295903683753}
   audioSource: {fileID: 389855734204177252}
+  waterDrop: {fileID: 9090747191646513983, guid: 6acab6ae61565764fb844a1cf8007b6d, type: 3}
 --- !u!50 &4102529295903683753
 Rigidbody2D:
   serializedVersion: 5
@@ -198,8 +199,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 0.0001
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0.1
+  m_AngularDamping: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

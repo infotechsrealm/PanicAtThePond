@@ -8,8 +8,7 @@ public class JunkSpawner : MonoBehaviour
     public GameObject[] junkPrefabs; 
     public float minSpawnDelay = 8f;   // min wait
     public float maxSpawnDelay = 12f;   // max wait
-    public float xRange = 8f;
-    public float yRange = 4f;
+    internal float xRange = -9f;
 
     internal bool canSpawn = false;
     public static JunkSpawner instance;
@@ -17,8 +16,9 @@ public class JunkSpawner : MonoBehaviour
     private List<GameObject> activeJunks = new List<GameObject>(); // track all junks
 
     public Transform posRefrence;
+    public float moveSpeed = 3f;
 
-   
+
 
     private void Awake()
     {
@@ -53,14 +53,28 @@ public class JunkSpawner : MonoBehaviour
             }
             if (activeJunks.Count < 2)
             {
-                float x = Random.Range(-xRange, xRange);
-                float y = yRange;
+                int randomNo = Random.Range(0, 2);
+                float x = randomNo == 0 ? xRange : -xRange;
+
                 Vector2 pos = new Vector2(x, posRefrence.position.y);
 
                 GameObject prefab = junkPrefabs[Random.Range(0, junkPrefabs.Length)];
 
                 GameObject newJunk = PhotonNetwork.Instantiate(prefab.name, pos, Quaternion.identity);
 
+                //  Assign random X direction (only master client decides direction)
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    float randomXForce = Random.Range(0f, 2f);
+                    randomXForce = randomNo == 0 ? randomXForce : -randomXForce;
+                    Vector2 force = new Vector2(randomXForce, 0) * moveSpeed;
+
+                    Rigidbody2D rb = newJunk.GetComponent<Rigidbody2D>();
+                    if (rb != null)
+                    {
+                        rb.linearVelocity = force; // give motion in x
+                    }
+                }
 
                 activeJunks.Add(newJunk);
             }

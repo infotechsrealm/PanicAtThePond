@@ -2126,7 +2126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons: {fileID: 600507759}
-  maxPlayers: 7
+  maxPlayers: 3
 --- !u!4 &2025477154
 Transform:
   m_ObjectHideFlags: 0

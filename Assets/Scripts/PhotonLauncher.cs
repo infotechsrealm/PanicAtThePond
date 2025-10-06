@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 
 public class PhotonLauncher : MonoBehaviourPunCallbacks
@@ -62,9 +63,20 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby(); // Optional: auto join lobby
     }
 
-    public override void OnDisconnected(Photon.Realtime.DisconnectCause cause)
+    public override void OnDisconnected(DisconnectCause cause)
     {
-        Debug.Log("Disconnected: " + cause);
+        Debug.LogWarning("Disconnected: " + cause);
+
+       DashManager dashManager = DashManager.instance;
+        dashManager.coustomButtons.SetActive(false);
+        dashManager.randomButtons.SetActive(false);
+        dashManager.selectButtons.SetActive(false);
+
+        if (cause == DisconnectCause.ServerTimeout ||
+            cause == DisconnectCause.ExceptionOnConnect)
+        {
+            PhotonNetwork.Reconnect();
+        }
     }
 
     public void ShowButton(bool isEnable)

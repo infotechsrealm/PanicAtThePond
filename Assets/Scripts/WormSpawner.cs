@@ -45,20 +45,29 @@ public class WormSpawner : MonoBehaviourPunCallbacks
     {
         if (canSpawn)
         {
-            float x = Random.Range(-xRange, xRange);
-            float y = Random.Range(-yRange, 1);
-            Vector2 pos = new Vector2(x, y);
-
-            GameObject worm =  PhotonNetwork.Instantiate("Worm", pos, Quaternion.identity).gameObject;
-            if(FishermanController.instance!=null)
+            for (int i = 0; i < activeWorms.Count; i++)
             {
-                worm.GetComponent<AudioSource>().mute = true;
+                if (activeWorms[i] == null)
+                {
+                    activeWorms.Remove(activeWorms[i]);
+                }
             }
-            activeWorms.Add(worm);
+            if (activeWorms.Count < 5)
+            {
+                float x = Random.Range(-xRange, xRange);
+                float y = Random.Range(-yRange, 1);
+                Vector2 pos = new Vector2(x, y);
 
+                GameObject worm = PhotonNetwork.Instantiate("Worm", pos, Quaternion.identity).gameObject;
+                if (FishermanController.instance != null)
+                {
+                    worm.GetComponent<AudioSource>().mute = true;
+                }
+                activeWorms.Add(worm);
+            }
         }
 
-        yield return new WaitForSeconds(Random.Range(3f, 7f));
+        yield return new WaitForSeconds(Random.Range(5f, 10f));
         StartCoroutine(SpawnWorm());
 
     }
