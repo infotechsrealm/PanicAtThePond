@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fa8225fab1b7c27469f5a1de445e9fdc
+guid: 761c0797c7013a04db0e49a1ea27c26f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8854947253659785623
-    second: Dead5_0
+      213: -8065282898222621404
+    second: BG 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 75
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dead5_0
+      name: BG 2_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 6
-        width: 32
-        height: 24
+        x: 0
+        y: 0
+        width: 800
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 966a9c86368ec1580800000000000000
-      internalID: -8854947253659785623
+      spriteID: 42d586e8feb521090800000000000000
+      internalID: -8065282898222621404
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dead5_0: -8854947253659785623
+      BG 2_0: -8065282898222621404
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

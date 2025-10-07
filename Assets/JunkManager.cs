@@ -43,13 +43,13 @@ public class JunkManager : MonoBehaviourPunCallbacks
         {
             transform.position = new Vector2(transform.position.x, -4f);
         }
-        rb.gravityScale = 0;
-        rb.linearVelocity = Vector2.zero;
         isFreezed = true;
-        rb.isKinematic = true;
+        rb.linearVelocity = Vector2.zero;
+        rb.gravityScale = 0f;
+        rb.bodyType = RigidbodyType2D.Kinematic; // stops all physics
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) 
     {
         Debug.Log("collision  = "+collision.gameObject.tag);
         if(collision.gameObject.tag == "Water")
@@ -61,8 +61,6 @@ public class JunkManager : MonoBehaviourPunCallbacks
             }
         }
     }
-
-
 
     IEnumerator ReduceGravity()
     {
@@ -87,5 +85,4 @@ public class JunkManager : MonoBehaviourPunCallbacks
         rb.gravityScale = 0.01f;
         rb.linearVelocity *= 0.5f; // slow a bit more at the end
     }
-
 }

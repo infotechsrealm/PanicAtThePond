@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WormSpawner : MonoBehaviourPunCallbacks
 {
-    public GameObject wormPrefab, goldWormPrefab;
+    public GameObject wormPrefab, goldFish;
     public float spawnInterval = 3f;
     public float xRange = 8f;
     public float yRange = 4f;
@@ -31,7 +31,7 @@ public class WormSpawner : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             LoadSpawnWorm();
-            SpawnGoldWorm();
+            Invoke(nameof(SpawnGoldWorm),Random.Range(5,10));
         }
     }
 
@@ -58,7 +58,7 @@ public class WormSpawner : MonoBehaviourPunCallbacks
                 float y = Random.Range(-yRange, 1);
                 Vector2 pos = new Vector2(x, y);
 
-                GameObject worm = PhotonNetwork.Instantiate("Worm", pos, Quaternion.identity).gameObject;
+                GameObject worm = PhotonNetwork.Instantiate(wormPrefab.name, pos, Quaternion.identity).gameObject;
                 if (FishermanController.instance != null)
                 {
                     worm.GetComponent<AudioSource>().mute = true;
@@ -74,11 +74,13 @@ public class WormSpawner : MonoBehaviourPunCallbacks
 
     void SpawnGoldWorm()
     {
-        float x = Random.Range(-xRange, xRange);
+        int r = Random.Range(0, 2);
+        float x = r == 0 ? -10f : 10f;
+
         float y = Random.Range(-yRange, 1);
         Vector2 pos = new Vector2(x, y);
 
-         PhotonNetwork.Instantiate("GoldWorm", pos, Quaternion.identity);
+        PhotonNetwork.Instantiate(goldFish.name, pos, Quaternion.identity);
     }
 
     public void StopSpawning()

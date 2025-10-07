@@ -116,7 +116,7 @@ public class RandomRoomManager : MonoBehaviourPunCallbacks
 
     private IEnumerator StartTimer()
     {
-        int countdown = 10;
+        int countdown = 120;
 
         while (countdown >= 0)
         {
@@ -127,8 +127,17 @@ public class RandomRoomManager : MonoBehaviourPunCallbacks
                 status.text = "";
 
             countdown--;
+            if (PhotonNetwork.CurrentRoom.PlayerCount == maxPlayers)
+            {
+                break;
+            }
         }
 
+        StartGame();
+    }
+
+    void  StartGame()
+    {
         if (PhotonNetwork.CurrentRoom.PlayerCount <= 1)
         {
             RoomStatus("", false);
@@ -149,7 +158,6 @@ public class RandomRoomManager : MonoBehaviourPunCallbacks
                 Debug.Log("MasterClient loading Play Scene...");
                 PhotonNetwork.LoadLevel("Play");
             }
-            //photonView.RPC(nameof(LoadPlaySceneMasterClient), RpcTarget.MasterClient);
         }
     }
 

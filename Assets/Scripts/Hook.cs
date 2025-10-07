@@ -160,7 +160,7 @@ public class Hook : MonoBehaviourPunCallbacks
         }
 
         FishermanController fc = FishermanController.instance;
-        if (wormParent.childCount != 0)
+        /*if (wormParent.childCount != 0)
         {
             if (wormParent.GetChild(0).GetComponent<FishController>())
             {
@@ -172,7 +172,10 @@ public class Hook : MonoBehaviourPunCallbacks
         else
         {
             fc.OnFightAnimation(false);
-        }
+        }*/
+
+        fc.OnFishGoatAnimation(true);
+
 
         FishController[] fishes = GetComponentsInChildren<FishController>();
 
@@ -201,7 +204,7 @@ public class Hook : MonoBehaviourPunCallbacks
             f.transform.localScale = Vector3.zero;
         }
 
-        DestroyParentWithChildren(this.gameObject);
+        PhotonNetwork.Destroy(gameObject);
     }
 
     [PunRPC]
@@ -237,7 +240,7 @@ public class Hook : MonoBehaviourPunCallbacks
             {
                 if (myFish.catchadeFish)
                 {
-                    myFish.CallDestroyCatchFishRPC();
+                    myFish.DestroyCatchFish();
                 }
             }
         }

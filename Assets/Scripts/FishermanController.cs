@@ -32,7 +32,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
     internal bool isMoving = false;
     internal bool isFisherMan = false;
     internal bool isCanCast = true;
-    internal bool isIdel = false, isRight = false, isLeft = true;
+    public bool isIdel = false, isRight = false, isLeft = true;
     private bool meterIncreasing = true;
 
 
@@ -81,6 +81,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             GameManager.instance.hungerBar.SetActive(false);
             GameManager.instance.fisherManObjects.SetActive(true);
             GameManager.instance.LoadPreloderOnOff(false);
+
             JunkSpawner.instance.canSpawn = true;
             WormSpawner.instance.canSpawn = true;
             JunkSpawner.instance.LoadSpawnJunk();
@@ -90,10 +91,18 @@ public class FishermanController : MonoBehaviourPunCallbacks
             StartCoroutine(PlayCricketRandomly());
             GameManager.instance.CallFisherManSpawnedRPC(true);
 
-        }
+            GameManager.instance.Bg3.SetActive(true);
 
+        }
+        else
+        {
+            GameManager.instance.Bg2.SetActive(true);
+
+        }
+       
     }
 
+    
     IEnumerator PlayCricketRandomly()
     {
         while (true)
@@ -287,9 +296,10 @@ public class FishermanController : MonoBehaviourPunCallbacks
         {
             if (isCasting && (!Input.GetKey(castKey1) || !Input.GetKey(castKey2)))
             {
-                ReleaseCast();
+               StartCoroutine(ReleaseCast());
             }
         }
+
     }
 
     IEnumerator CastMeterRoutine()
@@ -310,7 +320,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         }
     }
 
-    void ReleaseCast()
+    IEnumerator  ReleaseCast()
     {
         isCasting = false;
         isCanMove = false;
@@ -319,7 +329,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
         StopCoroutine(CastMeterRoutine());
 
-        Hook hook = PhotonNetwork.Instantiate("hookPrefab", currentRod.position, Quaternion.identity).GetComponent<Hook>();
 
         if (currentRod == leftRod)
         {
@@ -330,6 +339,9 @@ public class FishermanController : MonoBehaviourPunCallbacks
             animator.SetTrigger("casting_r");
         }
 
+
+        yield return new WaitForSeconds(0.5f);
+        Hook hook = PhotonNetwork.Instantiate("hookPrefab", currentRod.position, Quaternion.identity).GetComponent<Hook>();
         if (hook != null)
         {
             int hookID = hook.GetComponent<PhotonView>().ViewID;
@@ -417,6 +429,8 @@ public class FishermanController : MonoBehaviourPunCallbacks
                     {
                         animator.SetBool("isWin_r", true);
                     }
+
+                    Debug.Log("Fisherman Win!");
                     GameManager.instance.ShowGameOver("Fisherman Win!");
                 }
             }
@@ -533,6 +547,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
     public void OnFightAnimation(bool res)
     {
+        Debug.Log("OnFightAnimation called =" + res);
         if (isRight)
         {
             animator.SetBool("isFighting_r", res);

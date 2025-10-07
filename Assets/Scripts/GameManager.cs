@@ -2,6 +2,7 @@
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviourPunCallbacks
 {
     [Header("Player Setup")]
-    internal int totalPlayers;
+    public int totalPlayers;
     public GameObject fishermanPrefab;
     public GameObject fishPrefab;
 
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject fisherManObjects;
     public GameObject preloderUI;
 
-    public Transform camera;
+   // public Transform camera;
 
     public FishController myFish;
     public List<FishController> allFishes = new List<FishController> ();
@@ -57,6 +58,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     internal bool fisherManIsSpawned = false;
     internal bool isFisherMan = false;
     internal bool goldWormEatByFish = false;
+
+    public GameObject Bg2, Bg3;
 
     private void Awake()
     {
@@ -108,8 +111,18 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void LoadSpawnFisherman()
     {
+      
         LoadPreloderOnOff(true);
         Invoke(nameof(SpawnFisherman),4f);
+    }
+    [PunRPC]
+    public void tempShowBG()
+    {
+        if (!isFisherMan)
+        {
+            Bg3.SetActive(true);
+        }
+
     }
 
     public void SpawnFisherman()
@@ -117,9 +130,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         // Spawn Fisherman
         photonView.RPC("FisherManSpawned", RpcTarget.All, true);
 
-        PhotonNetwork.Instantiate("FisherMan", new Vector3(0f, 10f, 0f), Quaternion.identity);
+        PhotonNetwork.Instantiate("FisherMan", new Vector3(0f, 3.15f, 0f), Quaternion.identity);
 
-        camera.position = new Vector3(0f, 10f, -10f);
+        Bg3.SetActive(true);
+        // camera.position = new Vector3(0f, 3f, -10f);
         // Worm calculation
         int fishCount = totalPlayers - 1;
         fishermanWorms = fishCount * baseWormMultiplier;
@@ -132,6 +146,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(true);
+            if (WormSpawner.instance.canSpawn)
+            {
+                WormSpawner.instance.canSpawn = false;
+            }
         }
 
         if (gameOverText != null)
@@ -260,7 +278,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         Debug.Log("❌ Player Left Room: " + otherPlayer.NickName + " | ID: " + otherPlayer.ActorNumber + " | currun Player = " + PhotonNetwork.CurrentRoom.PlayerCount); 
         if (PhotonNetwork.IsMasterClient)
         {
-            totalPlayers--;
+            //  totalPlayers--;
+            FishermanController.instance.catchadFish++;
 
             int curruntPlayer = PhotonNetwork.CurrentRoom.PlayerCount;
             if (curruntPlayer <= 1)
@@ -304,4 +323,20 @@ public class GameManager : MonoBehaviourPunCallbacks
         fisherManIsSpawned = res;
     }
 
+   /* [PunRPC]
+    public void TotlePlayerDecrese()
+    {
+        totalPlayers--;
+    }
+
+    private void OnApplicationQuit()
+    {
+        if(!isFisherMan)
+        {
+            if(!myFish.catchadeFish)
+            {
+                photonView.RPC(nameof(TotlePlayerDecrese), RpcTarget.MasterClient);
+            }
+        }
+    }*/
 }

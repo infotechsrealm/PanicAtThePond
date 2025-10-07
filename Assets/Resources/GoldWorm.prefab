@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6273719866981327419}
   - component: {fileID: -1128198251517269769}
   - component: {fileID: 8127194833636873}
+  - component: {fileID: 5856468522629168883}
   m_Layer: 0
   m_Name: GoldWorm
   m_TagString: GoldTrout
@@ -255,3 +256,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5856468522629168883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8792907718929382007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4946c1cba2b8e0e499f7563baf04dbef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

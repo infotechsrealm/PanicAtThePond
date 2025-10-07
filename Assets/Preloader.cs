@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 
 public class Preloader : MonoBehaviour
@@ -11,3 +12,6 @@ public class Preloader : MonoBehaviour
         transform.Rotate(0f, 0f, -speed * Time.deltaTime);
     }
 }
+
+
+

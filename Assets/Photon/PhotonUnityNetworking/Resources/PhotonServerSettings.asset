@@ -68,6 +68,8 @@ MonoBehaviour:
   - FisherManSpawned
   - FreezeObject
   - UpdateTimerUI
+  - tempShowBG
+  - TotlePlayerDecrese
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

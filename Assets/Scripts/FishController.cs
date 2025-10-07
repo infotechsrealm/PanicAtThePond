@@ -17,7 +17,7 @@ public class FishController : MonoBehaviourPunCallbacks
     private Rigidbody2D rb;
 
     internal bool canMove = true;
-    internal bool catchadeFish = false;
+    public bool catchadeFish = false;
 
     public static FishController instance;
 
@@ -102,7 +102,10 @@ public class FishController : MonoBehaviourPunCallbacks
                 audioSourceForFishMove.Play();
             }
 
-            animator.SetBool("isMove", true);
+            if (!animator.GetBool("isMove"))
+            {
+                animator.SetBool("isMove", true);
+            }
         }
         else
         {
@@ -110,7 +113,12 @@ public class FishController : MonoBehaviourPunCallbacks
             {
                 audioSourceForFishMove.Pause();
             }
-            animator.SetBool("isMove", false);
+
+            if (animator.GetBool("isMove"))
+            {
+                animator.SetBool("isMove", false);
+            }
+
         }
 
         rb.linearVelocity = new Vector2(moveX, moveY) * speed;
@@ -215,9 +223,13 @@ public class FishController : MonoBehaviourPunCallbacks
 
             if (other.CompareTag("GoldTrout"))
             {
+                animator.SetTrigger("isEat");
+                GameManager.instance.isFisherMan= true;
                 PlaySFX(fishEatWarmSound);
                 GameManager.instance.goldWormEatByFish = true;
                 audioSource.Play();
+                other.gameObject.transform.localScale = Vector3.zero;
+                other.gameObject.GetComponent<PolygonCollider2D>().enabled=false;
                 StartCoroutine(ChangeHost(other.gameObject));
             }
 
@@ -270,6 +282,16 @@ public class FishController : MonoBehaviourPunCallbacks
             GameManager.instance.LoadGetIdAndChangeHost();
             PhotonNetwork.Destroy(gameObject);
         }
+    }
+
+    [PunRPC]
+    public void tempShowBG()
+    {
+        if (!GameManager.instance.isFisherMan && photonView.IsMine)
+        {
+            GameManager.instance.Bg3.SetActive(true);
+        }
+
     }
 
     [PunRPC]
@@ -418,14 +440,12 @@ public class FishController : MonoBehaviourPunCallbacks
     [PunRPC]
     public void DestroyCatchFish()
     {
-        if(catchadeFish)
+        if (catchadeFish)
         {
             if (photonView.IsMine)
             {
-                if (transform.localScale == Vector3.zero)
-                {
-                    PhotonNetwork.Destroy(gameObject);
-                }
+                Debug.Log("ghhssfhn");
+                PhotonNetwork.Destroy(gameObject);
             }
         }
     }

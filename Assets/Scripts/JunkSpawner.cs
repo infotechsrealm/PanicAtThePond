@@ -62,18 +62,14 @@ public class JunkSpawner : MonoBehaviour
 
                 GameObject newJunk = PhotonNetwork.Instantiate(prefab.name, pos, Quaternion.identity);
 
-                //  Assign random X direction (only master client decides direction)
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    float randomXForce = Random.Range(0f, 2f);
-                    randomXForce = randomNo == 0 ? randomXForce : -randomXForce;
-                    Vector2 force = new Vector2(randomXForce, 0) * moveSpeed;
+                float randomXForce = Random.Range(0f, 2f);
+                randomXForce = randomNo == 0 ? randomXForce : -randomXForce;
+                Vector2 force = new Vector2(randomXForce, 0) * moveSpeed;
 
-                    Rigidbody2D rb = newJunk.GetComponent<Rigidbody2D>();
-                    if (rb != null)
-                    {
-                        rb.linearVelocity = force; // give motion in x
-                    }
+                Rigidbody2D rb = newJunk.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    rb.linearVelocity = force; // give motion in x
                 }
 
                 activeJunks.Add(newJunk);
