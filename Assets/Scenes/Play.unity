@@ -1789,6 +1789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f9f8bf3144f654e9d201df8a3c9b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalPlayers: 0
   fishermanPrefab: {fileID: 4221548032391945581, guid: b839bcb9e6837534c89107afe33ac208, type: 3}
   fishPrefab: {fileID: 7780540918564372881, guid: 594a00d5a8194784f970286d56fbf078, type: 3}
   baseWormMultiplier: 3
@@ -2335,7 +2336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1299129752
 Transform:
   m_ObjectHideFlags: 0

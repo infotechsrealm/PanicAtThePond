@@ -10,6 +10,8 @@ public class JunkManager : MonoBehaviourPunCallbacks
     public AudioSource audioSource;
     internal bool inWater = false;
     public GameObject waterDrop;
+    public PhotonRigidbody2DView photonRigidbody2DView;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -43,6 +45,7 @@ public class JunkManager : MonoBehaviourPunCallbacks
         {
             transform.position = new Vector2(transform.position.x, -4f);
         }
+        photonRigidbody2DView.enabled = false;
         isFreezed = true;
         rb.linearVelocity = Vector2.zero;
         rb.gravityScale = 0f;

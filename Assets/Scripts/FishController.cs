@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FishController : MonoBehaviourPunCallbacks
 {
+    public PhotonTransformViewClassic photonTransformViewClassic;
+
     [Header("Fish Stats")]
     public int hunger = 100;
     public float speed = 5f;
@@ -28,8 +30,6 @@ public class FishController : MonoBehaviourPunCallbacks
     public Transform junkHolder;
     private GameObject carriedJunk;
 
-    // Event for fish death
-    public static event System.Action<FishController> OnFishDied;
 
     public int myPlayerID;
 
@@ -94,7 +94,6 @@ public class FishController : MonoBehaviourPunCallbacks
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
-        // Jab bhi koi key press ho (X ya Y), tab function call karo
         if (moveX != 0 || moveY != 0)
         {
             if(!audioSourceForFishMove.isPlaying)
@@ -149,16 +148,19 @@ public class FishController : MonoBehaviourPunCallbacks
     {
         animator.SetBool("isFight", false);
         animator.SetBool("isDead", true);
+
         canMove = false;
         isDead = true;
 
         gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         float targetY = maxBounds.y; // Surface
         HungerSystem.instance.canDecrease = false;
+
         if (GameManager.instance != null && GameManager.instance.gameOverText != null)
         {
             GameManager.instance.ShowGameOver("You lose!");
         }
+
         while (transform.position.y < targetY)
         {
             transform.position += Vector3.up * floatSpeed * Time.deltaTime;
@@ -169,27 +171,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
         transform.position = new Vector3(transform.position.x, targetY, transform.position.z);
 
-        // Trigger event
-        OnFishDied?.Invoke(this);
-
         PhotonNetwork.LeaveRoom();
-    }
-
-    // Optional: Auto swim logic when player control is off
-    public float Autospeed = 3f;
-    internal Vector3 direction = Vector3.left;
-    public void AutoFishMove()
-    {
-        if (transform.position.x > 7.5)
-            direction = Vector3.left;
-        else if (transform.position.x < -7.5)
-            direction = Vector3.right;
-
-        transform.localScale = (direction.x < 0) ? new Vector3(originalScaleX, originalScaleY, 1)
-                                                 : new Vector3(-originalScaleX, originalScaleY, 1);
-
-        transform.position += direction * Autospeed * Time.deltaTime;
-        transform.position = new Vector3(transform.position.x, -2f, transform.position.z);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -224,12 +206,14 @@ public class FishController : MonoBehaviourPunCallbacks
             if (other.CompareTag("GoldTrout"))
             {
                 animator.SetTrigger("isEat");
+
                 GameManager.instance.isFisherMan= true;
+
                 PlaySFX(fishEatWarmSound);
                 GameManager.instance.goldWormEatByFish = true;
                 audioSource.Play();
                 other.gameObject.transform.localScale = Vector3.zero;
-                other.gameObject.GetComponent<PolygonCollider2D>().enabled=false;
+                other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
                 StartCoroutine(ChangeHost(other.gameObject));
             }
 
@@ -238,6 +222,7 @@ public class FishController : MonoBehaviourPunCallbacks
                 PlaySFX(fishEatWarmSound);
 
                 animator.SetTrigger("isEat");
+
                 if (PhotonNetwork.IsMasterClient)
                 {
                     PhotonNetwork.Destroy(other.gameObject);
@@ -258,7 +243,9 @@ public class FishController : MonoBehaviourPunCallbacks
                 junk.CallFreezeObjectRPC();
                 carriedJunk.transform.SetParent(junkHolder);
                 carriedJunk.transform.localPosition = Vector3.zero;
+
                 carriedJunk.GetComponent<PolygonCollider2D>().enabled = false;
+
                 int viewId = other.GetComponent<PhotonView>().ViewID;
                 photonView.RPC(nameof(SetJunkInFish), RpcTarget.OthersBuffered, viewId);
             }
@@ -285,27 +272,11 @@ public class FishController : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    public void tempShowBG()
-    {
-        if (!GameManager.instance.isFisherMan && photonView.IsMine)
-        {
-            GameManager.instance.Bg3.SetActive(true);
-        }
-
-    }
-
-    [PunRPC]
     public void LoadDestroyAllWormsRPC()
     {
         WormSpawner.instance.DestroyAllWorms();
     }
 
-    [PunRPC]
-    void RequestDestroy(int viewId)
-    {
-        GameObject obj = PhotonView.Find(viewId).gameObject;
-        PhotonNetwork.Destroy(obj);
-    }
 
     [PunRPC]
     void SetJunkInFish(int viewId)
@@ -316,15 +287,19 @@ public class FishController : MonoBehaviourPunCallbacks
         carriedJunk.transform.localPosition = Vector3.zero;
     }
 
+
     [PunRPC]
     void DestroyWormRPC(int viewID)
     {
-        PhotonView target = PhotonView.Find(viewID);
-        if (target != null)
+        PhotonView pv = PhotonView.Find(viewID);
+        if (pv != null)
         {
-            PhotonNetwork.Destroy(target.gameObject);
+            if (PhotonNetwork.IsMasterClient)
+                PhotonNetwork.Destroy(pv.gameObject);
         }
     }
+
+
 
     void DropJunkToHook()
     {
@@ -346,7 +321,6 @@ public class FishController : MonoBehaviourPunCallbacks
         {
             Debug.LogWarning("wormParent not found inside Hook!");
         }
-
      
         hook.CallRpcToReturnRod();
         carriedJunk = null;
@@ -363,12 +337,13 @@ public class FishController : MonoBehaviourPunCallbacks
         carriedJunk = null;
     }
 
-    public void PutFishInHookRPC()
+    public void PutFishInHook()
     {
         Debug.Log("PutFishInHookRPC callled");
+        photonTransformViewClassic.enabled = false;
         int fishViewID = GameManager.instance.myFish.GetComponent<PhotonView>().ViewID;
         int hookViewID = Hook.instance.GetComponent<PhotonView>().ViewID;
-        photonView.RPC(nameof(PutFishInHook), RpcTarget.All, fishViewID, hookViewID);
+        photonView.RPC(nameof(PutFishInHookRPC), RpcTarget.All, fishViewID, hookViewID);
         if (photonView.IsMine)
         {
             if (GameManager.instance != null && GameManager.instance.gameOverText != null)
@@ -416,16 +391,16 @@ public class FishController : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    public void PutFishInHook(int fishId,int hookId)
+    public void PutFishInHookRPC(int fishId,int hookId)
     {
         GameObject fish = PhotonView.Find(fishId).gameObject;
+        fish.GetComponent<PhotonTransformViewClassic>().enabled = false;
         Hook hook = PhotonView.Find(hookId).GetComponent<Hook>();
         Transform fishParent = hook.wormParent;
         fish.transform.GetComponent<PolygonCollider2D>().enabled = false;
         fish.transform.SetParent(fishParent);
         fish.transform.localPosition = Vector3.zero;
         fish.transform.eulerAngles = new Vector3(0f, 0f, -90f);
-        fish.GetComponent<PhotonTransformViewClassic>().enabled = false;
         if (catchadeFish)
         {
             hook.CallRpcToReturnRod();          

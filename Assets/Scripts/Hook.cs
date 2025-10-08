@@ -140,72 +140,56 @@ public class Hook : MonoBehaviourPunCallbacks
 
     private IEnumerator ReturnToRod()
     {
-        if (isReturning || !PhotonNetwork.IsMasterClient)
+        if (!isReturning && PhotonNetwork.IsMasterClient)
         {
-            yield return null;
-        }
+            hookBack.Play();
+            isReturning = true;
+            Vector3 target = rodTip;
 
-        hookBack.Play();
-        isReturning = true;
-        Vector3 target = rodTip;
-
-        // Detach worm from hook so it stays in scene
-        if (wormInstance != null)
-        {
-            PhotonView wormPV = wormInstance.GetComponent<PhotonView>();
-            photonView.RPC(nameof(DropWormRpc), RpcTarget.AllBuffered, wormPV.ViewID);
-            wormInstance.transform.parent = null; // worm ko hook se alag kar do
-            wormInstance = null; // reference clear
-            hasWorm = false;
-        }
-
-        FishermanController fc = FishermanController.instance;
-        /*if (wormParent.childCount != 0)
-        {
-            if (wormParent.GetChild(0).GetComponent<FishController>())
+            // Detach worm from hook so it stays in scene
+            if (wormInstance != null)
             {
-                fc.OnFightAnimation(false);
+                PhotonView wormPV = wormInstance.GetComponent<PhotonView>();
+                photonView.RPC(nameof(DropWormRpc), RpcTarget.AllBuffered, wormPV.ViewID);
+                wormInstance.transform.parent = null; // worm ko hook se alag kar do
+                wormInstance = null; // reference clear
+                hasWorm = false;
             }
+
+            FishermanController fc = FishermanController.instance;
             fc.OnFishGoatAnimation(true);
 
-        }
-        else
-        {
-            fc.OnFightAnimation(false);
-        }*/
+            FishController[] fishes = GetComponentsInChildren<FishController>();
 
-        fc.OnFishGoatAnimation(true);
-
-
-        FishController[] fishes = GetComponentsInChildren<FishController>();
-
-        while (Vector3.Distance(transform.position, target) > 0.05f)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, target, dropSpeed * 1.5f * Time.deltaTime);
-            yield return null;
-        }
-
-        if (wormParent.childCount != 0)
-        {
-            fc.PlaySFX(fishCatched);
-            if (wormParent.GetChild(0).GetComponent<FishController>())
+            while (Vector3.Distance(transform.position, target) > 0.05f)
             {
-                fc.PlaySFX(smallVictory);
+                transform.position = Vector3.MoveTowards(transform.position, target, dropSpeed * 1.5f * Time.deltaTime);
+                yield return null;
             }
-        }
+
+            if (wormParent.childCount != 0)
+            {
+                fc.PlaySFX(fishCatched);
+                if (wormParent.GetChild(0).GetComponent<FishController>())
+                {
+                    fc.PlaySFX(smallVictory);
+                }
+            }
 
             fc.isCanMove = true;
-        fc.isCanCast = true;
-        fc.OnFishGoatAnimation(false);
-        fc.OnReeling();
+            fc.isCanCast = true;
+            fc.OnFishGoatAnimation(false);
+            fc.OnReeling();
 
-        foreach (FishController f in fishes)
-        {
-            f.transform.localScale = Vector3.zero;
+            foreach (FishController f in fishes)
+            {
+                f.transform.localScale = Vector3.zero;
+            }
+
+            PhotonNetwork.Destroy(gameObject);
         }
-
-        PhotonNetwork.Destroy(gameObject);
     }
+
 
     [PunRPC]
     void DropWormRpc(int wormID)

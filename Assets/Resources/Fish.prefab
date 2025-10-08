@@ -246,7 +246,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: fec9fca509575e7468d3e0d615bb87a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -354,6 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c248dc09ce10a4eab2b3bb41a5fd09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  photonTransformViewClassic: {fileID: 4218648480345521623}
   hunger: 100
   speed: 2.5
   minBounds: {x: -8, y: -4}
@@ -367,7 +368,6 @@ MonoBehaviour:
   fishEatWarmSound: {fileID: 8300000, guid: 0d5c584fe48623f4eb6234f1b05d42d2, type: 3}
   fishCameToSurfaceSound: {fileID: 8300000, guid: aef8c276d106a9540b2d95b29573d474, type: 3}
   animator: {fileID: 250797804069210921}
-  Autospeed: 3
 --- !u!114 &4218648480345521623
 MonoBehaviour:
   m_ObjectHideFlags: 0

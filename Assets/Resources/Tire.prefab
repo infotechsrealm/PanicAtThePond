@@ -185,6 +185,7 @@ MonoBehaviour:
   rb: {fileID: 4102529295903683753}
   audioSource: {fileID: 389855734204177252}
   waterDrop: {fileID: 9090747191646513983, guid: 6acab6ae61565764fb844a1cf8007b6d, type: 3}
+  photonRigidbody2DView: {fileID: 7681308973442735936}
 --- !u!50 &4102529295903683753
 Rigidbody2D:
   serializedVersion: 5
