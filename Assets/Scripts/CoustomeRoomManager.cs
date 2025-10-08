@@ -12,16 +12,19 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     [Header("References")]
     internal PhotonLauncher PhotonLauncher;
 
-    public Text createRoomName, joinRoomName;
+    public Text createRoomName, joinRoomName,playerLimmit;
     public Text status; 
 
     public Text playersListText; // Assign in Inspector
     public Text waitingText;
 
+
+    public CreateJoinManager createJoinManager;
+
+
     private void Start()
     {
         PhotonLauncher = PhotonLauncher.Instance;
-        maxPlayers = PhotonLauncher.maxPlayers;
         PhotonNetwork.AutomaticallySyncScene = true;
     }
 
@@ -43,17 +46,24 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         }
     }
 
+    GameObject preloder;
+
+
     // ------------------ Create Custome Room ------------------
     internal void CreateCustomeRoom()
     {
-        if(createRoomName.text == "")
+        Debug.Log(createRoomName.text.ToString() + "-" + playerLimmit.text.ToString());
+        if(createRoomName.text == "" || maxPlayers > 7)
         {
             return;
         }
-        if (PhotonLauncher != null)
-            PhotonLauncher.ShowButton(false);
+        createJoinManager.createPanel.SetActive(false);
+        Debug.Log("afsssssssssssssssssgu");
 
-        DashManager.instance.backButton.SetActive(false);
+        maxPlayers = int.Parse(playerLimmit.text);
+
+        preloder = Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
+
 
         string roomName = createRoomName.text;
         Debug.Log("roomName = " + roomName);
@@ -129,9 +139,15 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        if (preloder != null)
+        {
+            Destroy(preloder);
+        }
         Debug.Log("Joined Room: " + PhotonNetwork.CurrentRoom.Name +
-                  " | Players: " + PhotonNetwork.CurrentRoom.PlayerCount +
-                  " | MaxPlayers: " + maxPlayers);
+           " | Player Name: " + PhotonNetwork.NickName +
+           " | Players: " + PhotonNetwork.CurrentRoom.PlayerCount +
+           " | MaxPlayers: " + PhotonNetwork.CurrentRoom.MaxPlayers);
+
 
         RoomStatus("RoomName = '" + PhotonNetwork.CurrentRoom.Name + "' Joined successfully.",true);
 

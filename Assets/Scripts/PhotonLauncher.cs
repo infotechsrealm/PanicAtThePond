@@ -5,11 +5,14 @@ using UnityEngine;
 public class PhotonLauncher : MonoBehaviourPunCallbacks
 {
 
-    public GameObject buttons;
 
     public static PhotonLauncher Instance;
 
     public int maxPlayers = 3;
+
+    public bool isCreating= false;
+    public CreateJoinManager createJoinManager;
+    public GameObject buttons;
 
     private void Awake()
     {
@@ -17,17 +20,13 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
         {
             Instance = this;
         }
-
-    }
-    void Start()
-    {
-        LaunchGame();
     }
 
+
+    GameObject preloder;
     public void LaunchGame()
     {
-        ShowButton(false);
-
+        preloder = Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
         if (!PhotonNetwork.IsConnected)
         {
             // Not connected → Connect to Photon
@@ -35,9 +34,6 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
         }
         else
         {
-            // Already connected
-            ShowButton(true);
-
             // Agar lobby me nahi ho to join karo
             if (!PhotonNetwork.InLobby)
             {
@@ -45,29 +41,53 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
             }
             else
             {
-                ShowButton(true);
+                EnablePanel();
                 Debug.Log("Already in Lobby!");
             }
         }
     }
 
+    public void EnablePanel()
+    {
+        if(preloder != null)
+        {
+            Destroy(preloder);
+        }
+
+        createJoinManager.createAndJoinButtons.SetActive(false);
+
+        if (isCreating)
+        {
+            createJoinManager.createPanel.SetActive(true);
+            createJoinManager.JoinPanel.SetActive(false);
+        }
+        else
+        {
+            createJoinManager.JoinPanel.SetActive(true);
+            createJoinManager.createPanel.SetActive(false);
+        }
+    }
 
     public override void OnConnectedToMaster()
     {
         Debug.Log("Connected to Photon!");
-
-
-        ShowButton(true);
-
-
+        EnablePanel();
         PhotonNetwork.JoinLobby(); // Optional: auto join lobby
+    }
+
+    public void ShowButton(bool isEnable)
+    {
+        if (buttons != null)
+            buttons.SetActive(isEnable);
+        else
+            Debug.LogWarning("Buttons reference missing!");
     }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
         Debug.LogWarning("Disconnected: " + cause);
 
-       DashManager dashManager = DashManager.instance;
+        DashManager dashManager = DashManager.instance;
         dashManager.coustomButtons.SetActive(false);
         dashManager.randomButtons.SetActive(false);
         dashManager.selectButtons.SetActive(false);
@@ -77,13 +97,5 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.Reconnect();
         }
-    }
-
-    public void ShowButton(bool isEnable)
-    {
-        if (buttons != null)
-            buttons.SetActive(isEnable);
-        else
-            Debug.LogWarning("Buttons reference missing!");
     }
 }

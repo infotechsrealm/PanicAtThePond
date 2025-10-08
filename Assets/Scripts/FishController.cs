@@ -310,7 +310,7 @@ public class FishController : MonoBehaviourPunCallbacks
             HungerSystem.instance.AddHunger(75f);
 
             carriedJunk.transform.SetParent(hook.wormParent);
-            carriedJunk.transform.localPosition = Vector3.zero;
+            carriedJunk.transform.position = Vector3.zero;
 
             int viewId = hook.GetComponent<PhotonView>().ViewID;
             photonView.RPC(nameof(SetJunkInHook), RpcTarget.OthersBuffered, viewId);
@@ -333,14 +333,14 @@ public class FishController : MonoBehaviourPunCallbacks
         Hook hook = PhotonView.Find(viewId).GetComponent<Hook>();
         carriedJunk.GetComponent<PolygonCollider2D>().enabled = false;
         carriedJunk.transform.SetParent(hook.wormParent);
-        carriedJunk.transform.localPosition = Vector3.zero;
+        carriedJunk.transform.position = Vector3.zero;
         carriedJunk = null;
     }
 
     public void PutFishInHook()
     {
         Debug.Log("PutFishInHookRPC callled");
-        photonTransformViewClassic.enabled = false;
+       // photonTransformViewClassic.enabled = false;
         int fishViewID = GameManager.instance.myFish.GetComponent<PhotonView>().ViewID;
         int hookViewID = Hook.instance.GetComponent<PhotonView>().ViewID;
         photonView.RPC(nameof(PutFishInHookRPC), RpcTarget.All, fishViewID, hookViewID);
@@ -394,12 +394,12 @@ public class FishController : MonoBehaviourPunCallbacks
     public void PutFishInHookRPC(int fishId,int hookId)
     {
         GameObject fish = PhotonView.Find(fishId).gameObject;
+        fish.transform.localPosition = Vector3.zero;
         fish.GetComponent<PhotonTransformViewClassic>().enabled = false;
         Hook hook = PhotonView.Find(hookId).GetComponent<Hook>();
         Transform fishParent = hook.wormParent;
         fish.transform.GetComponent<PolygonCollider2D>().enabled = false;
         fish.transform.SetParent(fishParent);
-        fish.transform.localPosition = Vector3.zero;
         fish.transform.eulerAngles = new Vector3(0f, 0f, -90f);
         if (catchadeFish)
         {
