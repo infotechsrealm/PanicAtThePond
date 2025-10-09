@@ -1,11 +1,23 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 {
+    [Header("Water Type Toggles")]
+    public Toggle toggleAllVisible;
+    public Toggle toggleDeepWaters;
+    public Toggle toggleMurkyWaters;
+    public Toggle toggleClearWaters;
+    public ToggleGroup toggleGroup; // 🔹 Add this reference
+
+    private string selectedWaterType = "All Visible";
+
+    private bool listenersAdded = false;
+
     [Header("Room Settings")]
     internal int maxPlayers; // Max players per room
 
@@ -21,11 +33,19 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     public CreateJoinManager createJoinManager;
 
+    public GameObject hostLobby,clientLobby;
+
+    internal GameObject lobby;
 
     private void Start()
     {
         PhotonLauncher = PhotonLauncher.Instance;
         PhotonNetwork.AutomaticallySyncScene = true;
+
+        string randomNick = "Player_"  + Random.Range(100, 999);
+
+        // Assign it to the local player
+        PhotonNetwork.NickName = randomNick;
     }
 
     public void OnClickAction(string action)
@@ -40,7 +60,20 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
             case "Join":
                 {
-                    JoinCustomeRoom();
+                   // JoinCustomeRoom();
+                    JoinRandomAvailableRoom();
+                    break;
+                }
+
+            case "howToPlay":
+                {
+                    Instantiate(GS.instance.howToPlay, createJoinManager.transform);
+                    break;
+                }
+
+            case "Start":
+                {
+                    customeStartGame();
                     break;
                 }
         }
@@ -48,28 +81,30 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     GameObject preloder;
 
-
     // ------------------ Create Custome Room ------------------
     internal void CreateCustomeRoom()
     {
         Debug.Log(createRoomName.text.ToString() + "-" + playerLimmit.text.ToString());
-        if(createRoomName.text == "" || maxPlayers > 7)
+        maxPlayers = int.Parse(playerLimmit.text);
+
+        if (createRoomName.text == "" || maxPlayers > 7 || maxPlayers < 2)
         {
             return;
         }
+        lobby = hostLobby;
         createJoinManager.createPanel.SetActive(false);
         Debug.Log("afsssssssssssssssssgu");
 
-        maxPlayers = int.Parse(playerLimmit.text);
-
         preloder = Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
-
 
         string roomName = createRoomName.text;
         Debug.Log("roomName = " + roomName);
 
+
+
         RoomOptions options = new RoomOptions
         {
+            MaxPlayers = maxPlayers,
             IsOpen = true,
             IsVisible = true,
             Plugins = null // Must be null for PUN 2 Cloud
@@ -79,9 +114,34 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         PhotonNetwork.CreateRoom(roomName, options, TypedLobby.Default);
     }
 
+    public RoomTableManager roomManager; // assign in Inspector
+
+    public void JoinRandomAvailableRoom()
+    {
+
+        List<RoomInfo> joinableRooms = roomManager.GetJoinableRooms();
+
+        if (joinableRooms.Count == 0)
+        {
+            Debug.LogWarning("No available rooms to join!");
+            return;
+        }
+
+        lobby = clientLobby;
+
+        Debug.LogWarning("available rooms = " + joinableRooms.Count);
+
+        RoomInfo selectedRoom = joinableRooms[Random.Range(0, joinableRooms.Count)];
+        PhotonNetwork.JoinRoom(selectedRoom.Name);
+        Debug.Log("Joining room: " + selectedRoom.Name);
+    }
+
     // ------------------ Join Custome Room ------------------
+
     internal void JoinCustomeRoom()
     {
+
+       
         if (joinRoomName.text == "")
         {
             return;
@@ -143,6 +203,9 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         {
             Destroy(preloder);
         }
+        
+      
+
         Debug.Log("Joined Room: " + PhotonNetwork.CurrentRoom.Name +
            " | Player Name: " + PhotonNetwork.NickName +
            " | Players: " + PhotonNetwork.CurrentRoom.PlayerCount +
@@ -157,17 +220,27 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             Debug.Log("My Client ID = " + myId);
         }
 
-        // Update player list UI
-        UpdatePlayerListUI();
-
-        // If room full, lock it and load PlayScene (only MasterClient)
-        if (PhotonNetwork.CurrentRoom.PlayerCount >= maxPlayers)
+        if (PhotonNetwork.IsMasterClient)
         {
-           
+            InitializeWaterTypeToggles();
+            UpdatePlayerListUI();
+        }
+        else
+        {
+            createJoinManager.JoinPanel.SetActive(false);
+        }
+        lobby.SetActive(true);
+       
+
+      
+
+      /*  if (PhotonNetwork.CurrentRoom.PlayerCount >= maxPlayers)
+        {
+
             Debug.Log("Room is now full. No more players can join.");
 
             photonView.RPC(nameof(LoadPlaySceneMasterClient), RpcTarget.MasterClient);
-        }
+        }*/
     }
     void UpdatePlayerListUI()
     {
@@ -178,20 +251,30 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         playersListText.text = "Players = " + currentPlayers + " / " + maxPlayers;
     }
 
+    public void customeStartGame()
+    {
+        maxPlayers = PhotonNetwork.CurrentRoom.PlayerCount;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            photonView.RPC("LoadPlaySceneMasterClient", RpcTarget.All);
+        }
+       
+       // photonView.RPC(nameof(LoadPlaySceneMasterClient), RpcTarget.MasterClient);
+    }
+
     [PunRPC]
-    void LoadPlaySceneMasterClient()
+    public void LoadPlaySceneMasterClient()
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            Debug.Log("MasterClient starting countdown...");
-            StartCoroutine(StartPlaySceneCountdown());
+            PhotonNetwork.LoadLevel("Play");
         }
     }
 
 
     private IEnumerator StartPlaySceneCountdown()
     {
-        int countdown = 3;
+        int countdown = 0;
 
         while (countdown >= 0)
         {
@@ -275,5 +358,44 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     {
         status.text = meassage;
         waitingText.gameObject.SetActive(isOn);
+    }
+
+
+
+    public void InitializeWaterTypeToggles()
+    {
+        // 🔹 Assign toggles to same ToggleGroup (radio behavior)
+        toggleAllVisible.group = toggleGroup;
+        toggleDeepWaters.group = toggleGroup;
+        toggleMurkyWaters.group = toggleGroup;
+        toggleClearWaters.group = toggleGroup;
+
+        // 🔹 Set default ON toggle
+        toggleDeepWaters.isOn = true;
+
+        // 🔹 Add listeners
+        toggleAllVisible.onValueChanged.AddListener((isOn) => { if (isOn) SetWaterType("All Visible"); });
+        toggleDeepWaters.onValueChanged.AddListener((isOn) => { if (isOn) SetWaterType("Deep Waters"); });
+        toggleMurkyWaters.onValueChanged.AddListener((isOn) => { if (isOn) SetWaterType("Murky Waters"); });
+        toggleClearWaters.onValueChanged.AddListener((isOn) => { if (isOn) SetWaterType("Clear Waters"); });
+    }
+
+    void SetWaterType(string type)
+    {
+        selectedWaterType = type;
+        Debug.Log("Selected Water Type: " + selectedWaterType);
+
+        // (Optional) update room property for network sync
+        if (PhotonNetwork.InRoom)
+        {
+            ExitGames.Client.Photon.Hashtable roomProps = new ExitGames.Client.Photon.Hashtable();
+            roomProps["WaterType"] = selectedWaterType;
+            PhotonNetwork.CurrentRoom.SetCustomProperties(roomProps);
+        }
+    }
+
+    public string GetSelectedWaterType()
+    {
+        return selectedWaterType;
     }
 }

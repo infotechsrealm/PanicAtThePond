@@ -5,7 +5,9 @@ public class GS : MonoBehaviour
 {
 
     public static GS instance;
-    public GameObject createAndJoinPanel,preloder;
+    public GameObject createAndJoinPanel,
+                        howToPlay,
+                      preloder;
 
 
     private void Awake()

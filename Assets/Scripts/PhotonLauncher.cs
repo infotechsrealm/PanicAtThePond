@@ -26,9 +26,12 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
     GameObject preloder;
     public void LaunchGame()
     {
+        Debug.Log("LaunchGame!");
+
         preloder = Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
         if (!PhotonNetwork.IsConnected)
         {
+            Debug.Log("ConnectUsingSettings");
             // Not connected → Connect to Photon
             PhotonNetwork.ConnectUsingSettings();
         }
@@ -37,6 +40,8 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
             // Agar lobby me nahi ho to join karo
             if (!PhotonNetwork.InLobby)
             {
+                Debug.Log("JoinLobby");
+
                 PhotonNetwork.JoinLobby();
             }
             else
@@ -55,7 +60,7 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
         }
 
         createJoinManager.createAndJoinButtons.SetActive(false);
-
+        Debug.Log("called");
         if (isCreating)
         {
             createJoinManager.createPanel.SetActive(true);
@@ -71,9 +76,15 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log("Connected to Photon!");
-        EnablePanel();
         PhotonNetwork.JoinLobby(); // Optional: auto join lobby
     }
+
+    public override void OnJoinedLobby()
+    {
+        EnablePanel();
+        Debug.Log("✅ Joined Photon Lobby successfully!");
+    }
+
 
     public void ShowButton(bool isEnable)
     {
