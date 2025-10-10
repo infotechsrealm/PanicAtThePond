@@ -59,8 +59,8 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
             Destroy(preloder);
         }
 
-        createJoinManager.createAndJoinButtons.SetActive(false);
         Debug.Log("called");
+
         if (isCreating)
         {
             createJoinManager.createPanel.SetActive(true);

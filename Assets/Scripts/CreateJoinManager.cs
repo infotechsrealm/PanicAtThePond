@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class CreateJoinManager : MonoBehaviour
 {
-
     public GameObject createPanel, JoinPanel, createAndJoinButtons;
 
     public PhotonLauncher launcher;
@@ -25,9 +24,7 @@ public class CreateJoinManager : MonoBehaviour
         {
             case "Join":
                 {
-
                     Debug.Log("action = " + action);
-
                     launcher.isCreating = false;
                     launcher.LaunchGame();
                     break;
@@ -36,8 +33,6 @@ public class CreateJoinManager : MonoBehaviour
             case "Create":
                 {
                     Debug.Log("action = " + action);
-
-
                     launcher.isCreating = true;
                     launcher.LaunchGame();
                     break;
@@ -58,10 +53,6 @@ public class CreateJoinManager : MonoBehaviour
             Debug.Log("in room");
             PhotonNetwork.LeaveRoom();
         }
-        Destroy(gameObject);
-
+        createAndJoinButtons.SetActive(false);
     }
-
-
-
 }

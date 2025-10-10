@@ -92,15 +92,12 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             return;
         }
         lobby = hostLobby;
-        createJoinManager.createPanel.SetActive(false);
         Debug.Log("afsssssssssssssssssgu");
 
         preloder = Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
 
         string roomName = createRoomName.text;
         Debug.Log("roomName = " + roomName);
-
-
 
         RoomOptions options = new RoomOptions
         {
@@ -140,8 +137,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     internal void JoinCustomeRoom()
     {
-
-       
         if (joinRoomName.text == "")
         {
             return;
@@ -258,8 +253,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         {
             photonView.RPC("LoadPlaySceneMasterClient", RpcTarget.All);
         }
-       
-       // photonView.RPC(nameof(LoadPlaySceneMasterClient), RpcTarget.MasterClient);
     }
 
     [PunRPC]

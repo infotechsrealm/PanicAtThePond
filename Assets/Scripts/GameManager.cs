@@ -162,21 +162,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void RestartGame()
     {
             StartCoroutine(RestartAfterDisconnect());
-      /*  if (PhotonNetwork.IsMasterClient)
-        {
-        }
-        else
-        {
-            if (PhotonNetwork.InRoom)
-            {
-                StartCoroutine(RestartAfterLeftRoom());
-            }
-            else
-            {
-                SceneManager.LoadScene("Dash");
-
-            }
-        }*/
     }
 
     IEnumerator RestartAfterDisconnect()
