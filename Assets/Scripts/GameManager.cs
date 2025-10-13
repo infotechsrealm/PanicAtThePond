@@ -264,7 +264,11 @@ public class GameManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             //  totalPlayers--;
-            FishermanController.instance.catchadFish++;
+            if (FishermanController.instance != null)
+            {
+
+                FishermanController.instance.catchadFish++;
+            }
 
             int curruntPlayer = PhotonNetwork.CurrentRoom.PlayerCount;
             if (curruntPlayer <= 1)

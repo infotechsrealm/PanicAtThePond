@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1709602995624988312}
   - component: {fileID: 6920596923337446783}
   - component: {fileID: 8864681480846701088}
+  - component: {fileID: 8988354771703242872}
   m_Layer: 5
   m_Name: PreloderUI
   m_TagString: Untagged
@@ -77,6 +78,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8988354771703242872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721887084397798614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 538633f435f48eb4093c0d6f910ede81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 200
 --- !u!1 &4913271188385635710
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +181,6 @@ GameObject:
   - component: {fileID: 4349999495981948967}
   - component: {fileID: 7644293684538770118}
   - component: {fileID: 1714060781746486069}
-  - component: {fileID: 6222185704977606865}
   m_Layer: 5
   m_Name: Preloder
   m_TagString: Untagged
@@ -232,16 +245,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6222185704977606865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5716704008663150585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 538633f435f48eb4093c0d6f910ede81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 200

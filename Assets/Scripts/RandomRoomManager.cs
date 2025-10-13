@@ -42,9 +42,7 @@ public class RandomRoomManager : MonoBehaviourPunCallbacks
     // ------------------ Create Random Room ------------------
     internal void CreateRandomRoom()
     {
-        if (PhotonLauncher != null)
-            PhotonLauncher.ShowButton(false);
-
+        
         DashManager.instance.backButton.SetActive(false);
 
 
@@ -64,8 +62,7 @@ public class RandomRoomManager : MonoBehaviourPunCallbacks
     // ------------------  Join Random  Room ------------------
     internal void JoinRandomRoom()
     {
-        if (PhotonLauncher != null)
-            PhotonLauncher.ShowButton(false);
+      
 
         DashManager.instance.backButton.SetActive(false);
 
@@ -78,8 +75,7 @@ public class RandomRoomManager : MonoBehaviourPunCallbacks
 
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
-        if (PhotonLauncher != null)
-            PhotonLauncher.ShowButton(true);
+      
 
         DashManager.instance.backButton.SetActive(true);
 
@@ -234,9 +230,7 @@ public class RandomRoomManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        if (PhotonLauncher != null)
-            PhotonLauncher.ShowButton(true);
-
+       
         Debug.Log("Join Random Room Failed: " + returnCode);
 
         switch (returnCode)

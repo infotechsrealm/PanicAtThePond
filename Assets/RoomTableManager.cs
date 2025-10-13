@@ -1,30 +1,42 @@
-using UnityEngine;
-using UnityEngine.UI;
-using Photon.Pun;
+﻿using Photon.Pun;
 using Photon.Realtime;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class RoomTableManager : MonoBehaviourPunCallbacks
 {
     public Transform roomTablePanel;
     public GameObject roomRowPrefab;
 
-    public Dictionary<string, RoomInfo> aliveRooms = new Dictionary<string, RoomInfo>();
+   // public Dictionary<string, RoomInfo> aliveRooms = new Dictionary<string, RoomInfo>();
 
    
+   internal List<Button> allRommButtons = new List<Button>();
 
+    public static RoomTableManager instance;
+
+    public Button SelectedButton;
+
+    private void Awake()
+    {
+            instance = this;    
+    }
     void Start()
     {
-        PhotonNetwork.ConnectUsingSettings(); // Connect to Photon
+        UpdateRoomTableUI();
     }
 
-    public override void OnConnectedToMaster()
+    private void Update()
     {
-        PhotonNetwork.JoinLobby(); // Join lobby to receive room list updates
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            UpdateRoomTableUI();
+        }
     }
 
-    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    /*public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         // Update local dictionary of alive rooms
         foreach (RoomInfo room in roomList)
@@ -41,9 +53,9 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
 
         // Rebuild UI
         UpdateRoomTableUI();
-    }
+    }*/
 
-    void UpdateRoomTableUI()
+    public void UpdateRoomTableUI()
     {
         // Clear old UI rows
         foreach (Transform child in roomTablePanel)
@@ -51,11 +63,15 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
 
         int displayIndex = 1;
 
-        foreach (var room in aliveRooms.Values.OrderBy(r => r.Name))
+        foreach (var room in CoustomeRoomManager.Instence.aliveRooms.Values.OrderBy(r => r.Name))
         {
             GameObject row = Instantiate(roomRowPrefab, roomTablePanel);
 
             Text[] texts = row.GetComponentsInChildren<Text>();
+            Button btn = row.GetComponentInChildren<Button>();
+
+            allRommButtons.Add(btn);
+
             if (texts.Length >= 3) // 3 Text components
             {
                 texts[0].text = displayIndex.ToString();       // Sequential number
@@ -66,16 +82,15 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
             displayIndex++;
         }
     }
+
     public void JoinRandomAvailableRoom()
     {
         // Get all rooms that are not full
-        var joinableRooms = aliveRooms.Values.Where(r => r.PlayerCount < r.MaxPlayers).ToList();
+        var joinableRooms = CoustomeRoomManager.Instence.aliveRooms.Values.Where(r => r.PlayerCount < r.MaxPlayers).ToList();
 
         if (joinableRooms.Count == 0)
         {
             Debug.LogWarning("No available rooms to join!");
-            // Optional: create a new room if no room available
-            // PhotonNetwork.CreateRoom("Room_" + Random.Range(1000, 9999));
             return;
         }
 
@@ -89,6 +104,6 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
 
     public List<RoomInfo> GetJoinableRooms()
     {
-        return aliveRooms.Values.Where(r => r.PlayerCount < r.MaxPlayers).ToList();
+        return CoustomeRoomManager.Instence.aliveRooms.Values.Where(r => r.PlayerCount < r.MaxPlayers).ToList();
     }
 }

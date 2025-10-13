@@ -72,6 +72,10 @@ MonoBehaviour:
   - TotlePlayerDecrese
   - PutFishInHookrpc
   - PutFishInHookRPC
+  - LeaveRoom
+  - LeaveRoomRPC
+  - customeStartGame
+  - EnableStartButton
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -17,6 +17,14 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
         UpdateTable();
     }
 
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            UpdateTable();
+        }
+    }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         UpdateTable();
@@ -27,7 +35,7 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
         UpdateTable();
     }
 
-    void UpdateTable()
+    public void UpdateTable()
     {
         // Clear old entries
         foreach (Transform child in playerTablePanel)

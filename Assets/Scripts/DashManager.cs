@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DashManager : MonoBehaviour
 {
-    public GameObject prefabPanret,coustomButtons, randomButtons,backButton,selectButtons,randomeRoomManager,coustomeRoomManager;
+    public GameObject quitUI,craditsUI,localPlayerUI,prefabPanret,coustomButtons, randomButtons,backButton,selectButtons,randomeRoomManager,coustomeRoomManager;
 
     public static DashManager instance;
 
@@ -16,7 +16,7 @@ public class DashManager : MonoBehaviour
     public void OnClickAction(string action)
     {
         switch (action)
-        {
+        {   
             case "Play":
                 {
                     createAndJoinButtons.SetActive(true);
@@ -25,6 +25,7 @@ public class DashManager : MonoBehaviour
 
             case "LocalPlay":
                 {
+                    localPlayerUI.SetActive(true);
                     break;
                 }
 
@@ -35,13 +36,15 @@ public class DashManager : MonoBehaviour
 
             case "Credits":
                 {
+                    craditsUI.SetActive(true);
                     break;
                 }
 
             case "Quit":
                 {
+                    quitUI.SetActive(true);
                     break;
-                }
+                }   
 
         }
     }

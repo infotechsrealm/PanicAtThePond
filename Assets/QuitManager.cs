@@ -1,16 +1,7 @@
 using UnityEngine;
 
-public class JoinPanel : MonoBehaviour
+public class QuitManager : MonoBehaviour
 {
-
-    public RoomTableManager roomTableManager;
-
-
-    private void OnEnable()
-    {
-        roomTableManager.UpdateRoomTableUI();
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,7 +14,13 @@ public class JoinPanel : MonoBehaviour
         
     }
 
-    public void Close()
+
+    public void Yes()
+    {
+        Application.Quit();
+    }
+
+    public void Cancle()
     {
         gameObject.SetActive(false);
     }

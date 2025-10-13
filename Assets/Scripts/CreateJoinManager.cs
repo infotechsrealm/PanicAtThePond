@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class CreateJoinManager : MonoBehaviour
 {
-    public GameObject createPanel, JoinPanel, createAndJoinButtons;
+    public GameObject createAndJoinButtons;
+    public CreatePanel createPanel;
+    public JoinPanel JoinPanel; 
 
     public PhotonLauncher launcher;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -38,21 +40,12 @@ public class CreateJoinManager : MonoBehaviour
                     break;
                 }
 
-            case "Close":
+            case "Back":
                 {
-                    Close();
+                    createAndJoinButtons.SetActive(false);
                     break;
                 }
         }
     }
 
-    public void Close()
-    {
-        if (PhotonNetwork.InRoom)
-        {
-            Debug.Log("in room");
-            PhotonNetwork.LeaveRoom();
-        }
-        createAndJoinButtons.SetActive(false);
-    }
 }

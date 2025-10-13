@@ -23,12 +23,13 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
     }
 
 
-    GameObject preloder;
     public void LaunchGame()
     {
         Debug.Log("LaunchGame!");
-
-        preloder = Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
+        if (Preloader.instance == null)
+        {
+            Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
+        }
         if (!PhotonNetwork.IsConnected)
         {
             Debug.Log("ConnectUsingSettings");
@@ -54,27 +55,33 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
 
     public void EnablePanel()
     {
-        if(preloder != null)
+        if (Preloader.instance != null)
         {
-            Destroy(preloder);
+            Destroy(Preloader.instance.gameObject);
         }
 
         Debug.Log("called");
 
         if (isCreating)
         {
-            createJoinManager.createPanel.SetActive(true);
-            createJoinManager.JoinPanel.SetActive(false);
+            createJoinManager.createPanel.gameObject.SetActive(true);
+            createJoinManager.JoinPanel.gameObject.SetActive(false);
         }
         else
         {
-            createJoinManager.JoinPanel.SetActive(true);
-            createJoinManager.createPanel.SetActive(false);
+            createJoinManager.JoinPanel.gameObject.SetActive(true);
+            createJoinManager.createPanel.gameObject.SetActive(false);
+            Debug.Log("EnablePanel Called");
+            createJoinManager.JoinPanel.roomTableManager.UpdateRoomTableUI();
         }
     }
 
     public override void OnConnectedToMaster()
     {
+        if(Preloader.instance == null)
+        {
+            Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
+        }
         Debug.Log("Connected to Photon!");
         PhotonNetwork.JoinLobby(); // Optional: auto join lobby
     }
@@ -86,22 +93,11 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
     }
 
 
-    public void ShowButton(bool isEnable)
-    {
-        if (buttons != null)
-            buttons.SetActive(isEnable);
-        else
-            Debug.LogWarning("Buttons reference missing!");
-    }
+    
 
     public override void OnDisconnected(DisconnectCause cause)
     {
         Debug.LogWarning("Disconnected: " + cause);
-
-        DashManager dashManager = DashManager.instance;
-        dashManager.coustomButtons.SetActive(false);
-        dashManager.randomButtons.SetActive(false);
-        dashManager.selectButtons.SetActive(false);
 
         if (cause == DisconnectCause.ServerTimeout ||
             cause == DisconnectCause.ExceptionOnConnect)

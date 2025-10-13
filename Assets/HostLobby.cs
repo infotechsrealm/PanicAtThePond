@@ -1,26 +1,36 @@
-using Photon.Pun;
+﻿using Photon.Pun;
 using UnityEngine;
 
-public class HostLobby : MonoBehaviourPunCallbacks
+public class HostLobby : MonoBehaviourPunCallbacks 
 {
+
+    public PlayerTableManager playerTableManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnEnable()
     {
-        
+        playerTableManager.UpdateTable();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Close()
     {
         if (PhotonNetwork.InRoom)
         {
-            Debug.Log("Leaving room...");
-            PhotonNetwork.LeaveRoom();
+            if (PhotonNetwork.IsMasterClient)
+            {
+                CoustomeRoomManager.Instence.CallLeaveRoom();
+            }
+            else
+            {
+                Debug.Log("Leaving room...");
+                if (Preloader.instance == null)
+                {
+                    Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
+                }
+
+                gameObject.SetActive(false);
+
+                PhotonNetwork.LeaveRoom();
+            }
+
         }
         else
         {
@@ -31,6 +41,5 @@ public class HostLobby : MonoBehaviourPunCallbacks
     public override void OnLeftRoom()
     {
         Debug.Log("Left room successfully!");
-        gameObject.SetActive(false);
     }
 }

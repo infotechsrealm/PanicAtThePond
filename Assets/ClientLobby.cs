@@ -3,6 +3,12 @@ using UnityEngine;
 
 public class ClientLobby : MonoBehaviourPunCallbacks
 {
+
+    public PlayerTableManager playerTableManager;
+
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,12 +20,32 @@ public class ClientLobby : MonoBehaviourPunCallbacks
     {
         
     }
+
+    private void OnEnable()
+    {
+        playerTableManager.UpdateTable();
+    }
     public void Close()
     {
         if (PhotonNetwork.InRoom)
         {
-            Debug.Log("Leaving room...");
-            PhotonNetwork.LeaveRoom();
+            if(PhotonNetwork.IsMasterClient)
+            {
+                CoustomeRoomManager.Instence.CallLeaveRoom();
+            }
+            else
+            {
+                Debug.Log("Leaving room...");
+                if (Preloader.instance == null)
+                {
+                    Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
+                }
+
+                gameObject.SetActive(false);
+
+                PhotonNetwork.LeaveRoom();
+            }
+
         }
         else
         {
@@ -30,6 +56,7 @@ public class ClientLobby : MonoBehaviourPunCallbacks
     public override void OnLeftRoom()
     {
         Debug.Log("Left room successfully!");
-        gameObject.SetActive(false);
     }
+
+
 }
