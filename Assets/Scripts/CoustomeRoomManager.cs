@@ -129,8 +129,11 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     internal void CreateCustomeRoom()
     {
         Debug.Log(createRoomName.text + "-" + playerLimmit.text);
+        if (playerLimmit.text != "")
+        {
 
-        maxPlayers = int.Parse(playerLimmit.text);
+            maxPlayers = int.Parse(playerLimmit.text);
+        }
 
         if (string.IsNullOrEmpty(createRoomName.text) || maxPlayers > 7 || maxPlayers < 2)
             return;
@@ -209,6 +212,9 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
         RoomInfo selectedRoom = joinableRooms[Random.Range(0, joinableRooms.Count)];
 
+        lobby = clientLobby;
+
+
         if (selectedRoom.CustomProperties.TryGetValue("pwd", out object pwdObj))
         {
             string roomPassword = pwdObj as string;
@@ -217,6 +223,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             {
                 // Room has password -> Show password UI
                 Debug.Log("Room requires password.");
+
                 ShowPasswordPopup(selectedRoom, roomPassword);
                 return;
             }
@@ -226,12 +233,24 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         Debug.Log("Joining room: " + selectedRoom.Name);
     }
 
-   /* public void JoinRandomAvailableRoom2()
+    /*public void JoinRandomAvailableRoom2()
     {
-        List<RoomInfo> joinableRooms = roomManager.GetJoinableRooms(); 
-        if (joinableRooms.Count == 0) { Debug.LogWarning("No available rooms to join!"); return; }
-        if (Preloader.instance == null) { Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform); }
-        lobby = clientLobby; Debug.LogWarning("available rooms = " + joinableRooms.Count); RoomInfo selectedRoom = joinableRooms[Random.Range(0, joinableRooms.Count)]; PhotonNetwork.JoinRoom(selectedRoom.Name); Debug.Log("Joining room: " + selectedRoom.Name);
+        List<RoomInfo> joinableRooms = roomManager.GetJoinableRooms();
+        if (joinableRooms.Count == 0) 
+        { 
+            Debug.LogWarning("No available rooms to join!");
+            return; 
+        }
+        if (Preloader.instance == null) 
+        {
+            Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform); 
+        }
+
+        lobby = clientLobby;
+        Debug.LogWarning("available rooms = " + joinableRooms.Count); 
+        RoomInfo selectedRoom = joinableRooms[Random.Range(0, joinableRooms.Count)];
+        PhotonNetwork.JoinRoom(selectedRoom.Name);
+        Debug.Log("Joining room: " + selectedRoom.Name);
     }*/
 
     [SerializeField] private GameObject passwordPopupPrefab; // Assign in Inspector
@@ -246,54 +265,55 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     // ------------------ Join Custome Room ------------------
 
     internal void JoinCustomeRoom()
-{
-    if (joinRoomName == null || string.IsNullOrEmpty(joinRoomName.text))
-        return;
-
-    string roomName = joinRoomName.text;
-    Debug.Log("Trying to join room: " + roomName);
-
-    // Find the room info from your current room list
-    RoomInfo targetRoom = null;
-
-    if (aliveRooms.ContainsKey(roomName))
     {
-        targetRoom = aliveRooms[roomName];
-    }
+        if (joinRoomName == null || string.IsNullOrEmpty(joinRoomName.text))
+            return;
 
-    if (targetRoom == null)
-    {
-        Debug.LogWarning("Room not found in the current room list!");
-        RoomStatus("Room not found or not available!", true);
-        return;
-    }
+        string roomName = joinRoomName.text;
+        Debug.Log("Trying to join room: " + roomName);
 
-    // Check for password property
-    if (targetRoom.CustomProperties.TryGetValue("pwd", out object pwdObj))
-    {
-        string roomPassword = pwdObj as string;
+        // Find the room info from your current room list
+        RoomInfo targetRoom = null;
 
-        if (!string.IsNullOrEmpty(roomPassword))
+        if (aliveRooms.ContainsKey(roomName))
         {
-            // Show password popup for verification
-            Debug.Log("Room requires a password.");
-            ShowPasswordPopup(targetRoom, roomPassword);
+            targetRoom = aliveRooms[roomName];
+        }
+
+        if (targetRoom == null)
+        {
+            Debug.LogWarning("Room not found in the current room list!");
+            RoomStatus("Room not found or not available!", true);
             return;
         }
+
+        lobby = clientLobby;
+
+
+        // Check for password property
+        if (targetRoom.CustomProperties.TryGetValue("pwd", out object pwdObj))
+        {
+            string roomPassword = pwdObj as string;
+
+            if (!string.IsNullOrEmpty(roomPassword))
+            {
+                // Show password popup for verification
+                Debug.Log("Room requires a password.");
+                ShowPasswordPopup(targetRoom, roomPassword);
+                return;
+            }
+        }
+
+        // If no password, join directly
+        if (Preloader.instance == null)
+            Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
+
+        RoomStatus("RoomName = '" + roomName + "' Trying to join...", false);
+
+        joinRoomName = null;
+
+        PhotonNetwork.JoinRoom(roomName);
     }
-
-    // If no password, join directly
-    if (Preloader.instance == null)
-        Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
-
-    lobby = clientLobby;
-
-    RoomStatus("RoomName = '" + roomName + "' Trying to join...", false);
-
-    joinRoomName = null;
-
-    PhotonNetwork.JoinRoom(roomName);
-}
 
   /*  internal void JoinCustomeRoom()
     {
@@ -380,18 +400,16 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         }
 
         lobby.SetActive(true);
-
-        //When all Player
-        /*  if(PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
-          {
-              photonView.RPC(nameof(customeStartGame), RpcTarget.MasterClient);
-          }*/
+        if(PasswordPopup.instence!=null)
+        {
+            Destroy(PasswordPopup.instence.gameObject);
+        }
+     
 
 
         if (PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
         {
             photonView.RPC(nameof(EnableStartButton), RpcTarget.MasterClient);
-
         }
     }
 
@@ -419,18 +437,18 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         {
             if (PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
             {
-                    PhotonNetwork.LoadLevel("Play");
+                photonView.RPC(nameof(GeneratePreloder), RpcTarget.All);
+
+                PhotonNetwork.LoadLevel("Play");
             }
         }
     }
 
     [PunRPC]
-    public void LoadPlaySceneMasterClient()
+    public void GeneratePreloder()
     {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            PhotonNetwork.LoadLevel("Play");
-        }
+        if (Preloader.instance == null)
+            Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
     }
 
 
@@ -468,11 +486,16 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("New Player Joined: " + newPlayer.NickName);
         UpdatePlayerListUI();
+        UpdateTablesUI();
     }
+
+
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         UpdatePlayerListUI();
+        UpdateTablesUI();
+
         Debug.Log("Player Left: " + otherPlayer.NickName);
         if (destroyRoom)
         {
@@ -480,6 +503,18 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         }
         Debug.Log("Player Count: " + PhotonNetwork.CurrentRoom.PlayerCount);
         RoomStatus("RoomName = '" + PhotonNetwork.CurrentRoom.Name + "' Room created successfully.", true);
+    }
+
+    public void UpdateTablesUI()
+    {
+        if (PlayerTableManager.instance != null)
+        {
+            PlayerTableManager.instance.UpdatePlayerTableUI();
+        }
+        if (RoomTableManager.instance != null)
+        {
+            RoomTableManager.instance.UpdateRoomTableUI();
+        }
     }
 
     [PunRPC]
@@ -600,12 +635,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     }
 
 
-
-
-
-
-
-
     private void OnApplicationPause(bool pauseStatus)
     {
         if (pauseStatus && PhotonNetwork.IsMasterClient)
@@ -621,11 +650,13 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         {
             Debug.Log("OnApplicationQuit - Calling AllLeave directly");
             // Direct call without RPC for reliability
-            ForceAllLeave();
+            photonView.RPC(nameof(ForceAllLeave), RpcTarget.All);
+            PhotonNetwork.SendAllOutgoingCommands(); // send it now
         }
     }
 
     // Alternative method without RPC
+    [PunRPC]
     public void ForceAllLeave()
     {
         Debug.Log("ForceAllLeave called");
@@ -656,6 +687,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     public void LeaveRoomRPC()
     {
         Debug.Log("Leaving room...");
+
         if (Preloader.instance == null)
         {
             Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
@@ -666,7 +698,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
         PhotonNetwork.LeaveRoom();
     }
-
 
     //When Room list is Update
 
@@ -687,7 +718,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
                 aliveRooms[room.Name] = room; // Add or update alive rooms
             }
         }
-
 
         if (RoomTableManager.instance != null)
         {

@@ -12,31 +12,21 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
     private Dictionary<int, GameObject> playerRows = new Dictionary<int, GameObject>();
 
-    void Start()
+    public static PlayerTableManager instance;
+    private void Awake()
     {
-        UpdateTable();
+        instance = this;
     }
 
-
-    private void Update()
+    private void OnEnable()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            UpdateTable();
-        }
-    }
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        UpdateTable();
+        UpdatePlayerTableUI();
     }
 
-    public override void OnPlayerLeftRoom(Player otherPlayer)
+    public void UpdatePlayerTableUI()
     {
-        UpdateTable();
-    }
+        Debug.Log("UpdatePlayerTableUI Called");
 
-    public void UpdateTable()
-    {
         // Clear old entries
         foreach (Transform child in playerTablePanel)
             Destroy(child.gameObject);
@@ -63,5 +53,4 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
             playerRows[player.ActorNumber] = row;
         }
     }
-
 }

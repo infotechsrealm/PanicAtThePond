@@ -28,7 +28,7 @@ public class FishController : MonoBehaviourPunCallbacks
     public float floatSpeed = 2f;
 
     public Transform junkHolder;
-    private GameObject carriedJunk;
+    internal GameObject carriedJunk;
 
 
     public int myPlayerID;
@@ -39,6 +39,7 @@ public class FishController : MonoBehaviourPunCallbacks
     public AudioClip fishEatWarmSound;
     public AudioClip fishCameToSurfaceSound;
     public Animator animator;
+
     private void Awake()
     {
         if (instance == null)
@@ -98,6 +99,7 @@ public class FishController : MonoBehaviourPunCallbacks
         {
             if(!audioSourceForFishMove.isPlaying)
             {
+                GS.instance.SetVolume(audioSourceForFishMove);
                 audioSourceForFishMove.Play();
             }
 
@@ -110,6 +112,7 @@ public class FishController : MonoBehaviourPunCallbacks
         {
             if (audioSourceForFishMove.isPlaying)
             {
+                GS.instance.SetVolume(audioSourceForFishMove);
                 audioSourceForFishMove.Pause();
             }
 
@@ -143,6 +146,17 @@ public class FishController : MonoBehaviourPunCallbacks
             transform.GetComponent<PolygonCollider2D>().enabled = false;
             StartCoroutine(FloatToSurface());
         }
+
+        if (carriedJunk != null)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Debug.Log("CALLESSSSSSSSSSSSSSSSSSSSS");
+                int junkId = carriedJunk.GetComponent<PhotonView>().ViewID;
+                photonView.RPC(nameof(LeaveJunk), RpcTarget.AllBuffered, junkId);
+                carriedJunk = null;
+            }
+        }
     }
     private IEnumerator FloatToSurface()
     {
@@ -171,7 +185,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
         transform.position = new Vector3(transform.position.x, targetY, transform.position.z);
 
-        PhotonNetwork.LeaveRoom();
+        //PhotonNetwork.LeaveRoom();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -180,6 +194,7 @@ public class FishController : MonoBehaviourPunCallbacks
         {
             if (audioSourceForFishMove.isPlaying)
             {
+                GS.instance.SetVolume(audioSourceForFishMove);
                 audioSourceForFishMove.Pause();
             }
 
@@ -211,6 +226,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
                 PlaySFX(fishEatWarmSound);
                 GameManager.instance.goldWormEatByFish = true;
+                GS.instance.SetVolume(audioSource);
                 audioSource.Play();
                 other.gameObject.transform.localScale = Vector3.zero;
                 other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
@@ -249,7 +265,18 @@ public class FishController : MonoBehaviourPunCallbacks
                 int viewId = other.GetComponent<PhotonView>().ViewID;
                 photonView.RPC(nameof(SetJunkInFish), RpcTarget.OthersBuffered, viewId);
             }
+
+            
+            
         }
+    }
+
+
+    [PunRPC]
+    public void LeaveJunk(int junkId)
+    {
+        GameObject junk = PhotonView.Find(junkId).gameObject;
+        junk.GetComponent<JunkManager>().LeaveByFish();
     }
 
     IEnumerator ChangeHost(GameObject other)
@@ -428,6 +455,7 @@ public class FishController : MonoBehaviourPunCallbacks
     void PlaySFX(AudioClip playClip)
     {
         audioSource.clip = playClip;
+        GS.instance.SetVolume(audioSource);
         audioSource.Play();
     }
 
@@ -438,6 +466,37 @@ public class FishController : MonoBehaviourPunCallbacks
             if(!PhotonNetwork.IsMasterClient)
             {
                 PhotonNetwork.LeaveRoom();
+            }
+        }
+    }
+
+
+    public void CallGamePauseRPC(bool isPause)
+    {
+        int fishViewID = GameManager.instance.myFish.GetComponent<PhotonView>().ViewID;
+        photonView.RPC(nameof(GamePause), RpcTarget.AllBuffered, isPause, fishViewID);
+    }
+
+    [PunRPC]
+    public void GamePause(bool isPause, int fishID)
+    {
+        int thisFishID = GetComponent<PhotonView>().ViewID;
+
+        if (thisFishID == fishID)
+        {
+            if (isPause)
+            {
+                transform.GetComponent<PolygonCollider2D>().enabled = false;
+                var sr = GetComponent<SpriteRenderer>();
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.5f);
+                canMove = false;
+            }
+            else
+            {
+                transform.GetComponent<PolygonCollider2D>().enabled = true;
+                var sr = GetComponent<SpriteRenderer>();
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
+                canMove = true;
             }
         }
     }

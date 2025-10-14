@@ -11,6 +11,7 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
     public int maxPlayers = 3;
 
     public bool isCreating= false;
+    public bool isJoining = false;
     public CreateJoinManager createJoinManager;
     public GameObject buttons;
 
@@ -67,12 +68,11 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
             createJoinManager.createPanel.gameObject.SetActive(true);
             createJoinManager.JoinPanel.gameObject.SetActive(false);
         }
-        else
+        else if(isJoining)
         {
             createJoinManager.JoinPanel.gameObject.SetActive(true);
             createJoinManager.createPanel.gameObject.SetActive(false);
             Debug.Log("EnablePanel Called");
-            createJoinManager.JoinPanel.roomTableManager.UpdateRoomTableUI();
         }
     }
 

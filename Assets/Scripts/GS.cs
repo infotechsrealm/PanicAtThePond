@@ -26,4 +26,14 @@ public class GS : MonoBehaviour
     {
         
     }
+
+
+    public void SetVolume(AudioSource audioSource)
+    {
+        float GlobleVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        if (audioSource.volume != GlobleVolume)
+        {
+            audioSource.volume = GlobleVolume;
+        }
+    }
 }

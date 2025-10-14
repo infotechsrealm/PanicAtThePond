@@ -72,6 +72,7 @@ public class Hook : MonoBehaviourPunCallbacks
         if (wormPrefab != null && !hasWorm && wormParent != null)
         {
             wormInstance = PhotonNetwork.Instantiate("HookWorm", wormParent.position, Quaternion.identity).gameObject;
+            WormSpawner.instance.activeWorms.Add(wormInstance);
             int wormID = wormInstance.GetComponent<PhotonView>().ViewID;
             photonView.RPC(nameof(SetupWormRPC), RpcTarget.AllBuffered, wormID);
         }
@@ -142,6 +143,7 @@ public class Hook : MonoBehaviourPunCallbacks
     {
         if (!isReturning && PhotonNetwork.IsMasterClient)
         {
+            GS.instance.SetVolume(hookBack);
             hookBack.Play();
             isReturning = true;
             Vector3 target = rodTip;

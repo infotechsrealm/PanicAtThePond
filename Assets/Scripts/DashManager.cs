@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DashManager : MonoBehaviour
 {
-    public GameObject quitUI,craditsUI,localPlayerUI,prefabPanret,coustomButtons, randomButtons,backButton,selectButtons,randomeRoomManager,coustomeRoomManager;
+    public GameObject settingUI,quitUI,craditsUI,localPlayerUI,prefabPanret,coustomButtons, randomButtons,backButton,selectButtons,randomeRoomManager,coustomeRoomManager;
 
     public static DashManager instance;
 
@@ -31,6 +31,7 @@ public class DashManager : MonoBehaviour
 
             case "Settings":
                 {
+                    settingUI.SetActive(true);
                     break;
                 }
 

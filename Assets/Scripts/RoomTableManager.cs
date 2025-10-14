@@ -7,56 +7,22 @@ using UnityEngine.UI;
 
 public class RoomTableManager : MonoBehaviourPunCallbacks
 {
-    public Transform roomTablePanel;
-    public GameObject roomRowPrefab;
-
-   // public Dictionary<string, RoomInfo> aliveRooms = new Dictionary<string, RoomInfo>();
-
-   
-   internal List<Button> allRommButtons = new List<Button>();
-
     public static RoomTableManager instance;
 
+    public Transform roomTablePanel;
+    public GameObject roomRowPrefab;
     public Button SelectedButton;
 
+    internal List<Button> allRommButtons = new List<Button>();
     private void Awake()
     {
-            instance = this;    
+        instance = this;
     }
-    void Start()
-    {
-        UpdateRoomTableUI();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            UpdateRoomTableUI();
-        }
-    }
-
-    /*public override void OnRoomListUpdate(List<RoomInfo> roomList)
-    {
-        // Update local dictionary of alive rooms
-        foreach (RoomInfo room in roomList)
-        {
-            if (room.RemovedFromList)
-            {
-                aliveRooms.Remove(room.Name); // Remove closed rooms
-            }
-            else
-            {
-                aliveRooms[room.Name] = room; // Add or update alive rooms
-            }
-        }
-
-        // Rebuild UI
-        UpdateRoomTableUI();
-    }*/
 
     public void UpdateRoomTableUI()
     {
+        Debug.Log("UpdateRoomTableUI Called");
+
         // Clear old UI rows
         foreach (Transform child in roomTablePanel)
             Destroy(child.gameObject);

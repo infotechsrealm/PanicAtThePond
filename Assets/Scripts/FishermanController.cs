@@ -112,6 +112,8 @@ public class FishermanController : MonoBehaviourPunCallbacks
             yield return new WaitForSeconds(waitBeforePlay);
 
             // Play the sound
+            GS.instance.SetVolume(cricketChirping);
+
             cricketChirping.Play();
 
             // Random duration to play the sound (2–5 seconds)
@@ -162,6 +164,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             {
                 if (!boatMoveSound.isPlaying)
                 {
+                    GS.instance.SetVolume(boatMoveSound);
                     boatMoveSound.Play();
                 }
 
@@ -432,6 +435,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
                     Debug.Log("Fisherman Win!");
                     GameManager.instance.ShowGameOver("Fisherman Win!");
+                    GameManager.instance.CallCoverBGDisableRPC();
                 }
             }
             else
@@ -493,11 +497,13 @@ public class FishermanController : MonoBehaviourPunCallbacks
         }
     }
 
+    
     public void GetIdAndChangeHost()
     {
         int myId = PhotonNetwork.LocalPlayer.ActorNumber;
         Debug.Log("✅ My Client ID = " + myId);
 
+        photonView.RPC(nameof(ChangeHostById), RpcTarget.MasterClient, myId);
         photonView.RPC(nameof(ChangeHostById), RpcTarget.MasterClient, myId);
     }
 
@@ -573,6 +579,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
     internal void PlaySFX(AudioClip playClip)
     {
         fisherManSounds.clip = playClip;
+            GS.instance.SetVolume(fisherManSounds);
         fisherManSounds.Play();
     }
 

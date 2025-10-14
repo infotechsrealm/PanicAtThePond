@@ -17,6 +17,7 @@ public class JunkManager : MonoBehaviourPunCallbacks
     {
         if(!PhotonNetwork.IsMasterClient)
         {
+            GS.instance.SetVolume(audioSource);
             audioSource.Play();
         }
     }
@@ -45,6 +46,7 @@ public class JunkManager : MonoBehaviourPunCallbacks
         {
             transform.position = new Vector2(transform.position.x, -4f);
         }
+        GetComponent<PolygonCollider2D>().enabled = true;
         photonRigidbody2DView.enabled = false;
         isFreezed = true;
         rb.linearVelocity = Vector2.zero;
@@ -59,6 +61,9 @@ public class JunkManager : MonoBehaviourPunCallbacks
         {
             if (!inWater)
             {
+                Vector2 hitPos = transform.position;
+                Instantiate(waterDrop, hitPos, Quaternion.identity);
+
                 inWater = true;
                 StartCoroutine(ReduceGravity());
             }
@@ -67,9 +72,6 @@ public class JunkManager : MonoBehaviourPunCallbacks
 
     IEnumerator ReduceGravity()
     {
-        Vector2 hitPos = transform.position;
-        Instantiate(waterDrop, hitPos, Quaternion.identity);
-
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
         // Continue reducing until gravity is near 0.2
@@ -87,5 +89,17 @@ public class JunkManager : MonoBehaviourPunCallbacks
         // Final fine-tune
         rb.gravityScale = 0.01f;
         rb.linearVelocity *= 0.5f; // slow a bit more at the end
+    }
+
+    public void LeaveByFish()
+    {
+        transform.SetParent(null);
+      //  GetComponent<PolygonCollider2D>().enabled = true;
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.gravityScale = 0.5f;
+                StartCoroutine(ReduceGravity());
+
+        isFreezed = false;
+        photonRigidbody2DView.enabled = true;
     }
 }

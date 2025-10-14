@@ -28,6 +28,7 @@ public class CreateJoinManager : MonoBehaviour
                 {
                     Debug.Log("action = " + action);
                     launcher.isCreating = false;
+                    launcher.isJoining = true;
                     launcher.LaunchGame();
                     break;
                 }
@@ -36,6 +37,7 @@ public class CreateJoinManager : MonoBehaviour
                 {
                     Debug.Log("action = " + action);
                     launcher.isCreating = true;
+                    launcher.isJoining = false;
                     launcher.LaunchGame();
                     break;
                 }

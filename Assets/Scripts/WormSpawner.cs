@@ -15,7 +15,7 @@ public class WormSpawner : MonoBehaviourPunCallbacks
     public static WormSpawner instance;
 
 
-    private List<GameObject> activeWorms = new List<GameObject>(); // track all junks
+    internal List<GameObject> activeWorms = new List<GameObject>(); // track all junks
 
 
     private void Awake()
@@ -118,5 +118,17 @@ public class WormSpawner : MonoBehaviourPunCallbacks
     void OnDestroy()
     {
         activeWorms.Remove(this.gameObject);
+    }
+
+
+    public void EnableWormDaceAnimation()
+    {
+        for (int i = 0; i < activeWorms.Count; i++)
+        {
+            if (activeWorms[i] != null)
+            {
+                activeWorms[i].GetComponent<WormManager>().CallOnDanceAnimationRPC();
+            }
+        }
     }
 }

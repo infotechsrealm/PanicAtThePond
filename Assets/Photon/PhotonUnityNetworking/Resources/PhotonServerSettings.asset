@@ -76,6 +76,12 @@ MonoBehaviour:
   - LeaveRoomRPC
   - customeStartGame
   - EnableStartButton
+  - GamePause
+  - ForceAllLeave
+  - GeneratePreloder
+  - CoverBGDisable
+  - OnDanceAnimation
+  - LeaveJunk
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

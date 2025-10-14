@@ -7,8 +7,6 @@ public class ClientLobby : MonoBehaviourPunCallbacks
     public PlayerTableManager playerTableManager;
 
 
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,8 +21,9 @@ public class ClientLobby : MonoBehaviourPunCallbacks
 
     private void OnEnable()
     {
-        playerTableManager.UpdateTable();
+        playerTableManager.UpdatePlayerTableUI();
     }
+
     public void Close()
     {
         if (PhotonNetwork.InRoom)

@@ -9,6 +9,12 @@ public class PasswordPopup : MonoBehaviour
     private RoomInfo targetRoom;
     private string correctPassword;
 
+
+    public static PasswordPopup instence;
+    private void Awake()
+    {
+        instence = this;
+    }
     public void Init(RoomInfo room, string correctPwd)
     {
         targetRoom = room;
@@ -21,7 +27,8 @@ public class PasswordPopup : MonoBehaviour
         {
             Debug.Log("Password correct! Joining room...");
             PhotonNetwork.JoinRoom(targetRoom.Name);
-            Destroy(gameObject); // Close popup
+            if (Preloader.instance == null)
+                Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
         }
         else
         {

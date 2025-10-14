@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject hungerBar;
     public GameObject fisherManObjects;
     public GameObject preloderUI;
+    public GameObject coverBG;
 
    // public Transform camera;
 
@@ -145,6 +146,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         if (gameOverPanel != null)
         {
+            if (preloderUI.activeSelf)
+            {
+                preloderUI.SetActive(false);
+            }
             gameOverPanel.SetActive(true);
             if (WormSpawner.instance.canSpawn)
             {
@@ -258,6 +263,13 @@ public class GameManager : MonoBehaviourPunCallbacks
         // 👉 Yaha apna custom logic add kar sakte ho
         // Example: UI update, extra permissions, game flow change, etc.
     }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        Debug.Log("OnPlayerEnteredRoom Called");
+        UpdateTablesUI();
+    }
+
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         Debug.Log("❌ Player Left Room: " + otherPlayer.NickName + " | ID: " + otherPlayer.ActorNumber + " | currun Player = " + PhotonNetwork.CurrentRoom.PlayerCount); 
@@ -288,6 +300,16 @@ public class GameManager : MonoBehaviourPunCallbacks
                 }
             }
         }
+
+        UpdateTablesUI();
+    }
+
+    public void UpdateTablesUI()
+    {
+        if (PlayerTableManager.instance != null)
+        {
+            PlayerTableManager.instance.UpdatePlayerTableUI();
+        }
     }
 
     public void LoadPreloderOnOff(bool res)
@@ -312,20 +334,16 @@ public class GameManager : MonoBehaviourPunCallbacks
         fisherManIsSpawned = res;
     }
 
-   /* [PunRPC]
-    public void TotlePlayerDecrese()
+    public void CallCoverBGDisableRPC()
     {
-        totalPlayers--;
+        photonView.RPC(nameof(CoverBGDisable), RpcTarget.All);
     }
 
-    private void OnApplicationQuit()
+    [PunRPC]
+    public void CoverBGDisable()
     {
-        if(!isFisherMan)
-        {
-            if(!myFish.catchadeFish)
-            {
-                photonView.RPC(nameof(TotlePlayerDecrese), RpcTarget.MasterClient);
-            }
-        }
-    }*/
+        coverBG.SetActive(false);
+    }
+
+ 
 }
