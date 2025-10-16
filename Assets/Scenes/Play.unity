@@ -319,6 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ffa764537003ed4a98a8dde1ca9dd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  space: {fileID: -3676021492797623387, guid: 1a1049bb92f8b934dbc3f85e2bba46cf, type: 3}
   mashPanel: {fileID: 1841162808}
   mashSlider: {fileID: 1841162810}
   mashText: {fileID: 1428516270}
@@ -446,6 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ba3c4804b59d9469892d7b3a2208f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputAction: {fileID: 0}
   moveSpeed: 0
   leftRod: {fileID: 0}
   rightRod: {fileID: 0}

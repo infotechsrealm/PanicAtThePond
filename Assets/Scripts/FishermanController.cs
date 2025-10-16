@@ -2,11 +2,16 @@
 using Photon.Realtime;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class FishermanController : MonoBehaviourPunCallbacks
 {
     public static FishermanController Instence;
+
+    public InputActionReference inputAction;
+    public InputActionReference hook;
+
 
     [Header("Movement")]
     public float moveSpeed;
@@ -15,9 +20,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
     public Transform leftRod;
     public Transform rightRod;
 
-    [Header("Casting")]
-    public KeyCode castKey1 = KeyCode.X;
-    public KeyCode castKey2 = KeyCode.V;
 
     public float meterSpeed = 2f;
     public float maxCastDistance = 10f;
@@ -223,7 +225,12 @@ public class FishermanController : MonoBehaviourPunCallbacks
     {
         if (leftHook == null && rightHook == null && !isCasting)
         {
-            float moveInput = Input.GetAxisRaw("Horizontal");
+           // float moveInput = Input.GetAxisRaw("Horizontal");
+
+            float moveInput = inputAction.action.ReadValue<Vector2>().x;
+
+            Debug.Log("moveInputx = " + moveInput);
+
             Vector3 move = new Vector3(moveInput * moveSpeed * Time.deltaTime, 0, 0);
             transform.position += move;
 
@@ -298,7 +305,10 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
     void HandleRodSelection()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        float moveInputY = inputAction.action.ReadValue<Vector2>().y;
+
+        Debug.Log("moveInputy = " + moveInputY);
+        if (moveInputY == 1)
         {
             //Don't Change Line 
             isLeft = true;
@@ -314,7 +324,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
                 SelectRoad(leftRod);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (moveInputY == -1)
         {
             //Don't Change Line 
             isLeft = false;
@@ -333,7 +343,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
     }
     void HandleCasting()
     {
-        if (!isCasting && Input.GetKey(castKey1) && Input.GetKey(castKey2))
+        if (!isCasting && hook.action.IsPressed())
         {
             if (currentRod != null)
             {
@@ -360,7 +370,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
         if (worms > 0)
         {
-            if (isCasting && (!Input.GetKey(castKey1) || !Input.GetKey(castKey2)))
+            if (isCasting && hook.action.WasReleasedThisFrame())
             {
                 StartCoroutine(ReleaseCast());
             }

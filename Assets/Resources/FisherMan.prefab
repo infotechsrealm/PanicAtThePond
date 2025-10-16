@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: -6332745293305633378}
   - component: {fileID: 7807036194685859462}
   - component: {fileID: 6616312679466749823}
+  - component: {fileID: 314744784167791529}
   m_Layer: 7
   m_Name: FisherMan
   m_TagString: Fisherman
@@ -239,11 +240,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ba3c4804b59d9469892d7b3a2208f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputAction: {fileID: -948734162650360508, guid: 1a1049bb92f8b934dbc3f85e2bba46cf, type: 3}
+  hook: {fileID: 550650439093148042, guid: 1a1049bb92f8b934dbc3f85e2bba46cf, type: 3}
   moveSpeed: 2.5
   leftRod: {fileID: 7193815615569484503}
   rightRod: {fileID: 6579769212213636874}
-  castKey1: 120
-  castKey2: 118
   meterSpeed: 2
   maxCastDistance: 10
   catchadFish: 0
@@ -276,6 +277,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: -6332745293305633378}
+  - {fileID: 6616312679466749823}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -331,8 +333,106 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters: []
-  m_SynchronizeLayers: []
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 0
+    Name: idel_l
+  - Type: 4
+    SynchronizeType: 0
+    Name: idel_r
+  - Type: 4
+    SynchronizeType: 0
+    Name: fishing_l
+  - Type: 4
+    SynchronizeType: 0
+    Name: fishing_r
+  - Type: 9
+    SynchronizeType: 0
+    Name: casting_l
+  - Type: 9
+    SynchronizeType: 0
+    Name: casting_r
+  - Type: 4
+    SynchronizeType: 0
+    Name: moveBackward_l
+  - Type: 4
+    SynchronizeType: 0
+    Name: moveForward_l
+  - Type: 4
+    SynchronizeType: 0
+    Name: moveReverceBackward_r
+  - Type: 4
+    SynchronizeType: 0
+    Name: moveReverceForward_r
+  - Type: 9
+    SynchronizeType: 0
+    Name: leftOurToPole_l
+  - Type: 9
+    SynchronizeType: 0
+    Name: rightOurToPole_r
+  - Type: 4
+    SynchronizeType: 0
+    Name: fishGotFacing_l
+  - Type: 4
+    SynchronizeType: 0
+    Name: fishGotFacing_r
+  - Type: 4
+    SynchronizeType: 0
+    Name: isFighting_l
+  - Type: 4
+    SynchronizeType: 0
+    Name: isFighting_r
+  - Type: 4
+    SynchronizeType: 0
+    Name: isCrying_r
+  - Type: 4
+    SynchronizeType: 0
+    Name: isCrying_l
+  - Type: 4
+    SynchronizeType: 0
+    Name: isWin_r
+  - Type: 4
+    SynchronizeType: 0
+    Name: isWin_l
+  - Type: 9
+    SynchronizeType: 0
+    Name: isReeling_r
+  - Type: 9
+    SynchronizeType: 0
+    Name: isReeling_l
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
+--- !u!114 &314744784167791529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221548032391945581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1a1049bb92f8b934dbc3f85e2bba46cf, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &4230553814262268714
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -12,6 +13,9 @@ public class InGameMenu : MonoBehaviourPunCallbacks
 
     public Slider musicVolumeSlider;
 
+    public InputActionReference exit;
+
+
     private void Start()
     {
         float savedVolume = PlayerPrefs.GetFloat(VolumeKey, 1f);
@@ -23,7 +27,7 @@ public class InGameMenu : MonoBehaviourPunCallbacks
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (exit.action.WasPressedThisFrame())
         {
             ToggleMenu();
         }

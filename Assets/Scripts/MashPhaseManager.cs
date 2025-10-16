@@ -1,10 +1,13 @@
 ﻿using Photon.Pun;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class MashPhaseManager : MonoBehaviourPunCallbacks
 {
     public static MashPhaseManager instance;
+
+    public InputActionReference space;
 
     [Header("UI")]
     public GameObject mashPanel;
@@ -82,7 +85,7 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
     {
         if (!active) return;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (space.action.WasPressedThisFrame())
         {
             mashSlider.value += mashSpeed * Time.deltaTime * 60;
         }

@@ -1,12 +1,17 @@
 ﻿using Photon.Pun;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FishController : MonoBehaviourPunCallbacks
 {
     public static FishController Instence;
 
     public PhotonTransformViewClassic photonTransformViewClassic;
+
+
+    public InputActionReference inputAction; 
+    public InputActionReference space; 
 
     [Header("Fish Stats")]
     public int hunger = 100;
@@ -82,8 +87,19 @@ public class FishController : MonoBehaviourPunCallbacks
             return;
         }
 
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+
+
+
+
+        Vector2 move = inputAction.action.ReadValue<Vector2>();
+
+        float moveX = move.x;
+        float moveY = move.y;
+
+        Debug.Log("moveX = " + moveX + "moveY = " + moveY);
+
+        /*  float moveX = Input.GetAxisRaw("Horizontal");
+          float moveY = Input.GetAxisRaw("Vertical");*/
 
         if (moveX != 0 || moveY != 0)
         {
@@ -135,8 +151,9 @@ public class FishController : MonoBehaviourPunCallbacks
 
         if (carriedJunk != null)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (space.action.WasPressedThisFrame())
             {
+                Debug.Log("Fish is leve the junk");
                 int junkId = carriedJunk.GetComponent<PhotonView>().ViewID;
                 photonView.RPC(nameof(LeaveJunk), RpcTarget.AllBuffered, junkId);
                 carriedJunk = null;
