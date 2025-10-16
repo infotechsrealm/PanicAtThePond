@@ -319,7 +319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ffa764537003ed4a98a8dde1ca9dd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  space: {fileID: -3676021492797623387, guid: 1a1049bb92f8b934dbc3f85e2bba46cf, type: 3}
   mashPanel: {fileID: 1841162808}
   mashSlider: {fileID: 1841162810}
   mashText: {fileID: 1428516270}
@@ -451,8 +450,6 @@ MonoBehaviour:
   moveSpeed: 0
   leftRod: {fileID: 0}
   rightRod: {fileID: 0}
-  castKey1: 120
-  castKey2: 118
   meterSpeed: 2
   maxCastDistance: 10
   catchadFish: 0
@@ -465,6 +462,15 @@ MonoBehaviour:
   throwWorm: {fileID: 0}
   stopBoat: {fileID: 0}
   catchadeFishID: 0
+  isCasting: 0
+  isCanMove: 1
+  isMoving: 0
+  isFisherMan: 0
+  isCanCast: 1
+  isIdel: 0
+  isRight: 0
+  isLeft: 1
+  meterIncreasing: 1
 --- !u!1 &219101380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,9 +1781,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 414805248}
-        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
-        m_MethodName: PlayAgain
+      - m_Target: {fileID: 821744896}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4319,20 +4325,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4729211957184027046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6751592923596177885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 682081042d33da2409a37f8bbb2e6fdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuPanel: {fileID: 6751592923596177885}
-  musicVolumeSlider: {fileID: 2965345546572399917}
 --- !u!1 &4782930614548801271
 GameObject:
   m_ObjectHideFlags: 0
@@ -4641,7 +4633,6 @@ GameObject:
   - component: {fileID: 635562700551478250}
   - component: {fileID: 2556008597944121848}
   - component: {fileID: 5173767084656483708}
-  - component: {fileID: 4729211957184027046}
   m_Layer: 5
   m_Name: InGameMenu
   m_TagString: Untagged

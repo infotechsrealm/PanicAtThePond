@@ -5,12 +5,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+
 public class FishermanController : MonoBehaviourPunCallbacks
 {
     public static FishermanController Instence;
 
     public InputActionReference inputAction;
-    public InputActionReference hook;
 
 
     [Header("Movement")]
@@ -47,7 +47,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
     internal Transform currentRod;
     internal Slider castingMeter;
     internal int worms;
-    internal bool isCasting = false,
+    public bool isCasting = false,
                   isCanMove = true,
                   isMoving = false,
                   isFisherMan = false,
@@ -110,7 +110,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             }
 
             StartCoroutine(PlayCricketRandomly());
-           
+            CheckWorms();
         }
 
         //Everyone can see everyone.
@@ -343,7 +343,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
     }
     void HandleCasting()
     {
-        if (!isCasting && hook.action.IsPressed())
+        if (!isCasting && Keyboard.current.xKey.isPressed && Keyboard.current.vKey.isPressed)
         {
             if (currentRod != null)
             {
@@ -370,7 +370,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
         if (worms > 0)
         {
-            if (isCasting && hook.action.WasReleasedThisFrame())
+            if (isCasting && Keyboard.current.xKey.wasReleasedThisFrame || isCasting && Keyboard.current.vKey.wasReleasedThisFrame)
             {
                 StartCoroutine(ReleaseCast());
             }
@@ -396,6 +396,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
     IEnumerator ReleaseCast()
     {
+        Debug.Log("ReleaseCast");
         isCasting = false;
         isCanMove = false;
 

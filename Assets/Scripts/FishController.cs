@@ -11,7 +11,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
 
     public InputActionReference inputAction; 
-    public InputActionReference space; 
+  
 
     [Header("Fish Stats")]
     public int hunger = 100;
@@ -151,7 +151,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
         if (carriedJunk != null)
         {
-            if (space.action.WasPressedThisFrame())
+            if (Keyboard.current.spaceKey.wasReleasedThisFrame)
             {
                 Debug.Log("Fish is leve the junk");
                 int junkId = carriedJunk.GetComponent<PhotonView>().ViewID;

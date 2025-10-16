@@ -357,7 +357,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   photonTransformViewClassic: {fileID: 4218648480345521623}
   inputAction: {fileID: -948734162650360508, guid: 1a1049bb92f8b934dbc3f85e2bba46cf, type: 3}
-  space: {fileID: -3676021492797623387, guid: 1a1049bb92f8b934dbc3f85e2bba46cf, type: 3}
   hunger: 100
   speed: 2.5
   minBounds: {x: -8, y: -4}

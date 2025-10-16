@@ -241,7 +241,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputAction: {fileID: -948734162650360508, guid: 1a1049bb92f8b934dbc3f85e2bba46cf, type: 3}
-  hook: {fileID: 550650439093148042, guid: 1a1049bb92f8b934dbc3f85e2bba46cf, type: 3}
   moveSpeed: 2.5
   leftRod: {fileID: 7193815615569484503}
   rightRod: {fileID: 6579769212213636874}
@@ -257,6 +256,15 @@ MonoBehaviour:
   throwWorm: {fileID: 8300000, guid: 37e4c4660a1b3d947845783a713a42fc, type: 3}
   stopBoat: {fileID: 8300000, guid: fb46cd9e605774547a46e822a87b1b08, type: 3}
   catchadeFishID: 0
+  isCasting: 0
+  isCanMove: 1
+  isMoving: 0
+  isFisherMan: 0
+  isCanCast: 1
+  isIdel: 0
+  isRight: 0
+  isLeft: 1
+  meterIncreasing: 1
 --- !u!114 &5874070845168669621
 MonoBehaviour:
   m_ObjectHideFlags: 0

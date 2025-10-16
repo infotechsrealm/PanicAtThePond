@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using Photon.Pun;
 using System.Collections;
-using Photon.Pun;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class MiniGameManager : MonoBehaviourPunCallbacks
 {
@@ -48,11 +49,11 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
         StartCoroutine(UpdateTimer());
     }
 
-    void Update()
+    /*void Update()
     {
         if (!active) return;
 
-        if (Input.anyKeyDown)
+        if (Keyboard.current.anyKey.wasPressedThisFrame)
         {
             if (Input.GetKeyDown(currentSequence[progress].ToString().ToLower()))
             {
@@ -69,7 +70,36 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
                 Fail();
             }
         }
+    }*/
+
+    void Update()
+    {
+        if (!active) return;
+
+        if (Keyboard.current.anyKey.wasPressedThisFrame)
+        {
+            var expectedKey = currentSequence[progress].ToString().ToLower();
+
+            // convert the expected character to a Key enum
+            Key key = (Key)System.Enum.Parse(typeof(Key), expectedKey.ToUpper());
+
+            if (Keyboard.current[key].wasPressedThisFrame)
+            {
+                progress++;
+                UpdateMiniGameText(); // refresh UI colors
+
+                if (progress >= currentSequence.Length)
+                {
+                    Success();
+                }
+            }
+            else
+            {
+                Fail();
+            }
+        }
     }
+
 
     void UpdateMiniGameText()
     {

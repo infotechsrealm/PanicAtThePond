@@ -13,7 +13,6 @@ public class InGameMenu : MonoBehaviourPunCallbacks
 
     public Slider musicVolumeSlider;
 
-    public InputActionReference exit;
 
 
     private void Start()
@@ -27,7 +26,7 @@ public class InGameMenu : MonoBehaviourPunCallbacks
 
     void Update()
     {
-        if (exit.action.WasPressedThisFrame())
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             ToggleMenu();
         }

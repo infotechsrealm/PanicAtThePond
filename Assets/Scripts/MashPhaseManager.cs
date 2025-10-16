@@ -7,7 +7,7 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
 {
     public static MashPhaseManager instance;
 
-    public InputActionReference space;
+   
 
     [Header("UI")]
     public GameObject mashPanel;
@@ -85,7 +85,7 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
     {
         if (!active) return;
 
-        if (space.action.WasPressedThisFrame())
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             mashSlider.value += mashSpeed * Time.deltaTime * 60;
         }
