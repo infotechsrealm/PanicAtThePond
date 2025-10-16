@@ -359,7 +359,6 @@ MonoBehaviour:
   speed: 2.5
   minBounds: {x: -8, y: -4}
   maxBounds: {x: 8, y: 1}
-  catchadeFish: 0
   floatSpeed: 2
   junkHolder: {fileID: 4626417357385204189}
   myPlayerID: 0

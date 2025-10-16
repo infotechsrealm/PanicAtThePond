@@ -23,7 +23,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
                 Debug.Log("Leaving room...");
                 if (Preloader.instance == null)
                 {
-                    Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
+                    Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
                 }
 
                 gameObject.SetActive(false);

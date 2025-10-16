@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6227538583863589673}
   - component: {fileID: 4501122996490821082}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FisherManSounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,8 @@ GameObject:
   - component: {fileID: 5874070845168669621}
   - component: {fileID: -6332745293305633378}
   - component: {fileID: 7807036194685859462}
-  m_Layer: 0
+  - component: {fileID: 6616312679466749823}
+  m_Layer: 7
   m_Name: FisherMan
   m_TagString: Fisherman
   m_Icon: {fileID: 0}
@@ -241,28 +242,20 @@ MonoBehaviour:
   moveSpeed: 2.5
   leftRod: {fileID: 7193815615569484503}
   rightRod: {fileID: 6579769212213636874}
-  currentRod: {fileID: 0}
   castKey1: 120
   castKey2: 118
-  castingMeter: {fileID: 0}
   meterSpeed: 2
   maxCastDistance: 10
   catchadFish: 0
-  isIdel: 0
-  isRight: 0
-  isLeft: 1
-  leftHook: {fileID: 0}
-  rightHook: {fileID: 0}
   minX: -8
   maxX: 8
   animator: {fileID: 7807036194685859462}
-  catchadeFishID: 0
-  valc: 0
   cricketChirping: {fileID: 4568612723588164374}
   fisherManSounds: {fileID: 4501122996490821082}
   boatMoveSound: {fileID: 2171128513466120860}
   throwWorm: {fileID: 8300000, guid: 37e4c4660a1b3d947845783a713a42fc, type: 3}
   stopBoat: {fileID: 8300000, guid: fb46cd9e605774547a46e822a87b1b08, type: 3}
+  catchadeFishID: 0
 --- !u!114 &5874070845168669621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +317,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6616312679466749823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221548032391945581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []
 --- !u!1 &4230553814262268714
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3660892538322258206}
   - component: {fileID: 2171128513466120860}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BoatMove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7193815615569484503}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Left Rod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5725692466454988483}
   - component: {fileID: 6217079909102760815}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lack Natural Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -622,7 +631,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6579769212213636874}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Right Rod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,7 +663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3483056256932294268}
   - component: {fileID: 4568612723588164374}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CricketChirping
   m_TagString: Untagged
   m_Icon: {fileID: 0}

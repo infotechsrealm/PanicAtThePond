@@ -1,32 +1,31 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class GS : MonoBehaviour
+public class GS : MonoBehaviour  
 {
-
-    public static GS instance;
+    public static GS Instance;
     public GameObject createAndJoinPanel,
-                        howToPlay,
+                      howToPlay,
                       preloder;
 
+    public bool AllVisible;
+    public bool DeepWaters;
+    public bool MurkyWaters;
+    public bool ClearWaters;
 
+    
+    internal bool isMasterClient;
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         DontDestroyOnLoad(gameObject);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     public void SetVolume(AudioSource audioSource)
     {
@@ -36,4 +35,6 @@ public class GS : MonoBehaviour
             audioSource.volume = GlobleVolume;
         }
     }
+
+   
 }

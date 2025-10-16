@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7448163867579369296}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WormParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: -8713971836096518132}
   - component: {fileID: -138830729492043831}
   - component: {fileID: 7169404159368920670}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: hookPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

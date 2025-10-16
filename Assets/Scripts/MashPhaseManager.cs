@@ -1,5 +1,4 @@
 ﻿using Photon.Pun;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,10 +42,10 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsMasterClient)
         {
-            FishermanController.instance.OnFightAnimation(true);
+            FishermanController.Instence.OnFightAnimation(true);
             WormSpawner.instance.canSpawn = false;
             JunkSpawner.instance.canSpawn = false;
-            FishermanController.instance.isCanCast = false;
+            FishermanController.Instence.isCanCast = false;
         }
     }
 
@@ -70,7 +69,7 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
         {
             WormSpawner.instance.canSpawn = false;
             JunkSpawner.instance.canSpawn = false;
-            FishermanController.instance.isCanCast = false;
+            FishermanController.Instence.isCanCast = false;
         }
         else
         {
@@ -111,16 +110,21 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
     {
         WormSpawner.instance.canSpawn = true;
         JunkSpawner.instance.canSpawn = true;
-        FishermanController.instance.isCanCast = true;
+        FishermanController fishermanController =  FishermanController.Instence;
+        fishermanController.isCanCast = true; 
         if (mashPanel != null) mashPanel.SetActive(false);
 
         if (fisherManIsWin)
         {
+            if (fishermanController != null)
+            {
+                fishermanController.catchadFish++;
+            }
             photonView.RPC(nameof(FindCatchadFish), RpcTarget.Others);
-            Debug.Log("Fish won the mash phase! Escaped hook.");
             if (PhotonNetwork.IsMasterClient)
             {
-                FishermanController.instance.OnFightAnimation(false);
+                fishermanController.OnFightAnimation(false);
+                WormSpawner.instance.EnableWormDaceAnimation();
             }
         }
         else
@@ -135,8 +139,6 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
                 Debug.Log("Fisherman won the mash phase! Caught fish.");
             }
             Hook.instance.CallRpcToReturnRod();
-
-
         }
 
         active = false;

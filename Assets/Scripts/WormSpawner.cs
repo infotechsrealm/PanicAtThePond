@@ -35,7 +35,6 @@ public class WormSpawner : MonoBehaviourPunCallbacks
         }
     }
 
-
     public void LoadSpawnWorm()
     {
         StartCoroutine(SpawnWorm());
@@ -59,7 +58,7 @@ public class WormSpawner : MonoBehaviourPunCallbacks
                 Vector2 pos = new Vector2(x, y);
 
                 GameObject worm = PhotonNetwork.Instantiate(wormPrefab.name, pos, Quaternion.identity).gameObject;
-                if (FishermanController.instance != null)
+                if (FishermanController.Instence != null)
                 {
                     worm.GetComponent<AudioSource>().mute = true;
                 }
@@ -127,7 +126,7 @@ public class WormSpawner : MonoBehaviourPunCallbacks
         {
             if (activeWorms[i] != null)
             {
-                activeWorms[i].GetComponent<WormManager>().CallOnDanceAnimationRPC();
+                activeWorms[i].GetComponent<WormManager>().OnDanceAnimation();
             }
         }
     }

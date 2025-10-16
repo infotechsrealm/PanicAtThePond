@@ -33,7 +33,10 @@ public class InGameMenu : MonoBehaviourPunCallbacks
     {
         isMenuOpen = !isMenuOpen;
         menuPanel.SetActive(isMenuOpen);
-        GameManager.instance.myFish.CallGamePauseRPC(isMenuOpen);
+        if(GameManager.instance.myFish!=null)
+        {
+            GameManager.instance.myFish.CallGamePauseRPC(isMenuOpen);
+        }
     }
 
     public void QuitToMainMenu()

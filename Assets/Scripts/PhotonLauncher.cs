@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class PhotonLauncher : MonoBehaviourPunCallbacks
 {
-
-
     public static PhotonLauncher Instance;
 
     public int maxPlayers = 3;
 
-    public bool isCreating= false;
-    public bool isJoining = false;
+    internal bool isCreating= false;
+    internal bool isJoining = false;
+
     public CreateJoinManager createJoinManager;
-    public GameObject buttons;
 
     private void Awake()
     {
@@ -23,33 +21,27 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
         }
     }
 
-
     public void LaunchGame()
     {
-        Debug.Log("LaunchGame!");
         if (Preloader.instance == null)
         {
-            Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
+            Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
         }
+
+        // Not connected → Connect to Photon
         if (!PhotonNetwork.IsConnected)
         {
-            Debug.Log("ConnectUsingSettings");
-            // Not connected → Connect to Photon
             PhotonNetwork.ConnectUsingSettings();
         }
         else
         {
-            // Agar lobby me nahi ho to join karo
             if (!PhotonNetwork.InLobby)
             {
-                Debug.Log("JoinLobby");
-
                 PhotonNetwork.JoinLobby();
             }
             else
             {
                 EnablePanel();
-                Debug.Log("Already in Lobby!");
             }
         }
     }
@@ -61,8 +53,6 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
             Destroy(Preloader.instance.gameObject);
         }
 
-        Debug.Log("called");
-
         if (isCreating)
         {
             createJoinManager.createPanel.gameObject.SetActive(true);
@@ -72,7 +62,6 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
         {
             createJoinManager.JoinPanel.gameObject.SetActive(true);
             createJoinManager.createPanel.gameObject.SetActive(false);
-            Debug.Log("EnablePanel Called");
         }
     }
 
@@ -80,9 +69,8 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
     {
         if(Preloader.instance == null)
         {
-            Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
+            Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
         }
-        Debug.Log("Connected to Photon!");
         PhotonNetwork.JoinLobby(); // Optional: auto join lobby
     }
 
@@ -91,9 +79,6 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
         EnablePanel();
         Debug.Log("✅ Joined Photon Lobby successfully!");
     }
-
-
-    
 
     public override void OnDisconnected(DisconnectCause cause)
     {

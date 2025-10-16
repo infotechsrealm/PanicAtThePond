@@ -43,8 +43,6 @@ public class RandomRoomManager : MonoBehaviourPunCallbacks
     internal void CreateRandomRoom()
     {
         
-        DashManager.instance.backButton.SetActive(false);
-
 
         string randomRoomName = "Room_" + Random.Range(1000, 9999);
 
@@ -62,11 +60,6 @@ public class RandomRoomManager : MonoBehaviourPunCallbacks
     // ------------------  Join Random  Room ------------------
     internal void JoinRandomRoom()
     {
-      
-
-        DashManager.instance.backButton.SetActive(false);
-
-
         PhotonNetwork.JoinRandomRoom();
         Debug.Log("Trying to join a random room...");
     }
@@ -75,10 +68,6 @@ public class RandomRoomManager : MonoBehaviourPunCallbacks
 
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
-      
-
-        DashManager.instance.backButton.SetActive(true);
-
         Debug.Log("Room Creation Failed: " + message);
         RoomStatus("Room creation failed: " + message, false);
     }
@@ -138,7 +127,6 @@ public class RandomRoomManager : MonoBehaviourPunCallbacks
         {
             RoomStatus("", false);
             playersListText.text = timerText.text = "";
-            DashManager.instance.backButton.SetActive(true);
             PhotonNetwork.LeaveRoom();
         }
         else
@@ -221,8 +209,7 @@ public class RandomRoomManager : MonoBehaviourPunCallbacks
         RoomStatus("Loading Play Scene in... " + seconds, false);
     }
 
-    public override void OnCreatedRoom()
-    {
+    public override void OnCreatedRoom()   {
         Debug.Log("Room Created: " + PhotonNetwork.CurrentRoom.Name +
                   " | MaxPlayers: " + PhotonNetwork.CurrentRoom.MaxPlayers);
         RoomStatus("Room '" + PhotonNetwork.CurrentRoom.Name + "' created successfully.", true);

@@ -3,21 +3,7 @@ using UnityEngine;
 
 public class ClientLobby : MonoBehaviourPunCallbacks
 {
-
     public PlayerTableManager playerTableManager;
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnEnable()
     {
@@ -37,7 +23,7 @@ public class ClientLobby : MonoBehaviourPunCallbacks
                 Debug.Log("Leaving room...");
                 if (Preloader.instance == null)
                 {
-                    Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
+                    Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
                 }
 
                 gameObject.SetActive(false);
@@ -56,6 +42,5 @@ public class ClientLobby : MonoBehaviourPunCallbacks
     {
         Debug.Log("Left room successfully!");
     }
-
 
 }

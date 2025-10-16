@@ -26,7 +26,7 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
 
     public void StartMiniGame()
     {
-        FishermanController.instance.isCasting = HungerSystem.instance.canDecrease =  FishController.instance.canMove = false;
+        FishermanController.Instence.isCasting = HungerSystem.instance.canDecrease =  FishController.Instence.canMove = false;
 
         active = true;
         progress = 0;
@@ -103,9 +103,9 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Mini-game Success! Fish escaped with worm!");
 
-        HungerSystem.instance.canDecrease = FishController.instance.canMove = true;
+        HungerSystem.instance.canDecrease = FishController.Instence.canMove = true;
         HungerSystem.instance.AddHunger(75f);
-        FishController.instance.animator.SetBool("isFight", false);
+        FishController.Instence.animator.SetBool("isFight", false);
         active = false;
         miniGamePanel.transform.localScale = Vector3.zero;
         if (GameManager.instance.myFish != null)

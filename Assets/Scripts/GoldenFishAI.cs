@@ -56,8 +56,6 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine)
         {
-
-
             if (animator != null)
                 animator.SetBool("isMove", !isPaused);
 
@@ -65,8 +63,6 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
 
             if (!reachedCenter)
             {
-                
-
 
                 // Move toward center first
                 transform.position = Vector2.MoveTowards(transform.position, centerPos, moveSpeed * Time.deltaTime);

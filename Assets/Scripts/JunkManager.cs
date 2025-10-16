@@ -17,7 +17,7 @@ public class JunkManager : MonoBehaviourPunCallbacks
     {
         if(!PhotonNetwork.IsMasterClient)
         {
-            GS.instance.SetVolume(audioSource);
+            GS.Instance.SetVolume(audioSource);
             audioSource.Play();
         }
     }
@@ -94,11 +94,9 @@ public class JunkManager : MonoBehaviourPunCallbacks
     public void LeaveByFish()
     {
         transform.SetParent(null);
-      //  GetComponent<PolygonCollider2D>().enabled = true;
         rb.bodyType = RigidbodyType2D.Dynamic;
-        rb.gravityScale = 0.5f;
-                StartCoroutine(ReduceGravity());
-
+        rb.gravityScale = 1f;
+        StartCoroutine(ReduceGravity());
         isFreezed = false;
         photonRigidbody2DView.enabled = true;
     }

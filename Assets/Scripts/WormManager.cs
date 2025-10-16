@@ -19,13 +19,6 @@ public class WormManager : MonoBehaviourPunCallbacks
     }
 
 
-    public void CallOnDanceAnimationRPC()
-    {
-        photonView.RPC(nameof(OnDanceAnimation), RpcTarget.All, true);
-
-    }
-
-    [PunRPC]
     public void OnDanceAnimation()
     {
         animator.SetBool("isDance", true);

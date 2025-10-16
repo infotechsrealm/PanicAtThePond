@@ -28,7 +28,7 @@ public class PasswordPopup : MonoBehaviour
             Debug.Log("Password correct! Joining room...");
             PhotonNetwork.JoinRoom(targetRoom.Name);
             if (Preloader.instance == null)
-                Instantiate(GS.instance.preloder, DashManager.instance.prefabPanret.transform);
+                Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
         }
         else
         {

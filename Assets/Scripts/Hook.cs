@@ -46,8 +46,8 @@ public class Hook : MonoBehaviourPunCallbacks
         lineRenderer.startWidth = 0.05f;
         lineRenderer.endWidth = 0.05f;
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        lineRenderer.startColor = Color.white;
-        lineRenderer.endColor = Color.white;
+        lineRenderer.startColor = Color.black;
+        lineRenderer.endColor = Color.black;
     }
 
     void Update()
@@ -66,7 +66,6 @@ public class Hook : MonoBehaviourPunCallbacks
             }
         }
     }
-
     public void AttachWorm()
     {
         if (wormPrefab != null && !hasWorm && wormParent != null)
@@ -143,7 +142,7 @@ public class Hook : MonoBehaviourPunCallbacks
     {
         if (!isReturning && PhotonNetwork.IsMasterClient)
         {
-            GS.instance.SetVolume(hookBack);
+            GS.Instance.SetVolume(hookBack);
             hookBack.Play();
             isReturning = true;
             Vector3 target = rodTip;
@@ -158,8 +157,15 @@ public class Hook : MonoBehaviourPunCallbacks
                 hasWorm = false;
             }
 
-            FishermanController fc = FishermanController.instance;
-            fc.OnFishGoatAnimation(true);
+            FishermanController fc = FishermanController.Instence;
+            if (wormParent.GetComponentInChildren<JunkManager>() != null)
+            {
+                fc.OnCryingAnimation(true);
+            }
+            else
+            {
+                fc.OnFishGoatAnimation(true);
+            }
 
             FishController[] fishes = GetComponentsInChildren<FishController>();
 
@@ -181,6 +187,8 @@ public class Hook : MonoBehaviourPunCallbacks
             fc.isCanMove = true;
             fc.isCanCast = true;
             fc.OnFishGoatAnimation(false);
+            fc.OnCryingAnimation(false);
+
             fc.OnReeling();
 
             foreach (FishController f in fishes)
@@ -231,19 +239,4 @@ public class Hook : MonoBehaviourPunCallbacks
             }
         }
     }
-
-
-    public void DestroyParentWithChildren(GameObject parent)
-    {
-        PhotonNetwork.Destroy(parent);
-
-        foreach (PhotonView pv in parent.GetComponentsInChildren<PhotonView>())
-        {
-            if (pv != null && pv.gameObject != parent)
-            {
-                PhotonNetwork.Destroy(pv.gameObject);
-            }
-        }
-    }
-
 }
