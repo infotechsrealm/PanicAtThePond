@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,8 +25,11 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     
     public Text
         createRoomName,
-        playerLimmit,
-        roomPasswordInput;
+        createRoomNameError,
+        playerLimit,
+        playerLimitError,
+        roomPasswordInput,
+        roomPasswordInputError;
 
     internal Text joinRoomName;
 
@@ -116,14 +120,122 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     // ------------------ Create Custome Room ------------------
     internal void CreateCustomeRoom()
     {
-        if (playerLimmit.text != "")
+
+        /* if (playerLimit.text != "")
+         {
+             maxPlayers = int.Parse(playerLimit.text);
+         }
+
+
+         if (string.IsNullOrEmpty(createRoomName.text))
+         {
+             string username = createRoomName.text.Trim();
+
+             if (string.IsNullOrEmpty(username))
+             {
+                 createRoomNameError.text = "Username is required";
+             }
+             else if (username.Length < 3 || username.Length > 10)
+             {
+                 createRoomNameError.text = "Username must be between 3 and 10 characters long";
+             }
+             else if (!Regex.IsMatch(username, @"^[a-zA-Z0-9_]+$"))
+             {
+                 createRoomNameError.text = "Username can only contain letters, numbers, and underscores";
+             }
+             else
+             {
+                 createRoomNameError.text = "";
+             }
+             return;
+         }
+
+         if (maxPlayers < 2 || maxPlayers > 7)
+         {
+             playerLimitError.text = "Player Limit must be between 2 to 7 members";
+
+             return;
+
+         }*/
+
+        if (playerLimit.text != "")
         {
-            maxPlayers = int.Parse(playerLimmit.text);
+            maxPlayers = int.Parse(playerLimit.text);
         }
 
-        if (string.IsNullOrEmpty(createRoomName.text) || maxPlayers > 7 || maxPlayers < 2)
-            return;
+        // ✅ Username validation
+        string username = createRoomName.text.Trim();
 
+        if (string.IsNullOrEmpty(username))
+        {
+            createRoomNameError.text = "Username is required";
+            return;
+        }
+        else if (username.Length < 3 || username.Length > 10)
+        {
+            createRoomNameError.text = "Username must be between 3 and 10 characters long";
+            return;
+        }
+        else if (!Regex.IsMatch(username, @"^[a-zA-Z0-9_]+$"))
+        {
+            createRoomNameError.text = "Username can only contain letters, numbers, and underscores";
+            return;
+        }
+        else
+        {
+            createRoomNameError.text = "";
+        }
+
+        // ✅ Player Limit validation
+        if (maxPlayers < 2 || maxPlayers > 7)
+        {
+            playerLimitError.text = "Player Limit must be between 2 to 7 members";
+            return;
+        }
+        else
+        {
+            playerLimitError.text = "";
+        }
+
+        // ✅ Password validation
+        if (string.IsNullOrEmpty(roomPasswordInput.text))
+        {
+            roomPasswordInputError.text = "Password is required";
+            return;
+        }
+        else if (roomPasswordInput.text.Length < 6)
+        {
+            roomPasswordInputError.text = "A minimum 6-digit password is required";
+            return;
+        }
+        else
+        {
+            roomPasswordInputError.text = "";
+        }
+
+        // ✅ Password Protection (optional)
+        if (!string.IsNullOrEmpty(roomPasswordInput.text))
+        {
+            // User entered a password — validate it
+            if (roomPasswordInput.text.Length < 6)
+            {
+                roomPasswordInputError.text = "A minimum 6-digit password is required";
+                return;
+            }
+            else
+            {
+                roomPasswordInputError.text = "";
+            }
+        }
+        else
+        {
+            roomPasswordInputError.text = "";
+        }
+
+
+
+
+        createRoomNameError.text = "";
         lobby = hostLobby;
 
         if (Preloader.instance == null)
@@ -592,5 +704,28 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         {
             RoomTableManager.instance.UpdateRoomTableUI();
         }
+    }
+
+    public void ValidateUsername()
+    {
+        string username = createRoomName.text.Trim();
+
+        if (string.IsNullOrEmpty(username))
+        {
+            createRoomNameError.text = "Username is required";
+        }
+        else if (username.Length < 10)
+        {
+            createRoomNameError.text = "Username must be at least 10 characters long";
+        }
+        else if (!Regex.IsMatch(username, @"^[a-zA-Z0-9_]+$"))
+        {
+            createRoomNameError.text = "Username can only contain letters, numbers, and underscores";
+        }
+        else
+        {
+            createRoomNameError.text = "";
+        }
+        return;
     }
 }

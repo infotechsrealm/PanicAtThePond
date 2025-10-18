@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PasswordPopup : MonoBehaviour
 {
-    public Text passwordInput;
+    public Text passwordInput, passwordInputError;
     private RoomInfo targetRoom;
     private string correctPassword;
 
@@ -25,6 +25,8 @@ public class PasswordPopup : MonoBehaviour
     {
         if (passwordInput.text == correctPassword)
         {
+            passwordInputError.text = "";
+
             Debug.Log("Password correct! Joining room...");
             PhotonNetwork.JoinRoom(targetRoom.Name);
             if (Preloader.instance == null)
@@ -32,6 +34,7 @@ public class PasswordPopup : MonoBehaviour
         }
         else
         {
+            passwordInputError.text = "Please enter a valid password.";
             Debug.LogWarning("Wrong password!");
             // Optionally show error text on UI
         }
