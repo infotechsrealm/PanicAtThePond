@@ -229,7 +229,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
             float moveInput = inputAction.action.ReadValue<Vector2>().x;
 
-            Debug.Log("moveInputx = " + moveInput);
 
             Vector3 move = new Vector3(moveInput * moveSpeed * Time.deltaTime, 0, 0);
             transform.position += move;
@@ -307,7 +306,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
     {
         float moveInputY = inputAction.action.ReadValue<Vector2>().y;
 
-        Debug.Log("moveInputy = " + moveInputY);
         if (moveInputY == 1)
         {
             //Don't Change Line 
@@ -343,6 +341,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
     }
     void HandleCasting()
     {
+        Debug.Log("Keyboard.current.xKey.isPressed && Keyboard.current.vKey.isPressed =" + Keyboard.current.xKey.isPressed +"-"+ Keyboard.current.vKey.isPressed);
         if (!isCasting && Keyboard.current.xKey.isPressed && Keyboard.current.vKey.isPressed)
         {
             if (currentRod != null)
@@ -363,7 +362,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             }
             else
             {
-                GameManager.instance.messageText.text = "Please select a rod first using the 'W' or 'S' key.";
+                GameManager.instance.messageText.text = "Please select a rod first using the 'W' & 'S' key.";
                 return;
             }
         }
@@ -507,6 +506,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
                     Debug.Log("Fisherman Win!");
                     GameManager.instance.ShowGameOver("Fisherman Win!");
                     GameManager.instance.CallCoverBGDisableRPC();
+                    WormSpawner.instance.EnableWormDaceAnimation();
 
                     if(!GS.Instance.isMasterClient)
                     {

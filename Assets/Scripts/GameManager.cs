@@ -105,13 +105,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
-    private void Update()
-    {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            Debug.Log("I M Master ---------------------------------");
-        }
-    }
+ 
 
     void SpawnPlayer()
     {

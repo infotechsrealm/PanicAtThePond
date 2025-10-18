@@ -123,12 +123,11 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
             {
                 fishermanController.catchadFish++;
             }
-            photonView.RPC(nameof(FindCatchadFish), RpcTarget.Others);
             if (PhotonNetwork.IsMasterClient)
             {
                 fishermanController.OnFightAnimation(false);
-                WormSpawner.instance.EnableWormDaceAnimation();
             }
+            photonView.RPC(nameof(FindCatchadFish), RpcTarget.Others);
         }
         else
         {

@@ -19,7 +19,7 @@ public class GameOver : MonoBehaviourPunCallbacks
 
     public void PlayAgain()
     {
-        if (PhotonNetwork.CurrentRoom.PlayerCount > 2)
+        if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
         {
             PhotonNetwork.LoadLevel("Dash");
         }

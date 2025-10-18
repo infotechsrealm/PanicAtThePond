@@ -343,70 +343,70 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: idel_l
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: idel_r
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: fishing_l
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: fishing_r
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: casting_l
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: casting_r
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: moveBackward_l
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: moveForward_l
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: moveReverceBackward_r
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: moveReverceForward_r
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: leftOurToPole_l
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: rightOurToPole_r
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: fishGotFacing_l
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: fishGotFacing_r
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: isFighting_l
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: isFighting_r
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: isCrying_r
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: isCrying_l
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: isWin_r
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: isWin_l
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: isReeling_r
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: isReeling_l
   m_SynchronizeLayers:
   - SynchronizeType: 0

@@ -52,5 +52,9 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
             playerRows[player.ActorNumber] = row;
         }
+        if (PhotonNetwork.CurrentRoom.Players.Count < 2)
+        {
+            CoustomeRoomManager.Instence.startButton.interactable = false;
+        }
     }
 }

@@ -25,10 +25,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     public Text
         createRoomName,
         playerLimmit,
-        roomPasswordInput,
-        status,
-        playersListText,
-        waitingText;
+        roomPasswordInput;
 
     internal Text joinRoomName;
 
@@ -68,6 +65,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
                     hostLobby.SetActive(true);
                     createJoinManager.createPanel.gameObject.SetActive(true);
                     startButton.interactable = true;
+                    InitializeWaterTypeToggles();
                 }
                 else
                 {
@@ -300,7 +298,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             InitializeWaterTypeToggles();
-            UpdatePlayerListUI();
         }
 
         lobby.SetActive(true);
@@ -323,14 +320,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         startButton.interactable = true;
     }
 
-    void UpdatePlayerListUI()
-    {
-        if (playersListText == null || PhotonNetwork.CurrentRoom == null) return;
-
-        int currentPlayers = PhotonNetwork.CurrentRoom.PlayerCount;
-
-        playersListText.text = "Players = " + currentPlayers + " / " + maxPlayers;
-    }
 
     [PunRPC]
     public void customeStartGame()
@@ -382,13 +371,11 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        UpdatePlayerListUI();
         UpdateTablesUI();
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        UpdatePlayerListUI();
         UpdateTablesUI();
 
         if (destroyRoom)
