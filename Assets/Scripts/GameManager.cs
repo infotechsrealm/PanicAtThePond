@@ -132,6 +132,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         photonView.RPC(nameof(FisherManSpawned), RpcTarget.All, true);
         PhotonNetwork.Instantiate("FisherMan", new Vector3(0f, 3.15f, 0f), Quaternion.identity);
+      
         int fishCount = totalPlayers - 1;
         fishermanWorms = fishCount * baseWormMultiplier;
         maxWorms = fishermanWorms;

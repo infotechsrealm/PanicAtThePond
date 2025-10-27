@@ -200,8 +200,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         // ✅ Password validation
         if (string.IsNullOrEmpty(roomPasswordInput.text))
         {
-            roomPasswordInputError.text = "Password is required";
-            return;
+           /* roomPasswordInputError.text = "Password is required";
+            return;*/
         }
         else if (roomPasswordInput.text.Length < 6)
         {
@@ -213,24 +213,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             roomPasswordInputError.text = "";
         }
 
-        // ✅ Password Protection (optional)
-        if (!string.IsNullOrEmpty(roomPasswordInput.text))
-        {
-            // User entered a password — validate it
-            if (roomPasswordInput.text.Length < 6)
-            {
-                roomPasswordInputError.text = "A minimum 6-digit password is required";
-                return;
-            }
-            else
-            {
-                roomPasswordInputError.text = "";
-            }
-        }
-        else
-        {
-            roomPasswordInputError.text = "";
-        }
+       
 
 
 

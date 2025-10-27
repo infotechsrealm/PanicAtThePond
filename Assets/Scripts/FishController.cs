@@ -291,30 +291,23 @@ public class FishController : MonoBehaviourPunCallbacks
 
     IEnumerator ChangeHost(GameObject other)
     {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            PhotonNetwork.Destroy(other.gameObject);
-        }
-        else
-        {
-            photonView.RPC(nameof(DestroyWormRPC), RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
-        }
-
         yield return new WaitForSeconds(0.25f);
-
         if (PhotonNetwork.IsMasterClient)
         {
-            GameManager.instance.LoadGetIdAndChangeHost();
+            WormSpawner.instance.DestroyAllWorms();
+            PhotonNetwork.Destroy(other.gameObject);
+            GameManager.instance.LoadSpawnFisherman();
+            PhotonNetwork.Destroy(gameObject);
         }
         else
         {
             photonView.RPC(nameof(LoadDestroyAllWormsRPC), RpcTarget.MasterClient);
+            photonView.RPC(nameof(DestroyWormRPC), RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
+            GameManager.instance.LoadGetIdAndChangeHost();
+            PhotonNetwork.Destroy(gameObject);
         }
-
-            WormSpawner.instance.DestroyAllWorms();
-        PhotonNetwork.Destroy(gameObject);
-
     }
+   
 
     [PunRPC]
     public void LoadDestroyAllWormsRPC()

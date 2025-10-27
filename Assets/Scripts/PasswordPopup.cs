@@ -15,6 +15,14 @@ public class PasswordPopup : MonoBehaviour
     {
         instence = this;
     }
+
+    private void Start()
+    {
+        if (Preloader.instance != null)
+        {
+            Destroy(Preloader.instance.gameObject);
+        }
+    }
     public void Init(RoomInfo room, string correctPwd)
     {
         targetRoom = room;
