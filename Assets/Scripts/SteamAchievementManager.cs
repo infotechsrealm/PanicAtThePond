@@ -4,6 +4,16 @@ public class SteamAchievementManager : MonoBehaviour
 {
 
     public SteamAchievementManager achievementManager;
+
+
+    private void Start()
+    {
+        CheckForFishSlayerAchievement();
+        CheckForWhatASnackAchievement();
+        CheckForSurvivorAchievement();
+        CheckForWeComeInSwarmsAchievement(7);
+    }
+
     public void UnlockAchievement(string achievementApiName)
     {
         if (!SteamManager.Initialized)
@@ -20,7 +30,7 @@ public class SteamAchievementManager : MonoBehaviour
 
 
     //Fisherman Achievements
-    void CheckForFishSlayerAchievement(int fishCaughtThisRound)
+    void CheckForFishSlayerAchievement()
     {
         achievementManager.UnlockAchievement("ACH_FISH_SLAYER");
     }
