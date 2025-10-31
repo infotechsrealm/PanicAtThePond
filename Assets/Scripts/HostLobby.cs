@@ -6,6 +6,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
 
     public PlayerTableManager playerTableManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     private void OnEnable()
     {
         playerTableManager.UpdatePlayerTableUI();

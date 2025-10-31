@@ -93,10 +93,11 @@ public class JunkManager : MonoBehaviourPunCallbacks
 
     public void LeaveByFish()
     {
-        transform.SetParent(null);
+        GetComponent<PolygonCollider2D>().enabled = false;
         rb.bodyType = RigidbodyType2D.Dynamic;
+        transform.SetParent(null);
         rb.gravityScale = 1f;
-       StartCoroutine(ReduceGravity());
+        StartCoroutine(ReduceGravity());
         isFreezed = false;
         photonRigidbody2DView.enabled = true;
     }

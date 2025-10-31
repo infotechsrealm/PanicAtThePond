@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 8432396}
   - component: {fileID: 8432395}
   m_Layer: 5
-  m_Name: Text (Legacy) (2)
+  m_Name: PlayerLimmitErrorText (Legacy)Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1375,7 +1375,7 @@ GameObject:
   - component: {fileID: 479979889}
   - component: {fileID: 479979888}
   m_Layer: 5
-  m_Name: Text (Legacy) (1)
+  m_Name: PasswordErrorText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1595,6 +1595,52 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &569894668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 569894669}
+  - component: {fileID: 569894670}
+  m_Layer: 0
+  m_Name: LAN Connector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &569894669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569894668}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -158.17702, y: 114.88916, z: -1.38387}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2331883481266043943}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &569894670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569894668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba79a0b18b5a9824a87bec70a670fd36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 4522795241838861157}
+  ipInput: 
 --- !u!1 &584252635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,7 +1731,7 @@ GameObject:
   - component: {fileID: 599128145}
   - component: {fileID: 599128146}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Steam Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1699,7 +1745,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599128144}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 143.19981, y: 956.266, z: -1.38387}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3621,8 +3667,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7582758180353784424}
-        m_TargetAssemblyTypeName: CoustomeRoomManager, Assembly-CSharp
+      - m_Target: {fileID: 7582758180353784423}
+        m_TargetAssemblyTypeName: CreateJoinManager, Assembly-CSharp
         m_MethodName: OnClickAction
         m_Mode: 5
         m_Arguments:
@@ -4349,13 +4395,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 520995356}
+  - {fileID: 1228573278}
   - {fileID: 2007236726}
   - {fileID: 4790302253193487821}
   - {fileID: 1049866273}
   - {fileID: 1778936900}
   - {fileID: 1640996063}
   - {fileID: 1225727036}
-  - {fileID: 1228573278}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6419,9 +6465,9 @@ GameObject:
   - component: {fileID: 4790302253193487821}
   - component: {fileID: 2223145177078720247}
   - component: {fileID: 7582758180353784423}
-  - component: {fileID: 325125873327078269}
   - component: {fileID: 7582758180353784424}
   - component: {fileID: 7582758180353784425}
+  - component: {fileID: 7582758180353784426}
   m_Layer: 5
   m_Name: 'Create And Join Panel '
   m_TagString: Untagged
@@ -6780,20 +6826,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
---- !u!114 &325125873327078269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33503131624493702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4079fdf41fbc79c409484b8b3a84348e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxPlayers: 3
-  createJoinManager: {fileID: 7582758180353784423}
 --- !u!1 &325839795194661621
 GameObject:
   m_ObjectHideFlags: 0
@@ -7724,6 +7756,35 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1184686956248672637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3045042810004045692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  port: 7777
+  DualMode: 1
+  NoDelay: 1
+  Interval: 10
+  Timeout: 10000
+  RecvBufferSize: 7361536
+  SendBufferSize: 7361536
+  FastResend: 2
+  ReceiveWindowSize: 4096
+  SendWindowSize: 4096
+  MaxRetransmit: 40
+  MaximizeSocketBuffers: 1
+  ReliableMaxMessageSize: 297433
+  UnreliableMaxMessageSize: 1194
+  debugLog: 0
+  statisticsGUI: 0
+  statisticsLog: 0
 --- !u!114 &1212676704586243543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8361,7 +8422,7 @@ GameObject:
   - component: {fileID: 9155366239712928438}
   - component: {fileID: 7793411706817801359}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: PlayerLimmitText (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9038,6 +9099,22 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_ShouldActivateOnSelect: 1
+--- !u!4 &2331883481266043943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3045042810004045692}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 301.37683, y: 841.37683, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 569894669}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2427864753941573466
 GameObject:
   m_ObjectHideFlags: 0
@@ -9490,8 +9567,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7582758180353784424}
-        m_TargetAssemblyTypeName: CoustomeRoomManager, Assembly-CSharp
+      - m_Target: {fileID: 7582758180353784423}
+        m_TargetAssemblyTypeName: CreateJoinManager, Assembly-CSharp
         m_MethodName: OnClickAction
         m_Mode: 5
         m_Arguments:
@@ -9739,6 +9816,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &3045042810004045692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2331883481266043943}
+  - component: {fileID: 3430278053550521717}
+  - component: {fileID: 1184686956248672637}
+  - component: {fileID: 4522795241838861157}
+  m_Layer: 0
+  m_Name: NetworkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!114 &3074051390754527555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10169,6 +10265,30 @@ RectTransform:
   m_AnchoredPosition: {x: 42.5, y: -42.5}
   m_SizeDelta: {x: 85, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3430278053550521717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3045042810004045692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7424c1070fad4ba2a7a96b02fbeb4bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  port: 7777
+  NoDelay: 1
+  SendTimeout: 5000
+  ReceiveTimeout: 30000
+  serverMaxMessageSize: 16384
+  serverMaxReceivesPerTick: 10000
+  serverSendQueueLimitPerConnection: 10000
+  serverReceiveQueueLimitPerConnection: 10000
+  clientMaxMessageSize: 16384
+  clientMaxReceivesPerTick: 1000
+  clientSendQueueLimit: 10000
+  clientReceiveQueueLimit: 10000
 --- !u!114 &3453352840241141418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11216,6 +11336,57 @@ RectTransform:
   m_AnchoredPosition: {x: 43.75, y: -62.5}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4522795241838861157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3045042810004045692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4960db72b3f28f419ac3de5efcf256d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 1
+  runInBackground: 1
+  headlessStartMode: 0
+  editorAutoStart: 0
+  sendRate: 60
+  offlineScene: 
+  onlineScene: 
+  offlineSceneLoadDelay: 0
+  transport: {fileID: 3430278053550521717}
+  networkAddress: localhost
+  maxConnections: 100
+  disconnectInactiveConnections: 0
+  disconnectInactiveTimeout: 60
+  authenticator: {fileID: 0}
+  playerPrefab: {fileID: 2530980438531116932, guid: c26f4c8a1549afd4ca53ab1635bbd93e, type: 3}
+  autoCreatePlayer: 0
+  playerSpawnMethod: 0
+  spawnPrefabs: []
+  exceptionsDisconnect: 1
+  snapshotSettings:
+    bufferTimeMultiplier: 2
+    bufferLimit: 32
+    catchupNegativeThreshold: -1
+    catchupPositiveThreshold: 1
+    catchupSpeed: 0.019999999552965164
+    slowdownSpeed: 0.03999999910593033
+    driftEmaDuration: 1
+    dynamicAdjustment: 1
+    dynamicAdjustmentTolerance: 1
+    deliveryTimeEmaDuration: 2
+  evaluationMethod: 0
+  evaluationInterval: 3
+  timeInterpolationGui: 0
+  connectedPlayers: 0
+  playerLimmit: 0
+  clientLobby: {fileID: 5151483353772916414}
+  hostLobby: {fileID: 61034765582114201}
+  playerLimmitText: {fileID: 8432395}
+  passwordText: {fileID: 4770266105619968019}
 --- !u!114 &4525533016989946364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11384,14 +11555,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5878423961626369205}
   - {fileID: 5658448198492406264}
   m_Father: {fileID: 1035260538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 500, y: -62.5}
-  m_SizeDelta: {x: 1000, y: 125}
+  m_SizeDelta: {x: 600, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4733826013181182805
 MonoBehaviour:
@@ -12065,7 +12235,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 2041341458581831217}
   toggleTransition: 1
   graphic: {fileID: 481667822895433149}
@@ -12912,7 +13082,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 700, y: -62.5}
+  m_AnchoredPosition: {x: 300, y: -62.5}
   m_SizeDelta: {x: 600, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5688037303458546337
@@ -13032,11 +13202,11 @@ RectTransform:
   m_Children:
   - {fileID: 4520698544563861652}
   - {fileID: 2231990033329432943}
-  m_Father: {fileID: 4733826013181182804}
+  m_Father: {fileID: 6453378034448586356}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -62.5}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 250}
   m_SizeDelta: {x: 400, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5925618069063787883
@@ -13520,6 +13690,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5878423961626369205}
   - {fileID: 7583498400912173397}
   - {fileID: 6508399132415757160}
   - {fileID: 614252429}
@@ -13981,7 +14152,7 @@ GameObject:
   - component: {fileID: 8759395186020539324}
   - component: {fileID: 4770266105619968019}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: PasswordText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14644,7 +14815,7 @@ MonoBehaviour:
   createAndJoinButtons: {fileID: 3181589987129418159}
   createPanel: {fileID: 8867093269002491193}
   JoinPanel: {fileID: 5479826148933717310}
-  launcher: {fileID: 325125873327078269}
+  LAN: {fileID: 5177737724520272977}
 --- !u!114 &7582758180353784424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14697,6 +14868,20 @@ MonoBehaviour:
   sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &7582758180353784426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33503131624493702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edca9896fca936d48b4dd4eb9ff3a925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPlayers: 3
+  createJoinManager: {fileID: 7582758180353784423}
 --- !u!224 &7583498400912173397
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15401,7 +15586,7 @@ GameObject:
   - component: {fileID: 8125614706543480799}
   - component: {fileID: 8125614706543480798}
   m_Layer: 5
-  m_Name: Create Room
+  m_Name: Create Room Input
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16977,8 +17162,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7582758180353784424}
-        m_TargetAssemblyTypeName: CoustomeRoomManager, Assembly-CSharp
+      - m_Target: {fileID: 7582758180353784423}
+        m_TargetAssemblyTypeName: CreateJoinManager, Assembly-CSharp
         m_MethodName: OnClickAction
         m_Mode: 5
         m_Arguments:
@@ -16986,7 +17171,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Create
+          m_StringArgument: Continue
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &9104757467027032136
@@ -17067,4 +17252,5 @@ SceneRoots:
   - {fileID: 584252638}
   - {fileID: 52761990}
   - {fileID: 1191909533}
+  - {fileID: 2331883481266043943}
   - {fileID: 599128145}

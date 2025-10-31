@@ -28,21 +28,9 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
             Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
         }
 
-        // Not connected → Connect to Photon
         if (!PhotonNetwork.IsConnected)
         {
             PhotonNetwork.ConnectUsingSettings();
-        }
-        else
-        {
-            if (!PhotonNetwork.InLobby)
-            {
-                PhotonNetwork.JoinLobby();
-            }
-            else
-            {
-                EnablePanel();
-            }
         }
     }
 

@@ -38,8 +38,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     [Header("Room Settings")]
     internal int maxPlayers;
 
-    [Header("References")]
-    internal PhotonLauncher PhotonLauncher;
 
     private string selectedWaterType = "All Visible";
 
@@ -53,15 +51,12 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        PhotonLauncher = PhotonLauncher.Instance;
         PhotonNetwork.AutomaticallySyncScene = true;
         string randomNick = "Player_"  + Random.Range(100, 999);
         PhotonNetwork.NickName = randomNick;
 
         if (PhotonNetwork.InRoom)
         {
-
-
             if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
             {
                 if (PhotonNetwork.IsMasterClient)
@@ -120,44 +115,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     // ------------------ Create Custome Room ------------------
     internal void CreateCustomeRoom()
     {
-
-        /* if (playerLimit.text != "")
-         {
-             maxPlayers = int.Parse(playerLimit.text);
-         }
-
-
-         if (string.IsNullOrEmpty(createRoomName.text))
-         {
-             string username = createRoomName.text.Trim();
-
-             if (string.IsNullOrEmpty(username))
-             {
-                 createRoomNameError.text = "Username is required";
-             }
-             else if (username.Length < 3 || username.Length > 10)
-             {
-                 createRoomNameError.text = "Username must be between 3 and 10 characters long";
-             }
-             else if (!Regex.IsMatch(username, @"^[a-zA-Z0-9_]+$"))
-             {
-                 createRoomNameError.text = "Username can only contain letters, numbers, and underscores";
-             }
-             else
-             {
-                 createRoomNameError.text = "";
-             }
-             return;
-         }
-
-         if (maxPlayers < 2 || maxPlayers > 7)
-         {
-             playerLimitError.text = "Player Limit must be between 2 to 7 members";
-
-             return;
-
-         }*/
-
         if (playerLimit.text != "")
         {
             maxPlayers = int.Parse(playerLimit.text);
@@ -573,7 +530,9 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     public void CallLeaveRoom()
     {
         destroyRoom = true;
+
         Debug.Log("Leaving room...");
+
         if (Preloader.instance == null)
         {
             Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
@@ -583,8 +542,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
         LeaveRoom();
     }
-
-
 
     void  LeaveRoom()
     {
@@ -599,7 +556,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             photonView.RPC(nameof(LeaveRoomRPC), RpcTarget.Others);
         }
     }
-
 
     private void OnApplicationPause(bool pauseStatus)
     {
@@ -664,7 +620,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
         PhotonNetwork.LeaveRoom();
     }
-
 
     public Dictionary<string, RoomInfo> aliveRooms = new Dictionary<string, RoomInfo>();
 
