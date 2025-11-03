@@ -756,7 +756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 550364111526095226}
   myIP: 
-  portInputField: {fileID: 1526374325}
+  maxPlayerInputField: {fileID: 1526374325}
 --- !u!1 &1526374323
 GameObject:
   m_ObjectHideFlags: 0

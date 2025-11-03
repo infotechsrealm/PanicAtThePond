@@ -2,14 +2,12 @@
 using Mirror;
 using System.Net;
 using System.Net.Sockets;
-using UnityEngine.UI;
 
 public class LANConnector : MonoBehaviour
 {
     public MyNetworkManager manager;
     public string myIP;
-    public InputField portInputField;
-
+    public int startPort = 7777; // starting point for ports
     public static LANConnector Instence;
 
     private void Awake()
@@ -19,24 +17,40 @@ public class LANConnector : MonoBehaviour
 
     private void Start()
     {
-        // Local IP auto fill
-        if (myIP != null)
-            myIP = GetLocalIPAddress();
+        myIP = GetLocalIPAddress();
     }
 
-    // 🟢 Host Start
+    // 🟢 HOST START
     public void StartHost()
     {
         string ip = GetLocalIPAddress();
-        int port = int.Parse(portInputField.text.Trim());
         var transport = manager.GetComponent<TelepathyTransport>();
-        transport.port = (ushort)port;
-        manager.networkAddress = ip;
-        manager.StartHost();
-        Debug.Log($"✅ Host Started at {ip}:{port}");
+
+        int port = startPort;
+
+        while (port < 7800)
+        {
+            transport.port = (ushort)port;
+            manager.networkAddress = ip;
+
+            try
+            {
+                manager.StartHost();
+                Debug.Log($"✅ Host started at {ip}:{port}");
+                return;
+            }
+            catch (System.Net.Sockets.SocketException)
+            {
+                Debug.LogWarning($"⚠️ Port {port} in use, trying next...");
+                port++;
+            }
+        }
+
+        Debug.LogError("❌ No available ports found between 7777–7800!");
     }
 
-    // 🔴 Stop
+
+    // 🔴 STOP
     public void StopAll()
     {
         manager.StopHost();
@@ -44,19 +58,27 @@ public class LANConnector : MonoBehaviour
         Debug.Log("🛑 All connections stopped");
     }
 
-    // 🟡 Client Start
+    // 🟡 CLIENT START
     public void StartClient()
     {
         string ip = myIP.Trim();
-        int port = int.Parse(portInputField.text.Trim());
         var transport = manager.GetComponent<TelepathyTransport>();
+
+        int port = FindFirstActivePort(ip, startPort, 7800);
+        if (port == -1)
+        {
+            Debug.LogWarning("⚠️ No active host found to connect.");
+            return;
+        }
+
         transport.port = (ushort)port;
         manager.networkAddress = ip;
         manager.StartClient();
-        Debug.Log($"🕹️ Connecting to {ip}:{port}");
+
+        Debug.Log($"🕹 Connecting to {ip}:{port}");
     }
 
-    // 🌐 Get local IP
+    // 🌐 LOCAL IP
     string GetLocalIPAddress()
     {
         string localIP = "Not Found";
@@ -70,5 +92,56 @@ public class LANConnector : MonoBehaviour
             }
         }
         return localIP;
+    }
+
+    // 🔍 Find next available port for hosting
+    int FindAvailablePort(int start, int end)
+    {
+        for (int port = start; port <= end; port++)
+        {
+            if (IsPortAvailable(port))
+                return port;
+        }
+        Debug.LogWarning("⚠️ No free port found in range!");
+        return start; // fallback
+    }
+
+    // ✅ Check if a port is free
+    bool IsPortAvailable(int port)
+    {
+        try
+        {
+            TcpListener listener = new TcpListener(IPAddress.Loopback, port);
+            listener.Start();
+            listener.Stop();
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    // 🔎 Find first open host to connect
+    int FindFirstActivePort(string ip, int start, int end)
+    {
+        for (int port = start; port <= end; port++)
+        {
+            try
+            {
+                using (TcpClient client = new TcpClient())
+                {
+                    var result = client.BeginConnect(ip, port, null, null);
+                    bool success = result.AsyncWaitHandle.WaitOne(100); // small timeout
+                    if (success)
+                    {
+                        client.Close();
+                        return port;
+                    }
+                }
+            }
+            catch { }
+        }
+        return -1;
     }
 }
