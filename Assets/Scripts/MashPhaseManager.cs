@@ -1,11 +1,13 @@
-﻿using FishNet.Object;
-using System.Collections;
+﻿using Photon.Pun;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class MashPhaseManager : NetworkBehaviour
+public class MashPhaseManager : MonoBehaviourPunCallbacks
 {
     public static MashPhaseManager instance;
+
+   
 
     [Header("UI")]
     public GameObject mashPanel;
@@ -13,169 +15,151 @@ public class MashPhaseManager : NetworkBehaviour
     public Text mashText;
 
     [Header("Settings")]
-    public float mashSpeed = 0.01f;
+    public float mashSpeed = 0.01f; 
     public float decayRate = 0.002f;
 
-    private bool active = false;
+    internal bool active = false;
 
     void Awake()
     {
         instance = this;
     }
 
-    
-    IEnumerator Start()
+
+    [PunRPC]
+    public void CallMashPhaseRPC()
     {
-        yield return new WaitForSeconds(1f);
+        active = true;
 
-        GameManager gm = GameManager.Instance;
+        if (mashPanel != null)
+        {
+            mashPanel.SetActive(true);
+        }
 
-        mashPanel = gm.mashPanel;
-        mashSlider = gm.mashSlider;
-        mashText = gm.mashText;
+        if (mashSlider != null)
+        {
+            mashSlider.value = 0f;
+        }
+
+        mashText.text = "MASH SPACE BAR!";
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            FishermanController.Instence.OnFightAnimation(true);
+            WormSpawner.instance.canSpawn = false;
+            JunkSpawner.instance.canSpawn = false;
+            FishermanController.Instence.isCanCast = false;
+        }
     }
+
     public void StartMashPhase()
     {
-        if (IsServer)
+        active = true;
+
+        if (mashPanel != null)
         {
-            ExecuteFunctionLocal();
-            ExecuteFunctionObserversRpc();
+            mashPanel.SetActive(true);
+        }
+
+        if (mashSlider != null)
+        {
+            mashSlider.value = 0f;
+        }
+
+        mashText.text = "MASH SPACE BAR!";
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            WormSpawner.instance.canSpawn = false;
+            JunkSpawner.instance.canSpawn = false;
+            FishermanController.Instence.isCanCast = false;
         }
         else
         {
-            CallUniversalServerRpc();
+            photonView.RPC(nameof(CallMashPhaseRPC), RpcTarget.MasterClient);
         }
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    private void CallUniversalServerRpc()
-    {
-        ExecuteFunctionLocal();
-
-        ExecuteFunctionObserversRpc();
-    }
-
-    [ObserversRpc]
-    private void ExecuteFunctionObserversRpc()
-    {
-        ExecuteFunctionLocal();
-    }
-
-    private void ExecuteFunctionLocal()
-    {
-        if (FishermanController.instance.isfisherMan || GameManager.Instance.myFish.isCatchedFish)
-        {
-            JunkSpawner.instance.canSpawn = WormSpawner.instance.canSpawn = FishermanController.instance.isCanMove = HungerSystem.instance.canDecrease = false;
-
-            if (mashPanel != null) mashPanel.SetActive(true);
-            if (mashSlider != null) mashSlider.value = 0f;
-
-            active = true;
-            mashText.text = "MASH SPACE BAR!";
-        }
-    }
 
     void Update()
     {
-        if (IsServer)
-        {
-            Debug.Log("i m Server");
-        }
         if (!active) return;
 
-
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             mashSlider.value += mashSpeed * Time.deltaTime * 60;
         }
 
+        // Check end conditions
         if (mashSlider.value >= 1f)
         {
-            mashSlider.value = 0;
-            if (FishermanController.instance.isfisherMan)
+
+            if (PhotonNetwork.IsMasterClient)
             {
-                EndMashPhase(true); // Fisherman caught
+                photonView.RPC(nameof(EndMashPhase), RpcTarget.All,true);
             }
             else
             {
-                EndMashPhase(false); // Fisherman caught
+                    photonView.RPC(nameof(EndMashPhase), RpcTarget.All,false);
+
             }
         }
     }
 
-    // This is what you'll call from anywhere
-    public void EndMashPhase(bool fishermanWon)
-    {
-        if (IsServer)
-        {
-            EndMashPhaseObserversRpc(fishermanWon);
-        }
-        else
-        {
-            // Client requests server to handle
-            EndMashPhaseServerRpc(fishermanWon);
-        }
-    }
 
-    [ServerRpc(RequireOwnership = false)]
-    private void EndMashPhaseServerRpc(bool fishermanWon)
-    {
-        // Only broadcast (server will also receive via RPC)
-        EndMashPhaseObserversRpc(fishermanWon);
-    }
 
-    [ObserversRpc]
-    private void EndMashPhaseObserversRpc(bool fishermanWon)
+    [PunRPC]
+    public void EndMashPhase(bool fisherManIsWin)
     {
-        EndMashPhaseLocal(fishermanWon);
-    }
-
-    private void EndMashPhaseLocal(bool fishermanWon)
-    {
-        Debug.Log("EndMashPhaseLocal Called");
-        active = false;
+        WormSpawner.instance.canSpawn = true;
+        JunkSpawner.instance.canSpawn = true;
+        FishermanController fishermanController =  FishermanController.Instence;
+        fishermanController.isCanCast = true; 
         if (mashPanel != null) mashPanel.SetActive(false);
 
-        if (fishermanWon)
+        if (fisherManIsWin)
         {
-            FishermanController.instance.catchadFishes++;
-            Debug.Log("Fish won the mash phase! Escaped hook.");
-            Transform myfish2 = GameObject.FindGameObjectWithTag("CatchdFish").GetComponent<Transform>();
-            myfish2.transform.SetParent(Hook.instance.wormParent.transform);
-            myfish2.transform.localPosition = Vector3.zero;
-            myfish2.transform.localRotation = Quaternion.Euler(0f, 0f, -90f);
-              
-            JunkSpawner.instance.canSpawn =
-            WormSpawner.instance.canSpawn =
-            FishermanController.instance.isCanMove = true;
+            if (fishermanController != null)
+            {
+                fishermanController.catchadFish++;
+            }
+            if (PhotonNetwork.IsMasterClient)
+            {
+                fishermanController.OnFightAnimation(false);
+            }
+            photonView.RPC(nameof(FindCatchadFish), RpcTarget.Others);
         }
         else
         {
-            JunkSpawner.instance.canSpawn =
-           WormSpawner.instance.canSpawn =
-           FishermanController.instance.isCanMove =
-           HungerSystem.instance.canDecrease =
-           GameManager.Instance.myFish.canMove = true;
-            HungerSystem.instance.AddHunger(75f);
-            Debug.Log("Fisherman won the mash phase! Caught fish.");
 
-            for (int i = 0; i < GameManager.Instance.AllFishPlayers.Count; i++)
+            if (GameManager.instance.myFish)
             {
-                if (GameManager.Instance.AllFishPlayers[i] != null)
-                {
-                    GameManager.Instance.AllFishPlayers[i].ChangeTag("Fish");
-                }
-                else
-                {
-                    Debug.Log("FishController is null");
-                }
+                HungerSystem.instance.AddHunger(75f);
+                GameManager.instance.myFish.canMove = true;
+                GameManager.instance.myFish.animator.SetBool("isFight", false);
+                GameManager.instance.myFish.catchadeFish = false;
+                Debug.Log("Fisherman won the mash phase! Caught fish.");
+            }
+            Hook.instance.CallRpcToReturnRod();
+        }
+
+        active = false;
+
+    }
+
+    [PunRPC]
+    public void FindCatchadFish()
+    {
+        FishController fish = GameManager.instance.myFish;
+        if (fish != null)
+        {
+            if (fish.catchadeFish)
+            {
+                fish.PutFishInHook();
             }
         }
-
-        if (IsServer)
-        {
-            Hook.instance.LoadReturnToRod();
-        }
     }
+
+   
+
 }

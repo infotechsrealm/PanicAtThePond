@@ -1,0 +1,390 @@
+fileFormatVersion: 2
+guid: 3e70cd2e1bbcb7548b122538d59d38d7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1634178853652810581
+    second: VerticalStripBubbl 2_0
+  - first:
+      213: -9193241039749069312
+    second: VerticalStripBubbl 2_1
+  - first:
+      213: -1567732572820074349
+    second: VerticalStripBubbl 2_2
+  - first:
+      213: -7370261678556273481
+    second: VerticalStripBubbl 2_3
+  - first:
+      213: -25783356166811856
+    second: VerticalStripBubbl 2_4
+  - first:
+      213: 2306930002233914318
+    second: VerticalStripBubbl 2_5
+  - first:
+      213: 1634573987415854959
+    second: VerticalStripBubbl 2_6
+  - first:
+      213: -3276749475738576966
+    second: VerticalStripBubbl 2_7
+  - first:
+      213: 2324756099203405325
+    second: VerticalStripBubbl 2_8
+  - first:
+      213: 2991758474401818682
+    second: VerticalStripBubbl 2_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VerticalStripBubbl 2_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 64
+        width: 30
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba4b198adfa3259e0800000000000000
+      internalID: -1634178853652810581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalStripBubbl 2_1
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 73
+        width: 74
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 006c6337bfb0b6080800000000000000
+      internalID: -9193241039749069312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalStripBubbl 2_2
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 64
+        width: 30
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 390104ef78b4e3ae0800000000000000
+      internalID: -1567732572820074349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalStripBubbl 2_3
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 21
+        width: 21
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b4aafb7d0297b990800000000000000
+      internalID: -7370261678556273481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalStripBubbl 2_4
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 30
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03f4f869c2664aff0800000000000000
+      internalID: -25783356166811856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalStripBubbl 2_5
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 30
+        width: 56
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec3f7d84d9cd30020800000000000000
+      internalID: 2306930002233914318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalStripBubbl 2_6
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 30
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6f0407916c2fa610800000000000000
+      internalID: 1634573987415854959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalStripBubbl 2_7
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 21
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab797a876b5a682d0800000000000000
+      internalID: -3276749475738576966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalStripBubbl 2_8
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 13
+        width: 30
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d06117aea51334020800000000000000
+      internalID: 2324756099203405325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalStripBubbl 2_9
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 13
+        width: 30
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a382c704b7cd48920800000000000000
+      internalID: 2991758474401818682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VerticalStripBubbl 2_0: -1634178853652810581
+      VerticalStripBubbl 2_1: -9193241039749069312
+      VerticalStripBubbl 2_2: -1567732572820074349
+      VerticalStripBubbl 2_3: -7370261678556273481
+      VerticalStripBubbl 2_4: -25783356166811856
+      VerticalStripBubbl 2_5: 2306930002233914318
+      VerticalStripBubbl 2_6: 1634573987415854959
+      VerticalStripBubbl 2_7: -3276749475738576966
+      VerticalStripBubbl 2_8: 2324756099203405325
+      VerticalStripBubbl 2_9: 2991758474401818682
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

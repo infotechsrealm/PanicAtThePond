@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class MiniGameManager : MonoBehaviour
-
+public class MiniGameManager : MonoBehaviourPunCallbacks
 {
     public static MiniGameManager instance;
 
@@ -13,14 +14,12 @@ public class MiniGameManager : MonoBehaviour
 
     private string currentSequence;
     private int progress;
-    private bool active = false;
+    internal bool active = false;
 
     private float timeLimit = 5f;
     private float timeRemaining;
 
 
-
-    
     void Awake()
     {
         instance = this;
@@ -28,7 +27,7 @@ public class MiniGameManager : MonoBehaviour
 
     public void StartMiniGame()
     {
-        FishermanController.instance.isCasting =HungerSystem.instance.canDecrease =  FishController.instance.canMove = false;
+        FishermanController.Instence.isCasting = HungerSystem.instance.canDecrease =  FishController.Instence.canMove = false;
 
         active = true;
         progress = 0;
@@ -50,11 +49,11 @@ public class MiniGameManager : MonoBehaviour
         StartCoroutine(UpdateTimer());
     }
 
-    void Update()
+    /*void Update()
     {
         if (!active) return;
 
-        if (Input.anyKeyDown)
+        if (Keyboard.current.anyKey.wasPressedThisFrame)
         {
             if (Input.GetKeyDown(currentSequence[progress].ToString().ToLower()))
             {
@@ -71,7 +70,36 @@ public class MiniGameManager : MonoBehaviour
                 Fail();
             }
         }
+    }*/
+
+    void Update()
+    {
+        if (!active) return;
+
+        if (Keyboard.current.anyKey.wasPressedThisFrame)
+        {
+            var expectedKey = currentSequence[progress].ToString().ToLower();
+
+            // convert the expected character to a Key enum
+            Key key = (Key)System.Enum.Parse(typeof(Key), expectedKey.ToUpper());
+
+            if (Keyboard.current[key].wasPressedThisFrame)
+            {
+                progress++;
+                UpdateMiniGameText(); // refresh UI colors
+
+                if (progress >= currentSequence.Length)
+                {
+                    Success();
+                }
+            }
+            else
+            {
+                Fail();
+            }
+        }
     }
+
 
     void UpdateMiniGameText()
     {
@@ -97,47 +125,49 @@ public class MiniGameManager : MonoBehaviour
             yield return null;
         }
 
+        if (active)
             Fail();
     }
 
-
     void Success()
     {
-        FishermanController.instance.isCanMove =  HungerSystem.instance.canDecrease = GameManager.Instance.myFish.canMove = true;
+        Debug.Log("Mini-game Success! Fish escaped with worm!");
+
+        HungerSystem.instance.canDecrease = FishController.Instence.canMove = true;
         HungerSystem.instance.AddHunger(75f);
-        FishController.instance.DestrouWorm();
-
-        for (int i = 0; i < GameManager.Instance.AllFishPlayers.Count; i++)
-        {
-            if (GameManager.Instance.AllFishPlayers[i] != null)
-            {
-                GameManager.Instance.AllFishPlayers[i].ChangeTag("Fish");
-            }
-            else
-            {
-                Debug.Log("FishController is null");
-            }
-        }
-
+        FishController.Instence.animator.SetBool("isFight", false);
         active = false;
         miniGamePanel.transform.localScale = Vector3.zero;
-        Hook.instance.LoadReturnToRod();
-        Debug.Log("Mini-game Success! Fish escaped with worm!");
+        if (GameManager.instance.myFish != null)
+        {
+            GameManager.instance.myFish.catchadeFish = false;
+        }
+        Hook.instance.CallRpcToReturnRod();
         if (timerText != null) timerText.text = "";
-
-
     }
         
     void Fail()
     {
+        Debug.Log("Mini-game Failed! Fisherman caught the fish!");
+
         active = false;
         miniGamePanel.transform.localScale = Vector3.zero;
 
-        MashPhaseManager.instance.StartMashPhase();
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            MashPhaseManager.instance.StartMashPhase();
+        }
 
-        Debug.Log("Mini-game Failed! Fisherman caught the fish!");
         if (timerText != null) timerText.text = "";
-
     }
-    
+
+    [PunRPC]
+    void DestroyWormRPC(int viewID)
+    {
+        PhotonView target = PhotonView.Find(viewID);
+        if (target != null)
+        {
+            PhotonNetwork.Destroy(target.gameObject);
+        }
+    }
 }

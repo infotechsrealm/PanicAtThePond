@@ -1,10 +1,17 @@
-﻿using FishNet.Connection;
-using FishNet.Object;
+﻿using Photon.Pun;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class FishController : NetworkBehaviour
+public class FishController : MonoBehaviourPunCallbacks
 {
+    public static FishController Instence;
+
+    public PhotonTransformViewClassic photonTransformViewClassic;
+
+
+    public InputActionReference inputAction; 
+  
     [Header("Fish Stats")]
     public int hunger = 100;
     public float speed = 5f;
@@ -12,95 +19,109 @@ public class FishController : NetworkBehaviour
     public Vector2 minBounds = new Vector2(-8f, -4f);
     public Vector2 maxBounds = new Vector2(8f, 4f);
 
+    public float floatSpeed = 2f;
+    public Transform junkHolder;
+    public int myPlayerID;
+
+    public AudioSource 
+           audioSource,
+           audioSourceForFishMove;
+
+    public AudioClip fishEatWarmSound;
+    public AudioClip fishCameToSurfaceSound;
+
+    public Animator animator;
+
     internal float originalScaleX;
     internal float originalScaleY;
-
-    private Rigidbody2D rb;
-    public bool canMove = true;
-
-    public static FishController instance;
+    internal bool canMove = true;
+    internal bool catchadeFish = false;
+    internal GameObject carriedJunk;
 
     [Header("Floating on Death")]
     private bool isDead = false;
-    public float floatSpeed = 2f;
-
-    public bool isCatchedFish = false;
-
-    public Transform junkHolder;   
-    public GameObject carriedJunk;
-
-    public GameObject CatchedWorm;
-
-    // Event for fish death
-    public static event System.Action<FishController> OnFishDied;
-
-    public PolygonCollider2D myColider;
-
-    public AdvancedHostMigration advancedHostMigration;
+    private Rigidbody2D rb;
+    
     private void Awake()
     {
-        if (instance == null)
+        if (Instence == null)
         {
-            instance = this;
+            Instence = this;
         }
         originalScaleX = transform.localScale.x;
         originalScaleY = transform.localScale.y;
-
-       
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        StartCoroutine(SetObjectainGamemanager());
+        if (photonView.IsMine)
+        {
+            GameManager.instance.myFish = this;
+        }
+        GameManager.instance.allFishes.Add(this);
     }
 
-    public GameObject localPlayer; // आपके local clone का reference
-
-    public override void OnStartClient()
+    void FixedUpdate()
     {
-        base.OnStartClient();
-
-        if (IsOwner) // ये मेरा object है
+        /*if(PhotonNetwork.IsMasterClient)
         {
-            localPlayer = this.gameObject;
-            Debug.Log("Local player spawned: " + gameObject.name);
+            Debug.Log("I M Master ---------------------------------");
 
         }
-    }
-        
-    void Update()
-    {
-        
-
-        if (!IsOwner)
-            return;
-
-        
-
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (catchadeFish)
         {
-            AdvancedHostMigration migrationManager = FindObjectOfType<AdvancedHostMigration>();
-            if (migrationManager != null)
-            {
-                Debug.Log("fgasgdsytaSUDSA");
-                migrationManager.BecomeNewHost();
-            }
-            else
-            {
-                Debug.LogError("nuljjasduyssudsdiysd");
-            }
+            Debug.Log("I M Catchade ---------------------------------");
+        }
+*/
+
+        if (!photonView.IsMine)
+        {
+            return;
         }
 
         if (!canMove)
         {
             rb.linearVelocity = Vector2.zero;
-           //AutoFishMove();
             return;
         }
 
-        float moveX = Input.GetAxis("Horizontal");
-        float moveY = Input.GetAxis("Vertical");
+
+        Vector2 move = inputAction.action.ReadValue<Vector2>();
+
+        float moveX = move.x;
+        float moveY = move.y;
+
+
+        /*  float moveX = Input.GetAxisRaw("Horizontal");
+          float moveY = Input.GetAxisRaw("Vertical");*/
+
+        if (moveX != 0 || moveY != 0)
+        {
+            if(!audioSourceForFishMove.isPlaying)
+            {
+                GS.Instance.SetVolume(audioSourceForFishMove);
+                audioSourceForFishMove.Play();
+            }
+
+            if (!animator.GetBool("isMove"))
+            {
+                animator.SetBool("isMove", true);
+            }
+        }
+        else
+        {
+            if (audioSourceForFishMove.isPlaying)
+            {
+                GS.Instance.SetVolume(audioSourceForFishMove);
+                audioSourceForFishMove.Pause();
+            }
+
+            if (animator.GetBool("isMove"))
+            {
+                animator.SetBool("isMove", false);
+            }
+        }
 
         rb.linearVelocity = new Vector2(moveX, moveY) * speed;
 
@@ -114,385 +135,350 @@ public class FishController : NetworkBehaviour
         Vector3 clampedPos = transform.position;
         clampedPos.x = Mathf.Clamp(clampedPos.x, minBounds.x, maxBounds.x);
         clampedPos.y = Mathf.Clamp(clampedPos.y, minBounds.y, maxBounds.y);
-        transform.position = clampedPos;
+        // transform.position = clampedPos;
+        transform.position = Vector3.Lerp(transform.position, clampedPos, Time.deltaTime * 10);
 
         // Check hunger
-        if (!isDead && HungerSystem.instance.hungerBar.value <= 0)
+        if (!isDead && HungerSystem.instance != null && HungerSystem.instance.hungerBar.value <= 0)
         {
-            isDead = true;
-            canMove = false;
-            rb.linearVelocity = Vector2.zero;
             StartCoroutine(FloatToSurface());
-            StopGame();
         }
-    }
 
-    IEnumerator SetObjectainGamemanager()
-    {
-        yield return new WaitForSeconds(2f);
-        if (GameManager.Instance != null)
+        if (carriedJunk != null)
         {
-            if (IsOwner)
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
-                if (GameManager.Instance.myFish == null)
-                {
-                    GameManager.Instance.myFish = this;
-                }
+                Debug.Log("Fish is leve the junk");
+                int junkId = carriedJunk.GetComponent<PhotonView>().ViewID;
+                photonView.RPC(nameof(LeaveJunk), RpcTarget.AllBuffered, junkId);
+                PhotonNetwork.SendAllOutgoingCommands();
+                carriedJunk = null;
             }
-
-            GameManager.Instance.AllFishPlayers.Add(this);
         }
     }
- 
-
-    [ServerRpc(RequireOwnership = false)]
-    private void StopGame()
-    {
-        JunkSpawner.instance.canSpawn = false;
-        WormSpawner.instance.canSpawn = false;
-        FishermanController.instance.isCanMove = false;
-        HungerSystem.instance.canDecrease = false;
-    }
-
-
 
     private IEnumerator FloatToSurface()
     {
+        GameManager.instance.CallLessPlayerCountRPC();
+
+        animator.SetBool("isFight", false);
+        animator.SetBool("isDead", true);
+
+        canMove = false;
+        isDead = true;
+
+        rb.linearVelocity = Vector2.zero;
+        transform.GetComponent<PolygonCollider2D>().enabled = false;
+
+        if (carriedJunk != null)
+        {
+            int viewId = carriedJunk.GetComponent<PhotonView>().ViewID;
+            photonView.RPC(nameof(LeaveJunk), RpcTarget.OthersBuffered, viewId);
+        }
 
         float targetY = maxBounds.y; // Surface
+        HungerSystem.instance.canDecrease = false;
+
+        if (GameManager.instance != null && GameManager.instance.gameOverText != null)
+        {
+            GameManager.instance.ShowGameOver("You lose!");
+        }
+
         while (transform.position.y < targetY)
         {
             transform.position += Vector3.up * floatSpeed * Time.deltaTime;
             yield return null;
         }
+
+        PlaySFX(fishCameToSurfaceSound);
+
         transform.position = new Vector3(transform.position.x, targetY, transform.position.z);
-        Debug.Log(name + " has floated to the surface (dead).");
 
-        // Trigger event
-        OnFishDied?.Invoke(this);
-
-        if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
-        {
-            canMove = false;
-            GameManager gm = GameManager.Instance;
-            myColider.enabled = false;
-            gm.gameOverPanel.SetActive(true);
-            gm.ShowGameOverMessage("You Lose!");
-        }
     }
 
-    // Optional: Auto swim logic when player control is off
-    public float Autospeed = 3f;
-    internal Vector3 direction = Vector3.left;
-    public void AutoFishMove()
+    //when Fish is Die and User press space key.
+    [PunRPC]
+    public void LeaveJunk(int junkId)
     {
-        if (transform.position.x > 7.5)
-            direction = Vector3.left;
-        else if (transform.position.x < -7.5)
-            direction = Vector3.right;
-
-        transform.localScale = (direction.x < 0) ? new Vector3(originalScaleX, originalScaleY, 1)
-                                                 : new Vector3(-originalScaleX, originalScaleY, 1);
-
-
-        transform.position += direction * Autospeed * Time.deltaTime;
-        transform.position = new Vector3(transform.position.x, -2f, transform.position.z);
+        GameObject junk = PhotonView.Find(junkId).gameObject;
+        junk.GetComponent<JunkManager>().LeaveByFish();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Worm"))
+        if (photonView.IsMine)
         {
-
-            if (carriedJunk != null)
+            if (audioSourceForFishMove.isPlaying)
             {
-                DropJunkToHook(other.gameObject);
-                return;
+                GS.Instance.SetVolume(audioSourceForFishMove);
+                audioSourceForFishMove.Pause();
             }
 
-            gameObject.tag = "CatchdFish";
-
-            if(IsOwner)
+            if (other.CompareTag("HookWorm"))
             {
-                isCatchedFish = true;
-            }
-            other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
-
-            canMove = false;
-
-            Destroy(other.gameObject);
-
-
-            if (IsOwner)
-            {
+                PlaySFX(fishEatWarmSound);
+                animator.SetTrigger("isEat");
+                other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+                photonView.RPC(nameof(DestroyWormRPC), RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
+                PhotonNetwork.SendAllOutgoingCommands();
+                if (carriedJunk != null)
+                {
+                    DropJunkToHook();
+                    return;
+                }
+                animator.SetBool("isFight", true);
+                animator.SetBool("isMove", false);
+                catchadeFish = true;
                 MiniGameManager.instance.StartMiniGame();
             }
 
-            CatchedWorm = other.gameObject;
-        }
-
-        if (other.CompareTag("GoldTrout"))
-        {
-            if (IsServer)
+            if (other.CompareTag("GoldTrout"))
             {
-                SpawnFisherman();
-                DestroyFish(other.gameObject);
+                animator.SetTrigger("isEat");
+                GameManager.instance.isFisherMan= true;
+                PlaySFX(fishEatWarmSound);
+                GameManager.instance.goldWormEatByFish = true;
+                GS.Instance.SetVolume(audioSource);
+                audioSource.Play();
+
+                other.gameObject.transform.localScale = Vector3.zero;
+                other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+
+                StartCoroutine(ChangeHost(other.gameObject));
             }
-            else
+
+            if (other.CompareTag("Worm"))
             {
-                RequestSpawnFishermanServerRpc(other.gameObject);
+                PlaySFX(fishEatWarmSound);
+                animator.SetTrigger("isEat");
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    PhotonNetwork.Destroy(other.gameObject);
+                    HungerSystem.instance.AddHunger(25f);
+                }
+                else
+                {
+                    photonView.RPC(nameof(DestroyWormRPC), RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
+                    PhotonNetwork.SendAllOutgoingCommands();
+                    HungerSystem.instance.AddHunger(25f);
+                }
             }
 
-            if(IsOwner)
+            if (other.CompareTag("Junk") && carriedJunk == null)
             {
-                GameManager.Instance.LoadMakeFisherMan();
-            }
-        }
-
-        if (other.CompareTag("DropedWorm"))
-        {
-            HungerSystem.instance.AddHunger(75f);
-            Destroy(other.gameObject);
-        }
-
-        if (other.CompareTag("Worm2"))
-        {
-            HungerSystem.instance.AddHunger(25f);
-            Destroy(other.gameObject);
-        }
-
-        if (carriedJunk == null)
-        {
-            if (other.CompareTag("Junk"))
-            {   
-                carriedJunk = other.gameObject;
-                carriedJunk.GetComponent<PolygonCollider2D>().enabled = false;
+                animator.SetTrigger("isEat");
+                JunkManager junk = other.GetComponent<JunkManager>();
+                carriedJunk = junk.gameObject;
+                junk.CallFreezeObjectRPC();
                 carriedJunk.transform.SetParent(junkHolder);
                 carriedJunk.transform.localPosition = Vector3.zero;
+                carriedJunk.GetComponent<PolygonCollider2D>().enabled = false;
+                int viewId = other.GetComponent<PhotonView>().ViewID;
+                photonView.RPC(nameof(SetJunkInFish), RpcTarget.OthersBuffered, viewId);
+                PhotonNetwork.SendAllOutgoingCommands();
             }
         }
     }
 
-
-    [ServerRpc(RequireOwnership = false)]
-    public void DestrouWorm()
+    [PunRPC]
+    void SetJunkInFish(int viewId)
     {
-        Destroy(CatchedWorm);
-    }
-    public void DestroyFish(GameObject Worm)
-    {
-        Debug.Log("DestroyFish");   
-        Destroy(Worm);
-        Destroy(gameObject);
+        carriedJunk = PhotonView.Find(viewId).gameObject;
+        carriedJunk.GetComponent<PolygonCollider2D>().enabled = false;
+        carriedJunk.transform.SetParent(junkHolder);
+        carriedJunk.transform.localPosition = Vector3.zero;
     }
 
-    [ServerRpc]
-    public void RequestSpawnFishermanServerRpc(GameObject worm)
+    IEnumerator ChangeHost(GameObject other)
     {
-        SpawnFisherman(); // server पर call, object complete work करेगा
-        DestroyFish(worm);
-    }
-
-    public void SpawnFisherman()
-    {
-        Debug.Log("SpawnFisherman");
-
-        JunkSpawner.instance.canSpawn = true;
-        JunkSpawner.instance.LoadSpaenLoop();
-        var fishermanObj = Instantiate(GameManager.Instance.fishermanPrefab,
-            new Vector3(0f, 8.75f, 0f), Quaternion.identity);
-        Spawn(fishermanObj.gameObject);
-    }
-
-    [ServerRpc]
-    public void SetFisherMan(FishermanController fm)
-    {
-        Debug.Log("SetFisherMan"); 
-        GameManager.Instance.fisherman = fm;    
-    }
-
-    public void DropJunkToHook(GameObject worm)
-    {
-        if (IsServer)
+        yield return new WaitForSeconds(0.25f);
+        if (PhotonNetwork.IsMasterClient)
         {
-            DropJunkToHookLocal(worm);
-            DropJunkToHookObserversRpc(worm);
-        }
-        else if (IsOwner)
-        {
-            DropJunkToHookServerRpc(worm);
-        }
-    }
-
-    private void DropJunkToHookLocal(GameObject worm)
-    {
-        Transform wormParent = Hook.instance.wormParent;
-
-        if (wormParent != null)
-        {
-            HungerSystem.instance.canDecrease = canMove = true;
-
-            HungerSystem.instance.AddHunger(75f);
-
-            carriedJunk.transform.SetParent(wormParent);
-            carriedJunk.GetComponent<PolygonCollider2D>().enabled = false;
-            carriedJunk.transform.localPosition = Vector3.zero;
-            Destroy(worm);
-            Debug.Log("Fish dropped junk on hook! Fisherman pranked!");
+            WormSpawner.instance.DestroyAllWorms();
+            PhotonNetwork.Destroy(other.gameObject);
+            GameManager.instance.LoadSpawnFisherman();
+            PhotonNetwork.Destroy(gameObject);
         }
         else
         {
-            Debug.LogWarning("wormParent not found inside Hook!");
+            photonView.RPC(nameof(LoadDestroyAllWormsRPC), RpcTarget.MasterClient);
+            photonView.RPC(nameof(DestroyWormRPC), RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
+            GameManager.instance.LoadGetIdAndChangeHost();
+            PhotonNetwork.Destroy(gameObject);
         }
+    }
+   
 
-        if (IsServer)
+    [PunRPC]
+    public void LoadDestroyAllWormsRPC()
+    {
+        WormSpawner.instance.DestroyAllWorms();
+    }
+
+
+    [PunRPC]
+    void DestroyWormRPC(int viewID)
+    {
+        PhotonView pv = PhotonView.Find(viewID);
+        if (pv != null)
         {
-            Hook.instance.LoadReturnToRod();
+            if (PhotonNetwork.IsMasterClient)
+                PhotonNetwork.Destroy(pv.gameObject);
         }
+    }
 
+    void DropJunkToHook()
+    {
+        Hook hook = Hook.instance;
+
+        if (hook != null)
+        {
+            HungerSystem.instance.AddHunger(75f);
+
+            carriedJunk.transform.SetParent(hook.wormParent);
+            carriedJunk.transform.localPosition = Vector3.zero;
+
+            int viewId = hook.GetComponent<PhotonView>().ViewID;
+            photonView.RPC(nameof(SetJunkInHook), RpcTarget.OthersBuffered, viewId);
+            PhotonNetwork.SendAllOutgoingCommands();
+
+        }
+        hook.CallRpcToReturnRod();
         carriedJunk = null;
     }
 
-    [ServerRpc(RequireOwnership = true)]
-    private void DropJunkToHookServerRpc(GameObject worm)
+    [PunRPC]
+    void SetJunkInHook(int viewId)
     {
-        DropJunkToHookLocal(worm);
-        DropJunkToHookObserversRpc(worm);
-    }
-
-    [ObserversRpc]
-    private void DropJunkToHookObserversRpc(GameObject worm)
-    {
-        if (IsServer) return; // Server already executed
-        DropJunkToHookLocal(worm);
+        Hook hook = PhotonView.Find(viewId).GetComponent<Hook>();
+        carriedJunk.GetComponent<PolygonCollider2D>().enabled = false;
+        carriedJunk.transform.SetParent(hook.wormParent);
+        carriedJunk.transform.localPosition = Vector3.zero;
+        carriedJunk = null;
     }
 
 
-    //For tag Change 
-    public void ChangeTag(string newTag)
+    //When Fish Loss in MashPhase.
+    public void PutFishInHook()
     {
-        if (gameObject.tag == "CatchdFish")
+        int fishViewID = GameManager.instance.myFish.GetComponent<PhotonView>().ViewID;
+        int hookViewID = Hook.instance.GetComponent<PhotonView>().ViewID;
+        photonView.RPC(nameof(PutFishInHookRPC), RpcTarget.All, fishViewID, hookViewID);
+        PhotonNetwork.SendAllOutgoingCommands();
+        if (photonView.IsMine)
         {
-            if (IsServer)
+            if (GameManager.instance != null && GameManager.instance.gameOverText != null)
             {
-                ChangeTagLocal(newTag);
-                ChangeTagObserversRpc(newTag);
-            }
-            else if (IsOwner)
-            {
-                ChangeTagServerRpc(newTag);
+                GameManager.instance.ShowGameOver("You lose!");
+                canMove = false;
+                isDead = true;
+                HungerSystem.instance.canDecrease = false;
             }
         }
     }
 
-    private void ChangeTagLocal(string newTag)
+    [PunRPC]
+    public void PutFishInHookRPC(int fishId, int hookId)
     {
-        gameObject.tag = newTag;
-        isCatchedFish = false;
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    private void ChangeTagServerRpc(string newTag)
-    {
-        // Server पर tag change
-        ChangeTagLocal(newTag);
-
-        // बाकी clients को inform
-        ChangeTagObserversRpc(newTag);
-    }
-
-    [ObserversRpc]
-    private void ChangeTagObserversRpc(string newTag)
-    {
-        if (IsServer) return; // server पहले ही बदल चुका है
-        ChangeTagLocal(newTag);
-    }
-
-
-    public void ShowGameOver(bool isFishWin)
-    {
-        if (IsServer)
+        //Do not Change Linr.
+        GameObject fish = PhotonView.Find(fishId).gameObject;
+        fish.GetComponent<PhotonTransformViewClassic>().enabled = false;
+        Hook hook = PhotonView.Find(hookId).GetComponent<Hook>();
+        Transform fishParent = hook.wormParent;
+        fish.transform.GetComponent<PolygonCollider2D>().enabled = false;
+        fish.transform.SetParent(fishParent);
+        fish.transform.eulerAngles = new Vector3(0f, 0f, -90f);
+        fish.transform.localPosition = Vector3.zero;
+        if (catchadeFish)
         {
-            ShowGameOverLocal(isFishWin);
-            ShowGameOverObserversRpc(isFishWin);
+            hook.CallRpcToReturnRod();
         }
-        else
-        {
-            ShowGameOverServerRpc(isFishWin);
-        }
+        PhotonNetwork.SendAllOutgoingCommands();
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    private void ShowGameOverServerRpc(bool isFishWin)
+
+    //call this function in GameManager
+    public void CallWinFishRPC()
     {
-        ShowGameOverLocal(isFishWin);           // server पर execute
-        ShowGameOverObserversRpc(isFishWin);    // सभी clients को broadcast
+        photonView.RPC(nameof(WinFish), RpcTarget.Others);
     }
 
-    [ObserversRpc]
-    private void ShowGameOverObserversRpc(bool isFishWin)
+    //call this function in GameManager
+    public void CallAllWinFishRPC()
     {
-        if (IsServer) return; // server पहले ही execute कर चुका है
-        ShowGameOverLocal(isFishWin);
+        photonView.RPC(nameof(WinFish), RpcTarget.All);
     }
-    private void ShowGameOverLocal(bool isFishWin)
+
+    [PunRPC]
+    public void WinFish()
     {
-        if (IsOwner)
+        if (photonView.IsMine && !isDead)
         {
+            GameManager.instance.ShowGameOver("You win!");
             canMove = false;
-            GameManager gm = GameManager.Instance;
-            myColider.enabled = false;
-            gm.gameOverPanel.SetActive(true);
-            if (isFishWin)
+            HungerSystem.instance.canDecrease = false;
+            GetComponent<PolygonCollider2D>().enabled = false;
+            isDead = true;
+            animator.SetBool("isJoyful", true);
+        }
+    }
+
+    //When Hook is Destroy Call This Function
+    public void DestroyCatchFish()
+    {
+        if (catchadeFish)
+        {
+            if (photonView.IsMine)
             {
-                gm.ShowGameOverMessage("You Win!");
+                PhotonNetwork.Destroy(gameObject);
+            }
+        }
+    }
+    void PlaySFX(AudioClip playClip)
+    {
+        audioSource.clip = playClip;
+        GS.Instance.SetVolume(audioSource);
+        audioSource.Play();
+    }
+
+    //When Game is paused Fish movement is stoped and Fad it.
+    public void CallGamePauseRPC(bool isPause)
+    {
+        int fishViewID = GameManager.instance.myFish.GetComponent<PhotonView>().ViewID;
+        photonView.RPC(nameof(GamePause), RpcTarget.AllBuffered, isPause, fishViewID);
+        PhotonNetwork.SendAllOutgoingCommands();
+    }
+
+    [PunRPC]
+    public void GamePause(bool isPause, int fishID)
+    {
+        int thisFishID = GetComponent<PhotonView>().ViewID;
+
+        if (thisFishID == fishID)
+        {
+            if (isPause)
+            {
+                transform.GetComponent<PolygonCollider2D>().enabled = false;
+                var sr = GetComponent<SpriteRenderer>();
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.5f);
+                canMove = false;
             }
             else
             {
-                gm.ShowGameOverMessage("You Lose!");
+                transform.GetComponent<PolygonCollider2D>().enabled = true;
+                var sr = GetComponent<SpriteRenderer>();
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
+                canMove = true;
             }
         }
     }
 
-
-
-    public void CatchByFisherman()
+    private void OnApplicationQuit()
     {
-        if (IsServer)
+        if(!isDead)
         {
-            CatchByFishermanObserversRpc();
-        }
-        else
-        {
-            CatchByFishermanServerRpc();
-        }
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    private void CatchByFishermanServerRpc()
-    {
-        CatchByFishermanObserversRpc();
-    }
-
-    [ObserversRpc]
-    private void CatchByFishermanObserversRpc()
-    {
-        CatchByFishermanLocal();
-    }
-
-    //When fish is hooked and catchedf by Fisherma , that time called this 
-    public void CatchByFishermanLocal()
-    {
-        if (IsOwner)
-        {
-            if (gameObject.tag == "CatchdFish")
-            {
-                canMove = false;
-                GameManager gm = GameManager.Instance;
-                myColider.enabled = false;
-                gm.gameOverPanel.SetActive(true);
-                gm.ShowGameOverMessage("You Lose!");
-            }
+            GameManager.instance.CallLessPlayerCountRPC();
+            PhotonNetwork.SendAllOutgoingCommands(); // send it now
         }
     }
 }
