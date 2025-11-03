@@ -2,13 +2,21 @@
 using Mirror;
 using System.Net;
 using System.Net.Sockets;
+using System.Net.NetworkInformation;
+using System.Linq;
+using System;
+using System.Text;
 
 public class LANConnector : MonoBehaviour
 {
     public MyNetworkManager manager;
-    public string myIP;
-    public int startPort = 7777; // starting point for ports
     public static LANConnector Instence;
+
+    public bool enableUdpAnnounce = false;
+    public int udpAnnouncePort = 7777;
+
+    private UdpClient udpAnnouncer;
+
 
     private void Awake()
     {
@@ -17,131 +25,274 @@ public class LANConnector : MonoBehaviour
 
     private void Start()
     {
-        myIP = GetLocalIPAddress();
+        Debug.Log("🌐 LANConnector initialized");
+        if (enableUdpAnnounce)
+            StartUdpListener();
     }
 
-    // 🟢 HOST START
+    private void OnDestroy()
+    {
+        StopUdpAnnouncer();
+    }
+
+    // 🟢 Host Start — automatic dynamic port
     public void StartHost()
     {
+        enableUdpAnnounce = true; // ensure broadcast is ons
+
+        int port = GetAvailablePort();
         string ip = GetLocalIPAddress();
+
         var transport = manager.GetComponent<TelepathyTransport>();
+        transport.port = (ushort)port;
+        manager.networkAddress = ip;
+        manager.StartHost();
 
-        int port = startPort;
+        Debug.Log($"✅ Host Started at {ip}:{port}");
 
-        while (port < 7800)
+        if (enableUdpAnnounce)
         {
-            transport.port = (ushort)port;
-            manager.networkAddress = ip;
+            InvokeRepeating(nameof(AnnounceHostRepeatedly), 1f, 2f);
+        }
+    }
 
-            try
-            {
-                manager.StartHost();
-                Debug.Log($"✅ Host started at {ip}:{port}");
-                return;
-            }
-            catch (System.Net.Sockets.SocketException)
-            {
-                Debug.LogWarning($"⚠️ Port {port} in use, trying next...");
-                port++;
-            }
+    void AnnounceHostRepeatedly()
+    {
+        try
+        {
+            if (udpAnnouncer == null)
+                udpAnnouncer = new UdpClient() { EnableBroadcast = true };
+
+            int port = ((TelepathyTransport)manager.transport).port;
+            byte[] payload = Encoding.UTF8.GetBytes($"HOST_ANNOUNCE:{port}");
+            string localIP = GetLocalIPAddress();
+            string subnet = localIP.Substring(0, localIP.LastIndexOf('.') + 1);
+            IPEndPoint broadcastEP = new IPEndPoint(IPAddress.Parse(subnet + "255"), udpAnnouncePort);
+            udpAnnouncer.Send(payload, payload.Length, broadcastEP);
+
+            Debug.Log($"📢 Announced host on LAN {broadcastEP.Address}:{udpAnnouncePort} (port {port})");
+        }
+        catch (Exception ex)
+        {
+            Debug.LogWarning("AnnounceHostRepeatedly failed: " + ex.Message);
         }
 
-        Debug.LogError("❌ No available ports found between 7777–7800!");
+        if(!enableUdpAnnounce)
+        {
+            CancelInvoke(nameof(AnnounceHostRepeatedly));
+        }
     }
 
 
-    // 🔴 STOP
+    // 🟡 Client Start — requires host IP manually or via auto-discovery
+    public void StartClient()
+    {
+        Debug.Log("🔍 Searching for available LAN hosts...");
+
+        UdpClient listener = new UdpClient(udpAnnouncePort);
+        listener.EnableBroadcast = true;
+        listener.Client.ReceiveTimeout = 5000; // wait 5 sec
+
+        DateTime endTime = DateTime.Now.AddSeconds(5);
+        while (DateTime.Now < endTime)
+        {
+            try
+            {
+                IPEndPoint remoteEP = new IPEndPoint(IPAddress.Any, udpAnnouncePort);
+                byte[] data = listener.Receive(ref remoteEP);
+                string msg = Encoding.UTF8.GetString(data);
+
+                if (msg.StartsWith("HOST_ANNOUNCE:"))
+                {
+                    int announcedPort = int.Parse(msg.Substring("HOST_ANNOUNCE:".Length));
+                    string hostIP = remoteEP.Address.ToString();
+
+                    Debug.Log($"✅ Found LAN host: {hostIP}:{announcedPort}");
+
+                    var transport = manager.GetComponent<TelepathyTransport>();
+                    transport.port = (ushort)announcedPort;
+                    manager.networkAddress = hostIP;
+                    manager.StartClient();
+
+                    Debug.Log($"🕹️ Connecting to {hostIP}:{announcedPort}");
+                    listener.Close();
+                    return;
+                }
+            }
+            catch (SocketException) { /* timeout retry */ }
+        }
+
+        listener.Close();
+        Debug.LogWarning("⚠️ No hosts found on LAN (no announcements received).");
+    }
+
+
+
+    // 🔴 Stop all
     public void StopAll()
     {
         manager.StopHost();
         manager.StopClient();
+        StopUdpAnnouncer();
         Debug.Log("🛑 All connections stopped");
     }
 
-    // 🟡 CLIENT START
-    public void StartClient()
-    {
-        string ip = myIP.Trim();
-        var transport = manager.GetComponent<TelepathyTransport>();
-
-        int port = FindFirstActivePort(ip, startPort, 7800);
-        if (port == -1)
-        {
-            Debug.LogWarning("⚠️ No active host found to connect.");
-            return;
-        }
-
-        transport.port = (ushort)port;
-        manager.networkAddress = ip;
-        manager.StartClient();
-
-        Debug.Log($"🕹 Connecting to {ip}:{port}");
-    }
-
-    // 🌐 LOCAL IP
+    // 🌐 Local IP
     string GetLocalIPAddress()
-    {
-        string localIP = "Not Found";
-        var host = Dns.GetHostEntry(Dns.GetHostName());
-        foreach (var ip in host.AddressList)
-        {
-            if (ip.AddressFamily == AddressFamily.InterNetwork)
-            {
-                localIP = ip.ToString();
-                break;
-            }
-        }
-        return localIP;
-    }
-
-    // 🔍 Find next available port for hosting
-    int FindAvailablePort(int start, int end)
-    {
-        for (int port = start; port <= end; port++)
-        {
-            if (IsPortAvailable(port))
-                return port;
-        }
-        Debug.LogWarning("⚠️ No free port found in range!");
-        return start; // fallback
-    }
-
-    // ✅ Check if a port is free
-    bool IsPortAvailable(int port)
     {
         try
         {
-            TcpListener listener = new TcpListener(IPAddress.Loopback, port);
-            listener.Start();
-            listener.Stop();
-            return true;
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                    return ip.ToString();
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogWarning("GetLocalIPAddress failed: " + ex.Message);
+        }
+        return "127.0.0.1";
+    }
+
+    // 🔹 Find an available (free) local port
+    int GetAvailablePort(bool excludeAnnounced = false)
+    {
+        try
+        {
+            TcpListener l = new TcpListener(IPAddress.Loopback, 0);
+            l.Start();
+            int port = ((IPEndPoint)l.LocalEndpoint).Port;
+            l.Stop();
+
+            if (excludeAnnounced && enableUdpAnnounce && IsPortAnnouncedOnLan(port))
+                return GetAvailablePort(excludeAnnounced: true);
+
+            return port;
         }
         catch
         {
-            return false;
+            return UnityEngine.Random.Range(20000, 40000);
         }
     }
 
-    // 🔎 Find first open host to connect
-    int FindFirstActivePort(string ip, int start, int end)
+    // 🔹 Check local port free or not
+    bool IsPortFreeOnLocalMachine(int port)
     {
-        for (int port = start; port <= end; port++)
+        IPGlobalProperties props = IPGlobalProperties.GetIPGlobalProperties();
+        var tcpListeners = props.GetActiveTcpListeners();
+        if (tcpListeners.Any(ep => ep.Port == port)) return false;
+
+        var udpListeners = props.GetActiveUdpListeners();
+        if (udpListeners.Any(ep => ep.Port == port)) return false;
+
+        return true;
+    }
+
+    // 🛰️ UDP Announce
+    void StartUdpAnnouncer(int port)
+    {
+        try
         {
+            StopUdpAnnouncer();
+            udpAnnouncer = new UdpClient();
+            udpAnnouncer.EnableBroadcast = true;
+
+            byte[] payload = Encoding.UTF8.GetBytes($"HOST_ANNOUNCE:{port}");
+            IPEndPoint broadcastEP = new IPEndPoint(IPAddress.Broadcast, udpAnnouncePort);
+            udpAnnouncer.Send(payload, payload.Length, broadcastEP);
+            Debug.Log($"📢 Announced host on LAN (port {port})");
+        }
+        catch (Exception ex)
+        {
+            Debug.LogWarning("StartUdpAnnouncer failed: " + ex.Message);
+        }
+    }
+
+    void StopUdpAnnouncer()
+    {
+        if (udpAnnouncer != null)
+        {
+            udpAnnouncer.Close();
+            udpAnnouncer = null;
+        }
+    }
+
+    // 🛰️ UDP Listener (for discovering other hosts)
+    void StartUdpListener()
+    {
+        try
+        {
+            UdpClient udpListener = new UdpClient(udpAnnouncePort);
+            udpListener.EnableBroadcast = true;
+
+            udpListener.BeginReceive((ar) =>
+            {
+                try
+                {
+                    IPEndPoint remoteEP = new IPEndPoint(IPAddress.Any, udpAnnouncePort);
+                    byte[] data = udpListener.EndReceive(ar, ref remoteEP);
+                    string msg = Encoding.UTF8.GetString(data);
+
+                    if (msg.StartsWith("HOST_ANNOUNCE:"))
+                    {
+                        int announcedPort = int.Parse(msg.Substring("HOST_ANNOUNCE:".Length));
+                        Debug.Log($"📡 Host announced: {remoteEP.Address}:{announcedPort}");
+                        PlayerPrefs.SetInt("LastAnnouncedPort", announcedPort);
+                        PlayerPrefs.Save();
+                    }
+
+                    udpListener.BeginReceive((cb) => { }, null);
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogWarning($"UDP listener error: {ex.Message}");
+                }
+            }, null);
+
+            Debug.Log($"👂 UDP listener started on port {udpAnnouncePort}");
+        }
+        catch (Exception ex)
+        {
+            Debug.LogWarning("StartUdpListener failed: " + ex.Message);
+        }
+    }
+
+    // 🔍 Check if port already announced on LAN
+    bool IsPortAnnouncedOnLan(int portToCheck, int listenMs = 200)
+    {
+        if (!enableUdpAnnounce) return false;
+
+        using (UdpClient listener = new UdpClient(udpAnnouncePort))
+        {
+            listener.Client.ReceiveTimeout = listenMs;
+            DateTime until = DateTime.Now.AddMilliseconds(listenMs);
             try
             {
-                using (TcpClient client = new TcpClient())
+                while (DateTime.Now < until)
                 {
-                    var result = client.BeginConnect(ip, port, null, null);
-                    bool success = result.AsyncWaitHandle.WaitOne(100); // small timeout
-                    if (success)
+                    IPEndPoint remoteEP = new IPEndPoint(IPAddress.Any, 0);
+                    byte[] data = listener.Receive(ref remoteEP);
+                    string msg = Encoding.UTF8.GetString(data);
+                    if (msg.StartsWith("HOST_ANNOUNCE:") &&
+                        int.TryParse(msg.Substring("HOST_ANNOUNCE:".Length), out int announcedPort) &&
+                        announcedPort == portToCheck)
                     {
-                        client.Close();
-                        return port;
+                        Debug.Log($"Detected existing LAN host using port {portToCheck} from {remoteEP.Address}");
+                        return true;
                     }
                 }
             }
             catch { }
         }
-        return -1;
+        return false;
+    }
+
+    int? GetLastAnnouncedPort()
+    {
+        if (PlayerPrefs.HasKey("LastAnnouncedPort"))
+            return PlayerPrefs.GetInt("LastAnnouncedPort");
+        return null;
     }
 }

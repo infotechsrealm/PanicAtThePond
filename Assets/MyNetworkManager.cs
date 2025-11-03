@@ -26,6 +26,7 @@ public class MyNetworkManager : NetworkManager
         {
             Debug.Log("Lobby full — spawning players...");
             SpawnPlayers();
+            LANConnector.Instence.enableUdpAnnounce = false;
         }
     }
 
