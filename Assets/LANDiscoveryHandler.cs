@@ -1,6 +1,5 @@
 ﻿using Mirror;
 using Mirror.Discovery;
-using System;
 using UnityEngine;
 
 public class LANDiscoveryHandler : MonoBehaviour
@@ -19,4 +18,5 @@ public class LANDiscoveryHandler : MonoBehaviour
         NetworkManager.singleton.networkAddress = info.EndPoint.Address.ToString();
         NetworkManager.singleton.StartClient();
     }
+
 }

@@ -769,6 +769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LANDiscoveryMenu
   networkDiscovery: {fileID: 1818320493241273913}
+  roomNameInputField: {fileID: 1526374325}
 --- !u!1 &1526374323
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,7 +788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1526374324
 RectTransform:
   m_ObjectHideFlags: 0
