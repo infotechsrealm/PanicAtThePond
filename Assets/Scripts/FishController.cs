@@ -9,8 +9,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
     public PhotonTransformViewClassic photonTransformViewClassic;
 
-
-    public InputActionReference inputAction; 
+    public InputActionReference inputAction;
   
     [Header("Fish Stats")]
     public int hunger = 100;

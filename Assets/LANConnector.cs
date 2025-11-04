@@ -1,11 +1,11 @@
-﻿using UnityEngine;
-using Mirror;
-using System.Net;
-using System.Net.Sockets;
-using System.Net.NetworkInformation;
-using System.Linq;
+﻿using Mirror;
 using System;
+using System.Linq;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Text;
+using UnityEngine;
 
 public class LANConnector : MonoBehaviour
 {
@@ -17,6 +17,10 @@ public class LANConnector : MonoBehaviour
 
     private UdpClient udpAnnouncer;
 
+    public string roomName = "DefaultRoom";
+    public string roomPassword = "1234";
+
+    int myPort;
 
     private void Awake()
     {
@@ -38,6 +42,7 @@ public class LANConnector : MonoBehaviour
     // 🟢 Host Start — automatic dynamic port
     public void StartHost()
     {
+
         enableUdpAnnounce = true; // ensure broadcast is ons
 
         int port = GetAvailablePort();
@@ -47,6 +52,8 @@ public class LANConnector : MonoBehaviour
         transport.port = (ushort)port;
         manager.networkAddress = ip;
         manager.StartHost();
+
+        myPort = port;
 
         Debug.Log($"✅ Host Started at {ip}:{port}");
 
@@ -64,13 +71,18 @@ public class LANConnector : MonoBehaviour
                 udpAnnouncer = new UdpClient() { EnableBroadcast = true };
 
             int port = ((TelepathyTransport)manager.transport).port;
+            string payloadText = $"HOST_ANNOUNCE:{roomName}:{roomPassword}:{port}";
             byte[] payload = Encoding.UTF8.GetBytes($"HOST_ANNOUNCE:{port}");
             string localIP = GetLocalIPAddress();
+
             string subnet = localIP.Substring(0, localIP.LastIndexOf('.') + 1);
             IPEndPoint broadcastEP = new IPEndPoint(IPAddress.Parse(subnet + "255"), udpAnnouncePort);
             udpAnnouncer.Send(payload, payload.Length, broadcastEP);
 
-            Debug.Log($"📢 Announced host on LAN {broadcastEP.Address}:{udpAnnouncePort} (port {port})");
+          //  Debug.Log($"📢 Announced host on LAN {broadcastEP.Address}:{udpAnnouncePort} (port {port})");
+
+            Debug.Log($"📢 Announced host '{roomName}' with password '{roomPassword}' on LAN {broadcastEP.Address}:{udpAnnouncePort} (port {port})");
+
         }
         catch (Exception ex)
         {
@@ -82,7 +94,6 @@ public class LANConnector : MonoBehaviour
             CancelInvoke(nameof(AnnounceHostRepeatedly));
         }
     }
-
 
     // 🟡 Client Start — requires host IP manually or via auto-discovery
     public void StartClient()
@@ -125,8 +136,6 @@ public class LANConnector : MonoBehaviour
         listener.Close();
         Debug.LogWarning("⚠️ No hosts found on LAN (no announcements received).");
     }
-
-
 
     // 🔴 Stop all
     public void StopAll()
