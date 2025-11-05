@@ -27,4 +27,16 @@ public class LANDiscoveryHandler : MonoBehaviour
         isConnected = true;
         Debug.Log("🚀 Auto-joining host...");
     }
+
+    // public InputField roomNameInput;
+    //private string roomName;
+
+    /* roomName = roomNameInput.text.Trim();
+
+       if (string.IsNullOrEmpty(roomName))
+       {
+           roomName = "DefaultRoom";
+       }
+
+       Debug.Log($"🏠 Hosting LAN Room: {roomName}");*/
 }
