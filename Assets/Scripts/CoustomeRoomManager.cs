@@ -113,6 +113,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     }
 
     // ------------------ Create Custome Room ------------------
+
     internal void CreateCustomeRoom()
     {
         if (playerLimit.text != "")
@@ -169,10 +170,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         {
             roomPasswordInputError.text = "";
         }
-
-       
-
-
 
 
         createRoomNameError.text = "";
@@ -642,6 +639,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         {
             RoomTableManager.instance.UpdateRoomTableUI();
         }
+
     }
 
     public void ValidateUsername()

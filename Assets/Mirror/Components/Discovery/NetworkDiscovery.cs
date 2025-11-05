@@ -38,6 +38,7 @@ namespace Mirror.Discovery
                 return new ServerResponse
                 {
                     serverId = ServerId,
+                    serverName = serverName,
                     uri = transport.ServerUri()
                 };
             }

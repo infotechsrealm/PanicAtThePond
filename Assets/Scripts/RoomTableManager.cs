@@ -19,6 +19,14 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
         instance = this;
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            UpdateRoomTableUI2();
+        }
+    }
+
     public void UpdateRoomTableUI()
     {
         Debug.Log("UpdateRoomTableUI Called");
@@ -45,6 +53,30 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
                 texts[2].text = $"{room.PlayerCount}/{room.MaxPlayers}"; // Joined / Max
             }
 
+            displayIndex++;
+        }
+    }
+
+    public void UpdateRoomTableUI2()
+    {
+        for (int i = 0; i < LANDiscoveryMenu.Instance.discoveredServers.Count; i++)
+        {
+            GameObject row = Instantiate(roomRowPrefab, roomTablePanel);
+
+            Text[] texts = row.GetComponentsInChildren<Text>();
+            Button btn = row.GetComponentInChildren<Button>();
+
+            allRommButtons.Add(btn);
+
+            int displayIndex = 1;
+
+            if (texts.Length >= 3) // 3 Text components
+            {
+                texts[0].text = (i + 1).ToString();       // Sequential number
+                texts[1].text = LANDiscoveryMenu.Instance.discoveredServers[i].serverName;                     // Room name
+                texts[2].text = $"?/?"; // Joined / Max
+
+            }
             displayIndex++;
         }
     }

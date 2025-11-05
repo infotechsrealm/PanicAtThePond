@@ -51,7 +51,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                 {
                     if (LAN.isOn)
                     {
-                        LANConnector.Instence.StartHost();
+                        LANDiscoveryMenu.Instance.HostGame();
                     }
                     else
                     {
@@ -78,7 +78,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
                     if (LAN.isOn)
                     {
-                        LANConnector.Instence.StartClient();
+                        LANDiscoveryMenu.Instance.FindGames();
                     }
                     else
                     {
@@ -105,7 +105,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
                     if (LAN.isOn)
                     {
-                        LANConnector.Instence.StartHost();
+                        LANDiscoveryMenu.Instance.FindGames();
                     }
                     else
                     {

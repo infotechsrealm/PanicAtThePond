@@ -5,9 +5,21 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using UnityEngine;
+using UnityEngine.UI;
+
+[System.Serializable]
+public class DiscoveredServer
+{
+    public string serverName;
+    public string address;
+    public int port;
+    public int baseBroadcastPort;
+}
 
 public class LANDiscoveryMenu : MonoBehaviour
 {
+
+    public static LANDiscoveryMenu Instance;
     public NetworkDiscovery networkDiscovery;
 
     private ushort finalPort;
@@ -16,20 +28,16 @@ public class LANDiscoveryMenu : MonoBehaviour
     public ushort baseGamePort = 7777;
     public int baseBroadcastPort = 47777;
 
+    public InputField roomNameInput;
+    internal string roomName;
+
     private static HashSet<int> usedPorts = new HashSet<int>(); // 💾 याद रखे कौन से ports पहले use हुए
 
-
-    [System.Serializable]
-    public class DiscoveredServer
-    {
-        public string serverName;
-        public string address;
-        public int port;
-    }
-
+    public List<DiscoveredServer> discoveredServers = new List<DiscoveredServer>();
 
     void Awake()
     {
+        Instance = this;
         finalPort = baseGamePort;
         listenPort = baseBroadcastPort;
     }
@@ -45,14 +53,15 @@ public class LANDiscoveryMenu : MonoBehaviour
                 foreach (var h in hosts)
                     Debug.Log($"🏠 {h.address}:{h.port} ({h.serverName})");
             }));
-
-
         }
-
     }
 
     public void HostGame()
     {
+        if (!string.IsNullOrEmpty(roomNameInput.text.ToString()))
+        {
+            roomName = roomNameInput.text.ToString().Trim();
+        }
         FindFreePortAndHost();
     }
 
@@ -65,6 +74,9 @@ public class LANDiscoveryMenu : MonoBehaviour
 
         while (true)
         {
+        
+            Debug.Log("tryGamePort = " + tryGamePort + " tryBroadcastPort = "+ tryBroadcastPort);
+            
             // Step 1️⃣ : Local TCP check (Mirror’s Telepathy will use TCP)
             if (!IsLocalTcpPortFree(tryGamePort))
             {
@@ -81,10 +93,16 @@ public class LANDiscoveryMenu : MonoBehaviour
                 continue;
             }
 
+            if (!string.IsNullOrEmpty(roomNameInput.text.ToString()))
+            {
+                networkDiscovery.serverName = roomNameInput.text.ToString().Trim();
+            }
+
             // Step 3️⃣ : LAN discovery check
             bool portUsedOnLAN = false;
             bool discoveryDone = false;
 
+          
             networkDiscovery.OnServerFound.RemoveAllListeners();
             networkDiscovery.OnServerFound.AddListener((response) =>
             {
@@ -94,7 +112,6 @@ public class LANDiscoveryMenu : MonoBehaviour
             });
 
             networkDiscovery.StartDiscovery();
-            //yield return new WaitForSeconds(0.1f);
             networkDiscovery.StopDiscovery();
             discoveryDone = true;
 
@@ -118,7 +135,6 @@ public class LANDiscoveryMenu : MonoBehaviour
 
         Debug.Log($"🏠 Hosting LAN on free port {finalPort}, broadcast {listenPort}");
     }
-
 
     // ✅ Local TCP availability check
     private bool IsLocalTcpPortFree(int port)
@@ -151,7 +167,6 @@ public class LANDiscoveryMenu : MonoBehaviour
         }
     }
 
-
     public void FindGames()
     {
         listenPort = baseBroadcastPort;
@@ -174,6 +189,7 @@ public class LANDiscoveryMenu : MonoBehaviour
         int silenceCounter = 0;              // लगातार खाली ports की गिनती
         int silenceLimit = 15;               // अगर 15 लगातार ports पर कुछ नहीं मिला तो scan रोक दो
 
+        discoveredServers.Clear();
         Debug.Log("🌐 Starting full LAN host discovery...");
 
         while (silenceCounter < silenceLimit)
@@ -188,7 +204,7 @@ public class LANDiscoveryMenu : MonoBehaviour
                 {
                     string ip = response.EndPoint.Address.ToString();
                     int port = response.uri.Port;
-                    string name = response.serverId.ToString();
+                    string name = response.serverName;
 
                     if (!foundServers.Exists(s => s.port == port && s.address == ip))
                     {
@@ -199,6 +215,15 @@ public class LANDiscoveryMenu : MonoBehaviour
                             port = port
                         });
 
+
+                        discoveredServers.Add(new DiscoveredServer()
+                        {
+                            serverName = name,
+                            address = ip,
+                            port = port,
+                            baseBroadcastPort = currentPort,
+
+                        });
                         Debug.Log($"📡 Found Host → {ip}:{port} ({name})");
                     }
 
@@ -222,8 +247,7 @@ public class LANDiscoveryMenu : MonoBehaviour
 
         Debug.Log($"✅ Found {foundServers.Count} total hosts on LAN (scanned until port {currentPort - 1}).");
         onComplete?.Invoke(foundServers);
+
     }
-
-
 
 }
