@@ -31,9 +31,24 @@ public class LANDiscoveryMenu : MonoBehaviour
         Debug.Log($"🏠 Hosting LAN room '{roomNameInputField.text}' on port {finalPort} serverBroadcastListenPort '{networkDiscovery.serverBroadcastListenPort}' ");
     }
 
+    
     public void FindGames()
     {
         Debug.Log("🔎 Searching for LAN games...");
+
+        // ✅ Read ports from UI again
+        finalPort = ushort.Parse(roomNameInputField.text.Trim());  // game port
+        listenPort = int.Parse(listenPortNameInputField2.text.Trim()); // broadcast port
+
+        // ✅ Ensure both ports are applied before discovery
+        var transport = (TelepathyTransport)NetworkManager.singleton.transport;
+        transport.port = finalPort;
+
+        networkDiscovery.serverBroadcastListenPort = listenPort;
+
+        Debug.Log($"🛰️ Client discovery started (gamePort={finalPort}, broadcastPort={listenPort})");
+
+        // ✅ Start searching for servers
         networkDiscovery.StartDiscovery();
     }
 

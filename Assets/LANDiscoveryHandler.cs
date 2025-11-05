@@ -5,6 +5,7 @@ using UnityEngine;
 public class LANDiscoveryHandler : MonoBehaviour
 {
     public NetworkDiscovery discovery;
+    private bool isConnected = false;
 
     void Start()
     {
@@ -13,10 +14,17 @@ public class LANDiscoveryHandler : MonoBehaviour
 
     void OnDiscoveredServer(ServerResponse info)
     {
-        Debug.Log($"✅ Found host: {info.EndPoint.Address}:{info.uri}");
-        // You can auto-join or show this in a UI list
-        NetworkManager.singleton.networkAddress = info.EndPoint.Address.ToString();
-        NetworkManager.singleton.StartClient();
-    }
+        if (isConnected) return; // Already joined
 
+        string hostAddress = info.EndPoint.Address.ToString();
+        Debug.Log($"✅ Found host: {hostAddress} | URI: {info.uri}");
+
+        NetworkManager.singleton.networkAddress = hostAddress;
+
+        // Try connecting automatically
+        NetworkManager.singleton.StartClient();
+
+        isConnected = true;
+        Debug.Log("🚀 Auto-joining host...");
+    }
 }
