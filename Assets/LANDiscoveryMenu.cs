@@ -2,19 +2,20 @@
 using Mirror.Discovery;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Net;
-using System.Net.Sockets;
+
 public class LANDiscoveryMenu : MonoBehaviour
 {
     public NetworkDiscovery networkDiscovery;
 
     private ushort finalPort;
+    int listenPort;
 
-    public InputField roomNameInputField;
+    public InputField roomNameInputField, listenPortNameInputField2;
 
     public void HostGame()
     {
         finalPort = ushort.Parse(roomNameInputField.text.Trim());
+        listenPort = int.Parse(listenPortNameInputField2.text.Trim());
 
         // Transport में पोर्ट सेट करें
         var transport = (TelepathyTransport)NetworkManager.singleton.transport;
@@ -23,10 +24,11 @@ public class LANDiscoveryMenu : MonoBehaviour
         // Host शुरू करें
         NetworkManager.singleton.StartHost();
 
+        networkDiscovery.serverBroadcastListenPort = listenPort;
         // Broadcast करें
         networkDiscovery.AdvertiseServer();
 
-        Debug.Log($"🏠 Hosting LAN room '{roomNameInputField.text}' on port {finalPort}");
+        Debug.Log($"🏠 Hosting LAN room '{roomNameInputField.text}' on port {finalPort} serverBroadcastListenPort '{networkDiscovery.serverBroadcastListenPort}' ");
     }
 
     public void FindGames()
@@ -35,34 +37,4 @@ public class LANDiscoveryMenu : MonoBehaviour
         networkDiscovery.StartDiscovery();
     }
 
-    // ------------------------
-    // 🔍 Check कौन-सा port free है
-    // ------------------------
-    private ushort FindFreePort(ushort start, ushort end)
-    {
-        for (ushort port = start; port <= end; port++)
-        {
-            if (IsPortAvailable(port))
-                return port;
-        }
-        return 0; // कोई free port नहीं मिला
-    }
-
-    // ------------------------
-    // ✅ Check if port is free
-    // ------------------------
-    private bool IsPortAvailable(int port)
-    {
-        try
-        {
-            TcpListener listener = new TcpListener(IPAddress.Loopback, port);
-            listener.Start();
-            listener.Stop();
-            return true;
-        }
-        catch (SocketException)
-        {
-            return false;
-        }
-    }
 }
