@@ -62,8 +62,10 @@ public class LANDiscoveryMenu : MonoBehaviour
         {
             roomName = roomNameInput.text.ToString().Trim();
         }
-        FindFreePortAndHost();
+
+        StartCoroutine(CheckRooms());
     }
+
 
     void FindFreePortAndHost()
     {
@@ -74,7 +76,12 @@ public class LANDiscoveryMenu : MonoBehaviour
 
         while (true)
         {
-        
+            if (roomName == "")
+            {
+                Debug.LogError("Room is allrady Exist .. Please change room name ");
+                return;
+            }
+
             Debug.Log("tryGamePort = " + tryGamePort + " tryBroadcastPort = "+ tryBroadcastPort);
             
             // Step 1️⃣ : Local TCP check (Mirror’s Telepathy will use TCP)
@@ -234,7 +241,7 @@ public class LANDiscoveryMenu : MonoBehaviour
             networkDiscovery.serverBroadcastListenPort = currentPort;
             networkDiscovery.StartDiscovery();
             Debug.Log($"🔎 Scanning LAN for hosts on broadcast port {currentPort}...");
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.05f);
             networkDiscovery.StopDiscovery();
 
             if (foundOnThisPort)
@@ -247,6 +254,57 @@ public class LANDiscoveryMenu : MonoBehaviour
 
         Debug.Log($"✅ Found {foundServers.Count} total hosts on LAN (scanned until port {currentPort - 1}).");
         onComplete?.Invoke(foundServers);
+
+    }
+
+    public IEnumerator CheckRooms()
+    {
+        List<DiscoveredServer> foundServers = new List<DiscoveredServer>();
+
+        int currentPort = 47777; // 47777 से शुरू
+        int silenceCounter = 0;              // लगातार खाली ports की गिनती
+        int silenceLimit = 15;               // अगर 15 लगातार ports पर कुछ नहीं मिला तो scan रोक दो
+
+        discoveredServers.Clear();
+        Debug.Log("🌐 Starting full LAN host discovery...");
+
+        while (silenceCounter < silenceLimit)
+        {
+            bool foundOnThisPort = false;
+
+            networkDiscovery.OnServerFound.RemoveAllListeners();
+
+            networkDiscovery.OnServerFound.AddListener((response) =>
+            {
+                if (response.uri != null)
+                {
+                    string ip = response.EndPoint.Address.ToString();
+                    int port = response.uri.Port;
+                    string name = response.serverName;
+
+                    if (roomName == name)
+                    {
+                        Debug.LogError("Room is all rady exist");
+                        return;
+                    }
+                }
+            });
+
+            networkDiscovery.serverBroadcastListenPort = currentPort;
+            networkDiscovery.StartDiscovery();
+            Debug.Log($"🔎 Scanning LAN for hosts on broadcast port {currentPort}...");
+            yield return new WaitForSeconds(0.05f);
+            networkDiscovery.StopDiscovery();
+
+            if (foundOnThisPort)
+                silenceCounter = 0;
+            else
+                silenceCounter++;
+
+            currentPort++;
+        }
+
+        FindFreePortAndHost();
 
     }
 
