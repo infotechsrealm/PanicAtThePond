@@ -183,8 +183,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8fd6221bdbeac4a9d3b1ae39c9ef82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lanRoomInfo:
+    roomName: 
+    port: 0
+    baseBroadcastPort: 0
+    roomPassword: 
   roomName: {fileID: 6674626982559633979}
   btn: {fileID: 6772273097966495406}
+  isLAN: 1
 --- !u!1 &1913326989083510070
 GameObject:
   m_ObjectHideFlags: 0

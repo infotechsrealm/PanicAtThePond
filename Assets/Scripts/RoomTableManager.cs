@@ -11,6 +11,7 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
 
     public Transform roomTablePanel;
     public GameObject roomRowPrefab;
+    public RoomRowPrefab roomRowPrefab2;
     public Button SelectedButton;
 
     internal List<Button> allRommButtons = new List<Button>();
@@ -21,10 +22,7 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            UpdateRoomTableUI2();
-        }
+      
     }
 
     public void UpdateRoomTableUI()
@@ -57,14 +55,21 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public void UpdateRoomTableUI2()
+    public void UpdateLANRoomTableUI()
     {
-        for (int i = 0; i < LANDiscoveryMenu.Instance.discoveredServers.Count; i++)
-        {
-            GameObject row = Instantiate(roomRowPrefab, roomTablePanel);
 
-            Text[] texts = row.GetComponentsInChildren<Text>();
-            Button btn = row.GetComponentInChildren<Button>();
+        LANDiscoveryMenu lANDiscoveryMenu = LANDiscoveryMenu.Instance;
+        for (int i = 0; i < lANDiscoveryMenu.discoveredServers.Count; i++)
+        {
+            RoomRowPrefab roomRowPrefeb = Instantiate(roomRowPrefab2, roomTablePanel);
+
+            roomRowPrefeb.lanRoomInfo.roomName = lANDiscoveryMenu.discoveredServers[i].serverName;
+            roomRowPrefeb.lanRoomInfo.port = lANDiscoveryMenu.discoveredServers[i].port;
+            roomRowPrefeb.lanRoomInfo.baseBroadcastPort = lANDiscoveryMenu.discoveredServers[i].baseBroadcastPort;
+            roomRowPrefeb.lanRoomInfo.roomPassword = lANDiscoveryMenu.discoveredServers[i].roomPassword;
+
+            Text[] texts = roomRowPrefeb.GetComponentsInChildren<Text>();
+            Button btn = roomRowPrefeb.GetComponentInChildren<Button>();
 
             allRommButtons.Add(btn);
 
@@ -78,6 +83,11 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
 
             }
             displayIndex++;
+        }
+
+        if(Preloader.instance!=null)
+        {
+            Destroy(Preloader.instance.gameObject);
         }
     }
 

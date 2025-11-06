@@ -2,13 +2,18 @@
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class CreateJoinManager : MonoBehaviourPunCallbacks
 {
+    public static CreateJoinManager Instence;
+
     public GameObject createAndJoinButtons;
 
     public CreatePanel createPanel;
     public JoinPanel JoinPanel;
+
+    public GameObject  clientLobby;
+    public HostLobby hostLobby;
+
 
     internal bool isCreating = false;
     internal bool isJoining = false;
@@ -17,11 +22,25 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
     public Toggle LAN;
 
-    public static CreateJoinManager Instence;
+    public Button joinRandomBtn;
+
+    public string nickName = "";
+
 
     private void Awake()
     {
         Instence = this;
+
+        nickName = "Player_" + Random.Range(100, 999);
+
+        if (LAN.isOn)
+        {
+            joinRandomBtn.interactable = false;
+        }
+        else
+        {
+            joinRandomBtn.interactable = true;
+        }
     }
 
     public void OnClickAction(string action)
@@ -78,7 +97,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
                     if (LAN.isOn)
                     {
-                        LANDiscoveryMenu.Instance.FindGames();
+                       // LANDiscoveryMenu.Instance.FindGames();
                     }
                     else
                     {
@@ -125,16 +144,16 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                     break;
                 }
 
+            case "howToPlay":
+                {
+                    Instantiate(GS.Instance.howToPlay, transform);
+                    break;
+                }
+
             case "Back":
                 {
-                    if(PhotonNetwork.IsConnected)
-                    {
-                        PhotonNetwork.Disconnect();
-                    }
-                    else
-                    {
+                   
                         createAndJoinButtons.SetActive(false);
-                    }
                     break;
                 }
         }

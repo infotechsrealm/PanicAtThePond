@@ -612,6 +612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomTablePanel: {fileID: 16730611691335176}
   roomRowPrefab: {fileID: 1679847875778645887, guid: d714df4df9b7a364b853bb26718abf7a, type: 3}
+  roomRowPrefab2: {fileID: 8975093923391134652, guid: d714df4df9b7a364b853bb26718abf7a, type: 3}
   SelectedButton: {fileID: 0}
 --- !u!114 &2058375186565122835
 MonoBehaviour:
@@ -691,7 +692,7 @@ MonoBehaviour:
   offlineScene: 
   onlineScene: 
   offlineSceneLoadDelay: 0
-  transport: {fileID: 0}
+  transport: {fileID: 3368551504091013033}
   networkAddress: localhost
   maxConnections: 100
   disconnectInactiveConnections: 0
@@ -1629,8 +1630,17 @@ MonoBehaviour:
   networkDiscovery: {fileID: 94259545482267154}
   baseGamePort: 7777
   baseBroadcastPort: 47777
-  roomNameInput: {fileID: 3013784576426820527}
+  roomNameInput: {fileID: 6917597235916856321}
+  roomPasswordInput: {fileID: 3013784576426820527}
   discoveredServers: []
+  DiscoveredServerInfo:
+    serverName: 
+    address: 
+    port: 0
+    baseBroadcastPort: 0
+    roomPassword: 
+    nickName: 
+  createJoinManager: {fileID: 0}
 --- !u!222 &7175788738479309450
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1652,12 +1662,12 @@ GameObject:
   - component: {fileID: 2698524349979802753}
   - component: {fileID: 6917597235916856321}
   m_Layer: 5
-  m_Name: InputField (Legacy) (2)
+  m_Name: InputField (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7259738801452657769
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1884,7 +1894,6 @@ GameObject:
   - component: {fileID: 5777477633432570365}
   - component: {fileID: 4458138354345887980}
   - component: {fileID: 7100533181374814837}
-  - component: {fileID: 8954688797103670526}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1976,6 +1985,7 @@ GameObject:
   - component: {fileID: 3368551504091013033}
   - component: {fileID: 94259545482267154}
   - component: {fileID: 2682489495461859924}
+  - component: {fileID: 8645349413310996009}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -1983,6 +1993,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8645349413310996009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8645349413310996008}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01845cd33eaa8cb47922fd8abb0f3783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleLANDiscovery
+  networkDiscovery: {fileID: 94259545482267154}
 --- !u!1 &8748711584735862326
 GameObject:
   m_ObjectHideFlags: 0
@@ -2014,25 +2037,12 @@ GameObject:
   - component: {fileID: 8544222591805624006}
   - component: {fileID: 3013784576426820527}
   m_Layer: 5
-  m_Name: InputField (Legacy) (1)
+  m_Name: InputField (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8954688797103670526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8178708859803034606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33b27eb2f8bd19f4e99ca4b084e487af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LANDiscoveryHandler
-  discovery: {fileID: 94259545482267154}
 --- !u!114 &9054324278135069783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2095,6 +2105,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2005045101}
-  - {fileID: 6236430111113894083}
   - {fileID: 1738983002}
   - {fileID: 356626305}
+  - {fileID: 6236430111113894083}

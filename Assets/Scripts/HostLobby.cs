@@ -9,7 +9,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
 
     private void OnEnable()
     {
-        playerTableManager.UpdatePlayerTableUI();
+        playerTableManager.UpdatePlayerTable();
     }
     public void Close()
     {

@@ -9,6 +9,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 {
     public static CoustomeRoomManager Instence;
 
+    public CreateJoinManager createJoinManager;
+
     [Header("Water Type Toggles")]
     public Toggle toggleAllVisible;
     public Toggle toggleDeepWaters;
@@ -16,9 +18,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     public Toggle toggleClearWaters;
     public ToggleGroup toggleGroup; 
 
-    public CreateJoinManager createJoinManager;
     public RoomTableManager roomManager;
-    public GameObject hostLobby,clientLobby;
     public Button startButton;
     public bool destroyRoom = false;
 
@@ -41,34 +41,36 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     private string selectedWaterType = "All Visible";
 
+
     [SerializeField]
     private GameObject passwordPopupPrefab; // Assign in Inspector
 
     private void Awake()
     {
         Instence = this;
+
+
     }
 
     private void Start()
     {
-        PhotonNetwork.AutomaticallySyncScene = true;
-        string randomNick = "Player_"  + Random.Range(100, 999);
-        PhotonNetwork.NickName = randomNick;
+        PhotonNetwork.NickName = createJoinManager.nickName;
 
+        PhotonNetwork.AutomaticallySyncScene = true;
         if (PhotonNetwork.InRoom)
         {
             if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
             {
                 if (PhotonNetwork.IsMasterClient)
                 {
-                    hostLobby.SetActive(true);
+                    createJoinManager.hostLobby.gameObject.SetActive(true);
                     createJoinManager.createPanel.gameObject.SetActive(true);
                     startButton.interactable = true;
                     InitializeWaterTypeToggles();
                 }
                 else
                 {
-                    clientLobby.SetActive(true);
+                    createJoinManager.clientLobby.SetActive(true);
                     createJoinManager.JoinPanel.gameObject.SetActive(true);
                 }
                 createJoinManager.createAndJoinButtons.SetActive(true);
@@ -173,7 +175,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
 
         createRoomNameError.text = "";
-        lobby = hostLobby;
+        lobby = createJoinManager.hostLobby.gameObject;
 
         if (Preloader.instance == null)
             Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
@@ -229,7 +231,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
         RoomInfo selectedRoom = joinableRooms[Random.Range(0, joinableRooms.Count)];
 
-        lobby = clientLobby;
+        lobby = createJoinManager.clientLobby;
 
         if (selectedRoom.CustomProperties.TryGetValue("pwd", out object pwdObj))
         {
@@ -270,7 +272,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             return;
         }
 
-        lobby = clientLobby;
+        lobby = createJoinManager.clientLobby;
 
         // Check for password property
         if (targetRoom.CustomProperties.TryGetValue("pwd", out object pwdObj))
@@ -437,7 +439,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     {
         if (PlayerTableManager.instance != null)
         {
-            PlayerTableManager.instance.UpdatePlayerTableUI();
+            PlayerTableManager.instance.UpdatePlayerTable();
         }
         if (RoomTableManager.instance != null)
         {
@@ -534,8 +536,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         {
             Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
         }
-        clientLobby.SetActive(false);
-        hostLobby.SetActive(false);
+        createJoinManager.clientLobby.SetActive(false);
+        createJoinManager.hostLobby.gameObject.SetActive(false);
 
         LeaveRoom();
     }
@@ -589,8 +591,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             }
         }
 
-        if (clientLobby != null) clientLobby.SetActive(false);
-        if (hostLobby != null) hostLobby.SetActive(false);
+        if (createJoinManager.clientLobby != null) createJoinManager.clientLobby.SetActive(false);
+        if (createJoinManager.hostLobby != null) createJoinManager.hostLobby.gameObject.SetActive(false);
 
         PhotonNetwork.LeaveRoom();
     }
@@ -612,8 +614,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
         }
 
-        clientLobby.SetActive(false);
-        hostLobby.SetActive(false);
+        createJoinManager.clientLobby.SetActive(false);
+        createJoinManager.hostLobby.gameObject.SetActive(false);
 
         PhotonNetwork.LeaveRoom();
     }

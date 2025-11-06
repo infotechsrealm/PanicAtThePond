@@ -6,10 +6,8 @@ public class MyNetworkManager : NetworkManager
 {
     public static MyNetworkManager Instance;
 
-    public int connectedPlayers = 0, playerLimmit = 0;
+    public int connectedPlayers = 0;
 
-    public GameObject clientLobby, hostLobby;
-    public Text playerLimmitText, passwordText;
 
     private void Awake()
     {

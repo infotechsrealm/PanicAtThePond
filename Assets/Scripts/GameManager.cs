@@ -299,7 +299,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         if (PlayerTableManager.instance != null)
         {
-            PlayerTableManager.instance.UpdatePlayerTableUI();
+            PlayerTableManager.instance.UpdatePlayerTable();
         }
     }
 

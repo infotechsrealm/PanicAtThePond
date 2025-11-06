@@ -1,32 +1,61 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+//this class is used to store information about discovered LAN servers
+[System.Serializable]
+public class LANRoomInfo
+{
+    public string roomName;
+    public int port;
+    public int baseBroadcastPort;
+    public string roomPassword;
+
+    public LANRoomInfo()
+    {
+        roomName = "";
+        port = 0;
+        baseBroadcastPort = 0;
+        roomPassword = "";
+    }
+}
 public class RoomRowPrefab : MonoBehaviour
 {
-
+    public LANRoomInfo lanRoomInfo;
     public Text roomName;
     public Button btn;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public bool isLAN = true;
 
     public void SelectRoom()
     {
-        if(RoomTableManager.instance.SelectedButton!=null)
+        if (isLAN)
         {
-            RoomTableManager.instance.SelectedButton.interactable = true;
+            if (RoomTableManager.instance.SelectedButton != null)
+            {
+                RoomTableManager.instance.SelectedButton.interactable = true;
+            }
+            btn.interactable = false;
+            RoomTableManager.instance.SelectedButton = btn;
+
+            LANDiscoveryMenu lANDiscoveryMenu = LANDiscoveryMenu.Instance;
+
+            lANDiscoveryMenu.DiscoveredServerInfo.serverName = lanRoomInfo.roomName;
+            lANDiscoveryMenu.DiscoveredServerInfo.port = lanRoomInfo.port;
+            lANDiscoveryMenu.DiscoveredServerInfo.baseBroadcastPort = lanRoomInfo.baseBroadcastPort;
+            lANDiscoveryMenu.DiscoveredServerInfo.roomPassword = lanRoomInfo.roomPassword;
+
         }
-        btn.interactable = false;
-        RoomTableManager.instance.SelectedButton = btn;
-        CoustomeRoomManager.Instence.joinRoomName = roomName;
+        else
+        {
+            if (RoomTableManager.instance.SelectedButton != null)
+            {
+                RoomTableManager.instance.SelectedButton.interactable = true;
+            }
+            btn.interactable = false;
+
+            RoomTableManager.instance.SelectedButton = btn;
+
+            CoustomeRoomManager.Instence.joinRoomName = roomName;
+        }
     }
 }

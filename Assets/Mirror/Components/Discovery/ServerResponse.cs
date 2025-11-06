@@ -16,5 +16,7 @@ namespace Mirror.Discovery
         public long serverId;
 
         public string serverName;
+        public string roomPassword;
+        public string nickName;
     }
 }

@@ -21,22 +21,22 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
     private void OnEnable()
     {
-        UpdatePlayerTableUI();
+        UpdatePlayerTable();
     }
 
-    public void UpdatePlayerTableUI()
+    public void UpdatePlayerTable()
     {
         if (CreateJoinManager.Instence.LAN.isOn)
         {
-            UpdatePlayerTableUI2();
+            UpdateLANPlayerTableUI();
         }
         else
         {
-            UpdatePlayerTableUI1();
+            UpdatePlayerTableUI();
         }
     }
 
-    public void UpdatePlayerTableUI1()
+    public void UpdatePlayerTableUI()
     {
         Debug.Log("UpdatePlayerTableUI Called");
 
@@ -71,9 +71,13 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public void UpdatePlayerTableUI2()
+    public void UpdateLANPlayerTableUI()
     {
-        
+        Debug.Log("UpdateLANPlayerTableUI Called");
+        if (Preloader.instance != null)
+        {
+            Destroy(Preloader.instance.gameObject);
+        }
     }
 
 }

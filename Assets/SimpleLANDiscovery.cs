@@ -1,8 +1,7 @@
+using Mirror;
 using Mirror.Discovery;
 using System.Collections.Generic;
 using UnityEngine;
-
-
 
 public class SimpleLANDiscovery : MonoBehaviour
 {
@@ -10,14 +9,6 @@ public class SimpleLANDiscovery : MonoBehaviour
 
     // List of discovered servers
     private List<ServerResponse> discoveredServers = new List<ServerResponse>();
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartDiscovery();
-        }
-    }
 
     void Start()
     {

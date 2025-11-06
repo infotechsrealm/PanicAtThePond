@@ -54,6 +54,8 @@ namespace Mirror.Discovery
 
         public long ServerId { get; private set; }
         public string serverName { get;  set; }
+        public string roomPassword { get;  set; }
+        public string nickName { get;  set; }
 
 
         protected UdpClient serverUdpClient;

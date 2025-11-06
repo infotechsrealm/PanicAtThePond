@@ -39,6 +39,7 @@ namespace Mirror.Discovery
                 {
                     serverId = ServerId,
                     serverName = serverName,
+                    roomPassword = roomPassword,
                     uri = transport.ServerUri()
                 };
             }
