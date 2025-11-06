@@ -14969,9 +14969,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2240702430561189565}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aab4c8111b7c411b9b92cf3dbc5bd4e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b751853e0cfe7849bee86fa0918eea1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Mirror::Mirror.NetworkManager
+  m_EditorClassIdentifier: Assembly-CSharp::CustomNetworkManager
   dontDestroyOnLoad: 1
   runInBackground: 1
   headlessStartMode: 0
@@ -15005,6 +15005,7 @@ MonoBehaviour:
   evaluationMethod: 0
   evaluationInterval: 3
   timeInterpolationGui: 0
+  connectedPlayers: 0
 --- !u!114 &7622748321080005306
 MonoBehaviour:
   m_ObjectHideFlags: 0
