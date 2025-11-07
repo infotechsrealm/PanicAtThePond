@@ -38,7 +38,7 @@ namespace Mirror.Discovery
                 return new ServerResponse
                 {
                     serverId = ServerId,
-                    serverName = serverName,
+                    roomName = roomName,
                     roomPassword = roomPassword,
                     uri = transport.ServerUri()
                 };
@@ -49,8 +49,6 @@ namespace Mirror.Discovery
                 throw;
             }
         }
-
-
 
         #endregion
 

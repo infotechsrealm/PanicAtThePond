@@ -48,15 +48,14 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     private void Awake()
     {
         Instence = this;
-
-
     }
 
     private void Start()
     {
-        PhotonNetwork.NickName = createJoinManager.nickName;
+        PhotonNetwork.NickName = GS.Instance.nickName;
 
         PhotonNetwork.AutomaticallySyncScene = true;
+
         if (PhotonNetwork.InRoom)
         {
             if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
@@ -173,8 +172,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             roomPasswordInputError.text = "";
         }
 
-
         createRoomNameError.text = "";
+
         lobby = createJoinManager.hostLobby.gameObject;
 
         if (Preloader.instance == null)

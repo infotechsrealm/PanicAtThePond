@@ -24,14 +24,12 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
     public Button joinRandomBtn;
 
-    public string nickName = "";
 
 
     private void Awake()
     {
         Instence = this;
 
-        nickName = "Player_" + Random.Range(100, 999);
 
         if (LAN.isOn)
         {
@@ -180,8 +178,13 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
         }
         else if (isJoining)
         {
+            if (Preloader.instance == null)
+            {
+                Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
+            }
             JoinPanel.gameObject.SetActive(true);
             createPanel.gameObject.SetActive(false);
+            LANDiscoveryMenu.Instance.CallDiscoverAllLANHosts_Unlimited();
         }
     }
 

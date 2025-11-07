@@ -8,23 +8,38 @@ public class SplashManager : MonoBehaviour
     private float fillDuration;   // Random time between 2 to 5 seconds
     private float timer = 0f;
 
+    public bool  istestMode = false;
+
     void Start()
     {
-        fillDuration = Random.Range(2f, 5f); // Random between 2 and 5
-        progressSlider.value = 0f;
+        if (istestMode)
+        {
+         
+            SceneManager.LoadScene("Dash");
+        }
+        else
+        {
+            fillDuration = Random.Range(2f, 5f); // Random between 2 and 5
+            progressSlider.value = 0f;
+            // Directly load Dash scene in non-test mode
+        }
+      
     }
 
     void Update()
     {
-        if (progressSlider.value < 1f)
+        if (!istestMode)
         {
-            timer += Time.deltaTime;
-            progressSlider.value = Mathf.Clamp01(timer / fillDuration);
-        }
-        else
-        {
-            // Once filled, load the Dash scene
-            SceneManager.LoadScene("Dash");
+            if (progressSlider.value < 1f)
+            {
+                timer += Time.deltaTime;
+                progressSlider.value = Mathf.Clamp01(timer / fillDuration);
+            }
+            else
+            {
+                // Once filled, load the Dash scene
+                SceneManager.LoadScene("Dash");
+            }
         }
     }
 }

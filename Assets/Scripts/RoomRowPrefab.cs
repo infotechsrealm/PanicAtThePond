@@ -39,7 +39,7 @@ public class RoomRowPrefab : MonoBehaviour
 
             LANDiscoveryMenu lANDiscoveryMenu = LANDiscoveryMenu.Instance;
 
-            lANDiscoveryMenu.DiscoveredServerInfo.serverName = lanRoomInfo.roomName;
+            lANDiscoveryMenu.DiscoveredServerInfo.roomName = lanRoomInfo.roomName;
             lANDiscoveryMenu.DiscoveredServerInfo.port = lanRoomInfo.port;
             lANDiscoveryMenu.DiscoveredServerInfo.baseBroadcastPort = lanRoomInfo.baseBroadcastPort;
             lANDiscoveryMenu.DiscoveredServerInfo.roomPassword = lanRoomInfo.roomPassword;

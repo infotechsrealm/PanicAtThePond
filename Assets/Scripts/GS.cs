@@ -12,19 +12,21 @@ public class GS : MonoBehaviour
     public bool MurkyWaters;
     public bool ClearWaters;
 
-    
+    public string nickName = "";
+
     internal bool isMasterClient;
+
     private void Awake()
     {
         Instance = this;
     }
 
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+        nickName = "Player_" + Random.Range(100, 999);
+
     }
 
     public void SetVolume(AudioSource audioSource)

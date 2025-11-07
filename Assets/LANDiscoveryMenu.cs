@@ -1,30 +1,29 @@
-﻿using ExitGames.Client.Photon;
-using Mirror;
+﻿using Mirror;
 using Mirror.Discovery;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
+
 [System.Serializable]
 public class DiscoveredServer
 {
-    public string serverName;
+    public string roomName;
     public string address;
     public int port;
     public int baseBroadcastPort;
     public string roomPassword;
-    public string nickName;
 
     public DiscoveredServer()
     {
-        serverName = "";
+        roomName = "abc";
         address = "";
-        port = 0;
-        baseBroadcastPort = 0;
+        port = 7777;
+        baseBroadcastPort = 47777;
         roomPassword = "";
-        nickName = "";
     }
 }
 
@@ -40,7 +39,7 @@ public class LANDiscoveryMenu : MonoBehaviour
     public int baseBroadcastPort = 47777;
 
     public InputField roomNameInput;
-    public InputField roomPasswordInput;
+    //public InputField roomPasswordInput;
 
     internal string roomName,roomPassword;
 
@@ -50,6 +49,17 @@ public class LANDiscoveryMenu : MonoBehaviour
 
     public CreateJoinManager createJoinManager;
 
+    public Text
+        createRoomName,
+        createRoomNameError,
+        playerLimit,
+        playerLimitError,
+        roomPasswordInput,
+        roomPasswordInputError;
+
+    [Header("Room Settings")]
+    internal int maxPlayers;
+
     void Awake()
     {
         Instance = this;
@@ -57,32 +67,75 @@ public class LANDiscoveryMenu : MonoBehaviour
         listenPort = baseBroadcastPort;
     }
 
-
+    
     public void HostGame()
     {
+        if (playerLimit.text != "")
+        {
+            maxPlayers = int.Parse(playerLimit.text);
+        }
+
+        // ✅ Username validation
+        string room = createRoomName.text.Trim();
+
+        if (string.IsNullOrEmpty(room))
+        {
+            createRoomNameError.text = "Username is required";
+            return;
+        }
+        else if (room.Length < 3 || room.Length > 10)
+        {
+            createRoomNameError.text = "Username must be between 3 and 10 characters long";
+            return;
+        }
+        else if (!Regex.IsMatch(room, @"^[a-zA-Z0-9_]+$"))
+        {
+            createRoomNameError.text = "Username can only contain letters, numbers, and underscores";
+            return;
+        }
+        else
+        {
+            roomName = room;
+            createRoomNameError.text = "";
+        }
+
+        // ✅ Player Limit validation
+        if (maxPlayers < 2 || maxPlayers > 7)
+        {
+            playerLimitError.text = "Player Limit must be between 2 to 7 members";
+            return;
+        }
+        else
+        {
+            playerLimitError.text = "";
+        }
+
+        // ✅ Password validation
+        if (string.IsNullOrEmpty(roomPasswordInput.text))
+        {
+            /* roomPasswordInputError.text = "Password is required";
+             return;*/
+        }
+        else if (roomPasswordInput.text.Length < 6)
+        {
+            roomPasswordInputError.text = "A minimum 6-digit password is required";
+            return;
+        }
+        else
+        {
+            roomPasswordInputError.text = "";
+        }
+
+
+        createRoomNameError.text = "";
+
         if (Preloader.instance == null)
         {
             Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
         }
 
-        if (!string.IsNullOrEmpty(roomPasswordInput.text.ToString()))
-        {
-            roomPassword = roomPasswordInput.text.ToString().Trim();
-        }
-        else
-        {
-            roomPassword = "";
-        }
-
-        if (!string.IsNullOrEmpty(roomNameInput.text.ToString()))
-        {
-            roomName = roomNameInput.text.ToString().Trim();
-            StartCoroutine(CheckRooms());
-        }
-        else
-        {
-            Debug.Log("Please enter room name ");
-        }
+        StartCoroutine(CheckRooms());
+       
     }
 
     //find room exist or not
@@ -103,7 +156,6 @@ public class LANDiscoveryMenu : MonoBehaviour
 
         while (silenceCounter < silenceLimit)
         {
-
             networkDiscovery.OnServerFound.RemoveAllListeners();
 
             networkDiscovery.OnServerFound.AddListener((response) =>
@@ -112,12 +164,14 @@ public class LANDiscoveryMenu : MonoBehaviour
                 {
                     string ip = response.EndPoint.Address.ToString();
                     int port = response.uri.Port;
-                    string name = response.serverName;
+                    string name = response.roomName;
 
                     if (roomName == name)
                     {
-                        Debug.LogError(roomName + " = Room is all rady exist = " + name);
-                        if(Preloader.instance!=null)
+                        Debug.Log(roomName + " = Room is all rady exist = " + name);
+                        createRoomNameError.text = "Room is all rady exist , Please change it.";
+
+                        if (Preloader.instance!=null)
                         {
                             Destroy(Preloader.instance.gameObject);
                         }
@@ -203,17 +257,14 @@ public class LANDiscoveryMenu : MonoBehaviour
             tryBroadcastPort++;
         }
 
-        if (!string.IsNullOrEmpty(roomName))
-        {
-            networkDiscovery.serverName = roomName;
-        }
+       
 
         if (!string.IsNullOrEmpty(roomPassword))
         {
             networkDiscovery.roomPassword = roomPassword;
         }
         
-        networkDiscovery.nickName = createJoinManager.nickName;
+        networkDiscovery.roomName = roomName;
 
         finalPort = (ushort)tryGamePort;
         listenPort = tryBroadcastPort;
@@ -263,6 +314,11 @@ public class LANDiscoveryMenu : MonoBehaviour
         }
     }
 
+    public void CallDiscoverAllLANHosts_Unlimited()
+    {
+        StartCoroutine(DiscoverAllLANHosts_Unlimited());
+    }
+
     // 📡 यह function LAN में सारे hosts ढूंढता है और result return करता है
     public IEnumerator DiscoverAllLANHosts_Unlimited()
     {
@@ -273,7 +329,11 @@ public class LANDiscoveryMenu : MonoBehaviour
         int silenceLimit = 15;               // अगर 15 लगातार ports पर कुछ नहीं मिला तो scan रोक दो
 
         discoveredServers.Clear();
+
         Debug.Log("🌐 Starting full LAN host discovery...");
+
+        discoveredServers.Clear();
+
 
         while (silenceCounter < silenceLimit)
         {
@@ -287,21 +347,22 @@ public class LANDiscoveryMenu : MonoBehaviour
                 {
                     string ip = response.EndPoint.Address.ToString();
                     int port = response.uri.Port;
-                    string name = response.serverName;
+                    string name = response.roomName;
 
                     if (!foundServers.Exists(s => s.port == port && s.address == ip))
                     {
                         foundServers.Add(new DiscoveredServer()
                         {
-                            serverName = name,
+                            roomName = name,
                             roomPassword = response.roomPassword,
                             address = ip,
                             port = port
                         });
 
+
                         discoveredServers.Add(new DiscoveredServer()
                         {
-                            serverName = name,
+                            roomName = name,
                             roomPassword = response.roomPassword,
                             address = ip,
                             port = port,
@@ -330,6 +391,14 @@ public class LANDiscoveryMenu : MonoBehaviour
 
         Debug.Log($"✅ Found {foundServers.Count} total hosts on LAN (scanned until port {currentPort - 1}).");
 
+        if(RoomTableManager.instance!=null)
+        {
+            RoomTableManager.instance.UpdateLANRoomTableUI();
+        }
+
+        // Restart scanning after a delay
+        yield return new WaitForSeconds(2f);
+        CallDiscoverAllLANHosts_Unlimited();
     }
 
     public void FindGames()
@@ -366,6 +435,4 @@ public class LANDiscoveryMenu : MonoBehaviour
         int count = NetworkServer.connections.Count;
         Debug.Log($"👥 Players connected: {count}");
     }
-
-
 }

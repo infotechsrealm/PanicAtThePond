@@ -10,8 +10,7 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
     public static RoomTableManager instance;
 
     public Transform roomTablePanel;
-    public GameObject roomRowPrefab;
-    public RoomRowPrefab roomRowPrefab2;
+    public RoomRowPrefab roomRowPrefab;
     public Button SelectedButton;
 
     internal List<Button> allRommButtons = new List<Button>();
@@ -37,7 +36,7 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
 
         foreach (var room in CoustomeRoomManager.Instence.aliveRooms.Values.OrderBy(r => r.Name))
         {
-            GameObject row = Instantiate(roomRowPrefab, roomTablePanel);
+            GameObject row = Instantiate(roomRowPrefab.gameObject, roomTablePanel);
 
             Text[] texts = row.GetComponentsInChildren<Text>();
             Button btn = row.GetComponentInChildren<Button>();
@@ -57,39 +56,124 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
 
     public void UpdateLANRoomTableUI()
     {
-
         LANDiscoveryMenu lANDiscoveryMenu = LANDiscoveryMenu.Instance;
+
+        // 🔹 1️⃣ Discovered room names ka set bana lo
+        HashSet<string> discoveredNames = new HashSet<string>();
+        foreach (var server in lANDiscoveryMenu.discoveredServers)
+        {
+            if (!string.IsNullOrEmpty(server.roomName))
+                discoveredNames.Add(server.roomName);
+        }
+
+        // 🔹 2️⃣ Existing UI rows collect karo
+        List<RoomRowPrefab> existingRows = new List<RoomRowPrefab>();
+        foreach (Transform child in roomTablePanel)
+        {
+            RoomRowPrefab existingRow = child.GetComponent<RoomRowPrefab>();
+            if (existingRow != null)
+                existingRows.Add(existingRow);
+        }
+
+        // 🔹 3️⃣ Remove those rows jinka name discovered list me nahi hai
+        foreach (var row in existingRows)
+        {
+            string existingName = row.lanRoomInfo.roomName;
+            if (!discoveredNames.Contains(existingName))
+            {
+                Debug.Log($"🗑 Removing stale room: {existingName}");
+                Destroy(row.gameObject);
+            }
+        }
+
+        // 🔹 4️⃣ UI me jo room missing hai unke liye new row create karo
+        HashSet<string> currentUIRoomNames = new HashSet<string>();
+        foreach (Transform child in roomTablePanel)
+        {
+            RoomRowPrefab existingRow = child.GetComponent<RoomRowPrefab>();
+            if (existingRow != null && !string.IsNullOrEmpty(existingRow.lanRoomInfo.roomName))
+            {
+                currentUIRoomNames.Add(existingRow.lanRoomInfo.roomName);
+            }
+        }
+
         for (int i = 0; i < lANDiscoveryMenu.discoveredServers.Count; i++)
         {
-            RoomRowPrefab roomRowPrefeb = Instantiate(roomRowPrefab2, roomTablePanel);
+            var server = lANDiscoveryMenu.discoveredServers[i];
+            string roomName = server.roomName;
 
-            roomRowPrefeb.lanRoomInfo.roomName = lANDiscoveryMenu.discoveredServers[i].serverName;
-            roomRowPrefeb.lanRoomInfo.port = lANDiscoveryMenu.discoveredServers[i].port;
-            roomRowPrefeb.lanRoomInfo.baseBroadcastPort = lANDiscoveryMenu.discoveredServers[i].baseBroadcastPort;
-            roomRowPrefeb.lanRoomInfo.roomPassword = lANDiscoveryMenu.discoveredServers[i].roomPassword;
+            // Skip agar already UI me hai
+            if (currentUIRoomNames.Contains(roomName))
+            {
+                 Debug.Log($"⏭ Skipping existing room: {roomName}");
+                continue;
+            }
+
+            // ✅ Otherwise, add new one
+            RoomRowPrefab roomRowPrefeb = Instantiate(roomRowPrefab, roomTablePanel);
+
+            roomRowPrefeb.lanRoomInfo.roomName = roomName;
+            roomRowPrefeb.lanRoomInfo.port = server.port;
+            roomRowPrefeb.lanRoomInfo.baseBroadcastPort = server.baseBroadcastPort;
+            roomRowPrefeb.lanRoomInfo.roomPassword = server.roomPassword;
 
             Text[] texts = roomRowPrefeb.GetComponentsInChildren<Text>();
             Button btn = roomRowPrefeb.GetComponentInChildren<Button>();
-
             allRommButtons.Add(btn);
 
-            int displayIndex = 1;
-
-            if (texts.Length >= 3) // 3 Text components
+            if (texts.Length >= 3)
             {
-                texts[0].text = (i + 1).ToString();       // Sequential number
-                texts[1].text = LANDiscoveryMenu.Instance.discoveredServers[i].serverName;                     // Room name
-                texts[2].text = $"?/?"; // Joined / Max
-
+                texts[0].text = (i + 1).ToString(); // Index
+                texts[1].text = roomName;           // Room name
+                texts[2].text = $"?/?";             // Joined / Max
             }
-            displayIndex++;
+
+            Debug.Log($"➕ Added new room: {roomName}");
         }
 
-        if(Preloader.instance!=null)
+        // 🔹 5️⃣ Optional: Remove Preloader if exists
+        if (Preloader.instance != null)
         {
             Destroy(Preloader.instance.gameObject);
         }
     }
+
+
+
+    /* public void UpdateLANRoomTableUI()
+     {
+             LANDiscoveryMenu lANDiscoveryMenu = LANDiscoveryMenu.Instance;
+         for (int i = 0; i < lANDiscoveryMenu.discoveredServers.Count; i++)
+         {
+             RoomRowPrefab roomRowPrefeb = Instantiate(roomRowPrefab, roomTablePanel);
+
+             roomRowPrefeb.lanRoomInfo.roomName = lANDiscoveryMenu.discoveredServers[i].serverName;
+             roomRowPrefeb.lanRoomInfo.port = lANDiscoveryMenu.discoveredServers[i].port;
+             roomRowPrefeb.lanRoomInfo.baseBroadcastPort = lANDiscoveryMenu.discoveredServers[i].baseBroadcastPort;
+             roomRowPrefeb.lanRoomInfo.roomPassword = lANDiscoveryMenu.discoveredServers[i].roomPassword;
+
+             Text[] texts = roomRowPrefeb.GetComponentsInChildren<Text>();
+             Button btn = roomRowPrefeb.GetComponentInChildren<Button>();
+
+             allRommButtons.Add(btn);
+
+             int displayIndex = 1;
+
+             if (texts.Length >= 3) // 3 Text components
+             {
+                 texts[0].text = (i + 1).ToString();       // Sequential number
+                 texts[1].text = LANDiscoveryMenu.Instance.discoveredServers[i].serverName;                     // Room name
+                 texts[2].text = $"?/?"; // Joined / Max
+
+             }
+             displayIndex++;
+         }
+
+         if(Preloader.instance!=null)
+         {
+             Destroy(Preloader.instance.gameObject);
+         }
+     }*/
 
     public void JoinRandomAvailableRoom()
     {

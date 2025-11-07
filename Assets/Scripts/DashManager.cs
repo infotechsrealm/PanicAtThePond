@@ -12,6 +12,7 @@ public class DashManager : MonoBehaviour
     {
         instance = this;
     }
+
     public void OnClickAction(string action)
     {
         switch (action)

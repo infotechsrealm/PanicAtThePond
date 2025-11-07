@@ -10,6 +10,14 @@ public class CustomNetworkManager : NetworkManager
         connectedPlayers++;
         Debug.Log($"🔵 Player connected. Total players: {numPlayers}");
 
+        if (conn.address != null)
+        {
+            Debug.Log($"🌐 Player connected from: {conn.address}");
+        }
+        else
+        {
+            Debug.Log("⚠️ Could not retrieve player IP/Port info (conn.address is null)");
+        }
 
         if (NetworkServer.active)
         {
@@ -17,7 +25,7 @@ public class CustomNetworkManager : NetworkManager
             Debug.Log("🧑‍🤝‍🧑 Connected Players: " + playerCount);
         }
 
-        if (connectedPlayers >= 2)
+        if (connectedPlayers >= LANDiscoveryMenu.Instance.maxPlayers)
         {
             Debug.Log("Lobby full — spawning players...");
             SpawnPlayers();

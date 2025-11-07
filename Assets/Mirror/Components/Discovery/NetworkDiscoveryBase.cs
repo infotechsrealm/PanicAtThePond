@@ -53,9 +53,8 @@ namespace Mirror.Discovery
         public long secretHandshake;
 
         public long ServerId { get; private set; }
-        public string serverName { get;  set; }
+        public string roomName { get;  set; }
         public string roomPassword { get;  set; }
-        public string nickName { get;  set; }
 
 
         protected UdpClient serverUdpClient;
@@ -81,8 +80,6 @@ namespace Mirror.Discovery
         public virtual void Start()
         {
             ServerId = RandomLong();
-
-            serverName = "R_Squre";
 
             // active transport gets initialized in Awake
             // so make sure we set it here in Start() after Awake
