@@ -275,7 +275,28 @@ public class LANDiscoveryMenu : MonoBehaviour
         networkDiscovery.serverBroadcastListenPortPortValue = listenPort;
         networkDiscovery.serverBroadcastListenPort = listenPort;
 
-        var transport = (TelepathyTransport)NetworkManager.singleton.transport;
+        var nm = NetworkManager.singleton;
+        if (nm == null)
+        {
+            Debug.LogError("❌ No NetworkManager in scene!");
+            return;
+        }
+
+        if (nm.transport == null)
+        {
+            Debug.LogError("❌ No Transport assigned on NetworkManager!");
+            return;
+        }
+
+        var transport = nm.transport as TelepathyTransport;
+        if (transport == null)
+        {
+            Debug.LogError("❌ Transport is not TelepathyTransport! Type: " + nm.transport.GetType().Name);
+            return;
+        }
+
+        Debug.Log("✅ Transport found, port: " + transport.port);
+
         transport.port = finalPort;
 
         NetworkManager.singleton.StartHost();
@@ -417,6 +438,8 @@ public class LANDiscoveryMenu : MonoBehaviour
 
         Debug.Log($"🔎 Searching for LAN hosts (game={transport.port}, broadcast={listenPort})...");
         networkDiscovery.StartDiscovery();
+
+
     }
 
     private bool isConnected = false;
@@ -425,6 +448,8 @@ public class LANDiscoveryMenu : MonoBehaviour
     void OnDiscoveredServer(ServerResponse info)
     {
         if (isConnected) return; // Already joined
+
+        createJoinManager.clientLobby.gameObject.SetActive(true);
 
         string hostAddress = info.EndPoint.Address.ToString();
         Debug.Log($"✅ Found host: {hostAddress} | URI: {info.uri}");

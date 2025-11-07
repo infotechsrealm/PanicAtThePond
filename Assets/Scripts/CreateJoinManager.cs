@@ -11,7 +11,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
     public CreatePanel createPanel;
     public JoinPanel JoinPanel;
 
-    public GameObject  clientLobby;
+    public ClientLobby  clientLobby;
     public HostLobby hostLobby;
 
 
@@ -184,7 +184,11 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
             }
             JoinPanel.gameObject.SetActive(true);
             createPanel.gameObject.SetActive(false);
-            LANDiscoveryMenu.Instance.CallDiscoverAllLANHosts_Unlimited();
+
+            if (LAN.isOn)
+            {
+                LANDiscoveryMenu.Instance.CallDiscoverAllLANHosts_Unlimited();
+            }
         }
     }
 

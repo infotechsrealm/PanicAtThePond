@@ -1,64 +1,142 @@
 ﻿using Mirror;
-using System.Linq;
-using System.Net;
+using System.Collections.Generic;
 using UnityEngine;
+
+public struct PlayerNameMessage : NetworkMessage
+{
+    public string playerName;
+}
+
+public struct PlayerListMessage : NetworkMessage
+{
+    public List<string> allPlayerNames;
+}
 
 public class CustomNetworkManager : NetworkManager
 {
-    public int connectedPlayers = 0;
+    private Dictionary<int, string> playerNames = new Dictionary<int, string>();
 
-    public override void OnServerConnect(NetworkConnectionToClient conn)
+    public string localPlayerName = "Rajan";
+
+    // 🔹 SERVER START पर message handler register करो
+    public override void OnStartServer()
     {
-        base.OnServerConnect(conn);
-        Debug.Log($"🟢 Client connected from: {conn.address}");
-        PrintAllConnections();
+        base.OnStartServer();
+        NetworkServer.RegisterHandler<PlayerNameMessage>(OnReceivePlayerName);
     }
 
+    // 🔹 CLIENT START पर PlayerListMessage receive handler register करो
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        NetworkClient.RegisterHandler<PlayerListMessage>(OnReceivePlayerList);
+    }
+
+    // 🔹 जब client connect करे तो अपना नाम भेजो
     public override void OnClientConnect()
     {
         base.OnClientConnect();
 
-        string serverIP = networkAddress;
-        string localIP = GetLocalIPAddress();
-        Debug.Log($"🧩 Client connected to server: {serverIP}");
-        Debug.Log($"💻 My local IP: {localIP}");
-    }
-
-    void PrintAllConnections()
-    {
-        foreach (var kvp in NetworkServer.connections)
+        NetworkClient.Send(new PlayerNameMessage
         {
-            Debug.Log($"🌐 Connected client: {kvp.Value.address}");
-        }
+            playerName = GS.Instance.nickName,
+        });
 
-        Debug.Log($"🖥️ Server local IP: {GetLocalIPAddress()}");
+        Debug.Log($"✅ Connected to server, name sent: {GS.Instance.nickName}");
     }
 
-    string GetLocalIPAddress()
+    // 🔹 Server पर जब किसी का नाम आए
+    void OnReceivePlayerName(NetworkConnectionToClient conn, PlayerNameMessage msg)
     {
-        return Dns.GetHostEntry(Dns.GetHostName())
-            .AddressList.FirstOrDefault(ip => ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)?
-            .ToString();
+        playerNames[conn.connectionId] = msg.playerName;
+        Debug.Log($"🧩 Player joined: {msg.playerName} ({conn.address})");
+
+        // सभी clients को updated list भेजो
+        SendUpdatedPlayerListToAll();
     }
 
+    // 🔹 जब कोई disconnect करे
     public override void OnServerDisconnect(NetworkConnectionToClient conn)
     {
+        if (playerNames.ContainsKey(conn.connectionId))
+        {
+            Debug.Log($"❌ Player left: {playerNames[conn.connectionId]}");
+            playerNames.Remove(conn.connectionId);
+        }
+
         base.OnServerDisconnect(conn);
-        connectedPlayers--;
-        Debug.Log($"🔴 Player disconnected. Remaining players: {numPlayers}");
+
+        // सभी को अपडेट भेजो
+        SendUpdatedPlayerListToAll();
     }
 
-    void SpawnPlayers()
+    // 🔹 Server सभी connected clients को नामों की list भेजे
+    void SendUpdatedPlayerListToAll()
     {
-        foreach (var conn in NetworkServer.connections.Values)
+        var allNames = new List<string>(playerNames.Values);
+
+        var msg = new PlayerListMessage
         {
-            if (conn.identity == null)
+            allPlayerNames = allNames
+        };
+
+        NetworkServer.SendToAll(msg);
+
+        // Server पर print भी करो
+        PrintAllPlayers_Server();
+    }
+
+    // 🔹 Server side पर players print
+    void PrintAllPlayers_Server()
+    {
+        Debug.Log("📜 --- Server: Connected Players ---");
+        if (playerNames.Count == 0)
+        {
+            Debug.Log("⚠️ कोई भी player connected नहीं है।");
+            return;
+        }
+
+        foreach (var kvp in playerNames)
+        {
+            int id = kvp.Key;
+            string name = kvp.Value;
+
+            if (NetworkServer.connections.TryGetValue(id, out NetworkConnectionToClient conn))
+                Debug.Log($"👤 {name} → {conn.address}");
+            else
+                Debug.Log($"👤 {name} → (missing connection)");
+        }
+
+        /*if (PlayerTableManager.instance != null)
+        {
+            PlayerTableManager.instance.players = new List<string>(playerNames.Values);
+            PlayerTableManager.instance.UpdatePlayerTable();
+        }*/
+        Debug.Log("-----------------------------------");
+    }
+
+    // 🔹 Client side पर जब list मिले
+    void OnReceivePlayerList(PlayerListMessage msg)
+    {
+        Debug.Log("📜 --- Client: Connected Players ---");
+        if (msg.allPlayerNames.Count == 0)
+        {
+            Debug.Log("⚠️ कोई भी player connected नहीं है।");
+        }
+        else
+        {
+            
+            foreach (var name in msg.allPlayerNames)
             {
-                Vector3 spawnPos = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
-                GameObject player = Instantiate(playerPrefab, spawnPos, Quaternion.identity);
-                NetworkServer.AddPlayerForConnection(conn, player);
+                Debug.Log($"👤 {name}");
+            }
+
+            if (PlayerTableManager.instance != null)
+            {
+                PlayerTableManager.instance.players = msg.allPlayerNames;
+                PlayerTableManager.instance.UpdatePlayerTable();
             }
         }
+        Debug.Log("-----------------------------------");
     }
-
 }

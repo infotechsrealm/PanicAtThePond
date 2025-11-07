@@ -69,7 +69,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
                 }
                 else
                 {
-                    createJoinManager.clientLobby.SetActive(true);
+                    createJoinManager.clientLobby.gameObject.SetActive(true);
                     createJoinManager.JoinPanel.gameObject.SetActive(true);
                 }
                 createJoinManager.createAndJoinButtons.SetActive(true);
@@ -230,7 +230,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
         RoomInfo selectedRoom = joinableRooms[Random.Range(0, joinableRooms.Count)];
 
-        lobby = createJoinManager.clientLobby;
+        lobby = createJoinManager.clientLobby.gameObject;
 
         if (selectedRoom.CustomProperties.TryGetValue("pwd", out object pwdObj))
         {
@@ -271,7 +271,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             return;
         }
 
-        lobby = createJoinManager.clientLobby;
+        lobby = createJoinManager.clientLobby.gameObject;
 
         // Check for password property
         if (targetRoom.CustomProperties.TryGetValue("pwd", out object pwdObj))
@@ -535,7 +535,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         {
             Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
         }
-        createJoinManager.clientLobby.SetActive(false);
+        createJoinManager.clientLobby.gameObject.SetActive(false);
         createJoinManager.hostLobby.gameObject.SetActive(false);
 
         LeaveRoom();
@@ -590,7 +590,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             }
         }
 
-        if (createJoinManager.clientLobby != null) createJoinManager.clientLobby.SetActive(false);
+        if (createJoinManager.clientLobby != null) createJoinManager.clientLobby.gameObject.SetActive(false);
         if (createJoinManager.hostLobby != null) createJoinManager.hostLobby.gameObject.SetActive(false);
 
         PhotonNetwork.LeaveRoom();
@@ -613,7 +613,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
         }
 
-        createJoinManager.clientLobby.SetActive(false);
+        createJoinManager.clientLobby.gameObject.SetActive(false);
         createJoinManager.hostLobby.gameObject.SetActive(false);
 
         PhotonNetwork.LeaveRoom();

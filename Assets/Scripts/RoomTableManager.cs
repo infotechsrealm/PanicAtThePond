@@ -14,6 +14,7 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
     public Button SelectedButton;
 
     internal List<Button> allRommButtons = new List<Button>();
+
     private void Awake()
     {
         instance = this;
@@ -139,41 +140,6 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
     }
 
 
-
-    /* public void UpdateLANRoomTableUI()
-     {
-             LANDiscoveryMenu lANDiscoveryMenu = LANDiscoveryMenu.Instance;
-         for (int i = 0; i < lANDiscoveryMenu.discoveredServers.Count; i++)
-         {
-             RoomRowPrefab roomRowPrefeb = Instantiate(roomRowPrefab, roomTablePanel);
-
-             roomRowPrefeb.lanRoomInfo.roomName = lANDiscoveryMenu.discoveredServers[i].serverName;
-             roomRowPrefeb.lanRoomInfo.port = lANDiscoveryMenu.discoveredServers[i].port;
-             roomRowPrefeb.lanRoomInfo.baseBroadcastPort = lANDiscoveryMenu.discoveredServers[i].baseBroadcastPort;
-             roomRowPrefeb.lanRoomInfo.roomPassword = lANDiscoveryMenu.discoveredServers[i].roomPassword;
-
-             Text[] texts = roomRowPrefeb.GetComponentsInChildren<Text>();
-             Button btn = roomRowPrefeb.GetComponentInChildren<Button>();
-
-             allRommButtons.Add(btn);
-
-             int displayIndex = 1;
-
-             if (texts.Length >= 3) // 3 Text components
-             {
-                 texts[0].text = (i + 1).ToString();       // Sequential number
-                 texts[1].text = LANDiscoveryMenu.Instance.discoveredServers[i].serverName;                     // Room name
-                 texts[2].text = $"?/?"; // Joined / Max
-
-             }
-             displayIndex++;
-         }
-
-         if(Preloader.instance!=null)
-         {
-             Destroy(Preloader.instance.gameObject);
-         }
-     }*/
 
     public void JoinRandomAvailableRoom()
     {

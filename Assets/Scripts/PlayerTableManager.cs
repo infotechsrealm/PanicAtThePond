@@ -1,6 +1,6 @@
-﻿using Mirror;
-using Photon.Pun;
+﻿using Photon.Pun;
 using Photon.Realtime;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq; // for sorting
 using UnityEngine;
@@ -14,6 +14,10 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
     private Dictionary<int, GameObject> playerRows = new Dictionary<int, GameObject>();
 
     public static PlayerTableManager instance;
+
+
+    public List<string> players = new List<string>();
+
     private void Awake()
     {
         instance = this;
@@ -28,7 +32,7 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
     {
         if (CreateJoinManager.Instence.LAN.isOn)
         {
-            UpdateLANPlayerTableUI();
+           StartCoroutine( UpdateLANPlayerTableUI());
         }
         else
         {
@@ -48,6 +52,8 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
         // Sort players by ActorNumber
         Player[] sortedPlayers = PhotonNetwork.PlayerList.OrderBy(p => p.ActorNumber).ToArray();
+
+        int x = PhotonNetwork.PlayerList.Count();
 
         // Rebuild table
         for (int i = 0; i < sortedPlayers.Length; i++)
@@ -72,12 +78,34 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
     }
 
 
-    public void UpdateLANPlayerTableUI()
+
+    IEnumerator  UpdateLANPlayerTableUI()
     {
+
+        yield return new WaitForSeconds(1f);
+        foreach (Transform child in playerTablePanel)
+            Destroy(child.gameObject);
+
+        playerRows.Clear();
         Debug.Log("UpdateLANPlayerTableUI Called");
+        for (int i = 0; i < players.Count; i++)
+        {
+            string player = players[i];
+            GameObject row = Instantiate(playerRowPrefab, playerTablePanel);
+
+            Text[] texts = row.GetComponentsInChildren<Text>();
+            if (texts.Length >= 3)
+            {
+                texts[0].text = (i + 1).ToString();   // Sequential number
+                texts[1].text = player;      // Nickname
+            }
+
+        }
         if (Preloader.instance != null)
         {
             Destroy(Preloader.instance.gameObject);
         }
-    }   
+    }
+
+
 }
