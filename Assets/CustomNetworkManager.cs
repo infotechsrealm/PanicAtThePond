@@ -1,35 +1,44 @@
 ﻿using Mirror;
+using System.Linq;
+using System.Net;
 using UnityEngine;
 
 public class CustomNetworkManager : NetworkManager
 {
     public int connectedPlayers = 0;
+
     public override void OnServerConnect(NetworkConnectionToClient conn)
     {
         base.OnServerConnect(conn);
-        connectedPlayers++;
-        Debug.Log($"🔵 Player connected. Total players: {numPlayers}");
+        Debug.Log($"🟢 Client connected from: {conn.address}");
+        PrintAllConnections();
+    }
 
-        if (conn.address != null)
+    public override void OnClientConnect()
+    {
+        base.OnClientConnect();
+
+        string serverIP = networkAddress;
+        string localIP = GetLocalIPAddress();
+        Debug.Log($"🧩 Client connected to server: {serverIP}");
+        Debug.Log($"💻 My local IP: {localIP}");
+    }
+
+    void PrintAllConnections()
+    {
+        foreach (var kvp in NetworkServer.connections)
         {
-            Debug.Log($"🌐 Player connected from: {conn.address}");
-        }
-        else
-        {
-            Debug.Log("⚠️ Could not retrieve player IP/Port info (conn.address is null)");
+            Debug.Log($"🌐 Connected client: {kvp.Value.address}");
         }
 
-        if (NetworkServer.active)
-        {
-            int playerCount = NetworkServer.connections.Count;
-            Debug.Log("🧑‍🤝‍🧑 Connected Players: " + playerCount);
-        }
+        Debug.Log($"🖥️ Server local IP: {GetLocalIPAddress()}");
+    }
 
-        if (connectedPlayers >= LANDiscoveryMenu.Instance.maxPlayers)
-        {
-            Debug.Log("Lobby full — spawning players...");
-            SpawnPlayers();
-        }
+    string GetLocalIPAddress()
+    {
+        return Dns.GetHostEntry(Dns.GetHostName())
+            .AddressList.FirstOrDefault(ip => ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)?
+            .ToString();
     }
 
     public override void OnServerDisconnect(NetworkConnectionToClient conn)
@@ -51,4 +60,5 @@ public class CustomNetworkManager : NetworkManager
             }
         }
     }
+
 }

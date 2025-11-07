@@ -4940,12 +4940,12 @@ MonoBehaviour:
   roomNameInput: {fileID: 5272309045552177113}
   discoveredServers: []
   DiscoveredServerInfo:
-    serverName: 
+    roomName: abc
     address: 
     port: 0
     baseBroadcastPort: 0
     roomPassword: 
-    nickName: 
+    playerName: 
   createJoinManager: {fileID: 7582758180353784423}
   createRoomName: {fileID: 709316178248323928}
   createRoomNameError: {fileID: 1709213155}

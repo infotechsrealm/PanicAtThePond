@@ -71,6 +71,7 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
         }
     }
 
+
     public void UpdateLANPlayerTableUI()
     {
         Debug.Log("UpdateLANPlayerTableUI Called");
@@ -78,6 +79,5 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
         {
             Destroy(Preloader.instance.gameObject);
         }
-    }
-
+    }   
 }

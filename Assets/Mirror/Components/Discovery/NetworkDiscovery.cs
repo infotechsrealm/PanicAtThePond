@@ -12,6 +12,7 @@ namespace Mirror.Discovery
     [AddComponentMenu("Network/Network Discovery")]
     public class NetworkDiscovery : NetworkDiscoveryBase<ServerRequest, ServerResponse>
     {
+
         #region Server
 
         /// <summary>
@@ -40,6 +41,8 @@ namespace Mirror.Discovery
                     serverId = ServerId,
                     roomName = roomName,
                     roomPassword = roomPassword,
+                    playerName = playerName,
+                    serverBroadcastListenPortPortValue = serverBroadcastListenPortPortValue,
                     uri = transport.ServerUri()
                 };
             }

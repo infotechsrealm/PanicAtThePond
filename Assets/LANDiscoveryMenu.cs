@@ -16,6 +16,7 @@ public class DiscoveredServer
     public int port;
     public int baseBroadcastPort;
     public string roomPassword;
+    public string playerName;
 
     public DiscoveredServer()
     {
@@ -24,6 +25,7 @@ public class DiscoveredServer
         port = 7777;
         baseBroadcastPort = 47777;
         roomPassword = "";
+        playerName = "";
     }
 }
 
@@ -65,6 +67,7 @@ public class LANDiscoveryMenu : MonoBehaviour
         Instance = this;
         finalPort = baseGamePort;
         listenPort = baseBroadcastPort;
+        DiscoveredServerInfo.playerName = GS.Instance.nickName;
     }
 
     
@@ -263,18 +266,19 @@ public class LANDiscoveryMenu : MonoBehaviour
         {
             networkDiscovery.roomPassword = roomPassword;
         }
-        
-        networkDiscovery.roomName = roomName;
 
         finalPort = (ushort)tryGamePort;
         listenPort = tryBroadcastPort;
+
+        networkDiscovery.roomName = roomName;
+        networkDiscovery.playerName = DiscoveredServerInfo.playerName;
+        networkDiscovery.serverBroadcastListenPortPortValue = listenPort;
+        networkDiscovery.serverBroadcastListenPort = listenPort;
 
         var transport = (TelepathyTransport)NetworkManager.singleton.transport;
         transport.port = finalPort;
 
         NetworkManager.singleton.StartHost();
-
-        networkDiscovery.serverBroadcastListenPort = listenPort;
         networkDiscovery.AdvertiseServer();
 
         Debug.Log($"🏠 Hosting LAN on free port {finalPort}, broadcast {listenPort}");
@@ -366,7 +370,7 @@ public class LANDiscoveryMenu : MonoBehaviour
                             roomPassword = response.roomPassword,
                             address = ip,
                             port = port,
-                            baseBroadcastPort = currentPort,
+                            baseBroadcastPort = response.serverBroadcastListenPortPortValue,
                         });
                         Debug.Log($"📡 Found Host → {ip}:{port} ({name})");
                     }
@@ -378,7 +382,7 @@ public class LANDiscoveryMenu : MonoBehaviour
             networkDiscovery.serverBroadcastListenPort = currentPort;
             networkDiscovery.StartDiscovery();
             Debug.Log($"🔎 Scanning LAN for hosts on broadcast port {currentPort}...");
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.1f);
             networkDiscovery.StopDiscovery();
 
             if (foundOnThisPort)
@@ -398,7 +402,7 @@ public class LANDiscoveryMenu : MonoBehaviour
 
         // Restart scanning after a delay
         yield return new WaitForSeconds(2f);
-        CallDiscoverAllLANHosts_Unlimited();
+       // CallDiscoverAllLANHosts_Unlimited();
     }
 
     public void FindGames()

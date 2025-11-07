@@ -226,5 +226,6 @@ namespace Mirror
             // clear the hashset because we destroyed them all
             owned.Clear();
         }
+        
     }
 }

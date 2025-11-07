@@ -52,9 +52,15 @@ namespace Mirror.Discovery
         [HideInInspector]
         public long secretHandshake;
 
+
         public long ServerId { get; private set; }
         public string roomName { get;  set; }
+        
         public string roomPassword { get;  set; }
+        public string playerName { get;  set; }
+
+        public int serverBroadcastListenPortPortValue { get; set; }
+
 
 
         protected UdpClient serverUdpClient;
