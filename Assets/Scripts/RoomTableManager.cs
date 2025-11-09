@@ -19,12 +19,7 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
     {
         instance = this;
     }
-
-    private void Update()
-    {
-      
-    }
-
+    
     public void UpdateRoomTableUI()
     {
         Debug.Log("UpdateRoomTableUI Called");
@@ -57,7 +52,13 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
 
     public void UpdateLANRoomTableUI()
     {
+       /* foreach (Transform child in roomTablePanel)
+        {
+            Destroy(child.gameObject);
+        }*/
+
         LANDiscoveryMenu lANDiscoveryMenu = LANDiscoveryMenu.Instance;
+
 
         // 🔹 1️⃣ Discovered room names ka set bana lo
         HashSet<string> discoveredNames = new HashSet<string>();
@@ -101,22 +102,23 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
         for (int i = 0; i < lANDiscoveryMenu.discoveredServers.Count; i++)
         {
             var server = lANDiscoveryMenu.discoveredServers[i];
-            string roomName = server.roomName;
+              string roomName = server.roomName;
 
             // Skip agar already UI me hai
             if (currentUIRoomNames.Contains(roomName))
             {
-                 Debug.Log($"⏭ Skipping existing room: {roomName}");
+                Debug.Log($"⏭ Skipping existing room: {roomName}");
                 continue;
             }
 
             // ✅ Otherwise, add new one
             RoomRowPrefab roomRowPrefeb = Instantiate(roomRowPrefab, roomTablePanel);
 
-            roomRowPrefeb.lanRoomInfo.roomName = roomName;
+            roomRowPrefeb.lanRoomInfo.roomName = server.roomName;
             roomRowPrefeb.lanRoomInfo.port = server.port;
             roomRowPrefeb.lanRoomInfo.baseBroadcastPort = server.baseBroadcastPort;
             roomRowPrefeb.lanRoomInfo.roomPassword = server.roomPassword;
+            roomRowPrefeb.lanRoomInfo.connectedPlayers = server.playerCount;
 
             Text[] texts = roomRowPrefeb.GetComponentsInChildren<Text>();
             Button btn = roomRowPrefeb.GetComponentInChildren<Button>();
@@ -125,21 +127,16 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
             if (texts.Length >= 3)
             {
                 texts[0].text = (i + 1).ToString(); // Index
-                texts[1].text = roomName;           // Room name
-                texts[2].text = $"?/?";             // Joined / Max
+                texts[1].text = server.roomName;           // Room name
+                texts[2].text = $"{server.playerCount}/?";             // Joined / Max
             }
 
-            Debug.Log($"➕ Added new room: {roomName}");
+            Debug.Log($"➕ Added new room: {server.roomName}");
         }
 
         // 🔹 5️⃣ Optional: Remove Preloader if exists
-        if (Preloader.instance != null)
-        {
-            Destroy(Preloader.instance.gameObject);
-        }
+        GS.Instance.DestroyPreloder();
     }
-
-
 
     public void JoinRandomAvailableRoom()
     {

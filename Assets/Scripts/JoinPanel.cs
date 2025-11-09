@@ -1,21 +1,33 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JoinPanel : MonoBehaviour
 {
 
     public RoomTableManager roomTableManager;
 
-
+    public Button joinRandomBtn;
     private void OnEnable()
     {
         roomTableManager.UpdateRoomTableUI();
+        if (CreateJoinManager.Instence.LAN.isOn)
+        {
+            joinRandomBtn.interactable = false;
+        }
+        else
+        {
+            joinRandomBtn.interactable = true;
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+       
     }
+
+   
 
     // Update is called once per frame
     void Update()
@@ -25,6 +37,14 @@ public class JoinPanel : MonoBehaviour
 
     public void Close()
     {
+        if (CreateJoinManager.Instence.LAN.isOn)
+        {
+            if (LANDiscoveryMenu.Instance != null)
+            {
+                LANDiscoveryMenu.Instance.StopRoomFindCoroutine();
+            }
+        }
+
         gameObject.SetActive(false);
     }
 }

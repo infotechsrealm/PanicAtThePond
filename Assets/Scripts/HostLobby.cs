@@ -1,4 +1,6 @@
-﻿using Photon.Pun;
+﻿using Mirror;
+using Mirror.Discovery;
+using Photon.Pun;
 using UnityEngine;
 
 public class HostLobby : MonoBehaviourPunCallbacks 
@@ -22,19 +24,35 @@ public class HostLobby : MonoBehaviourPunCallbacks
             else
             {
                 Debug.Log("Leaving room...");
-                if (Preloader.instance == null)
-                {
-                    Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
-                }
-
+                GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
                 gameObject.SetActive(false);
-
                 PhotonNetwork.LeaveRoom();
             }
 
         }
         else
         {
+            
+
+            // 1️⃣ पहले discovery बंद करो ताकि broadcast रुक जाए
+            LANDiscoveryMenu.Instance.networkDiscovery.StopDiscovery();
+
+            // 2️⃣ फिर host बंद करो (इससे server + client दोनों बंद हो जाते हैं)
+            if (NetworkServer.active && NetworkClient.isConnected)
+            {
+                NetworkManager.singleton.StopHost();
+            }
+            else if (NetworkServer.active)
+            {
+                NetworkManager.singleton.StopServer();
+            }
+          
+
+            // 3️⃣ transport बंद करो ताकि socket release हो जाए
+            var transport = (TelepathyTransport)NetworkManager.singleton.transport;
+            transport.Shutdown();
+
+
             gameObject.SetActive(false);
         }
     }

@@ -30,9 +30,11 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
     public void UpdatePlayerTable()
     {
+
+        Debug.Log("UpdatePlayerTable Called333333333333333333333333333333");
         if (CreateJoinManager.Instence.LAN.isOn)
         {
-           StartCoroutine( UpdateLANPlayerTableUI());
+           StartCoroutine(UpdateLANPlayerTableUI());
         }
         else
         {
@@ -81,8 +83,8 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
     IEnumerator  UpdateLANPlayerTableUI()
     {
-
         yield return new WaitForSeconds(1f);
+
         foreach (Transform child in playerTablePanel)
             Destroy(child.gameObject);
 
@@ -101,10 +103,8 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
             }
 
         }
-        if (Preloader.instance != null)
-        {
-            Destroy(Preloader.instance.gameObject);
-        }
+        GS.Instance.DestroyPreloder();
+
     }
 
 

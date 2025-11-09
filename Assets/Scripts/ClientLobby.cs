@@ -1,4 +1,6 @@
+﻿using Mirror;
 using Photon.Pun;
+using System.Collections;
 using UnityEngine;
 
 public class ClientLobby : MonoBehaviourPunCallbacks
@@ -21,19 +23,27 @@ public class ClientLobby : MonoBehaviourPunCallbacks
             else
             {
                 Debug.Log("Leaving room...");
-                if (Preloader.instance == null)
-                {
-                    Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
-                }
-
+                GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
                 gameObject.SetActive(false);
-
                 PhotonNetwork.LeaveRoom();
             }
-
         }
         else
         {
+            LANDiscoveryMenu.Instance.networkDiscovery.StopDiscovery();
+
+            if (NetworkClient.isConnected)
+            {
+                NetworkManager.singleton.StopClient();
+            }
+
+            var transport = (TelepathyTransport)NetworkManager.singleton.transport;
+            transport.Shutdown();
+
+           LANDiscoveryMenu.Instance.isConnected = false;
+
+            LANDiscoveryMenu.Instance.CallDiscoverAllLANHosts_Unlimited();
+
             gameObject.SetActive(false);
         }
     }
@@ -42,5 +52,4 @@ public class ClientLobby : MonoBehaviourPunCallbacks
     {
         Debug.Log("Left room successfully!");
     }
-
 }

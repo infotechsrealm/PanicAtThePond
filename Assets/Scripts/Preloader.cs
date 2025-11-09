@@ -17,4 +17,6 @@ public class Preloader : MonoBehaviour
         // Rotate continuously on Z axis
       //  transform.Rotate(0f, 0f, -speed * Time.deltaTime);
     }
+
+
 }

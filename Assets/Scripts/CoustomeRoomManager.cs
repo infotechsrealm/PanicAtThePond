@@ -176,8 +176,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
         lobby = createJoinManager.hostLobby.gameObject;
 
-        if (Preloader.instance == null)
-            Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
+        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+
 
         string roomName = createRoomName.text;
         string password = roomPasswordInput.text; // <-- Add a password InputField in your UI
@@ -225,8 +225,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             return;
         }
 
-        if (Preloader.instance == null)
-            Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
+        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+
 
         RoomInfo selectedRoom = joinableRooms[Random.Range(0, joinableRooms.Count)];
 
@@ -254,7 +254,10 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     internal void JoinCustomeRoom()
     {
         if (joinRoomName == null || string.IsNullOrEmpty(joinRoomName.text))
+        {
+            Debug.Log("Please enter a room name to join.");
             return;
+        }
 
         string roomName = joinRoomName.text;
 
@@ -288,8 +291,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         }
 
         // If no password, join directly
-        if (Preloader.instance == null)
-            Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
+        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+
 
         joinRoomName = null;
 
@@ -301,10 +304,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
 
-        if(Preloader.instance!=null)
-        {
-            Destroy(Preloader.instance.gameObject);
-        }
+        GS.Instance.DestroyPreloder();
+
         Debug.Log("Room Creation Failed: " + message);
         string displayMessage = "";
 
@@ -330,10 +331,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        if (Preloader.instance != null)
-        {
-            Destroy(Preloader.instance.gameObject);
-        }
+        GS.Instance.DestroyPreloder();
+
 
         Debug.Log("Joined Room: " + PhotonNetwork.CurrentRoom.Name +
            " | Player Name: " + PhotonNetwork.NickName +
@@ -390,8 +389,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void GeneratePreloder()
     {
-        if (Preloader.instance == null)
-            Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
+        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+
     }
 
 
@@ -454,10 +453,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
-        if(Preloader.instance!=null)
-        {
-            Destroy(Preloader.instance.gameObject);
-        }
+        GS.Instance.DestroyPreloder();
+
 
         Debug.Log("Join Room Failed: " + message);
         string displayMessage = "";
@@ -531,10 +528,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
         Debug.Log("Leaving room...");
 
-        if (Preloader.instance == null)
-        {
-            Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
-        }
+        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+
         createJoinManager.clientLobby.gameObject.SetActive(false);
         createJoinManager.hostLobby.gameObject.SetActive(false);
 
@@ -586,7 +581,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         {
             if (DashManager.instance != null && DashManager.instance.prefabPanret != null)
             {
-                Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
+                GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+
             }
         }
 
@@ -610,7 +606,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
         if (Preloader.instance == null)
         {
-            Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
+            GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+
         }
 
         createJoinManager.clientLobby.gameObject.SetActive(false);

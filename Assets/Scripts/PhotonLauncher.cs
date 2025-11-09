@@ -23,10 +23,8 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
 
     public void LaunchGame()
     {
-        if (Preloader.instance == null)
-        {
-            Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
-        }
+        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+
 
         if (!PhotonNetwork.IsConnected)
         {
@@ -36,10 +34,8 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
 
     public void EnablePanel()
     {
-        if (Preloader.instance != null)
-        {
-            Destroy(Preloader.instance.gameObject);
-        }
+        GS.Instance.DestroyPreloder();
+
 
         if (isCreating)
         {
@@ -55,10 +51,8 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        if(Preloader.instance == null)
-        {
-            Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
-        }
+        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+
         PhotonNetwork.JoinLobby(); // Optional: auto join lobby
     }
 

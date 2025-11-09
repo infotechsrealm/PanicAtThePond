@@ -9,6 +9,7 @@ public class LANRoomInfo
     public int port;
     public int baseBroadcastPort;
     public string roomPassword;
+    public int connectedPlayers;
 
     public LANRoomInfo()
     {
@@ -16,6 +17,7 @@ public class LANRoomInfo
         port = 0;
         baseBroadcastPort = 0;
         roomPassword = "";
+        connectedPlayers = 0;
     }
 }
 public class RoomRowPrefab : MonoBehaviour
@@ -24,11 +26,10 @@ public class RoomRowPrefab : MonoBehaviour
     public Text roomName;
     public Button btn;
 
-    public bool isLAN = true;
 
     public void SelectRoom()
     {
-        if (isLAN)
+        if (CreateJoinManager.Instence.LAN.isOn)
         {
             if (RoomTableManager.instance.SelectedButton != null)
             {

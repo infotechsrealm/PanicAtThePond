@@ -18,10 +18,8 @@ public class PasswordPopup : MonoBehaviour
 
     private void Start()
     {
-        if (Preloader.instance != null)
-        {
-            Destroy(Preloader.instance.gameObject);
-        }
+        GS.Instance.DestroyPreloder();
+
     }
     public void Init(RoomInfo room, string correctPwd)
     {
@@ -37,8 +35,7 @@ public class PasswordPopup : MonoBehaviour
 
             Debug.Log("Password correct! Joining room...");
             PhotonNetwork.JoinRoom(targetRoom.Name);
-            if (Preloader.instance == null)
-                Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
+            GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
         }
         else
         {
@@ -47,13 +44,12 @@ public class PasswordPopup : MonoBehaviour
             // Optionally show error text on UI
         }
     }
+    
 
     public void OnCancelClicked()
     {
-        if (Preloader.instance != null)
-        {
-            Destroy(Preloader.instance.gameObject);
-        }
+        GS.Instance.DestroyPreloder();
+
         Destroy(gameObject);
     }
 }

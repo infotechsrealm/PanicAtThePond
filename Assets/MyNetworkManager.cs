@@ -7,7 +7,6 @@ public class MyNetworkManager : NetworkManager
 
     public int connectedPlayers = 0;
 
-
     private void Awake()
     {
         Instance = this;

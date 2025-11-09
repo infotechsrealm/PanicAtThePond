@@ -25,7 +25,6 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
     public Button joinRandomBtn;
 
 
-
     private void Awake()
     {
         Instence = this;
@@ -78,10 +77,8 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                         }
                         else
                         {
-                            if (Preloader.instance == null)
-                            {
-                                Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
-                            }
+                            GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+
                             PhotonNetwork.ConnectUsingSettings();
                         }
                     }
@@ -105,10 +102,8 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                         }
                         else
                         {
-                            if (Preloader.instance == null)
-                            {
-                                Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
-                            }
+                            GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+
                             PhotonNetwork.ConnectUsingSettings();
                         }
                     }
@@ -126,16 +121,16 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                     }
                     else
                     {
+
+                        Debug.Log("Joining Custome Room");
                         if (PhotonNetwork.IsConnected)
                         {
                             CoustomeRoomManager.Instence.JoinCustomeRoom();
                         }
                         else
                         {
-                            if (Preloader.instance == null)
-                            {
-                                Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
-                            }
+                            GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+
                             PhotonNetwork.ConnectUsingSettings();
                         }
                     }
@@ -150,8 +145,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
             case "Back":
                 {
-                   
-                        createAndJoinButtons.SetActive(false);
+                    createAndJoinButtons.SetActive(false);
                     break;
                 }
         }
@@ -163,10 +157,8 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
         {
             if (!PhotonNetwork.IsConnected)
             {
-                if (Preloader.instance == null)
-                {
-                    Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
-                }
+                GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+
                 PhotonNetwork.ConnectUsingSettings();
             }
         }
@@ -178,10 +170,8 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
         }
         else if (isJoining)
         {
-            if (Preloader.instance == null)
-            {
-                Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
-            }
+            GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+
             JoinPanel.gameObject.SetActive(true);
             createPanel.gameObject.SetActive(false);
 
@@ -189,6 +179,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
             {
                 LANDiscoveryMenu.Instance.CallDiscoverAllLANHosts_Unlimited();
             }
+
         }
     }
 
@@ -199,19 +190,15 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        if (Preloader.instance !=null)
-        {
-            Destroy(Preloader.instance.gameObject);
-        }
+        GS.Instance.DestroyPreloder();
+
         Debug.Log("✅ Joined Photon Lobby successfully!");
     }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        if (Preloader.instance != null)
-        {
-            Destroy(Preloader.instance.gameObject);
-        }
+        GS.Instance.DestroyPreloder();
+
         createAndJoinButtons.SetActive(false);
         Debug.Log("Disconnected from Photon. Cause: " + cause);
     }

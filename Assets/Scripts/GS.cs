@@ -26,7 +26,6 @@ public class GS : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         nickName = "Player_" + Random.Range(100, 999);
-
     }
 
     public void SetVolume(AudioSource audioSource)
@@ -38,5 +37,22 @@ public class GS : MonoBehaviour
         }
     }
 
-   
+    public void GeneratePreloder(Transform transform)
+    {
+        if (Preloader.instance == null)
+        {
+            Debug.Log("Generating Preloader -------------");
+            Instantiate(preloder, transform);
+        }
+    }
+
+    public void DestroyPreloder()
+    {
+        if (Preloader.instance != null)
+        {
+            Debug.Log("Destroying Preloader ==============");
+            Destroy(Preloader.instance.gameObject);
+        }
+    }
+
 }

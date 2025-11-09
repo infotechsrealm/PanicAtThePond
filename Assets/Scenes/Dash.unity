@@ -5309,7 +5309,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 8326}
+  m_SizeDelta: {x: 0, y: 8470.3125}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1877130444
 MonoBehaviour:
@@ -5519,8 +5519,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 375, y: -4163}
-  m_SizeDelta: {x: 750, y: 8326}
+  m_AnchoredPosition: {x: 375, y: -4235.1562}
+  m_SizeDelta: {x: 750, y: 8470.3125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1979906249
 MonoBehaviour:
@@ -12821,6 +12821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomTableManager: {fileID: 65968282470281052}
+  joinRandomBtn: {fileID: 2825691870428862867}
 --- !u!114 &5479826148933717311
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -43,7 +43,9 @@ namespace Mirror.Discovery
                     roomPassword = roomPassword,
                     playerName = playerName,
                     serverBroadcastListenPortPortValue = serverBroadcastListenPortPortValue,
-                    uri = transport.ServerUri()
+                    uri = transport.ServerUri(),
+                    connectedPlayers = NetworkServer.connections.Count
+
                 };
             }
             catch (NotImplementedException)

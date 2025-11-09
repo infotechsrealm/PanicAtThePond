@@ -139,4 +139,45 @@ public class CustomNetworkManager : NetworkManager
         }
         Debug.Log("-----------------------------------");
     }
+
+
+    /* public override void OnClientDisconnect()
+     {
+         base.OnClientDisconnect();
+
+         Debug.Log("🚨 Server disconnected! Returning to main menu or lobby...");
+
+         // 🔹 यहाँ तुम UI update कर सकते हो:
+         // Example:
+         // UIManager.Instance.ShowPopup("Server disconnected!");
+         // SceneManager.LoadScene("MainMenu");
+
+         // 🔹 Optional: Player list साफ कर दो
+        *//* if (PlayerTableManager.instance != null)
+         {
+             PlayerTableManager.instance.players.Clear();
+             PlayerTableManager.instance.UpdatePlayerTable();
+         }*//*
+     }
+ */
+    public override void OnClientDisconnect()
+    {
+        base.OnClientDisconnect();
+
+        Debug.Log("🚨 Host disconnected or connection lost.");
+
+        if (CreateJoinManager.Instence.isJoining)
+        {
+            if (PlayerTableManager.instance != null)
+            {
+                PlayerTableManager.instance.players.Clear();
+                PlayerTableManager.instance.UpdatePlayerTable();
+            }
+
+            LANDiscoveryMenu.Instance.isConnected = false;
+
+            LANDiscoveryMenu.Instance.CallDiscoverAllLANHosts_Unlimited();
+            CreateJoinManager.Instence.clientLobby.gameObject.SetActive(false);
+        }
+    }
 }
