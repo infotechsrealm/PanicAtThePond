@@ -60,6 +60,7 @@ namespace Mirror.Discovery
         public string playerName { get;  set; }
 
         public int serverBroadcastListenPortPortValue { get; set; }
+        public int maxPlayers { get; set; }
 
 
 

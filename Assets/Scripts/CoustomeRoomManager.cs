@@ -36,7 +36,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     internal GameObject lobby;
 
     [Header("Room Settings")]
-    internal int maxPlayers;
+    public int maxPlayers;
 
 
     private string selectedWaterType = "All Visible";

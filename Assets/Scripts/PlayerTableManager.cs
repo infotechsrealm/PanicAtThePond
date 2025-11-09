@@ -100,6 +100,7 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
             {
                 texts[0].text = (i + 1).ToString();   // Sequential number
                 texts[1].text = player;      // Nickname
+                texts[2].text = $"{players.Count}/{LANDiscoveryMenu.Instance.maxPlayers}";
             }
 
         }

@@ -128,7 +128,7 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
             {
                 texts[0].text = (i + 1).ToString(); // Index
                 texts[1].text = server.roomName;           // Room name
-                texts[2].text = $"{server.playerCount}/?";             // Joined / Max
+                texts[2].text = $"{server.playerCount}/{server.maxPlayers}";             // Joined / Max
             }
 
             Debug.Log($"➕ Added new room: {server.roomName}");
