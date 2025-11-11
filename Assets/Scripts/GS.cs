@@ -7,6 +7,10 @@ public class GS : MonoBehaviour
                       howToPlay,
                       preloder;
 
+
+    [SerializeField]
+    public GameObject passwordPopupPrefab; // Assign in Inspector
+
     public bool AllVisible;
     public bool DeepWaters;
     public bool MurkyWaters;

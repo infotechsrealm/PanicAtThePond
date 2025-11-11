@@ -166,7 +166,7 @@ public class CustomNetworkManager : NetworkManager
 
         Debug.Log("🚨 Host disconnected or connection lost.");
 
-        if (CreateJoinManager.Instence.isJoining)
+       /* if (CreateJoinManager.Instence.isJoining)
         {
             if (PlayerTableManager.instance != null)
             {
@@ -178,7 +178,7 @@ public class CustomNetworkManager : NetworkManager
 
             LANDiscoveryMenu.Instance.CallDiscoverAllLANHosts_Unlimited();
             CreateJoinManager.Instence.clientLobby.gameObject.SetActive(false);
-        }
+        }*/
     }
 
 

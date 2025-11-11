@@ -13,7 +13,7 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
     public RoomRowPrefab roomRowPrefab;
     public Button SelectedButton;
 
-    internal List<Button> allRommButtons = new List<Button>();
+  //  internal List<RoomRowPrefab> allRoomPrefabs = new List<RoomRowPrefab>();
 
     private void Awake()
     {
@@ -37,7 +37,7 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
             Text[] texts = row.GetComponentsInChildren<Text>();
             Button btn = row.GetComponentInChildren<Button>();
 
-            allRommButtons.Add(btn);
+           // allRommButtons.Add(btn);
 
             if (texts.Length >= 3) // 3 Text components
             {
@@ -62,7 +62,7 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
         for (int i = 0; i < lANDiscoveryMenu.discoveredServers.Count; i++)
         {
             var server = lANDiscoveryMenu.discoveredServers[i];
-              string roomName = server.roomName;
+
 
             // ✅ Otherwise, add new one
             RoomRowPrefab roomRowPrefeb = Instantiate(roomRowPrefab, roomTablePanel);
@@ -72,16 +72,18 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
             roomRowPrefeb.lanRoomInfo.baseBroadcastPort = server.baseBroadcastPort;
             roomRowPrefeb.lanRoomInfo.roomPassword = server.roomPassword;
             roomRowPrefeb.lanRoomInfo.connectedPlayers = server.playerCount;
+            roomRowPrefeb.lanRoomInfo.maxPlayers = server.maxPlayers;
 
             Text[] texts = roomRowPrefeb.GetComponentsInChildren<Text>();
             Button btn = roomRowPrefeb.GetComponentInChildren<Button>();
-            allRommButtons.Add(btn);
+
+           //allRoomPrefabs.Add(roomRowPrefeb);
 
             if (texts.Length >= 3)
             {
                 texts[0].text = (i + 1).ToString(); // Index
                 texts[1].text = server.roomName;           // Room name
-                texts[2].text = $"{server.playerCount}/{"?"}";             // Joined / Max
+                texts[2].text = $"{server.playerCount}/{server.maxPlayers}";             // Joined / Max
             }
 
             Debug.Log($"➕ Added new room: {server.roomName}");

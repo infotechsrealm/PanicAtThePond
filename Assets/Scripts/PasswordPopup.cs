@@ -7,7 +7,7 @@ public class PasswordPopup : MonoBehaviour
 {
     public Text passwordInput, passwordInputError;
     private RoomInfo targetRoom;
-    private string correctPassword;
+    public string correctPassword;
 
 
     public static PasswordPopup instence;
@@ -29,13 +29,20 @@ public class PasswordPopup : MonoBehaviour
 
     public void OnJoinClicked()
     {
-        if (passwordInput.text == correctPassword)
+        if (passwordInput.text.ToString().Trim() == correctPassword.Trim())
         {
             passwordInputError.text = "";
-
             Debug.Log("Password correct! Joining room...");
-            PhotonNetwork.JoinRoom(targetRoom.Name);
             GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+            if(CreateJoinManager.Instence.LAN.isOn)
+            {
+                LANDiscoveryMenu.Instance.JoinRoom();
+            }
+            else
+            {
+                PhotonNetwork.JoinRoom(targetRoom.Name);
+            }
+            Destroy(gameObject);
         }
         else
         {

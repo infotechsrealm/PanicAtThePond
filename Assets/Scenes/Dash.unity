@@ -4946,6 +4946,8 @@ MonoBehaviour:
     baseBroadcastPort: 0
     roomPassword: 
     playerName: 
+    playerCount: 0
+    maxPlayers: 0
   createJoinManager: {fileID: 7582758180353784423}
   createRoomName: {fileID: 709316178248323928}
   createRoomNameError: {fileID: 1709213155}
@@ -4953,6 +4955,9 @@ MonoBehaviour:
   playerLimitError: {fileID: 8432395}
   roomPasswordInput: {fileID: 4770266105619968019}
   roomPasswordInputError: {fileID: 479979888}
+  maxPlayers: 0
+  isDiscovering: 0
+  isConnected: 0
 --- !u!1 &1778338665
 GameObject:
   m_ObjectHideFlags: 0
@@ -14884,7 +14889,7 @@ MonoBehaviour:
   playerLimitError: {fileID: 8432395}
   roomPasswordInput: {fileID: 4770266105619968019}
   roomPasswordInputError: {fileID: 479979888}
-  passwordPopupPrefab: {fileID: 7950119858157386416, guid: 2afa573719fdb284d834c1fe1cc26a3d, type: 3}
+  maxPlayers: 0
 --- !u!114 &7582758180353784425
 MonoBehaviour:
   m_ObjectHideFlags: 0

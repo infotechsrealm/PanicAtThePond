@@ -10,6 +10,7 @@ public class LANRoomInfo
     public int baseBroadcastPort;
     public string roomPassword;
     public int connectedPlayers;
+    public int maxPlayers;
 
     public LANRoomInfo()
     {
@@ -18,6 +19,7 @@ public class LANRoomInfo
         baseBroadcastPort = 0;
         roomPassword = "";
         connectedPlayers = 0;
+        maxPlayers = 0;
     }
 }
 public class RoomRowPrefab : MonoBehaviour
@@ -38,12 +40,13 @@ public class RoomRowPrefab : MonoBehaviour
             btn.interactable = false;
             RoomTableManager.instance.SelectedButton = btn;
 
-            LANDiscoveryMenu lANDiscoveryMenu = LANDiscoveryMenu.Instance;
+            LANDiscoveryMenu LANDiscoveryMenu = LANDiscoveryMenu.Instance;
 
-            lANDiscoveryMenu.DiscoveredServerInfo.roomName = lanRoomInfo.roomName;
-            lANDiscoveryMenu.DiscoveredServerInfo.port = lanRoomInfo.port;
-            lANDiscoveryMenu.DiscoveredServerInfo.baseBroadcastPort = lanRoomInfo.baseBroadcastPort;
-            lANDiscoveryMenu.DiscoveredServerInfo.roomPassword = lanRoomInfo.roomPassword;
+            LANDiscoveryMenu.DiscoveredServerInfo.roomName = lanRoomInfo.roomName;
+            LANDiscoveryMenu.DiscoveredServerInfo.port = lanRoomInfo.port;
+            LANDiscoveryMenu.DiscoveredServerInfo.baseBroadcastPort = lanRoomInfo.baseBroadcastPort;
+            LANDiscoveryMenu.DiscoveredServerInfo.roomPassword = lanRoomInfo.roomPassword;
+            LANDiscoveryMenu.DiscoveredServerInfo.maxPlayers = lanRoomInfo.maxPlayers;
 
         }
         else
@@ -57,6 +60,9 @@ public class RoomRowPrefab : MonoBehaviour
             RoomTableManager.instance.SelectedButton = btn;
 
             CoustomeRoomManager.Instence.joinRoomName = roomName;
+
+
+
         }
     }
 }

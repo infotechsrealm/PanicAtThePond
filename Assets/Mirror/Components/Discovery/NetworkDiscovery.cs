@@ -41,6 +41,7 @@ namespace Mirror.Discovery
                     serverId = ServerId,
                     roomName = roomName,
                     roomPassword = roomPassword,
+                    maxPlayers = maxPlayers,
                     playerName = playerName,
                     serverBroadcastListenPortPortValue = serverBroadcastListenPortPortValue,
                     uri = transport.ServerUri(),

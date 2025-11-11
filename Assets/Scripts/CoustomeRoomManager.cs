@@ -42,8 +42,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     private string selectedWaterType = "All Visible";
 
 
-    [SerializeField]
-    private GameObject passwordPopupPrefab; // Assign in Inspector
+    
 
     private void Awake()
     {
@@ -247,7 +246,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     private void ShowPasswordPopup(RoomInfo room, string correctPassword)
     {
-        GameObject popup = Instantiate(passwordPopupPrefab, DashManager.instance.prefabPanret.transform);
+        GameObject popup = Instantiate(GS.Instance.passwordPopupPrefab, transform);
         popup.GetComponent<PasswordPopup>().Init(room, correctPassword);
     }
 

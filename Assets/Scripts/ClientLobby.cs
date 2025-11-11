@@ -37,10 +37,13 @@ public class ClientLobby : MonoBehaviourPunCallbacks
                 NetworkManager.singleton.StopClient();
             }
 
-         /*   var transport = (TelepathyTransport)NetworkManager.singleton.transport;
+            /*   var transport = (TelepathyTransport)NetworkManager.singleton.transport;
             transport.Shutdown();*/
 
-           LANDiscoveryMenu.Instance.isConnected = false;
+            LANDiscoveryMenu.Instance.DiscoveredServerInfo.port = 0;
+            LANDiscoveryMenu.Instance.DiscoveredServerInfo.baseBroadcastPort = 0;
+
+            LANDiscoveryMenu.Instance.isConnected = false;
 
             LANDiscoveryMenu.Instance.CallDiscoverAllLANHosts_Unlimited();
 
