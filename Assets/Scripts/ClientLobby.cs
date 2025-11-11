@@ -37,8 +37,8 @@ public class ClientLobby : MonoBehaviourPunCallbacks
                 NetworkManager.singleton.StopClient();
             }
 
-            var transport = (TelepathyTransport)NetworkManager.singleton.transport;
-            transport.Shutdown();
+         /*   var transport = (TelepathyTransport)NetworkManager.singleton.transport;
+            transport.Shutdown();*/
 
            LANDiscoveryMenu.Instance.isConnected = false;
 

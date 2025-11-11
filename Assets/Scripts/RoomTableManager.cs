@@ -52,64 +52,17 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
 
     public void UpdateLANRoomTableUI()
     {
-       /* foreach (Transform child in roomTablePanel)
+        foreach (Transform child in roomTablePanel)
         {
             Destroy(child.gameObject);
-        }*/
+        }
 
         LANDiscoveryMenu lANDiscoveryMenu = LANDiscoveryMenu.Instance;
-
-
-        // 🔹 1️⃣ Discovered room names ka set bana lo
-        HashSet<string> discoveredNames = new HashSet<string>();
-        foreach (var server in lANDiscoveryMenu.discoveredServers)
-        {
-            if (!string.IsNullOrEmpty(server.roomName))
-                discoveredNames.Add(server.roomName);
-        }
-
-        // 🔹 2️⃣ Existing UI rows collect karo
-        List<RoomRowPrefab> existingRows = new List<RoomRowPrefab>();
-        foreach (Transform child in roomTablePanel)
-        {
-            RoomRowPrefab existingRow = child.GetComponent<RoomRowPrefab>();
-            if (existingRow != null)
-                existingRows.Add(existingRow);
-        }
-
-        // 🔹 3️⃣ Remove those rows jinka name discovered list me nahi hai
-        foreach (var row in existingRows)
-        {
-            string existingName = row.lanRoomInfo.roomName;
-            if (!discoveredNames.Contains(existingName))
-            {
-                Debug.Log($"🗑 Removing stale room: {existingName}");
-                Destroy(row.gameObject);
-            }
-        }
-
-        // 🔹 4️⃣ UI me jo room missing hai unke liye new row create karo
-        HashSet<string> currentUIRoomNames = new HashSet<string>();
-        foreach (Transform child in roomTablePanel)
-        {
-            RoomRowPrefab existingRow = child.GetComponent<RoomRowPrefab>();
-            if (existingRow != null && !string.IsNullOrEmpty(existingRow.lanRoomInfo.roomName))
-            {
-                currentUIRoomNames.Add(existingRow.lanRoomInfo.roomName);
-            }
-        }
 
         for (int i = 0; i < lANDiscoveryMenu.discoveredServers.Count; i++)
         {
             var server = lANDiscoveryMenu.discoveredServers[i];
               string roomName = server.roomName;
-
-            // Skip agar already UI me hai
-            if (currentUIRoomNames.Contains(roomName))
-            {
-                Debug.Log($"⏭ Skipping existing room: {roomName}");
-                continue;
-            }
 
             // ✅ Otherwise, add new one
             RoomRowPrefab roomRowPrefeb = Instantiate(roomRowPrefab, roomTablePanel);
@@ -128,7 +81,7 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
             {
                 texts[0].text = (i + 1).ToString(); // Index
                 texts[1].text = server.roomName;           // Room name
-                texts[2].text = $"{server.playerCount}/{server.maxPlayers}";             // Joined / Max
+                texts[2].text = $"{server.playerCount}/{"?"}";             // Joined / Max
             }
 
             Debug.Log($"➕ Added new room: {server.roomName}");

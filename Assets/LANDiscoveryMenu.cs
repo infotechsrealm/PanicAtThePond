@@ -19,7 +19,6 @@ public class DiscoveredServer
     public string roomPassword;
     public string playerName;
     public int playerCount;
-    public int maxPlayers;
 
     public DiscoveredServer()
     {
@@ -30,7 +29,6 @@ public class DiscoveredServer
         roomPassword = "";
         playerName = "";
         playerCount = 0;
-        maxPlayers = 0;
     }
 }
 
@@ -276,7 +274,6 @@ public class LANDiscoveryMenu : MonoBehaviour
         networkDiscovery.playerName = DiscoveredServerInfo.playerName;
         networkDiscovery.serverBroadcastListenPortPortValue = listenPort;
         networkDiscovery.serverBroadcastListenPort = listenPort;
-        networkDiscovery.maxPlayers = maxPlayers;
 
         var nm = NetworkManager.singleton;
         if (nm == null)
@@ -347,9 +344,10 @@ public class LANDiscoveryMenu : MonoBehaviour
     {
         isRoomJoined = false;
         discoverRoutine  = StartCoroutine(DiscoverAllLANHosts_Unlimited());
+
     }
 
-    public IEnumerator DiscoverAllLANHosts_Unlimited()
+    IEnumerator DiscoverAllLANHosts_Unlimited()
     {
         int currentPort = baseBroadcastPort; // 47777 से शुरू
         int silenceCounter = 0;
@@ -358,12 +356,12 @@ public class LANDiscoveryMenu : MonoBehaviour
         Debug.Log("🌐 Starting full LAN host discovery...");
 
         // यह dictionary हर host का "last seen" time रखेगी
-        Dictionary<string, float> lastSeenTime = new Dictionary<string, float>();
+
+        discoveredServers.Clear();
 
         while (silenceCounter < silenceLimit)
         {
             bool foundOnThisPort = false;
-            List<DiscoveredServer> foundThisCycle = new List<DiscoveredServer>();
 
             networkDiscovery.OnServerFound.RemoveAllListeners();
 
@@ -377,43 +375,19 @@ public class LANDiscoveryMenu : MonoBehaviour
                     string name = response.roomName;
                     int connectedPlayers = response.connectedPlayers;
 
-                    var existingServer = discoveredServers.FirstOrDefault(s => s.address == ip && s.port == port);
-
-                    if (existingServer != null)
+                    var newServer = new DiscoveredServer()
                     {
-                        // ✅ Update existing
-                        existingServer.roomName = name;
-                        existingServer.roomPassword = response.roomPassword;
-                        existingServer.baseBroadcastPort = response.serverBroadcastListenPortPortValue;
-                        existingServer.playerCount = connectedPlayers;
-
-                        Debug.Log($"🔄 Updated host: {name} ({ip}:{port}) | Players: {connectedPlayers}");
-                    }
-                    else
-                    {
-                        // 🆕 Add new
-                        var newServer = new DiscoveredServer()
-                        {
-                            roomName = name,
-                            playerCount = connectedPlayers,
-                            address = ip,
-                            port = port,
-                            roomPassword = response.roomPassword,
-                            baseBroadcastPort = response.serverBroadcastListenPortPortValue,
-                            maxPlayers = response.maxplayers,
-                        };
-                        discoveredServers.Add(newServer);
-                        Debug.Log($"📡 Found new Host → {ip}:{port} ({name})");
-                    }
+                        roomName = name,
+                        playerCount = connectedPlayers,
+                        address = ip,
+                        port = port,
+                        roomPassword = response.roomPassword,
+                        baseBroadcastPort = response.serverBroadcastListenPortPortValue,
+                    };
+                    discoveredServers.Add(newServer);
+                    Debug.Log($"📡 Found new Host → {ip}:{port} ({name})");
 
                     // ⏱️ Update last seen time
-                    lastSeenTime[key] = Time.time;
-
-                    // Record for this cycle
-                    if (!foundThisCycle.Any(s => s.address == ip && s.port == port))
-                    {
-                        foundThisCycle.Add(new DiscoveredServer() { roomName = name, address = ip, port = port });
-                    }
 
                     foundOnThisPort = true;
                 }
@@ -433,39 +407,20 @@ public class LANDiscoveryMenu : MonoBehaviour
             currentPort++;
         }
 
-        // 🧹 Cleanup: remove hosts not seen for > 5 seconds (means host stopped broadcasting)
-        float timeout = 5f;
-        var toRemove = discoveredServers
-            .Where(existing =>
-            {
-                string key = existing.address + ":" + existing.port;
-                return !lastSeenTime.ContainsKey(key) || (Time.time - lastSeenTime[key] > timeout);
-            })
-            .ToList();
-
-        foreach (var dead in toRemove)
-        {
-            discoveredServers.Remove(dead);
-            Debug.Log($"❌ Host stopped broadcasting → Removed {dead.roomName} ({dead.address}:{dead.port})");
-        }
-
         Debug.Log($"✅ Active hosts on LAN: {discoveredServers.Count}");
 
         // 🔄 Update UI only if not joined in room
-        if (!isRoomJoined)
+        if (RoomTableManager.instance != null)
         {
-            if (RoomTableManager.instance != null)
-            {
-                RoomTableManager.instance.UpdateLANRoomTableUI();
-            }
-
-            yield return new WaitForSeconds(2f);
-            CallDiscoverAllLANHosts_Unlimited();
+            RoomTableManager.instance.UpdateLANRoomTableUI();
         }
+
+        yield return new WaitForSeconds(1f);
+
+        CallDiscoverAllLANHosts_Unlimited();
 
         GS.Instance.DestroyPreloder();
     }
-
 
     // 📡 यह function LAN में सारे hosts ढूंढता है और result return करता है
  /*   public IEnumerator DiscoverAllLANHosts_Unlimited()
@@ -567,7 +522,17 @@ public class LANDiscoveryMenu : MonoBehaviour
 */
     public void FindGames()
     {
-       StartCoroutine(isRoomisExist());
+        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+        listenPort = DiscoveredServerInfo.baseBroadcastPort;
+        networkDiscovery.serverBroadcastListenPort = listenPort;
+
+        var transport = (TelepathyTransport)NetworkManager.singleton.transport;
+        transport.port = (ushort)DiscoveredServerInfo.port;
+
+        Debug.Log($"🔎 Searching for LAN hosts (game={transport.port}, broadcast={listenPort})...");
+        networkDiscovery.StartDiscovery();
+        networkDiscovery.OnServerFound.AddListener(OnDiscoveredServer);
+        // StartCoroutine(isRoomisExist());
     }
 
     public IEnumerator isRoomisExist()
@@ -620,14 +585,8 @@ public class LANDiscoveryMenu : MonoBehaviour
 
                     if (port == DiscoveredServerInfo.port)
                     {
-                        if (networkDiscovery.didStart)
-                        {
-                            networkDiscovery.StopDiscovery();
-                        }
                         GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
-
                         networkDiscovery.OnServerFound.AddListener(OnDiscoveredServer);
-                        isRoomJoined = true;
                         listenPort = DiscoveredServerInfo.baseBroadcastPort;
                         networkDiscovery.serverBroadcastListenPort = listenPort;
 
@@ -636,7 +595,7 @@ public class LANDiscoveryMenu : MonoBehaviour
 
                         Debug.Log($"🔎 Searching for LAN hosts (game={transport.port}, broadcast={listenPort})...");
                         networkDiscovery.StartDiscovery();
-                        StopRoomFindCoroutine();
+                        //StopRoomFindCoroutine();
                     }
                     else
                     {

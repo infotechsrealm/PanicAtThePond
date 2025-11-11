@@ -30,8 +30,6 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
     public void UpdatePlayerTable()
     {
-
-        Debug.Log("UpdatePlayerTable Called333333333333333333333333333333");
         if (CreateJoinManager.Instence.LAN.isOn)
         {
            StartCoroutine(UpdateLANPlayerTableUI());

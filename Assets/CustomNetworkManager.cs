@@ -41,7 +41,7 @@ public class CustomNetworkManager : NetworkManager
         {
             playerName = GS.Instance.nickName,
         });
-
+        LANDiscoveryMenu.Instance.StopRoomFindCoroutine();
         Debug.Log($"✅ Connected to server, name sent: {GS.Instance.nickName}");
     }
 
@@ -180,4 +180,6 @@ public class CustomNetworkManager : NetworkManager
             CreateJoinManager.Instence.clientLobby.gameObject.SetActive(false);
         }
     }
+
+
 }
