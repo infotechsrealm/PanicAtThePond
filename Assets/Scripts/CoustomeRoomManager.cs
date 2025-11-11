@@ -76,7 +76,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public void OnClickAction(string action)
+   /* public void OnClickAction(string action)
     {
         switch (action)
         {
@@ -110,7 +110,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
                     break;
                 }
         }
-    }
+    }*/
 
     // ------------------ Create Custome Room ------------------
 

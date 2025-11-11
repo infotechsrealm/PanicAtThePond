@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using Mirror;
+using Photon.Pun;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -40,7 +41,9 @@ public class FishController : MonoBehaviourPunCallbacks
     [Header("Floating on Death")]
     private bool isDead = false;
     private Rigidbody2D rb;
-    
+
+    public NetworkIdentity mirrorIdentity;
+
     private void Awake()
     {
         if (Instence == null)
@@ -50,50 +53,55 @@ public class FishController : MonoBehaviourPunCallbacks
         originalScaleX = transform.localScale.x;
         originalScaleY = transform.localScale.y;
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     void Start()
     {
-        if (photonView.IsMine)
+        if (GS.Instance.isLan)
         {
-            GameManager.instance.myFish = this;
+            if (mirrorIdentity != null && mirrorIdentity.isLocalPlayer)
+            {
+                GameManager.instance.myFish = this;
+            }
         }
-        GameManager.instance.allFishes.Add(this);
+        else
+        {
+            if (photonView.IsMine)
+            {
+                GameManager.instance.myFish = this;
+            }
+        }
+            GameManager.instance.allFishes.Add(this);
     }
 
     void FixedUpdate()
     {
-        /*if(PhotonNetwork.IsMasterClient)
+        if (GS.Instance.isLan)
         {
-            Debug.Log("I M Master ---------------------------------");
-
+            if (!mirrorIdentity.isLocalPlayer)
+            {
+                return;
+            }
         }
-        if (catchadeFish)
+        else
         {
-            Debug.Log("I M Catchade ---------------------------------");
+            if (!photonView.IsMine)
+            {
+                return;
+            }
         }
-*/
-
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-
+        
         if (!canMove)
         {
             rb.linearVelocity = Vector2.zero;
             return;
         }
 
-
         Vector2 move = inputAction.action.ReadValue<Vector2>();
 
         float moveX = move.x;
         float moveY = move.y;
-
-
-        /*  float moveX = Input.GetAxisRaw("Horizontal");
-          float moveY = Input.GetAxisRaw("Vertical");*/
 
         if (moveX != 0 || moveY != 0)
         {
@@ -134,7 +142,6 @@ public class FishController : MonoBehaviourPunCallbacks
         Vector3 clampedPos = transform.position;
         clampedPos.x = Mathf.Clamp(clampedPos.x, minBounds.x, maxBounds.x);
         clampedPos.y = Mathf.Clamp(clampedPos.y, minBounds.y, maxBounds.y);
-        // transform.position = clampedPos;
         transform.position = Vector3.Lerp(transform.position, clampedPos, Time.deltaTime * 10);
 
         // Check hunger
@@ -148,10 +155,17 @@ public class FishController : MonoBehaviourPunCallbacks
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
                 Debug.Log("Fish is leve the junk");
-                int junkId = carriedJunk.GetComponent<PhotonView>().ViewID;
-                photonView.RPC(nameof(LeaveJunk), RpcTarget.AllBuffered, junkId);
-                PhotonNetwork.SendAllOutgoingCommands();
-                carriedJunk = null;
+                if (GS.Instance.isLan)
+                {
+
+                }
+                else
+                {
+                    int junkId = carriedJunk.GetComponent<PhotonView>().ViewID;
+                    photonView.RPC(nameof(LeaveJunk), RpcTarget.AllBuffered, junkId);
+                    PhotonNetwork.SendAllOutgoingCommands();
+                    carriedJunk = null;
+                }
             }
         }
     }
@@ -205,7 +219,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (photonView.IsMine)
+        if (photonView.IsMine || mirrorIdentity.isLocalPlayer)
         {
             if (audioSourceForFishMove.isPlaying)
             {
@@ -250,16 +264,25 @@ public class FishController : MonoBehaviourPunCallbacks
             {
                 PlaySFX(fishEatWarmSound);
                 animator.SetTrigger("isEat");
-                if (PhotonNetwork.IsMasterClient)
+
+                if (GS.Instance.isLan)
                 {
-                    PhotonNetwork.Destroy(other.gameObject);
+                    DestroyWorm_Mirror(other.gameObject);
                     HungerSystem.instance.AddHunger(25f);
                 }
                 else
                 {
-                    photonView.RPC(nameof(DestroyWormRPC), RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
-                    PhotonNetwork.SendAllOutgoingCommands();
-                    HungerSystem.instance.AddHunger(25f);
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        PhotonNetwork.Destroy(other.gameObject);
+                        HungerSystem.instance.AddHunger(25f);
+                    }
+                    else
+                    {
+                        photonView.RPC(nameof(DestroyWormRPC), RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
+                        PhotonNetwork.SendAllOutgoingCommands();
+                        HungerSystem.instance.AddHunger(25f);
+                    }
                 }
             }
 
@@ -376,6 +399,34 @@ public class FishController : MonoBehaviourPunCallbacks
         }
     }
 
+    [Command]
+    void CmdRequestDestroy(GameObject gameObject)
+    {
+        if (NetworkServer.active)
+        {
+            NetworkServer.Destroy(gameObject);
+            Debug.Log("🐟 Destroyed on SERVER (CmdRequestDestroy)");
+        }
+    }
+
+    public void DestroyWorm_Mirror(GameObject gameObject)
+    {
+        if (NetworkServer.active)
+        {
+            NetworkServer.Destroy(gameObject);
+            Debug.Log("🐟 Destroyed on SERVER using Mirror");
+        }
+        else if (NetworkClient.active)
+        {
+            Debug.Log("📨 Asking server to destroy fish...");
+            CmdRequestDestroy(gameObject);
+        }
+        else
+        {
+            Debug.LogWarning("❌ Not connected to any Mirror network!");
+        }
+    }
+
     [PunRPC]
     public void PutFishInHookRPC(int fishId, int hookId)
     {
@@ -474,10 +525,17 @@ public class FishController : MonoBehaviourPunCallbacks
 
     private void OnApplicationQuit()
     {
-        if(!isDead)
+        if (GS.Instance.isLan)
         {
-            GameManager.instance.CallLessPlayerCountRPC();
-            PhotonNetwork.SendAllOutgoingCommands(); // send it now
+
+        }
+        else
+        {
+            if (!isDead)
+            {
+                GameManager.instance.CallLessPlayerCountRPC();
+                PhotonNetwork.SendAllOutgoingCommands(); // send it now
+            }
         }
     }
 }

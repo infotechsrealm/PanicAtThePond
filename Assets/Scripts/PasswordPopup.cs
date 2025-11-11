@@ -34,7 +34,7 @@ public class PasswordPopup : MonoBehaviour
             passwordInputError.text = "";
             Debug.Log("Password correct! Joining room...");
             GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
-            if(CreateJoinManager.Instence.LAN.isOn)
+            if(GS.Instance.isLan)
             {
                 LANDiscoveryMenu.Instance.JoinRoom();
             }

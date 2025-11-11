@@ -11,7 +11,7 @@ public class JoinPanel : MonoBehaviour
     private void OnEnable()
     {
         roomTableManager.UpdateRoomTableUI();
-        if (CreateJoinManager.Instence.LAN.isOn)
+        if (GS.Instance.isLan)
         {
             joinRandomBtn.interactable = false;
         }
@@ -37,7 +37,7 @@ public class JoinPanel : MonoBehaviour
 
     public void Close()
     {
-        if (CreateJoinManager.Instence.LAN.isOn)
+        if (GS.Instance.isLan)
         {
             if (LANDiscoveryMenu.Instance != null)
             {

@@ -4759,6 +4759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTablePanel: {fileID: 3849553194133783311}
   playerRowPrefab: {fileID: 1679847875778645887, guid: 93844d857e51e28488b2b08cbc59bad2, type: 3}
+  players: []
 --- !u!114 &7911255615452359846
 MonoBehaviour:
   m_ObjectHideFlags: 0

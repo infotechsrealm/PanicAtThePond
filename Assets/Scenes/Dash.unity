@@ -4920,7 +4920,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4498710809844840534}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1749432243
 MonoBehaviour:
@@ -11386,8 +11386,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1749432241}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4516244395021374148
@@ -14997,10 +14996,11 @@ MonoBehaviour:
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 2530980438531116932, guid: c26f4c8a1549afd4ca53ab1635bbd93e, type: 3}
+  playerPrefab: {fileID: 7780540918564372881, guid: 594a00d5a8194784f970286d56fbf078, type: 3}
   autoCreatePlayer: 0
   playerSpawnMethod: 0
-  spawnPrefabs: []
+  spawnPrefabs:
+  - {fileID: 7213787239234744724, guid: 86ce15e0bf8b5764f8379c1619ac2749, type: 3}
   exceptionsDisconnect: 1
   snapshotSettings:
     bufferTimeMultiplier: 2
@@ -15250,8 +15250,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7582758180353784424}
-        m_TargetAssemblyTypeName: CoustomeRoomManager, Assembly-CSharp
+      - m_Target: {fileID: 7582758180353784423}
+        m_TargetAssemblyTypeName: CreateJoinManager, Assembly-CSharp
         m_MethodName: OnClickAction
         m_Mode: 5
         m_Arguments:
@@ -17297,3 +17297,4 @@ SceneRoots:
   - {fileID: 1191909533}
   - {fileID: 599128145}
   - {fileID: 4498710809844840534}
+  - {fileID: 1749432241}

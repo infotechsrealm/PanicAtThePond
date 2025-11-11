@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using Mirror;
+using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
@@ -79,10 +80,17 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     void Start()
     {
-        PhotonNetwork.AutomaticallySyncScene = true;
-        totalPlayers = PhotonNetwork.CurrentRoom.PlayerCount;
+        if (GS.Instance.isLan)
+        {
+            totalPlayers = NetworkServer.connections.Count;
+        }
+        else
+        {
+            PhotonNetwork.AutomaticallySyncScene = true;
+            totalPlayers = PhotonNetwork.CurrentRoom.PlayerCount;
+        }
         SpawnPlayer();
-    } 
+    }
     public void UpdateUI(int currunt_Warms)
     {
         // Text
@@ -109,15 +117,36 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     void SpawnPlayer()
     {
-        // Spawn Fish
-        float x = Random.Range(minBounds.x, maxBounds.x);
-        float y = Random.Range(minBounds.y, maxBounds.y);
-        Vector3 spawnPos = new Vector3(x, y, 0);
+        if(GS.Instance.isLan)
+        {
+            foreach (var conn in NetworkServer.connections.Values)
+            {
+                if (conn.identity == null)
+                {
+                    float x = Random.Range(minBounds.x, maxBounds.x);
+                    float y = Random.Range(minBounds.y, maxBounds.y);
+                    Vector3 spawnPos = new Vector3(x, y, 0);
 
-        GameObject fish = PhotonNetwork.Instantiate(fishPrefab.name, spawnPos, Quaternion.identity);
-        fishes.Add(fish);
+                    GameObject fish = Instantiate(fishPrefab, spawnPos, Quaternion.identity);
+                    fishes.Add(fish);
 
-        Debug.Log("Fish Spawned: " + fishes.Count);
+                    NetworkServer.AddPlayerForConnection(conn, fish);
+                }
+            }
+        }
+        else
+        {
+
+            // Spawn Fish
+            float x = Random.Range(minBounds.x, maxBounds.x);
+            float y = Random.Range(minBounds.y, maxBounds.y);
+            Vector3 spawnPos = new Vector3(x, y, 0);
+
+            GameObject fish = PhotonNetwork.Instantiate(fishPrefab.name, spawnPos, Quaternion.identity);
+            fishes.Add(fish);
+
+            Debug.Log("Fish Spawned: " + fishes.Count);
+        }
     }
 
     public void LoadSpawnFisherman()
@@ -352,4 +381,6 @@ public class GameManager : MonoBehaviourPunCallbacks
             FishermanController.Instence.CheckWorms();
         }
     }
+
+  
 }

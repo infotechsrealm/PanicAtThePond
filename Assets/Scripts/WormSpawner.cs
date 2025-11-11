@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using Mirror;
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,10 +29,21 @@ public class WormSpawner : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (GS.Instance.isLan)
         {
-            LoadSpawnWorm();
-            Invoke(nameof(SpawnGoldWorm),Random.Range(5,10));
+            if(NetworkServer.active)
+            {
+                LoadSpawnWorm();
+               // Invoke(nameof(SpawnGoldWorm), Random.Range(5, 10));
+            }
+        }
+        else
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                LoadSpawnWorm();
+                Invoke(nameof(SpawnGoldWorm), Random.Range(5, 10));
+            }
         }
     }
 
@@ -51,18 +63,28 @@ public class WormSpawner : MonoBehaviourPunCallbacks
                     activeWorms.Remove(activeWorms[i]);
                 }
             }
+
             if (activeWorms.Count < 5)
             {
                 float x = Random.Range(-xRange, xRange);
                 float y = Random.Range(-yRange, 1);
                 Vector2 pos = new Vector2(x, y);
 
-                GameObject worm = PhotonNetwork.Instantiate(wormPrefab.name, pos, Quaternion.identity).gameObject;
-                if (FishermanController.Instence != null)
+                if (GS.Instance.isLan)
                 {
-                    worm.GetComponent<AudioSource>().mute = true;
+                    GameObject worm = Instantiate(wormPrefab, pos, Quaternion.identity);
+                    NetworkServer.Spawn(worm);
+                    activeWorms.Add(worm);
                 }
-                activeWorms.Add(worm);
+                else
+                {
+                    GameObject worm = PhotonNetwork.Instantiate(wormPrefab.name, pos, Quaternion.identity).gameObject;
+                    if (FishermanController.Instence != null)
+                    {
+                        worm.GetComponent<AudioSource>().mute = true;
+                    }
+                    activeWorms.Add(worm);
+                }
             }
         }
 

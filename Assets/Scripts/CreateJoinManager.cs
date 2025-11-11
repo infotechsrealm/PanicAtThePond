@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using Mirror;
+using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,16 +29,6 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
     private void Awake()
     {
         Instence = this;
-
-
-        if (LAN.isOn)
-        {
-            joinRandomBtn.interactable = false;
-        }
-        else
-        {
-            joinRandomBtn.interactable = true;
-        }
     }
 
     public void OnClickAction(string action)
@@ -46,6 +37,8 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
         {
             case "Join":
                 {
+                    GS.Instance.isLan = LAN.isOn;
+
                     Debug.Log("action = " + action);
                     isCreating = false;
                     isJoining = true;
@@ -55,6 +48,8 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
             case "Create":
                 {
+                    GS.Instance.isLan = LAN.isOn;
+
                     Debug.Log("action = " + action);
                     isCreating = true;
                     isJoining = false;
@@ -65,7 +60,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
             case "Continue":
                 {
-                    if (LAN.isOn)
+                    if (GS.Instance.isLan)
                     {
                         LANDiscoveryMenu.Instance.HostGame();
                     }
@@ -90,7 +85,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                     isJoinRandom = true;
                     isJoinCustome = false;
 
-                    if (LAN.isOn)
+                    if (GS.Instance.isLan)
                     {
                        // LANDiscoveryMenu.Instance.FindGames();
                     }
@@ -115,7 +110,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                     isJoinCustome = true;
                     isJoinRandom = false;
 
-                    if (LAN.isOn)
+                    if (GS.Instance.isLan)
                     {
                         LANDiscoveryMenu.Instance.FindGames();
                     }
@@ -148,12 +143,28 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                     createAndJoinButtons.SetActive(false);
                     break;
                 }
+
+            case "Start":
+                {
+                    if (GS.Instance.isLan)
+                    {
+                        if (NetworkServer.active)
+                        {
+                            NetworkManager.singleton.ServerChangeScene("Play");
+                        }
+                    }
+                    else
+                    {
+                        CoustomeRoomManager.Instence.customeStartGame();
+                    }
+                    break;
+                }
         }
     }
 
     public void LaunchGame()
     {
-        if (!LAN.isOn)
+        if (!GS.Instance.isLan)
         {
             if (!PhotonNetwork.IsConnected)
             {
@@ -175,7 +186,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
             JoinPanel.gameObject.SetActive(true);
             createPanel.gameObject.SetActive(false);
 
-            if (LAN.isOn)
+            if (GS.Instance.isLan)
             {
                 LANDiscoveryMenu.Instance.CallDiscoverAllLANHosts_Unlimited();
             }

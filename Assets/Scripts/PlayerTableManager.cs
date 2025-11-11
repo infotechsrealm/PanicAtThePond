@@ -30,7 +30,7 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
     public void UpdatePlayerTable()
     {
-        if (CreateJoinManager.Instence.LAN.isOn)
+        if (GS.Instance.isLan)
         {
            StartCoroutine(UpdateLANPlayerTableUI());
         }

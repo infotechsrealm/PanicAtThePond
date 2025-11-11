@@ -31,7 +31,7 @@ public class RoomRowPrefab : MonoBehaviour
 
     public void SelectRoom()
     {
-        if (CreateJoinManager.Instence.LAN.isOn)
+        if (GS.Instance.isLan)
         {
             if (RoomTableManager.instance.SelectedButton != null)
             {

@@ -20,6 +20,7 @@ public class GS : MonoBehaviour
 
     internal bool isMasterClient;
 
+    public bool isLan;
     private void Awake()
     {
         Instance = this;
