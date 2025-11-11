@@ -30,7 +30,11 @@ public class ClientLobby : MonoBehaviourPunCallbacks
         }
         else
         {
-            LANDiscoveryMenu.Instance.networkDiscovery.StopDiscovery();
+           
+
+            LANDiscoveryMenu lanDiscoveryMenu = LANDiscoveryMenu.Instance;
+
+            lanDiscoveryMenu.networkDiscovery.StopDiscovery();
 
             if (NetworkClient.isConnected)
             {
@@ -40,12 +44,12 @@ public class ClientLobby : MonoBehaviourPunCallbacks
             /*   var transport = (TelepathyTransport)NetworkManager.singleton.transport;
             transport.Shutdown();*/
 
-            LANDiscoveryMenu.Instance.DiscoveredServerInfo.port = 0;
-            LANDiscoveryMenu.Instance.DiscoveredServerInfo.baseBroadcastPort = 0;
+            lanDiscoveryMenu.DiscoveredServerInfo.port = 0;
+            lanDiscoveryMenu.DiscoveredServerInfo.baseBroadcastPort = 0;
 
-            LANDiscoveryMenu.Instance.isConnected = false;
+            lanDiscoveryMenu.isConnected = false;
 
-            LANDiscoveryMenu.Instance.CallDiscoverAllLANHosts_Unlimited();
+            lanDiscoveryMenu.CallDiscoverAllLANHosts_Unlimited();
 
             gameObject.SetActive(false);
         }

@@ -50,48 +50,157 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public void UpdateLANRoomTableUI()
+    /* public void UpdateLANRoomTableUI()
+     {
+         foreach (Transform child in roomTablePanel)
+         {
+             Destroy(child.gameObject);
+         }
+
+         LANDiscoveryMenu lANDiscoveryMenu = LANDiscoveryMenu.Instance;
+
+         for (int i = 0; i < lANDiscoveryMenu.discoveredServers.Count; i++)
+         {
+             var server = lANDiscoveryMenu.discoveredServers[i];
+
+
+             // ✅ Otherwise, add new one
+             RoomRowPrefab roomRowPrefeb = Instantiate(roomRowPrefab, roomTablePanel);
+
+             roomRowPrefeb.lanRoomInfo.roomName = server.roomName;
+             roomRowPrefeb.lanRoomInfo.port = server.port;
+             roomRowPrefeb.lanRoomInfo.baseBroadcastPort = server.baseBroadcastPort;
+             roomRowPrefeb.lanRoomInfo.roomPassword = server.roomPassword;
+             roomRowPrefeb.lanRoomInfo.connectedPlayers = server.playerCount;
+             roomRowPrefeb.lanRoomInfo.maxPlayers = server.maxPlayers;
+
+             Text[] texts = roomRowPrefeb.GetComponentsInChildren<Text>();
+             Button btn = roomRowPrefeb.GetComponentInChildren<Button>();
+
+            //allRoomPrefabs.Add(roomRowPrefeb);
+
+             if (texts.Length >= 3)
+             {
+                 texts[0].text = (i + 1).ToString(); // Index
+                 texts[1].text = server.roomName;           // Room name
+                 texts[2].text = $"{server.playerCount}/{server.maxPlayers}";             // Joined / Max
+             }
+
+             Debug.Log($"➕ Added new room: {server.roomName}");
+         }
+
+         // 🔹 5️⃣ Optional: Remove Preloader if exists
+         GS.Instance.DestroyPreloder();
+     }*/
+
+    public void ResetTable()
     {
+        List<GameObject> toDestroy = new List<GameObject>();
+
+        // पहले सभी children collect करो
         foreach (Transform child in roomTablePanel)
         {
-            Destroy(child.gameObject);
+            toDestroy.Add(child.gameObject);
         }
 
+        // अब safely destroy करो
+        foreach (GameObject go in toDestroy)
+        {
+            DestroyImmediate(go);
+        }
+    }
+
+
+    public void UpdateLANRoomTableUI()
+    {
         LANDiscoveryMenu lANDiscoveryMenu = LANDiscoveryMenu.Instance;
 
+        // पहले से बने हुए rows को track करने के लिए dictionary रखो (key = roomName)
+        Dictionary<string, RoomRowPrefab> existingRows = new Dictionary<string, RoomRowPrefab>();
+
+        // पहले से बने हुए child rows को dictionary में डालो
+        foreach (Transform child in roomTablePanel)
+        {
+            RoomRowPrefab row = child.GetComponent<RoomRowPrefab>();
+            if (row != null && !string.IsNullOrEmpty(row.lanRoomInfo.roomName))
+            {
+                existingRows[row.lanRoomInfo.roomName] = row;
+            }
+        }
+
+        // अब discoveredServers के हिसाब से UI sync करो
         for (int i = 0; i < lANDiscoveryMenu.discoveredServers.Count; i++)
         {
             var server = lANDiscoveryMenu.discoveredServers[i];
+            RoomRowPrefab roomRowPrefeb;
 
-
-            // ✅ Otherwise, add new one
-            RoomRowPrefab roomRowPrefeb = Instantiate(roomRowPrefab, roomTablePanel);
-
-            roomRowPrefeb.lanRoomInfo.roomName = server.roomName;
-            roomRowPrefeb.lanRoomInfo.port = server.port;
-            roomRowPrefeb.lanRoomInfo.baseBroadcastPort = server.baseBroadcastPort;
-            roomRowPrefeb.lanRoomInfo.roomPassword = server.roomPassword;
-            roomRowPrefeb.lanRoomInfo.connectedPlayers = server.playerCount;
-            roomRowPrefeb.lanRoomInfo.maxPlayers = server.maxPlayers;
-
-            Text[] texts = roomRowPrefeb.GetComponentsInChildren<Text>();
-            Button btn = roomRowPrefeb.GetComponentInChildren<Button>();
-
-           //allRoomPrefabs.Add(roomRowPrefeb);
-
-            if (texts.Length >= 3)
+            // 🔹 अगर यह room पहले से exist करता है → सिर्फ update करो
+            if (existingRows.TryGetValue(server.roomName, out roomRowPrefeb))
             {
-                texts[0].text = (i + 1).ToString(); // Index
-                texts[1].text = server.roomName;           // Room name
-                texts[2].text = $"{server.playerCount}/{server.maxPlayers}";             // Joined / Max
-            }
+                roomRowPrefeb.lanRoomInfo.roomName = server.roomName;
+                roomRowPrefeb.lanRoomInfo.port = server.port;
+                roomRowPrefeb.lanRoomInfo.baseBroadcastPort = server.baseBroadcastPort;
+                roomRowPrefeb.lanRoomInfo.roomPassword = server.roomPassword;
+                roomRowPrefeb.lanRoomInfo.connectedPlayers = server.playerCount;
+                roomRowPrefeb.lanRoomInfo.maxPlayers = server.maxPlayers;
 
-            Debug.Log($"➕ Added new room: {server.roomName}");
+                // Text components update करो
+                Text[] texts = roomRowPrefeb.GetComponentsInChildren<Text>();
+                if (texts.Length >= 3)
+                {
+                    texts[0].text = (i + 1).ToString(); // Index
+                    texts[1].text = server.roomName;
+                    texts[2].text = $"{server.playerCount}/{server.maxPlayers}";
+                }
+
+                existingRows.Remove(server.roomName); // यह update हो गया
+            }
+            else
+            {
+                // 🔹 नया room → prefab instantiate करो
+                roomRowPrefeb = Instantiate(roomRowPrefab, roomTablePanel);
+
+                roomRowPrefeb.lanRoomInfo.roomName = server.roomName;
+                roomRowPrefeb.lanRoomInfo.port = server.port;
+                roomRowPrefeb.lanRoomInfo.baseBroadcastPort = server.baseBroadcastPort;
+                roomRowPrefeb.lanRoomInfo.roomPassword = server.roomPassword;
+                roomRowPrefeb.lanRoomInfo.connectedPlayers = server.playerCount;
+                roomRowPrefeb.lanRoomInfo.maxPlayers = server.maxPlayers;
+
+                Text[] texts = roomRowPrefeb.GetComponentsInChildren<Text>();
+                if (texts.Length >= 3)
+                {
+                    texts[0].text = (i + 1).ToString();
+                    texts[1].text = server.roomName;
+                    texts[2].text = $"{server.playerCount}/{server.maxPlayers}";
+                }
+
+                Debug.Log($"➕ Added new room: {server.roomName}");
+            }
         }
 
-        // 🔹 5️⃣ Optional: Remove Preloader if exists
+        // 🔹 जो पुराने rooms अब discovery list में नहीं हैं → उन्हें हटाओ
+        foreach (var kvp in existingRows)
+        {
+            Destroy(kvp.Value.gameObject);
+            Debug.Log($"❌ Removed room (no longer active): {kvp.Key}");
+        }
+
+        // 🔹 Index numbers को ensure करो कि सही हों (1,2,3,...)
+        int index = 1;
+        foreach (Transform child in roomTablePanel)
+        {
+            Text[] texts = child.GetComponentsInChildren<Text>();
+            if (texts.Length > 0)
+            {
+                texts[0].text = index.ToString();
+                index++;
+            }
+        }
+
         GS.Instance.DestroyPreloder();
     }
+
 
     public void JoinRandomAvailableRoom()
     {

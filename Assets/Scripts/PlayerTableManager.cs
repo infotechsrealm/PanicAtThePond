@@ -71,10 +71,11 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
             playerRows[player.ActorNumber] = row;
         }
-        if (PhotonNetwork.CurrentRoom.Players.Count < 2)
+        if (PhotonNetwork.CurrentRoom.PlayerCount < PhotonNetwork.CurrentRoom.MaxPlayers)
         {
-            CoustomeRoomManager.Instence.startButton.interactable = false;
+            CoustomeRoomManager.Instence.startButton.interactable = true;
         }
+      
     }
 
 
@@ -103,6 +104,16 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
         }
         GS.Instance.DestroyPreloder();
+
+        if(players.Count >= LANDiscoveryMenu.Instance.DiscoveredServerInfo.maxPlayers)
+        {
+            CoustomeRoomManager.Instence.startButton.interactable = true;
+
+        }
+        else
+        {
+            CoustomeRoomManager.Instence.startButton.interactable = false;
+        }
 
     }
 
