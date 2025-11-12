@@ -11,7 +11,7 @@ public class JunkSpawner : MonoBehaviour
     internal float xRange = -9f;
 
     internal bool canSpawn = false;
-    public static JunkSpawner instance;
+    public static JunkSpawner Instance;
 
     private List<GameObject> activeJunks = new List<GameObject>(); // track all junks
 
@@ -22,9 +22,9 @@ public class JunkSpawner : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
     }
 

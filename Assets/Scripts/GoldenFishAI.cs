@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using Mirror;
+using Photon.Pun;
 using System.Collections;
 using UnityEngine;
 
@@ -22,97 +23,124 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
 
     public Animator animator;
 
-
     bool reachedCenter = false;
     Vector2 centerPos = Vector2.zero;
+
+    public NetworkIdentity mirrorIdentity;
+
     void Start()
     {
-
-        if (photonView.IsMine)
+        if (GS.Instance.isLan)
         {
-            originalScaleX = transform.localScale.x;
-            originalScaleY = transform.localScale.y;
-
-            PickNewDirectionAndSpeed(); // initial direction and speed
-            StartCoroutine(RandomDirectionRoutine());
-
-            centerPos = new Vector2(Random.Range(minBounds.x, maxBounds.x), Random.Range(minBounds.y, maxBounds.y));
-
-            if (transform.position.x < 0)
+            if (mirrorIdentity.isLocalPlayer)
             {
-                transform.localScale = new Vector3(-originalScaleX, originalScaleY, 1);
-
+                return;
             }
-            else if (transform.position.x > 0)
+        }
+        else
+        {
+            if (!photonView.IsMine)
             {
-
-                transform.localScale = new Vector3(originalScaleX, originalScaleY, 1);
+                return;
             }
+        }
+
+        originalScaleX = transform.localScale.x;
+        originalScaleY = transform.localScale.y;
+
+        PickNewDirectionAndSpeed(); // initial direction and speed
+        StartCoroutine(RandomDirectionRoutine());
+
+        centerPos = new Vector2(Random.Range(minBounds.x, maxBounds.x), Random.Range(minBounds.y, maxBounds.y));
+
+        if (transform.position.x < 0)
+        {
+            transform.localScale = new Vector3(-originalScaleX, originalScaleY, 1);
+
+        }
+        else if (transform.position.x > 0)
+        {
+            transform.localScale = new Vector3(originalScaleX, originalScaleY, 1);
         }
     }
 
-
     void Update()
     {
-        if (photonView.IsMine)
+        if (GS.Instance.isLan)
         {
-            if (animator != null)
+            if (!NetworkServer.active)
+            {
+                Debug.Log("GoldenFishAI: Not server, skipping Update");
+                return;
+            }
+        }
+        else
+        {
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+        }
+
+        if (animator != null)
                 animator.SetBool("isMove", !isPaused);
 
-            if (isPaused) return;
+        if (isPaused) return;
 
-            if (!reachedCenter)
+        if (!reachedCenter)
+        {
+            // Move toward center first
+            transform.position = Vector2.MoveTowards(transform.position, centerPos, moveSpeed * Time.deltaTime);
+
+            Debug.Log(" GoldenFishAI Moving to Center = " + Vector2.Distance(transform.position, centerPos));
+            if (Vector2.Distance(transform.position, centerPos) < 0.1f)
             {
-
-                // Move toward center first
-                transform.position = Vector2.MoveTowards(transform.position, centerPos, moveSpeed * Time.deltaTime);
-
-                if (Vector2.Distance(transform.position, centerPos) < 0.1f)
-                {
-                    reachedCenter = true;       // reached center, now start random movement
-                    PickNewDirectionAndSpeed(); // pick first random direction
-                    StartCoroutine(RandomDirectionRoutine());
-                }
+                reachedCenter = true;       // reached center, now start random movement
+                PickNewDirectionAndSpeed(); // pick first random direction
+                StartCoroutine(RandomDirectionRoutine());
             }
             else
             {
-                // Normal random movement logic here...
+                Debug.Log("GoldenFishAI Reached Center");
+            }
+        }
+        else
+        {
+            // Normal random movement logic here...
 
-                Vector3 pos = transform.position;
-                pos += (Vector3)(moveDirection * moveSpeed * Time.deltaTime);
+            Vector3 pos = transform.position;
+            pos += (Vector3)(moveDirection * moveSpeed * Time.deltaTime);
 
-                bool hitXBound = false;
-                bool hitYBound = false;
+            bool hitXBound = false;
+            bool hitYBound = false;
 
-                // check X bounds
-                if (pos.x <= minBounds.x || pos.x >= maxBounds.x)
-                {
-                    pos.x = Mathf.Clamp(pos.x, minBounds.x, maxBounds.x);
-                    hitXBound = true;
-                }
+            // check X bounds
+            if (pos.x <= minBounds.x || pos.x >= maxBounds.x)
+            {
+                pos.x = Mathf.Clamp(pos.x, minBounds.x, maxBounds.x);
+                hitXBound = true;
+            }
 
-                // check Y bounds
-                if (pos.y <= minBounds.y || pos.y >= maxBounds.y)
-                {
-                    pos.y = Mathf.Clamp(pos.y, minBounds.y, maxBounds.y);
-                    hitYBound = true;
-                }
+            // check Y bounds
+            if (pos.y <= minBounds.y || pos.y >= maxBounds.y)
+            {
+                pos.y = Mathf.Clamp(pos.y, minBounds.y, maxBounds.y);
+                hitYBound = true;
+            }
 
 
+            transform.position = pos;
 
-                transform.position = pos;
+            // Flip sprite based on direction
+            if (moveDirection.x < 0)
+                transform.localScale = new Vector3(originalScaleX, originalScaleY, 1);
+            else if (moveDirection.x > 0)
+                transform.localScale = new Vector3(-originalScaleX, originalScaleY, 1);
 
-                // Flip sprite based on direction
-                if (moveDirection.x < 0)
-                    transform.localScale = new Vector3(originalScaleX, originalScaleY, 1);
-                else if (moveDirection.x > 0)
-                    transform.localScale = new Vector3(-originalScaleX, originalScaleY, 1);
-
-                // If hit bounds, pause then reverse direction + random speed
-                if ((hitXBound || hitYBound) && !isPaused)
-                {
-                    StartCoroutine(PauseAndTurn(hitXBound, hitYBound, false));
-                }
+            // If hit bounds, pause then reverse direction + random speed
+            if ((hitXBound || hitYBound) && !isPaused)
+            {
+                StartCoroutine(PauseAndTurn(hitXBound, hitYBound, false));
             }
         }
     }

@@ -20,7 +20,7 @@ public class Hook : MonoBehaviourPunCallbacks
     public float minDistance = 2f;   // Minimum hook drop distance
     public float maxDistance = 15f;  // Maximum hook drop distance
 
-    public static Hook instance;
+    public static Hook Instance;
 
 
     public AudioSource hookBack;
@@ -31,9 +31,9 @@ public class Hook : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
     }
 
@@ -60,7 +60,7 @@ public class Hook : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsMasterClient)
         {
-            if (Input.GetMouseButtonDown(1) && !isComming && !isReturning && !MiniGameManager.instance.active && !MashPhaseManager.instance.active) // 1 = right mouse button
+            if (Input.GetMouseButtonDown(1) && !isComming && !isReturning && !MiniGameManager.Instance.active && !MashPhaseManager.Instance.active) // 1 = right mouse button
             {
                 LoadReturnToRod();
             }
@@ -71,7 +71,7 @@ public class Hook : MonoBehaviourPunCallbacks
         if (wormPrefab != null && !hasWorm && wormParent != null)
         {
             wormInstance = PhotonNetwork.Instantiate("HookWorm", wormParent.position, Quaternion.identity).gameObject;
-            WormSpawner.instance.activeWorms.Add(wormInstance);
+            WormSpawner.Instance.activeWorms.Add(wormInstance);
             int wormID = wormInstance.GetComponent<PhotonView>().ViewID;
             photonView.RPC(nameof(SetupWormRPC), RpcTarget.AllBuffered, wormID);
         }
@@ -157,7 +157,7 @@ public class Hook : MonoBehaviourPunCallbacks
                 hasWorm = false;
             }
 
-            FishermanController fc = FishermanController.Instence;
+            FishermanController fc = FishermanController.Instance;
             if (wormParent.GetComponentInChildren<JunkManager>() != null)
             {
                 fc.OnCryingAnimation(true);
@@ -229,7 +229,7 @@ public class Hook : MonoBehaviourPunCallbacks
         }
         else
         {
-            FishController myFish = GameManager.instance.myFish;
+            FishController myFish = GameManager.Instance.myFish;
             if (myFish != null)
             {
                 if (myFish.catchadeFish)

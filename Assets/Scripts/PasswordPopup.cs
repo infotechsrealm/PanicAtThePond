@@ -10,10 +10,10 @@ public class PasswordPopup : MonoBehaviour
     public string correctPassword;
 
 
-    public static PasswordPopup instence;
+    public static PasswordPopup Instance;
     private void Awake()
     {
-        instence = this;
+        Instance = this;
     }
 
     private void Start()
@@ -33,7 +33,7 @@ public class PasswordPopup : MonoBehaviour
         {
             passwordInputError.text = "";
             Debug.Log("Password correct! Joining room...");
-            GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+            GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
             if(GS.Instance.isLan)
             {
                 LANDiscoveryMenu.Instance.JoinRoom();

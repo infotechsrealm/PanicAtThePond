@@ -140,7 +140,7 @@ public class LANDiscoveryMenu : MonoBehaviour
 
         createRoomNameError.text = "";
 
-        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+        GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
         StartCoroutine(CheckRooms());
        
@@ -485,7 +485,7 @@ public class LANDiscoveryMenu : MonoBehaviour
 
     public IEnumerator isRoomisExist()
     {
-        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+        GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
 
         listenPort = DiscoveredServerInfo.baseBroadcastPort;
@@ -588,7 +588,7 @@ public class LANDiscoveryMenu : MonoBehaviour
 
     public void JoinRoom()
     {
-        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+        GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
         listenPort = DiscoveredServerInfo.baseBroadcastPort;
         networkDiscovery.serverBroadcastListenPort = listenPort;
 

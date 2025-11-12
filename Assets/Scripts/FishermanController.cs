@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class FishermanController : MonoBehaviourPunCallbacks
 {
-    public static FishermanController Instence;
+    public static FishermanController Instance;
 
     public InputActionReference inputAction;
 
@@ -62,13 +62,13 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        if (Instence == null)
-            Instence = this;
+        if (Instance == null)
+            Instance = this;
     }
 
     void Start()
     {
-        GameManager gameManager = GameManager.instance;
+        GameManager gameManager = GameManager.Instance;
 
         if (gameManager == null)
         {
@@ -97,16 +97,16 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
 
             // Start spawning logic
-            if (JunkSpawner.instance != null)
+            if (JunkSpawner.Instance != null)
             {
-                JunkSpawner.instance.canSpawn = true;
-                JunkSpawner.instance.LoadSpawnJunk();
+                JunkSpawner.Instance.canSpawn = true;
+                JunkSpawner.Instance.LoadSpawnJunk();
             }
 
-            if (WormSpawner.instance != null)
+            if (WormSpawner.Instance != null)
             {
-                WormSpawner.instance.canSpawn = true;
-                WormSpawner.instance.LoadSpawnWorm();
+                WormSpawner.Instance.canSpawn = true;
+                WormSpawner.Instance.LoadSpawnWorm();
             }
 
             StartCoroutine(PlayCricketRandomly());
@@ -346,9 +346,9 @@ public class FishermanController : MonoBehaviourPunCallbacks
         {
             if (currentRod != null)
             {
-                if (GameManager.instance.messageText.text != "")
+                if (GameManager.Instance.messageText.text != "")
                 {
-                    GameManager.instance.messageText.text = "";
+                    GameManager.Instance.messageText.text = "";
                 }
 
                 if ((leftHook != null) || (rightHook != null))
@@ -362,7 +362,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             }
             else
             {
-                GameManager.instance.messageText.text = "Please select a rod first using the 'W' & 'S' key.";
+                GameManager.Instance.messageText.text = "Please select a rod first using the 'W' & 'S' key.";
                 return;
             }
         }
@@ -450,7 +450,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         if (worms > 0)
         {
             worms--;
-            GameManager.instance.UpdateUI(worms);
+            GameManager.Instance.UpdateUI(worms);
         }
 
         castingMeter.value = 0;
@@ -483,12 +483,12 @@ public class FishermanController : MonoBehaviourPunCallbacks
     public void CheckWorms()
     {
         int curruntPlayer = PhotonNetwork.CurrentRoom.PlayerCount;
-        Debug.Log("catchadFish = " + catchadFish + " GameManager.instance.totalPlayers = " + GameManager.instance.totalPlayers);
-        if (catchadFish >= (GameManager.instance.totalPlayers - 1))
+        Debug.Log("catchadFish = " + catchadFish + " GameManager.instance.totalPlayers = " + GameManager.Instance.totalPlayers);
+        if (catchadFish >= (GameManager.Instance.totalPlayers - 1))
         {
             if (catchadFish > 0)
             {
-                if (GameManager.instance != null && GameManager.instance.gameOverText != null)
+                if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
                 {
                     if (isRight)
                     {
@@ -504,9 +504,9 @@ public class FishermanController : MonoBehaviourPunCallbacks
                     }
 
                     Debug.Log("Fisherman Win!");
-                    GameManager.instance.ShowGameOver("Fisherman Win!");
-                    GameManager.instance.CallCoverBGDisableRPC();
-                    WormSpawner.instance.EnableWormDaceAnimation();
+                    GameManager.Instance.ShowGameOver("Fisherman Win!");
+                    GameManager.Instance.CallCoverBGDisableRPC();
+                    WormSpawner.Instance.EnableWormDaceAnimation();
 
                     if(!GS.Instance.isMasterClient)
                     {
@@ -528,9 +528,9 @@ public class FishermanController : MonoBehaviourPunCallbacks
                 {
                     animator.SetBool("isWin_r", true);
                 }
-                GameManager.instance.ShowGameOver("GameOver!");
+                GameManager.Instance.ShowGameOver("GameOver!");
             }
-            WormSpawner.instance.canSpawn = isCanMove = false;
+            WormSpawner.Instance.canSpawn = isCanMove = false;
 
             // Optional: stop all fishing actions
             leftHook = null;
@@ -543,18 +543,18 @@ public class FishermanController : MonoBehaviourPunCallbacks
         //When Worm is over fisher man is loss and fishes are wins
         if (worms <= 0)
         {
-            if (GameManager.instance != null && GameManager.instance.gameOverText != null)
+            if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
             {
                 OnCryingAnimation(true);
-                GameManager.instance.ShowGameOver("Fisherman Lose!\nFishes Win!");
+                GameManager.Instance.ShowGameOver("Fisherman Lose!\nFishes Win!");
             }
 
-            WormSpawner.instance.canSpawn = isCanMove = false;
-            for (int i = 0; i < GameManager.instance.allFishes.Count; i++)
+            WormSpawner.Instance.canSpawn = isCanMove = false;
+            for (int i = 0; i < GameManager.Instance.allFishes.Count; i++)
             {
-                if (GameManager.instance.allFishes[i] != null)
+                if (GameManager.Instance.allFishes[i] != null)
                 {
-                    GameManager.instance.allFishes[i].CallWinFishRPC();
+                    GameManager.Instance.allFishes[i].CallWinFishRPC();
                 }
             }
 

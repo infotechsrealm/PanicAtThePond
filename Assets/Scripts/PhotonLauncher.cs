@@ -23,7 +23,7 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
 
     public void LaunchGame()
     {
-        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+        GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
 
         if (!PhotonNetwork.IsConnected)
@@ -51,7 +51,7 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+        GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
         PhotonNetwork.JoinLobby(); // Optional: auto join lobby
     }

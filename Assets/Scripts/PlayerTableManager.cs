@@ -13,14 +13,14 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
     private Dictionary<int, GameObject> playerRows = new Dictionary<int, GameObject>();
 
-    public static PlayerTableManager instance;
+    public static PlayerTableManager Instance;
 
 
     public List<string> players = new List<string>();
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
     private void OnEnable()
@@ -73,7 +73,7 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
         }
         if (PhotonNetwork.CurrentRoom.PlayerCount < PhotonNetwork.CurrentRoom.MaxPlayers)
         {
-            CoustomeRoomManager.Instence.startButton.interactable = true;
+            CoustomeRoomManager.Instance.startButton.interactable = true;
         }
       
     }
@@ -107,12 +107,12 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
         if(players.Count >= LANDiscoveryMenu.Instance.DiscoveredServerInfo.maxPlayers)
         {
-            CoustomeRoomManager.Instence.startButton.interactable = true;
+            CoustomeRoomManager.Instance.startButton.interactable = true;
 
         }
         else
         {
-            CoustomeRoomManager.Instence.startButton.interactable = false;
+            CoustomeRoomManager.Instance.startButton.interactable = false;
         }
 
     }

@@ -4,6 +4,7 @@ using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [Header("UI")]
     public Slider castingMeter; // Assign this in Inspector
 
-    public static GameManager instance;
+    public static GameManager Instance;
 
     public GameObject gameOverPanel;
     public Text gameOverText;
@@ -62,9 +63,10 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public GameObject sky, water;
 
+
     private void Awake()
     {
-        instance = this;
+        Instance = this;
 
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
@@ -177,9 +179,9 @@ public class GameManager : MonoBehaviourPunCallbacks
                 preloderUI.SetActive(false);
             }
             gameOverPanel.SetActive(true);
-            if (WormSpawner.instance.canSpawn)
+            if (WormSpawner.Instance.canSpawn)
             {
-                WormSpawner.instance.canSpawn = false;
+                WormSpawner.Instance.canSpawn = false;
             }
         }
 
@@ -307,7 +309,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             {
                 if (fisherManIsSpawned && isFisherMan)
                 {
-                    FishermanController.Instence.CheckWorms();
+                    FishermanController.Instance.CheckWorms();
                 }
                 else
                 {
@@ -326,9 +328,9 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void UpdateTablesUI()
     {
-        if (PlayerTableManager.instance != null)
+        if (PlayerTableManager.Instance != null)
         {
-            PlayerTableManager.instance.UpdatePlayerTable();
+            PlayerTableManager.Instance.UpdatePlayerTable();
         }
     }
 
@@ -378,7 +380,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         totalPlayers--;
         if(PhotonNetwork.IsMasterClient)
         {
-            FishermanController.Instence.CheckWorms();
+            FishermanController.Instance.CheckWorms();
         }
     }
 

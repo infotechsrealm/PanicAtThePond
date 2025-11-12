@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MiniGameManager : MonoBehaviourPunCallbacks
 {
-    public static MiniGameManager instance;
+    public static MiniGameManager Instance;
 
     public Text miniGameText;      // UI text to show sequence
     public Text timerText;         // UI text to show countdown
@@ -22,12 +22,12 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
 
     void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
     public void StartMiniGame()
     {
-        FishermanController.Instence.isCasting = HungerSystem.instance.canDecrease =  FishController.Instence.canMove = false;
+        FishermanController.Instance.isCasting = HungerSystem.Instance.canDecrease =  FishController.Instance.canMove = false;
 
         active = true;
         progress = 0;
@@ -133,16 +133,16 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Mini-game Success! Fish escaped with worm!");
 
-        HungerSystem.instance.canDecrease = FishController.Instence.canMove = true;
-        HungerSystem.instance.AddHunger(75f);
-        FishController.Instence.animator.SetBool("isFight", false);
+        HungerSystem.Instance.canDecrease = FishController.Instance.canMove = true;
+        HungerSystem.Instance.AddHunger(75f);
+        FishController.Instance.animator.SetBool("isFight", false);
         active = false;
         miniGamePanel.transform.localScale = Vector3.zero;
-        if (GameManager.instance.myFish != null)
+        if (GameManager.Instance.myFish != null)
         {
-            GameManager.instance.myFish.catchadeFish = false;
+            GameManager.Instance.myFish.catchadeFish = false;
         }
-        Hook.instance.CallRpcToReturnRod();
+        Hook.Instance.CallRpcToReturnRod();
         if (timerText != null) timerText.text = "";
     }
         
@@ -155,7 +155,7 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
 
         if (!PhotonNetwork.IsMasterClient)
         {
-            MashPhaseManager.instance.StartMashPhase();
+            MashPhaseManager.Instance.StartMashPhase();
         }
 
         if (timerText != null) timerText.text = "";

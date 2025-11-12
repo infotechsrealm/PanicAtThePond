@@ -59,7 +59,7 @@ public class RoomRowPrefab : MonoBehaviour
 
             RoomTableManager.instance.SelectedButton = btn;
 
-            CoustomeRoomManager.Instence.joinRoomName = roomName;
+            CoustomeRoomManager.Instance.joinRoomName = roomName;
 
 
 

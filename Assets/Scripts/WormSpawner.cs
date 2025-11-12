@@ -4,8 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WormSpawner : MonoBehaviourPunCallbacks
+public class WormSpawner : MonoBehaviourPunCallbacks 
 {
+
     public GameObject wormPrefab, goldFish;
     public float spawnInterval = 3f;
     public float xRange = 8f;
@@ -13,7 +14,7 @@ public class WormSpawner : MonoBehaviourPunCallbacks
 
     internal bool canSpawn = true;
 
-    public static WormSpawner instance;
+    public static WormSpawner Instance;
 
 
     internal List<GameObject> activeWorms = new List<GameObject>(); // track all junks
@@ -21,9 +22,9 @@ public class WormSpawner : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
     }
 
@@ -34,7 +35,7 @@ public class WormSpawner : MonoBehaviourPunCallbacks
             if(NetworkServer.active)
             {
                 LoadSpawnWorm();
-               // Invoke(nameof(SpawnGoldWorm), Random.Range(5, 10));
+                Invoke(nameof(SpawnGoldWorm), Random.Range(5, 10));
             }
         }
         else
@@ -79,7 +80,7 @@ public class WormSpawner : MonoBehaviourPunCallbacks
                 else
                 {
                     GameObject worm = PhotonNetwork.Instantiate(wormPrefab.name, pos, Quaternion.identity).gameObject;
-                    if (FishermanController.Instence != null)
+                    if (FishermanController.Instance != null)
                     {
                         worm.GetComponent<AudioSource>().mute = true;
                     }
@@ -101,7 +102,15 @@ public class WormSpawner : MonoBehaviourPunCallbacks
         float y = Random.Range(-yRange, 1);
         Vector2 pos = new Vector2(x, y);
 
-        PhotonNetwork.Instantiate(goldFish.name, pos, Quaternion.identity);
+        if (GS.Instance.isLan)
+        {
+            GameObject goldfish = Instantiate(goldFish, pos, Quaternion.identity);
+            NetworkServer.Spawn(goldfish);
+        }
+        else
+        {
+            PhotonNetwork.Instantiate(goldFish.name, pos, Quaternion.identity);
+        }
     }
 
     public void StopSpawning()
@@ -113,29 +122,37 @@ public class WormSpawner : MonoBehaviourPunCallbacks
     {
         canSpawn = false;
 
-        if (!PhotonNetwork.IsMasterClient)
+        if (GS.Instance.isLan)
         {
-            // सिर्फ MasterClient ही destroy करेगा
-            Debug.LogWarning("⚠️ Only MasterClient can destroy worms!");
-            return;
-        }
-
-        foreach (GameObject worm in activeWorms)
-        {
-            if (worm != null)
+            foreach (GameObject worm in activeWorms)
             {
-                PhotonView pv = worm.GetComponent<PhotonView>();
-                if (pv != null)
+                if (worm != null)
                 {
-                    PhotonNetwork.Destroy(worm); // ✅ direct object pass करो, दुबारा Find मत करो
+                    WormSpawner_Mirror.Instance.DestroyWorm_Mirror(worm);
                 }
             }
         }
+        else
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                foreach (GameObject worm in activeWorms)
+                {
+                    if (worm != null)
+                    {
+                        PhotonView pv = worm.GetComponent<PhotonView>();
+                        if (pv != null)
+                        {
+                            PhotonNetwork.Destroy(worm);
+                        }
+                    }
+                }
 
-        activeWorms.Clear();
+                activeWorms.Clear();
+                Debug.LogWarning("⚠️ Only MasterClient can destroy worms!");
+            }
+        }
     }
-
-
     void OnDestroy()
     {
         activeWorms.Remove(this.gameObject);

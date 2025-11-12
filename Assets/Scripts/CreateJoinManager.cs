@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class CreateJoinManager : MonoBehaviourPunCallbacks
 {
-    public static CreateJoinManager Instence;
+    public static CreateJoinManager Instance;
 
     public GameObject createAndJoinButtons;
 
@@ -28,7 +28,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        Instence = this;
+        Instance = this;
     }
 
     public void OnClickAction(string action)
@@ -68,11 +68,11 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                     {
                         if (PhotonNetwork.IsConnected)
                         {
-                            CoustomeRoomManager.Instence.CreateCustomeRoom();
+                            CoustomeRoomManager.Instance.CreateCustomeRoom();
                         }
                         else
                         {
-                            GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+                            GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
                             PhotonNetwork.ConnectUsingSettings();
                         }
@@ -93,11 +93,11 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                     {
                         if (PhotonNetwork.IsConnected)
                         {
-                            CoustomeRoomManager.Instence.JoinRandomAvailableRoom();
+                            CoustomeRoomManager.Instance.JoinRandomAvailableRoom();
                         }
                         else
                         {
-                            GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+                            GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
                             PhotonNetwork.ConnectUsingSettings();
                         }
@@ -120,11 +120,11 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                         Debug.Log("Joining Custome Room");
                         if (PhotonNetwork.IsConnected)
                         {
-                            CoustomeRoomManager.Instence.JoinCustomeRoom();
+                            CoustomeRoomManager.Instance.JoinCustomeRoom();
                         }
                         else
                         {
-                            GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+                            GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
                             PhotonNetwork.ConnectUsingSettings();
                         }
@@ -155,7 +155,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                     }
                     else
                     {
-                        CoustomeRoomManager.Instence.customeStartGame();
+                        CoustomeRoomManager.Instance.customeStartGame();
                     }
                     break;
                 }
@@ -168,7 +168,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
         {
             if (!PhotonNetwork.IsConnected)
             {
-                GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+                GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
                 PhotonNetwork.ConnectUsingSettings();
             }
@@ -181,7 +181,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
         }
         else if (isJoining)
         {
-            GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+            GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
             JoinPanel.gameObject.SetActive(true);
             createPanel.gameObject.SetActive(false);

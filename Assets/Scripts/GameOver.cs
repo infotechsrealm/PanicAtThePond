@@ -25,13 +25,13 @@ public class GameOver : MonoBehaviourPunCallbacks
         }
         else
         {
-            GameManager.instance.RestartGame();
+            GameManager.Instance.RestartGame();
         }
     }
 
     public void Restart()
     {
-        GameManager.instance.RestartGame();
+        GameManager.Instance.RestartGame();
     }
 
 

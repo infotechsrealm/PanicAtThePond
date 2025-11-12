@@ -133,10 +133,10 @@ public class CustomNetworkManager : NetworkManager
                 Debug.Log($"👤 {name}");
             }
 
-            if (PlayerTableManager.instance != null)
+            if (PlayerTableManager.Instance != null)
             {
-                PlayerTableManager.instance.players = msg.allPlayerNames;
-                PlayerTableManager.instance.UpdatePlayerTable();
+                PlayerTableManager.Instance.players = msg.allPlayerNames;
+                PlayerTableManager.Instance.UpdatePlayerTable();
             }
         }
         Debug.Log("-----------------------------------");

@@ -4,13 +4,13 @@ public class DashManager : MonoBehaviour
 {
     public GameObject settingUI,quitUI,craditsUI,localPlayerUI,prefabPanret;
 
-    public static DashManager instance;
+    public static DashManager Instance;
 
     public GameObject createAndJoinButtons;
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
     public void OnClickAction(string action)

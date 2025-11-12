@@ -30,7 +30,7 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
 
         int displayIndex = 1;
 
-        foreach (var room in CoustomeRoomManager.Instence.aliveRooms.Values.OrderBy(r => r.Name))
+        foreach (var room in CoustomeRoomManager.Instance.aliveRooms.Values.OrderBy(r => r.Name))
         {
             GameObject row = Instantiate(roomRowPrefab.gameObject, roomTablePanel);
 
@@ -205,7 +205,7 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
     public void JoinRandomAvailableRoom()
     {
         // Get all rooms that are not full
-        var joinableRooms = CoustomeRoomManager.Instence.aliveRooms.Values.Where(r => r.PlayerCount < r.MaxPlayers).ToList();
+        var joinableRooms = CoustomeRoomManager.Instance.aliveRooms.Values.Where(r => r.PlayerCount < r.MaxPlayers).ToList();
 
         if (joinableRooms.Count == 0)
         {
@@ -223,6 +223,6 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
 
     public List<RoomInfo> GetJoinableRooms()
     {
-        return CoustomeRoomManager.Instence.aliveRooms.Values.Where(r => r.PlayerCount < r.MaxPlayers).ToList();
+        return CoustomeRoomManager.Instance.aliveRooms.Values.Where(r => r.PlayerCount < r.MaxPlayers).ToList();
     }
 }

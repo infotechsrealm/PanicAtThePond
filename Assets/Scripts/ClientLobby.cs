@@ -18,12 +18,12 @@ public class ClientLobby : MonoBehaviourPunCallbacks
         {
             if(PhotonNetwork.IsMasterClient)
             {
-                CoustomeRoomManager.Instence.CallLeaveRoom();
+                CoustomeRoomManager.Instance.CallLeaveRoom();
             }
             else
             {
                 Debug.Log("Leaving room...");
-                GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+                GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
                 gameObject.SetActive(false);
                 PhotonNetwork.LeaveRoom();
             }

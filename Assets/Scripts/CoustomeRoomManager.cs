@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 {
-    public static CoustomeRoomManager Instence;
+    public static CoustomeRoomManager Instance;
+
 
     public CreateJoinManager createJoinManager;
 
@@ -46,7 +47,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        Instence = this;
+        Instance = this;
     }
 
     private void Start()
@@ -175,7 +176,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
         lobby = createJoinManager.hostLobby.gameObject;
 
-        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+        GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
 
         string roomName = createRoomName.text;
@@ -224,7 +225,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             return;
         }
 
-        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+        GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
 
         RoomInfo selectedRoom = joinableRooms[Random.Range(0, joinableRooms.Count)];
@@ -290,7 +291,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         }
 
         // If no password, join directly
-        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+        GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
 
         joinRoomName = null;
@@ -350,9 +351,9 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
         lobby.SetActive(true);
 
-        if(PasswordPopup.instence!=null)
+        if(PasswordPopup.Instance!=null)
         {
-            Destroy(PasswordPopup.instence.gameObject);
+            Destroy(PasswordPopup.Instance.gameObject);
         }
 
         if (PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
@@ -388,7 +389,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void GeneratePreloder()
     {
-        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+        GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
     }
 
@@ -434,9 +435,9 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     public void UpdateTablesUI()
     {
-        if (PlayerTableManager.instance != null)
+        if (PlayerTableManager.Instance != null)
         {
-            PlayerTableManager.instance.UpdatePlayerTable();
+            PlayerTableManager.Instance.UpdatePlayerTable();
         }
         if (RoomTableManager.instance != null)
         {
@@ -527,7 +528,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
         Debug.Log("Leaving room...");
 
-        GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+        GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
         createJoinManager.clientLobby.gameObject.SetActive(false);
         createJoinManager.hostLobby.gameObject.SetActive(false);
@@ -578,9 +579,9 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         // Local execution sab players ke liye
         if (Preloader.instance == null && GS.Instance != null && GS.Instance.preloder != null)
         {
-            if (DashManager.instance != null && DashManager.instance.prefabPanret != null)
+            if (DashManager.Instance != null && DashManager.Instance.prefabPanret != null)
             {
-                GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+                GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
             }
         }
@@ -605,7 +606,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
         if (Preloader.instance == null)
         {
-            GS.Instance.GeneratePreloder(DashManager.instance.prefabPanret.transform);
+            GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
         }
 
