@@ -41,6 +41,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
     [Header("Floating on Death")]
     private bool isDead = false;
+   internal bool isFisherMan= false;
     private Rigidbody2D rb;
 
     public NetworkIdentity mirrorIdentity;
@@ -54,11 +55,7 @@ public class FishController : MonoBehaviourPunCallbacks
         originalScaleX = transform.localScale.x;
         originalScaleY = transform.localScale.y;
         rb = GetComponent<Rigidbody2D>();
-
-        
-
     }
-
     void Start()
     {
         if (GS.Instance.isLan)
@@ -80,12 +77,15 @@ public class FishController : MonoBehaviourPunCallbacks
 
     void FixedUpdate()
     {
+        if(isFisherMan)
+        {
+            return;
+        }
 
         if (GS.Instance.isLan)
         {
             if (!mirrorIdentity.isLocalPlayer)
             {
-                Debug.Log("Not local player - return");
                 return;
             }
         }
@@ -104,15 +104,26 @@ public class FishController : MonoBehaviourPunCallbacks
             return;
         }
 
+        Vector2 move;
+        if (GS.Instance.isLan)
+        {
+            if(mirrorIdentity.isLocalPlayer)
+            {
+                // move = inputAction.action.ReadValue<Vector2>();
+                float horizontal = Input.GetAxis("Horizontal");
+                float vertical = Input.GetAxis("Vertical");
 
-
-         Vector2 move = inputAction.action.ReadValue<Vector2>();
-
-      /*  float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        Vector2 move = new Vector2(horizontal, vertical);*/
-
+                 move = new Vector2(horizontal, vertical);
+            }
+            else
+            {
+                return;
+            }
+        }
+        else
+        {
+             move = inputAction.action.ReadValue<Vector2>();
+        }
 
         float moveX = move.x;
         float moveY = move.y;
@@ -267,7 +278,7 @@ public class FishController : MonoBehaviourPunCallbacks
                 animator.SetTrigger("isEat");
                 GameManager.Instance.isFisherMan = true;
                 PlaySFX(fishEatWarmSound);
-                GameManager.Instance.goldWormEatByFish = true;
+                GameManager.Instance.goldWormEatByFish = true; PlaySFX(fishEatWarmSound);
                 GS.Instance.SetVolume(audioSource);
                 audioSource.Play();
 
@@ -312,11 +323,29 @@ public class FishController : MonoBehaviourPunCallbacks
                 carriedJunk.transform.localPosition = Vector3.zero;
                 carriedJunk.GetComponent<PolygonCollider2D>().enabled = false;
                 int viewId = other.GetComponent<PhotonView>().ViewID;
-                photonView.RPC(nameof(SetJunkInFish), RpcTarget.OthersBuffered, viewId);
-                PhotonNetwork.SendAllOutgoingCommands();
+
+                if (GS.Instance.isLan)
+                {
+                    if(GS.Instance.IsMirrorMasterClient)
+                    {
+                    }
+                    else
+                    {
+                        FishController_Mirror.Instance.TryPickupJunk();
+                    }
+                }
+                else
+                {
+                    photonView.RPC(nameof(SetJunkInFish), RpcTarget.OthersBuffered, viewId);
+                    PhotonNetwork.SendAllOutgoingCommands();
+                }
             }
         }
     }
+
+
+   
+
 
     [PunRPC]
     void SetJunkInFish(int viewId)
@@ -334,9 +363,11 @@ public class FishController : MonoBehaviourPunCallbacks
         if (GS.Instance.isLan)
         {
             FishController_Mirror.Instance.Destroy_Mirror(other);
-                FishController_Mirror.Instance.Destroy_Mirror(gameObject);
-                WormSpawner.Instance.DestroyAllWorms();
-          //  GameManager.Instance.LoadGetIdAndChangeHost();
+            transform.localScale =Vector3.zero;
+            isFisherMan = true;
+            GameManager.Instance.LoadSpawnFisherman();
+            //WormSpawner.Instance.DestroyAllWorms();
+            //FishController_Mirror.Instance.Destroy_Mirror(gameObject);
 
         }
         else

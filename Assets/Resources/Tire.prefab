@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7681308973442735936}
   - component: {fileID: 8036728173769673193}
   - component: {fileID: -294130210219012507}
+  - component: {fileID: 7919445496866830336}
   m_Layer: 11
   m_Name: Tire
   m_TagString: Junk
@@ -188,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4102529295903683753}
+  junkManager_Mirror: {fileID: 7919445496866830336}
   audioSource: {fileID: 389855734204177252}
   waterDrop: {fileID: 9090747191646513983, guid: 6acab6ae61565764fb844a1cf8007b6d, type: 3}
   photonRigidbody2DView: {fileID: 7681308973442735936}
@@ -382,3 +384,19 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &7919445496866830336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318360825445031055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8e165055b9e9a458685fda9b95b904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JunkManager_Mirror
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  junkManager: {fileID: 7861053281494631908}

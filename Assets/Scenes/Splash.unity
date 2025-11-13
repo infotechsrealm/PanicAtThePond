@@ -753,6 +753,7 @@ MonoBehaviour:
   ClearWaters: 0
   nickName: 
   isLan: 0
+  IsMirrorMasterClient: 0
 --- !u!4 &1771400380
 Transform:
   m_ObjectHideFlags: 0

@@ -577,7 +577,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         Debug.Log("ForceAllLeave called");
 
         // Local execution sab players ke liye
-        if (Preloader.instance == null && GS.Instance != null && GS.Instance.preloder != null)
+        if (Preloader.Instence == null && GS.Instance != null && GS.Instance.preloder != null)
         {
             if (DashManager.Instance != null && DashManager.Instance.prefabPanret != null)
             {
@@ -604,7 +604,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Leaving room...");
 
-        if (Preloader.instance == null)
+        if (Preloader.Instence == null)
         {
             GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 

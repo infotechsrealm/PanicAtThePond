@@ -43,6 +43,10 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                     isCreating = false;
                     isJoining = true;
                     LaunchGame();
+                    if(GS.Instance.isLan)
+                    {
+                        GS.Instance.IsMirrorMasterClient = isCreating;
+                    }
                     break;
                 }
 
@@ -54,6 +58,10 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                     isCreating = true;
                     isJoining = false;
                     LaunchGame();
+                    if (GS.Instance.isLan)
+                    {
+                        GS.Instance.IsMirrorMasterClient = isCreating;
+                    }
                     break;
                 }
 

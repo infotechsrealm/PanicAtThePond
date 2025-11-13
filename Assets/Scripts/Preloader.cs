@@ -7,16 +7,13 @@ public class Preloader : MonoBehaviour
     public float speed = 200f; // Rotation speed in degrees per second
 
 
-    public static Preloader instance;
+    public static Preloader Instence;
+
     private void Awake()
     {
-        instance = this;
+        Instence = this;
     }
-    void Update()
-    {
-        // Rotate continuously on Z axis
-      //  transform.Rotate(0f, 0f, -speed * Time.deltaTime);
-    }
+   
 
 
 }

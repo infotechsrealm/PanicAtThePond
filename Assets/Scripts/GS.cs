@@ -20,7 +20,7 @@ public class GS : MonoBehaviour
 
     internal bool isMasterClient;
 
-    public bool isLan;
+    public bool isLan = false,IsMirrorMasterClient = false;
     private void Awake()
     {
         Instance = this;
@@ -42,9 +42,10 @@ public class GS : MonoBehaviour
         }
     }
 
+
     public void GeneratePreloder(Transform transform)
     {
-        if (Preloader.instance == null)
+        if (Preloader.Instence == null)
         {
             Debug.Log("Generating Preloader -------------");
             Instantiate(preloder, transform);
@@ -53,10 +54,15 @@ public class GS : MonoBehaviour
 
     public void DestroyPreloder()
     {
-        if (Preloader.instance != null)
+        Debug.Log("Trying to Destroy Preloader ............");
+        if (Preloader.Instence != null)
         {
             Debug.Log("Destroying Preloader ==============");
-            Destroy(Preloader.instance.gameObject);
+            Destroy(Preloader.Instence.gameObject);
+        }
+        else
+        {
+            Debug.Log("No Preloader found to destroy.");
         }
     }
 

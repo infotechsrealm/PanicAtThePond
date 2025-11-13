@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using Mirror;
+using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
     public InputActionReference inputAction;
 
+    public NetworkTransformUnreliable networkTransformUnreliable;
 
     [Header("Movement")]
     public float moveSpeed;
@@ -58,6 +60,8 @@ public class FishermanController : MonoBehaviourPunCallbacks
                   meterIncreasing = true;
 
 
+
+
    
 
     private void Awake()
@@ -69,6 +73,10 @@ public class FishermanController : MonoBehaviourPunCallbacks
     void Start()
     {
         GameManager gameManager = GameManager.Instance;
+        Debug.Log("FishermanController Start called");
+        gameManager.LoadPreloderOnOff(false);
+
+
 
         if (gameManager == null)
         {
@@ -80,7 +88,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         castingMeter = gameManager.castingMeter;
         worms = gameManager.fishermanWorms;
 
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient || GS.Instance.IsMirrorMasterClient)
         {
             // Reset casting meter if available
             if (castingMeter != null)
@@ -93,7 +101,14 @@ public class FishermanController : MonoBehaviourPunCallbacks
             gameManager.fisherManObjects.SetActive(true);
             gameManager.LoadPreloderOnOff(false);
             gameManager.UpdateUI(worms);
-            gameManager.CallFisherManSpawnedRPC(true);
+            if(GS.Instance.isLan)
+            {
+
+            }
+            else
+            {
+                gameManager.CallFisherManSpawnedRPC(true);
+            }
 
 
             // Start spawning logic
@@ -110,13 +125,20 @@ public class FishermanController : MonoBehaviourPunCallbacks
             }
 
             StartCoroutine(PlayCricketRandomly());
-            CheckWorms();
+            if(GS.Instance.isLan)
+            {
+
+            }
+            else
+            {
+                CheckWorms();
+            }
         }
 
         //Everyone can see everyone.
         if (GS.Instance.AllVisible)
         {
-            if (PhotonNetwork.IsMasterClient)
+            if (PhotonNetwork.IsMasterClient || GS.Instance.IsMirrorMasterClient )
             {
                 // Enable background 3
                 if (gameManager.water != null)
@@ -133,7 +155,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         //Both sides hidden (blind match).
         if (GS.Instance.DeepWaters)
         {
-            if (PhotonNetwork.IsMasterClient)
+            if (PhotonNetwork.IsMasterClient || GS.Instance.IsMirrorMasterClient)
             {
                 // Enable background 3
                 if (gameManager.water != null)
@@ -150,7 +172,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         //Fish can see the fisherman, but he can’t see them.
         if (GS.Instance.MurkyWaters)
         {
-            if (PhotonNetwork.IsMasterClient)
+            if (PhotonNetwork.IsMasterClient || GS.Instance.IsMirrorMasterClient)
             {
                 // Enable background 3
                 if (gameManager.water != null)
@@ -167,7 +189,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         //Fisherman can see fish, but fish can’t see him.
         if (GS.Instance.ClearWaters)
         {
-            if (PhotonNetwork.IsMasterClient)
+            if (PhotonNetwork.IsMasterClient || GS.Instance.IsMirrorMasterClient)
             {
                 // Enable background 3
                 if (gameManager.water != null)
@@ -182,7 +204,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
         }
 
     }
-
 
     IEnumerator PlayCricketRandomly()
     {
@@ -207,8 +228,18 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
     void Update()
     {
-        if (!PhotonNetwork.IsMasterClient || !isCanCast)
-            return;
+        if (GS.Instance.isLan)
+        {
+            if (!GameManager.Instance.isFisherMan)
+            {
+                return;
+            }
+        }
+        else
+        {
+            if (!PhotonNetwork.IsMasterClient || !isCanCast)
+                return;
+        }
 
         if (isCanMove)
         {
@@ -225,12 +256,39 @@ public class FishermanController : MonoBehaviourPunCallbacks
     {
         if (leftHook == null && rightHook == null && !isCasting)
         {
-           // float moveInput = Input.GetAxisRaw("Horizontal");
+            // float moveInput = Input.GetAxisRaw("Horizontal");
+            float moveInput;
+            if (GS.Instance.isLan)
+            {
+                if (GameManager.Instance.isFisherMan)
+                {
+                    // move = inputAction.action.ReadValue<Vector2>();
+                    float horizontal = Input.GetAxis("Horizontal");
 
-            float moveInput = inputAction.action.ReadValue<Vector2>().x;
+                    moveInput = horizontal; //= new Vector2(horizontal, vertical);
+
+                    if (moveInput > 0)
+                    {
+                        moveInput = 1;
+                    }
+                    else if (moveInput < 0)
+                    {
+                        moveInput = -1;
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                moveInput = inputAction.action.ReadValue<Vector2>().x;
+            }
 
 
             Vector3 move = new Vector3(moveInput * moveSpeed * Time.deltaTime, 0, 0);
+            Debug.Log(move);
             transform.position += move;
 
             // Clamp only X position
@@ -304,7 +362,36 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
     void HandleRodSelection()
     {
-        float moveInputY = inputAction.action.ReadValue<Vector2>().y;
+        float moveInputY;
+        if (GS.Instance.isLan)
+        {
+            if (GameManager.Instance.isFisherMan)
+            {
+
+                // move = inputAction.action.ReadValue<Vector2>();
+                float vertical = Input.GetAxis("Vertical");
+
+                moveInputY = vertical; //= new Vector2(horizontal, vertical);
+
+                if (moveInputY > 0)
+                {
+                    moveInputY = 1;
+                }
+                else if (moveInputY < 0)
+                {
+                    moveInputY = -1;
+                }
+                Debug.Log("moveInputY" + moveInputY); 
+            }
+            else
+            {
+                return;
+            }
+        }
+        else
+        {
+            moveInputY = inputAction.action.ReadValue<Vector2>().x;
+        }
 
         if (moveInputY == 1)
         {
@@ -341,7 +428,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
     }
     void HandleCasting()
     {
-        Debug.Log("Keyboard.current.xKey.isPressed && Keyboard.current.vKey.isPressed =" + Keyboard.current.xKey.isPressed +"-"+ Keyboard.current.vKey.isPressed);
         if (!isCasting && Keyboard.current.xKey.isPressed && Keyboard.current.vKey.isPressed)
         {
             if (currentRod != null)
@@ -482,7 +568,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
     // Check worms and print lose message
     public void CheckWorms()
     {
-        int curruntPlayer = PhotonNetwork.CurrentRoom.PlayerCount;
         Debug.Log("catchadFish = " + catchadFish + " GameManager.instance.totalPlayers = " + GameManager.Instance.totalPlayers);
         if (catchadFish >= (GameManager.Instance.totalPlayers - 1))
         {

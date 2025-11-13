@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using Mirror;
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,18 +29,18 @@ public class JunkSpawner : MonoBehaviour
         }
     }
 
-    void Start()
-    {
+   
 
-    }
+    public NetworkIdentity mirrorIdentity;
 
     public void LoadSpawnJunk()
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient || GS.Instance.IsMirrorMasterClient)
         {
             StartCoroutine(SpawnJunk());
         }
     }
+
     IEnumerator SpawnJunk()
     {
         if (canSpawn)
@@ -59,20 +60,32 @@ public class JunkSpawner : MonoBehaviour
                 Vector2 pos = new Vector2(x, posRefrence.position.y);
 
                 GameObject prefab = junkPrefabs[Random.Range(0, junkPrefabs.Length)];
+                GameObject newJunk;
 
-                GameObject newJunk = PhotonNetwork.Instantiate(prefab.name, pos, Quaternion.identity);
-
-                float randomXForce = Random.Range(0f, 2f);
-                randomXForce = randomNo == 0 ? randomXForce : -randomXForce;
-                Vector2 force = new Vector2(randomXForce, 0) * moveSpeed;
-
-                Rigidbody2D rb = newJunk.GetComponent<Rigidbody2D>();
-                if (rb != null)
+                if (GS.Instance.isLan)
                 {
-                    rb.linearVelocity = force; // give motion in x
+                    newJunk = Instantiate(prefab, pos, Quaternion.identity);
+                    NetworkServer.Spawn(newJunk);
+                }
+                else
+                {
+                    newJunk = PhotonNetwork.Instantiate(prefab.name, pos, Quaternion.identity);
                 }
 
-                activeJunks.Add(newJunk);
+                if (newJunk != null)
+                {
+                    float randomXForce = Random.Range(0f, 2f);
+                    randomXForce = randomNo == 0 ? randomXForce : -randomXForce;
+                    Vector2 force = new Vector2(randomXForce, 0) * moveSpeed;
+
+                    Rigidbody2D rb = newJunk.GetComponent<Rigidbody2D>();
+                    if (rb != null)
+                    {
+                        rb.linearVelocity = force; // give motion in x
+                    }
+
+                    activeJunks.Add(newJunk);
+                }
             }
         }
         float delay = Random.Range(minSpawnDelay, maxSpawnDelay);

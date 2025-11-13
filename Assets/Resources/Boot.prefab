@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4011628949038726085}
   - component: {fileID: -8521072067877647519}
   - component: {fileID: 1307272812369521034}
+  - component: {fileID: 7677546265377207209}
   m_Layer: 11
   m_Name: Boot
   m_TagString: Junk
@@ -194,6 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8974490344211833671}
+  junkManager_Mirror: {fileID: 7677546265377207209}
   audioSource: {fileID: -3014210424316652325}
   waterDrop: {fileID: 9090747191646513983, guid: 6acab6ae61565764fb844a1cf8007b6d, type: 3}
   photonRigidbody2DView: {fileID: 4011628949038726085}
@@ -388,3 +390,19 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &7677546265377207209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5870885686629103865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8e165055b9e9a458685fda9b95b904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  junkManager: {fileID: 1565567660078940480}

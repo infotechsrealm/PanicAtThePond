@@ -26,13 +26,12 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
     bool reachedCenter = false;
     Vector2 centerPos = Vector2.zero;
 
-    public NetworkIdentity mirrorIdentity;
 
     void Start()
     {
         if (GS.Instance.isLan)
         {
-            if (mirrorIdentity.isLocalPlayer)
+            if(!GS.Instance.IsMirrorMasterClient)
             {
                 return;
             }
@@ -68,9 +67,8 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
     {
         if (GS.Instance.isLan)
         {
-            if (!NetworkServer.active)
+            if (!GS.Instance.IsMirrorMasterClient)
             {
-                Debug.Log("GoldenFishAI: Not server, skipping Update");
                 return;
             }
         }

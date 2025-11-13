@@ -6,7 +6,9 @@ public class JunkManager : MonoBehaviourPunCallbacks
 {
     public Rigidbody2D rb;
 
-    bool isFreezed = false;
+    public JunkManager_Mirror junkManager_Mirror;
+
+    internal bool isFreezed = false;
     public AudioSource audioSource;
     internal bool inWater = false;
     public GameObject waterDrop;
@@ -15,7 +17,7 @@ public class JunkManager : MonoBehaviourPunCallbacks
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if(!PhotonNetwork.IsMasterClient)
+        if(!PhotonNetwork.IsMasterClient || !GS.Instance.IsMirrorMasterClient)
         {
             GS.Instance.SetVolume(audioSource);
             audioSource.Play();
@@ -25,7 +27,7 @@ public class JunkManager : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        if (PhotonNetwork.IsMasterClient && !isFreezed)
+        if (PhotonNetwork.IsMasterClient && !isFreezed || GS.Instance.IsMirrorMasterClient && !isFreezed)
         {
             if (transform.position.y < -4f)
             {
@@ -36,7 +38,14 @@ public class JunkManager : MonoBehaviourPunCallbacks
 
     public void CallFreezeObjectRPC()
     {
-        photonView.RPC(nameof(FreezeObject), RpcTarget.AllBuffered);
+        if(GS.Instance.isLan)
+        {
+            junkManager_Mirror.RequestFreezeObject();
+        }
+        else
+        {
+            photonView.RPC(nameof(FreezeObject), RpcTarget.AllBuffered);
+        }
     }
 
     [PunRPC]

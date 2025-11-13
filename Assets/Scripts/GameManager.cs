@@ -4,7 +4,6 @@ using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -115,8 +114,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
- 
-
     void SpawnPlayer()
     {
         if(GS.Instance.isLan)
@@ -153,17 +150,23 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void LoadSpawnFisherman()
     {
-      
         LoadPreloderOnOff(true);
-        Invoke(nameof(SpawnFisherman),4f);
+        Invoke(nameof(SpawnFisherman),0f);
     }
    
-
     public void SpawnFisherman()
     {
-        photonView.RPC(nameof(FisherManSpawned), RpcTarget.All, true);
-        PhotonNetwork.Instantiate("FisherMan", new Vector3(0f, 3.15f, 0f), Quaternion.identity);
-      
+        if (GS.Instance.isLan)
+        {
+
+            myFish.GetComponent<FishController_Mirror>().RequestSpawnFisherman();
+        }
+        else
+        {
+            photonView.RPC(nameof(FisherManSpawned), RpcTarget.All, true);
+            PhotonNetwork.Instantiate(fishermanPrefab.name, new Vector3(0f, 3.15f, 0f), Quaternion.identity);
+        }
+
         int fishCount = totalPlayers - 1;
         fishermanWorms = fishCount * baseWormMultiplier;
         maxWorms = fishermanWorms;
@@ -213,19 +216,17 @@ public class GameManager : MonoBehaviourPunCallbacks
         SceneManager.LoadScene("Dash");
     }
 
+    public void LoadGetIdAndChangeHost()
+    {
+        LoadPreloderOnOff(true);
+        Invoke(nameof(GetIdAndChangeHost), 4f);
+    }
+
     public void GetIdAndChangeHost()
     {
         int myId = PhotonNetwork.LocalPlayer.ActorNumber;
         Debug.Log("✅ My Client ID = " + myId);
-
         photonView.RPC(nameof(ChangeHostById), RpcTarget.MasterClient, myId);
-    }
-
-    public void LoadGetIdAndChangeHost()
-    {
-        LoadPreloderOnOff(true);
-
-        Invoke(nameof(GetIdAndChangeHost), 4f);
     }
 
     [PunRPC]
@@ -258,7 +259,6 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.LogWarning("❌ Client ID not found: " + clientId);
         }
     }
-
 
     public override void OnMasterClientSwitched(Player newMasterClient)
     {
@@ -322,7 +322,6 @@ public class GameManager : MonoBehaviourPunCallbacks
                 }
             }
         }
-
         UpdateTablesUI();
     }
 
@@ -336,7 +335,15 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void LoadPreloderOnOff(bool res)
     {
-        photonView.RPC(nameof(PreloderOnOff), RpcTarget.All, res);
+        if (GS.Instance.isLan)
+        {
+            PreloderOnOff(res);
+        }
+        else
+        {
+            photonView.RPC(nameof(PreloderOnOff), RpcTarget.All, res);
+
+        }
     }
 
     [PunRPC]

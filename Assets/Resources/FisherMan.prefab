@@ -145,6 +145,8 @@ GameObject:
   - component: {fileID: 7807036194685859462}
   - component: {fileID: 6616312679466749823}
   - component: {fileID: 314744784167791529}
+  - component: {fileID: -1448744302934470154}
+  - component: {fileID: -4830114295532918078}
   m_Layer: 7
   m_Name: FisherMan
   m_TagString: Fisherman
@@ -193,6 +195,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -214,6 +218,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
@@ -241,6 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputAction: {fileID: -948734162650360508, guid: 1a1049bb92f8b934dbc3f85e2bba46cf, type: 3}
+  networkTransformUnreliable: {fileID: -4830114295532918078}
   moveSpeed: 2.5
   leftRod: {fileID: 7193815615569484503}
   rightRod: {fileID: 6579769212213636874}
@@ -265,6 +271,7 @@ MonoBehaviour:
   isRight: 0
   isLeft: 1
   meterIncreasing: 1
+  mirrorIdentity: {fileID: -1448744302934470154}
 --- !u!114 &5874070845168669621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,6 +448,57 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &-1448744302934470154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221548032391945581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mirror::Mirror.NetworkIdentity
+  sceneId: 0
+  _assetId: 1791553809
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0
+--- !u!114 &-4830114295532918078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221548032391945581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a553cb17010b2403e8523b558bffbc14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mirror.Components::Mirror.NetworkTransformUnreliable
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 3347431479034350388}
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  onlySyncOnChange: 1
+  compressRotation: 1
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  coordinateSpace: 0
+  timelineOffset: 1
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  bufferResetMultiplier: 3
+  useFixedUpdate: 0
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
 --- !u!1 &4230553814262268714
 GameObject:
   m_ObjectHideFlags: 0
