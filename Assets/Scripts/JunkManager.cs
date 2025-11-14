@@ -96,17 +96,18 @@ public class JunkManager : MonoBehaviourPunCallbacks
         }
 
         // Final fine-tune
-        rb.gravityScale = 0.01f;
+        rb.gravityScale = 0.00f;
         rb.linearVelocity *= 0.5f; // slow a bit more at the end
     }
 
     public void LeaveByFish()
     {
+        Debug.Log("LeaveByFish called");
         GetComponent<PolygonCollider2D>().enabled = false;
         rb.bodyType = RigidbodyType2D.Dynamic;
         transform.SetParent(null);
-        rb.gravityScale = 1f;
-        StartCoroutine(ReduceGravity());
+        rb.gravityScale = 0.1f;
+      // StartCoroutine(ReduceGravity());
         isFreezed = false;
         photonRigidbody2DView.enabled = true;
     }

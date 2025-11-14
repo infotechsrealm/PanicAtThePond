@@ -1,10 +1,12 @@
-﻿using Photon.Pun;
+﻿using Mirror;
+using Photon.Pun;
 using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
 public class Hook : MonoBehaviourPunCallbacks
 {
+    [SerializeField]
     internal Vector3 rodTip;
 
     public LineRenderer lineRenderer;
@@ -48,6 +50,7 @@ public class Hook : MonoBehaviourPunCallbacks
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
         lineRenderer.startColor = Color.black;
         lineRenderer.endColor = Color.black;
+
     }
 
     void Update()
@@ -70,10 +73,22 @@ public class Hook : MonoBehaviourPunCallbacks
     {
         if (wormPrefab != null && !hasWorm && wormParent != null)
         {
-            wormInstance = PhotonNetwork.Instantiate("HookWorm", wormParent.position, Quaternion.identity).gameObject;
-            WormSpawner.Instance.activeWorms.Add(wormInstance);
-            int wormID = wormInstance.GetComponent<PhotonView>().ViewID;
-            photonView.RPC(nameof(SetupWormRPC), RpcTarget.AllBuffered, wormID);
+            if (GS.Instance.isLan)
+            {
+                GameObject worm = Instantiate(wormPrefab, wormParent.position, Quaternion.identity);
+                NetworkServer.Spawn(worm);
+                if(GS.Instance.IsMirrorMasterClient)
+                {
+                    WormSpawner.Instance.activeWorms.Add(worm);
+                }
+            }
+            else
+            {
+                wormInstance = PhotonNetwork.Instantiate(wormPrefab.name, wormParent.position, Quaternion.identity).gameObject;
+                WormSpawner.Instance.activeWorms.Add(wormInstance);
+                int wormID = wormInstance.GetComponent<PhotonView>().ViewID;
+                photonView.RPC(nameof(SetupWormRPC), RpcTarget.AllBuffered, wormID);
+            }
         }
     }
 
@@ -110,8 +125,17 @@ public class Hook : MonoBehaviourPunCallbacks
             transform.position = Vector3.MoveTowards(transform.position, target, dropSpeed * Time.deltaTime);
             yield return null;
         }
-        PhotonView wormPV = wormInstance.GetComponent<PhotonView>();
-        photonView.RPC(nameof(EnableWormColliderRPC), RpcTarget.AllBuffered, wormPV.ViewID,true);
+
+        if (GS.Instance.isLan)
+        {
+
+        }
+        else
+        {
+            PhotonView wormPV = wormInstance.GetComponent<PhotonView>();
+            photonView.RPC(nameof(EnableWormColliderRPC), RpcTarget.AllBuffered, wormPV.ViewID, true);
+        }
+
         isComming = false;
     }
 

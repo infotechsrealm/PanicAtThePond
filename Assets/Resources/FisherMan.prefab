@@ -147,6 +147,8 @@ GameObject:
   - component: {fileID: 314744784167791529}
   - component: {fileID: -1448744302934470154}
   - component: {fileID: -4830114295532918078}
+  - component: {fileID: 2836222334823471235}
+  - component: {fileID: 4899643278755721038}
   m_Layer: 7
   m_Name: FisherMan
   m_TagString: Fisherman
@@ -245,8 +247,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ba3c4804b59d9469892d7b3a2208f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishermanController_Mirror: {fileID: 2836222334823471235}
   inputAction: {fileID: -948734162650360508, guid: 1a1049bb92f8b934dbc3f85e2bba46cf, type: 3}
   networkTransformUnreliable: {fileID: -4830114295532918078}
+  hookPrefab: {fileID: 2825920470062649857, guid: 7425abcbde3b9664da206dab5c02a51a, type: 3}
   moveSpeed: 2.5
   leftRod: {fileID: 7193815615569484503}
   rightRod: {fileID: 6579769212213636874}
@@ -271,7 +275,6 @@ MonoBehaviour:
   isRight: 0
   isLeft: 1
   meterIncreasing: 1
-  mirrorIdentity: {fileID: -1448744302934470154}
 --- !u!114 &5874070845168669621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,6 +502,39 @@ MonoBehaviour:
   positionSensitivity: 0.01
   rotationSensitivity: 0.01
   scaleSensitivity: 0.01
+--- !u!114 &2836222334823471235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221548032391945581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc0bb1a7437ee3a458d010895f26d7cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  FishermanController: {fileID: -7015520195006371029}
+--- !u!114 &4899643278755721038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221548032391945581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mirror.Components::Mirror.NetworkAnimator
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  clientAuthority: 0
+  animator: {fileID: 7807036194685859462}
 --- !u!1 &4230553814262268714
 GameObject:
   m_ObjectHideFlags: 0

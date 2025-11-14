@@ -32,7 +32,7 @@ public class WormSpawner : MonoBehaviourPunCallbacks
     {
         if (GS.Instance.isLan)
         {
-            if(NetworkServer.active)
+            if(GS.Instance.IsMirrorMasterClient)
             {
                 LoadSpawnWorm();
                 Invoke(nameof(SpawnGoldWorm), Random.Range(5, 10));

@@ -10,6 +10,8 @@ public class FishController : MonoBehaviourPunCallbacks
 
     public PhotonTransformViewClassic photonTransformViewClassic;
 
+    public FishController_Mirror fishController_Mirror;
+
     [SerializeField]
     internal InputActionReference inputAction;
   
@@ -99,7 +101,6 @@ public class FishController : MonoBehaviourPunCallbacks
         
         if (!canMove)
         {
-
             rb.linearVelocity = Vector2.zero;
             return;
         }
@@ -177,12 +178,13 @@ public class FishController : MonoBehaviourPunCallbacks
 
         if (carriedJunk != null)
         {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            if (Keyboard.current.spaceKey.wasPressedThisFrame || Input.GetKeyDown(KeyCode.Space))
             {
                 Debug.Log("Fish is leve the junk");
                 if (GS.Instance.isLan)
                 {
-
+                    fishController_Mirror.TryLeaveJunk(carriedJunk.GetComponent<NetworkIdentity>());
+                    carriedJunk = null;
                 }
                 else
                 {
@@ -294,7 +296,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
                 if (GS.Instance.isLan)
                 {
-                    FishController_Mirror.Instance.Destroy_Mirror(other.gameObject);
+                    fishController_Mirror.Destroy_Mirror(other.gameObject);
                     HungerSystem.Instance.AddHunger(25f);
                 }
                 else
@@ -315,36 +317,32 @@ public class FishController : MonoBehaviourPunCallbacks
 
             if (other.CompareTag("Junk") && carriedJunk == null)
             {
+                Debug.Log("collide with junk");
+
                 animator.SetTrigger("isEat");
                 JunkManager junk = other.GetComponent<JunkManager>();
                 carriedJunk = junk.gameObject;
-                junk.CallFreezeObjectRPC();
-                carriedJunk.transform.SetParent(junkHolder);
-                carriedJunk.transform.localPosition = Vector3.zero;
-                carriedJunk.GetComponent<PolygonCollider2D>().enabled = false;
-                int viewId = other.GetComponent<PhotonView>().ViewID;
 
                 if (GS.Instance.isLan)
                 {
-                    if(GS.Instance.IsMirrorMasterClient)
-                    {
-                    }
-                    else
-                    {
-                        FishController_Mirror.Instance.TryPickupJunk();
-                    }
+                    Debug.Log("is master Client = " + GS.Instance.IsMirrorMasterClient);
+                    junk.CallFreezeObjectRPC();
+                    fishController_Mirror.TryPickupJunk(carriedJunk.GetComponent<NetworkIdentity>());
                 }
                 else
                 {
+                    carriedJunk.transform.SetParent(junkHolder);
+                    carriedJunk.transform.localPosition = Vector3.zero;
+                    carriedJunk.GetComponent<PolygonCollider2D>().enabled = false;
+
+                    junk.CallFreezeObjectRPC();
+                    int viewId = other.GetComponent<PhotonView>().ViewID;
                     photonView.RPC(nameof(SetJunkInFish), RpcTarget.OthersBuffered, viewId);
                     PhotonNetwork.SendAllOutgoingCommands();
                 }
             }
         }
     }
-
-
-   
 
 
     [PunRPC]
@@ -362,7 +360,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
         if (GS.Instance.isLan)
         {
-            FishController_Mirror.Instance.Destroy_Mirror(other);
+            fishController_Mirror.Destroy_Mirror(other);
             transform.localScale =Vector3.zero;
             isFisherMan = true;
             GameManager.Instance.LoadSpawnFisherman();

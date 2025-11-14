@@ -9,11 +9,15 @@ using UnityEngine.UI;
 
 public class FishermanController : MonoBehaviourPunCallbacks
 {
+
     public static FishermanController Instance;
 
+    public FishermanController_Mirror fishermanController_Mirror;
     public InputActionReference inputAction;
 
     public NetworkTransformUnreliable networkTransformUnreliable;
+
+    public GameObject hookPrefab;
 
     [Header("Movement")]
     public float moveSpeed;
@@ -88,7 +92,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         castingMeter = gameManager.castingMeter;
         worms = gameManager.fishermanWorms;
 
-        if (PhotonNetwork.IsMasterClient || GS.Instance.IsMirrorMasterClient)
+        if (PhotonNetwork.IsMasterClient || GS.Instance.isLan)
         {
             // Reset casting meter if available
             if (castingMeter != null)
@@ -97,13 +101,18 @@ public class FishermanController : MonoBehaviourPunCallbacks
                 Debug.LogWarning("Casting meter reference missing!");
 
             // Setup fisherman-related visuals and UI
-            gameManager.hungerBar.SetActive(false);
-            gameManager.fisherManObjects.SetActive(true);
+            if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan)
+            {
+                gameManager.hungerBar.SetActive(false);
+                gameManager.fisherManObjects.SetActive(true);
+                gameManager.UpdateUI(worms);
+            }
+
             gameManager.LoadPreloderOnOff(false);
-            gameManager.UpdateUI(worms);
+
             if(GS.Instance.isLan)
             {
-
+                GameManager.Instance.fisherManIsSpawned = true;
             }
             else
             {
@@ -112,25 +121,40 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
 
             // Start spawning logic
-            if (JunkSpawner.Instance != null)
-            {
-                JunkSpawner.Instance.canSpawn = true;
-                JunkSpawner.Instance.LoadSpawnJunk();
-            }
-
-            if (WormSpawner.Instance != null)
-            {
-                WormSpawner.Instance.canSpawn = true;
-                WormSpawner.Instance.LoadSpawnWorm();
-            }
+            
 
             StartCoroutine(PlayCricketRandomly());
+
             if(GS.Instance.isLan)
             {
+                if(GameManager.Instance.isFisherMan)
+                {
+                    if (JunkSpawner.Instance != null)
+                    {
+                        JunkSpawner.Instance.canSpawn = true;
+                        JunkSpawner.Instance.LoadSpawnJunk();
+                    }
 
+                    if (WormSpawner.Instance != null)
+                    {
+                        WormSpawner.Instance.canSpawn = true;
+                        WormSpawner.Instance.LoadSpawnWorm();
+                    }
+                }
             }
             else
             {
+                if (JunkSpawner.Instance != null)
+                {
+                    JunkSpawner.Instance.canSpawn = true;
+                    JunkSpawner.Instance.LoadSpawnJunk();
+                }
+
+                if (WormSpawner.Instance != null)
+                {
+                    WormSpawner.Instance.canSpawn = true;
+                    WormSpawner.Instance.LoadSpawnWorm();
+                }
                 CheckWorms();
             }
         }
@@ -501,22 +525,51 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
         yield return new WaitForSeconds(0.5f);
 
-        Hook hook = PhotonNetwork.Instantiate("hookPrefab", currentRod.position, Quaternion.identity).GetComponent<Hook>();
+        Hook hook = new Hook();
+        if(GS.Instance.isLan)
+        {
+            GameObject temphook = Instantiate(hookPrefab, currentRod.position, Quaternion.identity);
+            NetworkServer.Spawn(temphook.gameObject);
+            hook = temphook.GetComponent<Hook>();
+        }
+        else
+        {
+             hook = PhotonNetwork.Instantiate(hookPrefab.name, currentRod.position, Quaternion.identity).GetComponent<Hook>();
+        }
+
         if (hook != null)
         {
-            int hookID = hook.GetComponent<PhotonView>().ViewID;
+            if (GS.Instance.isLan)
+            {
+                fishermanController_Mirror.TryToSetJunkRod(hook.GetComponent<NetworkIdentity>(), currentRod.position);
 
-            // Send RPC to all clients to set rodTip
-            photonView.RPC(nameof(SetupHookRodRPC), RpcTarget.AllBuffered, hookID, currentRod.position);
+               // hook.rodTip = currentRod.position;
 
-            hook.rodTip = currentRod.position;
+                // Automatic worm attach
+                hook.AttachWorm();
 
-            // Automatic worm attach
-            hook.AttachWorm();
+                // Launch hook based on meter value
+                float castDistance = castingMeter.value * maxCastDistance;
+                hook.LaunchDownWithDistance(castDistance);
 
-            // Launch hook based on meter value
-            float castDistance = castingMeter.value * maxCastDistance;
-            hook.LaunchDownWithDistance(castDistance);
+            }
+            else
+            {
+                int hookID = hook.GetComponent<PhotonView>().ViewID;
+
+                // Send RPC to all clients to set rodTip
+                photonView.RPC(nameof(SetupHookRodRPC), RpcTarget.AllBuffered, hookID, currentRod.position);
+
+                hook.rodTip = currentRod.position;
+
+                // Automatic worm attach
+                hook.AttachWorm();
+
+                // Launch hook based on meter value
+                float castDistance = castingMeter.value * maxCastDistance;
+                hook.LaunchDownWithDistance(castDistance);
+            }
+
         }
         else
         {

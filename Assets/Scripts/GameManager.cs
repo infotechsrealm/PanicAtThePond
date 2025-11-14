@@ -158,7 +158,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         if (GS.Instance.isLan)
         {
-
             myFish.GetComponent<FishController_Mirror>().RequestSpawnFisherman();
         }
         else

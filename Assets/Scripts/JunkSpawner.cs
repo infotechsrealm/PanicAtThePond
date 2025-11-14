@@ -60,7 +60,8 @@ public class JunkSpawner : MonoBehaviour
                 Vector2 pos = new Vector2(x, posRefrence.position.y);
 
                 GameObject prefab = junkPrefabs[Random.Range(0, junkPrefabs.Length)];
-                GameObject newJunk;
+
+                GameObject newJunk = new GameObject();
 
                 if (GS.Instance.isLan)
                 {
