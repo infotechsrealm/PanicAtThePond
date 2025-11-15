@@ -588,6 +588,7 @@ public class LANDiscoveryMenu : MonoBehaviour
 
     public void JoinRoom()
     {
+        GS.Instance.totlePlayers = DiscoveredServerInfo.maxPlayers;
         GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
         listenPort = DiscoveredServerInfo.baseBroadcastPort;
         networkDiscovery.serverBroadcastListenPort = listenPort;

@@ -9,6 +9,15 @@ public class FishController_Mirror : NetworkBehaviour
 
     public FishController fishController;
 
+    private void Start()
+    {
+        Debug.Log("=== FishController_Mirror CALLED ===");
+        Debug.Log("isServer: " + isServer);
+        Debug.Log("isClient: " + isClient);
+        Debug.Log("isLocalPlayer: " + isLocalPlayer);
+        Debug.Log("connectionToClient: " + connectionToClient);
+    }
+
     public void Destroy_Mirror(GameObject target)
     {
         if (NetworkServer.active)
@@ -27,6 +36,8 @@ public class FishController_Mirror : NetworkBehaviour
         NetworkServer.Destroy(target);
     }
 
+
+    //generate FisherMan
     public GameObject fishermanPrefab;
 
     public void RequestSpawnFisherman()
@@ -50,7 +61,6 @@ public class FishController_Mirror : NetworkBehaviour
         GameObject fisherman = Instantiate(fishermanPrefab, spawnPos, Quaternion.identity);
         NetworkServer.Spawn(fisherman, connectionToClient); // 🔹 gives authority to caller client
     }
-
 
     //Catch Junk in the Fish Mouth
     public void TryPickupJunk(NetworkIdentity junkIdentity)
@@ -127,4 +137,69 @@ public class FishController_Mirror : NetworkBehaviour
 
         }
     }
+
+
+
+    // fisher man rpc
+
+    public GameObject hookPrefab;
+
+    public FishermanController FishermanController;
+
+    public void SpawnHook()
+    {   
+        if (isLocalPlayer)
+        {
+            CmdSpawnHook();
+        }
+        else
+        {
+            GameObject temphook = Instantiate(hookPrefab,  FishermanController.currentRod.position, Quaternion.identity);
+            NetworkServer.Spawn(temphook, connectionToClient); // 🔹 gives authority to caller client
+        }
+    }
+
+    [Command]
+    void CmdSpawnHook()
+    {
+        GameObject temphook = Instantiate(hookPrefab, FishermanController.currentRod.position, Quaternion.identity);
+        NetworkServer.Spawn(temphook, connectionToClient); // 🔹 gives authority to caller client
+    }
+
+
+    /* public override void OnStartServer()
+     {
+         NetworkServer.RegisterHandler<SpawnHookMessage>(OnSpawnHookMessage);
+     }
+
+     void OnSpawnHookMessage(NetworkConnectionToClient conn, SpawnHookMessage msg)
+     {
+         // SERVER ALWAYS SPAWNS
+         GameObject hook = Instantiate(hookPrefab);
+         NetworkServer.Spawn(hook);
+     }*/
+
+    public struct SpawnHookMessage : NetworkMessage { }
+
+    public override void OnStartServer()
+    {
+        NetworkServer.RegisterHandler<SpawnHookMessage>(OnSpawnHookMessage);
+    }
+
+    void OnSpawnHookMessage(NetworkConnectionToClient conn, SpawnHookMessage msg)
+    {
+        Debug.Log("SERVER: SpawnHookMessage RECEIVED from client " + conn.connectionId);
+
+        GameObject temphook = Instantiate(
+            FishermanController.hookPrefab,
+            FishermanController.currentRod.position,
+            Quaternion.identity
+        );
+
+        NetworkServer.Spawn(temphook);
+        // ❗ authority optional है, देना हो तो:
+        // NetworkServer.Spawn(temphook, conn);
+    }
+
+
 }

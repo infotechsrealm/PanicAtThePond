@@ -20,6 +20,8 @@ public class GS : MonoBehaviour
 
     internal bool isMasterClient;
 
+    internal int totlePlayers;
+
     public bool isLan = false,IsMirrorMasterClient = false;
     private void Awake()
     {

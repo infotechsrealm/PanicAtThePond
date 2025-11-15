@@ -77,42 +77,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         }
     }
 
-   /* public void OnClickAction(string action)
-    {
-        switch (action)
-        {
-            case "Create":
-                {
-                    CreateCustomeRoom();
-                    break;
-                }
-
-            case "JoinRandom":
-                {
-                    JoinRandomAvailableRoom();
-                    break;
-                }
-
-            case "JoinCustome":
-                {
-                    JoinCustomeRoom();
-                    break;
-                }
-
-            case "howToPlay":
-                {
-                    Instantiate(GS.Instance.howToPlay, createJoinManager.transform);
-                    break;
-                }
-
-            case "Start":
-                {
-                    customeStartGame();
-                    break;
-                }
-        }
-    }*/
-
     // ------------------ Create Custome Room ------------------
 
     internal void CreateCustomeRoom()

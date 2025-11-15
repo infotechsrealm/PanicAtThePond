@@ -83,7 +83,17 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         if (GS.Instance.isLan)
         {
-            totalPlayers = NetworkServer.connections.Count;
+            if (GS.Instance.IsMirrorMasterClient)
+            {
+                totalPlayers = NetworkServer.connections.Count;
+            }
+            else
+            {
+                Debug.Log("totlePlayer = " + GS.Instance.totlePlayers);
+                totalPlayers = GS.Instance.totlePlayers;
+            }
+
+
         }
         else
         {

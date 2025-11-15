@@ -19,6 +19,8 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
     public GameObject hookPrefab;
 
+    public FishController fishController;
+
     [Header("Movement")]
     public float moveSpeed;
 
@@ -80,7 +82,8 @@ public class FishermanController : MonoBehaviourPunCallbacks
         Debug.Log("FishermanController Start called");
         gameManager.LoadPreloderOnOff(false);
 
-
+        fishController = GameManager.Instance.myFish.GetComponent<FishController>();
+        fishController.fishController_Mirror.FishermanController = this;
 
         if (gameManager == null)
         {
@@ -127,7 +130,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
             if(GS.Instance.isLan)
             {
-                if(GameManager.Instance.isFisherMan)
+                if(GameManager.Instance.isFisherMan && GS.Instance.IsMirrorMasterClient)
                 {
                     if (JunkSpawner.Instance != null)
                     {
@@ -252,6 +255,22 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
     void Update()
     {
+       /* if (isServer)
+        {
+            Debug.Log("I am Server (or Host)");
+        }
+
+        if (isClient)
+        {
+            Debug.Log("I am Client");
+        }
+
+        if (isLocalPlayer)
+        {
+            Debug.Log("I am Local Player");
+        }*/
+
+
         if (GS.Instance.isLan)
         {
             if (!GameManager.Instance.isFisherMan)
@@ -273,7 +292,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
                 HandleRodSelection();
         }
 
-        HandleCasting();
+        FisherManCastingFish();
     }
 
     void FisherManMovement()
@@ -312,7 +331,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
 
             Vector3 move = new Vector3(moveInput * moveSpeed * Time.deltaTime, 0, 0);
-            Debug.Log(move);
             transform.position += move;
 
             // Clamp only X position
@@ -405,7 +423,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
                 {
                     moveInputY = -1;
                 }
-                Debug.Log("moveInputY" + moveInputY); 
             }
             else
             {
@@ -450,7 +467,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             }
         }
     }
-    void HandleCasting()
+    void FisherManCastingFish()
     {
         if (!isCasting && Keyboard.current.xKey.isPressed && Keyboard.current.vKey.isPressed)
         {
@@ -479,6 +496,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
         if (worms > 0)
         {
+
             if (isCasting && Keyboard.current.xKey.wasReleasedThisFrame || isCasting && Keyboard.current.vKey.wasReleasedThisFrame)
             {
                 StartCoroutine(ReleaseCast());
@@ -503,6 +521,8 @@ public class FishermanController : MonoBehaviourPunCallbacks
         }
     }
 
+
+
     IEnumerator ReleaseCast()
     {
         Debug.Log("ReleaseCast");
@@ -525,16 +545,26 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
         yield return new WaitForSeconds(0.5f);
 
-        Hook hook = new Hook();
-        if(GS.Instance.isLan)
+        Hook hook;
+        hook = null;
+
+        if (GS.Instance.isLan)
         {
-            GameObject temphook = Instantiate(hookPrefab, currentRod.position, Quaternion.identity);
-            NetworkServer.Spawn(temphook.gameObject);
-            hook = temphook.GetComponent<Hook>();
+            /* if (GS.Instance.IsMirrorMasterClient)
+             {
+                 GameObject temphook = Instantiate(hookPrefab, currentRod.position, Quaternion.identity);
+                 NetworkServer.Spawn(temphook.gameObject);
+                 hook = temphook.GetComponent<Hook>();
+             }
+             else
+             {
+             }*/
+            fishermanController_Mirror.SpawnHook();
+            //fishController.fishController_Mirror.SpawnHook();
         }
         else
         {
-             hook = PhotonNetwork.Instantiate(hookPrefab.name, currentRod.position, Quaternion.identity).GetComponent<Hook>();
+            hook = PhotonNetwork.Instantiate(hookPrefab.name, currentRod.position, Quaternion.identity).GetComponent<Hook>();
         }
 
         if (hook != null)
@@ -546,7 +576,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
                // hook.rodTip = currentRod.position;
 
                 // Automatic worm attach
-                hook.AttachWorm();
+               // hook.AttachWorm();
 
                 // Launch hook based on meter value
                 float castDistance = castingMeter.value * maxCastDistance;
@@ -569,6 +599,22 @@ public class FishermanController : MonoBehaviourPunCallbacks
                 float castDistance = castingMeter.value * maxCastDistance;
                 hook.LaunchDownWithDistance(castDistance);
             }
+            if (currentRod == leftRod)
+            {
+                leftHook = hook.gameObject;
+            }
+            else
+            {
+                rightHook = hook.gameObject;
+            }
+
+            if (worms > 0)
+            {
+                worms--;
+                GameManager.Instance.UpdateUI(worms);
+            }
+
+            castingMeter.value = 0;
 
         }
         else
@@ -577,22 +623,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         }
 
         // Track hook per rod
-        if (currentRod == leftRod)
-        {
-            leftHook = hook.gameObject;
-        }
-        else
-        {
-            rightHook = hook.gameObject;
-        }
-
-        if (worms > 0)
-        {
-            worms--;
-            GameManager.Instance.UpdateUI(worms);
-        }
-
-        castingMeter.value = 0;
+        
     }
 
 
@@ -617,6 +648,8 @@ public class FishermanController : MonoBehaviourPunCallbacks
         if (hook == leftHook) leftHook = null;
         if (hook == rightHook) rightHook = null;
     }
+
+
 
     // Check worms and print lose message
     public void CheckWorms()

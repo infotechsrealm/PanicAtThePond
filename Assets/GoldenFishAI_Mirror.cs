@@ -9,7 +9,14 @@ public class GoldenFishAI_Mirror : NetworkBehaviour
     {
         Instance = this;
     }
-
+    private void Start()
+    {
+        Debug.Log("=== GoldenFishAI_Mirror CALLED ===");
+        Debug.Log("isServer: " + isServer);
+        Debug.Log("isClient: " + isClient);
+        Debug.Log("isLocalPlayer: " + isLocalPlayer);
+        Debug.Log("connectionToClient: " + connectionToClient);
+    }
     public void Destroy_Mirror(GameObject target)
     {
         if (NetworkServer.active)

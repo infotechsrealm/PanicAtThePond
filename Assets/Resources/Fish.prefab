@@ -624,6 +624,9 @@ MonoBehaviour:
   moveAction: {fileID: 0}
   fishController: {fileID: 7943789805972749232}
   fishermanPrefab: {fileID: 4221548032391945581, guid: b839bcb9e6837534c89107afe33ac208, type: 3}
+  hookPrefab: {fileID: 2825920470062649857, guid: 7425abcbde3b9664da206dab5c02a51a, type: 3}
+  FishermanController: {fileID: 0}
+  fishermanController_Mirror: {fileID: 0}
 --- !u!114 &2305398131311501469
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -90,7 +90,6 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
             // Move toward center first
             transform.position = Vector2.MoveTowards(transform.position, centerPos, moveSpeed * Time.deltaTime);
 
-            Debug.Log(" GoldenFishAI Moving to Center = " + Vector2.Distance(transform.position, centerPos));
             if (Vector2.Distance(transform.position, centerPos) < 0.1f)
             {
                 reachedCenter = true;       // reached center, now start random movement
@@ -99,7 +98,6 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
             }
             else
             {
-                Debug.Log("GoldenFishAI Reached Center");
             }
         }
         else

@@ -9,6 +9,8 @@ public class Hook : MonoBehaviourPunCallbacks
     [SerializeField]
     internal Vector3 rodTip;
 
+    public Hook_Mirror hook_Mirror;
+
     public LineRenderer lineRenderer;
     public float dropSpeed = 3f;
 
@@ -16,7 +18,7 @@ public class Hook : MonoBehaviourPunCallbacks
     public Transform wormParent;
     private GameObject wormInstance;
 
-    private bool hasWorm = false;
+    internal bool hasWorm = false;
     private bool isReturning = false,isComming = true;
 
     public float minDistance = 2f;   // Minimum hook drop distance
@@ -80,6 +82,7 @@ public class Hook : MonoBehaviourPunCallbacks
                 if(GS.Instance.IsMirrorMasterClient)
                 {
                     WormSpawner.Instance.activeWorms.Add(worm);
+                    hook_Mirror.ClientAndServerActions(worm.GetComponent<NetworkIdentity>());
                 }
             }
             else

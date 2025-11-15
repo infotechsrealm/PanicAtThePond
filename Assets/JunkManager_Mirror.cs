@@ -7,6 +7,15 @@ public class JunkManager_Mirror : NetworkBehaviour
     public JunkManager junkManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    private void Start()
+    {
+        Debug.Log("=== JunkManager_Mirror CALLED ===");
+        Debug.Log("isServer: " + isServer);
+        Debug.Log("isClient: " + isClient);
+        Debug.Log("isLocalPlayer: " + isLocalPlayer);
+        Debug.Log("connectionToClient: " + connectionToClient);
+    }
+
     public void RequestFreezeObject()
     {
         if (GS.Instance.IsMirrorMasterClient)

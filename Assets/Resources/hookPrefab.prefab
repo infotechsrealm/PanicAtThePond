@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 7169404159368920670}
   - component: {fileID: 2533937370530697558}
   - component: {fileID: 1385261155022182897}
+  - component: {fileID: 3856487077897779958}
   m_Layer: 10
   m_Name: hookPrefab
   m_TagString: Untagged
@@ -188,6 +189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a723f636275564fa3704f03dec14cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rodTip: {x: 0, y: 0, z: 0}
+  hook_Mirror: {fileID: 3856487077897779958}
   lineRenderer: {fileID: 2015050245431887086}
   dropSpeed: 3
   wormPrefab: {fileID: 7213787239234744724, guid: ed9be4f8a38e17c45abcef0b0b7bb870, type: 3}
@@ -510,3 +513,19 @@ MonoBehaviour:
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+--- !u!114 &3856487077897779958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2825920470062649857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37576ad10475c84f80533ebc429a0ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  hook: {fileID: 8745433059096344888}

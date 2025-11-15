@@ -1,10 +1,80 @@
-using Mirror;
+﻿using Mirror;
 using UnityEngine;
+using static FishController_Mirror;
 
 public class FishermanController_Mirror : NetworkBehaviour
 {
     public FishermanController FishermanController;
 
+    private void Start()
+    {
+        Debug.Log("=== FishermanController_Mirror CALLED ===");
+        Debug.Log("isServer: " + isServer);
+        Debug.Log("isClient: " + isClient);
+        Debug.Log("isLocalPlayer: " + isLocalPlayer);
+        Debug.Log("connectionToClient: " + connectionToClient);
+    }
+    //generat hook
+    public void SpawnHook()
+    {
+        Debug.Log("=== FishermanController_Mirror CALLED ===");
+        Debug.Log("isServer: " + isServer);
+        Debug.Log("isClient: " + isClient);
+        Debug.Log("isLocalPlayer: " + isLocalPlayer);
+        Debug.Log("connectionToClient: " + connectionToClient);
+
+        if (isLocalPlayer)
+        {
+            Debug.Log("FishermanController_Mirror is local ");
+
+            CmdSpawnHook();
+        }
+        else if(isServer) 
+        {
+            Debug.Log("FishermanController_Mirror is isServer ");
+            GameObject temphook = Instantiate(FishermanController.hookPrefab, FishermanController.currentRod.position, Quaternion.identity);
+            NetworkServer.Spawn(temphook, connectionToClient); // 🔹 gives authority to caller client
+        }
+        else
+        {
+            
+            /*Debug.Log("FishermanController_Mirror is not server and not local");
+            NetworkClient.Send(new SpawnHookMessage());*/
+
+              NetworkClient.Send(new SpawnHookMessage());
+
+            /* GameObject temphook = Instantiate(FishermanController.hookPrefab, FishermanController.currentRod.position, Quaternion.identity);
+             NetworkServer.Spawn(temphook);*/
+        }
+    }
+
+    [Command]
+    void CmdSpawnHook()
+    {
+        GameObject temphook = Instantiate(FishermanController.hookPrefab, FishermanController.currentRod.position, Quaternion.identity);
+        NetworkServer.Spawn(temphook, connectionToClient); // 🔹 gives authority to caller client
+    }
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // set junk 
     public void TryToSetJunkRod(NetworkIdentity hookIDidentity , Vector3 curruntRod)
     {
         if (hookIDidentity != null)
