@@ -102,6 +102,14 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         SpawnPlayer();
     }
+
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            SpawnFisherMan();
+        }
+    }
     public void UpdateUI(int currunt_Warms)
     {
         // Text
@@ -124,6 +132,23 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+
+    void SpawnFisherMan()
+    {
+                Debug.Log("cafelkjekljafba");
+        foreach (var conn in NetworkServer.connections.Values)
+        {
+            Debug.Log("cafelkjekljafba");
+
+            if (conn.identity == null)
+            {
+                Debug.Log("cafelkjekljafba");
+                GameObject fish = Instantiate(fishermanPrefab, new Vector3(0f, 3.15f, 0f), Quaternion.identity);
+
+                NetworkServer.AddPlayerForConnection(conn, fish);
+            }
+        }
+    }
     void SpawnPlayer()
     {
         if(GS.Instance.isLan)

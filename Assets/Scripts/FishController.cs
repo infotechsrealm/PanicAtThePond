@@ -12,6 +12,8 @@ public class FishController : MonoBehaviourPunCallbacks
 
     public FishController_Mirror fishController_Mirror;
 
+    public FishermanController fishermanController;
+
     [SerializeField]
     internal InputActionReference inputAction;
   
@@ -280,10 +282,9 @@ public class FishController : MonoBehaviourPunCallbacks
                 animator.SetTrigger("isEat");
                 GameManager.Instance.isFisherMan = true;
                 PlaySFX(fishEatWarmSound);
-                GameManager.Instance.goldWormEatByFish = true; PlaySFX(fishEatWarmSound);
+                GameManager.Instance.goldWormEatByFish = true;
                 GS.Instance.SetVolume(audioSource);
                 audioSource.Play();
-
                 other.gameObject.transform.localScale = Vector3.zero;
                 other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
                 StartCoroutine(GenerateFisherMan(other.gameObject));
@@ -360,12 +361,24 @@ public class FishController : MonoBehaviourPunCallbacks
 
         if (GS.Instance.isLan)
         {
+            foreach (var conn in NetworkServer.connections.Values)
+            {
+                if (conn.identity != null)
+                {
+                    Debug.Log("RemovePlayerForConnection ");
+                    NetworkServer.RemovePlayerForConnection(conn, true);
+                }
+            }
+
+            Debug.Log("GenerateFisherMan");
             fishController_Mirror.Destroy_Mirror(other);
             transform.localScale =Vector3.zero;
             isFisherMan = true;
-            GameManager.Instance.LoadSpawnFisherman();
+            //fishController_Mirror.Destroy_Mirror(gameObject);
+            //GameManager.Instance.LoadSpawnFisherman();
             //WormSpawner.Instance.DestroyAllWorms();
             //FishController_Mirror.Instance.Destroy_Mirror(gameObject);
+
 
         }
         else
@@ -387,13 +400,11 @@ public class FishController : MonoBehaviourPunCallbacks
         }
     }
 
-
     [PunRPC]
     public void LoadDestroyAllWormsRPC()
     {
         WormSpawner.Instance.DestroyAllWorms();
     }
-
 
     [PunRPC]
     void DestroyWormRPC(int viewID)

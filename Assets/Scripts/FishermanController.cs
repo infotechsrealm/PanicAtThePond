@@ -130,7 +130,8 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
             if(GS.Instance.isLan)
             {
-                if(GameManager.Instance.isFisherMan && GS.Instance.IsMirrorMasterClient)
+                GameManager.Instance.myFish.fishermanController = this; 
+                if (GameManager.Instance.isFisherMan && GS.Instance.IsMirrorMasterClient)
                 {
                     if (JunkSpawner.Instance != null)
                     {
@@ -496,10 +497,17 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
         if (worms > 0)
         {
-
             if (isCasting && Keyboard.current.xKey.wasReleasedThisFrame || isCasting && Keyboard.current.vKey.wasReleasedThisFrame)
             {
-                StartCoroutine(ReleaseCast());
+                if(GS.Instance.isLan)
+                {
+                    Debug.Log("Called");
+                    GameManager.Instance.myFish.fishController_Mirror.CallLoadReleaseCast();
+                }
+                else
+                {
+                    LoadReleaseCast();
+                }
             }
         }
     }
@@ -521,7 +529,10 @@ public class FishermanController : MonoBehaviourPunCallbacks
         }
     }
 
-
+    public void LoadReleaseCast()
+    {
+        StartCoroutine(ReleaseCast());
+    }
 
     IEnumerator ReleaseCast()
     {

@@ -202,4 +202,33 @@ public class FishController_Mirror : NetworkBehaviour
     }
 
 
+    public void CallLoadReleaseCast()
+    {
+        if (!isLocalPlayer)
+            return;
+
+        Debug.Log("FishermanController_Mirror is local ");
+
+        // Client → Server
+        CmdCallLoadReleaseCast();
+    }
+
+    [Command]
+    void CmdCallLoadReleaseCast()
+    {
+        // Server executes the logic
+        FishermanController.LoadReleaseCast();
+
+        // If you want clients to also run visuals
+        RpcCallLoadReleaseCast();
+    }
+
+    [ClientRpc]
+    void RpcCallLoadReleaseCast()
+    {
+        // Only play visuals (no server/state logic)
+        if (!isServer)  // to avoid host double-calling
+            FishermanController.LoadReleaseCast();
+    }
+
 }

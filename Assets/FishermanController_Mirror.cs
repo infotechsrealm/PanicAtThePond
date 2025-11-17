@@ -14,6 +14,29 @@ public class FishermanController_Mirror : NetworkBehaviour
         Debug.Log("isLocalPlayer: " + isLocalPlayer);
         Debug.Log("connectionToClient: " + connectionToClient);
     }
+
+    public void CallLoadReleaseCast()
+    {
+
+        if (isLocalPlayer)
+        {
+            Debug.Log("FishermanController_Mirror is local ");
+
+            RPCCallLoadReleaseCast();
+        }
+        else if (isServer)
+        {
+            FishermanController.LoadReleaseCast();
+
+        }
+    }
+
+    [Command]
+    void RPCCallLoadReleaseCast()
+    {
+        FishermanController.LoadReleaseCast();
+    }
+
     //generat hook
     public void SpawnHook()
     {
@@ -23,7 +46,11 @@ public class FishermanController_Mirror : NetworkBehaviour
         Debug.Log("isLocalPlayer: " + isLocalPlayer);
         Debug.Log("connectionToClient: " + connectionToClient);
 
-        if (isLocalPlayer)
+
+        GameObject temphook = Instantiate(FishermanController.hookPrefab, FishermanController.currentRod.position, Quaternion.identity);
+        NetworkServer.Spawn(temphook, connectionToClient); // 🔹 gives authority to caller client
+
+       /* if (isLocalPlayer)
         {
             Debug.Log("FishermanController_Mirror is local ");
 
@@ -38,14 +65,14 @@ public class FishermanController_Mirror : NetworkBehaviour
         else
         {
             
-            /*Debug.Log("FishermanController_Mirror is not server and not local");
-            NetworkClient.Send(new SpawnHookMessage());*/
+            *//*Debug.Log("FishermanController_Mirror is not server and not local");
+            NetworkClient.Send(new SpawnHookMessage());*//*
 
-              NetworkClient.Send(new SpawnHookMessage());
+          //   NetworkClient.Send(new SpawnHookMessage());
 
-            /* GameObject temphook = Instantiate(FishermanController.hookPrefab, FishermanController.currentRod.position, Quaternion.identity);
-             NetworkServer.Spawn(temphook);*/
-        }
+            *//* GameObject temphook = Instantiate(FishermanController.hookPrefab, FishermanController.currentRod.position, Quaternion.identity);
+             NetworkServer.Spawn(temphook);*//*
+        }*/
     }
 
     [Command]
