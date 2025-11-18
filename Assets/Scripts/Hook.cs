@@ -43,6 +43,17 @@ public class Hook : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        if(FishermanController_Mirror.Instance !=null)
+        {
+            FishermanController_Mirror.Instance.hook = this;
+        }
+
+        if (GS.Instance.isLan && GS.Instance.IsMirrorMasterClient)
+        {
+            Debug.Log("hook is generated");
+            transform.localScale = Vector3.zero;
+        }
+
         if (lineRenderer == null)
             lineRenderer = gameObject.AddComponent<LineRenderer>();
 
@@ -57,9 +68,15 @@ public class Hook : MonoBehaviourPunCallbacks
 
     void Update()
     {
-        if (rodTip == null || lineRenderer == null)
+        if (rodTip == null || lineRenderer == null || transform.localScale == Vector3.zero)
+        {
+            lineRenderer.enabled = false;
             return;
+        }
 
+        lineRenderer.enabled = true;
+
+        Debug.Log("scal =" + transform.localScale);
         lineRenderer.SetPosition(0, rodTip);
         lineRenderer.SetPosition(1, transform.position);
 
@@ -117,6 +134,7 @@ public class Hook : MonoBehaviourPunCallbacks
     // Launch hook with variable distance
     public void LaunchDownWithDistance(float distance)
     {
+
         distance = Mathf.Clamp(distance, minDistance, maxDistance);
         StartCoroutine(MoveDown(distance));
     }

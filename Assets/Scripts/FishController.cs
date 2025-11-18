@@ -361,25 +361,11 @@ public class FishController : MonoBehaviourPunCallbacks
 
         if (GS.Instance.isLan)
         {
-            foreach (var conn in NetworkServer.connections.Values)
-            {
-                if (conn.identity != null)
-                {
-                    Debug.Log("RemovePlayerForConnection ");
-                    NetworkServer.RemovePlayerForConnection(conn, true);
-                }
-            }
-
             Debug.Log("GenerateFisherMan");
             fishController_Mirror.Destroy_Mirror(other);
             transform.localScale =Vector3.zero;
             isFisherMan = true;
-            //fishController_Mirror.Destroy_Mirror(gameObject);
-            //GameManager.Instance.LoadSpawnFisherman();
-            //WormSpawner.Instance.DestroyAllWorms();
-            //FishController_Mirror.Instance.Destroy_Mirror(gameObject);
-
-
+            GameManager.Instance.LoadSpawnFisherman();
         }
         else
         {

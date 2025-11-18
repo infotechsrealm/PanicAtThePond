@@ -1,11 +1,19 @@
 ﻿using Mirror;
 using UnityEngine;
-using static FishController_Mirror;
 
 public class FishermanController_Mirror : NetworkBehaviour
 {
+    public static FishermanController_Mirror Instance;
     public FishermanController FishermanController;
 
+    public Hook hookPrefab;
+    internal Hook hook;
+
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         Debug.Log("=== FishermanController_Mirror CALLED ===");
@@ -13,30 +21,10 @@ public class FishermanController_Mirror : NetworkBehaviour
         Debug.Log("isClient: " + isClient);
         Debug.Log("isLocalPlayer: " + isLocalPlayer);
         Debug.Log("connectionToClient: " + connectionToClient);
+
+        SpawnHook();
     }
-
-    public void CallLoadReleaseCast()
-    {
-
-        if (isLocalPlayer)
-        {
-            Debug.Log("FishermanController_Mirror is local ");
-
-            RPCCallLoadReleaseCast();
-        }
-        else if (isServer)
-        {
-            FishermanController.LoadReleaseCast();
-
-        }
-    }
-
-    [Command]
-    void RPCCallLoadReleaseCast()
-    {
-        FishermanController.LoadReleaseCast();
-    }
-
+   
     //generat hook
     public void SpawnHook()
     {
@@ -44,73 +32,35 @@ public class FishermanController_Mirror : NetworkBehaviour
         Debug.Log("isServer: " + isServer);
         Debug.Log("isClient: " + isClient);
         Debug.Log("isLocalPlayer: " + isLocalPlayer);
-        Debug.Log("connectionToClient: " + connectionToClient);
-
-
-        GameObject temphook = Instantiate(FishermanController.hookPrefab, FishermanController.currentRod.position, Quaternion.identity);
-        NetworkServer.Spawn(temphook, connectionToClient); // 🔹 gives authority to caller client
-
-       /* if (isLocalPlayer)
-        {
-            Debug.Log("FishermanController_Mirror is local ");
-
-            CmdSpawnHook();
-        }
-        else if(isServer) 
-        {
-            Debug.Log("FishermanController_Mirror is isServer ");
-            GameObject temphook = Instantiate(FishermanController.hookPrefab, FishermanController.currentRod.position, Quaternion.identity);
-            NetworkServer.Spawn(temphook, connectionToClient); // 🔹 gives authority to caller client
-        }
-        else
-        {
-            
-            *//*Debug.Log("FishermanController_Mirror is not server and not local");
-            NetworkClient.Send(new SpawnHookMessage());*//*
-
-          //   NetworkClient.Send(new SpawnHookMessage());
-
-            *//* GameObject temphook = Instantiate(FishermanController.hookPrefab, FishermanController.currentRod.position, Quaternion.identity);
-             NetworkServer.Spawn(temphook);*//*
-        }*/
-    }
-
-    [Command]
-    void CmdSpawnHook()
-    {
-        GameObject temphook = Instantiate(FishermanController.hookPrefab, FishermanController.currentRod.position, Quaternion.identity);
-        NetworkServer.Spawn(temphook, connectionToClient); // 🔹 gives authority to caller client
-    }
-
-
    
+        if (isServer)
+        {
+            if (hookPrefab == null)
+            {
+                Debug.LogError("Hook Prefab not assigned!");
+                return;
+            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            hook = Instantiate(hookPrefab, transform.position, Quaternion.identity);
+            NetworkServer.Spawn(hook.gameObject, connectionToClient); // 🔹 gives authority to caller client
+        }
+    }
 
     // set junk 
-    public void TryToSetJunkRod(NetworkIdentity hookIDidentity , Vector3 curruntRod)
+    public void TryToSetJunkRod( Vector3 curruntRod)
     {
+        Debug.Log("TryToSetJunkRod called"); 
+
+        hook.transform.position = curruntRod;
+        hook.transform.localScale = Vector3.one;
+        NetworkIdentity hookIDidentity = hook.GetComponent<NetworkIdentity>();
+
         if (hookIDidentity != null)
         {
-            CmdSetJunkRod(hookIDidentity.netId , curruntRod);
+            CmdSetJunkRod(hookIDidentity.netId, curruntRod);
         }
     }
 
-    [Command]
     void CmdSetJunkRod(uint hookID , Vector3 curruntRod)
     {
         Debug.Log("CmdSetJunkRod called" + curruntRod);
@@ -125,7 +75,9 @@ public class FishermanController_Mirror : NetworkBehaviour
                 hook.rodTip = curruntRod;
             }
 
-            RpcSetJunkRod(hookID, curruntRod);
+
+
+           // RpcSetJunkRod(hookID, curruntRod);
         }
     }
 
@@ -146,4 +98,5 @@ public class FishermanController_Mirror : NetworkBehaviour
             }
         }
     }
+
 }
