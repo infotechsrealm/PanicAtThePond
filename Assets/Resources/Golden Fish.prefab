@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: -4517934398018568286}
   - component: {fileID: 3021603248737241455}
   - component: {fileID: 671866696568434317}
+  - component: {fileID: 3423859403196619595}
   m_Layer: 12
   m_Name: Golden Fish
   m_TagString: GoldTrout
@@ -141,7 +142,6 @@ MonoBehaviour:
   minBounds: {x: -8, y: -4}
   maxBounds: {x: 8, y: 1}
   animator: {fileID: 3995746989553086495}
-  mirrorIdentity: {fileID: -4517934398018568286}
 --- !u!114 &3755046863711763629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,3 +437,20 @@ MonoBehaviour:
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+--- !u!114 &3423859403196619595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502157577693095812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mirror.Components::Mirror.NetworkAnimator
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  clientAuthority: 0
+  animator: {fileID: 3995746989553086495}

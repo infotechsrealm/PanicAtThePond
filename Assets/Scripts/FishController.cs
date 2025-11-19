@@ -44,7 +44,7 @@ public class FishController : MonoBehaviourPunCallbacks
     internal GameObject carriedJunk;
 
     [Header("Floating on Death")]
-    private bool isDead = false;
+    internal bool isDead = false;
    internal bool isFisherMan= false;
     private Rigidbody2D rb;
 
@@ -215,7 +215,15 @@ public class FishController : MonoBehaviourPunCallbacks
         if (carriedJunk != null)
         {
             int viewId = carriedJunk.GetComponent<PhotonView>().ViewID;
-            photonView.RPC(nameof(LeaveJunk), RpcTarget.OthersBuffered, viewId);
+            if (GS.Instance.isLan)
+            {
+                fishController_Mirror.TryLeaveJunk(carriedJunk.GetComponent<NetworkIdentity>());
+                carriedJunk = null;
+            }
+            else
+            {
+                photonView.RPC(nameof(LeaveJunk), RpcTarget.OthersBuffered, viewId);
+            }
         }
 
         float targetY = maxBounds.y; // Surface
@@ -441,6 +449,7 @@ public class FishController : MonoBehaviourPunCallbacks
         int hookViewID = Hook.Instance.GetComponent<PhotonView>().ViewID;
         photonView.RPC(nameof(PutFishInHookRPC), RpcTarget.All, fishViewID, hookViewID);
         PhotonNetwork.SendAllOutgoingCommands();
+
         if (photonView.IsMine)
         {
             if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
@@ -473,10 +482,22 @@ public class FishController : MonoBehaviourPunCallbacks
         PhotonNetwork.SendAllOutgoingCommands();
     }
 
+
+
     //call this function in GameManager
     public void CallWinFishRPC()
     {
-        photonView.RPC(nameof(WinFish), RpcTarget.Others);
+        if (GS.Instance.isLan)
+        {
+            if (transform.localScale == Vector3.zero)
+            {
+                fishController_Mirror.TryWinFish();
+            }
+        }
+        else
+        {
+            photonView.RPC(nameof(WinFish), RpcTarget.Others);
+        }
     }
 
     //call this function in GameManager
@@ -489,6 +510,19 @@ public class FishController : MonoBehaviourPunCallbacks
     public void WinFish()
     {
         if (photonView.IsMine && !isDead)
+        {
+            GameManager.Instance.ShowGameOver("You win!");
+            canMove = false;
+            HungerSystem.Instance.canDecrease = false;
+            GetComponent<PolygonCollider2D>().enabled = false;
+            isDead = true;
+            animator.SetBool("isJoyful", true);
+        }
+    }
+
+    public void WinFish_mirror()
+    {
+        if (!isDead)
         {
             GameManager.Instance.ShowGameOver("You win!");
             canMove = false;

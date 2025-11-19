@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 7169404159368920670}
   - component: {fileID: 2533937370530697558}
   - component: {fileID: 3856487077897779958}
-  - component: {fileID: -2041970667517951559}
+  - component: {fileID: 8358548972274116531}
   m_Layer: 10
   m_Name: hookPrefab
   m_TagString: Untagged
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a723f636275564fa3704f03dec14cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rodTip: {x: 0, y: 0, z: 0}
+  rodTip: {fileID: 0}
   hook_Mirror: {fileID: 3856487077897779958}
   lineRenderer: {fileID: 2015050245431887086}
   dropSpeed: 3
@@ -200,6 +200,7 @@ MonoBehaviour:
   hookBack: {fileID: 7169404159368920670}
   fishCatched: {fileID: 8300000, guid: 92824fdaf679c0e4e99e29851abb9385, type: 3}
   smallVictory: {fileID: 8300000, guid: 2d154d044f3fc664e813a5f928d2c64a, type: 3}
+  fishermanController: {fileID: 0}
 --- !u!120 &2015050245431887086
 LineRenderer:
   serializedVersion: 2
@@ -247,7 +248,7 @@ LineRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
@@ -496,7 +497,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   hook: {fileID: 8745433059096344888}
---- !u!114 &-2041970667517951559
+--- !u!114 &8358548972274116531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -505,28 +506,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 2825920470062649857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a553cb17010b2403e8523b558bffbc14, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f63ea2e505fd484193fb31c5c55ca73, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Mirror.Components::Mirror.NetworkTransformUnreliable
+  m_EditorClassIdentifier: Mirror.Components::Mirror.NetworkTransformHybrid
   syncDirection: 1
   syncMode: 0
-  syncInterval: 0
-  target: {fileID: 5838126892410130752}
-  syncPosition: 1
-  syncRotation: 1
-  syncScale: 0
-  onlySyncOnChange: 1
-  compressRotation: 1
-  interpolatePosition: 1
-  interpolateRotation: 1
-  interpolateScale: 1
-  coordinateSpace: 0
-  timelineOffset: 1
-  showGizmos: 0
-  showOverlay: 0
-  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
-  bufferResetMultiplier: 3
+  syncInterval: 0.033333335
+  baselineRate: 1
+  unreliableRedundancy: 0
+  baselineIsDelta: 1
+  debugLog: 0
   useFixedUpdate: 0
+  target: {fileID: 5838126892410130752}
+  bufferSizeLimit: 64
+  sendRate: 30
   positionSensitivity: 0.01
   rotationSensitivity: 0.01
   scaleSensitivity: 0.01
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 1
+  debugDraw: 0
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}

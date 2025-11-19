@@ -6,8 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class Hook : MonoBehaviourPunCallbacks
 {
-    [SerializeField]
-    internal Vector3 rodTip;
+    public Transform rodTip;
 
     public Hook_Mirror hook_Mirror;
 
@@ -33,6 +32,8 @@ public class Hook : MonoBehaviourPunCallbacks
     public AudioClip fishCatched;
     public AudioClip smallVictory;
 
+    public FishermanController fishermanController;
+
     private void Awake()
     {
         if (Instance == null)
@@ -43,12 +44,13 @@ public class Hook : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        if(FishermanController_Mirror.Instance !=null)
+        if(FishermanController.Instance !=null)
         {
-            FishermanController_Mirror.Instance.hook = this;
+            fishermanController = FishermanController.Instance;
         }
+            fishermanController.fishermanController_Mirror.hook = this;
 
-        if (GS.Instance.isLan && GS.Instance.IsMirrorMasterClient)
+        if (GS.Instance.isLan)
         {
             Debug.Log("hook is generated");
             transform.localScale = Vector3.zero;
@@ -68,19 +70,45 @@ public class Hook : MonoBehaviourPunCallbacks
 
     void Update()
     {
+        if (transform.position.x < fishermanController.transform.position.x)
+        {
+            rodTip = fishermanController.leftRod; // ya jo bhi tip ka point ho
+        }
+        else if (transform.position.x > fishermanController.transform.position.x)
+        {
+            rodTip = fishermanController.rightRod;
+        }
+        else
+        {
+            rodTip = transform;
+        }
+       
+
         if (rodTip == null || lineRenderer == null || transform.localScale == Vector3.zero)
         {
             lineRenderer.enabled = false;
             return;
         }
 
+
         lineRenderer.enabled = true;
 
-        Debug.Log("scal =" + transform.localScale);
-        lineRenderer.SetPosition(0, rodTip);
+        lineRenderer.SetPosition(0, rodTip.position);
         lineRenderer.SetPosition(1, transform.position);
 
-        if (PhotonNetwork.IsMasterClient)
+        if (Input.GetMouseButtonDown(1))
+        {
+
+            if (GameManager.Instance.isFisherMan)
+            {
+                if (!isComming && !isReturning && !MiniGameManager.Instance.active && !MashPhaseManager.Instance.active) // 1 = right mouse button
+                {
+                    CallReturnToRod();
+                }
+            }
+        }
+
+        if (PhotonNetwork.IsMasterClient )
         {
             if (Input.GetMouseButtonDown(1) && !isComming && !isReturning && !MiniGameManager.Instance.active && !MashPhaseManager.Instance.active) // 1 = right mouse button
             {
@@ -132,9 +160,9 @@ public class Hook : MonoBehaviourPunCallbacks
     }
 
     // Launch hook with variable distance
-    public void LaunchDownWithDistance(float distance)
+    public void LaunchDownWithDistance(float distance, Transform _rodip)
     {
-
+        rodTip = _rodip;
         distance = Mathf.Clamp(distance, minDistance, maxDistance);
         StartCoroutine(MoveDown(distance));
     }
@@ -183,14 +211,19 @@ public class Hook : MonoBehaviourPunCallbacks
         StartCoroutine(ReturnToRod());
     }
 
+    public void CallReturnToRod()
+    {
+        StartCoroutine(ReturnToRod());
+    }
+
     private IEnumerator ReturnToRod()
     {
-        if (!isReturning && PhotonNetwork.IsMasterClient)
+        if (!isReturning && PhotonNetwork.IsMasterClient || !isReturning && GameManager.Instance.isFisherMan)
         {
             GS.Instance.SetVolume(hookBack);
             hookBack.Play();
             isReturning = true;
-            Vector3 target = rodTip;
+            Vector3 target = rodTip.position;
 
             // Detach worm from hook so it stays in scene
             if (wormInstance != null)
@@ -228,20 +261,30 @@ public class Hook : MonoBehaviourPunCallbacks
                     fc.PlaySFX(smallVictory);
                 }
             }
+            isReturning = false;
 
+            transform.localScale = Vector3.zero;
             fc.isCanMove = true;
             fc.isCanCast = true;
             fc.OnFishGoatAnimation(false);
             fc.OnCryingAnimation(false);
 
             fc.OnReeling();
+            if (GameManager.Instance.isFisherMan)
+            {
+                fc.ClearHookReference(this.gameObject);
+                fc.CheckWorms();
+            }
 
             foreach (FishController f in fishes)
             {
                 f.transform.localScale = Vector3.zero;
             }
 
-            PhotonNetwork.Destroy(gameObject);
+            if(!GS.Instance.isLan)
+            {
+                PhotonNetwork.Destroy(gameObject);
+            }
         }
     }
 
@@ -283,5 +326,14 @@ public class Hook : MonoBehaviourPunCallbacks
                 }
             }
         }
+    }
+
+    public void TryToSetJunkRod(Vector3 curruntRod)
+    {
+        Debug.Log("TryToSetJunkRod called");
+        transform.position = curruntRod;
+        transform.localScale = Vector3.one;
+        NetworkIdentity hookIDidentity = GetComponent<NetworkIdentity>();
+        //hook_Mirror.SpawnWorm();
     }
 }

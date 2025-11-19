@@ -1,4 +1,4 @@
-using Mirror;
+﻿using Mirror;
 using UnityEngine;
 
 public class Hook_Mirror : NetworkBehaviour
@@ -25,6 +25,20 @@ public class Hook_Mirror : NetworkBehaviour
         
     }
 
+    public void SpawnWorm()
+    {
+        Debug.Log("=== FishermanController_Mirror CALLED ===");
+        Debug.Log("isServer: " + isServer);
+        Debug.Log("isClient: " + isClient);
+        Debug.Log("isLocalPlayer: " + isLocalPlayer);
+
+        if (isServer)
+        {
+            GameObject worm =  Instantiate(hook.wormPrefab, hook.wormParent.position, Quaternion.identity);
+            NetworkServer.Spawn(worm, connectionToClient); // 🔹 gives authority to caller client
+            worm.transform.position = Vector3.zero;
+        }
+    }
 
     public void ClientAndServerActions(NetworkIdentity ObjIdentity)
     {

@@ -1,4 +1,5 @@
 ﻿using Mirror;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,8 @@ public class FishController_Mirror : NetworkBehaviour
 
     public FishController fishController;
 
+
+    public GameObject wormPrefab;
     private void Start()
     {
         Debug.Log("=== FishController_Mirror CALLED ===");
@@ -51,6 +54,7 @@ public class FishController_Mirror : NetworkBehaviour
             Vector3 spawnPos = new Vector3(0f, 3.15f, 0f);
             GameObject fisherman = Instantiate(fishermanPrefab, spawnPos, Quaternion.identity);
             NetworkServer.Spawn(fisherman, connectionToClient); // 🔹 gives authority to caller client
+            SpawnWorm(3);
         }
     }
 
@@ -60,6 +64,7 @@ public class FishController_Mirror : NetworkBehaviour
         Vector3 spawnPos = new Vector3(0f, 3.15f, 0f);
         GameObject fisherman = Instantiate(fishermanPrefab, spawnPos, Quaternion.identity);
         NetworkServer.Spawn(fisherman, connectionToClient); // 🔹 gives authority to caller client
+        SpawnWorm(3);
     }
 
     //Catch Junk in the Fish Mouth
@@ -83,6 +88,7 @@ public class FishController_Mirror : NetworkBehaviour
             junk.GetComponent<PolygonCollider2D>().enabled = false;
             junk.transform.SetParent(fishController.junkHolder);
             junk.transform.localPosition = Vector3.zero;
+            junk.GetComponent<JunkManager>().junkManager_Mirror.RequestFreezeObject();
 
             RpcPickupJunk(junkNetId);
         }
@@ -135,6 +141,90 @@ public class FishController_Mirror : NetworkBehaviour
 
             junk.GetComponent<JunkManager>().LeaveByFish();
 
+        }
+    }
+
+    //winFish
+    public void TryWinFish()
+    {
+        Debug.Log("TryWinFish called");
+
+        if (isLocalPlayer)
+        {
+            CmdWinFish();
+        }
+    }
+
+   [Command]
+    void CmdWinFish()
+    {
+        Debug.Log(" [Command] CmdWinFish called in server  ");
+            RpcWinFish();
+    }
+
+
+    [ClientRpc]
+    void RpcWinFish()
+    {
+        Debug.Log("  [ClientRpc] RpcWinFish called in remote player");
+
+        if (!fishController.isFisherMan)
+        {
+            for (int i = 0; i < GameManager.Instance.allFishes.Count; i++)
+            {
+                if (GameManager.Instance.allFishes[i].transform.localScale != Vector3.zero)
+                {
+                    GameManager.Instance.allFishes[i].WinFish_mirror();
+                }
+            }
+        }
+    }
+
+
+    public void LessCounter()
+    {
+        Debug.Log("LessCounter called");
+        if (isLocalPlayer)
+        {
+            CmdLessCounter();
+        }
+    }
+
+    [Command]
+    public void CmdLessCounter()
+    {
+        Debug.Log("CmdLessCounter called");
+
+        ClientCmdLessCounter();
+    }
+
+    [ClientRpc]
+    public void ClientCmdLessCounter()
+    {
+        Debug.Log("ClientCmdLessCounter called");
+
+        if (GameManager.Instance.isFisherMan)
+        {
+            GameManager.Instance.LessPlayerCount_Mirror();
+        }
+    }
+
+
+    public void SpawnWorm(int length)
+    {
+        Debug.Log("=== FishermanController_Mirror CALLED ===");
+        Debug.Log("isServer: " + isServer);
+        Debug.Log("isClient: " + isClient);
+        Debug.Log("isLocalPlayer: " + isLocalPlayer);
+
+        if (isServer)
+        {
+            for (int i = 0; i < length; i++)
+            {
+                GameObject worm = Instantiate(wormPrefab, Vector3.zero, Quaternion.identity);
+                NetworkServer.Spawn(worm, connectionToClient); // 🔹 gives authority to caller client
+                worm.transform.position = Vector3.zero;
+            }
         }
     }
 }
