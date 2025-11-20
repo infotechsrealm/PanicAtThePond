@@ -93,7 +93,10 @@ public class GameManager : MonoBehaviourPunCallbacks
                 totalPlayers = GS.Instance.totlePlayers;
             }
 
-
+            int fishCount = totalPlayers - 1;
+            fishermanWorms = fishCount * baseWormMultiplier;
+            maxWorms = fishermanWorms;
+            Debug.Log("Fisherman Worms: " + fishermanWorms);
         }
         else
         {
@@ -105,10 +108,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SpawnFisherMan();
-        }
+       
     }
     public void UpdateUI(int currunt_Warms)
     {
@@ -133,22 +133,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
 
 
-    void SpawnFisherMan()
-    {
-        Debug.Log("cafelkjekljafba");
-        foreach (var conn in NetworkServer.connections.Values)
-        {
-            Debug.Log("cafelkjekljafba");
-
-            if (conn.identity == null)
-            {
-                Debug.Log("cafelkjekljafba");
-                GameObject fish = Instantiate(fishermanPrefab, new Vector3(0f, 3.15f, 0f), Quaternion.identity);
-
-                NetworkServer.AddPlayerForConnection(conn, fish);
-            }
-        }
-    }
     void SpawnPlayer()
     {
         if (GS.Instance.isLan)
@@ -201,10 +185,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             PhotonNetwork.Instantiate(fishermanPrefab.name, new Vector3(0f, 3.15f, 0f), Quaternion.identity);
         }
 
-        int fishCount = totalPlayers - 1;
-        fishermanWorms = fishCount * baseWormMultiplier;
-        maxWorms = fishermanWorms;
-        Debug.Log("Fisherman Worms: " + fishermanWorms);
+      
     }
 
     public void ShowGameOver(string message)

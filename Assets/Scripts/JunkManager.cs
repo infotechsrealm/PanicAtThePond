@@ -108,7 +108,6 @@ public class JunkManager : MonoBehaviourPunCallbacks
         rb.bodyType = RigidbodyType2D.Dynamic;
         transform.SetParent(null);
         rb.gravityScale = 0.1f;
-      // StartCoroutine(ReduceGravity());
         isFreezed = false;
         photonRigidbody2DView.enabled = true;
     }

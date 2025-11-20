@@ -32,8 +32,8 @@ public class JunkManager_Mirror : NetworkBehaviour
             junkManager.rb.gravityScale = 0f;
             junkManager.rb.bodyType = RigidbodyType2D.Kinematic; // stops all physics
 
-            FreezeObject();
 
+            FreezeObject();
         }
     }
 

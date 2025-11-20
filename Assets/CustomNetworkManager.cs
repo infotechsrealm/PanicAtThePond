@@ -149,19 +149,19 @@ public class CustomNetworkManager : NetworkManager
         Debug.Log("🚨 Host disconnected or connection lost.");
 
 
-        /* if (CreateJoinManager.Instence.isJoining)
-         {
-             if (PlayerTableManager.instance != null)
-             {
-                 PlayerTableManager.instance.players.Clear();
-                 PlayerTableManager.instance.UpdatePlayerTable();
-             }
+        if (CreateJoinManager.Instance.isJoining)
+        {
+            if (PlayerTableManager.Instance != null)
+            {
+                PlayerTableManager.Instance.players.Clear();
+                PlayerTableManager.Instance.UpdatePlayerTable();
+            }
 
-             LANDiscoveryMenu.Instance.isConnected = false;
+            LANDiscoveryMenu.Instance.isConnected = false;
 
-             LANDiscoveryMenu.Instance.CallDiscoverAllLANHosts_Unlimited();
-             CreateJoinManager.Instence.clientLobby.gameObject.SetActive(false);
-         }*/
+            LANDiscoveryMenu.Instance.CallDiscoverAllLANHosts_Unlimited();
+            CreateJoinManager.Instance.clientLobby.gameObject.SetActive(false);
+        }
     }
 
 

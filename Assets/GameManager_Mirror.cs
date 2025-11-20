@@ -27,4 +27,7 @@ public class GameManager_Mirror : NetworkBehaviour
         GameObject fish = Instantiate(fishermanPrefab, spawnPos, Quaternion.identity);
         NetworkServer.Spawn(fish, connectionToClient); // 🔹 gives authority to caller client
     }
+
+
+
 }

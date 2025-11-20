@@ -378,6 +378,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2095848199383301873}
+  isHookWorm: 0
+  polygonCollider2D: {fileID: 5395727129170217643}
 --- !u!114 &3765382517937817972
 MonoBehaviour:
   m_ObjectHideFlags: 0

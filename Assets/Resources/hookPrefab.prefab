@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2651688639877025388}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: -2, z: 0}
+  m_LocalPosition: {x: -0.175, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -165,7 +165,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.73111165, y: -1.8576193}
+  m_Offset: {x: -0.14622232, y: -0.37152386}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.7668291, y: 0.9391535}
@@ -175,7 +175,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.06066, y: 3.6877291}
+  m_Size: {x: 0.548, y: 0.84599996}
   m_EdgeRadius: 0
 --- !u!114 &8745433059096344888
 MonoBehaviour:
@@ -195,6 +195,7 @@ MonoBehaviour:
   dropSpeed: 3
   wormPrefab: {fileID: 7213787239234744724, guid: ed9be4f8a38e17c45abcef0b0b7bb870, type: 3}
   wormParent: {fileID: 7448163867579369296}
+  wormInstance: {fileID: 0}
   minDistance: 3
   maxDistance: 7
   hookBack: {fileID: 7169404159368920670}

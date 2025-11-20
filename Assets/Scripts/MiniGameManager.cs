@@ -49,28 +49,7 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
         StartCoroutine(UpdateTimer());
     }
 
-    /*void Update()
-    {
-        if (!active) return;
-
-        if (Keyboard.current.anyKey.wasPressedThisFrame)
-        {
-            if (Input.GetKeyDown(currentSequence[progress].ToString().ToLower()))
-            {
-                progress++;
-                UpdateMiniGameText(); // refresh UI colors
-
-                if (progress >= currentSequence.Length)
-                {
-                    Success();
-                }
-            }
-            else
-            {
-                Fail();
-            }
-        }
-    }*/
+ 
 
     void Update()
     {
@@ -133,19 +112,26 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Mini-game Success! Fish escaped with worm!");
 
-        HungerSystem.Instance.canDecrease = FishController.Instance.canMove = true;
+        HungerSystem.Instance.canDecrease = GameManager.Instance.myFish.canMove = true;
         HungerSystem.Instance.AddHunger(75f);
-        FishController.Instance.animator.SetBool("isFight", false);
+        GameManager.Instance.myFish.animator.SetBool("isFight", false);
         active = false;
         miniGamePanel.transform.localScale = Vector3.zero;
         if (GameManager.Instance.myFish != null)
         {
             GameManager.Instance.myFish.catchadeFish = false;
         }
-        Hook.Instance.CallRpcToReturnRod();
+        if(GS.Instance.isLan)
+        {
+            GameManager.Instance.myFish.fishController_Mirror.ReturnRoadOfHook();
+        }
+        else
+        {
+            Hook.Instance.CallRpcToReturnRod();
+        }
         if (timerText != null) timerText.text = "";
     }
-        
+
     void Fail()
     {
         Debug.Log("Mini-game Failed! Fisherman caught the fish!");
@@ -153,10 +139,13 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
         active = false;
         miniGamePanel.transform.localScale = Vector3.zero;
 
-        if (!PhotonNetwork.IsMasterClient)
+
+        if (!PhotonNetwork.IsMasterClient || GS.Instance.isLan)
         {
             MashPhaseManager.Instance.StartMashPhase();
         }
+
+
 
         if (timerText != null) timerText.text = "";
     }

@@ -65,11 +65,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
                   isLeft = true,
                   meterIncreasing = true;
 
-
-
-
-   
-
     private void Awake()
     {
         if (Instance == null)
@@ -129,20 +124,11 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
             if(GS.Instance.isLan)
             {
-                GameManager.Instance.myFish.fishermanController = this; 
-                if (GameManager.Instance.isFisherMan )
+                GameManager.Instance.myFish.fishermanController = this;
+                if (JunkSpawner.Instance != null)
                 {
-                    if (JunkSpawner.Instance != null)
-                    {
-                        JunkSpawner.Instance.canSpawn = true;
-                        JunkSpawner.Instance.LoadSpawnJunk();
-                    }
-
-                  /*  if (WormSpawner.Instance != null)
-                    {
-                        WormSpawner.Instance.canSpawn = true;
-                        WormSpawner.Instance.LoadSpawnWorm();
-                    }*/
+                    JunkSpawner.Instance.canSpawn = true;
+                    JunkSpawner.Instance.LoadSpawnJunk();
                 }
             }
             else
@@ -543,7 +529,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             hook = fishermanController_Mirror.hook;
             hook.TryToSetJunkRod(currentRod.position);
             float castDistance = castingMeter.value * maxCastDistance;
-             fishermanController_Mirror.hook.LaunchDownWithDistance(castDistance, currentRod);
+            fishermanController_Mirror.hook.LaunchDownWithDistance(castDistance, currentRod);
         }
         else
         {
@@ -554,9 +540,9 @@ public class FishermanController : MonoBehaviourPunCallbacks
             hook.LaunchDownWithDistance(castDistance, currentRod);
         }
 
+
         if (hook != null)
         {
-
             if (currentRod == leftRod)
             {
                 leftHook = hook.gameObject;
@@ -565,7 +551,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
             {
                 rightHook = hook.gameObject;
             }
-
 
             if (worms > 0)
             {
@@ -631,13 +616,30 @@ public class FishermanController : MonoBehaviourPunCallbacks
                     }
 
                     Debug.Log("Fisherman Win!");
-                    GameManager.Instance.ShowGameOver("Fisherman Win!");
-                    GameManager.Instance.CallCoverBGDisableRPC();
-                    WormSpawner.Instance.EnableWormDaceAnimation();
 
-                    if (!GS.Instance.isMasterClient)
+
+
+                    if (GS.Instance.isLan)
                     {
-                        CallSetOldMaster();
+                        if (GameManager.Instance.myFish.isFisherMan)
+                        {
+                            GameManager.Instance.ShowGameOver("Fisherman Win!");
+                        }
+
+                        if(GS.Instance.IsMirrorMasterClient)
+                        {
+                            WormSpawner.Instance.EnableWormDaceAnimation();
+                        }
+                    }
+                    else
+                    {
+                        GameManager.Instance.CallCoverBGDisableRPC();
+                        WormSpawner.Instance.EnableWormDaceAnimation();
+                        GameManager.Instance.ShowGameOver("Fisherman Win!");
+                        if (!GS.Instance.isMasterClient)
+                        {
+                            CallSetOldMaster();
+                        }
                     }
                 }
             }

@@ -269,18 +269,27 @@ public class FishController : MonoBehaviourPunCallbacks
                 PlaySFX(fishEatWarmSound);
                 animator.SetTrigger("isEat");
                 other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
-                photonView.RPC(nameof(DestroyWormRPC), RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
-                PhotonNetwork.SendAllOutgoingCommands();
 
-                if (carriedJunk != null)
+                if (GS.Instance.isLan)
                 {
-                    DropJunkToHook();
-                    return;
+                    fishController_Mirror.Destroy_Mirror(other.gameObject);
+                }
+                else
+                {
+                    photonView.RPC(nameof(DestroyWormRPC), RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
+                    PhotonNetwork.SendAllOutgoingCommands();
+
+                    if (carriedJunk != null)
+                    {
+                        DropJunkToHook();
+                        return;
+                    }
                 }
 
                 animator.SetBool("isFight", true);
                 animator.SetBool("isMove", false);
                 catchadeFish = true;
+                canMove = false;
                 MiniGameManager.Instance.StartMiniGame();
 
             }
@@ -445,12 +454,21 @@ public class FishController : MonoBehaviourPunCallbacks
     //When Fish Loss in MashPhase.
     public void PutFishInHook()
     {
-        int fishViewID = GameManager.Instance.myFish.GetComponent<PhotonView>().ViewID;
-        int hookViewID = Hook.Instance.GetComponent<PhotonView>().ViewID;
-        photonView.RPC(nameof(PutFishInHookRPC), RpcTarget.All, fishViewID, hookViewID);
-        PhotonNetwork.SendAllOutgoingCommands();
+        if (GS.Instance.isLan)
+        {
+            NetworkIdentity fishViewID = GameManager.Instance.myFish.GetComponent<NetworkIdentity>();
+            NetworkIdentity hookViewID = Hook.Instance.GetComponent<NetworkIdentity>();
+            fishController_Mirror.PutFishInHook_Mirror(fishViewID, hookViewID);
+        }
+        else
+        {
+            int fishViewID = GameManager.Instance.myFish.GetComponent<PhotonView>().ViewID;
+            int hookViewID = Hook.Instance.GetComponent<PhotonView>().ViewID;
+            photonView.RPC(nameof(PutFishInHookRPC), RpcTarget.All, fishViewID, hookViewID);
+            PhotonNetwork.SendAllOutgoingCommands();
+        }
 
-        if (photonView.IsMine)
+        if (photonView.IsMine || mirrorIdentity.isLocalPlayer)
         {
             if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
             {
@@ -461,7 +479,9 @@ public class FishController : MonoBehaviourPunCallbacks
             }
         }
     }
-  
+
+   
+
 
     [PunRPC]
     public void PutFishInHookRPC(int fishId, int hookId)

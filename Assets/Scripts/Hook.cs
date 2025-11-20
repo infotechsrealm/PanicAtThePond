@@ -15,7 +15,7 @@ public class Hook : MonoBehaviourPunCallbacks
 
     public GameObject wormPrefab;
     public Transform wormParent;
-    private GameObject wormInstance;
+    public GameObject wormInstance;
 
     internal bool hasWorm = false;
     private bool isReturning = false,isComming = true;
@@ -98,12 +98,11 @@ public class Hook : MonoBehaviourPunCallbacks
 
         if (Input.GetMouseButtonDown(1))
         {
-
             if (GameManager.Instance.isFisherMan)
             {
                 if (!isComming && !isReturning && !MiniGameManager.Instance.active && !MashPhaseManager.Instance.active) // 1 = right mouse button
                 {
-                    CallReturnToRod();
+                    LoadReturnToRod_Mirror();
                 }
             }
         }
@@ -116,18 +115,17 @@ public class Hook : MonoBehaviourPunCallbacks
             }
         }
     }
+
     public void AttachWorm()
     {
         if (wormPrefab != null && !hasWorm && wormParent != null)
         {
             if (GS.Instance.isLan)
             {
-                GameObject worm = Instantiate(wormPrefab, wormParent.position, Quaternion.identity);
-                NetworkServer.Spawn(worm);
-                if(GS.Instance.IsMirrorMasterClient)
+                GameManager gm = GameManager.Instance;
+                if (gm != null)
                 {
-                    WormSpawner.Instance.activeWorms.Add(worm);
-                    hook_Mirror.ClientAndServerActions(worm.GetComponent<NetworkIdentity>());
+                    wormInstance =  GameManager.Instance.myFish.fishController_Mirror.SetWormInJunk(GetComponent<NetworkIdentity>());
                 }
             }
             else
@@ -150,11 +148,7 @@ public class Hook : MonoBehaviourPunCallbacks
             Transform worm = wormView.transform;
             worm.SetParent(wormParent.transform, false);
             worm.localPosition = Vector3.zero;
-            PolygonCollider2D col = worm.GetComponent<PolygonCollider2D>();
-
-            if (col != null)
-                col.enabled = false;
-
+            worm.localScale = Vector3.one;
             hasWorm = true;
         }
     }
@@ -177,7 +171,7 @@ public class Hook : MonoBehaviourPunCallbacks
 
         if (GS.Instance.isLan)
         {
-
+            GameManager.Instance.myFish.fishController_Mirror.EnableWormCollider(wormInstance.GetComponent<NetworkIdentity>());
         }
         else
         {
@@ -211,7 +205,7 @@ public class Hook : MonoBehaviourPunCallbacks
         StartCoroutine(ReturnToRod());
     }
 
-    public void CallReturnToRod()
+    public void LoadReturnToRod_Mirror()
     {
         StartCoroutine(ReturnToRod());
     }
@@ -228,11 +222,19 @@ public class Hook : MonoBehaviourPunCallbacks
             // Detach worm from hook so it stays in scene
             if (wormInstance != null)
             {
-                PhotonView wormPV = wormInstance.GetComponent<PhotonView>();
-                photonView.RPC(nameof(DropWormRpc), RpcTarget.AllBuffered, wormPV.ViewID);
-                wormInstance.transform.parent = null; // worm ko hook se alag kar do
-                wormInstance = null; // reference clear
-                hasWorm = false;
+                if (GS.Instance.isLan)
+                {
+                    GameManager.Instance.myFish.fishController_Mirror.DropWorm(wormInstance.GetComponent<NetworkIdentity>());
+                    hasWorm = false;
+                }
+                else
+                {
+                    PhotonView wormPV = wormInstance.GetComponent<PhotonView>();
+                    photonView.RPC(nameof(DropWormRpc), RpcTarget.AllBuffered, wormPV.ViewID);
+                    wormInstance.transform.parent = null; // worm ko hook se alag kar do
+                    wormInstance = null; // reference clear
+                    hasWorm = false;
+                }
             }
 
             FishermanController fc = FishermanController.Instance;
@@ -288,7 +290,6 @@ public class Hook : MonoBehaviourPunCallbacks
         }
     }
 
-
     [PunRPC]
     void DropWormRpc(int wormID)
     {
@@ -335,5 +336,6 @@ public class Hook : MonoBehaviourPunCallbacks
         transform.localScale = Vector3.one;
         NetworkIdentity hookIDidentity = GetComponent<NetworkIdentity>();
         //hook_Mirror.SpawnWorm();
+        AttachWorm();
     }
 }
