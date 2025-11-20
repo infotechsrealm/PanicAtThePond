@@ -283,7 +283,18 @@ public class Hook : MonoBehaviourPunCallbacks
                 f.transform.localScale = Vector3.zero;
             }
 
-            if(!GS.Instance.isLan)
+            if(GS.Instance.isLan)
+            {
+                if (GameManager.Instance.myFish.isFisherMan)
+                {
+                    Debug.Log("wormParent.GetChild(0).tag =" + wormParent.GetChild(0).tag);
+                    if (wormParent.GetChild(0).tag == "Fish")
+                    {
+                        GameManager.Instance.myFish.fishController_Mirror.DisableFish_Mirror(wormParent.GetChild(0).GetComponent<NetworkIdentity>());
+                    }
+                }
+            }
+            else
             {
                 PhotonNetwork.Destroy(gameObject);
             }

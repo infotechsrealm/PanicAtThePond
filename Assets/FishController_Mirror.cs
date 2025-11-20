@@ -438,4 +438,28 @@ public class FishController_Mirror : NetworkBehaviour
         }
     }
 
+
+    public void DisableFish_Mirror(NetworkIdentity FishNetId)
+    {
+        CMDDisableFish_Mirror(FishNetId.netId);
+    }
+
+    [Command]
+    public void CMDDisableFish_Mirror(uint FishNetId)
+    {
+        RPCDisableFish_Mirror(FishNetId);
+    }
+
+    [ClientRpc]
+    public void RPCDisableFish_Mirror(uint FishNetId)
+    {
+
+        if (NetworkClient.spawned.TryGetValue(FishNetId, out NetworkIdentity FishIdentity))
+        {
+            GameObject fish = FishIdentity.gameObject;
+            fish.transform.SetParent(null, false);
+            fish.transform.localScale = Vector3.zero;
+        }
+    }
+
 }

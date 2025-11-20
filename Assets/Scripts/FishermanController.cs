@@ -567,7 +567,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
     }
 
-
    /* [PunRPC]
     void SetupHookRodRPC(int hookID, Vector3 curruntRod)
     {

@@ -603,6 +603,8 @@ public class FishController : MonoBehaviourPunCallbacks
         }
     }
 
+   
+
     private void OnApplicationQuit()
     {
         if (GS.Instance.isLan)
