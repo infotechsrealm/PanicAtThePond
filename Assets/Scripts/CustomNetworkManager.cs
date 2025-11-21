@@ -76,7 +76,25 @@ public class CustomNetworkManager : NetworkManager
         }
 
 
+        NetworkIdentity playerIdentity = conn.identity;
 
+        if (playerIdentity != null)
+        {
+            FishController fish = playerIdentity.GetComponent<FishController>();
+
+            if (fish != null)
+            {
+                if (fish.isDead)
+                {
+                    Debug.Log("Fish quit while alive → decrement counter" + fish.isDead);
+                    GameManager.Instance.LessPlayerCount_Mirror();
+                }
+                else
+                {
+                    Debug.Log("Fish was already dead → no decrement");
+                }
+            }
+        }
 
         base.OnServerDisconnect(conn);
 
