@@ -12,6 +12,11 @@ public class ClientLobby : MonoBehaviourPunCallbacks
         playerTableManager.UpdatePlayerTable();
     }
 
+    private void OnDisable()
+    {
+        playerTableManager.ResetTable();
+    }
+
     public void Close()
     {
         if (PhotonNetwork.InRoom)

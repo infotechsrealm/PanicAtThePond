@@ -18,6 +18,14 @@ public class CustomNetworkManager : NetworkManager
 
     public string localPlayerName = "Rajan";
 
+    public static CustomNetworkManager Instence;
+
+
+
+    private void Awake()
+    {
+        Instence = this;
+    }
 
 
     // 🔹 SERVER START पर message handler register करो
@@ -43,6 +51,7 @@ public class CustomNetworkManager : NetworkManager
         {
             playerName = GS.Instance.nickName,
         });
+
         LANDiscoveryMenu.Instance.StopRoomFindCoroutine();
         Debug.Log($"✅ Connected to server, name sent: {GS.Instance.nickName}");
     }
@@ -66,6 +75,9 @@ public class CustomNetworkManager : NetworkManager
             playerNames.Remove(conn.connectionId);
         }
 
+
+
+
         base.OnServerDisconnect(conn);
 
         // सभी को अपडेट भेजो
@@ -88,6 +100,8 @@ public class CustomNetworkManager : NetworkManager
         PrintAllPlayers_Server();
     }
 
+   
+
     // 🔹 Server side पर players print
     void PrintAllPlayers_Server()
     {
@@ -109,12 +123,6 @@ public class CustomNetworkManager : NetworkManager
                 Debug.Log($"👤 {name} → (missing connection)");
         }
 
-        /*if (PlayerTableManager.instance != null)
-        {
-            PlayerTableManager.instance.players = new List<string>(playerNames.Values);
-            PlayerTableManager.instance.UpdatePlayerTable();
-        }*/
-        Debug.Log("-----------------------------------");
     }
 
     // 🔹 Client side पर जब list मिले
@@ -127,7 +135,6 @@ public class CustomNetworkManager : NetworkManager
         }
         else
         {
-            
             foreach (var name in msg.allPlayerNames)
             {
                 Debug.Log($"👤 {name}");
@@ -139,7 +146,6 @@ public class CustomNetworkManager : NetworkManager
                 PlayerTableManager.Instance.UpdatePlayerTable();
             }
         }
-        Debug.Log("-----------------------------------");
     }
 
     public override void OnClientDisconnect()
@@ -149,21 +155,25 @@ public class CustomNetworkManager : NetworkManager
         Debug.Log("🚨 Host disconnected or connection lost.");
 
 
-        if (CreateJoinManager.Instance.isJoining)
+        if (LANDiscoveryMenu.Instance != null)
         {
-            if (PlayerTableManager.Instance != null)
+            if (CreateJoinManager.Instance.isJoining)
             {
-                PlayerTableManager.Instance.players.Clear();
-                PlayerTableManager.Instance.UpdatePlayerTable();
+                if (PlayerTableManager.Instance != null)
+                {
+                    PlayerTableManager.Instance.players.Clear();
+                    PlayerTableManager.Instance.UpdatePlayerTable();
+                }
+
+                LANDiscoveryMenu.Instance.isConnected = false;
+
+                LANDiscoveryMenu.Instance.CallDiscoverAllLANHosts_Unlimited();
+                CreateJoinManager.Instance.clientLobby.gameObject.SetActive(false);
             }
-
-            LANDiscoveryMenu.Instance.isConnected = false;
-
-            LANDiscoveryMenu.Instance.CallDiscoverAllLANHosts_Unlimited();
-            CreateJoinManager.Instance.clientLobby.gameObject.SetActive(false);
         }
-    }
 
+    }
+ 
 
     [Server]
     public void LoadPlaySceneForAll()
@@ -171,8 +181,5 @@ public class CustomNetworkManager : NetworkManager
         Debug.Log("🔁 Loading play scene for all clients...");
         ServerChangeScene("Play");
     }
-
-
-   
 
 }

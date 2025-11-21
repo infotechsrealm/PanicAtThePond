@@ -21,6 +21,7 @@ namespace Mirror
         // clients don't know their own id and they don't know other client's ids.
         public readonly int connectionId;
 
+
         /// <summary>NetworkIdentities that this connection can see</summary>
         // TODO move to server's NetworkConnectionToClient?
         public readonly HashSet<NetworkIdentity> observing = new HashSet<NetworkIdentity>();

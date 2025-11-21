@@ -743,6 +743,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62954e102b5610408293c79d275d8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  networkDiscovery: {fileID: 4175125356644935211}
+  networkManager: {fileID: 576712293872121006}
   createAndJoinPanel: {fileID: 2321393887442230052, guid: cd2ea0f2302190743b2ca83bc992b627, type: 3}
   howToPlay: {fileID: 1072194699156879840, guid: 0048f2ebe407a4b4795e2d7853778168, type: 3}
   preloder: {fileID: 1721887084397798614, guid: 595207e3fbf4e5d479050afed1957ccc, type: 3}
@@ -768,6 +770,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1955396824}
+  - {fileID: 4309882673765175098}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1955396823
@@ -903,11 +906,145 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &576712293872121006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4162002790123320154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b751853e0cfe7849bee86fa0918eea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomNetworkManager
+  dontDestroyOnLoad: 1
+  runInBackground: 1
+  headlessStartMode: 0
+  editorAutoStart: 0
+  sendRate: 60
+  offlineScene: 
+  onlineScene: 
+  offlineSceneLoadDelay: 0
+  transport: {fileID: 5676657517484455514}
+  networkAddress: localhost
+  maxConnections: 100
+  disconnectInactiveConnections: 0
+  disconnectInactiveTimeout: 60
+  authenticator: {fileID: 0}
+  playerPrefab: {fileID: 0}
+  autoCreatePlayer: 0
+  playerSpawnMethod: 0
+  spawnPrefabs:
+  - {fileID: 5870885686629103865, guid: 779cf56860316d6429357fa982923cb1, type: 3}
+  - {fileID: 9090747191646513983, guid: 6acab6ae61565764fb844a1cf8007b6d, type: 3}
+  - {fileID: 7780540918564372881, guid: 594a00d5a8194784f970286d56fbf078, type: 3}
+  - {fileID: 4221548032391945581, guid: b839bcb9e6837534c89107afe33ac208, type: 3}
+  - {fileID: 1502157577693095812, guid: 93e14ea75ca6f264c810f2d3536adbf6, type: 3}
+  - {fileID: 2825920470062649857, guid: 7425abcbde3b9664da206dab5c02a51a, type: 3}
+  - {fileID: 7213787239234744724, guid: ed9be4f8a38e17c45abcef0b0b7bb870, type: 3}
+  - {fileID: 1318360825445031055, guid: 73db7c3592edba14cbc37622d4645e2a, type: 3}
+  - {fileID: 7213787239234744724, guid: 86ce15e0bf8b5764f8379c1619ac2749, type: 3}
+  exceptionsDisconnect: 1
+  snapshotSettings:
+    bufferTimeMultiplier: 2
+    bufferLimit: 32
+    catchupNegativeThreshold: -1
+    catchupPositiveThreshold: 1
+    catchupSpeed: 0.019999999552965164
+    slowdownSpeed: 0.03999999910593033
+    driftEmaDuration: 1
+    dynamicAdjustment: 1
+    dynamicAdjustmentTolerance: 1
+    deliveryTimeEmaDuration: 2
+  evaluationMethod: 0
+  evaluationInterval: 3
+  timeInterpolationGui: 0
+  localPlayerName: Rajan
+--- !u!1 &4162002790123320154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4309882673765175098}
+  - component: {fileID: 5676657517484455514}
+  - component: {fileID: 4175125356644935211}
+  - component: {fileID: 576712293872121006}
+  m_Layer: 0
+  m_Name: NetworkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &4175125356644935211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4162002790123320154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c761308e733c51245b2e8bb4201f46dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mirror.Components::Mirror.Discovery.NetworkDiscovery
+  enableActiveDiscovery: 1
+  BroadcastAddress: 
+  serverBroadcastListenPort: 47777
+  ActiveDiscoveryInterval: 3
+  transport: {fileID: 5676657517484455514}
+  OnServerFound:
+    m_PersistentCalls:
+      m_Calls: []
+  secretHandshake: 7209244211322325630
+--- !u!4 &4309882673765175098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4162002790123320154}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1116.8865, y: -699.3822, z: 3.9852858}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1771400380}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5676657517484455514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4162002790123320154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7424c1070fad4ba2a7a96b02fbeb4bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mirror.Transports::Mirror.TelepathyTransport
+  port: 7777
+  NoDelay: 1
+  SendTimeout: 5000
+  ReceiveTimeout: 30000
+  serverMaxMessageSize: 16384
+  serverMaxReceivesPerTick: 10000
+  serverSendQueueLimitPerConnection: 10000
+  serverReceiveQueueLimitPerConnection: 10000
+  clientMaxMessageSize: 16384
+  clientMaxReceivesPerTick: 1000
+  clientSendQueueLimit: 10000
+  clientReceiveQueueLimit: 10000
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 858259488}
+  - {fileID: 1771400380}
   - {fileID: 1029159201}
   - {fileID: 99933479}
-  - {fileID: 1771400380}

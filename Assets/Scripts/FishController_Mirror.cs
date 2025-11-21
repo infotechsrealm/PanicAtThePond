@@ -1,5 +1,4 @@
 ﻿using Mirror;
-using Photon.Pun;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -22,9 +21,30 @@ public class FishController_Mirror : NetworkBehaviour
         Debug.Log("isClient: " + isClient);
         Debug.Log("isLocalPlayer: " + isLocalPlayer);
         Debug.Log("connectionToClient: " + connectionToClient);
+      
     }
 
+    public void SetVissiblity_Mirror()
+    {
+        GS gsObj = GS.Instance;
+        if (gsObj.IsMirrorMasterClient)
+        {
+            SetVisibility(gsObj.AllVisible, gsObj.DeepWaters, gsObj.MurkyWaters, gsObj.ClearWaters);
+        }
+    }
 
+    [ClientRpc]
+    public void SetVisibility(bool allVisible, bool deepWaters, bool murkyWaters, bool clearWaters)
+    {
+        GS gsObj = GS.Instance;
+
+        gsObj.AllVisible = allVisible;
+        gsObj.DeepWaters = deepWaters;
+        gsObj.MurkyWaters = murkyWaters;
+        gsObj.ClearWaters = clearWaters;
+
+        Debug.Log($"[GS] Visibility updated: All={allVisible}, Deep={deepWaters}, Murky={murkyWaters}, Clear={clearWaters}");
+    }
 
     public void Destroy_Mirror(GameObject target)
     {
@@ -59,7 +79,7 @@ public class FishController_Mirror : NetworkBehaviour
     [Command]
     void CmdSpawnFishermanOnServer()
     {
-        Vector3 spawnPos = new Vector3(0f, 3.15f, 0f);
+        Vector3 spawnPos = new Vector3(0f, 3.25f, 0f);
         GameObject fisherman = Instantiate(fishermanPrefab, spawnPos, Quaternion.identity);
         NetworkServer.Spawn(fisherman, connectionToClient); // 🔹 gives authority to caller client
         SpawnWorm(GameManager.Instance.fishermanWorms);
@@ -178,6 +198,17 @@ public class FishController_Mirror : NetworkBehaviour
         }
     }
 
+    private void OnApplicationQuit()
+    {
+        if (GS.Instance.isLan)
+        {
+            if (!fishController.isDead)
+            {
+                LessCounter();
+            }
+        }
+    }
+
     public void LessCounter()
     {
         Debug.Log("LessCounter called");
@@ -190,15 +221,16 @@ public class FishController_Mirror : NetworkBehaviour
     [Command]
     public void CmdLessCounter()
     {
-        Debug.Log("CmdLessCounter called");
+        Debug.Log("22222222222222222222222222222222CmdLessCounter called");
 
         ClientCmdLessCounter();
+
     }
 
     [ClientRpc]
     public void ClientCmdLessCounter()
     {
-        Debug.Log("ClientCmdLessCounter called");
+        Debug.Log("22222222222222222222222222222222222222222222222ClientCmdLessCounter calledxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 
         if (GameManager.Instance.isFisherMan)
         {
@@ -459,6 +491,45 @@ public class FishController_Mirror : NetworkBehaviour
             GameObject fish = FishIdentity.gameObject;
             fish.transform.SetParent(null, false);
             fish.transform.localScale = Vector3.zero;
+        }
+    }
+
+
+    //Set Junk in hook
+
+    public void SetJunkInHook_Mirror(NetworkIdentity JunkNetId, NetworkIdentity HookNetId)
+    {
+        if (JunkNetId != null)
+        {
+            CMDSetJunkInHook_Mirror(JunkNetId.netId, HookNetId.netId);
+        }
+    }
+
+
+    [Command]
+    void CMDSetJunkInHook_Mirror(uint JunkNetId, uint HookNetId)
+    {
+        RPCDisableFish_Mirror(JunkNetId, HookNetId);
+    }
+
+    [ClientRpc]
+    void RPCDisableFish_Mirror(uint JunkNetId, uint HookNetId)
+    {
+        if (NetworkClient.spawned.TryGetValue(JunkNetId, out NetworkIdentity JunkIdentity))
+        {
+            GameObject junk = JunkIdentity.gameObject;
+
+            if (NetworkClient.spawned.TryGetValue(HookNetId, out NetworkIdentity HookIdentity))
+            {
+                GameObject hook = HookIdentity.gameObject;
+
+
+                junk.GetComponent<PolygonCollider2D>().enabled = false;
+                junk.transform.SetParent(hook.GetComponent<Hook>().wormParent);
+                junk.transform.localPosition = Vector3.zero;
+                fishController.carriedJunk = null;
+                ReturnRoadOfHook();
+            }
         }
     }
 

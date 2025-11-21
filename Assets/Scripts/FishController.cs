@@ -66,6 +66,7 @@ public class FishController : MonoBehaviourPunCallbacks
         {
             if (mirrorIdentity != null && mirrorIdentity.isLocalPlayer)
             {
+                fishController_Mirror.SetVissiblity_Mirror();
                 GameManager.Instance.myFish = this;
             }
         }
@@ -273,6 +274,12 @@ public class FishController : MonoBehaviourPunCallbacks
                 if (GS.Instance.isLan)
                 {
                     fishController_Mirror.Destroy_Mirror(other.gameObject);
+
+                    if (carriedJunk != null)
+                    {
+                        DropJunkToHook_mirror();
+                        return;
+                    }
                 }
                 else
                 {
@@ -333,7 +340,7 @@ public class FishController : MonoBehaviourPunCallbacks
                 }
             }
 
-            if (other.CompareTag("Junk") && carriedJunk == null)
+            if (other.CompareTag("Junk") && carriedJunk == null && !catchadeFish)
             {
                 Debug.Log("collide with junk");
 
@@ -437,7 +444,18 @@ public class FishController : MonoBehaviourPunCallbacks
 
         }
         hook.CallRpcToReturnRod();
-        carriedJunk = null;
+    }
+
+    void DropJunkToHook_mirror()
+    {
+        Hook hook = Hook.Instance;
+
+        if (hook != null)
+        {
+            HungerSystem.Instance.AddHunger(75f);
+
+            fishController_Mirror.SetJunkInHook_Mirror(carriedJunk.GetComponent<NetworkIdentity>(), hook.GetComponent<NetworkIdentity>());
+        }
     }
 
     [PunRPC]
@@ -609,6 +627,8 @@ public class FishController : MonoBehaviourPunCallbacks
     {
         if (GS.Instance.isLan)
         {
+
+           
 
         }
         else

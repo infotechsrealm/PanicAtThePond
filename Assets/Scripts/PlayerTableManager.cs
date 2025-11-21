@@ -30,6 +30,7 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
     public void UpdatePlayerTable()
     {
+        Debug.Log("UpdatePlayerTable called");
         if (GS.Instance.isLan)
         {
            StartCoroutine(UpdateLANPlayerTableUI());
@@ -42,7 +43,6 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
     public void UpdatePlayerTableUI()
     {
-        Debug.Log("UpdatePlayerTableUI Called");
 
         // Clear old entries
         foreach (Transform child in playerTablePanel)
@@ -88,7 +88,6 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
             Destroy(child.gameObject);
 
         playerRows.Clear();
-        Debug.Log("UpdateLANPlayerTableUI Called");
         for (int i = 0; i < players.Count; i++)
         {
             string player = players[i];
@@ -117,5 +116,9 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
     }
 
-
+    public void ResetTable()
+    {
+        foreach (Transform child in playerTablePanel)
+            Destroy(child.gameObject);
+    }
 }

@@ -13,13 +13,27 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
     public RoomRowPrefab roomRowPrefab;
     public Button SelectedButton;
 
+
+
   //  internal List<RoomRowPrefab> allRoomPrefabs = new List<RoomRowPrefab>();
 
     private void Awake()
     {
         instance = this;
     }
-    
+
+    public void UpdateRoomTable()
+    {
+        if (GS.Instance.isLan)
+        {
+            UpdateLANRoomTableUI();
+        }
+        else
+        {
+            UpdateRoomTableUI();
+        }
+    }
+
     public void UpdateRoomTableUI()
     {
         Debug.Log("UpdateRoomTableUI Called");
@@ -37,7 +51,7 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
             Text[] texts = row.GetComponentsInChildren<Text>();
             Button btn = row.GetComponentInChildren<Button>();
 
-           // allRommButtons.Add(btn);
+            // allRommButtons.Add(btn);
 
             if (texts.Length >= 3) // 3 Text components
             {
@@ -47,66 +61,6 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
             }
 
             displayIndex++;
-        }
-    }
-
-    /* public void UpdateLANRoomTableUI()
-     {
-         foreach (Transform child in roomTablePanel)
-         {
-             Destroy(child.gameObject);
-         }
-
-         LANDiscoveryMenu lANDiscoveryMenu = LANDiscoveryMenu.Instance;
-
-         for (int i = 0; i < lANDiscoveryMenu.discoveredServers.Count; i++)
-         {
-             var server = lANDiscoveryMenu.discoveredServers[i];
-
-
-             // ✅ Otherwise, add new one
-             RoomRowPrefab roomRowPrefeb = Instantiate(roomRowPrefab, roomTablePanel);
-
-             roomRowPrefeb.lanRoomInfo.roomName = server.roomName;
-             roomRowPrefeb.lanRoomInfo.port = server.port;
-             roomRowPrefeb.lanRoomInfo.baseBroadcastPort = server.baseBroadcastPort;
-             roomRowPrefeb.lanRoomInfo.roomPassword = server.roomPassword;
-             roomRowPrefeb.lanRoomInfo.connectedPlayers = server.playerCount;
-             roomRowPrefeb.lanRoomInfo.maxPlayers = server.maxPlayers;
-
-             Text[] texts = roomRowPrefeb.GetComponentsInChildren<Text>();
-             Button btn = roomRowPrefeb.GetComponentInChildren<Button>();
-
-            //allRoomPrefabs.Add(roomRowPrefeb);
-
-             if (texts.Length >= 3)
-             {
-                 texts[0].text = (i + 1).ToString(); // Index
-                 texts[1].text = server.roomName;           // Room name
-                 texts[2].text = $"{server.playerCount}/{server.maxPlayers}";             // Joined / Max
-             }
-
-             Debug.Log($"➕ Added new room: {server.roomName}");
-         }
-
-         // 🔹 5️⃣ Optional: Remove Preloader if exists
-         GS.Instance.DestroyPreloder();
-     }*/
-
-    public void ResetTable()
-    {
-        List<GameObject> toDestroy = new List<GameObject>();
-
-        // पहले सभी children collect करो
-        foreach (Transform child in roomTablePanel)
-        {
-            toDestroy.Add(child.gameObject);
-        }
-
-        // अब safely destroy करो
-        foreach (GameObject go in toDestroy)
-        {
-            DestroyImmediate(go);
         }
     }
 
@@ -202,27 +156,25 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
     }
 
 
-    public void JoinRandomAvailableRoom()
-    {
-        // Get all rooms that are not full
-        var joinableRooms = CoustomeRoomManager.Instance.aliveRooms.Values.Where(r => r.PlayerCount < r.MaxPlayers).ToList();
-
-        if (joinableRooms.Count == 0)
-        {
-            Debug.LogWarning("No available rooms to join!");
-            return;
-        }
-
-        // Pick a random room from joinable rooms
-        RoomInfo selectedRoom = joinableRooms[Random.Range(0, joinableRooms.Count)];
-
-        // Join the selected room
-        PhotonNetwork.JoinRoom(selectedRoom.Name);
-        Debug.Log("Joining room: " + selectedRoom.Name);
-    }
-
     public List<RoomInfo> GetJoinableRooms()
     {
         return CoustomeRoomManager.Instance.aliveRooms.Values.Where(r => r.PlayerCount < r.MaxPlayers).ToList();
+    }
+
+    public void ResetTable()
+    {
+        List<GameObject> toDestroy = new List<GameObject>();
+
+        // पहले सभी children collect करो
+        foreach (Transform child in roomTablePanel)
+        {
+            toDestroy.Add(child.gameObject);
+        }
+
+        // अब safely destroy करो
+        foreach (GameObject go in toDestroy)
+        {
+            DestroyImmediate(go);
+        }
     }
 }

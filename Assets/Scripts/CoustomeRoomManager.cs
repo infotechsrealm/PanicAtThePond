@@ -405,7 +405,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         }
         if (RoomTableManager.instance != null)
         {
-            RoomTableManager.instance.UpdateRoomTableUI();
+            RoomTableManager.instance.UpdateRoomTable();
         }
     }
 
@@ -599,7 +599,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
         if (RoomTableManager.instance != null)
         {
-            RoomTableManager.instance.UpdateRoomTableUI();
+            RoomTableManager.instance.UpdateRoomTable();
         }
 
     }

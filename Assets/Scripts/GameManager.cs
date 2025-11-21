@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         else
         {
             photonView.RPC(nameof(FisherManSpawned), RpcTarget.All, true);
-            PhotonNetwork.Instantiate(fishermanPrefab.name, new Vector3(0f, 3.15f, 0f), Quaternion.identity);
+            PhotonNetwork.Instantiate(fishermanPrefab.name, new Vector3(0f, 3.25f, 0f), Quaternion.identity);
         }
 
       

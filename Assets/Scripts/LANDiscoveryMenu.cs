@@ -1,12 +1,11 @@
 ﻿using Mirror;
 using Mirror.Discovery;
-using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text.RegularExpressions;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,6 +39,7 @@ public class LANDiscoveryMenu : MonoBehaviour
 {
     public static LANDiscoveryMenu Instance;
     public NetworkDiscovery networkDiscovery;
+    public NetworkManager networkManager;
 
     private ushort finalPort;
     private int listenPort;
@@ -63,12 +63,13 @@ public class LANDiscoveryMenu : MonoBehaviour
         playerLimit,
         playerLimitError,
         roomPasswordInput,
-        roomPasswordInputError;
+        roomPasswordInputError,
+        noRoomExistError;
 
     [Header("Room Settings")]
     public int maxPlayers;
 
-    internal bool isRoomJoined = false;
+    public bool isRoomJoined = false;
 
     void Awake()
     {
@@ -76,10 +77,17 @@ public class LANDiscoveryMenu : MonoBehaviour
         finalPort = baseGamePort;
         listenPort = baseBroadcastPort;
         DiscoveredServerInfo.playerName = GS.Instance.nickName;
+
     }
 
+    private void Start()
+    {
+        networkManager = GS.Instance.networkManager;
+        networkDiscovery = GS.Instance.networkDiscovery;
+    }
     public void HostGame()
     {
+
         if (playerLimit.text != "")
         {
             maxPlayers = int.Parse(playerLimit.text);
@@ -123,8 +131,6 @@ public class LANDiscoveryMenu : MonoBehaviour
         // ✅ Password validation
         if (string.IsNullOrEmpty(roomPasswordInput.text))
         {
-            /* roomPasswordInputError.text = "Password is required";
-             return;*/
         }
         else if (roomPasswordInput.text.Length < 6)
         {
@@ -202,6 +208,7 @@ public class LANDiscoveryMenu : MonoBehaviour
         if (!roomExist)
         {
             Debug.Log("🏠 Room not exist , Hosting new room : " + roomName);
+            //  FindFreePortAndHost();
             FindFreePortAndHost();
         }
         else
@@ -211,17 +218,25 @@ public class LANDiscoveryMenu : MonoBehaviour
     }
 
 
-
     // Find free ports and host the game
     void FindFreePortAndHost()
     {
         int tryGamePort = baseGamePort;
         int tryBroadcastPort = baseBroadcastPort;
+        int maxPort = 7792;                      // <-- LIMIT
 
         Debug.Log("🔍 Checking for free LAN game port...");
 
         while (true)
         {
+            // ❌ If we cross the limit → stop searching
+            if (tryGamePort >= maxPort)
+            {
+                createRoomNameError.text = "All rooms are full";
+                GS.Instance.DestroyPreloder();
+                Debug.Log($"❌ all rooms is full  {tryGamePort} and {maxPort}!");
+                return;
+            }
             Debug.Log("tryGamePort = " + tryGamePort + " tryBroadcastPort = "+ tryBroadcastPort);
             
             // Step 1️⃣ : Local TCP check (Mirror’s Telepathy will use TCP)
@@ -283,7 +298,9 @@ public class LANDiscoveryMenu : MonoBehaviour
 
         DiscoveredServerInfo.maxPlayers = maxPlayers;
 
-        var nm = NetworkManager.singleton;
+
+        var nm = networkManager;
+
         if (nm == null)
         {
             Debug.LogError("❌ No NetworkManager in scene!");
@@ -307,13 +324,12 @@ public class LANDiscoveryMenu : MonoBehaviour
 
         transport.port = finalPort;
 
-        NetworkManager.singleton.StartHost();
+        networkManager.StartHost();
         networkDiscovery.AdvertiseServer();
 
         Debug.Log($"🏠 Hosting LAN on free port {finalPort}, broadcast {listenPort}");
 
         createJoinManager.hostLobby.gameObject.SetActive(true);
-       // createJoinManager.hostLobby.playerTableManager.UpdatePlayerTable();
     }
 
     // ✅ Local TCP availability check
@@ -350,147 +366,143 @@ public class LANDiscoveryMenu : MonoBehaviour
 
     public void CallDiscoverAllLANHosts_Unlimited()
     {
-        GS.Instance.DestroyPreloder();
-        isRoomJoined = false;
+        isRoomJoined  = false;
         discoverRoutine  = StartCoroutine(DiscoverAllLANHosts_Unlimited());
     }
 
-
     public  bool isDiscovering = false;
+
     IEnumerator DiscoverAllLANHosts_Unlimited()
     {
-        if (!isDiscovering)
+        if (isRoomJoined)
+            yield break;
+
+        if (isDiscovering)
+            yield break;
+
+        isDiscovering = true;
+
+        int currentPort = baseBroadcastPort;
+        int silenceCounter = 0;
+        int silenceLimit = 15;
+
+        Debug.Log("🌐 Starting full LAN host discovery...");
+
+        // ❗ IMPORTANT: REMOVE THIS LINE
+        // discoveredServers.Clear();  // ❌ अब कभी clear नहीं करेंगे
+
+        while (silenceCounter < silenceLimit && !isRoomJoined)
         {
-            isDiscovering = true;
-            int currentPort = baseBroadcastPort; // 47777 से शुरू
-            int silenceCounter = 0;
-            int silenceLimit = 15;
+            bool foundOnThisPort = false;
 
-            Debug.Log("🌐 Starting full LAN host discovery...");
+            networkDiscovery.OnServerFound.RemoveAllListeners();
 
-            // यह dictionary हर host का "last seen" time रखेगी
-
-            discoveredServers.Clear();
-
-
-            while (silenceCounter < silenceLimit)
+            networkDiscovery.OnServerFound.AddListener((response) =>
             {
-                if (isDiscovering)
+                if (response.uri != null)
                 {
-                    bool foundOnThisPort = false;
+                    foundOnThisPort = true;
 
-                    networkDiscovery.OnServerFound.RemoveAllListeners();
+                    string ip = response.EndPoint.Address.ToString();
+                    int port = response.uri.Port;
+                    string key = ip + ":" + port;
 
-                    networkDiscovery.OnServerFound.AddListener((response) =>
+                    string name = response.roomName;
+                    int connectedPlayers = response.connectedPlayers;
+
+                    // 🔍 check if this server exists
+                    var existing = discoveredServers
+                        .FirstOrDefault(s => s.address == ip && s.port == port);
+
+                    if (existing != null)
                     {
-                        if (response.uri != null)
-                        {
-                            string ip = response.EndPoint.Address.ToString();
-                            int port = response.uri.Port;
-                            string key = ip + ":" + port;
-                            string name = response.roomName;
-                            int connectedPlayers = response.connectedPlayers;
+                        // 🟢 UPDATE existing entry
+                        existing.roomName = name;
+                        existing.playerCount = connectedPlayers;
+                        existing.roomPassword = response.roomPassword;
+                        existing.baseBroadcastPort = response.serverBroadcastListenPortPortValue;
+                        existing.maxPlayers = response.maxPlayers;
 
-                            var newServer = new DiscoveredServer()
-                            {
-                                roomName = name,
-                                playerCount = connectedPlayers,
-                                address = ip,
-                                port = port,
-                                roomPassword = response.roomPassword,
-                                baseBroadcastPort = response.serverBroadcastListenPortPortValue,
-                                maxPlayers = response.maxPlayers
-                            };
-
-                            discoveredServers.Add(newServer);
-
-                            Debug.Log($"📡 Found new Host → {ip}:{port} ({name})");
-
-                            // ⏱️ Update last seen time
-
-                            foundOnThisPort = true;
-                        }
-                    });
-
-
-
-                    networkDiscovery.serverBroadcastListenPort = currentPort;
-                    networkDiscovery.StartDiscovery();
-                    Debug.Log($"🔎 Scanning LAN for hosts on broadcast port {currentPort}...");
-                    yield return new WaitForSeconds(0.1f);
-                    networkDiscovery.StopDiscovery();
-
-                    if (foundOnThisPort)
-                        silenceCounter = 0;
+                        Debug.Log($"🔄 Updated Host → {ip}:{port} ({name})");
+                    }
                     else
-                        silenceCounter++;
+                    {
+                        // 🟢 ADD new entry
+                        var newServer = new DiscoveredServer()
+                        {
+                            roomName = name,
+                            playerCount = connectedPlayers,
+                            address = ip,
+                            port = port,
+                            roomPassword = response.roomPassword,
+                            baseBroadcastPort = response.serverBroadcastListenPortPortValue,
+                            maxPlayers = response.maxPlayers
+                        };
 
-                    currentPort++;
+                        discoveredServers.Add(newServer);
+
+                        Debug.Log($"🆕 Added Host → {ip}:{port} ({name})");
+                    }
 
                 }
-                else
-                {
-                    yield return null;
-                }
+            });
 
-            }
-
-            Debug.Log($"✅ Active hosts on LAN: {discoveredServers.Count}");
-
-            // 🔄 Update UI only if not joined in room
-            if (RoomTableManager.instance != null)
+            if (!foundOnThisPort)
             {
-                RoomTableManager.instance.UpdateLANRoomTableUI();
+                for (int i = 0; i < discoveredServers.Count; i++)
+                {
+                    Debug.Log("❌ currentPort" + currentPort + " discoveredServers[i].port =  " + discoveredServers[i].baseBroadcastPort);
+                    if (discoveredServers[i].baseBroadcastPort == currentPort)
+                    {
+                        Debug.Log(currentPort + "is Not Exist in LAN");
+                        discoveredServers.Remove(discoveredServers[i]);
+                    }
+                }
             }
 
-            yield return new WaitForSeconds(1f);
+            networkDiscovery.serverBroadcastListenPort = currentPort;
+            networkDiscovery.StartDiscovery();
+            Debug.Log($"🔎 Scanning on broadcast port {currentPort}...");
+            yield return new WaitForSeconds(0.1f);
+            networkDiscovery.StopDiscovery();
 
-            isDiscovering = false;
-            CallDiscoverAllLANHosts_Unlimited();
-            GS.Instance.DestroyPreloder();
+            silenceCounter = foundOnThisPort ? 0 : silenceCounter + 1;
+
+            currentPort++;
         }
-        else
+
+        Debug.Log($"⭐ Total Hosts in memory: {discoveredServers.Count}");
+
+        if (RoomTableManager.instance != null)
         {
-            yield return null;
+            RoomTableManager.instance.UpdateRoomTable();
         }
+
+        yield return new WaitForSeconds(1f);
+
+        isDiscovering = false;
+
+        if (!isRoomJoined)
+            CallDiscoverAllLANHosts_Unlimited();
     }
+
 
     // 📡 यह function LAN में सारे hosts ढूंढता है और result return करता है
     public void FindGames()
     {
-        /* if (DiscoveredServerInfo.baseBroadcastPort != 0 && DiscoveredServerInfo.port != 0)
-         {
-             string password = DiscoveredServerInfo.roomPassword ?? "";
-             Debug.Log("DiscoveredServerInfo.roomPassword = " + DiscoveredServerInfo.roomPassword);
-             if (string.IsNullOrEmpty(password))
-             {
-                 JoinRoom();
-             }
-             else
-             {
-                 GameObject popup = Instantiate(GS.Instance.passwordPopupPrefab, createJoinManager.transform);
-                 popup.GetComponent<PasswordPopup>().correctPassword = DiscoveredServerInfo.roomPassword;
-             }
-         }
-         else
-         {
-             Debug.Log("❌ Invalid port information for discovering games.");
-         }*/
-
-        StopRoomFindCoroutine();
-
-
         StartCoroutine(isRoomisExist());
     }
 
+    public bool isRoomExist = false;
+
     public IEnumerator isRoomisExist()
     {
+        isRoomExist = false;
         GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
-
 
         listenPort = DiscoveredServerInfo.baseBroadcastPort;
         networkDiscovery.serverBroadcastListenPort = listenPort;
-
+        noRoomExistError.text = "";
 
         int currentPort = 47777; // 47777 से शुरू
         int silenceCounter = 0;              // लगातार खाली ports की गिनती
@@ -500,7 +512,7 @@ public class LANDiscoveryMenu : MonoBehaviour
         Debug.Log("🌐 Starting full LAN host discovery...");
 
 
-        while (silenceCounter < silenceLimit)
+        while (silenceCounter < silenceLimit && !isRoomExist)
         {
             bool foundOnThisPort = false;
 
@@ -511,7 +523,7 @@ public class LANDiscoveryMenu : MonoBehaviour
                 if (response.uri != null)
                 {
                     int port = response.uri.Port;
-                    int connectedPlayers  =response.connectedPlayers;
+                    int connectedPlayers = response.connectedPlayers;
 
                     foundOnThisPort = true;
 
@@ -523,6 +535,9 @@ public class LANDiscoveryMenu : MonoBehaviour
                             {
                                 string password = DiscoveredServerInfo.roomPassword ?? "";
                                 Debug.Log("DiscoveredServerInfo.roomPassword = " + DiscoveredServerInfo.roomPassword);
+                                isRoomExist = true;
+                                StopRoomFindCoroutine();
+
                                 if (string.IsNullOrEmpty(password))
                                 {
                                     JoinRoom();
@@ -533,55 +548,38 @@ public class LANDiscoveryMenu : MonoBehaviour
                                     popup.GetComponent<PasswordPopup>().correctPassword = DiscoveredServerInfo.roomPassword;
                                 }
                             }
-                            else
-                            {
-                                Debug.Log("❌ Invalid port information for discovering games.");
-                                if (RoomTableManager.instance.SelectedButton != null)
-                                {
-                                    RoomTableManager.instance.SelectedButton.interactable = true;
-                                }
-                                CallDiscoverAllLANHosts_Unlimited();
-                            }
                         }
-                        else
-                        {
-                            Debug.Log("Room is full , Can't join this room.");
-                            if (RoomTableManager.instance.SelectedButton != null)
-                            {
-                                RoomTableManager.instance.SelectedButton.interactable = true;
-                            }
-                            CallDiscoverAllLANHosts_Unlimited();
-                        }
-                    }
-                    else
-                    {
-                        Debug.Log("Room not exist in this port : " + port);
-                        if (RoomTableManager.instance.SelectedButton != null)
-                        {
-                            RoomTableManager.instance.SelectedButton.interactable = true;
-                        }
-                        CallDiscoverAllLANHosts_Unlimited();
                     }
                 }
             });
 
+            if (!isRoomExist)
+            {
+                networkDiscovery.serverBroadcastListenPort = currentPort;
+                networkDiscovery.StartDiscovery();
 
-            networkDiscovery.serverBroadcastListenPort = currentPort;
-            networkDiscovery.StartDiscovery();
 
-            Debug.Log($"🔎 Scanning LAN for hosts on broadcast port {currentPort}...");
+                yield return new WaitForSeconds(0.1f);
 
-            yield return new WaitForSeconds(0.1f);
+                networkDiscovery.StopDiscovery();
 
-            networkDiscovery.StopDiscovery();
+                if (foundOnThisPort)
+                    silenceCounter = 0;
+                else
+                    silenceCounter++;
 
-            if (foundOnThisPort)
-                silenceCounter = 0;
+                currentPort++;
+            }
             else
-                silenceCounter++;
+            {
+                Debug.Log("room is  exist adfffff vgbhsjmk,lukyrbetvwRFTGEYHJKLUFREW --------------------");
+            }
 
-            currentPort++;
-
+        }
+        if(!isRoomExist)
+        {
+            Debug.Log($" ********************** room is NOT exist Scanning LAN for hosts on broadcast port {currentPort}...");
+            noRoomExistError.text = "This room does not exist.";
         }
     }
     
@@ -593,7 +591,7 @@ public class LANDiscoveryMenu : MonoBehaviour
         listenPort = DiscoveredServerInfo.baseBroadcastPort;
         networkDiscovery.serverBroadcastListenPort = listenPort;
 
-        var transport = (TelepathyTransport)NetworkManager.singleton.transport;
+        var transport = (TelepathyTransport)networkManager.transport;
         transport.port = (ushort)DiscoveredServerInfo.port;
 
         Debug.Log($"🔎 Searching for LAN hosts (game={transport.port}, broadcast={listenPort})...");
@@ -601,20 +599,19 @@ public class LANDiscoveryMenu : MonoBehaviour
         networkDiscovery.OnServerFound.AddListener(OnDiscoveredServer);
         RoomTableManager.instance.ResetTable();
     }
-
+    
     public void StopRoomFindCoroutine()
     {
         if (discoverRoutine != null)
         {
+            Debug.Log("🛑 LAN host discovery stopped.");
+            isRoomJoined = true;
             isDiscovering = false;
             StopCoroutine(discoverRoutine);
             discoveredServers.Clear();
-            Debug.Log("🛑 LAN host discovery stopped.");
             discoverRoutine = null;
         }
     }
-
-
 
 
     public bool isConnected = false;
@@ -632,15 +629,14 @@ public class LANDiscoveryMenu : MonoBehaviour
         string hostAddress = info.EndPoint.Address.ToString();
         Debug.Log($"✅ Found host: {hostAddress} | URI: {info.uri}");
 
-        NetworkManager.singleton.networkAddress = hostAddress;
+        networkManager.networkAddress = hostAddress;
 
         // Try connecting automatically
-        NetworkManager.singleton.StartClient();
+        networkManager.StartClient();
 
         isConnected = true;
         Debug.Log("🚀 Auto-joining host...");
         int count = NetworkServer.connections.Count;
         Debug.Log($"👥 Players connected: {count}");
     }
-   
 }

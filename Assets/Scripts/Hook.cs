@@ -292,6 +292,12 @@ public class Hook : MonoBehaviourPunCallbacks
                     {
                         GameManager.Instance.myFish.fishController_Mirror.DisableFish_Mirror(wormParent.GetChild(0).GetComponent<NetworkIdentity>());
                     }
+
+
+                    if (wormParent.GetChild(0).tag == "Junk")
+                    {
+                        GameManager.Instance.myFish.fishController_Mirror.Destroy_Mirror(wormParent.GetChild(0).gameObject);
+                    }
                 }
             }
             else
@@ -349,4 +355,7 @@ public class Hook : MonoBehaviourPunCallbacks
         //hook_Mirror.SpawnWorm();
         AttachWorm();
     }
+
+
+   
 }

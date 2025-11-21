@@ -10,7 +10,7 @@ public class JoinPanel : MonoBehaviour
     public Button joinRandomBtn;
     private void OnEnable()
     {
-        roomTableManager.UpdateRoomTableUI();
+        roomTableManager.UpdateRoomTable();
         if (GS.Instance.isLan)
         {
             joinRandomBtn.interactable = false;

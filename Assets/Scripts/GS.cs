@@ -1,8 +1,14 @@
+using Mirror;
+using Mirror.Discovery;
 using UnityEngine;
 
 public class GS : MonoBehaviour  
 {
     public static GS Instance;
+
+    public NetworkDiscovery networkDiscovery;
+    public NetworkManager networkManager;
+
     public GameObject createAndJoinPanel,
                       howToPlay,
                       preloder;

@@ -7,6 +7,8 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 {
     public static CreateJoinManager Instance;
 
+    public CoustomeRoomManager coustomeRoomManager;
+
     public GameObject createAndJoinButtons;
 
     public CreatePanel createPanel;
@@ -14,6 +16,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
     public ClientLobby  clientLobby;
     public HostLobby hostLobby;
+
 
 
     internal bool isCreating = false;
@@ -70,6 +73,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                 {
                     if (GS.Instance.isLan)
                     {
+                        coustomeRoomManager.InitializeWaterTypeToggles();
                         LANDiscoveryMenu.Instance.HostGame();
                     }
                     else
@@ -191,8 +195,8 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
         {
             GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
-            JoinPanel.gameObject.SetActive(true);
             createPanel.gameObject.SetActive(false);
+            JoinPanel.gameObject.SetActive(true);
 
             if (GS.Instance.isLan)
             {

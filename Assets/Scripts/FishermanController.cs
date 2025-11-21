@@ -151,7 +151,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         //Everyone can see everyone.
         if (GS.Instance.AllVisible)
         {
-            if (PhotonNetwork.IsMasterClient || GS.Instance.IsMirrorMasterClient )
+            if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan )
             {
                 // Enable background 3
                 if (gameManager.water != null)
@@ -168,7 +168,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         //Both sides hidden (blind match).
         if (GS.Instance.DeepWaters)
         {
-            if (PhotonNetwork.IsMasterClient || GS.Instance.IsMirrorMasterClient)
+            if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan)
             {
                 // Enable background 3
                 if (gameManager.water != null)
@@ -185,7 +185,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         //Fish can see the fisherman, but he can’t see them.
         if (GS.Instance.MurkyWaters)
         {
-            if (PhotonNetwork.IsMasterClient || GS.Instance.IsMirrorMasterClient)
+            if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan)
             {
                 // Enable background 3
                 if (gameManager.water != null)
@@ -202,7 +202,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         //Fisherman can see fish, but fish can’t see him.
         if (GS.Instance.ClearWaters)
         {
-            if (PhotonNetwork.IsMasterClient || GS.Instance.IsMirrorMasterClient)
+            if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan)
             {
                 // Enable background 3
                 if (gameManager.water != null)
