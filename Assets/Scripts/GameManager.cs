@@ -408,6 +408,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             PhotonNetwork.SendAllOutgoingCommands(); // send it now
         }
     }
+
+
     //When Fish is Die  and Exit frome game 
     [PunRPC]
     public void LessPlayerCount()
@@ -422,9 +424,21 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void LessPlayerCount_Mirror()
     {
         totalPlayers--;
-        if (PhotonNetwork.IsMasterClient)
+
+        if (GS.Instance.isLan)
         {
-            FishermanController.Instance.CheckWorms();
+            if(myFish.isFisherMan)
+            {
+                FishermanController.Instance.CheckWorms();
+            }
+        }
+        else
+        {
+
+            if (PhotonNetwork.IsMasterClient)
+            {
+                FishermanController.Instance.CheckWorms();
+            }
         }
     }
 

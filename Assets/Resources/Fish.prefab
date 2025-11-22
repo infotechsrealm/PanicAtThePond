@@ -626,6 +626,7 @@ MonoBehaviour:
   moveAction: {fileID: 0}
   fishController: {fileID: 7943789805972749232}
   wormPrefab: {fileID: 7213787239234744724, guid: ed9be4f8a38e17c45abcef0b0b7bb870, type: 3}
+  allHookWorms: []
   fishermanPrefab: {fileID: 4221548032391945581, guid: b839bcb9e6837534c89107afe33ac208, type: 3}
 --- !u!114 &2305398131311501469
 MonoBehaviour:
@@ -719,8 +720,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Mirror.Components::Mirror.NetworkAnimator
-  syncDirection: 0
+  syncDirection: 1
   syncMode: 0
   syncInterval: 0
-  clientAuthority: 0
+  clientAuthority: 1
   animator: {fileID: 250797804069210921}

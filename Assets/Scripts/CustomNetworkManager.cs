@@ -66,37 +66,40 @@ public class CustomNetworkManager : NetworkManager
         SendUpdatedPlayerListToAll();
     }
 
+
+
+
     // 🔹 जब कोई disconnect करे
     public override void OnServerDisconnect(NetworkConnectionToClient conn)
     {
         if (playerNames.ContainsKey(conn.connectionId))
         {
-            Debug.Log($"❌ Player left: {playerNames[conn.connectionId]}");
+            Debug.Log($"❌ Player left: {playerNames[conn.connectionId]}" +"is dead =" + conn.isDead);
             playerNames.Remove(conn.connectionId);
         }
 
+        base.OnServerDisconnect(conn);
 
-        NetworkIdentity playerIdentity = conn.identity;
-
-        if (playerIdentity != null)
+        if (FishController.Instance != null)
         {
-            FishController fish = playerIdentity.GetComponent<FishController>();
-
+            FishController fish = FishController.Instance;
             if (fish != null)
             {
-                if (fish.isDead)
+                int curruntPlayer = NetworkServer.connections.Count;
+                Debug.Log("curruntPlayer ===>" + curruntPlayer);
+                if (curruntPlayer <= 1)
                 {
-                    Debug.Log("Fish quit while alive → decrement counter" + fish.isDead);
-                    GameManager.Instance.LessPlayerCount_Mirror();
-                }
-                else
-                {
-                    Debug.Log("Fish was already dead → no decrement");
+                    if (fish.isFisherMan)
+                    {
+                        FishermanController.Instance.CheckWorms();
+                    }
+                    else
+                    {
+                        fish.WinFish_mirror();
+                    }
                 }
             }
         }
-
-        base.OnServerDisconnect(conn);
 
         // सभी को अपडेट भेजो
         SendUpdatedPlayerListToAll();
@@ -188,6 +191,12 @@ public class CustomNetworkManager : NetworkManager
                 LANDiscoveryMenu.Instance.CallDiscoverAllLANHosts_Unlimited();
                 CreateJoinManager.Instance.clientLobby.gameObject.SetActive(false);
             }
+        }
+
+
+        if (FishController.Instance != null)
+        {
+            GameManager.Instance.ShowGameOver("GameOver!");
         }
 
     }

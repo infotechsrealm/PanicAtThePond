@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 5963247285779858195}
   - component: {fileID: -4437669342018513032}
   - component: {fileID: 1063574028516868793}
+  - component: {fileID: -7021204976209846324}
   m_Layer: 9
   m_Name: HookWorm
   m_TagString: HookWorm
@@ -314,3 +315,20 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+--- !u!114 &-7021204976209846324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7213787239234744724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mirror.Components::Mirror.NetworkAnimator
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  clientAuthority: 1
+  animator: {fileID: 8024889177461802173}

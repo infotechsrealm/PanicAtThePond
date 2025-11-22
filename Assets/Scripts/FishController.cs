@@ -44,7 +44,7 @@ public class FishController : MonoBehaviourPunCallbacks
     internal GameObject carriedJunk;
 
     [Header("Floating on Death")]
-    internal bool isDead = false;
+    public bool isDead = false;
    internal bool isFisherMan= false;
     private Rigidbody2D rb;
 
@@ -210,6 +210,7 @@ public class FishController : MonoBehaviourPunCallbacks
         canMove = false;
         isDead = true;
 
+        
         rb.linearVelocity = Vector2.zero;
         transform.GetComponent<PolygonCollider2D>().enabled = false;
 

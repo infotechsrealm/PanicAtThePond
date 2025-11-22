@@ -21,7 +21,7 @@ public class FishController_Mirror : NetworkBehaviour
         Debug.Log("isClient: " + isClient);
         Debug.Log("isLocalPlayer: " + isLocalPlayer);
         Debug.Log("connectionToClient: " + connectionToClient);
-      
+        MarkMeDead(false);
     }
 
     public void SetVissiblity_Mirror()
@@ -198,16 +198,7 @@ public class FishController_Mirror : NetworkBehaviour
         }
     }
 
-    private void OnApplicationQuit()
-    {
-        if (GS.Instance.isLan)
-        {
-            if (!fishController.isDead)
-            {
-                LessCounter();
-            }
-        }
-    }
+   
 
     public void LessCounter()
     {
@@ -221,8 +212,6 @@ public class FishController_Mirror : NetworkBehaviour
     [Command]
     public void CmdLessCounter()
     {
-        Debug.Log("22222222222222222222222222222222CmdLessCounter called");
-
         ClientCmdLessCounter();
 
     }
@@ -230,8 +219,6 @@ public class FishController_Mirror : NetworkBehaviour
     [ClientRpc]
     public void ClientCmdLessCounter()
     {
-        Debug.Log("22222222222222222222222222222222222222222222222ClientCmdLessCounter calledxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-
         if (GameManager.Instance.isFisherMan)
         {
             GameManager.Instance.LessPlayerCount_Mirror();
@@ -241,29 +228,13 @@ public class FishController_Mirror : NetworkBehaviour
 
     public void SpawnWorm(int length)
     {
-        Debug.Log("=== FishermanController_Mirror CALLED ===");
-        Debug.Log("isServer: " + isServer);
-        Debug.Log("isClient: " + isClient);
-        Debug.Log("isLocalPlayer: " + isLocalPlayer);
-        Debug.Log("lengthlengthlengthlengthlengthlengthlengthlengthlengthlengthlengthlengthlengthlengthlengthlength: " + length);
-
         if (isServer)
         {
-            Debug.Log("isServerisServerisServerisServerisServerisServerisServerisServerisServer: " + isServer);
-
-
             for (int i = 0; i < length; i++)
             {
-                Debug.Log("iiiiiiiiiiiiiiiiiiiiiiiiiiiiii: " + i);
-
                 GameObject worm = Instantiate(wormPrefab, new Vector3(0f, 10f, 0f), Quaternion.identity);
                 NetworkServer.Spawn(worm, connectionToClient); // 🔹 gives authority to caller client
             }
-        }
-        else
-        {
-            Debug.Log("isServerisServerisServerisServerisServerisServerisServerisServerisServer: " + isServer);
-
         }
     }
 
@@ -449,6 +420,7 @@ public class FishController_Mirror : NetworkBehaviour
         RPCPutFishInHook(FishNetId, HookNetId);
     }
 
+
     [ClientRpc]
     void RPCPutFishInHook(uint FishNetId, uint HookNetId)
     {
@@ -465,7 +437,10 @@ public class FishController_Mirror : NetworkBehaviour
                 fish.transform.SetParent(fishParent);
                 fish.transform.eulerAngles = new Vector3(0f, 0f, -90f);
                 fish.transform.localPosition = Vector3.zero;
+
                 ReturnRoadOfHook();
+
+             
             }
         }
     }
@@ -533,4 +508,14 @@ public class FishController_Mirror : NetworkBehaviour
         }
     }
 
+
+    public void MarkMeDead(bool res)
+    {
+        NetworkConnectionToClient conn = connectionToClient;
+        if (conn != null)
+        {
+            conn.isDead = res;   // SET
+            Debug.Log("@@@@@@@@@@@@@@Marked dead on server"+ conn.isDead);
+        }
+    }
 }
