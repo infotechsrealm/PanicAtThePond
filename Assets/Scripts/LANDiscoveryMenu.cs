@@ -549,6 +549,10 @@ public class LANDiscoveryMenu : MonoBehaviour
                                 }
                             }
                         }
+                        else
+                        {
+                            //noRoomExistError.text = "room is full.";
+                        }
                     }
                 }
             });
@@ -579,7 +583,7 @@ public class LANDiscoveryMenu : MonoBehaviour
         if(!isRoomExist)
         {
             Debug.Log($" ********************** room is NOT exist Scanning LAN for hosts on broadcast port {currentPort}...");
-            noRoomExistError.text = "This room does not exist.";
+            noRoomExistError.text = "room joining is faild , Please try again.";
         }
     }
     

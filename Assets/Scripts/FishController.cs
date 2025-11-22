@@ -129,7 +129,12 @@ public class FishController : MonoBehaviourPunCallbacks
         }
         else
         {
-             move = inputAction.action.ReadValue<Vector2>();
+         //    move = inputAction.action.ReadValue<Vector2>();
+
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+
+            move = new Vector2(horizontal, vertical);
         }
 
         float moveX = move.x;

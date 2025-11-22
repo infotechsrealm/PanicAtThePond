@@ -103,6 +103,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             PhotonNetwork.AutomaticallySyncScene = true;
             totalPlayers = PhotonNetwork.CurrentRoom.PlayerCount;
         }
+
+
         SpawnPlayer();
     }
 
@@ -135,6 +137,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     void SpawnPlayer()
     {
+            Debug.Log("GS.Instance.isLan = > " + GS.Instance.isLan);
         if (GS.Instance.isLan)
         {
             foreach (var conn in NetworkServer.connections.Values)

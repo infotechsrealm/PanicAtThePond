@@ -34,6 +34,18 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
         Instance = this;
     }
 
+
+    private void Update()
+    {
+        if (PhotonNetwork.IsConnected)
+        {
+            Debug.Log("Is Connected");
+        }
+        else
+        {
+            Debug.Log("Is Disconnected");
+        }
+    }
     public void OnClickAction(string action)
     {
         switch (action)

@@ -1,3 +1,4 @@
+using Photon.Pun;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -44,6 +45,16 @@ public class JoinPanel : MonoBehaviour
                 LANDiscoveryMenu.Instance.StopRoomFindCoroutine();
             }
         }
+        else
+        {
+
+            if (PhotonNetwork.IsConnected)
+            {
+                PhotonNetwork.Disconnect();
+            }
+        }
+
+
 
         gameObject.SetActive(false);
     }

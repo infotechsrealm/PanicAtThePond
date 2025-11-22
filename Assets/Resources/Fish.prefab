@@ -379,6 +379,7 @@ MonoBehaviour:
   fishCameToSurfaceSound: {fileID: 8300000, guid: aef8c276d106a9540b2d95b29573d474, type: 3}
   animator: {fileID: 250797804069210921}
   canMove: 1
+  isDead: 0
   mirrorIdentity: {fileID: -7088840247176330678}
 --- !u!50 &-6325267276595778038
 Rigidbody2D:
