@@ -102,11 +102,14 @@ public class FishController : MonoBehaviourPunCallbacks
             }
         }
         
+        Debug.Log("fish is Dead + " + isDead);
+
         if (!canMove)
         {
             rb.linearVelocity = Vector2.zero;
             return;
         }
+
 
         Vector2 move;
         if (GS.Instance.isLan)
@@ -209,8 +212,9 @@ public class FishController : MonoBehaviourPunCallbacks
 
         canMove = false;
         isDead = true;
+        fishController_Mirror.SetDeadFish_Mirror(GetComponent<NetworkIdentity>());
 
-        
+
         rb.linearVelocity = Vector2.zero;
         transform.GetComponent<PolygonCollider2D>().enabled = false;
 

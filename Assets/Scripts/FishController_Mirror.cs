@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class FishController_Mirror : NetworkBehaviour
 {
@@ -516,6 +517,52 @@ public class FishController_Mirror : NetworkBehaviour
         {
             conn.isDead = res;   // SET
             Debug.Log("@@@@@@@@@@@@@@Marked dead on server"+ conn.isDead);
+        }
+    }
+
+
+    public void SetDeadFish_Mirror(NetworkIdentity FishNetId)
+    {
+        CMDSetDeadFish_Mirror(FishNetId.netId);
+    }
+
+    [Command]
+    public void CMDSetDeadFish_Mirror(uint FishNetId)
+    {
+        RPCSetDeadFish_Mirror(FishNetId);
+    }
+
+    [ClientRpc]
+    public void RPCSetDeadFish_Mirror(uint FishNetId)
+    {
+
+        if (NetworkClient.spawned.TryGetValue(FishNetId, out NetworkIdentity FishIdentity))
+        {
+            FishController fish = FishIdentity.GetComponent<FishController>();
+            fish.isDead = true;
+        }
+    }
+
+    public void CallLessPlayerCount_Mirror()
+    {
+        CMDCallLessPlayerCount_Mirror();
+    }
+
+
+    [Command]
+    public void CMDCallLessPlayerCount_Mirror()
+    {
+        RPCCallLessPlayerCount_Mirror();
+    }
+
+    [ClientRpc]
+    public void RPCCallLessPlayerCount_Mirror()
+    {
+        Debug.Log("RPCCallLessPlayerCount_Mirror called");
+        if(GameManager.Instance.isFisherMan)
+        {
+            Debug.Log("I m fisher man");
+            GameManager.Instance.LessPlayerCount_Mirror();
         }
     }
 }

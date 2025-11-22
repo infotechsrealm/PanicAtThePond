@@ -72,34 +72,62 @@ public class CustomNetworkManager : NetworkManager
     // 🔹 जब कोई disconnect करे
     public override void OnServerDisconnect(NetworkConnectionToClient conn)
     {
+
+        Debug.Log("& Client disconnected or connection lost.");
+
         if (playerNames.ContainsKey(conn.connectionId))
         {
             Debug.Log($"❌ Player left: {playerNames[conn.connectionId]}" +"is dead =" + conn.isDead);
             playerNames.Remove(conn.connectionId);
         }
 
-        base.OnServerDisconnect(conn);
 
         if (FishController.Instance != null)
         {
-            FishController fish = FishController.Instance;
-            if (fish != null)
+            FishController myFish = FishController.Instance;
+            FishController oppFish = conn.identity.GetComponent<FishController>();
+
+            if (myFish.isFisherMan)
+            {
+
+                Debug.Log("oppFish => " + oppFish.isDead);
+
+                if (!oppFish.isDead)
+                {
+                    GameManager.Instance.LessPlayerCount_Mirror();
+                }
+            }
+            else
+            {
+                if (!oppFish.isDead)
+                {
+                    myFish.fishController_Mirror.CallLessPlayerCount_Mirror();
+                }
+            }
+        }
+
+        if (FishController.Instance != null)
+        {
+            FishController myFish = FishController.Instance;
+            if (myFish != null)
             {
                 int curruntPlayer = NetworkServer.connections.Count;
                 Debug.Log("curruntPlayer ===>" + curruntPlayer);
                 if (curruntPlayer <= 1)
                 {
-                    if (fish.isFisherMan)
+                    if (myFish.isFisherMan)
                     {
                         FishermanController.Instance.CheckWorms();
                     }
                     else
                     {
-                        fish.WinFish_mirror();
+                        myFish.WinFish_mirror();
                     }
                 }
             }
         }
+
+        base.OnServerDisconnect(conn);
 
         // सभी को अपडेट भेजो
         SendUpdatedPlayerListToAll();
@@ -175,7 +203,6 @@ public class CustomNetworkManager : NetworkManager
 
         Debug.Log("🚨 Host disconnected or connection lost.");
 
-
         if (LANDiscoveryMenu.Instance != null)
         {
             if (CreateJoinManager.Instance.isJoining)
@@ -208,5 +235,4 @@ public class CustomNetworkManager : NetworkManager
         Debug.Log("🔁 Loading play scene for all clients...");
         ServerChangeScene("Play");
     }
-
 }

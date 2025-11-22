@@ -434,7 +434,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         else
         {
-
             if (PhotonNetwork.IsMasterClient)
             {
                 FishermanController.Instance.CheckWorms();
