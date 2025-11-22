@@ -195,10 +195,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         if (gameOverPanel != null)
         {
-            if (preloderUI.activeSelf)
+           /* if (preloderUI.activeSelf)
             {
                 preloderUI.SetActive(false);
-            }
+            }*/
 
             gameOverPanel.SetActive(true);
 

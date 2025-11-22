@@ -1060,7 +1060,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &422748682
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2091,7 +2091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Mirror::Mirror.NetworkIdentity
-  sceneId: 1620496005
+  sceneId: 4287413095
   _assetId: 0
   serverOnly: 0
   visibility: 0
@@ -3674,6 +3674,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 6751592923596177885}
   musicVolumeSlider: {fileID: 2965345546572399917}
+  Objects:
+  - {fileID: 821744895}
+  - {fileID: 1887113703}
+  - {fileID: 1649361941}
+  preloder: {fileID: 422748681}
 --- !u!224 &2101195926
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5068,11 +5073,11 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 2032120393}
-  - {fileID: 821744897}
   - {fileID: 1514028345}
-  - {fileID: 1887113705}
-  - {fileID: 1649361943}
   - {fileID: 492325672}
   - {fileID: 1616467671}
   - {fileID: 7587285420306129284}
   - {fileID: 2101195926}
+  - {fileID: 821744897}
+  - {fileID: 1887113705}
+  - {fileID: 1649361943}

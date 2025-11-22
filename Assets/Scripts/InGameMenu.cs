@@ -1,4 +1,6 @@
 using Photon.Pun;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -14,7 +16,12 @@ public class InGameMenu : MonoBehaviourPunCallbacks
     public Slider musicVolumeSlider;
 
 
-
+    public List<GameObject> Objects = new List<GameObject>();
+    public GameObject preloder;
+    private void Awake()
+    {
+       
+    }
     private void Start()
     {
         float savedVolume = PlayerPrefs.GetFloat(VolumeKey, 1f);
@@ -22,6 +29,19 @@ public class InGameMenu : MonoBehaviourPunCallbacks
 
         // Hook up listener
         musicVolumeSlider.onValueChanged.AddListener(OnVolumeChanged);
+        StartCoroutine(enableObjects());
+    }
+
+
+    IEnumerator enableObjects()
+    {
+        yield return new WaitForSeconds(1f);
+        for (int i = 0; i < Objects.Count; i++)
+        {
+            Objects[i].SetActive(true);
+        }
+        preloder.SetActive(false);
+
     }
 
     void Update()

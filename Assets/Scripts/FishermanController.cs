@@ -77,7 +77,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         Debug.Log("FishermanController Start called");
         gameManager.LoadPreloderOnOff(false);
 
-        fishController = GameManager.Instance.myFish.GetComponent<FishController>();
+        fishController = GameManager.Instance.myFish;
 
         if (gameManager == null)
         {
@@ -381,7 +381,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
         {
             if (GameManager.Instance.isFisherMan)
             {
-
                 // move = inputAction.action.ReadValue<Vector2>();
                 float vertical = Input.GetAxis("Vertical");
 
@@ -403,7 +402,19 @@ public class FishermanController : MonoBehaviourPunCallbacks
         }
         else
         {
-            moveInputY = inputAction.action.ReadValue<Vector2>().x;
+            // move = inputAction.action.ReadValue<Vector2>();
+            float vertical = Input.GetAxis("Vertical");
+
+            moveInputY = vertical; //= new Vector2(horizontal, vertical);
+
+            if (moveInputY > 0)
+            {
+                moveInputY = 1;
+            }
+            else if (moveInputY < 0)
+            {
+                moveInputY = -1;
+            }
         }
 
         if (moveInputY == 1)

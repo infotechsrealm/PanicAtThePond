@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class FishController : MonoBehaviourPunCallbacks 
 {
-    public static FishController Instance;
+    public static FishController Instance;  
 
     public PhotonTransformViewClassic photonTransformViewClassic;
 
@@ -129,7 +129,7 @@ public class FishController : MonoBehaviourPunCallbacks
         }
         else
         {
-         //    move = inputAction.action.ReadValue<Vector2>();
+          //   move = inputAction.action.ReadValue<Vector2>();
 
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");

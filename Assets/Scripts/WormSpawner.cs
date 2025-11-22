@@ -36,6 +36,7 @@ public class WormSpawner : MonoBehaviourPunCallbacks
             {
                 LoadSpawnWorm();
                 Invoke(nameof(SpawnGoldWorm), Random.Range(5, 10));
+
             }
         }
         else
@@ -46,6 +47,7 @@ public class WormSpawner : MonoBehaviourPunCallbacks
                 Invoke(nameof(SpawnGoldWorm), Random.Range(5, 10));
             }
         }
+        canSpawn = true;
     }
 
     public void LoadSpawnWorm()
