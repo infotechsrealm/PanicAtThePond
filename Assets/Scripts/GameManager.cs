@@ -93,16 +93,16 @@ public class GameManager : MonoBehaviourPunCallbacks
                 totalPlayers = GS.Instance.totlePlayers;
             }
 
-            int fishCount = totalPlayers - 1;
-            fishermanWorms = fishCount * baseWormMultiplier;
-            maxWorms = fishermanWorms;
-            Debug.Log("Fisherman Worms: " + fishermanWorms);
         }
         else
         {
             PhotonNetwork.AutomaticallySyncScene = true;
             totalPlayers = PhotonNetwork.CurrentRoom.PlayerCount;
         }
+            int fishCount = totalPlayers - 1;
+            fishermanWorms = fishCount * baseWormMultiplier;
+            maxWorms = fishermanWorms;
+            Debug.Log("Fisherman Worms: " + fishermanWorms);
 
 
         SpawnPlayer();

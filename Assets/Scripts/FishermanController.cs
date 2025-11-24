@@ -86,6 +86,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         }
 
         // Assign references first before using them
+
         castingMeter = gameManager.castingMeter;
         worms = gameManager.fishermanWorms;
 

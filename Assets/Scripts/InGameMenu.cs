@@ -36,12 +36,15 @@ public class InGameMenu : MonoBehaviourPunCallbacks
     IEnumerator enableObjects()
     {
         yield return new WaitForSeconds(1f);
+
         for (int i = 0; i < Objects.Count; i++)
         {
-            Objects[i].SetActive(true);
+            if (!Objects[i].activeSelf)
+            {
+                Objects[i].SetActive(true);
+            }
         }
         preloder.SetActive(false);
-
     }
 
     void Update()
