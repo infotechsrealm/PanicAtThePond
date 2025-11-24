@@ -1696,7 +1696,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &599128145
 Transform:
   m_ObjectHideFlags: 0
@@ -1721,10 +1721,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 599128144}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f07fec36591d1543b6e05a8081cb0bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ddf5c222921a434aa02637cd59934c6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  achievementManager: {fileID: 599128146}
+  m_EditorClassIdentifier: '::'
+  avatarImage: {fileID: 1228573281}
+  nameText: {fileID: 1141846981}
 --- !u!1 &603869334
 GameObject:
   m_ObjectHideFlags: 0
@@ -3128,8 +3129,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: -20}
-  m_SizeDelta: {x: 0, y: 30}
+  m_AnchoredPosition: {x: 0, y: -25}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1141846981
 MonoBehaviour:
@@ -3144,7 +3145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3157,7 +3158,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 35
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3252,52 +3253,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150691059}
   m_CullTransparentMesh: 1
---- !u!1 &1191909531
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1191909533}
-  - component: {fileID: 1191909532}
-  m_Layer: 0
-  m_Name: SteamTest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1191909532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191909531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22555b371e3768440b9804f4b9069dd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  avatarImage: {fileID: 1228573281}
-  name: {fileID: 1141846981}
---- !u!4 &1191909533
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191909531}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1225727035
 GameObject:
   m_ObjectHideFlags: 0
@@ -3407,7 +3362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1228573278
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17253,6 +17208,5 @@ SceneRoots:
   - {fileID: 1531224910}
   - {fileID: 584252638}
   - {fileID: 52761990}
-  - {fileID: 1191909533}
   - {fileID: 599128145}
   - {fileID: 1749432241}
