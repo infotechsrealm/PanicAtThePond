@@ -17,7 +17,7 @@ public class SteamIntegration : MonoBehaviour
         }
         catch (System.Exception e)
         {
-            Debug.LogError(e);
+            Debug.Log(e);
         }
     }
 

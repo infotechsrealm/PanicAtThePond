@@ -220,12 +220,12 @@ public class Hook : MonoBehaviourPunCallbacks
             Vector3 target = rodTip.position;
 
             // Detach worm from hook so it stays in scene
+                    hasWorm = false;
             if (wormInstance != null)
             {
                 if (GS.Instance.isLan)
                 {
                     GameManager.Instance.myFish.fishController_Mirror.DropWorm(wormInstance.GetComponent<NetworkIdentity>());
-                    hasWorm = false;
                 }
                 else
                 {
@@ -233,7 +233,6 @@ public class Hook : MonoBehaviourPunCallbacks
                     photonView.RPC(nameof(DropWormRpc), RpcTarget.AllBuffered, wormPV.ViewID);
                     wormInstance.transform.parent = null; // worm ko hook se alag kar do
                     wormInstance = null; // reference clear
-                    hasWorm = false;
                 }
             }
 
@@ -287,18 +286,30 @@ public class Hook : MonoBehaviourPunCallbacks
             {
                 if (GameManager.Instance.myFish.isFisherMan)
                 {
-                    Debug.Log("wormParent.GetChild(0).tag =" + wormParent.GetChild(0).tag);
-                    if (wormParent.GetChild(0).tag == "Fish")
+                    if (wormParent.childCount > 0)   // <-- सबसे जरूरी!
                     {
-                        GameManager.Instance.myFish.fishController_Mirror.DisableFish_Mirror(wormParent.GetChild(0).GetComponent<NetworkIdentity>());
+                        Transform child = wormParent.GetChild(0);
+                        string tag = child.tag;
+
+                        Debug.Log("wormParent.GetChild(0).tag = " + tag);
+
+                        if (tag == "Fish")
+                        {
+                            GameManager.Instance.myFish.fishController_Mirror
+                                .DisableFish_Mirror(child.GetComponent<NetworkIdentity>());
+                        }
+                        else if (tag == "Junk")
+                        {
+                            GameManager.Instance.myFish.fishController_Mirror
+                                .Destroy_Mirror(child.gameObject);
+                        }
                     }
-
-
-                    if (wormParent.GetChild(0).tag == "Junk")
+                    else
                     {
-                        GameManager.Instance.myFish.fishController_Mirror.Destroy_Mirror(wormParent.GetChild(0).gameObject);
+                        Debug.Log("wormParent EMPTY hai — koi child nahi!");
                     }
                 }
+
             }
             else
             {

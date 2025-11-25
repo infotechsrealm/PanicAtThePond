@@ -226,10 +226,41 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     IEnumerator RestartAfterDisconnect()
     {
-        PhotonNetwork.Disconnect();
-        // wait jab tak disconnect complete na ho jaye
-        yield return new WaitUntil(() => PhotonNetwork.IsConnected == false);
+        if (GS.Instance.isLan)
+        {
+            ForceDisconnect();
+
+        }
+        else
+        {
+            PhotonNetwork.Disconnect();
+            // wait jab tak disconnect complete na ho jaye
+            yield return new WaitUntil(() => PhotonNetwork.IsConnected == false);
+        }
         SceneManager.LoadScene("Dash");
+    }
+
+
+    public void ForceDisconnect()
+    {
+        if (NetworkServer.active && NetworkClient.isConnected)
+        {
+            // HOST (server + client)
+            NetworkManager.singleton.StopHost();
+            Debug.Log("Stopped Host");
+        }
+        else if (NetworkServer.active)
+        {
+            // सिर्फ SERVER
+            NetworkManager.singleton.StopServer();
+            Debug.Log("Stopped Server");
+        }
+        else if (NetworkClient.isConnected)
+        {
+            // सिर्फ CLIENT
+            NetworkManager.singleton.StopClient();
+            Debug.Log("Stopped Client");
+        }
     }
 
     public IEnumerator RestartAfterLeftRoom()

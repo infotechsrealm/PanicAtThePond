@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class InGameMenu : MonoBehaviourPunCallbacks
 {
+    public static InGameMenu Instance;
     public GameObject menuPanel;       // Reference to the whole pause menu UI
     private bool isMenuOpen = false;
 
@@ -20,7 +21,7 @@ public class InGameMenu : MonoBehaviourPunCallbacks
     public GameObject preloder;
     private void Awake()
     {
-       
+        Instance = this;
     }
     private void Start()
     {
@@ -29,16 +30,23 @@ public class InGameMenu : MonoBehaviourPunCallbacks
 
         // Hook up listener
         musicVolumeSlider.onValueChanged.AddListener(OnVolumeChanged);
-        StartCoroutine(enableObjects());
     }
 
-
-    IEnumerator enableObjects()
+    public void CallenableObjects()
     {
+        StartCoroutine(enableObjects());
+
+    }
+
+    public  IEnumerator enableObjects()
+    {
+        Debug.Log("called");
         yield return new WaitForSeconds(1f);
+        Debug.Log("called1");
 
         for (int i = 0; i < Objects.Count; i++)
         {
+            Debug.Log("called2");
             if (!Objects[i].activeSelf)
             {
                 Objects[i].SetActive(true);

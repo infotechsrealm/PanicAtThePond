@@ -15,12 +15,15 @@ public class GameOver : MonoBehaviourPunCallbacks
             playAgainBtn.SetActive(true);
         }
         PhotonNetwork.AutomaticallySyncScene = true;
+
+        InGameMenu.Instance.CallenableObjects();
     }
 
     public void PlayAgain()
     {
         if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
         {
+            
             PhotonNetwork.LoadLevel("Dash");
         }
         else
@@ -31,6 +34,11 @@ public class GameOver : MonoBehaviourPunCallbacks
 
     public void Restart()
     {
+        if (!GameManager.Instance.gameObject.activeSelf)
+        {
+            GameManager.Instance.gameObject.SetActive(true);
+        }
+
         GameManager.Instance.RestartGame();
     }
 
