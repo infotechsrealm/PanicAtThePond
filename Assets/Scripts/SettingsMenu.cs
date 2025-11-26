@@ -8,7 +8,7 @@ public class SettingsMenu : MonoBehaviour
     public Slider musicVolumeSlider;
     public Button backButton;
 
-    private AudioSource musicSource;
+    
 
     private const string VolumeKey = "MusicVolume";
 
@@ -24,6 +24,12 @@ public class SettingsMenu : MonoBehaviour
 
         // Back button event
         backButton.onClick.AddListener(OnBackPressed);
+
+    }
+
+    private void OnEnable()
+    {
+        BackManager.instance.RegisterScreen(backButton);
     }
 
     private void OnVolumeChanged(float value)
@@ -37,9 +43,8 @@ public class SettingsMenu : MonoBehaviour
 
     private void OnBackPressed()
     {
-        // Return to main menu scene
-        /*   Time.timeScale = 1f; // ensure unpaused
-           SceneManager.LoadScene("MainMenu");*/
+        BackManager.instance.UnregisterScreen();
+
         gameObject.SetActive(false);
     }
 }

@@ -71,8 +71,10 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
             playerRows[player.ActorNumber] = row;
         }
-        if (PhotonNetwork.CurrentRoom.PlayerCount < PhotonNetwork.CurrentRoom.MaxPlayers)
+        if (PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
         {
+            Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount + "start Button Enable" + PhotonNetwork.CurrentRoom.MaxPlayers);
+
             CoustomeRoomManager.Instance.startButton.interactable = true;
         }
       
@@ -106,6 +108,7 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
         if(players.Count >= LANDiscoveryMenu.Instance.DiscoveredServerInfo.maxPlayers)
         {
+            Debug.Log("start Button Enable");
             CoustomeRoomManager.Instance.startButton.interactable = true;
 
         }

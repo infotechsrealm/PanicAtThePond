@@ -28,7 +28,6 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
     public Button joinRandomBtn;
 
-
     private void Awake()
     {
         Instance = this;
@@ -164,6 +163,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
             case "Back":
                 {
+                    BackManager.instance.UnregisterScreen();
                     createAndJoinButtons.SetActive(false);
                     break;
                 }
@@ -234,7 +234,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
     {
         GS.Instance.DestroyPreloder();
 
-        createAndJoinButtons.SetActive(false);
+       // createAndJoinButtons.SetActive(false);
         Debug.Log("Disconnected from Photon. Cause: " + cause);
     }
 

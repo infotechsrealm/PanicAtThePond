@@ -64,6 +64,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
                 {
                     createJoinManager.hostLobby.gameObject.SetActive(true);
                     createJoinManager.createPanel.gameObject.SetActive(true);
+                    Debug.Log("start Button Enable");
                     startButton.interactable = true;
                     InitializeWaterTypeToggles();
                 }
@@ -330,6 +331,9 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void EnableStartButton()
     {
+
+        Debug.Log("start Button Enable");
+
         startButton.interactable = true;
     }
 

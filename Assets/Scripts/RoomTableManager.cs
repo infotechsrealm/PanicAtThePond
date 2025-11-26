@@ -62,6 +62,9 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
 
             displayIndex++;
         }
+
+        GS.Instance.DestroyPreloder();
+
     }
 
 

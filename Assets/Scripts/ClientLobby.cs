@@ -2,13 +2,21 @@
 using Photon.Pun;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClientLobby : MonoBehaviourPunCallbacks
 {
     public PlayerTableManager playerTableManager;
 
+    public Button backButton;
+
+    private void Start()
+    {
+    }
+
     private void OnEnable()
     {
+        BackManager.instance.RegisterScreen(backButton);
         playerTableManager.UpdatePlayerTable();
     }
 
@@ -19,6 +27,8 @@ public class ClientLobby : MonoBehaviourPunCallbacks
 
     public void Close()
     {
+        BackManager.instance.UnregisterScreen();
+
         if (PhotonNetwork.InRoom)
         {
             if(PhotonNetwork.IsMasterClient)

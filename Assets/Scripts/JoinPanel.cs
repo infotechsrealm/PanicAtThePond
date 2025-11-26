@@ -11,6 +11,7 @@ public class JoinPanel : MonoBehaviour
     public Button joinRandomBtn;
     private void OnEnable()
     {
+        BackManager.instance.RegisterScreen(backButton);
         roomTableManager.UpdateRoomTable();
         if (GS.Instance.isLan)
         {
@@ -27,13 +28,13 @@ public class JoinPanel : MonoBehaviour
         roomTableManager.ResetTable();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Button backButton;
+
+    private void Start()
     {
-       
     }
 
-   
+
 
     // Update is called once per frame
     void Update()
@@ -43,6 +44,8 @@ public class JoinPanel : MonoBehaviour
 
     public void Close()
     {
+        BackManager.instance.UnregisterScreen();
+
         if (GS.Instance.isLan)
         {
             if (LANDiscoveryMenu.Instance != null)

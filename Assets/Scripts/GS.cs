@@ -41,6 +41,25 @@ public class GS : MonoBehaviour
         nickName = "Player_" + Random.Range(100, 999);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F11))
+        {
+            // Toggle Fullscreen
+            if (Screen.fullScreen)
+            {
+                // Go to Windowed Mode
+                Screen.fullScreenMode = FullScreenMode.Windowed;
+                Screen.fullScreen = false;
+            }
+            else
+            {
+                // Go to Borderless Fullscreen (BEST just like games)
+                Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+                Screen.fullScreen = true;
+            }
+        }
+    }
     public void SetVolume(AudioSource audioSource)
     {
         float GlobleVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);

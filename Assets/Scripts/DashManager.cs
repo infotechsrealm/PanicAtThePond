@@ -1,12 +1,15 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DashManager : MonoBehaviour
 {
-    public GameObject settingUI,quitUI,craditsUI,localPlayerUI,prefabPanret;
+    public GameObject createAndJoinButtons,settingUI, quitUI,craditsUI,localPlayerUI,prefabPanret;
+
+    public Button createAndJoinButtonsBackButton;
+               
+
 
     public static DashManager Instance;
-
-    public GameObject createAndJoinButtons;
 
     private void Awake()
     {
@@ -19,6 +22,7 @@ public class DashManager : MonoBehaviour
         {   
             case "Play":
                 {
+                    BackManager.instance.RegisterScreen(createAndJoinButtonsBackButton);
                     createAndJoinButtons.SetActive(true);
                     break;
                 }
@@ -48,4 +52,6 @@ public class DashManager : MonoBehaviour
                 }   
         }
     }
+
+
 }

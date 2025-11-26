@@ -1,7 +1,7 @@
 ﻿using Mirror;
-using Mirror.Discovery;
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HostLobby : MonoBehaviourPunCallbacks 
 {
@@ -9,12 +9,21 @@ public class HostLobby : MonoBehaviourPunCallbacks
     public PlayerTableManager playerTableManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    public Button backButton;
+
+    private void Start()
+    {
+    }
+
     private void OnEnable()
     {
+        BackManager.instance.RegisterScreen(backButton);
         playerTableManager.UpdatePlayerTable();
     }
     public void Close()
     {
+        BackManager.instance.UnregisterScreen();
+
         if (PhotonNetwork.InRoom)
         {
             if (PhotonNetwork.IsMasterClient)
