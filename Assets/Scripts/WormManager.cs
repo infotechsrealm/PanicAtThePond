@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Steamworks;
 using UnityEngine;
 
 public class WormManager : MonoBehaviourPunCallbacks
@@ -18,22 +19,14 @@ public class WormManager : MonoBehaviourPunCallbacks
             if (GS.Instance.isLan && GameManager.Instance.fisherManIsSpawned)
             {
                 Debug.Log("hook is generated");
-              //  transform.localScale = Vector3.zero;
+                //transform.localScale = Vector3.zero;
                 GameManager.Instance.myFish.fishController_Mirror.allHookWorms.Add(this);
             }
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
     public void OnDanceAnimation()
     {
         animator.SetBool("isDance", true);
     }
-
 }

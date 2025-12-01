@@ -9,15 +9,16 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 {
     public static CoustomeRoomManager Instance;
 
-
     public CreateJoinManager createJoinManager;
 
+
     [Header("Water Type Toggles")]
+
     public Toggle toggleAllVisible;
     public Toggle toggleDeepWaters;
     public Toggle toggleMurkyWaters;
     public Toggle toggleClearWaters;
-    public ToggleGroup toggleGroup; 
+    public ToggleGroup toggleGroup;
 
     public RoomTableManager roomManager;
     public Button startButton;
@@ -41,9 +42,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
 
     private string selectedWaterType = "All Visible";
-
-
     
+
 
     private void Awake()
     {

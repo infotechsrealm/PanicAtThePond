@@ -1,6 +1,5 @@
 ﻿using Mirror;
 using Photon.Pun;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,10 +8,6 @@ public class ClientLobby : MonoBehaviourPunCallbacks
     public PlayerTableManager playerTableManager;
 
     public Button backButton;
-
-    private void Start()
-    {
-    }
 
     private void OnEnable()
     {

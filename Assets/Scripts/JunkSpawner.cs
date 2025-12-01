@@ -31,8 +31,6 @@ public class JunkSpawner : MonoBehaviour
 
    
 
-    public NetworkIdentity mirrorIdentity;
-
     public void LoadSpawnJunk()
     {
         if (PhotonNetwork.IsMasterClient || GS.Instance.IsMirrorMasterClient)

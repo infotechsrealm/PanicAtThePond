@@ -37,13 +37,13 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
         }
         else
         {
+            RebuildTable();
             UpdatePlayerTableUI();
         }
     }
 
     public void UpdatePlayerTableUI()
     {
-
         // Clear old entries
         foreach (Transform child in playerTablePanel)
             Destroy(child.gameObject);
@@ -59,9 +59,11 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
         for (int i = 0; i < sortedPlayers.Length; i++)
         {
             Player player = sortedPlayers[i];
+
             GameObject row = Instantiate(playerRowPrefab, playerTablePanel);
 
             Text[] texts = row.GetComponentsInChildren<Text>();
+
             if (texts.Length >= 3)
             {
                 texts[0].text = (i + 1).ToString();   // Sequential number
@@ -71,6 +73,7 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
             playerRows[player.ActorNumber] = row;
         }
+
         if (PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
         {
             Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount + "start Button Enable" + PhotonNetwork.CurrentRoom.MaxPlayers);
@@ -80,9 +83,33 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
       
     }
 
+    void RebuildTable()
+    {
+        /*// sorted list
+        var sortedPlayers = PlayerManager_Mirror.players.OrderBy(p => p.connectionId).ToList();
+
+        // rows clear करना
+        foreach (Transform child in playerTablePanel)
+            Destroy(child.gameObject);
+
+        for (int i = 0; i < sortedPlayers.Count; i++)
+        {
+            var conn = sortedPlayers[i];
+
+            GameObject row = Instantiate(playerRowPrefab, playerTablePanel);
+            Text[] texts = row.GetComponentsInChildren<Text>();
+
+            if (texts.Length >= 3)
+            {
+                texts[0].text = (i + 1).ToString();                // Rank
+                texts[1].text = $"Player {conn.connectionId}";     // Nickname (custom)
+                texts[2].text = $"/4";
+            }
+        }*/
+    }
 
 
-    IEnumerator  UpdateLANPlayerTableUI()
+    IEnumerator UpdateLANPlayerTableUI()
     {
         yield return new WaitForSeconds(1f);
 

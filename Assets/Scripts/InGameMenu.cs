@@ -19,6 +19,7 @@ public class InGameMenu : MonoBehaviourPunCallbacks
 
     public List<GameObject> Objects = new List<GameObject>();
     public GameObject preloder;
+
     private void Awake()
     {
         Instance = this;
@@ -30,6 +31,8 @@ public class InGameMenu : MonoBehaviourPunCallbacks
 
         // Hook up listener
         musicVolumeSlider.onValueChanged.AddListener(OnVolumeChanged);
+        InGameMenu.Instance.CallenableObjects();
+
     }
 
     public void CallenableObjects()
@@ -41,7 +44,7 @@ public class InGameMenu : MonoBehaviourPunCallbacks
     public  IEnumerator enableObjects()
     {
         Debug.Log("called");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         Debug.Log("called1");
 
         for (int i = 0; i < Objects.Count; i++)

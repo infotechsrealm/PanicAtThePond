@@ -41,8 +41,6 @@ public class HostLobby : MonoBehaviourPunCallbacks
         }
         else
         {
-            
-
             // 1️⃣ पहले discovery बंद करो ताकि broadcast रुक जाए
             LANDiscoveryMenu.Instance.networkDiscovery.StopDiscovery();
 

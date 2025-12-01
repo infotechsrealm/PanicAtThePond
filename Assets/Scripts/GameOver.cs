@@ -16,9 +16,11 @@ public class GameOver : MonoBehaviourPunCallbacks
         }
         PhotonNetwork.AutomaticallySyncScene = true;
 
-        InGameMenu.Instance.CallenableObjects();
     }
 
+    private void Start()
+    {
+    }
     public void PlayAgain()
     {
         if (PhotonNetwork.CurrentRoom.PlayerCount > 1)

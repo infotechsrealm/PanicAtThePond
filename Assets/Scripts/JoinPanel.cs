@@ -1,14 +1,13 @@
 using Photon.Pun;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class JoinPanel : MonoBehaviour
 {
-
     public RoomTableManager roomTableManager;
 
     public Button joinRandomBtn;
+
     private void OnEnable()
     {
         BackManager.instance.RegisterScreen(backButton);

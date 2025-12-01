@@ -1,5 +1,6 @@
 ﻿using Mirror;
 using Photon.Pun;
+using Steamworks;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -328,7 +329,7 @@ public class FishController : MonoBehaviourPunCallbacks
             {
                 PlaySFX(fishEatWarmSound);
                 animator.SetTrigger("isEat");
-
+                CollectCoin();
                 if (GS.Instance.isLan)
                 {
                     fishController_Mirror.Destroy_Mirror(other.gameObject);
@@ -650,4 +651,32 @@ public class FishController : MonoBehaviourPunCallbacks
             }
         }
     }
+
+    private int CoinCount = 0;
+    private int MaxCoins = 2;
+
+    public void CollectCoin()
+    {
+        if (SteamManager.Initialized)
+        {
+            // Update coin stats
+            SteamUserStats.GetStat("LEVEL_01_COIN_COUNT", out CoinCount);
+            CoinCount++;
+            SteamUserStats.SetStat("LEVEL_01_COIN_COUNT", CoinCount);
+            SteamUserStats.StoreStats();
+
+            // Check achievement condition
+            if (CoinCount >= MaxCoins)
+            {
+                SteamUserStats.GetAchievement("LEVEL_01_ALL_COINS", out bool achievementCompleted);
+
+                if (!achievementCompleted)
+                {
+                    SteamUserStats.SetAchievement("LEVEL_01_ALL_COINS");
+                    SteamUserStats.StoreStats();
+                }
+            }
+        }
+    }
+
 }
