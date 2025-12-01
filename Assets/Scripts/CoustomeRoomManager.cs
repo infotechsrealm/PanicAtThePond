@@ -212,6 +212,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     private void ShowPasswordPopup(RoomInfo room, string correctPassword)
     {
+        Debug.Log("Room requires a password.");
         GameObject popup = Instantiate(GS.Instance.passwordPopupPrefab, transform);
         popup.GetComponent<PasswordPopup>().Init(room, correctPassword);
     }
@@ -249,7 +250,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             if (!string.IsNullOrEmpty(roomPassword))
             {
                 // Show password popup for verification
-                Debug.Log("Room requires a password.");
                 ShowPasswordPopup(targetRoom, roomPassword);
                 return;
             }

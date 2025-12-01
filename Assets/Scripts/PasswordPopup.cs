@@ -9,7 +9,7 @@ public class PasswordPopup : MonoBehaviour
     private RoomInfo targetRoom;
     public string correctPassword;
 
-
+    public Button backButton;
     public static PasswordPopup Instance;
     private void Awake()
     {
@@ -19,7 +19,7 @@ public class PasswordPopup : MonoBehaviour
     private void Start()
     {
         GS.Instance.DestroyPreloder();
-
+        BackManager.instance.RegisterScreen(backButton);
     }
     public void Init(RoomInfo room, string correctPwd)
     {
@@ -42,7 +42,8 @@ public class PasswordPopup : MonoBehaviour
             {
                 PhotonNetwork.JoinRoom(targetRoom.Name);
             }
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+           // DestroyImmediate(this.gameObject);
         }
         else
         {
@@ -58,5 +59,10 @@ public class PasswordPopup : MonoBehaviour
         GS.Instance.DestroyPreloder();
 
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        BackManager.instance.UnregisterScreen();
     }
 }

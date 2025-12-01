@@ -509,7 +509,6 @@ public class LANDiscoveryMenu : MonoBehaviour
         int silenceLimit = 15;               // अगर 15 लगातार ports पर कुछ नहीं मिला तो scan रोक दो
 
         discoveredServers.Clear();
-        Debug.Log("🌐 Starting full LAN host discovery...");
 
 
         while (silenceCounter < silenceLimit && !isRoomExist)
@@ -520,6 +519,7 @@ public class LANDiscoveryMenu : MonoBehaviour
 
             networkDiscovery.OnServerFound.AddListener((response) =>
             {
+                Debug.Log("🌐 Starting full LAN host discovery...");
                 if (response.uri != null)
                 {
                     int port = response.uri.Port;
@@ -590,6 +590,7 @@ public class LANDiscoveryMenu : MonoBehaviour
 
     public void JoinRoom()
     {
+        networkDiscovery.OnServerFound.RemoveAllListeners();
         GS.Instance.totlePlayers = DiscoveredServerInfo.maxPlayers;
         GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
         listenPort = DiscoveredServerInfo.baseBroadcastPort;
