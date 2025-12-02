@@ -155,12 +155,6 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                     break;
                 }
 
-            case "howToPlay":
-                {
-                    Instantiate(GS.Instance.howToPlay, transform);
-                    break;
-                }
-
             case "Back":
                 {
                     BackManager.instance.UnregisterScreen();

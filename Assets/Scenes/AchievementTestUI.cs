@@ -36,18 +36,6 @@ public class AchievementTestUI : MonoBehaviour
     }
 
 
-    public void UnlockMyAchievement()
-    {
-        if (!SteamManager.Initialized)
-        {
-            Debug.LogError("Steam not initialized!");
-            return;
-        }
-
-        SteamUserStats.SetAchievement("LEVEL_01_ALL_COINS");
-        SteamUserStats.StoreStats();
-
-        Debug.Log("Achievement unlocked!");
-    }
+    
 
 }

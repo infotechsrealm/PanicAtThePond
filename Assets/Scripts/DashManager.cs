@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class DashManager : MonoBehaviour
 {
-    public GameObject createAndJoinButtons,settingUI, quitUI,craditsUI,localPlayerUI,prefabPanret;
+    public GameObject createAndJoinButtons,settingUI, quitUI,craditsUI,localPlayerUI,prefabPanret,hintsUI;
 
     public Button createAndJoinButtonsBackButton;
                
@@ -48,6 +48,12 @@ public class DashManager : MonoBehaviour
             case "Quit":
                 {
                     quitUI.SetActive(true);
+                    break;
+                }  
+                
+            case "hints":
+                {
+                    hintsUI.SetActive(true);
                     break;
                 }   
         }
