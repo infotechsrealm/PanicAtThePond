@@ -12,7 +12,6 @@ public class PauseManager : MonoBehaviour
     private void OnEnable()
     {
         BackManager.instance.RegisterScreen(backButton);
-
     }
 
     public void BackButton()

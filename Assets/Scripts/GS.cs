@@ -17,10 +17,10 @@ public class GS : MonoBehaviour
     [SerializeField]
     public GameObject passwordPopupPrefab; // Assign in Inspector
 
-    public bool AllVisible;
     public bool DeepWaters;
     public bool MurkyWaters;
     public bool ClearWaters;
+    public bool ReflectiveWater;
 
     public string nickName = "";
 
@@ -29,6 +29,9 @@ public class GS : MonoBehaviour
     internal int totlePlayers;
 
     public bool isLan = false,IsMirrorMasterClient = false;
+
+
+    public AudioSource BGMusic;
     private void Awake()
     {
         Instance = this;

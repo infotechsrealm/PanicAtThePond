@@ -1,4 +1,5 @@
 ﻿using Mirror;
+using Mirror.BouncyCastle.Asn1.Crmf;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,16 +10,34 @@ public class HostLobby : MonoBehaviourPunCallbacks
     public PlayerTableManager playerTableManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    public Button backButton;
+    public Button backButton, controlsButton,hintButton,pauseButton;
+
+    public GameObject hintUI, controlUI,pauseUI;
 
     private void Start()
     {
+        controlsButton.onClick.AddListener(onControlPressed);
+        hintButton.onClick.AddListener(onHintPressed);
+        pauseButton.onClick.AddListener(pause);
     }
 
     private void OnEnable()
     {
-        BackManager.instance.RegisterScreen(backButton);
+        BackManager.instance.RegisterScreen(pauseButton);
         playerTableManager.UpdatePlayerTable();
+    }
+    private void onControlPressed()
+    {
+        controlUI.SetActive(true);
+    }
+    private void onHintPressed()
+    {
+        hintUI.SetActive(true);
+    }
+
+    private void pause()
+    {
+        pauseUI.SetActive(true);
     }
     public void Close()
     {

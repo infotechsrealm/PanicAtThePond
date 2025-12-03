@@ -63,13 +63,14 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
             GameObject row = Instantiate(playerRowPrefab, playerTablePanel);
 
             Text[] texts = row.GetComponentsInChildren<Text>();
+            texts[0].text = player.NickName;
 
-            if (texts.Length >= 3)
-            {
-                texts[0].text = (i + 1).ToString();   // Sequential number
-                texts[1].text = player.NickName;      // Nickname
-                texts[2].text = $"{PhotonNetwork.CurrentRoom.PlayerCount}/{PhotonNetwork.CurrentRoom.MaxPlayers}";
-            }
+            /* if (texts.Length >= 3)
+             {
+                 texts[0].text = (i + 1).ToString();   // Sequential number
+                 texts[1].text = player.NickName;      // Nickname
+                 texts[2].text = $"{PhotonNetwork.CurrentRoom.PlayerCount}/{PhotonNetwork.CurrentRoom.MaxPlayers}";
+             }*/
 
             playerRows[player.ActorNumber] = row;
         }

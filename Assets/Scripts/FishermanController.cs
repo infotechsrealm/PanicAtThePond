@@ -150,7 +150,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         }
 
         //Everyone can see everyone.
-        if (GS.Instance.AllVisible)
+        if (GS.Instance.ReflectiveWater)
         {
             if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan )
             {

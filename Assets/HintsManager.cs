@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
-using static System.Net.Mime.MediaTypeNames;
+
 public class HintsManager : MonoBehaviour
 {
     public Button backButton;
@@ -24,8 +24,17 @@ public class HintsManager : MonoBehaviour
         AnimateFish();
         AnimateText();
         AnimateFloat(fishAndText);
+        backButton.onClick.AddListener(OnBackPressed);
     }
-
+    private void OnEnable()
+    {
+        BackManager.instance.RegisterScreen(backButton);
+    }
+    private void OnBackPressed()
+    {
+        BackManager.instance.UnregisterScreen();
+        gameObject.SetActive(false);
+    }
     public void ScaledAnimation(Transform transform)
     {
         transform.localScale = Vector3.one;
@@ -124,16 +133,5 @@ public class HintsManager : MonoBehaviour
         target.DOPath(path, 2f, PathType.CatmullRom)
               .SetEase(Ease.Linear)
               .SetLoops(-1, LoopType.Restart);
-    }
-
-    private void OnEnable()
-    {
-        BackManager.instance.RegisterScreen(backButton);
-    }
-
-    public void Close()
-    {
-        BackManager.instance.UnregisterScreen();
-        Destroy(gameObject);
     }
 }

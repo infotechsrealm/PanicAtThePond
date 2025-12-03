@@ -6,9 +6,10 @@ public class SettingsMenu : MonoBehaviour
 {
     [Header("UI References")]
     public Slider musicVolumeSlider;
-    public Button backButton;
 
-    
+    public Button backButton,controlsButton, achivementButton;
+
+    public GameObject controlsUI, achivementsUI;
 
     private const string VolumeKey = "MusicVolume";
 
@@ -24,6 +25,8 @@ public class SettingsMenu : MonoBehaviour
 
         // Back button event
         backButton.onClick.AddListener(OnBackPressed);
+        controlsButton.onClick.AddListener(onControlPressed);
+        achivementButton.onClick.AddListener(onAchivementsPressed);
 
     }
 
@@ -38,7 +41,6 @@ public class SettingsMenu : MonoBehaviour
         PlayerPrefs.SetFloat(VolumeKey, value);
         PlayerPrefs.Save();
     }
-
    
 
     private void OnBackPressed()
@@ -46,5 +48,14 @@ public class SettingsMenu : MonoBehaviour
         BackManager.instance.UnregisterScreen();
 
         gameObject.SetActive(false);
+    }
+
+    private void onControlPressed()
+    {
+        controlsUI.SetActive(true);
+    }
+    private void onAchivementsPressed()
+    {
+        achivementsUI.SetActive(true);
     }
 }

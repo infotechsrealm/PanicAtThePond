@@ -13,12 +13,10 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
 
     [Header("Water Type Toggles")]
-
-    public Toggle toggleAllVisible;
-    public Toggle toggleDeepWaters;
-    public Toggle toggleMurkyWaters;
-    public Toggle toggleClearWaters;
-    public ToggleGroup toggleGroup;
+    public bool clearWaters;
+    public bool murkyWaters;
+    public bool deepWaters;
+    public bool reflectiveWater;
 
     public RoomTableManager roomManager;
     public Button startButton;
@@ -367,23 +365,23 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     {
         GS gsObj = GS.Instance;
         photonView.RPC(nameof(SetVisibility), RpcTarget.All,
-            toggleAllVisible.isOn,
-            toggleDeepWaters.isOn,
-            toggleMurkyWaters.isOn,
-            toggleClearWaters.isOn);
+            reflectiveWater,
+            deepWaters,
+            murkyWaters,
+            clearWaters);
     }
 
     [PunRPC]
-    public void SetVisibility(bool allVisible, bool deepWaters, bool murkyWaters, bool clearWaters)
+    public void SetVisibility(bool reflectiveWater, bool deepWaters, bool murkyWaters, bool clearWaters)
     {
         GS gsObj = GS.Instance;
 
-        gsObj.AllVisible = allVisible;
+        gsObj.ReflectiveWater = reflectiveWater;
         gsObj.DeepWaters = deepWaters;
         gsObj.MurkyWaters = murkyWaters;
         gsObj.ClearWaters = clearWaters;
 
-        Debug.Log($"[GS] Visibility updated: All={allVisible}, Deep={deepWaters}, Murky={murkyWaters}, Clear={clearWaters}");
+        Debug.Log($"[GS] Visibility updated: All={reflectiveWater}, Deep={deepWaters}, Murky={murkyWaters}, Clear={clearWaters}");
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -446,28 +444,11 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     public void InitializeWaterTypeToggles()
     {
-        // 🔹 Assign toggles to same ToggleGroup (radio behavior)
-        toggleAllVisible.group = toggleGroup;
-        toggleDeepWaters.group = toggleGroup;
-        toggleMurkyWaters.group = toggleGroup;
-        toggleClearWaters.group = toggleGroup;
-
-        // 🔹 Set default ON toggle
-
-
         GS gsObj = GS.Instance;
-
-        toggleAllVisible.isOn = gsObj.AllVisible;
-        toggleDeepWaters.isOn = gsObj.DeepWaters;
-        toggleMurkyWaters.isOn = gsObj.MurkyWaters;
-        toggleClearWaters.isOn = gsObj.ClearWaters;
-
-
-        // 🔹 Add listeners
-        toggleAllVisible.onValueChanged.AddListener((isOn) => { if (isOn) SetWaterType("All Visible"); });
-        toggleDeepWaters.onValueChanged.AddListener((isOn) => { if (isOn) SetWaterType("Deep Waters"); });
-        toggleMurkyWaters.onValueChanged.AddListener((isOn) => { if (isOn) SetWaterType("Murky Waters"); });
-        toggleClearWaters.onValueChanged.AddListener((isOn) => { if (isOn) SetWaterType("Clear Waters"); });
+        reflectiveWater = gsObj.ReflectiveWater;
+        deepWaters = gsObj.DeepWaters;
+        murkyWaters = gsObj.MurkyWaters;
+        clearWaters = gsObj.ClearWaters;
     }
 
     void SetWaterType(string type)

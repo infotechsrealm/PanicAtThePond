@@ -7,6 +7,8 @@ public class CreaditsManager : MonoBehaviour
 
     private void Start()
     {
+        backButton.onClick.AddListener(OnBackPressed);
+
     }
 
     private void OnEnable()
@@ -15,7 +17,7 @@ public class CreaditsManager : MonoBehaviour
 
     }
 
-    public void BackButton()
+    private void OnBackPressed()
     {
         BackManager.instance.UnregisterScreen();
         gameObject.SetActive(false);

@@ -9,10 +9,34 @@ public class ClientLobby : MonoBehaviourPunCallbacks
 
     public Button backButton;
 
+    public Button controlsButton, hintButton, pauseButton;
+
+    public GameObject hintUI, controlUI, pauseUI;
+
+    private void Start()
+    {
+        controlsButton.onClick.AddListener(onControlPressed);
+        hintButton.onClick.AddListener(onHintPressed);
+        pauseButton.onClick.AddListener(pause);
+
+    }
+
     private void OnEnable()
     {
-        BackManager.instance.RegisterScreen(backButton);
+        BackManager.instance.RegisterScreen(pauseButton);
         playerTableManager.UpdatePlayerTable();
+    }
+    private void pause()
+    {
+        pauseUI.SetActive(true);
+    }
+    private void onControlPressed()
+    {
+        controlUI.SetActive(true);
+    }
+    private void onHintPressed()
+    {
+        hintUI.SetActive(true);
     }
 
     private void OnDisable()

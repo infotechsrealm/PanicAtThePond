@@ -30,7 +30,7 @@ public class FishController_Mirror : NetworkBehaviour
         GS gsObj = GS.Instance;
         if (gsObj.IsMirrorMasterClient)
         {
-            SetVisibility(gsObj.AllVisible, gsObj.DeepWaters, gsObj.MurkyWaters, gsObj.ClearWaters);
+            SetVisibility(gsObj.ReflectiveWater, gsObj.DeepWaters, gsObj.MurkyWaters, gsObj.ClearWaters);
         }
     }
 
@@ -39,7 +39,7 @@ public class FishController_Mirror : NetworkBehaviour
     {
         GS gsObj = GS.Instance;
 
-        gsObj.AllVisible = allVisible;
+        gsObj.ReflectiveWater = allVisible;
         gsObj.DeepWaters = deepWaters;
         gsObj.MurkyWaters = murkyWaters;
         gsObj.ClearWaters = clearWaters;
