@@ -123,12 +123,13 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
             GameObject row = Instantiate(playerRowPrefab, playerTablePanel);
 
             Text[] texts = row.GetComponentsInChildren<Text>();
-            if (texts.Length >= 3)
+            texts[0].text = player;
+          /*  if (texts.Length >= 3)
             {
                 texts[0].text = (i + 1).ToString();   // Sequential number
                 texts[1].text = player;      // Nickname
                 texts[2].text = $"{players.Count}/{LANDiscoveryMenu.Instance.DiscoveredServerInfo.maxPlayers}";
-            }
+            }*/
 
         }
         GS.Instance.DestroyPreloder();
