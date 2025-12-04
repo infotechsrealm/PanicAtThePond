@@ -202,7 +202,8 @@ public class FishController : MonoBehaviourPunCallbacks
         Vector3 clampedPos = transform.position;
         clampedPos.x = Mathf.Clamp(clampedPos.x, minBounds.x, maxBounds.x);
         clampedPos.y = Mathf.Clamp(clampedPos.y, minBounds.y, maxBounds.y);
-        transform.position = Vector3.Lerp(transform.position, clampedPos, Time.deltaTime * 10);
+        //transform.position = Vector3.Lerp(transform.position, clampedPos, Time.deltaTime * 10);
+        transform.position = clampedPos;
 
         // Check hunger
         if (!isDead && HungerSystem.Instance != null && HungerSystem.Instance.hungerBar.value <= 0)

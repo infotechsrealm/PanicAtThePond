@@ -150,7 +150,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         }
 
         //Everyone can see everyone.
-        if (GS.Instance.ReflectiveWater)
+        if (GS.Instance.ClearWaters)
         {
             if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan )
             {
@@ -201,7 +201,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         }
 
         //Fisherman can see fish, but fish can’t see him.
-        if (GS.Instance.ClearWaters)
+        if (GS.Instance.ReflectiveWater)
         {
             if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan)
             {

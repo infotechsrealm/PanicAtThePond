@@ -70,7 +70,7 @@ public class WormSpawner : MonoBehaviourPunCallbacks
             if (activeWorms.Count < 5)
             {
                 float x = Random.Range(-xRange, xRange);
-                float y = Random.Range(-yRange, 1);
+                float y = Random.Range(-yRange, 0);
                 Vector2 pos = new Vector2(x, y);
 
                 if (GS.Instance.isLan)
