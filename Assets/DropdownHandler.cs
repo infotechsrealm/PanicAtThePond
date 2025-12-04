@@ -43,6 +43,16 @@ public class DropdownHandler : MonoBehaviourPunCallbacks
     }
 
 
+    private void Update()
+    {
+        if(GS.Instance.isLan)
+        {
+            if(!GS.Instance.IsMirrorMasterClient && GS.Instance.dropDownChangeAvalable)
+            {
+                GS.Instance.rerfeshDropDown();
+            }
+        }
+    }
     public int dropDownIndex = 0;
     public void OnDropdownChanged(int index)
     {

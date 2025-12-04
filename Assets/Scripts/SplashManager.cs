@@ -10,6 +10,8 @@ public class SplashManager : MonoBehaviour
     public CanvasGroup logoCG;
     public CanvasGroup nameCG;
 
+    public CanvasGroup fadeLogo;
+
     public float startX = -800f;
     public float endX = 0f;
 
@@ -18,7 +20,15 @@ public class SplashManager : MonoBehaviour
 
     void Start()
     {
-        PlayAnimation();
+        // PlayAnimation();
+     /*   fadeLogo.transform.DOScale(1f, 15f);
+        fadeLogo.DOFade(1f, 1f).OnComplete(() =>
+        {
+             fadeLogo.DOFade(0f, 1.5f).SetDelay(2f).OnComplete(() =>
+             {
+             });
+        });*/
+                 PlayAnimation();
     }
 
     void PlayAnimation()

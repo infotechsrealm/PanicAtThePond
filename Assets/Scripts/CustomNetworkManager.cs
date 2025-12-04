@@ -67,16 +67,6 @@ public class CustomNetworkManager : NetworkManager
 
     }
 
-    void CallUIRefreshScript()
-    {
-        var handler = FindAnyObjectByType<GS>();
-        if (handler != null)
-        {
-            handler.rerfeshDropDown();   // No freeze, safe!
-        }
-    }
-
-
     public void SetVisibility(bool reflectiveWater, bool deepWaters, bool murkyWaters, bool clearWaters)
     {
         GS gsObj = GS.Instance;
@@ -87,11 +77,7 @@ public class CustomNetworkManager : NetworkManager
         gsObj.ReflectiveWater = reflectiveWater;
 
         Debug.Log($"[GS] Visibility updated: All={reflectiveWater}, Deep={deepWaters}, Murky={murkyWaters}, Clear={clearWaters}");
-        UnityThread.MainThread.Post(_ =>
-        {
-            // Yaha UI safe chalega
-            CallUIRefreshScript();
-        }, null);
+        gsObj.dropDownChangeAvalable = true;
     }
    
     // 🔹 जब client connect करे तो अपना नाम भेज`

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class PauseManager : MonoBehaviour
 {
     public Button backButton;
-
+    public GameObject settingUI;
     private void Start()
     {
     }
@@ -27,7 +27,7 @@ public class PauseManager : MonoBehaviour
 
     public void Setting()
     {
-
+        settingUI.SetActive(true);
     }
 
 }

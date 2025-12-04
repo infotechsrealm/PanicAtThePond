@@ -11,7 +11,6 @@ public static class UnityThread
 
 public class GS : MonoBehaviour  
 {
-    public event Action OnVisibilityChanged;
 
     public static GS Instance;
 
@@ -30,6 +29,8 @@ public class GS : MonoBehaviour
     public bool MurkyWaters;
     public bool DeepWaters;
     public bool ReflectiveWater;
+
+    public bool dropDownChangeAvalable = false;
 
     public string nickName = "";
 
@@ -54,8 +55,6 @@ public class GS : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         nickName = "Player_" + UnityEngine.Random.Range(100, 999);
-
-        GS.Instance.OnVisibilityChanged += rerfeshDropDown;
     }
 
     private void Update()
@@ -112,6 +111,7 @@ public class GS : MonoBehaviour
 
     public void rerfeshDropDown()
     {
+        dropDownChangeAvalable = false;
         int index = 0;
         if (ClearWaters)
         {
