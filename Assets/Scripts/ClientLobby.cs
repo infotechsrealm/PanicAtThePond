@@ -18,13 +18,26 @@ public class ClientLobby : MonoBehaviourPunCallbacks
         controlsButton.onClick.AddListener(onControlPressed);
         hintButton.onClick.AddListener(onHintPressed);
         pauseButton.onClick.AddListener(pause);
-
     }
 
     private void OnEnable()
     {
         BackManager.instance.RegisterScreen(pauseButton);
         playerTableManager.UpdatePlayerTable();
+        if (GS.Instance.isLan)
+        {
+            if(GS.Instance.IsMirrorMasterClient)
+            {
+
+            }
+        }
+        else
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                photonView.RPC(nameof(CreateJoinManager.Instance.CallRpcFromClientSide), RpcTarget.MasterClient);
+            }
+        }
     }
     private void pause()
     {

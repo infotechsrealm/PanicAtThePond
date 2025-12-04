@@ -12,11 +12,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     public CreateJoinManager createJoinManager;
 
 
-    [Header("Water Type Toggles")]
-    public bool clearWaters;
-    public bool murkyWaters;
-    public bool deepWaters;
-    public bool reflectiveWater;
+    
 
     public RoomTableManager roomManager;
     public Button startButton;
@@ -64,7 +60,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
                     createJoinManager.createPanel.gameObject.SetActive(true);
                     Debug.Log("start Button Enable");
                     startButton.interactable = true;
-                    InitializeWaterTypeToggles();
                 }
                 else
                 {
@@ -307,10 +302,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             int myId = PhotonNetwork.LocalPlayer.ActorNumber;
         }
 
-        if (PhotonNetwork.IsMasterClient)
-        {
-            InitializeWaterTypeToggles();
-        }
+       
 
         lobby.SetActive(true);
 
@@ -345,7 +337,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             if (PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
             {
                 photonView.RPC(nameof(GeneratePreloder), RpcTarget.All);
-                CallSetVisibilityRPC();
                 PhotonNetwork.LoadLevel("Play");
                 PhotonNetwork.SendAllOutgoingCommands(); // send it now
             }
@@ -357,31 +348,6 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     {
         GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
-    }
-
-
-
-    public void CallSetVisibilityRPC()
-    {
-        GS gsObj = GS.Instance;
-        photonView.RPC(nameof(SetVisibility), RpcTarget.All,
-            reflectiveWater,
-            deepWaters,
-            murkyWaters,
-            clearWaters);
-    }
-
-    [PunRPC]
-    public void SetVisibility(bool reflectiveWater, bool deepWaters, bool murkyWaters, bool clearWaters)
-    {
-        GS gsObj = GS.Instance;
-
-        gsObj.ReflectiveWater = reflectiveWater;
-        gsObj.DeepWaters = deepWaters;
-        gsObj.MurkyWaters = murkyWaters;
-        gsObj.ClearWaters = clearWaters;
-
-        Debug.Log($"[GS] Visibility updated: All={reflectiveWater}, Deep={deepWaters}, Murky={murkyWaters}, Clear={clearWaters}");
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -442,14 +408,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     }
 
-    public void InitializeWaterTypeToggles()
-    {
-        GS gsObj = GS.Instance;
-        reflectiveWater = gsObj.ReflectiveWater;
-        deepWaters = gsObj.DeepWaters;
-        murkyWaters = gsObj.MurkyWaters;
-        clearWaters = gsObj.ClearWaters;
-    }
+   
 
     void SetWaterType(string type)
     {

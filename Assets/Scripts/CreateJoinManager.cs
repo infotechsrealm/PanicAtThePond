@@ -17,8 +17,6 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
     public ClientLobby  clientLobby;
     public HostLobby hostLobby;
 
-
-
     internal bool isCreating = false;
     internal bool isJoining = false;
     internal bool isJoinRandom = false;
@@ -36,14 +34,19 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if (PhotonNetwork.IsConnected)
+        /*if (PhotonNetwork.IsConnected)
         {
             Debug.Log("Is Connected");
         }
         else
         {
             Debug.Log("Is Disconnected");
-        }
+        }*/
+    }
+
+    private void Start()
+    {
+
     }
     public void OnClickAction(string action)
     {
@@ -84,7 +87,6 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                 {
                     if (GS.Instance.isLan)
                     {
-                        coustomeRoomManager.InitializeWaterTypeToggles();
                         LANDiscoveryMenu.Instance.HostGame();
                     }
                     else
@@ -230,6 +232,37 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
        // createAndJoinButtons.SetActive(false);
         Debug.Log("Disconnected from Photon. Cause: " + cause);
+    }
+
+    // --------------------------------------- Photon Networking ---------------------------------------
+
+
+    [PunRPC]
+    public void CallRpcFromClientSide()
+    {
+        SetVissiblity_Photon_RPC();
+    }
+
+    public void SetVissiblity_Photon_RPC()
+    {
+        GS gsObj = GS.Instance;
+        photonView.RPC(nameof(SetVisibilityPhoton), RpcTarget.Others, gsObj.ReflectiveWater, gsObj.DeepWaters, gsObj.MurkyWaters, gsObj.ClearWaters);
+        PhotonNetwork.SendAllOutgoingCommands();
+    }
+
+    [PunRPC]
+    public void SetVisibilityPhoton(bool reflectiveWater, bool deepWaters, bool murkyWaters, bool clearWaters)
+    {
+        GS gsObj = GS.Instance;
+
+        gsObj.ClearWaters = clearWaters;
+        gsObj.MurkyWaters = murkyWaters;
+        gsObj.DeepWaters = deepWaters;
+        gsObj.ReflectiveWater = reflectiveWater;
+
+        Debug.Log($"[GS] Visibility updated: All={reflectiveWater}, Deep={deepWaters}, Murky={murkyWaters}, Clear={clearWaters}");
+
+        GS.Instance.rerfeshDropDown();
     }
 
 }

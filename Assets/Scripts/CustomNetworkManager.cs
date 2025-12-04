@@ -1,5 +1,6 @@
 ﻿using Mirror;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public struct PlayerNameMessage : NetworkMessage
@@ -12,6 +13,14 @@ public struct PlayerListMessage : NetworkMessage
     public List<string> allPlayerNames;
 }
 
+public struct VisibilityMessage : NetworkMessage
+{
+    public bool reflectiveWater;
+    public bool deepWaters;
+    public bool murkyWaters;
+    public bool clearWaters;
+}
+
 public class CustomNetworkManager : NetworkManager
 {
     private Dictionary<int, string> playerNames = new Dictionary<int, string>();
@@ -20,7 +29,7 @@ public class CustomNetworkManager : NetworkManager
 
     public static CustomNetworkManager Instence;
 
-
+    public DropdownHandler DropdownHandler;
 
     private void Awake()
     {
@@ -32,6 +41,10 @@ public class CustomNetworkManager : NetworkManager
     {
         base.OnStartServer();
         NetworkServer.RegisterHandler<PlayerNameMessage>(OnReceivePlayerName);
+        if (NetworkClient.active)
+        {
+            NetworkClient.RegisterHandler<VisibilityMessage>(OnClientReceive);
+        }
     }
 
     // 🔹 CLIENT START पर PlayerListMessage receive handler register करो
@@ -39,9 +52,49 @@ public class CustomNetworkManager : NetworkManager
     {
         base.OnStartClient();
         NetworkClient.RegisterHandler<PlayerListMessage>(OnReceivePlayerList);
+        if (NetworkClient.active)
+        {
+            NetworkClient.RegisterHandler<VisibilityMessage>(OnClientReceive);
+        }
     }
 
-    // 🔹 जब client connect करे तो अपना नाम भेजो
+    // ----------- CLIENT RECEIVE -----------
+    private void OnClientReceive(VisibilityMessage msg)
+    {
+        Debug.Log("[Client] Visibility data received!");
+
+        SetVisibility(msg.reflectiveWater, msg.deepWaters, msg.murkyWaters, msg.clearWaters);
+
+    }
+
+    void CallUIRefreshScript()
+    {
+        var handler = FindAnyObjectByType<GS>();
+        if (handler != null)
+        {
+            handler.rerfeshDropDown();   // No freeze, safe!
+        }
+    }
+
+
+    public void SetVisibility(bool reflectiveWater, bool deepWaters, bool murkyWaters, bool clearWaters)
+    {
+        GS gsObj = GS.Instance;
+
+        gsObj.ClearWaters = clearWaters;
+        gsObj.MurkyWaters = murkyWaters;
+        gsObj.DeepWaters = deepWaters;
+        gsObj.ReflectiveWater = reflectiveWater;
+
+        Debug.Log($"[GS] Visibility updated: All={reflectiveWater}, Deep={deepWaters}, Murky={murkyWaters}, Clear={clearWaters}");
+        UnityThread.MainThread.Post(_ =>
+        {
+            // Yaha UI safe chalega
+            CallUIRefreshScript();
+        }, null);
+    }
+   
+    // 🔹 जब client connect करे तो अपना नाम भेज`
     public override void OnClientConnect()
     {
         base.OnClientConnect();
@@ -61,12 +114,45 @@ public class CustomNetworkManager : NetworkManager
         playerNames[conn.connectionId] = msg.playerName;
         Debug.Log($"🧩 Player joined: {msg.playerName} ({conn.address})");
 
+        CallBroadcastVisibility();
         // सभी clients को updated list भेजो
         SendUpdatedPlayerListToAll();
     }
 
+    public void CallBroadcastVisibility()
+    {
+        if (GS.Instance.isLan)
+        {
+            if (GS.Instance.IsMirrorMasterClient)
+            {
+                BroadcastVisibility(GS.Instance.ReflectiveWater, GS.Instance.DeepWaters, GS.Instance.MurkyWaters, GS.Instance.ClearWaters);
+            }
+        }
+    }
 
+    // ----------- SERVER SEND (CALL THIS) -----------
+    public void BroadcastVisibility(bool reflective, bool deep, bool murky, bool clear)
+    {
+        if (!NetworkServer.active)
+        {
+            Debug.LogError("BroadcastVisibility called but server is not active!");
+            return;
+        }
 
+        VisibilityMessage msg = new VisibilityMessage
+        {
+            reflectiveWater = reflective,
+            deepWaters = deep,
+            murkyWaters = murky,
+            clearWaters = clear
+        };
+
+        // Send to ALL clients
+        NetworkServer.SendToAll(msg);
+
+        Debug.Log("[Server] Visibility broadcasted to all clients.");
+
+    }
 
     // 🔹 जब कोई disconnect करे
     public override void OnServerDisconnect(NetworkConnectionToClient conn)

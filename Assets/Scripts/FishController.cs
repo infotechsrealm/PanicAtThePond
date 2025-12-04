@@ -81,6 +81,28 @@ public class FishController : MonoBehaviourPunCallbacks
             GameManager.Instance.allFishes.Add(this);
     }
 
+    public void SetVissiblity_Mirror()
+    {
+        GS gsObj = GS.Instance;
+        if (gsObj.IsMirrorMasterClient)
+        {
+            photonView.RPC(nameof(SetVisibility), RpcTarget.All, gsObj.ReflectiveWater, gsObj.DeepWaters, gsObj.MurkyWaters, gsObj.ClearWaters);
+        }
+    }
+
+    [PunRPC]
+    public void SetVisibility(bool reflectiveWater, bool deepWaters, bool murkyWaters, bool clearWaters)
+    {
+        GS gsObj = GS.Instance;
+
+        gsObj.ClearWaters = clearWaters;
+        gsObj.MurkyWaters = murkyWaters;
+        gsObj.DeepWaters = deepWaters;
+        gsObj.ReflectiveWater = reflectiveWater;
+
+        Debug.Log($"[GS] Visibility updated: All={reflectiveWater}, Deep={deepWaters}, Murky={murkyWaters}, Clear={clearWaters}");
+    }
+
     void FixedUpdate()
     {
         if(isFisherMan)

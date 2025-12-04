@@ -47,7 +47,6 @@ public class RoomRowPrefab : MonoBehaviour
             LANDiscoveryMenu.DiscoveredServerInfo.baseBroadcastPort = lanRoomInfo.baseBroadcastPort;
             LANDiscoveryMenu.DiscoveredServerInfo.roomPassword = lanRoomInfo.roomPassword;
             LANDiscoveryMenu.DiscoveredServerInfo.maxPlayers = lanRoomInfo.maxPlayers;
-
         }
         else
         {

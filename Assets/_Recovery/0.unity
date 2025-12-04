@@ -1100,7 +1100,6 @@ MonoBehaviour:
   evaluationInterval: 3
   timeInterpolationGui: 0
   localPlayerName: Rajan
-  DropdownHandler: {fileID: 0}
 --- !u!114 &617341296273838306
 MonoBehaviour:
   m_ObjectHideFlags: 0

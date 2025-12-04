@@ -6,8 +6,6 @@ public class DashManager : MonoBehaviour
     public GameObject createAndJoinButtons,settingUI, quitUI,craditsUI,localPlayerUI,prefabPanret,hintsUI;
 
     public Button createAndJoinButtonsBackButton;
-               
-
 
     public static DashManager Instance;
 

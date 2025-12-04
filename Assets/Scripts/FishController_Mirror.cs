@@ -15,6 +15,10 @@ public class FishController_Mirror : NetworkBehaviour
 
     public List<WormManager> allHookWorms = new List<WormManager>();
 
+
+    private void Awake()
+    {
+    }
     private void Start()
     {
         Debug.Log("=== FishController_Mirror CALLED ===");
@@ -35,16 +39,16 @@ public class FishController_Mirror : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void SetVisibility(bool allVisible, bool deepWaters, bool murkyWaters, bool clearWaters)
+    public void SetVisibility(bool reflectiveWater, bool deepWaters, bool murkyWaters, bool clearWaters)
     {
         GS gsObj = GS.Instance;
 
-        gsObj.ReflectiveWater = allVisible;
-        gsObj.DeepWaters = deepWaters;
-        gsObj.MurkyWaters = murkyWaters;
         gsObj.ClearWaters = clearWaters;
+        gsObj.MurkyWaters = murkyWaters;
+        gsObj.DeepWaters = deepWaters;
+        gsObj.ReflectiveWater = reflectiveWater;
 
-        Debug.Log($"[GS] Visibility updated: All={allVisible}, Deep={deepWaters}, Murky={murkyWaters}, Clear={clearWaters}");
+        Debug.Log($"[GS] Visibility updated: All={reflectiveWater}, Deep={deepWaters}, Murky={murkyWaters}, Clear={clearWaters}");
     }
 
     public void Destroy_Mirror(GameObject target)
