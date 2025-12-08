@@ -48,6 +48,20 @@ public class SettingsMenu : MonoBehaviour
         BackManager.instance.UnregisterScreen();
 
         gameObject.SetActive(false);
+        if (GS.Instance.isLan)
+        {
+
+        }
+        else
+        {
+            if (GameManager.Instance != null)
+            {
+                if (GameManager.Instance.myFish != null)
+                {
+                    GameManager.Instance.myFish.CallGamePauseRPC(false);
+                }
+            }
+        }
     }
 
     private void onControlPressed()

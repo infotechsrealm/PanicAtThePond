@@ -26,6 +26,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
     public Button joinRandomBtn;
 
+    public Text requirePlayerText;
     private void Awake()
     {
         Instance = this;

@@ -69,7 +69,7 @@ public class DropdownHandler : MonoBehaviourPunCallbacks
                     dropDownIndex = 0;
                     GS.Instance.ClearWaters = true;
                     modeTitleText.text = "CLEAR WATERS";
-                    descriptionText.text = "nBoth sides can see each other.";
+                    descriptionText.text = "Both sides can see each other.";
                     Debug.Log("✔ ClearWater selected");
                     break;
                 }

@@ -236,14 +236,14 @@ public class Hook : MonoBehaviourPunCallbacks
                 }
             }
 
-            FishermanController fc = FishermanController.Instance;
+           // FishermanController fishermanController = FishermanController.Instance;
             if (wormParent.GetComponentInChildren<JunkManager>() != null)
             {
-                fc.OnCryingAnimation(true);
+                fishermanController.OnCryingAnimation(true);
             }
             else
             {
-                fc.OnFishGoatAnimation(true);
+                fishermanController.OnFishGoatAnimation(true);
             }
 
             FishController[] fishes = GetComponentsInChildren<FishController>();
@@ -254,27 +254,41 @@ public class Hook : MonoBehaviourPunCallbacks
                 yield return null;
             }
 
+
+           /* if (wormParent.GetComponentInChildren<JunkManager>() != null)
+            {
+                fishermanController.OnCryingAnimation(false);
+            }
+            else
+            {
+                fishermanController.OnFishGoatAnimation(false);
+            }*/
+
+            fishermanController.OnFishGoatAnimation(false);
+            fishermanController.OnCryingAnimation(false);
+            fishermanController.OnFightAnimation(false);
+
             if (wormParent.childCount != 0)
             {
-                fc.PlaySFX(fishCatched);
+                fishermanController.PlaySFX(fishCatched);
                 if (wormParent.GetChild(0).GetComponent<FishController>())
                 {
-                    fc.PlaySFX(smallVictory);
+                    fishermanController.PlaySFX(smallVictory);
                 }
             }
+         
             isReturning = false;
 
             transform.localScale = Vector3.zero;
-            fc.isCanMove = true;
-            fc.isCanCast = true;
-            fc.OnFishGoatAnimation(false);
-            fc.OnCryingAnimation(false);
+            fishermanController.isCanMove = true;
+            fishermanController.isCanCast = true;
 
-            fc.OnReeling();
+
+            fishermanController.OnReeling();
             if (GameManager.Instance.isFisherMan)
             {
-                fc.ClearHookReference(this.gameObject);
-                fc.CheckWorms();
+                fishermanController.ClearHookReference(this.gameObject);
+                fishermanController.CheckWorms();
             }
 
             foreach (FishController f in fishes)

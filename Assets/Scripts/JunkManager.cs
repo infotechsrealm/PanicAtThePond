@@ -30,7 +30,7 @@ public class JunkManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient && !isFreezed || GS.Instance.IsMirrorMasterClient && !isFreezed)
         {
-            if (transform.position.y < -4f)
+            if (transform.position.y < -4.5f)
             {
                 CallFreezeObjectRPC();
             }
@@ -52,9 +52,9 @@ public class JunkManager : MonoBehaviourPunCallbacks
     [PunRPC]
     void FreezeObject()
     {
-        if (transform.position.y < -4f)
+        if (transform.position.y < -4.5f)
         {
-            transform.position = new Vector2(transform.position.x, -4f);
+            transform.position = new Vector2(transform.position.x, -4.5f);
         }
         GetComponent<PolygonCollider2D>().enabled = true;
         photonRigidbody2DView.enabled = false;

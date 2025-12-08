@@ -27,7 +27,6 @@ public class GoldenFishAI_Mirror : NetworkBehaviour
         {
             CmdRequestDestroy(target);
         }
-
     }
 
     [Command]

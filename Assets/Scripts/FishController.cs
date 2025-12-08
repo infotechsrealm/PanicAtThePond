@@ -213,7 +213,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
         if (carriedJunk != null)
         {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame || Input.GetKeyDown(KeyCode.Space))
+            if (Keyboard.current.spaceKey.wasPressedThisFrame || Input.GetKeyDown(KeyCode.Q))
             {
                 Debug.Log("Fish is leve the junk");
                 if (GS.Instance.isLan)
@@ -362,7 +362,9 @@ public class FishController : MonoBehaviourPunCallbacks
                 {
                     if (PhotonNetwork.IsMasterClient)
                     {
-                        PhotonNetwork.Destroy(other.gameObject);
+                       // PhotonNetwork.Destroy(other.gameObject);
+
+                        DestroyWormRPC(other.GetComponent<PhotonView>().ViewID);
                         HungerSystem.Instance.AddHunger(25f);
                     }
                     else
@@ -449,7 +451,6 @@ public class FishController : MonoBehaviourPunCallbacks
     {
         WormSpawner.Instance.DestroyAllWorms();
     }
-
     [PunRPC]
     void DestroyWormRPC(int viewID)
     {

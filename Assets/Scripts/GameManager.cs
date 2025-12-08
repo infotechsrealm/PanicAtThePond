@@ -451,7 +451,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         totalPlayers--;
         if (PhotonNetwork.IsMasterClient)
         {
-            FishermanController.Instance.CheckWorms();
+            if(FishermanController.Instance != null)
+                FishermanController.Instance.CheckWorms();
         }
     }
 

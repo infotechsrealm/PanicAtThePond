@@ -761,10 +761,12 @@ public class FishermanController : MonoBehaviourPunCallbacks
     {
         if (isRight)
         {
+            Debug.Log("OnFishGoatAnimation called =" + res);
             animator.SetBool("fishGotFacing_r", res);
         }
         else if (isLeft)
         {
+            Debug.Log("OnFishGoatAnimation called =" + res);
             animator.SetBool("fishGotFacing_l", res);
         }
     }

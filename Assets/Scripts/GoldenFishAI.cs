@@ -1,191 +1,223 @@
-﻿using Mirror;
+﻿
+/*sharks = GameManager.Instance.allFishes
+          .Select(f => f.transform)
+          .ToArray();*/
+
+using Mirror;
 using Photon.Pun;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GoldenFishAI : MonoBehaviourPunCallbacks
 {
     [Header("Movement Settings")]
-    public float minSpeed = 1.5f;            // minimum swim speed
-    public float maxSpeed = 3f;              // maximum swim speed
-    public float minChangeTime = 1f;         // min time before random direction change
-    public float maxChangeTime = 3f;         // max time before random direction change
+    public float minSpeed = 1.5f;
+    public float maxSpeed = 3f;
+    public float turnSmoothness = 0.15f;   // smoother turning
+
+    [Header("Shark Panic Settings")]
+    public float avoidDistance = 2.5f;
+    public float avoidanceStrength = 1.2f;
+    public float panicSpeedMultiplier = 1.8f; // fish moves faster in panic
 
     [Header("Movement Bounds")]
     public Vector2 minBounds = new Vector2(-8f, -4f);
     public Vector2 maxBounds = new Vector2(8f, 4f);
 
-    private Vector2 moveDirection;
-    private float moveSpeed;
-    private float originalScaleX;
-    private float originalScaleY;
-    private bool isPaused = false;
-
+    public Transform[] sharks;
     public Animator animator;
 
-    bool reachedCenter = false;
-    Vector2 centerPos = Vector2.zero;
+    private Vector2 moveDirection;
+    private float moveSpeed;
+    private float originalScaleX, originalScaleY;
 
+    bool reachedCenter = false;
+    Vector2 centerPos;
+
+    Vector2 avoidanceVector = Vector2.zero;
+    float currentSpeed;
 
     void Start()
     {
         if (GS.Instance.isLan)
         {
-            if(!GS.Instance.IsMirrorMasterClient)
-            {
-                return;
-            }
+            if (!GS.Instance.IsMirrorMasterClient) return;
         }
         else
         {
-            if (!photonView.IsMine)
-            {
-                return;
-            }
+            if (!photonView.IsMine) return;
         }
 
         originalScaleX = transform.localScale.x;
         originalScaleY = transform.localScale.y;
 
-        PickNewDirectionAndSpeed(); // initial direction and speed
+        PickNewDirectionAndSpeed();
+        currentSpeed = moveSpeed;
+
         StartCoroutine(RandomDirectionRoutine());
 
         centerPos = new Vector2(Random.Range(minBounds.x, maxBounds.x), Random.Range(minBounds.y, maxBounds.y));
 
-        if (transform.position.x < 0)
-        {
-            transform.localScale = new Vector3(-originalScaleX, originalScaleY, 1);
-
-        }
-        else if (transform.position.x > 0)
-        {
-            transform.localScale = new Vector3(originalScaleX, originalScaleY, 1);
-        }
+        sharks = GameManager.Instance.allFishes
+          .Select(f => f.transform)
+          .ToArray();
     }
 
     void Update()
     {
         if (GS.Instance.isLan)
         {
-            if (!GS.Instance.IsMirrorMasterClient)
-            {
-                return;
-            }
+            if (!GS.Instance.IsMirrorMasterClient) return;
         }
         else
         {
-            if (!photonView.IsMine)
-            {
-                return;
-            }
+            if (!photonView.IsMine) return;
         }
 
         if (animator != null)
-                animator.SetBool("isMove", !isPaused);
+            animator.SetBool("isMove", true);
 
-        if (isPaused) return;
+        // Calculate avoidance blended into movement
+        CalculateSharkAvoidance();
+
+        // Speed boost if shark is near
+        ApplyDynamicSpeed();
 
         if (!reachedCenter)
         {
-            // Move toward center first
-            transform.position = Vector2.MoveTowards(transform.position, centerPos, moveSpeed * Time.deltaTime);
+            // Direction toward center
+            Vector2 toCenter = (centerPos - (Vector2)transform.position).normalized;
 
+            // ⭐ Flip based on x-direction (THIS FIXES THE UPSIDE FLIP BUG)
+            if (toCenter.x < 0)
+                transform.localScale = new Vector3(originalScaleX, originalScaleY, 1);
+            else
+                transform.localScale = new Vector3(-originalScaleX, originalScaleY, 1);
+
+            // Move the fish
+            transform.position = Vector2.MoveTowards(transform.position, centerPos, currentSpeed * Time.deltaTime);
+
+            // Check if arrived
             if (Vector2.Distance(transform.position, centerPos) < 0.1f)
             {
-                reachedCenter = true;       // reached center, now start random movement
-                PickNewDirectionAndSpeed(); // pick first random direction
-                StartCoroutine(RandomDirectionRoutine());
+                reachedCenter = true;
             }
-            else
-            {
-            }
+
+            return; // DO NOT REMOVE
+        }
+
+
+        MoveFish();
+    }
+
+    // ------------------------ Natural Movement ------------------------
+    void MoveFish()
+    {
+        Vector3 pos = transform.position;
+
+        // Blended final direction
+        Vector2 finalDir = moveDirection + avoidanceVector;
+
+        // Smooth turning
+        finalDir = Vector2.Lerp(moveDirection, finalDir.normalized, turnSmoothness);
+
+        pos += (Vector3)(finalDir * currentSpeed * Time.deltaTime);
+
+        bool hitX = false, hitY = false;
+
+        if (pos.x <= minBounds.x || pos.x >= maxBounds.x)
+        {
+            pos.x = Mathf.Clamp(pos.x, minBounds.x, maxBounds.x);
+            hitX = true;
+        }
+
+        if (pos.y <= minBounds.y || pos.y >= maxBounds.y)
+        {
+            pos.y = Mathf.Clamp(pos.y, minBounds.y, maxBounds.y);
+            hitY = true;
+        }
+
+        transform.position = pos;
+
+        // Smooth flip
+        if (finalDir.x < 0)
+            transform.localScale =  new Vector3(originalScaleX, originalScaleY, 1);
+        else
+            transform.localScale = new Vector3(-originalScaleX, originalScaleY, 1);
+
+        // Random movement bounce
+        if (hitX || hitY)
+            PickNewDirectionAndSpeed();
+    }
+
+    // ------------------------ Smooth Speed Boost ------------------------
+    void ApplyDynamicSpeed()
+    {
+        // Shark नहीं है → normal speed
+        if (avoidanceVector == Vector2.zero)
+        {
+            currentSpeed = Mathf.Lerp(currentSpeed, moveSpeed, 0.05f);
         }
         else
         {
-            // Normal random movement logic here...
-
-            Vector3 pos = transform.position;
-            pos += (Vector3)(moveDirection * moveSpeed * Time.deltaTime);
-
-            bool hitXBound = false;
-            bool hitYBound = false;
-
-            // check X bounds
-            if (pos.x <= minBounds.x || pos.x >= maxBounds.x)
-            {
-                pos.x = Mathf.Clamp(pos.x, minBounds.x, maxBounds.x);
-                hitXBound = true;
-            }
-
-            // check Y bounds
-            if (pos.y <= minBounds.y || pos.y >= maxBounds.y)
-            {
-                pos.y = Mathf.Clamp(pos.y, minBounds.y, maxBounds.y);
-                hitYBound = true;
-            }
-
-
-            transform.position = pos;
-
-            // Flip sprite based on direction
-            if (moveDirection.x < 0)
-                transform.localScale = new Vector3(originalScaleX, originalScaleY, 1);
-            else if (moveDirection.x > 0)
-                transform.localScale = new Vector3(-originalScaleX, originalScaleY, 1);
-
-            // If hit bounds, pause then reverse direction + random speed
-            if ((hitXBound || hitYBound) && !isPaused)
-            {
-                StartCoroutine(PauseAndTurn(hitXBound, hitYBound, false));
-            }
+            // Shark पास → panic speed boost
+            float boosted = moveSpeed * panicSpeedMultiplier;
+            currentSpeed = Mathf.Lerp(currentSpeed, boosted, 0.1f);
         }
     }
+
+    // ------------------------ Shark Avoidance ------------------------
+    void CalculateSharkAvoidance()
+    {
+        avoidanceVector = Vector2.zero;
+
+        if (sharks == null || sharks.Length == 0)
+            return;
+
+        Transform nearest = null;
+        float minDist = float.MaxValue;
+
+        foreach (Transform s in sharks)
+        {
+            if (s == null) continue;
+
+            float d = Vector2.Distance(transform.position, s.position);
+
+            if (d < minDist)
+            {
+                minDist = d;
+                nearest = s;
+            }
+        }
+
+        if (nearest == null || minDist > avoidDistance)
+            return;
+
+        // जितना पास shark आए → उतना strong avoidance
+        float t = 1f - (minDist / avoidDistance);
+
+        avoidanceVector =
+            ((Vector2)(transform.position - nearest.position)).normalized *
+            t * avoidanceStrength;
+    }
+
+    // ------------------------ Random Direction ------------------------
     IEnumerator RandomDirectionRoutine()
     {
         while (true)
         {
-            // wait random time before changing direction mid-swim
-            yield return new WaitForSeconds(Random.Range(minChangeTime, maxChangeTime));
-
-            // pause then pick random direction & speed
-            yield return StartCoroutine(PauseAndTurn(true, true, true));
+            yield return new WaitForSeconds(Random.Range(1, 3));
+            PickNewDirectionAndSpeed();
         }
     }
 
     void PickNewDirectionAndSpeed()
     {
-        float randomX = Random.Range(-1f, 1f);
-        float randomY = Random.Range(-0.5f, 0.5f);
-        moveDirection = new Vector2(randomX, randomY).normalized;
+        moveDirection = new Vector2(Random.Range(-1f, 1f),
+                                    Random.Range(-0.5f, 0.5f)).normalized;
 
-        moveSpeed = Random.Range(minSpeed, maxSpeed); // pick random speed
-    }
-
-    IEnumerator PauseAndTurn(bool changeX, bool changeY, bool randomDirection = false)
-    {
-        if (isPaused) yield break;
-
-        isPaused = true;
-
-        // 🕒 short random pause before changing direction
-        float waitTime = Random.Range(0f, 3f);
-        yield return new WaitForSeconds(waitTime);
-
-        if (randomDirection)
-        {
-            // pick random direction & speed
-            PickNewDirectionAndSpeed();
-        }
-        else
-        {
-            // reverse direction after hitting bounds
-            if (changeX) moveDirection.x *= -1;
-            if (changeY) moveDirection.y *= -1;
-
-            // also randomize speed after hitting bound
-            moveSpeed = Random.Range(minSpeed, maxSpeed);
-        }
-
-        isPaused = false;
+        moveSpeed = Random.Range(minSpeed, maxSpeed);
     }
 }

@@ -22,10 +22,11 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     public Text
         createRoomName,
         createRoomNameError,
-        playerLimit,
         playerLimitError,
         roomPasswordInput,
         roomPasswordInputError;
+
+    public InputField playerLimitInput;
 
     internal Text joinRoomName;
 
@@ -46,6 +47,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        playerLimitInput.text = "2";
         PhotonNetwork.NickName = GS.Instance.nickName;
 
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -72,12 +74,27 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     }
 
     // ------------------ Create Custome Room ------------------
+   public void OnValueChanged(InputField playerLimit)
+    {
+        if (int.TryParse(playerLimit.text, out int value))
+        {
+            if (value > 7)
+            {
+                playerLimitInput.text = "7";
+            }
+            else if (value < 2)
+            {
+                playerLimitInput.text = "2";
+            }
+        }
+    }
 
     internal void CreateCustomeRoom()
     {
-        if (playerLimit.text != "")
+        string value = playerLimitInput.text;
+        if (value != "")
         {
-            maxPlayers = int.Parse(playerLimit.text);
+            maxPlayers = int.Parse(value);
         }
 
         // ✅ Username validation
@@ -104,15 +121,15 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         }
 
         // ✅ Player Limit validation
-        if (maxPlayers < 2 || maxPlayers > 7)
+      /*  if (maxPlayers > 7)
         {
-            playerLimitError.text = "Player Limit must be between 2 to 7 members";
-            return;
-        }
-        else
+            playerLimitInput.text = "7";
+            //playerLimitError.text = "Player Limit must be between 2 to 7 members";
+        }*/
+      /*  else
         {
             playerLimitError.text = "";
-        }
+        }*/
 
         // ✅ Password validation
         if (string.IsNullOrEmpty(roomPasswordInput.text))

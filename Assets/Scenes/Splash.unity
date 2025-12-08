@@ -1367,9 +1367,9 @@ MonoBehaviour:
   howToPlay: {fileID: 1072194699156879840, guid: 0048f2ebe407a4b4795e2d7853778168, type: 3}
   preloder: {fileID: 1721887084397798614, guid: 595207e3fbf4e5d479050afed1957ccc, type: 3}
   passwordPopupPrefab: {fileID: 7950119858157386416, guid: 2afa573719fdb284d834c1fe1cc26a3d, type: 3}
-  ClearWaters: 1
+  ClearWaters: 0
   MurkyWaters: 0
-  DeepWaters: 0
+  DeepWaters: 1
   ReflectiveWater: 0
   dropDownChangeAvalable: 0
   nickName: 

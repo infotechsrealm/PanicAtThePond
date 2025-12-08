@@ -53,5 +53,12 @@ public class BackManager : MonoBehaviour
             Button top = backStack.Peek();
             top.onClick.Invoke();   // actual button click
         }
+        else
+        {
+            if(InGameMenu.Instance != null)
+            {
+                InGameMenu.Instance.SettingEnable();
+            }
+        }
     }
 }

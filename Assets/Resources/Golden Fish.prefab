@@ -136,11 +136,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minSpeed: 1.5
-  maxSpeed: 3
-  minChangeTime: 5
-  maxChangeTime: 10
+  maxSpeed: 2
+  turnSmoothness: 0.15
+  avoidDistance: 2.5
+  avoidanceStrength: 1.2
+  panicSpeedMultiplier: 1.8
   minBounds: {x: -8, y: -4}
   maxBounds: {x: 8, y: 1}
+  sharks: []
   animator: {fileID: 3995746989553086495}
 --- !u!114 &3755046863711763629
 MonoBehaviour:

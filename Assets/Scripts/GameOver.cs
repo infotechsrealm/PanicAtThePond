@@ -14,6 +14,14 @@ public class GameOver : MonoBehaviourPunCallbacks
         {
             playAgainBtn.SetActive(true);
         }
+        else if(GS.Instance.isLan && GS.Instance.IsMirrorMasterClient)
+        {
+            playAgainBtn.SetActive(true);
+        }
+        else
+        {
+            playAgainBtn.SetActive(false);
+        }
         PhotonNetwork.AutomaticallySyncScene = true;
 
     }
@@ -23,14 +31,21 @@ public class GameOver : MonoBehaviourPunCallbacks
     }
     public void PlayAgain()
     {
-        if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
+        if (GS.Instance.isLan)
         {
             
-            PhotonNetwork.LoadLevel("Dash");
         }
         else
         {
-            GameManager.Instance.RestartGame();
+            if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
+            {
+
+                PhotonNetwork.LoadLevel("Dash");
+            }
+            else
+            {
+                GameManager.Instance.RestartGame();
+            }
         }
     }
 
