@@ -1,3 +1,4 @@
+using Mirror;
 using Photon.Pun;
 using UnityEngine;
 
@@ -33,13 +34,22 @@ public class GameOver : MonoBehaviourPunCallbacks
     {
         if (GS.Instance.isLan)
         {
-            
+            int playerCount = NetworkManager.singleton.numPlayers;
+            Debug.Log("Players: " + playerCount);
+
+            if (playerCount > 1)
+            {
+                PhotonNetwork.LoadLevel("Dash");
+            }
+            else
+            {
+                GameManager.Instance.RestartGame();
+            }
         }
         else
         {
             if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
             {
-
                 PhotonNetwork.LoadLevel("Dash");
             }
             else

@@ -1,4 +1,5 @@
 ﻿using Mirror;
+using Mirror.Discovery;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
@@ -229,7 +230,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         if (GS.Instance.isLan)
         {
             ForceDisconnect();
-
         }
         else
         {

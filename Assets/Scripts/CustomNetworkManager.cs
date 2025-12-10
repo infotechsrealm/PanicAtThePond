@@ -1,6 +1,5 @@
 ﻿using Mirror;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public struct PlayerNameMessage : NetworkMessage

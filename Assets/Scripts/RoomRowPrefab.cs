@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class LANRoomInfo
     public string roomPassword;
     public int connectedPlayers;
     public int maxPlayers;
+
+    public List<Text> fadText = new List<Text>();
 
     public LANRoomInfo()
     {
@@ -36,7 +39,10 @@ public class RoomRowPrefab : MonoBehaviour
             if (RoomTableManager.instance.SelectedButton != null)
             {
                 RoomTableManager.instance.SelectedButton.interactable = true;
+                RoomTableManager.instance.SelectedButton.GetComponentInParent<RoomRowPrefab>().FadText(false);
             }
+
+            FadText(true);
             btn.interactable = false;
             RoomTableManager.instance.SelectedButton = btn;
 
@@ -53,15 +59,36 @@ public class RoomRowPrefab : MonoBehaviour
             if (RoomTableManager.instance.SelectedButton != null)
             {
                 RoomTableManager.instance.SelectedButton.interactable = true;
+                RoomTableManager.instance.SelectedButton.GetComponentInParent<RoomRowPrefab>().FadText(false);
+
             }
+
+            FadText(true);
             btn.interactable = false;
 
             RoomTableManager.instance.SelectedButton = btn;
 
             CoustomeRoomManager.Instance.joinRoomName = roomName;
 
+        }
+    }
 
+    public void FadText(bool isFad)
+    {
+        if (isFad)
+        {
 
+            foreach (Text t in lanRoomInfo.fadText)
+            {
+                t.CrossFadeAlpha(0.4f, 0.1f, false);
+            }
+        }
+        else
+        {
+            foreach (Text t in lanRoomInfo.fadText)
+            {
+                t.CrossFadeAlpha(1f, 0.1f, false);
+            }
         }
     }
 }

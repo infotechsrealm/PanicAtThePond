@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using Mirror;
+using Photon.Pun;
 using Photon.Realtime;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -47,16 +48,19 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        playerLimitInput.text = "2";
+        playerLimitInput.text = "7";
         PhotonNetwork.NickName = GS.Instance.nickName;
 
         PhotonNetwork.AutomaticallySyncScene = true;
 
-        if (PhotonNetwork.InRoom)
+        if (GS.Instance.isLan)
         {
-            if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
+            int playerCount = NetworkManager.singleton.numPlayers;
+            Debug.Log("Players: " + playerCount);
+
+            if (playerCount > 1)
             {
-                if (PhotonNetwork.IsMasterClient)
+                if (GS.Instance.IsMirrorMasterClient)
                 {
                     createJoinManager.hostLobby.gameObject.SetActive(true);
                     createJoinManager.createPanel.gameObject.SetActive(true);
@@ -71,10 +75,33 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
                 createJoinManager.createAndJoinButtons.SetActive(true);
             }
         }
+        else
+        {
+
+            if (PhotonNetwork.InRoom)
+            {
+                if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
+                {
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        createJoinManager.hostLobby.gameObject.SetActive(true);
+                        createJoinManager.createPanel.gameObject.SetActive(true);
+                        Debug.Log("start Button Enable");
+                        startButton.interactable = true;
+                    }
+                    else
+                    {
+                        createJoinManager.clientLobby.gameObject.SetActive(true);
+                        createJoinManager.JoinPanel.gameObject.SetActive(true);
+                    }
+                    createJoinManager.createAndJoinButtons.SetActive(true);
+                }
+            }
+        }
     }
 
     // ------------------ Create Custome Room ------------------
-   public void OnValueChanged(InputField playerLimit)
+    public void OnValueChanged(InputField playerLimit)
     {
         if (int.TryParse(playerLimit.text, out int value))
         {
