@@ -1374,7 +1374,7 @@ MonoBehaviour:
   dropDownChangeAvalable: 0
   nickName: 
   isLan: 0
-  IsMirrorMasterClient: 0
+  IsMirrorMasterClient: 1
   BGMusic: {fileID: 1304928314}
 --- !u!4 &1771400380
 Transform:

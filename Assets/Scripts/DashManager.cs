@@ -16,6 +16,7 @@ public class DashManager : MonoBehaviour
 
     private void Start()
     {
+        GS.Instance.SetMusicVolume();
         GS.Instance.BGMusic.Play();
     }
     public void OnClickAction(string action)

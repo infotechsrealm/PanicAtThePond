@@ -227,7 +227,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             yield return new WaitForSeconds(waitBeforePlay);
 
             // Play the sound
-            GS.Instance.SetVolume(cricketChirping);
+            GS.Instance.SetSFXVolume(cricketChirping);
 
             cricketChirping.Play();
 
@@ -316,7 +316,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             {
                 if (!boatMoveSound.isPlaying)
                 {
-                    GS.Instance.SetVolume(boatMoveSound);
+                    GS.Instance.SetSFXVolume(boatMoveSound);
                     boatMoveSound.Play();
                 }
 
@@ -810,7 +810,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
     internal void PlaySFX(AudioClip playClip)
     {
         fisherManSounds.clip = playClip;
-        GS.Instance.SetVolume(fisherManSounds);
+        GS.Instance.SetSFXVolume(fisherManSounds);
         fisherManSounds.Play();
     }
 }

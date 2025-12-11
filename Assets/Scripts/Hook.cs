@@ -214,7 +214,7 @@ public class Hook : MonoBehaviourPunCallbacks
     {
         if (!isReturning && PhotonNetwork.IsMasterClient || !isReturning && GameManager.Instance.isFisherMan)
         {
-            GS.Instance.SetVolume(hookBack);
+            GS.Instance.SetSFXVolume(hookBack);
             hookBack.Play();
             isReturning = true;
             Vector3 target = rodTip.position;

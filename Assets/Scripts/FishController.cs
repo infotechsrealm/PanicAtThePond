@@ -167,7 +167,7 @@ public class FishController : MonoBehaviourPunCallbacks
         {
             if (!audioSourceForFishMove.isPlaying)
             {
-                GS.Instance.SetVolume(audioSourceForFishMove);
+                GS.Instance.SetSFXVolume(audioSourceForFishMove);
                 audioSourceForFishMove.Play();
             }
 
@@ -180,7 +180,7 @@ public class FishController : MonoBehaviourPunCallbacks
         {
             if (audioSourceForFishMove.isPlaying)
             {
-                GS.Instance.SetVolume(audioSourceForFishMove);
+                GS.Instance.SetSFXVolume(audioSourceForFishMove);
                 audioSourceForFishMove.Pause();
             }
 
@@ -295,7 +295,7 @@ public class FishController : MonoBehaviourPunCallbacks
         {
             if (audioSourceForFishMove.isPlaying)
             {
-                GS.Instance.SetVolume(audioSourceForFishMove);
+                GS.Instance.SetSFXVolume(audioSourceForFishMove);
                 audioSourceForFishMove.Pause();
             }
 
@@ -341,7 +341,7 @@ public class FishController : MonoBehaviourPunCallbacks
                 GameManager.Instance.isFisherMan = true;
                 PlaySFX(fishEatWarmSound);
                 GameManager.Instance.goldWormEatByFish = true;
-                GS.Instance.SetVolume(audioSource);
+                GS.Instance.SetSFXVolume(audioSource);
                 audioSource.Play();
                 other.gameObject.transform.localScale = Vector3.zero;
                 other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
@@ -620,7 +620,7 @@ public class FishController : MonoBehaviourPunCallbacks
     void PlaySFX(AudioClip playClip)
     {
         audioSource.clip = playClip;
-        GS.Instance.SetVolume(audioSource);
+        GS.Instance.SetSFXVolume(audioSource);
         audioSource.Play();
     }
 

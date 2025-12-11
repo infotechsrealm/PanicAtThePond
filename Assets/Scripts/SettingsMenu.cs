@@ -5,28 +5,32 @@ using UnityEngine.UI;
 public class SettingsMenu : MonoBehaviour
 {
     [Header("UI References")]
-    public Slider musicVolumeSlider;
+    public Slider masterVolumeSlider, musicVolumeSlider, sfxVolumeSlider;
 
-    public Button backButton,controlsButton, achivementButton;
+    public Button backButton,controlsButton, achivementButton,modeButton;
 
     public GameObject controlsUI, achivementsUI;
 
-    private const string VolumeKey = "MusicVolume";
 
     void Start()
     {
-        // Load saved volume or use default 0.5
-        float savedVolume = PlayerPrefs.GetFloat(VolumeKey, 1f);
-        musicVolumeSlider.value = savedVolume;
-        
+        float savedMusicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        musicVolumeSlider.value = savedMusicVolume;
+        musicVolumeSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
 
-        // Hook up listener
-        musicVolumeSlider.onValueChanged.AddListener(OnVolumeChanged);
+        float savedSFXVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        sfxVolumeSlider.value = savedMusicVolume;
+        sfxVolumeSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
+
+        float savedMasterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
+        masterVolumeSlider.value = savedMusicVolume;
+        masterVolumeSlider.onValueChanged.AddListener(OnMasterVolumeChanged);
 
         // Back button event
         backButton.onClick.AddListener(OnBackPressed);
         controlsButton.onClick.AddListener(onControlPressed);
         achivementButton.onClick.AddListener(onAchivementsPressed);
+        modeButton.onClick.AddListener(ChangeMode);
 
     }
 
@@ -35,13 +39,31 @@ public class SettingsMenu : MonoBehaviour
         BackManager.instance.RegisterScreen(backButton);
     }
 
-    private void OnVolumeChanged(float value)
+    private void OnMusicVolumeChanged(float value)
     {
-       
-        PlayerPrefs.SetFloat(VolumeKey, value);
+        PlayerPrefs.SetFloat("MusicVolume", value);
+        PlayerPrefs.Save();
+        GS.Instance.SetMusicVolume();
+    }
+
+    private void OnSFXVolumeChanged(float value)
+    {
+        PlayerPrefs.SetFloat("SFXVolume", value);
         PlayerPrefs.Save();
     }
-   
+
+    private void OnMasterVolumeChanged(float value)
+    {
+        PlayerPrefs.SetFloat("MasterVolume", value);
+        PlayerPrefs.Save();
+
+        OnSFXVolumeChanged(value);
+        sfxVolumeSlider.value = value;
+
+        OnMusicVolumeChanged(value);
+        musicVolumeSlider.value = value;
+    }
+
 
     private void OnBackPressed()
     {
@@ -71,5 +93,10 @@ public class SettingsMenu : MonoBehaviour
     private void onAchivementsPressed()
     {
         achivementsUI.SetActive(true);
+    }
+
+    public void ChangeMode()
+    {
+        GS.Instance.ChangeScreenMode();
     }
 }

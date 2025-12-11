@@ -2,19 +2,13 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class InGameMenu : MonoBehaviourPunCallbacks
 {
     public static InGameMenu Instance;
+
     public GameObject settingUI;       // Reference to the whole pause menu UI
-
-    private const string VolumeKey = "MusicVolume";
-
-    public Slider musicVolumeSlider;
-
 
     public List<GameObject> Objects = new List<GameObject>();
     public GameObject preloder;
@@ -26,15 +20,7 @@ public class InGameMenu : MonoBehaviourPunCallbacks
     }
     private void Start()
     {
-
-        float savedVolume = PlayerPrefs.GetFloat(VolumeKey, 1f);
-        musicVolumeSlider.value = savedVolume;
-
-        // Hook up listener
-        musicVolumeSlider.onValueChanged.AddListener(OnVolumeChanged);
         CallenableObjects();
-       // BackManager.instance.RegisterScreen(ToggleMenu());
-
     }
 
     public void CallenableObjects()
@@ -56,10 +42,6 @@ public class InGameMenu : MonoBehaviourPunCallbacks
         preloder.SetActive(false);
     }
 
-    void Update()
-    {
-    }
-
     public void QuitToMainMenu()
     {
         PhotonNetwork.LeaveRoom();
@@ -68,12 +50,6 @@ public class InGameMenu : MonoBehaviourPunCallbacks
     public override void OnLeftRoom()
     {
         SceneManager.LoadScene("Dash");
-    }
-
-    private void OnVolumeChanged(float value)
-    {
-        PlayerPrefs.SetFloat(VolumeKey, value);
-        PlayerPrefs.Save();
     }
 
     public void SettingEnable()

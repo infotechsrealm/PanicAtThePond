@@ -62,29 +62,44 @@ public class GS : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F11))
         {
             // Toggle Fullscreen
-            if (Screen.fullScreen)
-            {
-                // Go to Windowed Mode
-                Screen.fullScreenMode = FullScreenMode.Windowed;
-                Screen.fullScreen = false;
-            }
-            else
-            {
-                // Go to Borderless Fullscreen (BEST just like games)
-                Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
-                Screen.fullScreen = true;
-            }
-        }
-    }
-    public void SetVolume(AudioSource audioSource)
-    {
-        float GlobleVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
-        if (audioSource.volume != GlobleVolume)
-        {
-            audioSource.volume = GlobleVolume;
+            ChangeScreenMode();
         }
     }
 
+    public void ChangeScreenMode()
+    {
+        if (Screen.fullScreen)
+        {
+            // Go to Windowed Mode
+            Screen.fullScreenMode = FullScreenMode.Windowed;
+            Screen.fullScreen = false;
+        }
+        else
+        {
+            // Go to Borderless Fullscreen (BEST just like games)
+            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+            Screen.fullScreen = true;
+        }
+    }
+
+    public void SetSFXVolume(AudioSource audioSource)
+    {
+        float Volume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        if (audioSource.volume != Volume)
+        {
+            audioSource.volume = Volume;
+        }
+    }
+
+    public void SetMusicVolume()
+    {
+        float Volume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+
+        if (BGMusic.volume != Volume)
+        {
+            BGMusic.volume = Volume;
+        }
+    }
 
     public void GeneratePreloder(Transform transform)
     {
