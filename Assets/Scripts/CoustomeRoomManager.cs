@@ -355,7 +355,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             Destroy(PasswordPopup.Instance.gameObject);
         }
 
-        if (PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
+        if (PhotonNetwork.CurrentRoom.PlayerCount >= 2)
         {
             photonView.RPC(nameof(EnableStartButton), RpcTarget.MasterClient);
         }

@@ -11,6 +11,7 @@ public class SettingsMenu : MonoBehaviour
 
     public GameObject controlsUI, achivementsUI;
 
+    public Text modeButtonText;
 
     void Start()
     {
@@ -31,7 +32,7 @@ public class SettingsMenu : MonoBehaviour
         controlsButton.onClick.AddListener(onControlPressed);
         achivementButton.onClick.AddListener(onAchivementsPressed);
         modeButton.onClick.AddListener(ChangeMode);
-
+        modeButtonText.text = GS.Instance.isFullscreen ? "Windowed Mode" : "Fullscreen Mode";
     }
 
     private void OnEnable()
@@ -98,5 +99,6 @@ public class SettingsMenu : MonoBehaviour
     public void ChangeMode()
     {
         GS.Instance.ChangeScreenMode();
+        modeButtonText.text = GS.Instance.isFullscreen ? "Windowed Mode" : "Fullscreen Mode";
     }
 }

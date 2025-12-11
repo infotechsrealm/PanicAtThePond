@@ -75,7 +75,7 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
             playerRows[player.ActorNumber] = row;
         }
 
-        if (PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
+        if (PhotonNetwork.CurrentRoom.PlayerCount >= 2)
         {
             Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount + "start Button Enable" + PhotonNetwork.CurrentRoom.MaxPlayers);
 
@@ -144,7 +144,7 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
         }
         GS.Instance.DestroyPreloder();
 
-        if(players.Count >= LANDiscoveryMenu.Instance.DiscoveredServerInfo.maxPlayers)
+        if(players.Count >= 2)
         {
             Debug.Log("start Button Enable");
             CoustomeRoomManager.Instance.startButton.interactable = true;

@@ -30,6 +30,8 @@ public class GS : MonoBehaviour
     public bool DeepWaters;
     public bool ReflectiveWater;
 
+    public bool isFullscreen;
+
     public bool dropDownChangeAvalable = false;
 
     public string nickName = "";
@@ -73,12 +75,14 @@ public class GS : MonoBehaviour
             // Go to Windowed Mode
             Screen.fullScreenMode = FullScreenMode.Windowed;
             Screen.fullScreen = false;
+            isFullscreen = false;
         }
         else
         {
             // Go to Borderless Fullscreen (BEST just like games)
             Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
             Screen.fullScreen = true;
+            isFullscreen = true;
         }
     }
 
