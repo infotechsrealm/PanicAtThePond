@@ -111,7 +111,8 @@ public class GS : MonoBehaviour
 
     public void rerfeshDropDown()
     {
-        dropDownChangeAvalable = false;
+        Debug.Log("Rerfesh Drop Down Called");
+      dropDownChangeAvalable = false;
         int index = 0;
         if (ClearWaters)
         {
@@ -131,13 +132,10 @@ public class GS : MonoBehaviour
         }
 
         DropdownHandler dropdownHandler = DropdownHandler.Instance;
-        if (dropdownHandler != null)
-        {
-          
-            dropdownHandler.OnDropdownChanged(index);
-            dropdownHandler.waterDropdown.value = index;   // dropdown option index set karega
-            dropdownHandler.waterDropdown.RefreshShownValue();   // UI ko update karega
-        }
+        Debug.Log("Updating Dropdown to index: " + index);
+        dropdownHandler.OnDropdownChanged(index);
+        dropdownHandler.waterDropdown.value = index;   // dropdown option index set karega
+        dropdownHandler.waterDropdown.RefreshShownValue();   // UI ko update karega
     }
 
 }

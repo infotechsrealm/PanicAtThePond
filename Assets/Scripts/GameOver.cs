@@ -17,24 +17,22 @@ public class GameOver : MonoBehaviourPunCallbacks
         }
         else if(GS.Instance.isLan && GS.Instance.IsMirrorMasterClient)
         {
-            playAgainBtn.SetActive(true);
+            playAgainBtn.SetActive(false);
         }
         else
         {
             playAgainBtn.SetActive(false);
         }
         PhotonNetwork.AutomaticallySyncScene = true;
-
     }
 
-    private void Start()
-    {
-    }
     public void PlayAgain()
     {
         if (GS.Instance.isLan)
         {
+          /* 
             int playerCount = NetworkManager.singleton.numPlayers;
+
             Debug.Log("Players: " + playerCount);
 
             if (playerCount > 1)
@@ -43,8 +41,10 @@ public class GameOver : MonoBehaviourPunCallbacks
             }
             else
             {
-                GameManager.Instance.RestartGame();
             }
+          
+           */
+                GameManager.Instance.RestartGame();
         }
         else
         {

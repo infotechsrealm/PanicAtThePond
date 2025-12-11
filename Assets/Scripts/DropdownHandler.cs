@@ -11,15 +11,10 @@ public class DropdownHandler : MonoBehaviourPunCallbacks
     public Text descriptionText;       // Right side description text
 
     public static DropdownHandler Instance;
-
-    void Start()
+    private void Awake()
     {
-        Instance = this;    
-        if (waterDropdown == null)
-        {
-            Debug.LogError("❌ Dropdown not assigned!");
-            return;
-        }
+        Instance = this;
+
 
         // Clear old options (optional)
         waterDropdown.ClearOptions();
@@ -36,13 +31,11 @@ public class DropdownHandler : MonoBehaviourPunCallbacks
         // Listener add
         waterDropdown.onValueChanged.AddListener(OnDropdownChanged);
     }
-
     private void OnEnable()
     {
-        GS.Instance.rerfeshDropDown();
+       GS.Instance.rerfeshDropDown();
     }
-
-
+  
     private void Update()
     {
         if(GS.Instance.isLan)
@@ -53,6 +46,7 @@ public class DropdownHandler : MonoBehaviourPunCallbacks
             }
         }
     }
+
     public int dropDownIndex = 0;
     public void OnDropdownChanged(int index)
     {

@@ -25,6 +25,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
     {
         BackManager.instance.RegisterScreen(pauseButton);
         playerTableManager.UpdatePlayerTable();
+        //GS.Instance.rerfeshDropDown();
     }
     private void onControlPressed()
     {
