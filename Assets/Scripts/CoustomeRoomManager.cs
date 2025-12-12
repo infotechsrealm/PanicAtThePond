@@ -19,9 +19,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     public Button startButton;
     public bool destroyRoom = false;
 
-    
+    public InputField createRoomName;
     public Text
-        createRoomName,
         createRoomNameError,
         playerLimitError,
         roomPasswordInput,
@@ -147,17 +146,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             createRoomNameError.text = "";
         }
 
-        // ✅ Player Limit validation
-      /*  if (maxPlayers > 7)
-        {
-            playerLimitInput.text = "7";
-            //playerLimitError.text = "Player Limit must be between 2 to 7 members";
-        }*/
-      /*  else
-        {
-            playerLimitError.text = "";
-        }*/
-
+    
         // ✅ Password validation
         if (string.IsNullOrEmpty(roomPasswordInput.text))
         {
@@ -315,6 +304,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         {
             case 32760: // Room already exists
                 displayMessage = "Room already exists. Please create another room.";
+
                 break;
 
             case 32763: // GameId length invalid
@@ -329,7 +319,10 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
                 displayMessage = "Room creation failed: " + message;
                 break;
         }
+        createRoomNameError.text = displayMessage;
     }
+
+   
 
     public override void OnJoinedRoom()
     {

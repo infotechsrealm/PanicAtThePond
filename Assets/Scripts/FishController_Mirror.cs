@@ -368,27 +368,27 @@ public class FishController_Mirror : NetworkBehaviour
 
 
     //mash phase start in fisher man
-    public void CallMashPhase()
+    public void CallMashPhase(float mashTimes)
     {
         Debug.Log("CallMashPhase");
         if (isLocalPlayer)
         {
-            CMDCallMashPhase();
+            CMDCallMashPhase(mashTimes);
         }
     }
 
     [Command]
-    public void CMDCallMashPhase()
+    public void CMDCallMashPhase(float mashTimes)
     {
         Debug.Log("CMDCallMashPhase");
-        RPCCallMashPhase();
+        RPCCallMashPhase(mashTimes);
     }
 
     [ClientRpc]
-    public void RPCCallMashPhase()
+    public void RPCCallMashPhase(float mashTimes)
     {
         Debug.Log("RPCCallMashPhase");
-        MashPhaseManager.Instance.CallMashPhase_Mirror();
+        MashPhaseManager.Instance.CallMashPhase_Mirror(mashTimes);
     }
 
 

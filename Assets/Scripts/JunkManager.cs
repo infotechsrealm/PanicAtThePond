@@ -14,7 +14,6 @@ public class JunkManager : MonoBehaviourPunCallbacks
     public GameObject waterDrop;
     public PhotonRigidbody2DView photonRigidbody2DView;
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

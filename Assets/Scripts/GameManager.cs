@@ -113,8 +113,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
        
     }
+
     public void UpdateUI(int currunt_Warms)
     {
+        bucketImage.gameObject.SetActive(true);
         // Text
         wormCountText.text = currunt_Warms.ToString();
 

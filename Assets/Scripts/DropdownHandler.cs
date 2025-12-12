@@ -22,10 +22,10 @@ public class DropdownHandler : MonoBehaviourPunCallbacks
         // Add 4 options
         waterDropdown.AddOptions(new System.Collections.Generic.List<string>()
         {
-            "ClearWater",
-            "MurkyWater",
-            "DeepWater",
-            "ReflectiveWater"
+            "Clear Waters",
+            "Murky Waters",
+            "Deep Waters",
+            "Reflective Waters"
         });
 
         // Listener add
@@ -58,7 +58,7 @@ public class DropdownHandler : MonoBehaviourPunCallbacks
         ResatVisiblity();
         switch (selectedOption)
         {
-            case "ClearWater":
+            case "Clear Waters":
                 {
                     dropDownIndex = 0;
                     GS.Instance.ClearWaters = true;
@@ -68,7 +68,7 @@ public class DropdownHandler : MonoBehaviourPunCallbacks
                     break;
                 }
 
-            case "MurkyWater":
+            case "Murky Waters":
                 {
                     dropDownIndex = 1;
                     GS.Instance.MurkyWaters = true;
@@ -79,7 +79,7 @@ public class DropdownHandler : MonoBehaviourPunCallbacks
                     break;
                 }
 
-            case "DeepWater":
+            case "Deep Waters":
                 {
                     dropDownIndex = 2;
                     GS.Instance.DeepWaters = true;
@@ -90,7 +90,7 @@ public class DropdownHandler : MonoBehaviourPunCallbacks
                     break;
                 }
 
-            case "ReflectiveWater":
+            case "Reflective Waters":
                 {
                     dropDownIndex = 3;
                     GS.Instance.ReflectiveWater = true;

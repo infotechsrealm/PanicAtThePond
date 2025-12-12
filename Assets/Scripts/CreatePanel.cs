@@ -7,12 +7,16 @@ public class CreatePanel : MonoBehaviour
 
     public Button backButton;
 
+    public InputField roomNameInput;
+
     private void Start()
     {
+        roomNameInput.text = "FISHFOOD";
     }
     private void OnEnable()
     {
         BackManager.instance.RegisterScreen(backButton);
+
     }
     public void Close()
     {

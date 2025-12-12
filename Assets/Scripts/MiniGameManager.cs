@@ -149,14 +149,4 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
 
         if (timerText != null) timerText.text = "";
     }
-
-    [PunRPC]
-    void DestroyWormRPC(int viewID)
-    {
-        PhotonView target = PhotonView.Find(viewID);
-        if (target != null)
-        {
-            PhotonNetwork.Destroy(target.gameObject);
-        }
-    }
 }

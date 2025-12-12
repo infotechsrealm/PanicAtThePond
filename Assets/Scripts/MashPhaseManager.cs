@@ -15,8 +15,8 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
     public Text mashText;
 
     [Header("Settings")]
-    public float mashSpeed = 0.01f; 
-    public float decayRate = 0.002f;
+
+    public float mashTime = 10f;
 
     internal bool active = false;
 
@@ -25,12 +25,17 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
         Instance = this;
     }
 
+    private void Start()
+    {
+
+    }
 
     [PunRPC]
-    public void CallMashPhaseRPC()
+    public void CallMashPhaseRPC(float mashTimes)
     {
+        Debug.Log("CallMashPhaseRPC called with mashTimes: " + mashTimes);
+        mashTime = mashTimes;
         active = true;
-
         if (mashPanel != null)
         {
             mashPanel.SetActive(true);
@@ -52,38 +57,45 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public void CallMashPhase_Mirror()
+    public void CallMashPhase_Mirror(float mashTimes)
     {
-        if(GameManager.Instance.myFish.isFisherMan)
+        Debug.Log("CallMashPhase_Mirror called with mashTimes: " + mashTimes);
+        mashTime = mashTimes;
+        if (GameManager.Instance.myFish.isFisherMan)
         {
 
-        active = true;
+            active = true;
 
-        if (mashPanel != null)
-        {
-            mashPanel.SetActive(true);
+            if (mashPanel != null)
+            {
+                mashPanel.SetActive(true);
+            }
+
+            if (mashSlider != null)
+            {
+                mashSlider.value = 0f;
+            }
+
+            mashText.text = "MASH SPACE BAR!";
+
+            if (PhotonNetwork.IsMasterClient)
+            {
+                FishermanController.Instance.OnFightAnimation(true);
+                WormSpawner.Instance.canSpawn = false;
+                JunkSpawner.Instance.canSpawn = false;
+                FishermanController.Instance.isCanCast = false;
+            }
         }
-
-        if (mashSlider != null)
-        {
-            mashSlider.value = 0f;
-        }
-
-        mashText.text = "MASH SPACE BAR!";
-
-        if (PhotonNetwork.IsMasterClient)
-        {
-            FishermanController.Instance.OnFightAnimation(true);
-            WormSpawner.Instance.canSpawn = false;
-            JunkSpawner.Instance.canSpawn = false;
-            FishermanController.Instance.isCanCast = false;
-        }
-        }
-
     }
 
     public void StartMashPhase()
     {
+       float mashSpeed = Random.Range(30f,70f);
+        float mashTimes = 100 /  mashSpeed;
+        Debug.Log("CallMashPhaseRPC called with mashTimes: " + mashTimes);
+
+        mashTime = mashTimes;
+
         active = true;
 
         if (mashPanel != null)
@@ -105,18 +117,19 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
             FishermanController.Instance.isCanCast = false;
             if (GS.Instance.isLan)
             {
-                GameManager.Instance.myFish.fishController_Mirror.CallMashPhase();
+                GameManager.Instance.myFish.fishController_Mirror.CallMashPhase(mashTimes);
             }
         }
         else
         {
             if (GS.Instance.isLan)
             {
-                GameManager.Instance.myFish.fishController_Mirror.CallMashPhase();
+                GameManager.Instance.myFish.fishController_Mirror.CallMashPhase(mashTimes);
             }
             else
             {
-                photonView.RPC(nameof(CallMashPhaseRPC), RpcTarget.MasterClient);
+
+                photonView.RPC(nameof(CallMashPhaseRPC), RpcTarget.MasterClient, mashTimes);
             }
         }
     }
@@ -124,15 +137,16 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
 
     void Update()
     {
+
         if (!active) return;
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            mashSlider.value += mashSpeed * Time.deltaTime * 60;
+            mashSlider.value += mashTime;
         }
 
         // Check end conditions
-        if (mashSlider.value >= 1f)
+        if (mashSlider.value >= 100f)
         {
             if (GS.Instance.isLan)
             {

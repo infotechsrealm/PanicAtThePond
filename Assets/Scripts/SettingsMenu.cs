@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -7,9 +8,9 @@ public class SettingsMenu : MonoBehaviour
     [Header("UI References")]
     public Slider masterVolumeSlider, musicVolumeSlider, sfxVolumeSlider;
 
-    public Button backButton,controlsButton, achivementButton,modeButton;
+    public Button backButton, controlsButton, achivementButton, modeButton, lobbyButton,closeButton;
 
-    public GameObject controlsUI, achivementsUI;
+    public GameObject controlsUI, achivementsUI, quitUI;
 
     public Text modeButtonText;
 
@@ -32,6 +33,9 @@ public class SettingsMenu : MonoBehaviour
         controlsButton.onClick.AddListener(onControlPressed);
         achivementButton.onClick.AddListener(onAchivementsPressed);
         modeButton.onClick.AddListener(ChangeMode);
+        lobbyButton.onClick.AddListener(GotoLobby);
+        lobbyButton.onClick.AddListener(GotoLobby);
+        closeButton.onClick.AddListener(Quit);
         modeButtonText.text = GS.Instance.isFullscreen ? "Windowed Mode" : "Fullscreen Mode";
     }
 
@@ -100,5 +104,15 @@ public class SettingsMenu : MonoBehaviour
     {
         GS.Instance.ChangeScreenMode();
         modeButtonText.text = GS.Instance.isFullscreen ? "Windowed Mode" : "Fullscreen Mode";
+    }
+
+    public void GotoLobby()
+    {
+        SceneManager.LoadScene("Dash");
+    }
+
+    public void Quit()
+    {
+        quitUI.SetActive(true);
     }
 }

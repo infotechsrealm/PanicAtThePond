@@ -82,7 +82,8 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
             CoustomeRoomManager.Instance.startButton.interactable = true;
         }
 
-        int curruntPlayer = PhotonNetwork.CurrentRoom.MaxPlayers - PhotonNetwork.CurrentRoom.PlayerCount;
+        int curruntPlayer = 2 - PhotonNetwork.CurrentRoom.PlayerCount;
+        //int curruntPlayer = PhotonNetwork.CurrentRoom.MaxPlayers - PhotonNetwork.CurrentRoom.PlayerCount;
         if (curruntPlayer < 1)
         {
             CreateJoinManager.Instance.requirePlayerText.text = "";
@@ -155,7 +156,8 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
             CoustomeRoomManager.Instance.startButton.interactable = false;
         }
 
-        int curruntPlayer = LANDiscoveryMenu.Instance.DiscoveredServerInfo.maxPlayers - players.Count;
+        //int curruntPlayer = LANDiscoveryMenu.Instance.DiscoveredServerInfo.maxPlayers - players.Count;
+        int curruntPlayer = 2 - players.Count;
         if (curruntPlayer < 1)
         {
             CreateJoinManager.Instance.requirePlayerText.text = "";

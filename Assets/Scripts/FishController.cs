@@ -125,7 +125,6 @@ public class FishController : MonoBehaviourPunCallbacks
             }
         }
         
-        Debug.Log("fish is Dead + " + isDead);
 
         if (!canMove)
         {

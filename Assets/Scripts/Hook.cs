@@ -34,6 +34,8 @@ public class Hook : MonoBehaviourPunCallbacks
 
     public FishermanController fishermanController;
 
+    public Animator bubbleAnimation;
+
     private void Awake()
     {
         if (Instance == null)
@@ -70,6 +72,16 @@ public class Hook : MonoBehaviourPunCallbacks
 
     void Update()
     {
+        if (distroyebleObject != null)
+        {
+            if (distroyebleObject.transform.position.y < transform.position.y - 1f)
+            {
+                DestroyImmediate(distroyebleObject);
+                distroyebleObject = null;
+                Debug.Log("Destroy bubbleObj");
+            }
+        }
+
         if (transform.position.x < fishermanController.transform.position.x)
         {
             rodTip = fishermanController.leftRod; // ya jo bhi tip ka point ho
@@ -113,6 +125,23 @@ public class Hook : MonoBehaviourPunCallbacks
             {
                 LoadReturnToRod();
             }
+        }
+
+       
+
+    }
+
+    internal GameObject distroyebleObject;
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("collision  = " + collision.gameObject.tag);
+        if (collision.gameObject.tag == "Water" && distroyebleObject == null)
+        {
+            Vector2 hitPos = transform.position;
+            hitPos.y = 1f;
+            distroyebleObject = Instantiate(bubbleAnimation, hitPos, Quaternion.identity).gameObject;
         }
     }
 
@@ -250,6 +279,7 @@ public class Hook : MonoBehaviourPunCallbacks
 
             while (Vector3.Distance(transform.position, target) > 0.05f)
             {
+               
                 transform.position = Vector3.MoveTowards(transform.position, target, dropSpeed * 1.5f * Time.deltaTime);
                 yield return null;
             }

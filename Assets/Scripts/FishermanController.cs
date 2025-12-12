@@ -21,6 +21,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
     public FishController fishController;
 
+
     [Header("Movement")]
     public float moveSpeed;
 
