@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -33,7 +34,6 @@ public class SettingsMenu : MonoBehaviour
         controlsButton.onClick.AddListener(onControlPressed);
         achivementButton.onClick.AddListener(onAchivementsPressed);
         modeButton.onClick.AddListener(ChangeMode);
-        lobbyButton.onClick.AddListener(GotoLobby);
         lobbyButton.onClick.AddListener(GotoLobby);
         closeButton.onClick.AddListener(Quit);
         modeButtonText.text = GS.Instance.isFullscreen ? "Windowed Mode" : "Fullscreen Mode";
@@ -77,7 +77,13 @@ public class SettingsMenu : MonoBehaviour
         gameObject.SetActive(false);
         if (GS.Instance.isLan)
         {
-
+            if (GameManager.Instance != null)
+            {
+                if (GameManager.Instance.myFish != null)
+                {
+                    GameManager.Instance.myFish.fishController_Mirror.CallGamePause(false);
+                }
+            }
         }
         else
         {
@@ -108,6 +114,14 @@ public class SettingsMenu : MonoBehaviour
 
     public void GotoLobby()
     {
+        if(GS.Instance.isLan)
+        {
+            GameManager.Instance.myFish.DestroyThisGameobject();
+        }
+        else
+        {
+            PhotonNetwork.LeaveRoom();
+        }
         SceneManager.LoadScene("Dash");
     }
 

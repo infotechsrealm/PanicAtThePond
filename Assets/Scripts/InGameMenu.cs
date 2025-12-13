@@ -57,7 +57,13 @@ public class InGameMenu : MonoBehaviourPunCallbacks
         settingUI.SetActive(true);
         if (GS.Instance.isLan)
         {
-
+            if (GameManager.Instance != null)
+            {
+                if (GameManager.Instance.myFish != null)
+                {
+                    GameManager.Instance.myFish.fishController_Mirror.CallGamePause(true);
+                }
+            }
         }
         else
         {

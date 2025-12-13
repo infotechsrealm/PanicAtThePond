@@ -423,7 +423,7 @@ public class LANDiscoveryMenu : MonoBehaviour
                         existing.baseBroadcastPort = response.serverBroadcastListenPortPortValue;
                         existing.maxPlayers = response.maxPlayers;
 
-                        Debug.Log($"🔄 Updated Host → {ip}:{port} ({name})");
+                       // Debug.Log($"🔄 Updated Host → {ip}:{port} ({name})");
                     }
                     else
                     {
@@ -441,7 +441,7 @@ public class LANDiscoveryMenu : MonoBehaviour
 
                         discoveredServers.Add(newServer);
 
-                        Debug.Log($"🆕 Added Host → {ip}:{port} ({name})");
+                      // Debug.Log($"🆕 Added Host → {ip}:{port} ({name})");
                     }
 
                 }
@@ -451,10 +451,10 @@ public class LANDiscoveryMenu : MonoBehaviour
             {
                 for (int i = 0; i < discoveredServers.Count; i++)
                 {
-                    Debug.Log("❌ currentPort" + currentPort + " discoveredServers[i].port =  " + discoveredServers[i].baseBroadcastPort);
+                   // Debug.Log("❌ currentPort" + currentPort + " discoveredServers[i].port =  " + discoveredServers[i].baseBroadcastPort);
                     if (discoveredServers[i].baseBroadcastPort == currentPort)
                     {
-                        Debug.Log(currentPort + "is Not Exist in LAN");
+                       // Debug.Log(currentPort + "is Not Exist in LAN");
                         discoveredServers.Remove(discoveredServers[i]);
                     }
                 }
@@ -462,7 +462,7 @@ public class LANDiscoveryMenu : MonoBehaviour
 
             networkDiscovery.serverBroadcastListenPort = currentPort;
             networkDiscovery.StartDiscovery();
-            Debug.Log($"🔎 Scanning on broadcast port {currentPort}...");
+            //Debug.Log($"🔎 Scanning on broadcast port {currentPort}...");
             yield return new WaitForSeconds(0.1f);
             networkDiscovery.StopDiscovery();
 

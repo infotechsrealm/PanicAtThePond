@@ -25,6 +25,7 @@ public class JoinPanel : MonoBehaviour
     private void OnDisable()
     {
         roomTableManager.ResetTable();
+      LANDiscoveryMenu.Instance.noRoomExistError.text = ""; 
     }
 
     public Button backButton;

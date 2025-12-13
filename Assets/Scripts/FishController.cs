@@ -212,7 +212,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
         if (carriedJunk != null)
         {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame || Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 Debug.Log("Fish is leve the junk");
                 if (GS.Instance.isLan)
@@ -532,8 +532,6 @@ public class FishController : MonoBehaviourPunCallbacks
         }
     }
 
-   
-
 
     [PunRPC]
     public void PutFishInHookRPC(int fishId, int hookId)
@@ -659,13 +657,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
     private void OnApplicationQuit()
     {
-        if (GS.Instance.isLan)
-        {
-
-           
-
-        }
-        else
+        if (!GS.Instance.isLan)
         {
             if (!isDead)
             {
@@ -700,6 +692,11 @@ public class FishController : MonoBehaviourPunCallbacks
                 }
             }
         }
+    }
+
+    public void DestroyThisGameobject()
+    {
+        NetworkServer.Destroy(gameObject);
     }
 
 }

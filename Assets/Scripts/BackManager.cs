@@ -21,9 +21,16 @@ public class BackManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(Preloader.Instence == null)
+            if (Preloader.Instence == null)
             {
-                CallBack();
+                CallBack(); 
+            }
+            else
+            {
+                if (!Preloader.Instence.gameObject.activeSelf)
+                {
+                    CallBack();
+                }
             }
         }
     }

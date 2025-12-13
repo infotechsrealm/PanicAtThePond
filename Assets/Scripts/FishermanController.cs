@@ -2,10 +2,10 @@
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-
 
 public class FishermanController : MonoBehaviourPunCallbacks
 {
@@ -452,42 +452,42 @@ public class FishermanController : MonoBehaviourPunCallbacks
             }
         }
     }
+    bool castReleased = false;
+
     void FisherManCastingFish()
     {
+        // CAST START
         if (!isCasting && Keyboard.current.xKey.isPressed && Keyboard.current.vKey.isPressed)
         {
             Debug.Log("FisherManCastingFish");
-            if (currentRod != null)
-            {
-                if (GameManager.Instance.messageText.text != "")
-                {
-                    GameManager.Instance.messageText.text = "";
-                }
 
-                if ((leftHook != null) || (rightHook != null))
-                {
-                    Debug.Log("Rod already has a hook!");
-                    return;
-                }
-
-                isCasting = true;
-                StartCoroutine(CastMeterRoutine());
-            }
-            else
+            if (currentRod == null)
             {
-                GameManager.Instance.messageText.text = "Please select a rod first using the 'W' & 'S' key.";
+                GameManager.Instance.messageText.text =
+                    "Please select a rod first using the 'W' & 'S' key.";
                 return;
             }
+
+            if (leftHook != null || rightHook != null)
+            {
+                Debug.Log("Rod already has a hook!");
+                return;
+            }
+
+            isCasting = true;
+            castReleased = false; // reset
+            StartCoroutine(CastMeterRoutine());
         }
 
-        if (worms > 0)
+        // CAST RELEASE (ONLY ONCE)
+        if (isCasting && !castReleased && (Keyboard.current.xKey.wasReleasedThisFrame || Keyboard.current.vKey.wasReleasedThisFrame))
         {
-            if (isCasting && Keyboard.current.xKey.wasReleasedThisFrame || isCasting && Keyboard.current.vKey.wasReleasedThisFrame)
-            {
-                LoadReleaseCast();
-            }
+            castReleased = true;
+            LoadReleaseCast();
         }
     }
+
+
     IEnumerator CastMeterRoutine()
     {
         while (isCasting)
@@ -814,4 +814,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
         GS.Instance.SetSFXVolume(fisherManSounds);
         fisherManSounds.Play();
     }
+
+  
 }

@@ -28,10 +28,7 @@ public class SteamIntegration : MonoBehaviour
             SteamAPI.RunCallbacks();
     }
 
-    void OnApplicationQuit()
-    {
-        // NO shutdown here; SteamManager handles it.
-    }
+    
 
     void LoadAvatar()
     {

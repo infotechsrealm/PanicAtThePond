@@ -434,11 +434,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void CallLessPlayerCountRPC()
     {
-        if (GS.Instance.isLan)
-        {
-            myFish.fishController_Mirror.LessCounter();
-        }
-        else
+        if (!GS.Instance.isLan)
         {
             photonView.RPC(nameof(LessPlayerCount), RpcTarget.MasterClient);
             PhotonNetwork.SendAllOutgoingCommands(); // send it now

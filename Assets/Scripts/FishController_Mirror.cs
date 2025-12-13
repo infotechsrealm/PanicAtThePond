@@ -1,4 +1,5 @@
 ﻿using Mirror;
+using Photon.Pun;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -203,32 +204,9 @@ public class FishController_Mirror : NetworkBehaviour
         }
     }
 
+
+
    
-
-    public void LessCounter()
-    {
-        Debug.Log("LessCounter called");
-        if (isLocalPlayer)
-        {
-            CmdLessCounter();
-        }
-    }
-
-    [Command]
-    public void CmdLessCounter()
-    {
-        ClientCmdLessCounter();
-
-    }
-
-    [ClientRpc]
-    public void ClientCmdLessCounter()
-    {
-        if (GameManager.Instance.isFisherMan)
-        {
-            GameManager.Instance.LessPlayerCount_Mirror();
-        }
-    }
 
 
     public void SpawnWorm(int length)
@@ -445,7 +423,7 @@ public class FishController_Mirror : NetworkBehaviour
 
                 ReturnRoadOfHook();
 
-             
+
             }
         }
     }
@@ -520,7 +498,7 @@ public class FishController_Mirror : NetworkBehaviour
         if (conn != null)
         {
             conn.isDead = res;   // SET
-            Debug.Log("@@@@@@@@@@@@@@Marked dead on server"+ conn.isDead);
+            Debug.Log("@@@@@@@@@@@@@@Marked dead on server" + conn.isDead);
         }
     }
 
@@ -563,10 +541,54 @@ public class FishController_Mirror : NetworkBehaviour
     public void RPCCallLessPlayerCount_Mirror()
     {
         Debug.Log("RPCCallLessPlayerCount_Mirror called");
-        if(GameManager.Instance.isFisherMan)
+        if (GameManager.Instance.isFisherMan)
         {
             Debug.Log("I m fisher man");
             GameManager.Instance.LessPlayerCount_Mirror();
+        }
+    }
+
+    public void CallGamePause(bool isPause)
+    {
+        uint fishID = GetComponent<NetworkIdentity>().netId;
+        GamePause(isPause, fishID);
+    }
+
+    public void GamePause(bool isPause, uint fishID)
+    {
+        CMDCallGamePause_Mirror(isPause, fishID);
+    }
+
+    [Command]
+    public void CMDCallGamePause_Mirror(bool isPause, uint fishID)
+    {
+        RPCCallGamePause(isPause, fishID);
+    }
+
+    [ClientRpc]
+    public void RPCCallGamePause(bool isPause, uint fishID)
+    {
+        uint thisFishID = GetComponent<NetworkIdentity>().netId;
+
+        if (NetworkClient.spawned.TryGetValue(fishID, out NetworkIdentity FishIdentity))
+        {
+            if (thisFishID == fishID)
+            {
+                if (isPause)
+                {
+                    transform.GetComponent<PolygonCollider2D>().enabled = false;
+                    var sr = GetComponent<SpriteRenderer>();
+                    sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.5f);
+                    fishController.canMove = false;
+                }
+                else
+                {
+                    transform.GetComponent<PolygonCollider2D>().enabled = true;
+                    var sr = GetComponent<SpriteRenderer>();
+                    sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
+                    fishController.canMove = true;
+                }
+            }
         }
     }
 }

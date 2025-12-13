@@ -16,7 +16,7 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
     private int progress;
     internal bool active = false;
 
-    private float timeLimit = 5f;
+    private float timeLimit = 3f;
     private float timeRemaining;
 
 
