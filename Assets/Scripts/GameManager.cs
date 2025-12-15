@@ -82,36 +82,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     void Start()
     {
-        if (GS.Instance.isLan)
-        {
-            if (GS.Instance.IsMirrorMasterClient)
-            {
-                totalPlayers = NetworkServer.connections.Count;
-            }
-            else
-            {
-                Debug.Log("totlePlayer = " + GS.Instance.totlePlayers);
-                totalPlayers = GS.Instance.totlePlayers;
-            }
-
-        }
-        else
-        {
-            PhotonNetwork.AutomaticallySyncScene = true;
-            totalPlayers = PhotonNetwork.CurrentRoom.PlayerCount;
-        }
-            int fishCount = totalPlayers - 1;
-            fishermanWorms = fishCount * baseWormMultiplier;
-            maxWorms = fishermanWorms;
-            Debug.Log("Fisherman Worms: " + fishermanWorms);
-
+       
 
         SpawnPlayer();
-    }
-
-    public void Update()
-    {
-       
+        Invoke(nameof(setFishermanWormCounts), 2f);
     }
 
     public void UpdateUI(int currunt_Warms)
@@ -140,7 +114,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     void SpawnPlayer()
     {
-            Debug.Log("GS.Instance.isLan = > " + GS.Instance.isLan);
+        Debug.Log("GS.Instance.isLan = > " + GS.Instance.isLan);
         if (GS.Instance.isLan)
         {
             foreach (var conn in NetworkServer.connections.Values)
@@ -173,6 +147,39 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public void setFishermanWormCounts()
+    {
+        if (GS.Instance.isLan)
+        {
+            if (GS.Instance.IsMirrorMasterClient)
+            {
+                GS.Instance.totlePlayers = totalPlayers = NetworkServer.connections.Count;
+                Debug.Log("totlePlayer = " + GS.Instance.totlePlayers);
+            }
+            else
+            {
+
+                GS.Instance.totlePlayers = totalPlayers = allFishes.Count;
+                Debug.Log("totlePlayer = " + GS.Instance.totlePlayers);
+            }
+
+            int fishCount = totalPlayers - 1;
+            fishermanWorms = fishCount * baseWormMultiplier;
+            maxWorms = fishermanWorms;
+            Debug.Log("Fisherman Worms: " + fishermanWorms);
+        }
+        else
+        {
+          
+            PhotonNetwork.AutomaticallySyncScene = true;
+            totalPlayers = PhotonNetwork.CurrentRoom.PlayerCount;
+            int fishCount = totalPlayers - 1;
+            fishermanWorms = fishCount * baseWormMultiplier;
+            maxWorms = fishermanWorms;
+            Debug.Log("Fisherman Worms: " + fishermanWorms);
+        }
+    }
+
     public void LoadSpawnFisherman()
     {
         LoadPreloderOnOff(true);
@@ -196,13 +203,9 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void ShowGameOver(string message)
     {
+        Debug.Log("Game Over: " + message);
         if (gameOverPanel != null)
         {
-           /* if (preloderUI.activeSelf)
-            {
-                preloderUI.SetActive(false);
-            }*/
-
             gameOverPanel.SetActive(true);
 
             if (WormSpawner.Instance.canSpawn)

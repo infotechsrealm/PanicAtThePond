@@ -25,16 +25,13 @@ public class Hook : MonoBehaviourPunCallbacks
 
     public static Hook Instance;
 
-
     public AudioSource hookBack;
 
     //this clips for fisherman
     public AudioClip fishCatched;
     public AudioClip smallVictory;
-
     public FishermanController fishermanController;
 
-    public Animator bubbleAnimation;
 
     private void Awake()
     {
@@ -54,7 +51,6 @@ public class Hook : MonoBehaviourPunCallbacks
 
         if (GS.Instance.isLan)
         {
-            Debug.Log("hook is generated");
             transform.localScale = Vector3.zero;
         }
 
@@ -64,27 +60,14 @@ public class Hook : MonoBehaviourPunCallbacks
         lineRenderer.positionCount = 2;
         lineRenderer.startWidth = 0.05f;
         lineRenderer.endWidth = 0.05f;
-        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        lineRenderer.startColor = Color.black;
-        lineRenderer.endColor = Color.black;
-
     }
 
     void Update()
     {
-        if (distroyebleObject != null)
-        {
-            if (distroyebleObject.transform.position.y < transform.position.y - 1f)
-            {
-                DestroyImmediate(distroyebleObject);
-                distroyebleObject = null;
-                Debug.Log("Destroy bubbleObj");
-            }
-        }
 
         if (transform.position.x < fishermanController.transform.position.x)
         {
-            rodTip = fishermanController.leftRod; // ya jo bhi tip ka point ho
+            rodTip = fishermanController.leftRod; 
         }
         else if (transform.position.x > fishermanController.transform.position.x)
         {
@@ -107,6 +90,9 @@ public class Hook : MonoBehaviourPunCallbacks
 
         lineRenderer.SetPosition(0, rodTip.position);
         lineRenderer.SetPosition(1, transform.position);
+        lineRenderer.startColor = Color.white;
+        lineRenderer.endColor = Color.white;
+        lineRenderer.material.color = Color.white;
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -125,23 +111,6 @@ public class Hook : MonoBehaviourPunCallbacks
             {
                 LoadReturnToRod();
             }
-        }
-
-       
-
-    }
-
-    internal GameObject distroyebleObject;
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("collision  = " + collision.gameObject.tag);
-        if (collision.gameObject.tag == "Water" && distroyebleObject == null)
-        {
-            Vector2 hitPos = transform.position;
-            hitPos.y = 1f;
-            distroyebleObject = Instantiate(bubbleAnimation, hitPos, Quaternion.identity).gameObject;
         }
     }
 
@@ -265,7 +234,6 @@ public class Hook : MonoBehaviourPunCallbacks
                 }
             }
 
-           // FishermanController fishermanController = FishermanController.Instance;
             if (wormParent.GetComponentInChildren<JunkManager>() != null)
             {
                 fishermanController.OnCryingAnimation(true);
@@ -283,16 +251,6 @@ public class Hook : MonoBehaviourPunCallbacks
                 transform.position = Vector3.MoveTowards(transform.position, target, dropSpeed * 1.5f * Time.deltaTime);
                 yield return null;
             }
-
-
-           /* if (wormParent.GetComponentInChildren<JunkManager>() != null)
-            {
-                fishermanController.OnCryingAnimation(false);
-            }
-            else
-            {
-                fishermanController.OnFishGoatAnimation(false);
-            }*/
 
             fishermanController.OnFishGoatAnimation(false);
             fishermanController.OnCryingAnimation(false);
@@ -330,7 +288,7 @@ public class Hook : MonoBehaviourPunCallbacks
             {
                 if (GameManager.Instance.myFish.isFisherMan)
                 {
-                    if (wormParent.childCount > 0)   // <-- सबसे जरूरी!
+                    if (wormParent.childCount > 0)   
                     {
                         Transform child = wormParent.GetChild(0);
                         string tag = child.tag;
@@ -353,7 +311,6 @@ public class Hook : MonoBehaviourPunCallbacks
                         Debug.Log("wormParent EMPTY hai — koi child nahi!");
                     }
                 }
-
             }
             else
             {
@@ -407,10 +364,7 @@ public class Hook : MonoBehaviourPunCallbacks
         transform.position = curruntRod;
         transform.localScale = Vector3.one;
         NetworkIdentity hookIDidentity = GetComponent<NetworkIdentity>();
-        //hook_Mirror.SpawnWorm();
         AttachWorm();
     }
-
-
    
 }

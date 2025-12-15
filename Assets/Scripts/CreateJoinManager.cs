@@ -88,7 +88,8 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                 {
                     if (GS.Instance.isLan)
                     {
-                        LANDiscoveryMenu.Instance.HostGame();
+                            LANDiscoveryMenu.Instance.HostGame();
+                       
                     }
                     else
                     {
@@ -138,7 +139,14 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
                     if (GS.Instance.isLan)
                     {
-                        LANDiscoveryMenu.Instance.FindGames();
+                        if (LANDiscoveryMenu.Instance.DiscoveredServerInfo.port != 0 && LANDiscoveryMenu.Instance.DiscoveredServerInfo.baseBroadcastPort != 0)
+                        {
+                            LANDiscoveryMenu.Instance.FindGames();
+                        }
+                        else
+                        {
+                            LANDiscoveryMenu.Instance.noRoomExistError.text = "Please Select the Room.";
+                        }
                     }
                     else
                     {

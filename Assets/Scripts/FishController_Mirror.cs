@@ -522,6 +522,7 @@ public class FishController_Mirror : NetworkBehaviour
         {
             FishController fish = FishIdentity.GetComponent<FishController>();
             fish.isDead = true;
+            CallLessPlayerCount_Mirror();
         }
     }
 

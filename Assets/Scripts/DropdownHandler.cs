@@ -52,7 +52,6 @@ public class DropdownHandler : MonoBehaviourPunCallbacks
     {
         string selectedOption = waterDropdown.options[index].text;
 
-        Debug.Log("🌊 Selected Water Mode: " + selectedOption);
 
         // (Optional) handle with switch
         ResatVisiblity();
@@ -64,7 +63,6 @@ public class DropdownHandler : MonoBehaviourPunCallbacks
                     GS.Instance.ClearWaters = true;
                     modeTitleText.text = "CLEAR WATERS";
                     descriptionText.text = "Both sides can see each other.";
-                    Debug.Log("✔ ClearWater selected");
                     break;
                 }
 
@@ -75,7 +73,6 @@ public class DropdownHandler : MonoBehaviourPunCallbacks
 
                     modeTitleText.text = "MURKY WATERS";
                     descriptionText.text = "Neither side can see each other.";
-                    Debug.Log("✔ MurkyWater selected");
                     break;
                 }
 
@@ -86,7 +83,6 @@ public class DropdownHandler : MonoBehaviourPunCallbacks
 
                     modeTitleText.text = "DEEP WATERS";
                     descriptionText.text = "Fisherman can’t see fish; fish can see him.";
-                    Debug.Log("✔ DeepWater selected");
                     break;
                 }
 
@@ -96,7 +92,6 @@ public class DropdownHandler : MonoBehaviourPunCallbacks
                     GS.Instance.ReflectiveWater = true;
                     modeTitleText.text = "REFLECTIVE WATERS";
                     descriptionText.text = "Fisherman can see fish; fish can’t see him.";
-                    Debug.Log("✔ ReflectiveWater selected");
                     break;
                 }
         }

@@ -381,6 +381,8 @@ MonoBehaviour:
   canMove: 1
   isDead: 0
   mirrorIdentity: {fileID: -7088840247176330678}
+  bubble_Junk: {fileID: 8751770646724715851, guid: f63fe0bb7c3c5904389fd273e27b07a0, type: 3}
+  bubblle_Fish: {fileID: 6865997771449104041, guid: 71fa858b2360e4047b913ed2c59da37b, type: 3}
 --- !u!50 &-6325267276595778038
 Rigidbody2D:
   serializedVersion: 5

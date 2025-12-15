@@ -132,11 +132,10 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
                     texts[2].text = $"{server.playerCount}/{server.maxPlayers}";
                 }
 
-                Debug.Log($"➕ Added new room: {server.roomName}");
+               // Debug.Log($"➕ Added new room: {server.roomName}");
             }
         }
 
-        // 🔹 जो पुराने rooms अब discovery list में नहीं हैं → उन्हें हटाओ
         foreach (var kvp in existingRows)
         {
             Destroy(kvp.Value.gameObject);
@@ -168,13 +167,11 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
     {
         List<GameObject> toDestroy = new List<GameObject>();
 
-        // पहले सभी children collect करो
         foreach (Transform child in roomTablePanel)
         {
             toDestroy.Add(child.gameObject);
         }
 
-        // अब safely destroy करो
         foreach (GameObject go in toDestroy)
         {
             DestroyImmediate(go);

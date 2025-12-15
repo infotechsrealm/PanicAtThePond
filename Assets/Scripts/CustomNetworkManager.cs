@@ -60,7 +60,6 @@ public class CustomNetworkManager : NetworkManager
     // ----------- CLIENT RECEIVE -----------
     private void OnClientReceive(VisibilityMessage msg)
     {
-        Debug.Log("[Client] Visibility data received!");
 
         SetVisibility(msg.reflectiveWater, msg.deepWaters, msg.murkyWaters, msg.clearWaters);
 
@@ -75,7 +74,6 @@ public class CustomNetworkManager : NetworkManager
         gsObj.DeepWaters = deepWaters;
         gsObj.ReflectiveWater = reflectiveWater;
 
-        Debug.Log($"[GS] Visibility updated: All={reflectiveWater}, Deep={deepWaters}, Murky={murkyWaters}, Clear={clearWaters}");
         gsObj.dropDownChangeAvalable = true;
     }
    
@@ -247,17 +245,17 @@ public class CustomNetworkManager : NetworkManager
     // 🔹 Client side पर जब list मिले
     void OnReceivePlayerList(PlayerListMessage msg)
     {
-        Debug.Log("📜 --- Client: Connected Players ---");
+       // Debug.Log("📜 --- Client: Connected Players ---");
         if (msg.allPlayerNames.Count == 0)
         {
             Debug.Log("⚠️ कोई भी player connected नहीं है।");
         }
         else
         {
-            foreach (var name in msg.allPlayerNames)
+           /* foreach (var name in msg.allPlayerNames)
             {
                 Debug.Log($"👤 {name}");
-            }
+            }*/
 
             if (PlayerTableManager.Instance != null)
             {

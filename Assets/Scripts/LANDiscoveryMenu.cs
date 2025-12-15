@@ -386,7 +386,7 @@ public class LANDiscoveryMenu : MonoBehaviour
         int silenceCounter = 0;
         int silenceLimit = 15;
 
-        Debug.Log("🌐 Starting full LAN host discovery...");
+      //  Debug.Log("🌐 Starting full LAN host discovery...");
 
         // ❗ IMPORTANT: REMOVE THIS LINE
         // discoveredServers.Clear();  // ❌ अब कभी clear नहीं करेंगे
@@ -471,14 +471,14 @@ public class LANDiscoveryMenu : MonoBehaviour
             currentPort++;
         }
 
-        Debug.Log($"⭐ Total Hosts in memory: {discoveredServers.Count}");
+       // Debug.Log($"⭐ Total Hosts in memory: {discoveredServers.Count}");
 
         if (RoomTableManager.instance != null)
         {
             RoomTableManager.instance.UpdateRoomTable();
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         isDiscovering = false;
 
@@ -490,6 +490,7 @@ public class LANDiscoveryMenu : MonoBehaviour
     // 📡 यह function LAN में सारे hosts ढूंढता है और result return करता है
     public void FindGames()
     {
+        GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
         StartCoroutine(isRoomisExist());
     }
 
@@ -497,8 +498,8 @@ public class LANDiscoveryMenu : MonoBehaviour
 
     public IEnumerator isRoomisExist()
     {
+        Debug.Log(" ---------------  isRoomisExist called ");
         isRoomExist = false;
-        GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
 
         listenPort = DiscoveredServerInfo.baseBroadcastPort;
         networkDiscovery.serverBroadcastListenPort = listenPort;
@@ -513,13 +514,13 @@ public class LANDiscoveryMenu : MonoBehaviour
 
         while (silenceCounter < silenceLimit && !isRoomExist)
         {
+            Debug.Log(" ---------------  scanning port  " + currentPort);
             bool foundOnThisPort = false;
 
             networkDiscovery.OnServerFound.RemoveAllListeners();
 
             networkDiscovery.OnServerFound.AddListener((response) =>
             {
-                Debug.Log("🌐 Starting full LAN host discovery...");
                 if (response.uri != null)
                 {
                     int port = response.uri.Port;
@@ -548,12 +549,24 @@ public class LANDiscoveryMenu : MonoBehaviour
                                     popup.GetComponent<PasswordPopup>().correctPassword = DiscoveredServerInfo.roomPassword;
                                 }
                             }
+                            else
+                            {
+                                Debug.Log("⚠️ ⚠️ port or broadcast port is zero");
+                            }
                         }
                         else
                         {
-                            //noRoomExistError.text = "room is full.";
+                            Debug.Log("⚠️ ⚠️ room is full  --------------------");
                         }
                     }
+                    else
+                    {
+                        Debug.Log("⚠️ ⚠️ port is not matched");
+                    }
+                }
+                else
+                {
+                    Debug.Log("⚠️ ⚠️ response.uri is null");
                 }
             });
 
@@ -582,7 +595,6 @@ public class LANDiscoveryMenu : MonoBehaviour
         }
         if(!isRoomExist)
         {
-            Debug.Log($" ********************** room is NOT exist Scanning LAN for hosts on broadcast port {currentPort}...");
             noRoomExistError.text = "room joining is faild , Please try again.";
         }
     }

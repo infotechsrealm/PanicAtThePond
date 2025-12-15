@@ -1,6 +1,5 @@
 using Mirror;
 using Mirror.Discovery;
-using System;
 using System.Threading;
 using UnityEngine;
 
@@ -116,21 +115,20 @@ public class GS : MonoBehaviour
 
     public void DestroyPreloder()
     {
-        Debug.Log("Trying to Destroy Preloader ............");
+      //  Debug.Log("Trying to Destroy Preloader ............");
         if (Preloader.Instence != null)
         {
-            Debug.Log("Destroying Preloader ==============");
+           // Debug.Log("Destroying Preloader ==============");
             Destroy(Preloader.Instence.gameObject);
         }
         else
         {
-            Debug.Log("No Preloader found to destroy.");
+           // Debug.Log("No Preloader found to destroy.");
         }
     }
 
     public void rerfeshDropDown()
     {
-        Debug.Log("Rerfesh Drop Down Called");
       dropDownChangeAvalable = false;
         int index = 0;
         if (ClearWaters)
@@ -151,7 +149,6 @@ public class GS : MonoBehaviour
         }
 
         DropdownHandler dropdownHandler = DropdownHandler.Instance;
-        Debug.Log("Updating Dropdown to index: " + index);
         dropdownHandler.OnDropdownChanged(index);
         dropdownHandler.waterDropdown.value = index;   // dropdown option index set karega
         dropdownHandler.waterDropdown.RefreshShownValue();   // UI ko update karega

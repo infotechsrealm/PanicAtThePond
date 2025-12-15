@@ -202,7 +202,6 @@ MonoBehaviour:
   fishCatched: {fileID: 8300000, guid: 92824fdaf679c0e4e99e29851abb9385, type: 3}
   smallVictory: {fileID: 8300000, guid: 2d154d044f3fc664e813a5f928d2c64a, type: 3}
   fishermanController: {fileID: 0}
-  bubbleAnimation: {fileID: 6985083659879360206, guid: 71fa858b2360e4047b913ed2c59da37b, type: 3}
 --- !u!120 &2015050245431887086
 LineRenderer:
   serializedVersion: 2

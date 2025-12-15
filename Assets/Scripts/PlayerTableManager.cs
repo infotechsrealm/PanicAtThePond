@@ -30,7 +30,7 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
     public void UpdatePlayerTable()
     {
-        Debug.Log("UpdatePlayerTable called");
+      //  Debug.Log("UpdatePlayerTable called");
         if (GS.Instance.isLan)
         {
            StartCoroutine(UpdateLANPlayerTableUI());
@@ -147,7 +147,6 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
         if(players.Count >= 2)
         {
-            Debug.Log("start Button Enable");
             CoustomeRoomManager.Instance.startButton.interactable = true;
 
         }

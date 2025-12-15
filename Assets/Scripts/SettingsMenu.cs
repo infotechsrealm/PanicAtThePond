@@ -116,7 +116,7 @@ public class SettingsMenu : MonoBehaviour
     {
         if(GS.Instance.isLan)
         {
-            GameManager.Instance.myFish.DestroyThisGameobject();
+            GameManager.Instance.RestartGame();
         }
         else
         {
