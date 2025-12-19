@@ -367,20 +367,20 @@ public class FishController : MonoBehaviourPunCallbacks
                 if (GS.Instance.isLan)
                 {
                     fishController_Mirror.Destroy_Mirror(other.gameObject);
-                    HungerSystem.Instance.AddHunger(25f);
+                    HungerSystem.Instance.AddHunger(15f);
                 }
                 else
                 {
                     if (PhotonNetwork.IsMasterClient)
                     {
                         DestroyWormRPC(other.GetComponent<PhotonView>().ViewID);
-                        HungerSystem.Instance.AddHunger(25f);
+                        HungerSystem.Instance.AddHunger(15f);
                     }
                     else
                     {
                         photonView.RPC(nameof(DestroyWormRPC), RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
                         PhotonNetwork.SendAllOutgoingCommands();
-                        HungerSystem.Instance.AddHunger(25f);
+                        HungerSystem.Instance.AddHunger(15f);
                     }
                 }
             }

@@ -1,9 +1,4 @@
-﻿
-/*sharks = GameManager.Instance.allFishes
-          .Select(f => f.transform)
-          .ToArray();*/
-
-using Mirror;
+﻿using Mirror;
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,30 +9,40 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
 {
     [Header("Movement Settings")]
     public float minSpeed = 1.5f;
-    public float maxSpeed = 3f;
-    public float turnSmoothness = 0.15f;   // smoother turning
+    public float maxSpeed = 2.6f;   // 🔽 reduced max speed
+    public float speedSmooth = 0.08f;
 
-    [Header("Shark Panic Settings")]
-    public float avoidDistance = 2.5f;
-    public float avoidanceStrength = 1.2f;
-    public float panicSpeedMultiplier = 1.8f; // fish moves faster in panic
+    [Header("Hard Escape Settings")]
+    public float avoidDistance = 1f;
+    public float panicSpeedMultiplier = 1.35f; // 🔽 reduced
+    public float maxEscapeSpeed = 4.2f;         // 🔽 reduced
+    public float minEscapeSpeed = 2.4f;
 
     [Header("Movement Bounds")]
     public Vector2 minBounds = new Vector2(-8f, -4f);
-    public Vector2 maxBounds = new Vector2(8f, 4f);
+    public Vector2 maxBounds = new Vector2(8f, 0f);
+    public float boundaryMargin = 1.2f;
 
     public Transform[] sharks;
     public Animator animator;
 
-    private Vector2 moveDirection;
-    private float moveSpeed;
-    private float originalScaleX, originalScaleY;
+    Vector2 moveDirection;
+    float moveSpeed;
+    float currentSpeed;
+
+    float originalScaleX, originalScaleY;
 
     bool reachedCenter = false;
     Vector2 centerPos;
 
-    Vector2 avoidanceVector = Vector2.zero;
-    float currentSpeed;
+    // HARD LOCK ESCAPE
+    bool escapeLocked = false;
+    Vector2 lockedEscapeTarget;
+    public float targetReachDistance = 0.45f;
+
+    // flip stability
+    float lastFlipX = 0f;
+    public float flipDeadZone = 0.15f; // 🔥 jitter killer
 
     void Start()
     {
@@ -53,16 +58,15 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
         originalScaleX = transform.localScale.x;
         originalScaleY = transform.localScale.y;
 
+        sharks = GameManager.Instance.allFishes
+            .Select(f => f.transform)
+            .ToArray();
+
         PickNewDirectionAndSpeed();
         currentSpeed = moveSpeed;
 
+        centerPos = FindSafestSectorPosition();
         StartCoroutine(RandomDirectionRoutine());
-
-        centerPos = new Vector2(Random.Range(minBounds.x, maxBounds.x), Random.Range(minBounds.y, maxBounds.y));
-
-        sharks = GameManager.Instance.allFishes
-          .Select(f => f.transform)
-          .ToArray();
     }
 
     void Update()
@@ -79,144 +83,176 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
         if (animator != null)
             animator.SetBool("isMove", true);
 
-        // Calculate avoidance blended into movement
-        CalculateSharkAvoidance();
-
-        // Speed boost if shark is near
-        ApplyDynamicSpeed();
-
-        if (!reachedCenter)
-        {
-            // Direction toward center
-            Vector2 toCenter = (centerPos - (Vector2)transform.position).normalized;
-
-            // ⭐ Flip based on x-direction (THIS FIXES THE UPSIDE FLIP BUG)
-            if (toCenter.x < 0)
-                transform.localScale = new Vector3(originalScaleX, originalScaleY, 1);
-            else
-                transform.localScale = new Vector3(-originalScaleX, originalScaleY, 1);
-
-            // Move the fish
-            transform.position = Vector2.MoveTowards(transform.position, centerPos, currentSpeed * Time.deltaTime);
-
-            // Check if arrived
-            if (Vector2.Distance(transform.position, centerPos) < 0.1f)
-            {
-                reachedCenter = true;
-            }
-
-            return; // DO NOT REMOVE
-        }
-
-
-        MoveFish();
-    }
-
-    // ------------------------ Natural Movement ------------------------
-    void MoveFish()
-    {
-        Vector3 pos = transform.position;
-
-        // Blended final direction
-        Vector2 finalDir = moveDirection + avoidanceVector;
-
-        // Smooth turning
-        finalDir = Vector2.Lerp(moveDirection, finalDir.normalized, turnSmoothness);
-
-        pos += (Vector3)(finalDir * currentSpeed * Time.deltaTime);
-
-        bool hitX = false, hitY = false;
-
-        if (pos.x <= minBounds.x || pos.x >= maxBounds.x)
-        {
-            pos.x = Mathf.Clamp(pos.x, minBounds.x, maxBounds.x);
-            hitX = true;
-        }
-
-        if (pos.y <= minBounds.y || pos.y >= maxBounds.y)
-        {
-            pos.y = Mathf.Clamp(pos.y, minBounds.y, maxBounds.y);
-            hitY = true;
-        }
-
-        transform.position = pos;
-
-        // Smooth flip
-        if (finalDir.x < 0)
-            transform.localScale =  new Vector3(originalScaleX, originalScaleY, 1);
-        else
-            transform.localScale = new Vector3(-originalScaleX, originalScaleY, 1);
-
-        // Random movement bounce
-        if (hitX || hitY)
-            PickNewDirectionAndSpeed();
-    }
-
-    // ------------------------ Smooth Speed Boost ------------------------
-    void ApplyDynamicSpeed()
-    {
-        // Shark नहीं है → normal speed
-        if (avoidanceVector == Vector2.zero)
-        {
-            currentSpeed = Mathf.Lerp(currentSpeed, moveSpeed, 0.05f);
-        }
-        else
-        {
-            // Shark पास → panic speed boost
-            float boosted = moveSpeed * panicSpeedMultiplier;
-            currentSpeed = Mathf.Lerp(currentSpeed, boosted, 0.1f);
-        }
-    }
-
-    // ------------------------ Shark Avoidance ------------------------
-    void CalculateSharkAvoidance()
-    {
-        avoidanceVector = Vector2.zero;
-
-        if (sharks == null || sharks.Length == 0)
-            return;
-
-        Transform nearest = null;
-        float minDist = float.MaxValue;
-
+        // ---------- DANGER CHECK ----------
+        bool danger = false;
         foreach (Transform s in sharks)
         {
             if (s == null) continue;
-
-            float d = Vector2.Distance(transform.position, s.position);
-
-            if (d < minDist)
+            if (Vector2.Distance(transform.position, s.position) < avoidDistance)
             {
-                minDist = d;
-                nearest = s;
+                danger = true;
+                break;
             }
         }
 
-        if (nearest == null || minDist > avoidDistance)
-            return;
+        // ---------- ESCAPE LOCK ----------
+        if (danger)
+        {
+            if (!escapeLocked)
+            {
+                lockedEscapeTarget = GetSmartEscapeTarget();
+                escapeLocked = true;
+            }
+        }
+        else
+        {
+            escapeLocked = false;
+        }
 
-        // जितना पास shark आए → उतना strong avoidance
-        float t = 1f - (minDist / avoidDistance);
+        // ---------- TARGET ----------
+        Vector2 target =
+            escapeLocked ? lockedEscapeTarget :
+            (!reachedCenter ? centerPos : (Vector2)transform.position + moveDirection);
 
-        avoidanceVector =
-            ((Vector2)(transform.position - nearest.position)).normalized *
-            t * avoidanceStrength;
+        // ---------- DIRECTION ----------
+        Vector2 dir = (target - (Vector2)transform.position);
+        if (dir.magnitude > 0.001f)
+            dir.Normalize();
+
+        // ---------- STABLE FLIP (NO JITTER) ----------
+        if (Mathf.Abs(dir.x) > flipDeadZone)
+        {
+            if (dir.x < 0 && lastFlipX >= 0)
+                transform.localScale = new Vector3(originalScaleX, originalScaleY, 1);
+            else if (dir.x > 0 && lastFlipX <= 0)
+                transform.localScale = new Vector3(-originalScaleX, originalScaleY, 1);
+
+            lastFlipX = dir.x;
+        }
+
+        // ---------- SPEED (SMOOTH & LIMITED) ----------
+        float targetSpeed = escapeLocked
+            ? Mathf.Clamp(moveSpeed * panicSpeedMultiplier, minEscapeSpeed, maxEscapeSpeed)
+            : moveSpeed;
+
+        currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, speedSmooth);
+
+        // ---------- MOVE ----------
+        Vector3 pos = transform.position + (Vector3)(dir * currentSpeed * Time.deltaTime);
+
+        pos.x = Mathf.Clamp(pos.x, minBounds.x, maxBounds.x);
+        pos.y = Mathf.Clamp(pos.y, minBounds.y, maxBounds.y);
+        transform.position = pos;
+
+        // ---------- CENTER REACHED ----------
+        if (!escapeLocked && !reachedCenter &&
+            Vector2.Distance(transform.position, centerPos) < 0.15f)
+        {
+            reachedCenter = true;
+        }
+
+        // ---------- HARD NO-TOUCH ----------
+        foreach (Transform s in sharks)
+        {
+            if (s == null) continue;
+            float d = Vector2.Distance(transform.position, s.position);
+            if (d < 1.3f)
+            {
+                Vector2 push = ((Vector2)transform.position - (Vector2)s.position).normalized;
+                transform.position += (Vector3)(push * 0.18f);
+            }
+        }
+
+        // ---------- ESCAPE TARGET DONE ----------
+        if (escapeLocked &&
+            Vector2.Distance(transform.position, lockedEscapeTarget) < targetReachDistance)
+        {
+            escapeLocked = false;
+        }
     }
 
-    // ------------------------ Random Direction ------------------------
+    Vector2 GetSmartEscapeTarget()
+    {
+        bool nearBoundary =
+            transform.position.x < minBounds.x + boundaryMargin ||
+            transform.position.x > maxBounds.x - boundaryMargin ||
+            transform.position.y < minBounds.y + boundaryMargin ||
+            transform.position.y > maxBounds.y - boundaryMargin;
+
+        if (nearBoundary)
+        {
+            return Vector2.Lerp(
+                transform.position,
+                (minBounds + maxBounds) * 0.5f,
+                0.6f
+            );
+        }
+
+        return FindSafestSectorPosition();
+    }
+
+    Vector2 FindSafestSectorPosition()
+    {
+        int sectors = 12;
+        float radius = Mathf.Min(
+            maxBounds.x - minBounds.x,
+            maxBounds.y - minBounds.y
+        ) * 0.45f;
+
+        Vector2 origin = transform.position;
+        Vector2 bestPos = origin;
+        float bestScore = -99999f;
+
+        for (int i = 0; i < sectors; i++)
+        {
+            float angle = (360f / sectors) * i * Mathf.Deg2Rad;
+            Vector2 dir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+
+            Vector2 candidate = origin + dir * radius;
+            candidate.x = Mathf.Clamp(candidate.x, minBounds.x, maxBounds.x);
+            candidate.y = Mathf.Clamp(candidate.y, minBounds.y, maxBounds.y);
+
+            float score = 0f;
+            bool blocked = false;
+
+            foreach (Transform s in sharks)
+            {
+                if (s == null) continue;
+                float d = Vector2.Distance(candidate, s.position);
+                if (d < 2.8f)
+                {
+                    blocked = true;
+                    break;
+                }
+                score += d;
+            }
+
+            if (!blocked && score > bestScore)
+            {
+                bestScore = score;
+                bestPos = candidate;
+            }
+        }
+
+        return bestPos;
+    }
+
     IEnumerator RandomDirectionRoutine()
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(1, 3));
-            PickNewDirectionAndSpeed();
+            yield return new WaitForSeconds(Random.Range(1.8f, 3.2f));
+            if (!escapeLocked)
+                PickNewDirectionAndSpeed();
         }
     }
 
     void PickNewDirectionAndSpeed()
     {
-        moveDirection = new Vector2(Random.Range(-1f, 1f),
-                                    Random.Range(-0.5f, 0.5f)).normalized;
+        moveDirection = new Vector2(
+            Random.Range(-1f, 1f),
+            Random.Range(-0.5f, 0.5f)
+        ).normalized;
 
         moveSpeed = Random.Range(minSpeed, maxSpeed);
     }

@@ -195,10 +195,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         else
         {
             photonView.RPC(nameof(FisherManSpawned), RpcTarget.All, true);
-            PhotonNetwork.Instantiate(fishermanPrefab.name, new Vector3(0f, 1.85f, 0f), Quaternion.identity);
+            PhotonNetwork.Instantiate(fishermanPrefab.name, new Vector3(0f, 1.95f, 0f), Quaternion.identity);
         }
-
-      
     }
 
     public void ShowGameOver(string message)
@@ -326,7 +324,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             if (GameOver.Instance != null)
             {
-                GameOver.Instance.playAgainBtn.SetActive(true);
+                GameOver.Instance.playAgainBtn.gameObject.SetActive(true);
             }
 
             if (goldWormEatByFish)

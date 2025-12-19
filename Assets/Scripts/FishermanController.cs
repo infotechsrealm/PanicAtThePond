@@ -180,13 +180,15 @@ public class FishermanController : MonoBehaviourPunCallbacks
             {
                 // Non-master setup
                 if (gameManager.sky != null)
-                    gameManager.sky.SetActive(true);
+                    gameManager.sky.SetActive(false);
             }
         }
 
         //Fish can see the fisherman, but he can’t see them.
         if (GS.Instance.MurkyWaters)
         {
+            
+
             if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan)
             {
                 // Enable background 3
@@ -197,7 +199,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             {
                 // Non-master setup
                 if (gameManager.sky != null)
-                    gameManager.sky.SetActive(false);
+                    gameManager.sky.SetActive(true);
             }
         }
 

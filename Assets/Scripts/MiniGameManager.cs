@@ -23,6 +23,8 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
     void Awake()
     {
         Instance = this;
+
+        timeRemaining = Random.Range(0.5f, 1.5f);
     }
 
     public void StartMiniGame()

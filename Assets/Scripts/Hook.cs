@@ -90,9 +90,9 @@ public class Hook : MonoBehaviourPunCallbacks
 
         lineRenderer.SetPosition(0, rodTip.position);
         lineRenderer.SetPosition(1, transform.position);
+        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
         lineRenderer.startColor = Color.white;
         lineRenderer.endColor = Color.white;
-        lineRenderer.material.color = Color.white;
 
         if (Input.GetMouseButtonDown(1))
         {

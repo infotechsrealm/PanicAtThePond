@@ -137,14 +137,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpeed: 1.5
   maxSpeed: 2
-  turnSmoothness: 0.15
+  speedSmooth: 0.08
   avoidDistance: 2.5
-  avoidanceStrength: 1.2
   panicSpeedMultiplier: 1.8
+  maxEscapeSpeed: 6
+  minEscapeSpeed: 3.5
   minBounds: {x: -8, y: -4}
-  maxBounds: {x: 8, y: 1}
+  maxBounds: {x: 8, y: 0}
+  boundaryMargin: 1.2
   sharks: []
   animator: {fileID: 3995746989553086495}
+  targetReachDistance: 0.4
+  flipDeadZone: 0.15
 --- !u!114 &3755046863711763629
 MonoBehaviour:
   m_ObjectHideFlags: 0

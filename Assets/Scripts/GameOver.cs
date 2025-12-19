@@ -1,50 +1,55 @@
-using Mirror;
 using Photon.Pun;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class GameOver : MonoBehaviourPunCallbacks
 {
     public static GameOver Instance;
 
-    public GameObject playAgainBtn;
+    public Button playAgainBtn,lobbyButton,CloseButton;
 
     private void Awake()
     {
         Instance = this;
         if (GS.Instance.isMasterClient && PhotonNetwork.IsMasterClient)
         {
-            playAgainBtn.SetActive(true);
+            playAgainBtn.gameObject.SetActive(true);
         }
-        else if(GS.Instance.isLan && GS.Instance.IsMirrorMasterClient)
+        else if (GS.Instance.isLan && GS.Instance.IsMirrorMasterClient)
         {
-            playAgainBtn.SetActive(false);
+            playAgainBtn.gameObject.SetActive(false);
         }
         else
         {
-            playAgainBtn.SetActive(false);
+            playAgainBtn.gameObject.SetActive(false);
         }
         PhotonNetwork.AutomaticallySyncScene = true;
     }
 
+
+    private void Start()
+    {
+        playAgainBtn.onClick.AddListener(PlayAgain);
+        lobbyButton.onClick.AddListener(Lobby);
+        CloseButton.onClick.AddListener(Close);
+
+    }
     public void PlayAgain()
+    {
+        SceneManager.LoadScene("Play");
+       /* if (!GameManager.Instance.gameObject.activeSelf)
+        {
+            GameManager.Instance.gameObject.SetActive(true);
+        }
+
+        GameManager.Instance.RestartGame();*/
+    }
+
+    public void Lobby()
     {
         if (GS.Instance.isLan)
         {
-          /* 
-            int playerCount = NetworkManager.singleton.numPlayers;
-
-            Debug.Log("Players: " + playerCount);
-
-            if (playerCount > 1)
-            {
-                PhotonNetwork.LoadLevel("Dash");
-            }
-            else
-            {
-            }
-          
-           */
-                GameManager.Instance.RestartGame();
+            GameManager.Instance.RestartGame();
         }
         else
         {
@@ -59,15 +64,16 @@ public class GameOver : MonoBehaviourPunCallbacks
         }
     }
 
-    public void Restart()
+    public void Close()
     {
-        if (!GameManager.Instance.gameObject.activeSelf)
+        if (GS.Instance.isLan)
         {
-            GameManager.Instance.gameObject.SetActive(true);
+            GameManager.Instance.RestartGame();
         }
-
-        GameManager.Instance.RestartGame();
+        else
+        {
+            PhotonNetwork.LeaveRoom();
+        }
     }
-
 
 }
