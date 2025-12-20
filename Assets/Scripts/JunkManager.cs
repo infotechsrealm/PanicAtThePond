@@ -6,7 +6,9 @@ public class JunkManager : MonoBehaviourPunCallbacks
 {
     public Rigidbody2D rb;
 
-    bool isFreezed = false;
+    public JunkManager_Mirror junkManager_Mirror;
+
+    internal bool isFreezed = false;
     public AudioSource audioSource;
     internal bool inWater = false;
     public GameObject waterDrop;
@@ -15,9 +17,9 @@ public class JunkManager : MonoBehaviourPunCallbacks
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if(!PhotonNetwork.IsMasterClient)
+        if(!PhotonNetwork.IsMasterClient || !GS.Instance.IsMirrorMasterClient)
         {
-            GS.Instance.SetVolume(audioSource);
+            GS.Instance.SetSFXVolume(audioSource);
             audioSource.Play();
         }
     }
@@ -25,9 +27,9 @@ public class JunkManager : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        if (PhotonNetwork.IsMasterClient && !isFreezed)
+        if (PhotonNetwork.IsMasterClient && !isFreezed || GS.Instance.IsMirrorMasterClient && !isFreezed)
         {
-            if (transform.position.y < -4f)
+            if (transform.position.y < -4.5f)
             {
                 CallFreezeObjectRPC();
             }
@@ -36,15 +38,22 @@ public class JunkManager : MonoBehaviourPunCallbacks
 
     public void CallFreezeObjectRPC()
     {
-        photonView.RPC(nameof(FreezeObject), RpcTarget.AllBuffered);
+        if(GS.Instance.isLan)
+        {
+            junkManager_Mirror.RequestFreezeObject();
+        }
+        else
+        {
+            photonView.RPC(nameof(FreezeObject), RpcTarget.AllBuffered);
+        }
     }
 
     [PunRPC]
     void FreezeObject()
     {
-        if (transform.position.y < -4f)
+        if (transform.position.y < -4.5f)
         {
-            transform.position = new Vector2(transform.position.x, -4f);
+            transform.position = new Vector2(transform.position.x, -4.5f);
         }
         GetComponent<PolygonCollider2D>().enabled = true;
         photonRigidbody2DView.enabled = false;
@@ -87,17 +96,17 @@ public class JunkManager : MonoBehaviourPunCallbacks
         }
 
         // Final fine-tune
-        rb.gravityScale = 0.01f;
+        rb.gravityScale = 0.00f;
         rb.linearVelocity *= 0.5f; // slow a bit more at the end
     }
 
     public void LeaveByFish()
     {
+        Debug.Log("LeaveByFish called");
         GetComponent<PolygonCollider2D>().enabled = false;
         rb.bodyType = RigidbodyType2D.Dynamic;
         transform.SetParent(null);
-        rb.gravityScale = 1f;
-        StartCoroutine(ReduceGravity());
+        rb.gravityScale = 0.1f;
         isFreezed = false;
         photonRigidbody2DView.enabled = true;
     }

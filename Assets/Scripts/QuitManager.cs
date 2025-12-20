@@ -1,13 +1,18 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuitManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Button backButton;
+
+    private void Start()
     {
-        
     }
 
+    private void OnEnable()
+    {
+        BackManager.instance.RegisterScreen(backButton);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -22,6 +27,8 @@ public class QuitManager : MonoBehaviour
 
     public void Cancle()
     {
+        BackManager.instance.UnregisterScreen();
+
         gameObject.SetActive(false);
     }
 }

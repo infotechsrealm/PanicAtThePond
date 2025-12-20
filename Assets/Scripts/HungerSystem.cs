@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class HungerSystem : MonoBehaviour
 {
-    public static HungerSystem instance;
+    public static HungerSystem Instance;
 
     public Slider hungerBar;
     public float maxHunger = 100f;
@@ -15,7 +15,7 @@ public class HungerSystem : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
     void Start()
@@ -30,7 +30,7 @@ public class HungerSystem : MonoBehaviour
     {
         if (!canDecrease) return;
 
-        if (GameManager.instance != null)
+        if (GameManager.Instance != null)
         {
             currentHunger -= hungerDecreaseSpeed * Time.deltaTime;
             currentHunger = Mathf.Clamp(currentHunger, 0f, maxHunger);
@@ -39,8 +39,8 @@ public class HungerSystem : MonoBehaviour
 
             if (currentHunger <= 0)
             {
-                WormSpawner.instance.StopSpawning();
-                JunkSpawner.instance.StopSpawning();
+                WormSpawner.Instance.StopSpawning();
+                JunkSpawner.Instance.StopSpawning();
             }
         }
     }

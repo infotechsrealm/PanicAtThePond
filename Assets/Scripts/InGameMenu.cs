@@ -1,45 +1,45 @@
 using Photon.Pun;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class InGameMenu : MonoBehaviourPunCallbacks
 {
-    public GameObject menuPanel;       // Reference to the whole pause menu UI
-    private bool isMenuOpen = false;
+    public static InGameMenu Instance;
 
-    private const string VolumeKey = "MusicVolume";
+    public GameObject settingUI;       // Reference to the whole pause menu UI
 
-    public Slider musicVolumeSlider;
+    public List<GameObject> Objects = new List<GameObject>();
+    public GameObject preloder;
 
 
-
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
-        float savedVolume = PlayerPrefs.GetFloat(VolumeKey, 1f);
-        musicVolumeSlider.value = savedVolume;
-
-        // Hook up listener
-        musicVolumeSlider.onValueChanged.AddListener(OnVolumeChanged);
+        CallenableObjects();
     }
 
-    void Update()
+    public void CallenableObjects()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            ToggleMenu();
-        }
+        StartCoroutine(enableObjects());
+
     }
 
-    public void ToggleMenu()
+    public  IEnumerator enableObjects()
     {
-        isMenuOpen = !isMenuOpen;
-        menuPanel.SetActive(isMenuOpen);
-        if(GameManager.instance.myFish!=null)
+        yield return new WaitForSeconds(2f);
+        for (int i = 0; i < Objects.Count; i++)
         {
-            GameManager.instance.myFish.CallGamePauseRPC(isMenuOpen);
+            if (!Objects[i].activeSelf)
+            {
+                Objects[i].SetActive(true);
+            }
         }
+        preloder.SetActive(false);
     }
 
     public void QuitToMainMenu()
@@ -52,14 +52,25 @@ public class InGameMenu : MonoBehaviourPunCallbacks
         SceneManager.LoadScene("Dash");
     }
 
-    private void OnVolumeChanged(float value)
+    public void SettingEnable()
     {
-        PlayerPrefs.SetFloat(VolumeKey, value);
-        PlayerPrefs.Save();
-    }
-    
-    public void OnBackPressed()
-    {
-        ToggleMenu();
+        settingUI.SetActive(true);
+        if (GS.Instance.isLan)
+        {
+            if (GameManager.Instance != null)
+            {
+                if (GameManager.Instance.myFish != null)
+                {
+                    GameManager.Instance.myFish.fishController_Mirror.CallGamePause(true);
+                }
+            }
+        }
+        else
+        {
+            if (GameManager.Instance.myFish != null)
+            {
+                GameManager.Instance.myFish.CallGamePauseRPC(true);
+            }
+        }
     }
 }

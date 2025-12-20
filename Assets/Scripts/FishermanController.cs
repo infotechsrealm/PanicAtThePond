@@ -1,16 +1,25 @@
-﻿using Photon.Pun;
+﻿using Mirror;
+using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-
 public class FishermanController : MonoBehaviourPunCallbacks
 {
-    public static FishermanController Instence;
 
+    public static FishermanController Instance;
+
+    public FishermanController_Mirror fishermanController_Mirror;
     public InputActionReference inputAction;
+
+    public NetworkTransformUnreliable networkTransformUnreliable;
+
+    public GameObject hookPrefab;
+
+    public FishController fishController;
 
 
     [Header("Movement")]
@@ -57,18 +66,19 @@ public class FishermanController : MonoBehaviourPunCallbacks
                   isLeft = true,
                   meterIncreasing = true;
 
-
-   
-
     private void Awake()
     {
-        if (Instence == null)
-            Instence = this;
+        if (Instance == null)
+            Instance = this;
     }
 
     void Start()
     {
-        GameManager gameManager = GameManager.instance;
+        GameManager gameManager = GameManager.Instance;
+        Debug.Log("FishermanController Start called");
+        gameManager.LoadPreloderOnOff(false);
+
+        fishController = GameManager.Instance.myFish;
 
         if (gameManager == null)
         {
@@ -77,10 +87,11 @@ public class FishermanController : MonoBehaviourPunCallbacks
         }
 
         // Assign references first before using them
+
         castingMeter = gameManager.castingMeter;
         worms = gameManager.fishermanWorms;
 
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient || GS.Instance.isLan)
         {
             // Reset casting meter if available
             if (castingMeter != null)
@@ -89,34 +100,60 @@ public class FishermanController : MonoBehaviourPunCallbacks
                 Debug.LogWarning("Casting meter reference missing!");
 
             // Setup fisherman-related visuals and UI
-            gameManager.hungerBar.SetActive(false);
-            gameManager.fisherManObjects.SetActive(true);
+            if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan)
+            {
+                gameManager.hungerBar.SetActive(false);
+                gameManager.fisherManObjects.SetActive(true);
+                gameManager.UpdateUI(worms);
+            }
+
             gameManager.LoadPreloderOnOff(false);
-            gameManager.UpdateUI(worms);
-            gameManager.CallFisherManSpawnedRPC(true);
+
+            if(GS.Instance.isLan)
+            {
+                GameManager.Instance.fisherManIsSpawned = true;
+            }
+            else
+            {
+                gameManager.CallFisherManSpawnedRPC(true);
+            }
 
 
             // Start spawning logic
-            if (JunkSpawner.instance != null)
-            {
-                JunkSpawner.instance.canSpawn = true;
-                JunkSpawner.instance.LoadSpawnJunk();
-            }
-
-            if (WormSpawner.instance != null)
-            {
-                WormSpawner.instance.canSpawn = true;
-                WormSpawner.instance.LoadSpawnWorm();
-            }
+            
 
             StartCoroutine(PlayCricketRandomly());
-            CheckWorms();
+
+            if(GS.Instance.isLan)
+            {
+                GameManager.Instance.myFish.fishermanController = this;
+                if (JunkSpawner.Instance != null)
+                {
+                    JunkSpawner.Instance.canSpawn = true;
+                    JunkSpawner.Instance.LoadSpawnJunk();
+                }
+            }
+            else
+            {
+                if (JunkSpawner.Instance != null)
+                {
+                    JunkSpawner.Instance.canSpawn = true;
+                    JunkSpawner.Instance.LoadSpawnJunk();
+                }
+
+                if (WormSpawner.Instance != null)
+                {
+                    WormSpawner.Instance.canSpawn = true;
+                    WormSpawner.Instance.LoadSpawnWorm();
+                }
+                CheckWorms();
+            }
         }
 
         //Everyone can see everyone.
-        if (GS.Instance.AllVisible)
+        if (GS.Instance.ClearWaters)
         {
-            if (PhotonNetwork.IsMasterClient)
+            if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan )
             {
                 // Enable background 3
                 if (gameManager.water != null)
@@ -133,24 +170,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
         //Both sides hidden (blind match).
         if (GS.Instance.DeepWaters)
         {
-            if (PhotonNetwork.IsMasterClient)
-            {
-                // Enable background 3
-                if (gameManager.water != null)
-                    gameManager.water.SetActive(true);
-            }
-            else
-            {
-                // Non-master setup
-                if (gameManager.sky != null)
-                    gameManager.sky.SetActive(true);
-            }
-        }
-
-        //Fish can see the fisherman, but he can’t see them.
-        if (GS.Instance.MurkyWaters)
-        {
-            if (PhotonNetwork.IsMasterClient)
+            if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan)
             {
                 // Enable background 3
                 if (gameManager.water != null)
@@ -164,10 +184,29 @@ public class FishermanController : MonoBehaviourPunCallbacks
             }
         }
 
-        //Fisherman can see fish, but fish can’t see him.
-        if (GS.Instance.ClearWaters)
+        //Fish can see the fisherman, but he can’t see them.
+        if (GS.Instance.MurkyWaters)
         {
-            if (PhotonNetwork.IsMasterClient)
+            
+
+            if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan)
+            {
+                // Enable background 3
+                if (gameManager.water != null)
+                    gameManager.water.SetActive(true);
+            }
+            else
+            {
+                // Non-master setup
+                if (gameManager.sky != null)
+                    gameManager.sky.SetActive(true);
+            }
+        }
+
+        //Fisherman can see fish, but fish can’t see him.
+        if (GS.Instance.ReflectiveWater)
+        {
+            if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan)
             {
                 // Enable background 3
                 if (gameManager.water != null)
@@ -183,7 +222,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
     }
 
-
     IEnumerator PlayCricketRandomly()
     {
         while (true)
@@ -192,7 +230,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             yield return new WaitForSeconds(waitBeforePlay);
 
             // Play the sound
-            GS.Instance.SetVolume(cricketChirping);
+            GS.Instance.SetSFXVolume(cricketChirping);
 
             cricketChirping.Play();
 
@@ -207,8 +245,18 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
     void Update()
     {
-        if (!PhotonNetwork.IsMasterClient || !isCanCast)
-            return;
+        if (GS.Instance.isLan)
+        {
+            if (!GameManager.Instance.isFisherMan)
+            {
+                return;
+            }
+        }
+        else
+        {
+            if (!PhotonNetwork.IsMasterClient || !isCanCast)
+                return;
+        }
 
         if (isCanMove)
         {
@@ -218,16 +266,44 @@ public class FishermanController : MonoBehaviourPunCallbacks
                 HandleRodSelection();
         }
 
-        HandleCasting();
+        FisherManCastingFish();
     }
+
+
 
     void FisherManMovement()
     {
         if (leftHook == null && rightHook == null && !isCasting)
         {
-           // float moveInput = Input.GetAxisRaw("Horizontal");
+            // float moveInput = Input.GetAxisRaw("Horizontal");
+            float moveInput;
+            if (GS.Instance.isLan)
+            {
+                if (GameManager.Instance.isFisherMan)
+                {
+                    // move = inputAction.action.ReadValue<Vector2>();
+                    float horizontal = Input.GetAxis("Horizontal");
 
-            float moveInput = inputAction.action.ReadValue<Vector2>().x;
+                    moveInput = horizontal; //= new Vector2(horizontal, vertical);
+
+                    if (moveInput > 0)
+                    {
+                        moveInput = 1;
+                    }
+                    else if (moveInput < 0)
+                    {
+                        moveInput = -1;
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                moveInput = inputAction.action.ReadValue<Vector2>().x;
+            }
 
 
             Vector3 move = new Vector3(moveInput * moveSpeed * Time.deltaTime, 0, 0);
@@ -243,7 +319,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             {
                 if (!boatMoveSound.isPlaying)
                 {
-                    GS.Instance.SetVolume(boatMoveSound);
+                    GS.Instance.SetSFXVolume(boatMoveSound);
                     boatMoveSound.Play();
                 }
 
@@ -304,7 +380,46 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
     void HandleRodSelection()
     {
-        float moveInputY = inputAction.action.ReadValue<Vector2>().y;
+        float moveInputY;
+        if (GS.Instance.isLan)
+        {
+            if (GameManager.Instance.isFisherMan)
+            {
+                // move = inputAction.action.ReadValue<Vector2>();
+                float vertical = Input.GetAxis("Vertical");
+
+                moveInputY = vertical; //= new Vector2(horizontal, vertical);
+
+                if (moveInputY > 0)
+                {
+                    moveInputY = 1;
+                }
+                else if (moveInputY < 0)
+                {
+                    moveInputY = -1;
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+        else
+        {
+            // move = inputAction.action.ReadValue<Vector2>();
+            float vertical = Input.GetAxis("Vertical");
+
+            moveInputY = vertical; //= new Vector2(horizontal, vertical);
+
+            if (moveInputY > 0)
+            {
+                moveInputY = 1;
+            }
+            else if (moveInputY < 0)
+            {
+                moveInputY = -1;
+            }
+        }
 
         if (moveInputY == 1)
         {
@@ -339,42 +454,42 @@ public class FishermanController : MonoBehaviourPunCallbacks
             }
         }
     }
-    void HandleCasting()
+    bool castReleased = false;
+
+    void FisherManCastingFish()
     {
-        Debug.Log("Keyboard.current.xKey.isPressed && Keyboard.current.vKey.isPressed =" + Keyboard.current.xKey.isPressed +"-"+ Keyboard.current.vKey.isPressed);
+        // CAST START
         if (!isCasting && Keyboard.current.xKey.isPressed && Keyboard.current.vKey.isPressed)
         {
-            if (currentRod != null)
-            {
-                if (GameManager.instance.messageText.text != "")
-                {
-                    GameManager.instance.messageText.text = "";
-                }
+            Debug.Log("FisherManCastingFish");
 
-                if ((leftHook != null) || (rightHook != null))
-                {
-                    Debug.Log("Rod already has a hook!");
-                    return;
-                }
-
-                isCasting = true;
-                StartCoroutine(CastMeterRoutine());
-            }
-            else
+            if (currentRod == null)
             {
-                GameManager.instance.messageText.text = "Please select a rod first using the 'W' & 'S' key.";
+                GameManager.Instance.messageText.text =
+                    "Please select a rod first using the 'W' & 'S' key.";
                 return;
             }
+
+            if (leftHook != null || rightHook != null)
+            {
+                Debug.Log("Rod already has a hook!");
+                return;
+            }
+
+            isCasting = true;
+            castReleased = false; // reset
+            StartCoroutine(CastMeterRoutine());
         }
 
-        if (worms > 0)
+        // CAST RELEASE (ONLY ONCE)
+        if (isCasting && !castReleased && (Keyboard.current.xKey.wasReleasedThisFrame || Keyboard.current.vKey.wasReleasedThisFrame))
         {
-            if (isCasting && Keyboard.current.xKey.wasReleasedThisFrame || isCasting && Keyboard.current.vKey.wasReleasedThisFrame)
-            {
-                StartCoroutine(ReleaseCast());
-            }
+            castReleased = true;
+            LoadReleaseCast();
         }
     }
+
+
     IEnumerator CastMeterRoutine()
     {
         while (isCasting)
@@ -391,6 +506,11 @@ public class FishermanController : MonoBehaviourPunCallbacks
             }
             yield return null;
         }
+    }
+
+    public void LoadReleaseCast()
+    {
+        StartCoroutine(ReleaseCast());
     }
 
     IEnumerator ReleaseCast()
@@ -415,49 +535,54 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
         yield return new WaitForSeconds(0.5f);
 
-        Hook hook = PhotonNetwork.Instantiate("hookPrefab", currentRod.position, Quaternion.identity).GetComponent<Hook>();
+        Hook hook;
+        hook = null;
+
+
+        if (GS.Instance.isLan)
+        {
+            hook = fishermanController_Mirror.hook;
+            hook.TryToSetJunkRod(currentRod.position);
+            float castDistance = castingMeter.value * maxCastDistance;
+            fishermanController_Mirror.hook.LaunchDownWithDistance(castDistance, currentRod);
+        }
+        else
+        {
+            hook = PhotonNetwork.Instantiate(hookPrefab.name, currentRod.position, Quaternion.identity).GetComponent<Hook>();
+            int hookID = hook.GetComponent<PhotonView>().ViewID;
+            hook.AttachWorm();
+            float castDistance = castingMeter.value * maxCastDistance;
+            hook.LaunchDownWithDistance(castDistance, currentRod);
+        }
+
+
         if (hook != null)
         {
-            int hookID = hook.GetComponent<PhotonView>().ViewID;
+            if (currentRod == leftRod)
+            {
+                leftHook = hook.gameObject;
+            }
+            else
+            {
+                rightHook = hook.gameObject;
+            }
 
-            // Send RPC to all clients to set rodTip
-            photonView.RPC(nameof(SetupHookRodRPC), RpcTarget.AllBuffered, hookID, currentRod.position);
+            if (worms > 0)
+            {
+                worms--;
+                    GameManager.Instance.UpdateUI(worms);
+            }
 
-            hook.rodTip = currentRod.position;
-
-            // Automatic worm attach
-            hook.AttachWorm();
-
-            // Launch hook based on meter value
-            float castDistance = castingMeter.value * maxCastDistance;
-            hook.LaunchDownWithDistance(castDistance);
+            castingMeter.value = 0;
         }
         else
         {
             Debug.Log("Hook is null");
         }
 
-        // Track hook per rod
-        if (currentRod == leftRod)
-        {
-            leftHook = hook.gameObject;
-        }
-        else
-        {
-            rightHook = hook.gameObject;
-        }
-
-        if (worms > 0)
-        {
-            worms--;
-            GameManager.instance.UpdateUI(worms);
-        }
-
-        castingMeter.value = 0;
     }
 
-
-    [PunRPC]
+   /* [PunRPC]
     void SetupHookRodRPC(int hookID, Vector3 curruntRod)
     {
         PhotonView hookView = PhotonView.Find(hookID);
@@ -471,7 +596,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             }
 
         }
-    }
+    }*/
 
     public void ClearHookReference(GameObject hook)
     {
@@ -479,16 +604,17 @@ public class FishermanController : MonoBehaviourPunCallbacks
         if (hook == rightHook) rightHook = null;
     }
 
+
+
     // Check worms and print lose message
     public void CheckWorms()
     {
-        int curruntPlayer = PhotonNetwork.CurrentRoom.PlayerCount;
-        Debug.Log("catchadFish = " + catchadFish + " GameManager.instance.totalPlayers = " + GameManager.instance.totalPlayers);
-        if (catchadFish >= (GameManager.instance.totalPlayers - 1))
+        Debug.Log("catchadFish = " + catchadFish + " GameManager.instance.totalPlayers = " + GameManager.Instance.totalPlayers);
+        if (catchadFish >= (GameManager.Instance.totalPlayers - 1))
         {
             if (catchadFish > 0)
             {
-                if (GameManager.instance != null && GameManager.instance.gameOverText != null)
+                if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
                 {
                     if (isRight)
                     {
@@ -504,13 +630,30 @@ public class FishermanController : MonoBehaviourPunCallbacks
                     }
 
                     Debug.Log("Fisherman Win!");
-                    GameManager.instance.ShowGameOver("Fisherman Win!");
-                    GameManager.instance.CallCoverBGDisableRPC();
-                    WormSpawner.instance.EnableWormDaceAnimation();
 
-                    if(!GS.Instance.isMasterClient)
+
+
+                    if (GS.Instance.isLan)
                     {
-                        CallSetOldMaster();
+                        if (GameManager.Instance.myFish.isFisherMan)
+                        {
+                            GameManager.Instance.ShowGameOver("Fisherman Win!");
+                        }
+
+                        if(GS.Instance.IsMirrorMasterClient)
+                        {
+                            WormSpawner.Instance.EnableWormDaceAnimation();
+                        }
+                    }
+                    else
+                    {
+                        GameManager.Instance.CallCoverBGDisableRPC();
+                        WormSpawner.Instance.EnableWormDaceAnimation();
+                        GameManager.Instance.ShowGameOver("Fisherman Win!");
+                        if (!GS.Instance.isMasterClient)
+                        {
+                            CallSetOldMaster();
+                        }
                     }
                 }
             }
@@ -528,9 +671,9 @@ public class FishermanController : MonoBehaviourPunCallbacks
                 {
                     animator.SetBool("isWin_r", true);
                 }
-                GameManager.instance.ShowGameOver("GameOver!");
+                GameManager.Instance.ShowGameOver("GameOver!");
             }
-            WormSpawner.instance.canSpawn = isCanMove = false;
+            WormSpawner.Instance.canSpawn = isCanMove = false;
 
             // Optional: stop all fishing actions
             leftHook = null;
@@ -543,20 +686,15 @@ public class FishermanController : MonoBehaviourPunCallbacks
         //When Worm is over fisher man is loss and fishes are wins
         if (worms <= 0)
         {
-            if (GameManager.instance != null && GameManager.instance.gameOverText != null)
+            if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
             {
                 OnCryingAnimation(true);
-                GameManager.instance.ShowGameOver("Fisherman Lose!\nFishes Win!");
+                GameManager.Instance.ShowGameOver("Fisherman Lose!\nFishes Win!");
             }
 
-            WormSpawner.instance.canSpawn = isCanMove = false;
-            for (int i = 0; i < GameManager.instance.allFishes.Count; i++)
-            {
-                if (GameManager.instance.allFishes[i] != null)
-                {
-                    GameManager.instance.allFishes[i].CallWinFishRPC();
-                }
-            }
+            WormSpawner.Instance.canSpawn = isCanMove = false;
+
+            GameManager.Instance.WinFish_Mirror();
 
             // Optional: stop all fishing actions
             leftHook = null;
@@ -626,10 +764,12 @@ public class FishermanController : MonoBehaviourPunCallbacks
     {
         if (isRight)
         {
+            Debug.Log("OnFishGoatAnimation called =" + res);
             animator.SetBool("fishGotFacing_r", res);
         }
         else if (isLeft)
         {
+            Debug.Log("OnFishGoatAnimation called =" + res);
             animator.SetBool("fishGotFacing_l", res);
         }
     }
@@ -673,9 +813,9 @@ public class FishermanController : MonoBehaviourPunCallbacks
     internal void PlaySFX(AudioClip playClip)
     {
         fisherManSounds.clip = playClip;
-        GS.Instance.SetVolume(fisherManSounds);
+        GS.Instance.SetSFXVolume(fisherManSounds);
         fisherManSounds.Play();
     }
 
-    
+  
 }

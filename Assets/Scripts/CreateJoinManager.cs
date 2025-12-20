@@ -1,14 +1,21 @@
-﻿using Photon.Pun;
+﻿using Mirror;
+using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class CreateJoinManager : MonoBehaviourPunCallbacks
 {
+    public static CreateJoinManager Instance;
+
+    public CoustomeRoomManager coustomeRoomManager;
+
     public GameObject createAndJoinButtons;
 
     public CreatePanel createPanel;
     public JoinPanel JoinPanel;
+
+    public ClientLobby  clientLobby;
+    public HostLobby hostLobby;
 
     internal bool isCreating = false;
     internal bool isJoining = false;
@@ -17,54 +24,83 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
     public Toggle LAN;
 
-    public static CreateJoinManager Instence;
+    public Button joinRandomBtn;
 
+    public Text requirePlayerText;
     private void Awake()
     {
-        Instence = this;
+        Instance = this;
     }
 
+
+    private void Update()
+    {
+        /*if (PhotonNetwork.IsConnected)
+        {
+            Debug.Log("Is Connected");
+        }
+        else
+        {
+            Debug.Log("Is Disconnected");
+        }*/
+    }
+
+    private void Start()
+    {
+
+    }
     public void OnClickAction(string action)
     {
         switch (action)
         {
             case "Join":
                 {
+                    GS.Instance.isLan = LAN.isOn;
+
                     Debug.Log("action = " + action);
                     isCreating = false;
                     isJoining = true;
                     LaunchGame();
+                    if(GS.Instance.isLan)
+                    {
+                        GS.Instance.IsMirrorMasterClient = isCreating;
+                    }
                     break;
                 }
 
             case "Create":
                 {
+                    GS.Instance.isLan = LAN.isOn;
+
                     Debug.Log("action = " + action);
                     isCreating = true;
                     isJoining = false;
                     LaunchGame();
+                    if (GS.Instance.isLan)
+                    {
+                        GS.Instance.IsMirrorMasterClient = isCreating;
+                    }
                     break;
                 }
 
 
             case "Continue":
                 {
-                    if (LAN.isOn)
+                    if (GS.Instance.isLan)
                     {
-                        LANConnector.Instence.StartHost();
+                            LANDiscoveryMenu.Instance.HostGame();
+                       
                     }
                     else
                     {
                         if (PhotonNetwork.IsConnected)
                         {
-                            CoustomeRoomManager.Instence.CreateCustomeRoom();
+                            CoustomeRoomManager.Instance.CreateCustomeRoom();
                         }
                         else
                         {
-                            if (Preloader.instance == null)
-                            {
-                                Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
-                            }
+                            GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
+
                             PhotonNetwork.ConnectUsingSettings();
                         }
                     }
@@ -76,22 +112,20 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                     isJoinRandom = true;
                     isJoinCustome = false;
 
-                    if (LAN.isOn)
+                    if (GS.Instance.isLan)
                     {
-                        LANConnector.Instence.StartClient();
+                       // LANDiscoveryMenu.Instance.FindGames();
                     }
                     else
                     {
                         if (PhotonNetwork.IsConnected)
                         {
-                            CoustomeRoomManager.Instence.JoinRandomAvailableRoom();
+                            CoustomeRoomManager.Instance.JoinRandomAvailableRoom();
                         }
                         else
                         {
-                            if (Preloader.instance == null)
-                            {
-                                Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
-                            }
+                            GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
+
                             PhotonNetwork.ConnectUsingSettings();
                         }
                     }
@@ -103,22 +137,29 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                     isJoinCustome = true;
                     isJoinRandom = false;
 
-                    if (LAN.isOn)
+                    if (GS.Instance.isLan)
                     {
-                        LANConnector.Instence.StartHost();
-                    }
-                    else
-                    {
-                        if (PhotonNetwork.IsConnected)
+                        if (LANDiscoveryMenu.Instance.DiscoveredServerInfo.port != 0 && LANDiscoveryMenu.Instance.DiscoveredServerInfo.baseBroadcastPort != 0)
                         {
-                            CoustomeRoomManager.Instence.JoinCustomeRoom();
+                            LANDiscoveryMenu.Instance.FindGames();
                         }
                         else
                         {
-                            if (Preloader.instance == null)
-                            {
-                                Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
-                            }
+                            LANDiscoveryMenu.Instance.noRoomExistError.text = "Please Select the Room.";
+                        }
+                    }
+                    else
+                    {
+
+                        Debug.Log("Joining Custome Room");
+                        if (PhotonNetwork.IsConnected)
+                        {
+                            CoustomeRoomManager.Instance.JoinCustomeRoom();
+                        }
+                        else
+                        {
+                            GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
+
                             PhotonNetwork.ConnectUsingSettings();
                         }
                     }
@@ -127,13 +168,23 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
             case "Back":
                 {
-                    if(PhotonNetwork.IsConnected)
+                    BackManager.instance.UnregisterScreen();
+                    createAndJoinButtons.SetActive(false);
+                    break;
+                }
+
+            case "Start":
+                {
+                    if (GS.Instance.isLan)
                     {
-                        PhotonNetwork.Disconnect();
+                        if (NetworkServer.active)
+                        {
+                            NetworkManager.singleton.ServerChangeScene("Play");
+                        }
                     }
                     else
                     {
-                        createAndJoinButtons.SetActive(false);
+                        CoustomeRoomManager.Instance.customeStartGame();
                     }
                     break;
                 }
@@ -142,14 +193,12 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
     public void LaunchGame()
     {
-        if (!LAN.isOn)
+        if (!GS.Instance.isLan)
         {
             if (!PhotonNetwork.IsConnected)
             {
-                if (Preloader.instance == null)
-                {
-                    Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
-                }
+                GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
+
                 PhotonNetwork.ConnectUsingSettings();
             }
         }
@@ -161,8 +210,16 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
         }
         else if (isJoining)
         {
-            JoinPanel.gameObject.SetActive(true);
+            GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
+
             createPanel.gameObject.SetActive(false);
+            JoinPanel.gameObject.SetActive(true);
+
+            if (GS.Instance.isLan)
+            {
+                LANDiscoveryMenu.Instance.CallDiscoverAllLANHosts_Unlimited();
+            }
+
         }
     }
 
@@ -173,21 +230,48 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        if (Preloader.instance !=null)
-        {
-            Destroy(Preloader.instance.gameObject);
-        }
+        GS.Instance.DestroyPreloder();
+
         Debug.Log("✅ Joined Photon Lobby successfully!");
     }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        if (Preloader.instance != null)
-        {
-            Destroy(Preloader.instance.gameObject);
-        }
-        createAndJoinButtons.SetActive(false);
+        GS.Instance.DestroyPreloder();
+
+       // createAndJoinButtons.SetActive(false);
         Debug.Log("Disconnected from Photon. Cause: " + cause);
+    }
+
+    // --------------------------------------- Photon Networking ---------------------------------------
+
+
+    [PunRPC]
+    public void CallRpcFromClientSide()
+    {
+        SetVissiblity_Photon_RPC();
+    }
+
+    public void SetVissiblity_Photon_RPC()
+    {
+        GS gsObj = GS.Instance;
+        photonView.RPC(nameof(SetVisibilityPhoton), RpcTarget.Others, gsObj.ReflectiveWater, gsObj.DeepWaters, gsObj.MurkyWaters, gsObj.ClearWaters);
+        PhotonNetwork.SendAllOutgoingCommands();
+    }
+
+    [PunRPC]
+    public void SetVisibilityPhoton(bool reflectiveWater, bool deepWaters, bool murkyWaters, bool clearWaters)
+    {
+        GS gsObj = GS.Instance;
+
+        gsObj.ClearWaters = clearWaters;
+        gsObj.MurkyWaters = murkyWaters;
+        gsObj.DeepWaters = deepWaters;
+        gsObj.ReflectiveWater = reflectiveWater;
+
+        Debug.Log($"[GS] Visibility updated: All={reflectiveWater}, Deep={deepWaters}, Murky={murkyWaters}, Clear={clearWaters}");
+
+        GS.Instance.rerfeshDropDown();
     }
 
 }

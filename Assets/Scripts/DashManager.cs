@@ -1,16 +1,23 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DashManager : MonoBehaviour
 {
-    public GameObject settingUI,quitUI,craditsUI,localPlayerUI,prefabPanret;
+    public GameObject createAndJoinButtons,settingUI, quitUI,craditsUI,localPlayerUI,prefabPanret,hintsUI;
 
-    public static DashManager instance;
+    public Button createAndJoinButtonsBackButton;
 
-    public GameObject createAndJoinButtons;
+    public static DashManager Instance;
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        GS.Instance.SetMusicVolume();
+        GS.Instance.BGMusic.Play();
     }
     public void OnClickAction(string action)
     {
@@ -18,6 +25,7 @@ public class DashManager : MonoBehaviour
         {   
             case "Play":
                 {
+                    BackManager.instance.RegisterScreen(createAndJoinButtonsBackButton);
                     createAndJoinButtons.SetActive(true);
                     break;
                 }
@@ -44,7 +52,15 @@ public class DashManager : MonoBehaviour
                 {
                     quitUI.SetActive(true);
                     break;
+                }  
+                
+            case "hints":
+                {
+                    hintsUI.SetActive(true);
+                    break;
                 }   
         }
     }
+
+
 }

@@ -12,6 +12,7 @@ namespace Mirror.Discovery
     [AddComponentMenu("Network/Network Discovery")]
     public class NetworkDiscovery : NetworkDiscoveryBase<ServerRequest, ServerResponse>
     {
+
         #region Server
 
         /// <summary>
@@ -38,7 +39,14 @@ namespace Mirror.Discovery
                 return new ServerResponse
                 {
                     serverId = ServerId,
-                    uri = transport.ServerUri()
+                    roomName = roomName,
+                    roomPassword = roomPassword,
+                    maxPlayers = maxPlayers,
+                    playerName = playerName,
+                    serverBroadcastListenPortPortValue = serverBroadcastListenPortPortValue,
+                    uri = transport.ServerUri(),
+                    connectedPlayers = NetworkServer.connections.Count
+
                 };
             }
             catch (NotImplementedException)

@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using Mirror;
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,7 @@ public class JunkSpawner : MonoBehaviour
     internal float xRange = -9f;
 
     internal bool canSpawn = false;
-    public static JunkSpawner instance;
+    public static JunkSpawner Instance;
 
     private List<GameObject> activeJunks = new List<GameObject>(); // track all junks
 
@@ -22,24 +23,22 @@ public class JunkSpawner : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
     }
 
-    void Start()
-    {
-
-    }
+   
 
     public void LoadSpawnJunk()
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient || GS.Instance.IsMirrorMasterClient)
         {
             StartCoroutine(SpawnJunk());
         }
     }
+
     IEnumerator SpawnJunk()
     {
         if (canSpawn)
@@ -60,19 +59,32 @@ public class JunkSpawner : MonoBehaviour
 
                 GameObject prefab = junkPrefabs[Random.Range(0, junkPrefabs.Length)];
 
-                GameObject newJunk = PhotonNetwork.Instantiate(prefab.name, pos, Quaternion.identity);
+                GameObject newJunk = new GameObject();
 
-                float randomXForce = Random.Range(0f, 2f);
-                randomXForce = randomNo == 0 ? randomXForce : -randomXForce;
-                Vector2 force = new Vector2(randomXForce, 0) * moveSpeed;
-
-                Rigidbody2D rb = newJunk.GetComponent<Rigidbody2D>();
-                if (rb != null)
+                if (GS.Instance.isLan)
                 {
-                    rb.linearVelocity = force; // give motion in x
+                    newJunk = Instantiate(prefab, pos, Quaternion.identity);
+                    NetworkServer.Spawn(newJunk);
+                }
+                else
+                {
+                    newJunk = PhotonNetwork.Instantiate(prefab.name, pos, Quaternion.identity);
                 }
 
-                activeJunks.Add(newJunk);
+                if (newJunk != null)
+                {
+                    float randomXForce = Random.Range(0f, 2f);
+                    randomXForce = randomNo == 0 ? randomXForce : -randomXForce;
+                    Vector2 force = new Vector2(randomXForce, 0) * moveSpeed;
+
+                    Rigidbody2D rb = newJunk.GetComponent<Rigidbody2D>();
+                    if (rb != null)
+                    {
+                        rb.linearVelocity = force; // give motion in x
+                    }
+
+                    activeJunks.Add(newJunk);
+                }
             }
         }
         float delay = Random.Range(minSpawnDelay, maxSpawnDelay);

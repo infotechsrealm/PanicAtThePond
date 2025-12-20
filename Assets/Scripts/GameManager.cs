@@ -1,4 +1,6 @@
-﻿using Photon.Pun;
+﻿using Mirror;
+using Mirror.Discovery;
+using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,7 +31,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [Header("UI")]
     public Slider castingMeter; // Assign this in Inspector
 
-    public static GameManager instance;
+    public static GameManager Instance;
 
     public GameObject gameOverPanel;
     public Text gameOverText;
@@ -48,10 +50,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject preloderUI;
     public GameObject coverBG;
 
-   // public Transform camera;
+    // public Transform camera;
 
     public FishController myFish;
-    public List<FishController> allFishes = new List<FishController> ();
+    public List<FishController> allFishes = new List<FishController>();
 
     public Text messageText;
 
@@ -61,14 +63,15 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public GameObject sky, water;
 
+
     private void Awake()
     {
-        instance = this;
+        Instance = this;
 
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
 
-        if(PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient)
         {
             GS.Instance.isMasterClient = true;
         }
@@ -79,12 +82,15 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     void Start()
     {
-        PhotonNetwork.AutomaticallySyncScene = true;
-        totalPlayers = PhotonNetwork.CurrentRoom.PlayerCount;
+       
+
         SpawnPlayer();
-    } 
+        Invoke(nameof(setFishermanWormCounts), 2f);
+    }
+
     public void UpdateUI(int currunt_Warms)
     {
+        bucketImage.gameObject.SetActive(true);
         // Text
         wormCountText.text = currunt_Warms.ToString();
 
@@ -105,53 +111,109 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
- 
 
     void SpawnPlayer()
     {
-        // Spawn Fish
-        float x = Random.Range(minBounds.x, maxBounds.x);
-        float y = Random.Range(minBounds.y, maxBounds.y);
-        Vector3 spawnPos = new Vector3(x, y, 0);
+        Debug.Log("GS.Instance.isLan = > " + GS.Instance.isLan);
+        if (GS.Instance.isLan)
+        {
+            foreach (var conn in NetworkServer.connections.Values)
+            {
+                if (conn.identity == null)
+                {
+                    float x = Random.Range(minBounds.x, maxBounds.x);
+                    float y = Random.Range(minBounds.y, maxBounds.y);
+                    Vector3 spawnPos = new Vector3(x, y, 0);
 
-        GameObject fish = PhotonNetwork.Instantiate(fishPrefab.name, spawnPos, Quaternion.identity);
-        fishes.Add(fish);
+                    GameObject fish = Instantiate(fishPrefab, spawnPos, Quaternion.identity);
+                    fishes.Add(fish);
 
-        Debug.Log("Fish Spawned: " + fishes.Count);
+                    NetworkServer.AddPlayerForConnection(conn, fish);
+                }
+            }
+        }
+        else
+        {
+
+            // Spawn Fish
+            float x = Random.Range(minBounds.x, maxBounds.x);
+            float y = Random.Range(minBounds.y, maxBounds.y);
+            Vector3 spawnPos = new Vector3(x, y, 0);
+
+            GameObject fish = PhotonNetwork.Instantiate(fishPrefab.name, spawnPos, Quaternion.identity);
+            fishes.Add(fish);
+
+            Debug.Log("Fish Spawned: " + fishes.Count);
+        }
+    }
+
+    public void setFishermanWormCounts()
+    {
+        if (GS.Instance.isLan)
+        {
+            if (GS.Instance.IsMirrorMasterClient)
+            {
+                GS.Instance.totlePlayers = totalPlayers = NetworkServer.connections.Count;
+                Debug.Log("totlePlayer = " + GS.Instance.totlePlayers);
+            }
+            else
+            {
+
+                GS.Instance.totlePlayers = totalPlayers = allFishes.Count;
+                Debug.Log("totlePlayer = " + GS.Instance.totlePlayers);
+            }
+
+            int fishCount = totalPlayers - 1;
+            fishermanWorms = fishCount * baseWormMultiplier;
+            maxWorms = fishermanWorms;
+            Debug.Log("Fisherman Worms: " + fishermanWorms);
+        }
+        else
+        {
+          
+            PhotonNetwork.AutomaticallySyncScene = true;
+            totalPlayers = PhotonNetwork.CurrentRoom.PlayerCount;
+            int fishCount = totalPlayers - 1;
+            fishermanWorms = fishCount * baseWormMultiplier;
+            maxWorms = fishermanWorms;
+            Debug.Log("Fisherman Worms: " + fishermanWorms);
+        }
     }
 
     public void LoadSpawnFisherman()
     {
-      
         LoadPreloderOnOff(true);
-        Invoke(nameof(SpawnFisherman),4f);
+        Invoke(nameof(SpawnFisherman), 0f);
     }
-   
 
     public void SpawnFisherman()
     {
-        photonView.RPC(nameof(FisherManSpawned), RpcTarget.All, true);
-        PhotonNetwork.Instantiate("FisherMan", new Vector3(0f, 3.15f, 0f), Quaternion.identity);
-      
-        int fishCount = totalPlayers - 1;
-        fishermanWorms = fishCount * baseWormMultiplier;
-        maxWorms = fishermanWorms;
-        Debug.Log("Fisherman Worms: " + fishermanWorms);
+        if (GS.Instance.isLan)
+        {
+            myFish.GetComponent<FishController_Mirror>().RequestSpawnFisherman();
+        }
+        else
+        {
+            photonView.RPC(nameof(FisherManSpawned), RpcTarget.All, true);
+            PhotonNetwork.Instantiate(fishermanPrefab.name, new Vector3(0f, 1.95f, 0f), Quaternion.identity);
+        }
     }
 
     public void ShowGameOver(string message)
     {
+        Debug.Log("Game Over: " + message);
         if (gameOverPanel != null)
         {
-            if (preloderUI.activeSelf)
-            {
-                preloderUI.SetActive(false);
-            }
             gameOverPanel.SetActive(true);
-            if (WormSpawner.instance.canSpawn)
+
+            if (WormSpawner.Instance.canSpawn)
             {
-                WormSpawner.instance.canSpawn = false;
+                WormSpawner.Instance.canSpawn = false;
             }
+        }
+        else
+        {
+            Debug.Log("Gameover Panerl is null");
         }
 
         if (gameOverText != null)
@@ -168,10 +230,40 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     IEnumerator RestartAfterDisconnect()
     {
-        PhotonNetwork.Disconnect();
-        // wait jab tak disconnect complete na ho jaye
-        yield return new WaitUntil(() => PhotonNetwork.IsConnected == false);
+        if (GS.Instance.isLan)
+        {
+            ForceDisconnect();
+        }
+        else
+        {
+            PhotonNetwork.Disconnect();
+            // wait jab tak disconnect complete na ho jaye
+            yield return new WaitUntil(() => PhotonNetwork.IsConnected == false);
+        }
         SceneManager.LoadScene("Dash");
+    }
+
+
+    public void ForceDisconnect()
+    {
+        if (NetworkServer.active && NetworkClient.isConnected)
+        {
+            // HOST (server + client)
+            NetworkManager.singleton.StopHost();
+            Debug.Log("Stopped Host");
+        }
+        else if (NetworkServer.active)
+        {
+            // सिर्फ SERVER
+            NetworkManager.singleton.StopServer();
+            Debug.Log("Stopped Server");
+        }
+        else if (NetworkClient.isConnected)
+        {
+            // सिर्फ CLIENT
+            NetworkManager.singleton.StopClient();
+            Debug.Log("Stopped Client");
+        }
     }
 
     public IEnumerator RestartAfterLeftRoom()
@@ -182,19 +274,17 @@ public class GameManager : MonoBehaviourPunCallbacks
         SceneManager.LoadScene("Dash");
     }
 
+    public void LoadGetIdAndChangeHost()
+    {
+        LoadPreloderOnOff(true);
+        Invoke(nameof(GetIdAndChangeHost), 4f);
+    }
+
     public void GetIdAndChangeHost()
     {
         int myId = PhotonNetwork.LocalPlayer.ActorNumber;
         Debug.Log("✅ My Client ID = " + myId);
-
         photonView.RPC(nameof(ChangeHostById), RpcTarget.MasterClient, myId);
-    }
-
-    public void LoadGetIdAndChangeHost()
-    {
-        LoadPreloderOnOff(true);
-
-        Invoke(nameof(GetIdAndChangeHost), 4f);
     }
 
     [PunRPC]
@@ -228,15 +318,14 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
-
     public override void OnMasterClientSwitched(Player newMasterClient)
     {
-        if (PhotonNetwork.IsMasterClient )
+        if (PhotonNetwork.IsMasterClient)
         {
-                if (GameOver.Instance != null)
-                {
-                    GameOver.Instance.playAgainBtn.SetActive(true);
-                }
+            if (GameOver.Instance != null)
+            {
+                GameOver.Instance.playAgainBtn.gameObject.SetActive(true);
+            }
 
             if (goldWormEatByFish)
             {
@@ -270,7 +359,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        Debug.Log("❌ Player Left Room: " + otherPlayer.NickName + " | ID: " + otherPlayer.ActorNumber + " | currun Player = " + PhotonNetwork.CurrentRoom.PlayerCount); 
+        Debug.Log("❌ Player Left Room: " + otherPlayer.NickName + " | ID: " + otherPlayer.ActorNumber + " | currun Player = " + PhotonNetwork.CurrentRoom.PlayerCount);
         if (PhotonNetwork.IsMasterClient)
         {
             int curruntPlayer = PhotonNetwork.CurrentRoom.PlayerCount;
@@ -278,7 +367,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             {
                 if (fisherManIsSpawned && isFisherMan)
                 {
-                    FishermanController.Instence.CheckWorms();
+                    FishermanController.Instance.CheckWorms();
                 }
                 else
                 {
@@ -291,21 +380,28 @@ public class GameManager : MonoBehaviourPunCallbacks
                 }
             }
         }
-
         UpdateTablesUI();
     }
 
     public void UpdateTablesUI()
     {
-        if (PlayerTableManager.instance != null)
+        if (PlayerTableManager.Instance != null)
         {
-            PlayerTableManager.instance.UpdatePlayerTableUI();
+            PlayerTableManager.Instance.UpdatePlayerTable();
         }
     }
 
     public void LoadPreloderOnOff(bool res)
     {
-        photonView.RPC(nameof(PreloderOnOff), RpcTarget.All, res);
+        if (GS.Instance.isLan)
+        {
+            PreloderOnOff(res);
+        }
+        else
+        {
+            photonView.RPC(nameof(PreloderOnOff), RpcTarget.All, res);
+
+        }
     }
 
     [PunRPC]
@@ -339,17 +435,52 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void CallLessPlayerCountRPC()
     {
-        photonView.RPC(nameof(LessPlayerCount), RpcTarget.MasterClient);
-        PhotonNetwork.SendAllOutgoingCommands(); // send it now
+        if (!GS.Instance.isLan)
+        {
+            photonView.RPC(nameof(LessPlayerCount), RpcTarget.MasterClient);
+            PhotonNetwork.SendAllOutgoingCommands(); // send it now
+        }
     }
+
+
     //When Fish is Die  and Exit frome game 
     [PunRPC]
     public void LessPlayerCount()
     {
         totalPlayers--;
-        if(PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient)
         {
-            FishermanController.Instence.CheckWorms();
+            if(FishermanController.Instance != null)
+                FishermanController.Instance.CheckWorms();
         }
     }
+
+    public void LessPlayerCount_Mirror()
+    {
+        totalPlayers--;
+
+        if (GS.Instance.isLan)
+        {
+            if(myFish.isFisherMan)
+            {
+                FishermanController.Instance.CheckWorms();
+            }
+        }
+        else
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                FishermanController.Instance.CheckWorms();
+            }
+        }
+    }
+
+    public void WinFish_Mirror()
+    {
+        for (int i = 0; i < allFishes.Count; i++)
+        {
+            allFishes[i].CallWinFishRPC();
+        }
+    }
+
 }

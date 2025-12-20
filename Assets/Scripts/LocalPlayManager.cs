@@ -1,22 +1,23 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LocalPlayManager : MonoBehaviour
 {
+    public Button backButton;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
+        BackManager.instance.RegisterScreen(backButton);
         
     }
 
     public void BackButton()
     {
+        BackManager.instance.UnregisterScreen();
         gameObject.SetActive(false);
     }
 }

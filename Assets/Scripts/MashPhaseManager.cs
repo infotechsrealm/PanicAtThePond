@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MashPhaseManager : MonoBehaviourPunCallbacks
 {
-    public static MashPhaseManager instance;
+    public static MashPhaseManager Instance;
 
    
 
@@ -15,22 +15,27 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
     public Text mashText;
 
     [Header("Settings")]
-    public float mashSpeed = 0.01f; 
-    public float decayRate = 0.002f;
+
+    public float mashTime = 10f;
 
     internal bool active = false;
 
     void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
+    private void Start()
+    {
+
+    }
 
     [PunRPC]
-    public void CallMashPhaseRPC()
+    public void CallMashPhaseRPC(float mashTimes)
     {
+        Debug.Log("CallMashPhaseRPC called with mashTimes: " + mashTimes);
+        mashTime = mashTimes;
         active = true;
-
         if (mashPanel != null)
         {
             mashPanel.SetActive(true);
@@ -45,15 +50,52 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsMasterClient)
         {
-            FishermanController.Instence.OnFightAnimation(true);
-            WormSpawner.instance.canSpawn = false;
-            JunkSpawner.instance.canSpawn = false;
-            FishermanController.Instence.isCanCast = false;
+            FishermanController.Instance.OnFightAnimation(true);
+            WormSpawner.Instance.canSpawn = false;
+            JunkSpawner.Instance.canSpawn = false;
+            FishermanController.Instance.isCanCast = false;
+        }
+    }
+
+    public void CallMashPhase_Mirror(float mashTimes)
+    {
+        Debug.Log("CallMashPhase_Mirror called with mashTimes: " + mashTimes);
+        mashTime = mashTimes;
+        if (GameManager.Instance.myFish.isFisherMan)
+        {
+
+            active = true;
+
+            if (mashPanel != null)
+            {
+                mashPanel.SetActive(true);
+            }
+
+            if (mashSlider != null)
+            {
+                mashSlider.value = 0f;
+            }
+
+            mashText.text = "MASH SPACE BAR!";
+
+            if (PhotonNetwork.IsMasterClient)
+            {
+                FishermanController.Instance.OnFightAnimation(true);
+                WormSpawner.Instance.canSpawn = false;
+                JunkSpawner.Instance.canSpawn = false;
+                FishermanController.Instance.isCanCast = false;
+            }
         }
     }
 
     public void StartMashPhase()
     {
+       float mashSpeed = Random.Range(30f,70f);
+        float mashTimes = 100 /  mashSpeed;
+        Debug.Log("CallMashPhaseRPC called with mashTimes: " + mashTimes);
+
+        mashTime = mashTimes;
+
         active = true;
 
         if (mashPanel != null)
@@ -68,52 +110,122 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
 
         mashText.text = "MASH SPACE BAR!";
 
-        if (PhotonNetwork.IsMasterClient)
+
+        if (PhotonNetwork.IsMasterClient || GameManager.Instance.myFish.isFisherMan)
         {
-            WormSpawner.instance.canSpawn = false;
-            JunkSpawner.instance.canSpawn = false;
-            FishermanController.Instence.isCanCast = false;
+         
+            FishermanController.Instance.isCanCast = false;
+            if (GS.Instance.isLan)
+            {
+                GameManager.Instance.myFish.fishController_Mirror.CallMashPhase(mashTimes);
+            }
         }
         else
         {
-            photonView.RPC(nameof(CallMashPhaseRPC), RpcTarget.MasterClient);
+            if (GS.Instance.isLan)
+            {
+                GameManager.Instance.myFish.fishController_Mirror.CallMashPhase(mashTimes);
+            }
+            else
+            {
+
+                photonView.RPC(nameof(CallMashPhaseRPC), RpcTarget.MasterClient, mashTimes);
+            }
         }
     }
 
 
     void Update()
     {
+
         if (!active) return;
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            mashSlider.value += mashSpeed * Time.deltaTime * 60;
+            mashSlider.value += mashTime;
         }
 
         // Check end conditions
-        if (mashSlider.value >= 1f)
+        if (mashSlider.value >= 100f)
         {
-
-            if (PhotonNetwork.IsMasterClient)
+            if (GS.Instance.isLan)
             {
-                photonView.RPC(nameof(EndMashPhase), RpcTarget.All,true);
+                if(GameManager.Instance.myFish.isFisherMan)
+                {
+                    EndMashPhase_Mirror(true);
+                }
+                else
+                {
+                    EndMashPhase_Mirror(false);
+                }
+
+                GameManager.Instance.myFish.fishController_Mirror.CallDisableMashPhase();
             }
             else
             {
-                    photonView.RPC(nameof(EndMashPhase), RpcTarget.All,false);
-
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    photonView.RPC(nameof(EndMashPhase), RpcTarget.All, true);
+                }
+                else
+                {
+                    photonView.RPC(nameof(EndMashPhase), RpcTarget.All, false);
+                }
             }
         }
     }
 
 
+    public void DisableMashPhase()
+    {
+        if (mashPanel != null) mashPanel.SetActive(false);
+        FindCatchadFish_Mirror();
+    }
+
+    public void EndMashPhase_Mirror(bool fisherManIsWin)
+    {
+        FishermanController fishermanController = FishermanController.Instance;
+
+        if(GameManager.Instance.isFisherMan)
+        {
+            fishermanController.isCanCast = true;
+        }
+
+        if (fisherManIsWin)
+        {
+            if (fishermanController != null)
+            {
+                fishermanController.catchadFish++;
+            }
+
+            fishermanController.OnFightAnimation(false);
+
+        }
+        else
+        {
+            if (!GameManager.Instance.myFish.isFisherMan)
+            {
+                HungerSystem.Instance.AddHunger(75f);
+                HungerSystem.Instance.canDecrease =  GameManager.Instance.myFish.canMove = true;
+                GameManager.Instance.myFish.animator.SetBool("isFight", false);
+                GameManager.Instance.myFish.catchadeFish = false;
+                Debug.Log("Fisherman won the mash phase! Caught fish.");
+            }
+
+            GameManager.Instance.myFish.fishController_Mirror.ReturnRoadOfHook();
+
+        }
+
+        active = false;
+
+    }
 
     [PunRPC]
     public void EndMashPhase(bool fisherManIsWin)
     {
-        WormSpawner.instance.canSpawn = true;
-        JunkSpawner.instance.canSpawn = true;
-        FishermanController fishermanController =  FishermanController.Instence;
+        WormSpawner.Instance.canSpawn = true;
+        JunkSpawner.Instance.canSpawn = true;
+        FishermanController fishermanController =  FishermanController.Instance;
         fishermanController.isCanCast = true; 
         if (mashPanel != null) mashPanel.SetActive(false);
 
@@ -131,16 +243,15 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
         }
         else
         {
-
-            if (GameManager.instance.myFish)
+            if (GameManager.Instance.myFish)
             {
-                HungerSystem.instance.AddHunger(75f);
-                GameManager.instance.myFish.canMove = true;
-                GameManager.instance.myFish.animator.SetBool("isFight", false);
-                GameManager.instance.myFish.catchadeFish = false;
+                GameManager.Instance.myFish.catchadeFish = false;
+                HungerSystem.Instance.AddHunger(75f);
+                GameManager.Instance.myFish.canMove = true;
+                GameManager.Instance.myFish.animator.SetBool("isFight", false);
                 Debug.Log("Fisherman won the mash phase! Caught fish.");
             }
-            Hook.instance.CallRpcToReturnRod();
+            Hook.Instance.CallRpcToReturnRod();
         }
 
         active = false;
@@ -150,7 +261,7 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void FindCatchadFish()
     {
-        FishController fish = GameManager.instance.myFish;
+        FishController fish = GameManager.Instance.myFish;
         if (fish != null)
         {
             if (fish.catchadeFish)
@@ -160,6 +271,20 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
         }
     }
 
-   
+    public void FindCatchadFish_Mirror()
+    {
+        FishController fish = GameManager.Instance.myFish;
+        if (fish != null)
+        {
+            if (fish.catchadeFish)
+            {
+                Debug.Log("Im cetchade fish");
+                fish.PutFishInHook();
+            }
+        }
+    }
+
+
+
 
 }

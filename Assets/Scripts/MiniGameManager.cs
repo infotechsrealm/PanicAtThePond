@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MiniGameManager : MonoBehaviourPunCallbacks
 {
-    public static MiniGameManager instance;
+    public static MiniGameManager Instance;
 
     public Text miniGameText;      // UI text to show sequence
     public Text timerText;         // UI text to show countdown
@@ -16,18 +16,20 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
     private int progress;
     internal bool active = false;
 
-    private float timeLimit = 5f;
+    private float timeLimit = 3f;
     private float timeRemaining;
 
 
     void Awake()
     {
-        instance = this;
+        Instance = this;
+
+        timeRemaining = Random.Range(0.5f, 1.5f);
     }
 
     public void StartMiniGame()
     {
-        FishermanController.Instence.isCasting = HungerSystem.instance.canDecrease =  FishController.Instence.canMove = false;
+        FishermanController.Instance.isCasting = HungerSystem.Instance.canDecrease =  FishController.Instance.canMove = false;
 
         active = true;
         progress = 0;
@@ -49,28 +51,7 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
         StartCoroutine(UpdateTimer());
     }
 
-    /*void Update()
-    {
-        if (!active) return;
-
-        if (Keyboard.current.anyKey.wasPressedThisFrame)
-        {
-            if (Input.GetKeyDown(currentSequence[progress].ToString().ToLower()))
-            {
-                progress++;
-                UpdateMiniGameText(); // refresh UI colors
-
-                if (progress >= currentSequence.Length)
-                {
-                    Success();
-                }
-            }
-            else
-            {
-                Fail();
-            }
-        }
-    }*/
+ 
 
     void Update()
     {
@@ -133,19 +114,26 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Mini-game Success! Fish escaped with worm!");
 
-        HungerSystem.instance.canDecrease = FishController.Instence.canMove = true;
-        HungerSystem.instance.AddHunger(75f);
-        FishController.Instence.animator.SetBool("isFight", false);
+        HungerSystem.Instance.canDecrease = GameManager.Instance.myFish.canMove = true;
+        HungerSystem.Instance.AddHunger(75f);
+        GameManager.Instance.myFish.animator.SetBool("isFight", false);
         active = false;
         miniGamePanel.transform.localScale = Vector3.zero;
-        if (GameManager.instance.myFish != null)
+        if (GameManager.Instance.myFish != null)
         {
-            GameManager.instance.myFish.catchadeFish = false;
+            GameManager.Instance.myFish.catchadeFish = false;
         }
-        Hook.instance.CallRpcToReturnRod();
+        if(GS.Instance.isLan)
+        {
+            GameManager.Instance.myFish.fishController_Mirror.ReturnRoadOfHook();
+        }
+        else
+        {
+            Hook.Instance.CallRpcToReturnRod();
+        }
         if (timerText != null) timerText.text = "";
     }
-        
+
     void Fail()
     {
         Debug.Log("Mini-game Failed! Fisherman caught the fish!");
@@ -153,21 +141,14 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
         active = false;
         miniGamePanel.transform.localScale = Vector3.zero;
 
-        if (!PhotonNetwork.IsMasterClient)
+
+        if (!PhotonNetwork.IsMasterClient || GS.Instance.isLan)
         {
-            MashPhaseManager.instance.StartMashPhase();
+            MashPhaseManager.Instance.StartMashPhase();
         }
+
+
 
         if (timerText != null) timerText.text = "";
-    }
-
-    [PunRPC]
-    void DestroyWormRPC(int viewID)
-    {
-        PhotonView target = PhotonView.Find(viewID);
-        if (target != null)
-        {
-            PhotonNetwork.Destroy(target.gameObject);
-        }
     }
 }

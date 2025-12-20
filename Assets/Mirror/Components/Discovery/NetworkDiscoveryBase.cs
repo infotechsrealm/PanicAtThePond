@@ -34,7 +34,7 @@ namespace Mirror.Discovery
 
         [SerializeField]
         [Tooltip("The UDP port the server will listen for multi-cast messages")]
-        protected int serverBroadcastListenPort = 47777;
+        public int serverBroadcastListenPort = 47777;
 
         [SerializeField]
         [Tooltip("Time in seconds between multi-cast messages")]
@@ -52,7 +52,18 @@ namespace Mirror.Discovery
         [HideInInspector]
         public long secretHandshake;
 
+
         public long ServerId { get; private set; }
+        public string roomName { get;  set; }
+        
+        public string roomPassword { get;  set; }
+        public string playerName { get;  set; }
+
+        public int serverBroadcastListenPortPortValue { get; set; }
+
+        public int maxPlayers { get;  set; }
+
+
 
         protected UdpClient serverUdpClient;
         protected UdpClient clientUdpClient;

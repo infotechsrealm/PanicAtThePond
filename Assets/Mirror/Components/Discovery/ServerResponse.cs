@@ -13,6 +13,14 @@ namespace Mirror.Discovery
         public Uri uri;
 
         // Prevent duplicate server appearance when a connection can be made via LAN on multiple NICs
+        // Set Manully data 
         public long serverId;
+        public string roomName;
+        public string roomPassword;
+        public string playerName;
+        public int serverBroadcastListenPortPortValue;
+        public int connectedPlayers;
+        public int maxPlayers;
     }
+
 }

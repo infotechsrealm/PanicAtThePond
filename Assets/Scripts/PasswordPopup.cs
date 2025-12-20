@@ -1,4 +1,4 @@
-using Photon.Pun;
+﻿using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,21 +7,19 @@ public class PasswordPopup : MonoBehaviour
 {
     public Text passwordInput, passwordInputError;
     private RoomInfo targetRoom;
-    private string correctPassword;
+    public string correctPassword;
 
-
-    public static PasswordPopup instence;
+    public Button backButton;
+    public static PasswordPopup Instance;
     private void Awake()
     {
-        instence = this;
+        Instance = this;
     }
 
     private void Start()
     {
-        if (Preloader.instance != null)
-        {
-            Destroy(Preloader.instance.gameObject);
-        }
+        GS.Instance.DestroyPreloder();
+        BackManager.instance.RegisterScreen(backButton);
     }
     public void Init(RoomInfo room, string correctPwd)
     {
@@ -31,14 +29,21 @@ public class PasswordPopup : MonoBehaviour
 
     public void OnJoinClicked()
     {
-        if (passwordInput.text == correctPassword)
+        if (passwordInput.text.ToString().Trim() == correctPassword.Trim())
         {
             passwordInputError.text = "";
-
             Debug.Log("Password correct! Joining room...");
-            PhotonNetwork.JoinRoom(targetRoom.Name);
-            if (Preloader.instance == null)
-                Instantiate(GS.Instance.preloder, DashManager.instance.prefabPanret.transform);
+            GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
+            if(GS.Instance.isLan)
+            {
+                LANDiscoveryMenu.Instance.JoinRoom();
+            }
+            else
+            {
+                PhotonNetwork.JoinRoom(targetRoom.Name);
+            }
+            gameObject.SetActive(false);
+           // DestroyImmediate(this.gameObject);
         }
         else
         {
@@ -47,13 +52,17 @@ public class PasswordPopup : MonoBehaviour
             // Optionally show error text on UI
         }
     }
+    
 
     public void OnCancelClicked()
     {
-        if (Preloader.instance != null)
-        {
-            Destroy(Preloader.instance.gameObject);
-        }
+        GS.Instance.DestroyPreloder();
+
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        BackManager.instance.UnregisterScreen();
     }
 }

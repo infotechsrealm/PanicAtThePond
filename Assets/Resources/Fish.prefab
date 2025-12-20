@@ -173,13 +173,17 @@ GameObject:
   - component: {fileID: 232540107510109143}
   - component: {fileID: -4531970648574346336}
   - component: {fileID: 7943789805972749232}
-  - component: {fileID: 4218648480345521623}
   - component: {fileID: -6325267276595778038}
   - component: {fileID: 250797804069210921}
-  - component: {fileID: 2751009177193565641}
   - component: {fileID: 726307979287378186}
+  - component: {fileID: 2751009177193565641}
+  - component: {fileID: 4218648480345521623}
   - component: {fileID: -2529716380870570658}
-  - component: {fileID: -3955946445737388570}
+  - component: {fileID: 3090848750568643894}
+  - component: {fileID: 2305398131311501469}
+  - component: {fileID: -7088840247176330678}
+  - component: {fileID: 899038048244033000}
+  - component: {fileID: 2241731779319727357}
   m_Layer: 6
   m_Name: Fish
   m_TagString: Fish
@@ -224,6 +228,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -245,6 +251,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
@@ -305,18 +312,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.29, y: 0.35}
-      - {x: -0.22999999, y: 0.35}
-      - {x: -0.37, y: 0.29}
-      - {x: -0.48999998, y: 0.11}
-      - {x: -0.55, y: 0.049999997}
-      - {x: -0.55, y: -0.13}
-      - {x: -0.21, y: -0.35}
-      - {x: 0.17, y: -0.35}
-      - {x: 0.45, y: -0.31}
-      - {x: 0.55, y: -0.25}
-      - {x: 0.55, y: 0.21}
-      - {x: 0.53, y: 0.22999999}
+    - - {x: -0.5, y: -0.06}
+      - {x: -0.4, y: 0}
+      - {x: -0.4, y: 0.08}
+      - {x: -0.5, y: 0.08}
   m_UseDelaunayMesh: 0
 --- !u!114 &-4531970648574346336
 MonoBehaviour:
@@ -337,8 +336,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 4218648480345521623}
   - {fileID: 2751009177193565641}
+  - {fileID: 4218648480345521623}
   - {fileID: -2529716380870570658}
   sceneViewId: 0
   InstantiationId: 0
@@ -356,11 +355,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   photonTransformViewClassic: {fileID: 4218648480345521623}
+  fishController_Mirror: {fileID: 3090848750568643894}
+  fishermanController: {fileID: 0}
   inputAction: {fileID: -948734162650360508, guid: 1a1049bb92f8b934dbc3f85e2bba46cf, type: 3}
   hunger: 100
   speed: 2.5
   minBounds: {x: -8, y: -4}
-  maxBounds: {x: 8, y: 1}
+  maxBounds: {x: 8, y: 0}
   floatSpeed: 2
   junkHolder: {fileID: 4626417357385204189}
   myPlayerID: 0
@@ -369,39 +370,11 @@ MonoBehaviour:
   fishEatWarmSound: {fileID: 8300000, guid: 0d5c584fe48623f4eb6234f1b05d42d2, type: 3}
   fishCameToSurfaceSound: {fileID: 8300000, guid: aef8c276d106a9540b2d95b29573d474, type: 3}
   animator: {fileID: 250797804069210921}
---- !u!114 &4218648480345521623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7780540918564372881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PositionModel:
-    SynchronizeEnabled: 1
-    TeleportEnabled: 1
-    TeleportIfDistanceGreaterThan: 1
-    InterpolateOption: 2
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 1
-    ExtrapolateOption: 2
-    ExtrapolateSpeed: 1
-    ExtrapolateIncludingRoundTripTime: 1
-    ExtrapolateNumberOfStoredPositions: 1
-  m_RotationModel:
-    SynchronizeEnabled: 1
-    InterpolateOption: 0
-    InterpolateRotateTowardsSpeed: 180
-    InterpolateLerpSpeed: 5
-  m_ScaleModel:
-    SynchronizeEnabled: 1
-    InterpolateOption: 0
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 0
+  canMove: 1
+  isDead: 0
+  mirrorIdentity: {fileID: -7088840247176330678}
+  bubble_Junk: {fileID: 8751770646724715851, guid: f63fe0bb7c3c5904389fd273e27b07a0, type: 3}
+  bubblle_Fish: {fileID: 6865997771449104041, guid: 71fa858b2360e4047b913ed2c59da37b, type: 3}
 --- !u!50 &-6325267276595778038
 Rigidbody2D:
   serializedVersion: 5
@@ -451,39 +424,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2751009177193565641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7780540918564372881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 4
-    SynchronizeType: 2
-    Name: isEat
-  - Type: 4
-    SynchronizeType: 2
-    Name: isFight
-  - Type: 4
-    SynchronizeType: 2
-    Name: isJoyful
-  - Type: 4
-    SynchronizeType: 2
-    Name: isMove
-  - Type: 4
-    SynchronizeType: 2
-    Name: isDead
-  m_SynchronizeLayers:
-  - SynchronizeType: 0
-    LayerIndex: 0
 --- !u!82 &726307979287378186
 AudioSource:
   m_ObjectHideFlags: 0
@@ -581,6 +521,72 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2751009177193565641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780540918564372881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 2
+    Name: isEat
+  - Type: 4
+    SynchronizeType: 2
+    Name: isFight
+  - Type: 4
+    SynchronizeType: 2
+    Name: isJoyful
+  - Type: 4
+    SynchronizeType: 2
+    Name: isMove
+  - Type: 4
+    SynchronizeType: 2
+    Name: isDead
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
+--- !u!114 &4218648480345521623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780540918564372881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PositionModel:
+    SynchronizeEnabled: 1
+    TeleportEnabled: 1
+    TeleportIfDistanceGreaterThan: 1
+    InterpolateOption: 2
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 1
+    ExtrapolateOption: 2
+    ExtrapolateSpeed: 1
+    ExtrapolateIncludingRoundTripTime: 1
+    ExtrapolateNumberOfStoredPositions: 1
+  m_RotationModel:
+    SynchronizeEnabled: 1
+    InterpolateOption: 0
+    InterpolateRotateTowardsSpeed: 180
+    InterpolateLerpSpeed: 5
+  m_ScaleModel:
+    SynchronizeEnabled: 1
+    InterpolateOption: 0
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 0
 --- !u!114 &-2529716380870570658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,7 +603,27 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 0
---- !u!114 &-3955946445737388570
+--- !u!114 &3090848750568643894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780540918564372881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64910c038a99f1a45b32de0df5641044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  moveAction: {fileID: 0}
+  fishController: {fileID: 7943789805972749232}
+  wormPrefab: {fileID: 7213787239234744724, guid: ed9be4f8a38e17c45abcef0b0b7bb870, type: 3}
+  allHookWorms: []
+  fishermanPrefab: {fileID: 4221548032391945581, guid: b839bcb9e6837534c89107afe33ac208, type: 3}
+--- !u!114 &2305398131311501469
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -608,8 +634,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 1a1049bb92f8b934dbc3f85e2bba46cf, type: 3}
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: 0}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -627,3 +653,70 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &-7088840247176330678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780540918564372881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mirror::Mirror.NetworkIdentity
+  sceneId: 0
+  _assetId: 186000227
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0
+--- !u!114 &899038048244033000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780540918564372881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f63ea2e505fd484193fb31c5c55ca73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mirror.Components::Mirror.NetworkTransformHybrid
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0.033333335
+  baselineRate: 1
+  unreliableRedundancy: 0
+  baselineIsDelta: 1
+  debugLog: 0
+  useFixedUpdate: 0
+  target: {fileID: 7471623762238473394}
+  bufferSizeLimit: 64
+  sendRate: 30
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 1
+  debugDraw: 0
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+--- !u!114 &2241731779319727357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780540918564372881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mirror.Components::Mirror.NetworkAnimator
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  clientAuthority: 1
+  animator: {fileID: 250797804069210921}

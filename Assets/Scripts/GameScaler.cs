@@ -5,28 +5,45 @@ public class GameScaler : MonoBehaviour
 {
     void Start()
     {
-        ScaleBackground();
+        With();
+        Height();
     }
 
-    void ScaleBackground()
+   
+
+    void With()
+    {
+            SpriteRenderer sr = GetComponent<SpriteRenderer>();
+            if (sr == null) return;
+
+            // Sprite size
+            float spriteWidth = sr.bounds.size.x;
+
+            // Camera width (world space me)
+            float worldHeight = Camera.main.orthographicSize * 2f;
+            float worldWidth = worldHeight * Screen.width / Screen.height;
+
+            // Scale for width
+            float scale = worldWidth / spriteWidth;
+
+            transform.localScale = new Vector3(scale, scale, 1);
+    }
+
+    void Height()
     {
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (sr == null) return;
 
-        // Camera ke height aur width
-        float screenHeight = Camera.main.orthographicSize * 2f;
-        float screenWidth = screenHeight * Screen.width / Screen.height;
+        // Sprite size
+        float spriteHeight = sr.bounds.size.y;
 
-        // Sprite ke size
-        float spriteHeight = sr.sprite.bounds.size.y;
-        float spriteWidth = sr.sprite.bounds.size.x;
+        // Camera height (world units)
+        float worldHeight = Camera.main.orthographicSize * 2f;
 
-        // Scale calculate karna
-        Vector3 scale = transform.localScale;
-        scale.x = screenWidth / spriteWidth;
-        scale.y = screenHeight / spriteHeight;
+        // Scale for height
+        float scale = worldHeight / spriteHeight;
 
-        transform.localScale = scale;
+        transform.localScale = new Vector3(scale, scale, 1);
     }
 }
 
