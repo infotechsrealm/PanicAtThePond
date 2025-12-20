@@ -4,6 +4,7 @@ using Photon.Realtime;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CoustomeRoomManager : MonoBehaviourPunCallbacks
@@ -43,6 +44,103 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     private void Awake()
     {
         Instance = this;
+        // Subscribe to scene loaded event to handle returning to lobby
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDestroy()
+    {
+        // Unsubscribe from scene loaded event
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // When Dash scene loads, check if we're returning from a game
+        if (scene.name == "Dash")
+        {
+            // Small delay to ensure network state is ready
+            Invoke(nameof(ActivateLobbyIfInRoom), 0.1f);
+        }
+    }
+
+    private void ActivateLobbyIfInRoom()
+    {
+        Debug.Log("=== ActivateLobbyIfInRoom called ===");
+        Debug.Log($"isLan: {GS.Instance.isLan}");
+        Debug.Log($"InRoom: {PhotonNetwork.InRoom}");
+        Debug.Log($"IsConnected: {PhotonNetwork.IsConnected}");
+        Debug.Log($"IsMasterClient: {PhotonNetwork.IsMasterClient}");
+        
+        if (GS.Instance.isLan)
+        {
+            int playerCount = NetworkManager.singleton.numPlayers;
+            Debug.Log($"LAN Players: {playerCount}");
+
+            if (playerCount > 1)
+            {
+                if (GS.Instance.IsMirrorMasterClient)
+                {
+                    createJoinManager.hostLobby.gameObject.SetActive(true);
+                    createJoinManager.createPanel.gameObject.SetActive(true);
+                    Debug.Log("✅ Host Lobby activated (LAN)");
+                    startButton.interactable = true;
+                }
+                else
+                {
+                    createJoinManager.clientLobby.gameObject.SetActive(true);
+                    createJoinManager.JoinPanel.gameObject.SetActive(true);
+                    Debug.Log("✅ Client Lobby activated (LAN)");
+                }
+                createJoinManager.createAndJoinButtons.SetActive(true);
+            }
+            else
+            {
+                Debug.LogWarning($"⚠️ Not enough players in LAN ({playerCount})");
+            }
+        }
+        else
+        {
+            if (PhotonNetwork.InRoom)
+            {
+                int playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
+                Debug.Log($"✅ In Room - Room: {PhotonNetwork.CurrentRoom.Name}, PlayerCount: {playerCount}");
+                
+                if (playerCount > 1)
+                {
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        createJoinManager.hostLobby.gameObject.SetActive(true);
+                        createJoinManager.createPanel.gameObject.SetActive(true);
+                        Debug.Log("✅ Host Lobby activated - returning from game");
+                        startButton.interactable = true;
+                    }
+                    else
+                    {
+                        createJoinManager.clientLobby.gameObject.SetActive(true);
+                        createJoinManager.JoinPanel.gameObject.SetActive(true);
+                        Debug.Log("✅ Client Lobby activated - returning from game");
+                    }
+                    createJoinManager.createAndJoinButtons.SetActive(true);
+                }
+                else
+                {
+                    Debug.LogWarning($"⚠️ In room but only {playerCount} player(s)");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ Not in room - Cannot activate lobby");
+                if (PhotonNetwork.IsConnected)
+                {
+                    Debug.Log("Connected but not in room - Player may have been disconnected");
+                }
+                else
+                {
+                    Debug.LogWarning("Not connected - Player was disconnected");
+                }
+            }
+        }
     }
 
     private void Start()
@@ -52,51 +150,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
         PhotonNetwork.AutomaticallySyncScene = true;
 
-        if (GS.Instance.isLan)
-        {
-            int playerCount = NetworkManager.singleton.numPlayers;
-            Debug.Log("Players: " + playerCount);
-
-            if (playerCount > 1)
-            {
-                if (GS.Instance.IsMirrorMasterClient)
-                {
-                    createJoinManager.hostLobby.gameObject.SetActive(true);
-                    createJoinManager.createPanel.gameObject.SetActive(true);
-                    Debug.Log("start Button Enable");
-                    startButton.interactable = true;
-                }
-                else
-                {
-                    createJoinManager.clientLobby.gameObject.SetActive(true);
-                    createJoinManager.JoinPanel.gameObject.SetActive(true);
-                }
-                createJoinManager.createAndJoinButtons.SetActive(true);
-            }
-        }
-        else
-        {
-
-            if (PhotonNetwork.InRoom)
-            {
-                if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
-                {
-                    if (PhotonNetwork.IsMasterClient)
-                    {
-                        createJoinManager.hostLobby.gameObject.SetActive(true);
-                        createJoinManager.createPanel.gameObject.SetActive(true);
-                        Debug.Log("start Button Enable");
-                        startButton.interactable = true;
-                    }
-                    else
-                    {
-                        createJoinManager.clientLobby.gameObject.SetActive(true);
-                        createJoinManager.JoinPanel.gameObject.SetActive(true);
-                    }
-                    createJoinManager.createAndJoinButtons.SetActive(true);
-                }
-            }
-        }
+        // Activate lobby if players are already in room (e.g., when returning from game)
+        ActivateLobbyIfInRoom();
     }
 
     // ------------------ Create Custome Room ------------------

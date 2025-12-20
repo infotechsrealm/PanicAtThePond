@@ -220,26 +220,82 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             gameOverText.text = message;
         }
+        
+        // Update button visibility when game over panel is shown
+        if (GameOver.Instance != null)
+        {
+            GameOver.Instance.UpdateButtonVisibility();
+        }
     }
 
+    // Static flag to prevent RestartGame() from disconnecting when Lobby button is pressed
+    private static bool isLobbyButtonPressed = false;
+    
+    // Public method to set the flag (called from GameOver.Lobby())
+    public static void SetLobbyButtonPressed(bool value)
+    {
+        isLobbyButtonPressed = value;
+    }
+    
     // Restart Button function
+    // NOTE: This should NOT be called when Lobby button is pressed
+    // The Lobby button should call GameOver.Lobby() instead
     public void RestartGame()
     {
+        Debug.Log("=== RestartGame() CALLED ===");
+        Debug.Log($"Stack trace: {System.Environment.StackTrace}");
+        Debug.Log($"isLobbyButtonPressed flag: {isLobbyButtonPressed}");
+        
+        // Check if this is being called from the Lobby button (which should not disconnect)
+        // The Lobby() function sets a flag before calling, so we can detect it here
+        if (isLobbyButtonPressed)
+        {
+            Debug.LogWarning("⚠️ RestartGame() called but Lobby button was pressed - Skipping disconnect!");
+            Debug.LogWarning("⚠️ Lobby button should handle scene loading without disconnecting");
+            isLobbyButtonPressed = false; // Reset flag
+            return; // Don't disconnect - let the Lobby button handle it
+        }
+        
+        // Check if this is being called from the Lobby button via stack trace
+        // If GameOver.Instance exists and we're in Play scene, this might be from Lobby button
+        if (GameOver.Instance != null && SceneManager.GetActiveScene().name == "Play")
+        {
+            // Check the stack trace to see if it's from a button click
+            string stackTrace = System.Environment.StackTrace;
+            if (stackTrace.Contains("Button.Press") || stackTrace.Contains("Button.OnPointerClick"))
+            {
+                Debug.LogWarning("⚠️ RestartGame() called from button click - This might be the Lobby button!");
+                Debug.LogWarning("⚠️ Lobby button should call GameOver.Lobby() instead of RestartGame()");
+                Debug.LogWarning("⚠️ Skipping disconnect - Lobby button should handle this differently");
+                // Don't disconnect - let the Lobby button handle it
+                return;
+            }
+        }
+        
         StartCoroutine(RestartAfterDisconnect());
     }
 
     IEnumerator RestartAfterDisconnect()
     {
+        Debug.Log("=== RestartAfterDisconnect() STARTED ===");
+        Debug.Log($"isLan: {GS.Instance.isLan}");
+        Debug.Log($"InRoom: {PhotonNetwork.InRoom}");
+        Debug.Log($"IsConnected: {PhotonNetwork.IsConnected}");
+        
         if (GS.Instance.isLan)
         {
+            Debug.Log("LAN Mode - ForceDisconnect()");
             ForceDisconnect();
         }
         else
         {
+            Debug.Log("Photon Mode - Disconnecting...");
             PhotonNetwork.Disconnect();
             // wait jab tak disconnect complete na ho jaye
             yield return new WaitUntil(() => PhotonNetwork.IsConnected == false);
+            Debug.Log("Disconnected from Photon");
         }
+        Debug.Log("Loading Dash scene...");
         SceneManager.LoadScene("Dash");
     }
 
@@ -324,7 +380,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             if (GameOver.Instance != null)
             {
-                GameOver.Instance.playAgainBtn.gameObject.SetActive(true);
+                // Update button visibility properly (will show buttons for new master client)
+                GameOver.Instance.UpdateButtonVisibility();
             }
 
             if (goldWormEatByFish)
