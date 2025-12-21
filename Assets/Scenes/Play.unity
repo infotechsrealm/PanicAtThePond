@@ -1793,9 +1793,9 @@ MonoBehaviour:
   castingMeter: {fileID: 832634266}
   gameOverPanel: {fileID: 414805244}
   gameOverText: {fileID: 371206745}
-  fullBucket: {fileID: 21300000, guid: 1d35a7618ad31a24db75b9b2eec03e91, type: 3}
-  halfBucket: {fileID: 21300000, guid: 9bd2c25f1676d2f49b5ae7467f03dfed, type: 3}
-  emptyBucket: {fileID: 21300000, guid: 83620530289cb8a49857ec686bcd235a, type: 3}
+  fullBucket: {fileID: -5516661829738676703, guid: 1d35a7618ad31a24db75b9b2eec03e91, type: 3}
+  halfBucket: {fileID: 3686234044547366007, guid: 9bd2c25f1676d2f49b5ae7467f03dfed, type: 3}
+  emptyBucket: {fileID: 3943405768141604056, guid: 83620530289cb8a49857ec686bcd235a, type: 3}
   bucketImage: {fileID: 872716505}
   wormCountText: {fileID: 219101382}
   hungerBar: {fileID: 1246956972}
@@ -2070,7 +2070,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 83620530289cb8a49857ec686bcd235a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4ca8e263359d5054594ef1fb9715ccc1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
