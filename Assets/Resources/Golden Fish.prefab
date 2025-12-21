@@ -150,6 +150,9 @@ MonoBehaviour:
   animator: {fileID: 3995746989553086495}
   targetReachDistance: 0.4
   flipDeadZone: 0.15
+  directionSmoothTime: 0.15
+  pushSmoothTime: 0.1
+  sharkUpdateInterval: 0.2
 --- !u!114 &3755046863711763629
 MonoBehaviour:
   m_ObjectHideFlags: 0
