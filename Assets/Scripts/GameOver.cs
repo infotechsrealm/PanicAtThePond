@@ -14,7 +14,8 @@ public class GameOver : MonoBehaviourPunCallbacks
     {
         Instance = this;
         
-        // Check if this player is the host (master client)
+        // Check if this player is the original host (not current master client)
+        // This ensures only the original host sees buttons, even if master client changed
         bool isHost = false;
         if (GS.Instance.isLan)
         {
@@ -22,10 +23,12 @@ public class GameOver : MonoBehaviourPunCallbacks
         }
         else
         {
-            isHost = PhotonNetwork.IsMasterClient;
+            // Use GS.Instance.isMasterClient which tracks the original host
+            // This prevents fisherman from seeing buttons when they win
+            isHost = GS.Instance.isMasterClient;
         }
         
-        // Show buttons only for host, show waiting text for clients
+        // Show buttons only for original host, show waiting text for clients
         if (isHost)
         {
             playAgainBtn.gameObject.SetActive(true);
@@ -73,7 +76,8 @@ public class GameOver : MonoBehaviourPunCallbacks
     // Method to update button visibility based on host status
     public void UpdateButtonVisibility()
     {
-        // Check if this player is the host (master client)
+        // Check if this player is the original host (not current master client)
+        // This ensures only the original host sees buttons, even if master client changed
         bool isHost = false;
         if (GS.Instance.isLan)
         {
@@ -81,10 +85,12 @@ public class GameOver : MonoBehaviourPunCallbacks
         }
         else
         {
-            isHost = PhotonNetwork.IsMasterClient;
+            // Use GS.Instance.isMasterClient which tracks the original host
+            // This prevents fisherman from seeing buttons when they win
+            isHost = GS.Instance.isMasterClient;
         }
         
-        // Show buttons only for host, show waiting text for clients
+        // Show buttons only for original host, show waiting text for clients
         if (isHost)
         {
             playAgainBtn.gameObject.SetActive(true);
@@ -108,8 +114,16 @@ public class GameOver : MonoBehaviourPunCallbacks
     {
         Debug.Log("=== PLAY AGAIN BUTTON CLICKED ===");
         Debug.Log($"IsMasterClient: {PhotonNetwork.IsMasterClient}");
+        Debug.Log($"isMasterClient (original): {GS.Instance.isMasterClient}");
         Debug.Log($"InRoom: {PhotonNetwork.InRoom}");
         Debug.Log($"IsConnected: {PhotonNetwork.IsConnected}");
+        
+        // Additional safeguard: Only original host should be able to click this button
+        if (!GS.Instance.isLan && !GS.Instance.isMasterClient)
+        {
+            Debug.LogWarning("⚠️ Play Again button clicked but not original host - This should not happen!");
+            return;
+        }
         
         // Load Play scene for all players
         if (GS.Instance.isLan)
@@ -130,7 +144,8 @@ public class GameOver : MonoBehaviourPunCallbacks
         {
             Debug.Log("Photon Mode - Using LoadLevel to load Play");
             // For Photon: Use LoadLevel to sync scene for all players
-            if (PhotonNetwork.IsMasterClient)
+            // Check both original host and current master client (master client may have been restored)
+            if (GS.Instance.isMasterClient && PhotonNetwork.IsMasterClient)
             {
                 if (PhotonNetwork.InRoom)
                 {
@@ -144,7 +159,7 @@ public class GameOver : MonoBehaviourPunCallbacks
             }
             else
             {
-                Debug.LogWarning("⚠️ Play Again button clicked but not master client");
+                Debug.LogWarning("⚠️ Play Again button clicked but not master client or original host");
             }
         }
     }
@@ -153,10 +168,18 @@ public class GameOver : MonoBehaviourPunCallbacks
     {
         Debug.Log("=== LOBBY BUTTON CLICKED ===");
         Debug.Log($"IsMasterClient: {PhotonNetwork.IsMasterClient}");
+        Debug.Log($"isMasterClient (original): {GS.Instance.isMasterClient}");
         Debug.Log($"InRoom: {PhotonNetwork.InRoom}");
         Debug.Log($"IsConnected: {PhotonNetwork.IsConnected}");
         Debug.Log($"CurrentRoom: {(PhotonNetwork.CurrentRoom != null ? PhotonNetwork.CurrentRoom.Name : "null")}");
         Debug.Log($"PlayerCount: {(PhotonNetwork.CurrentRoom != null ? PhotonNetwork.CurrentRoom.PlayerCount.ToString() : "N/A")}");
+        
+        // Additional safeguard: Only original host should be able to click this button
+        if (!GS.Instance.isLan && !GS.Instance.isMasterClient)
+        {
+            Debug.LogWarning("⚠️ Lobby button clicked but not original host - This should not happen!");
+            return;
+        }
         
         // CRITICAL: Set flag to prevent RestartGame() from disconnecting
         // The Unity scene's persistent listener may trigger RestartGame() which starts disconnecting
@@ -207,7 +230,8 @@ public class GameOver : MonoBehaviourPunCallbacks
             
             Debug.Log($"Room state check - InRoom: {inRoom}, HasRoomInfo: {hasRoomInfo}, IsConnected: {isConnected}");
             
-            if (PhotonNetwork.IsMasterClient)
+            // Check both original host and current master client (master client may have been restored)
+            if (GS.Instance.isMasterClient && PhotonNetwork.IsMasterClient)
             {
                 // If we have room info and are connected, we can still load the scene and sync to other players
                 // Even if InRoom is false due to disconnection in progress, CurrentRoom might still be valid
@@ -243,7 +267,7 @@ public class GameOver : MonoBehaviourPunCallbacks
             }
             else
             {
-                Debug.LogWarning("⚠️ Lobby button clicked but not master client - Only master can load scene");
+                Debug.LogWarning("⚠️ Lobby button clicked but not master client or original host - Only master can load scene");
             }
         }
         
