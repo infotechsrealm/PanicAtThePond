@@ -90,6 +90,8 @@ MonoBehaviour:
   - SetVisibilityPhoton
   - CallRpcFromClientSide
   - SetFishAsFishermanRPC
+  - ResetGameState_RPC
+  - ReloadScene_RPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
