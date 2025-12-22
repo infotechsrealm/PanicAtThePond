@@ -8,15 +8,15 @@ using System.Linq;
 public class GoldenFishAI : MonoBehaviourPunCallbacks
 {
     [Header("Movement Settings")]
-    public float minSpeed = 1.5f;
-    public float maxSpeed = 2.6f;   // 🔽 reduced max speed
-    public float speedSmooth = 0.08f;
+    public float minSpeed = 3.5f;  // 🔼 Much faster base speed
+    public float maxSpeed = 5.0f;   // 🔼 Much faster max speed
+    public float speedSmooth = 0.12f; // Faster speed transitions
 
     [Header("Hard Escape Settings")]
-    public float avoidDistance = 2.5f; // Increased detection range - fish will start fleeing earlier
-    public float panicSpeedMultiplier = 1.5f; // Increased escape speed multiplier
-    public float maxEscapeSpeed = 5.0f;         // Increased max escape speed
-    public float minEscapeSpeed = 3.0f; // Increased min escape speed
+    public float avoidDistance = 4.5f; // 🔼 Much larger detection range - fish detects players from far away
+    public float panicSpeedMultiplier = 2.5f; // 🔼 Much faster escape multiplier
+    public float maxEscapeSpeed = 9.0f;         // 🔼 Very fast max escape speed
+    public float minEscapeSpeed = 6.5f; // 🔼 Very fast min escape speed
 
     [Header("Movement Bounds")]
     public Vector2 minBounds = new Vector2(-8f, -4f);
@@ -46,15 +46,15 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
 
     // Smooth movement variables to prevent jittering
     Vector2 smoothDirection = Vector2.zero;
-    public float directionSmoothTime = 0.15f;
+    public float directionSmoothTime = 0.08f; // 🔼 Faster direction changes - more reactive
     Vector2 directionVelocity = Vector2.zero;
     Vector2 smoothPushVelocity = Vector2.zero;
     Vector2 pushVelocity = Vector2.zero; // Separate velocity ref for push smoothing
-    public float pushSmoothTime = 0.1f;
+    public float pushSmoothTime = 0.05f; // 🔼 Faster push reactions
     
     // Update sharks list periodically to track all players
     float lastSharkUpdateTime = 0f;
-    public float sharkUpdateInterval = 0.2f; // Update every 0.2 seconds
+    public float sharkUpdateInterval = 0.1f; // 🔼 Update more frequently - tracks players better
 
     void Start()
     {
@@ -187,7 +187,7 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
         else
         {
             // Only clear escape lock if we're far enough from danger
-            if (closestDistance > avoidDistance * 1.5f)
+            if (closestDistance > avoidDistance * 2.0f) // 🔼 Requires more distance to clear escape lock
             {
                 escapeLocked = false;
             }
@@ -241,7 +241,7 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
         // Only apply push when very close - main escape is handled by direction logic above
         Vector2 totalPush = Vector2.zero;
         int pushCount = 0;
-        float pushThreshold = 1.5f; // Slightly larger push threshold for safety buffer
+        float pushThreshold = 2.5f; // 🔼 Larger push threshold - reacts earlier
         
         foreach (Transform s in sharks)
         {
@@ -253,8 +253,8 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
                 Vector2 pushDir = ((Vector2)transform.position - (Vector2)s.position).normalized;
                 // Scale push strength by distance (stronger when closer)
                 float pushStrength = (pushThreshold - d) / pushThreshold;
-                // Stronger push when very close to ensure separation
-                totalPush += pushDir * pushStrength * 0.25f;
+                // 🔼 Much stronger push when very close to ensure separation
+                totalPush += pushDir * pushStrength * 0.6f; // Increased from 0.25f
                 pushCount++;
             }
         }
@@ -295,12 +295,12 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
     Vector2 GetDirectFleeTarget(Vector2 fleeDirection, float closestPlayerDistance)
     {
         // Calculate a target point that moves directly away from players
-        float fleeDistance = Mathf.Max(3f, avoidDistance * 1.5f);
+        float fleeDistance = Mathf.Max(5f, avoidDistance * 2.0f); // 🔼 Longer flee distances
         
         // If we're very close to a player, flee more aggressively
         if (closestPlayerDistance < avoidDistance * 0.6f)
         {
-            fleeDistance = Mathf.Max(4f, avoidDistance * 2f);
+            fleeDistance = Mathf.Max(7f, avoidDistance * 3.0f); // 🔼 Much longer flee when very close
         }
         
         Vector2 targetPos = (Vector2)transform.position + fleeDirection * fleeDistance;
@@ -373,7 +373,7 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
             {
                 if (s == null) continue;
                 float d = Vector2.Distance(candidate, s.position);
-                if (d < 2.8f)
+                if (d < 4.5f) // 🔼 Larger avoidance radius when finding safe positions
                 {
                     blocked = true;
                     break;
@@ -395,7 +395,7 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(1.8f, 3.2f));
+            yield return new WaitForSeconds(Random.Range(0.8f, 1.5f)); // 🔼 More frequent direction changes - less predictable
             if (!escapeLocked)
                 PickNewDirectionAndSpeed();
         }

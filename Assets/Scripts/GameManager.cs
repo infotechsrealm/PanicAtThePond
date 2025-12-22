@@ -653,8 +653,11 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public override void OnMasterClientSwitched(Player newMasterClient)
     {
+        Debug.Log("👑 New Master is: " + newMasterClient.NickName + " (ID: " + newMasterClient.ActorNumber + ")");
+        
         if (PhotonNetwork.IsMasterClient)
         {
+            // This client is now the master client
             if (GameOver.Instance != null)
             {
                 GameOver.Instance.UpdateButtonVisibility();
@@ -670,19 +673,17 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            if (myFish != null)
+            // This client is no longer the master client (host migration occurred)
+            // This is normal when a client becomes the fisherman - do NOT trigger game over
+            // The original host should continue playing as a fish
+            Debug.Log("⚠️ No longer master client - Host migration occurred. Continuing to play as fish.");
+            
+            // Update button visibility if game over panel exists
+            if (GameOver.Instance != null)
             {
-                for (int i = 0; i < allFishes.Count; i++)
-                {
-                    if (allFishes[i] != null)
-                    {
-                        allFishes[i].CallAllWinFishRPC();
-                    }
-                }
+                GameOver.Instance.UpdateButtonVisibility();
             }
         }
-
-        Debug.Log("👑 New Master is: " + newMasterClient.NickName + " (ID: " + newMasterClient.ActorNumber + ")");
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
