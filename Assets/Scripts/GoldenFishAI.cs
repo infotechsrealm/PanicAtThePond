@@ -8,15 +8,15 @@ using System.Linq;
 public class GoldenFishAI : MonoBehaviourPunCallbacks
 {
     [Header("Movement Settings")]
-    public float minSpeed = 3.5f;  // 🔼 Much faster base speed
-    public float maxSpeed = 5.0f;   // 🔼 Much faster max speed
-    public float speedSmooth = 0.12f; // Faster speed transitions
+    public float minSpeed = 5.0f;  // 🔼 EXTREMELY fast base speed (reduced slightly)
+    public float maxSpeed = 7.0f;   // 🔼 EXTREMELY fast max speed (reduced slightly)
+    public float speedSmooth = 0.15f; // Faster speed transitions
 
     [Header("Hard Escape Settings")]
-    public float avoidDistance = 4.5f; // 🔼 Much larger detection range - fish detects players from far away
-    public float panicSpeedMultiplier = 2.5f; // 🔼 Much faster escape multiplier
-    public float maxEscapeSpeed = 9.0f;         // 🔼 Very fast max escape speed
-    public float minEscapeSpeed = 6.5f; // 🔼 Very fast min escape speed
+    public float avoidDistance = 7.5f; // 🔼 EXTREMELY large detection range - fish detects players from very far away
+    public float panicSpeedMultiplier = 3.5f; // 🔼 EXTREMELY fast escape multiplier
+    public float maxEscapeSpeed = 12.5f;         // 🔼 EXTREMELY fast max escape speed (reduced slightly)
+    public float minEscapeSpeed = 10.0f; // 🔼 EXTREMELY fast min escape speed (reduced slightly)
 
     [Header("Movement Bounds")]
     public Vector2 minBounds = new Vector2(-8f, -4f);
@@ -46,15 +46,25 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
 
     // Smooth movement variables to prevent jittering
     Vector2 smoothDirection = Vector2.zero;
-    public float directionSmoothTime = 0.08f; // 🔼 Faster direction changes - more reactive
+    public float directionSmoothTime = 0.04f; // 🔼 EXTREMELY fast direction changes - very reactive
     Vector2 directionVelocity = Vector2.zero;
     Vector2 smoothPushVelocity = Vector2.zero;
     Vector2 pushVelocity = Vector2.zero; // Separate velocity ref for push smoothing
-    public float pushSmoothTime = 0.05f; // 🔼 Faster push reactions
+    public float pushSmoothTime = 0.03f; // 🔼 EXTREMELY fast push reactions
     
     // Update sharks list periodically to track all players
     float lastSharkUpdateTime = 0f;
-    public float sharkUpdateInterval = 0.1f; // 🔼 Update more frequently - tracks players better
+    public float sharkUpdateInterval = 0.05f; // 🔼 Update very frequently - tracks players extremely well
+    
+    // Unpredictable escape behavior
+    float lastEscapeDirectionChange = 0f;
+    public float escapeDirectionChangeInterval = 0.2f; // Change escape direction frequently
+    Vector2 currentEscapeDirection = Vector2.zero;
+    
+    // Persistent alert system - goldfish stays alert for longer
+    float lastDangerTime = 0f;
+    public float alertDuration = 15.0f; // Stay alert for 15 seconds after last danger - much longer!
+    bool isAlert = false;
 
     void Start()
     {
@@ -169,9 +179,25 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
             }
         }
 
-        // ---------- ESCAPE LOCK ----------
+        // ---------- ESCAPE LOCK & PERSISTENT ALERT SYSTEM ----------
         if (danger)
         {
+            lastDangerTime = Time.time;
+            isAlert = true;
+            
+            // Add unpredictable direction changes during escape
+            if (Time.time - lastEscapeDirectionChange >= escapeDirectionChangeInterval)
+            {
+                // Occasionally add a random perpendicular component to make escape unpredictable
+                if (fleeDirection.magnitude > 0.01f)
+                {
+                    Vector2 perpendicular = new Vector2(-fleeDirection.y, fleeDirection.x);
+                    if (Random.value < 0.5f) perpendicular = -perpendicular; // Random left or right
+                    fleeDirection = (fleeDirection + perpendicular * Random.Range(0.3f, 0.7f)).normalized;
+                }
+                lastEscapeDirectionChange = Time.time;
+            }
+            
             if (!escapeLocked)
             {
                 // Calculate escape target that moves directly away from players
@@ -180,14 +206,83 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
             }
             else
             {
-                // Update escape target while in danger to continuously move away
+                // Update escape target while in danger to continuously move away (with unpredictability)
                 lockedEscapeTarget = GetDirectFleeTarget(fleeDirection, closestDistance);
             }
         }
         else
         {
-            // Only clear escape lock if we're far enough from danger
-            if (closestDistance > avoidDistance * 2.0f) // 🔼 Requires more distance to clear escape lock
+            // Check if still in alert period (stays alert for longer even after danger passes)
+            float timeSinceLastDanger = Time.time - lastDangerTime;
+            if (timeSinceLastDanger < alertDuration)
+            {
+                // Still in alert period - maintain escape behavior
+                isAlert = true;
+                
+                // Even when not in immediate danger, if alert, still try to maintain distance
+                if (closestDistance < avoidDistance * 2.5f) // Extended alert range
+                {
+                    // Continue escaping even if technically "safe"
+                    if (!escapeLocked)
+                    {
+                        // Calculate escape direction away from closest player
+                        Transform closestPlayer = null;
+                        float minDist = float.MaxValue;
+                        foreach (Transform s in sharks)
+                        {
+                            if (s == null) continue;
+                            float d = Vector2.Distance(transform.position, s.position);
+                            if (d < minDist)
+                            {
+                                minDist = d;
+                                closestPlayer = s;
+                            }
+                        }
+                        if (closestPlayer != null)
+                        {
+                            Vector2 toPlayer = ((Vector2)closestPlayer.position - (Vector2)transform.position);
+                            if (toPlayer.magnitude > 0.01f)
+                            {
+                                Vector2 awayFromPlayer = -toPlayer.normalized;
+                                lockedEscapeTarget = GetDirectFleeTarget(awayFromPlayer, minDist);
+                                escapeLocked = true;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // Update escape target to continue moving away
+                        Transform closestPlayer = null;
+                        float minDist = float.MaxValue;
+                        foreach (Transform s in sharks)
+                        {
+                            if (s == null) continue;
+                            float d = Vector2.Distance(transform.position, s.position);
+                            if (d < minDist)
+                            {
+                                minDist = d;
+                                closestPlayer = s;
+                            }
+                        }
+                        if (closestPlayer != null)
+                        {
+                            Vector2 toPlayer = ((Vector2)closestPlayer.position - (Vector2)transform.position);
+                            if (toPlayer.magnitude > 0.01f)
+                            {
+                                Vector2 awayFromPlayer = -toPlayer.normalized;
+                                lockedEscapeTarget = GetDirectFleeTarget(awayFromPlayer, minDist);
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                isAlert = false;
+            }
+            
+            // Only clear escape lock if we're VERY far from danger AND alert period has passed
+            if (closestDistance > avoidDistance * 4.5f && !isAlert) // 🔼 Requires EXTREMELY more distance AND no alert
             {
                 escapeLocked = false;
             }
@@ -228,7 +323,8 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
         }
 
         // ---------- SPEED (SMOOTH & LIMITED) ----------
-        float targetSpeed = escapeLocked
+        // Maintain high speed even when alert (not just when escape locked)
+        float targetSpeed = (escapeLocked || isAlert)
             ? Mathf.Clamp(moveSpeed * panicSpeedMultiplier, minEscapeSpeed, maxEscapeSpeed)
             : moveSpeed;
 
@@ -241,7 +337,7 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
         // Only apply push when very close - main escape is handled by direction logic above
         Vector2 totalPush = Vector2.zero;
         int pushCount = 0;
-        float pushThreshold = 2.5f; // 🔼 Larger push threshold - reacts earlier
+        float pushThreshold = 4.0f; // 🔼 EXTREMELY large push threshold - reacts very early
         
         foreach (Transform s in sharks)
         {
@@ -253,8 +349,8 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
                 Vector2 pushDir = ((Vector2)transform.position - (Vector2)s.position).normalized;
                 // Scale push strength by distance (stronger when closer)
                 float pushStrength = (pushThreshold - d) / pushThreshold;
-                // 🔼 Much stronger push when very close to ensure separation
-                totalPush += pushDir * pushStrength * 0.6f; // Increased from 0.25f
+                // 🔼 EXTREMELY strong push when very close to ensure maximum separation
+                totalPush += pushDir * pushStrength * 1.2f; // Much stronger push
                 pushCount++;
             }
         }
@@ -285,22 +381,52 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
         }
 
         // ---------- ESCAPE TARGET DONE ----------
+        // Only clear escape target if we've reached it AND we're not in alert mode
         if (escapeLocked &&
             Vector2.Distance(transform.position, lockedEscapeTarget) < targetReachDistance)
         {
-            escapeLocked = false;
+            // Don't clear escape lock if still alert - immediately pick new escape target
+            if (isAlert)
+            {
+                // Find new escape target immediately
+                Transform closestPlayer = null;
+                float minDist = float.MaxValue;
+                foreach (Transform s in sharks)
+                {
+                    if (s == null) continue;
+                    float d = Vector2.Distance(transform.position, s.position);
+                    if (d < minDist)
+                    {
+                        minDist = d;
+                        closestPlayer = s;
+                    }
+                }
+                if (closestPlayer != null)
+                {
+                    Vector2 toPlayer = ((Vector2)closestPlayer.position - (Vector2)transform.position);
+                    if (toPlayer.magnitude > 0.01f)
+                    {
+                        Vector2 awayFromPlayer = -toPlayer.normalized;
+                        lockedEscapeTarget = GetDirectFleeTarget(awayFromPlayer, minDist);
+                    }
+                }
+            }
+            else
+            {
+                escapeLocked = false;
+            }
         }
     }
 
     Vector2 GetDirectFleeTarget(Vector2 fleeDirection, float closestPlayerDistance)
     {
         // Calculate a target point that moves directly away from players
-        float fleeDistance = Mathf.Max(5f, avoidDistance * 2.0f); // 🔼 Longer flee distances
+        float fleeDistance = Mathf.Max(10f, avoidDistance * 3.0f); // 🔼 EXTREMELY longer flee distances
         
         // If we're very close to a player, flee more aggressively
         if (closestPlayerDistance < avoidDistance * 0.6f)
         {
-            fleeDistance = Mathf.Max(7f, avoidDistance * 3.0f); // 🔼 Much longer flee when very close
+            fleeDistance = Mathf.Max(15f, avoidDistance * 4.5f); // 🔼 EXTREMELY longer flee when very close
         }
         
         Vector2 targetPos = (Vector2)transform.position + fleeDirection * fleeDistance;
@@ -373,7 +499,7 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
             {
                 if (s == null) continue;
                 float d = Vector2.Distance(candidate, s.position);
-                if (d < 4.5f) // 🔼 Larger avoidance radius when finding safe positions
+                if (d < 8.0f) // 🔼 EXTREMELY larger avoidance radius when finding safe positions
                 {
                     blocked = true;
                     break;
@@ -395,20 +521,28 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(0.8f, 1.5f)); // 🔼 More frequent direction changes - less predictable
-            if (!escapeLocked)
+            yield return new WaitForSeconds(Random.Range(0.3f, 0.7f)); // 🔼 EXTREMELY frequent direction changes - very unpredictable
+            // Even when escape locked or alert, occasionally change direction to be unpredictable
+            if (!escapeLocked || (isAlert && Random.value < 0.4f)) // 40% chance to change direction even when alert
                 PickNewDirectionAndSpeed();
         }
     }
 
     void PickNewDirectionAndSpeed()
     {
+        // More erratic movement patterns - harder to predict
         moveDirection = new Vector2(
             Random.Range(-1f, 1f),
-            Random.Range(-0.5f, 0.5f)
+            Random.Range(-0.8f, 0.8f) // More vertical movement variation
         ).normalized;
 
         moveSpeed = Random.Range(minSpeed, maxSpeed);
+        
+        // Occasionally add sudden speed bursts
+        if (Random.value < 0.3f) // 30% chance
+        {
+            moveSpeed *= 1.4f; // Sudden speed boost
+        }
     }
 
     // Update sharks list from GameManager to track all players (host and client)

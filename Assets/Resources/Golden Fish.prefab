@@ -136,13 +136,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4946c1cba2b8e0e499f7563baf04dbef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 1.5
-  maxSpeed: 2
-  speedSmooth: 0.08
-  avoidDistance: 2.5
-  panicSpeedMultiplier: 1.8
-  maxEscapeSpeed: 6
-  minEscapeSpeed: 3.5
+  minSpeed: 5
+  maxSpeed: 7
+  speedSmooth: 0.15
+  avoidDistance: 7.5
+  panicSpeedMultiplier: 3.5
+  maxEscapeSpeed: 12.5
+  minEscapeSpeed: 10
   minBounds: {x: -8, y: -4}
   maxBounds: {x: 8, y: 0}
   boundaryMargin: 1.2
@@ -150,9 +150,9 @@ MonoBehaviour:
   animator: {fileID: 3995746989553086495}
   targetReachDistance: 0.4
   flipDeadZone: 0.15
-  directionSmoothTime: 0.15
-  pushSmoothTime: 0.1
-  sharkUpdateInterval: 0.2
+  directionSmoothTime: 0.04
+  pushSmoothTime: 0.03
+  sharkUpdateInterval: 0.05
 --- !u!114 &3755046863711763629
 MonoBehaviour:
   m_ObjectHideFlags: 0
