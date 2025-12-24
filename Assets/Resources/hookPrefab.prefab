@@ -194,6 +194,9 @@ MonoBehaviour:
   hook_Mirror: {fileID: 3856487077897779958}
   lineRenderer: {fileID: 2015050245431887086}
   dropSpeed: 3
+  rodTipOffset: 0.5
+  horizontalOffset: 0.1
+  leftRodVerticalOffset: 0.1
   wormPrefab: {fileID: 7213787239234744724, guid: ed9be4f8a38e17c45abcef0b0b7bb870, type: 3}
   wormParent: {fileID: 7448163867579369296}
   wormInstance: {fileID: 0}

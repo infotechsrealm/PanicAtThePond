@@ -12,6 +12,13 @@ public class Hook : MonoBehaviourPunCallbacks
 
     public LineRenderer lineRenderer;
     public float dropSpeed = 3f;
+    
+    [Header("Rod Tip Offset")]
+    public float rodTipOffset = 0.5f; // Distance from rod pivot to tip (adjust based on your rod sprite)
+    public float horizontalOffset = 0.1f; // Horizontal offset to make line appear from rod string continuation (right rod and left rod fisherman view)
+    public float leftRodHorizontalOffsetFish = 0.1f; // Horizontal offset for left rod from fish view
+    public float leftRodVerticalOffset = 0.15f; // Vertical offset for left rod to compensate for negative scale (fish view)
+    public float leftRodVerticalOffsetFisherman = 0.05f; // Vertical offset for left rod from fisherman view
 
     public GameObject wormPrefab;
     public Transform wormParent;
@@ -88,7 +95,12 @@ public class Hook : MonoBehaviourPunCallbacks
 
         lineRenderer.enabled = true;
 
-        lineRenderer.SetPosition(0, rodTip.position);
+        // Determine if this is left or right rod for horizontal offset
+        bool isLeftRod = (rodTip == fishermanController.leftRod);
+        
+        // Calculate the actual rod tip position based on rotation and offset
+        Vector3 actualRodTipPosition = GetRodTipPosition(rodTip, isLeftRod);
+        lineRenderer.SetPosition(0, actualRodTipPosition);
         lineRenderer.SetPosition(1, transform.position);
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
         lineRenderer.startColor = Color.white;
@@ -215,7 +227,9 @@ public class Hook : MonoBehaviourPunCallbacks
             GS.Instance.SetSFXVolume(hookBack);
             hookBack.Play();
             isReturning = true;
-            Vector3 target = rodTip.position;
+            // Determine if this is left or right rod for horizontal offset
+            bool isLeftRod = (rodTip == fishermanController.leftRod);
+            Vector3 target = GetRodTipPosition(rodTip, isLeftRod);
 
             // Detach worm from hook so it stays in scene
                     hasWorm = false;
@@ -365,6 +379,47 @@ public class Hook : MonoBehaviourPunCallbacks
         transform.localScale = Vector3.one;
         NetworkIdentity hookIDidentity = GetComponent<NetworkIdentity>();
         AttachWorm();
+    }
+    
+    /// <summary>
+    /// Calculates the actual position of the rod tip based on the rod's rotation and offset.
+    /// This ensures the fishing line appears to come from the visual tip of the rod.
+    /// </summary>
+    private Vector3 GetRodTipPosition(Transform rod, bool isLeftRod)
+    {
+        if (rod == null) return Vector3.zero;
+        
+        // Check if we're viewing from fish side (not fisherman)
+        bool isFishView = (GameManager.Instance != null && !GameManager.Instance.isFisherMan);
+        
+        // Apply horizontal (X-axis) offset
+        Vector3 horizontalOffsetVector;
+        if (isLeftRod)
+        {
+            // For left rod, use different horizontal offset based on view
+            // Negative X direction (to the left)
+            float horizontalOffsetValue = isFishView ? leftRodHorizontalOffsetFish : horizontalOffset;
+            horizontalOffsetVector = new Vector3(-horizontalOffsetValue, 0f, 0f);
+        }
+        else
+        {
+            // For right rod, offset to the right (positive X)
+            horizontalOffsetVector = new Vector3(horizontalOffset, 0f, 0f);
+        }
+        
+        // For left rod, account for negative Y scale which affects visual tip position
+        Vector3 verticalOffsetVector = Vector3.zero;
+        if (isLeftRod)
+        {
+            // Left rod has negative Y scale (y: -1, z: -1), which flips the visual
+            // From fish view, the tip appears at a different Y position due to the scale flip
+            // Use different offset values for fisherman vs fish view
+            float verticalOffsetValue = isFishView ? -leftRodVerticalOffset : leftRodVerticalOffsetFisherman;
+            verticalOffsetVector = new Vector3(0f, verticalOffsetValue, 0f);
+        }
+        
+        // Return the rod's position plus offsets
+        return rod.position + horizontalOffsetVector + verticalOffsetVector;
     }
    
 }
