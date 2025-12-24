@@ -276,7 +276,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
         if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
         {
-            GameManager.Instance.ShowGameOver("You lose!");
+            GameManager.Instance.ShowGameOver("Fisherman Wins!");
         }
 
         while (transform.position.y < targetY)
