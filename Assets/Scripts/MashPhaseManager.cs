@@ -247,7 +247,7 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
             {
                 GameManager.Instance.myFish.catchadeFish = false;
                 HungerSystem.Instance.AddHunger(75f);
-                GameManager.Instance.myFish.canMove = true;
+                HungerSystem.Instance.canDecrease = GameManager.Instance.myFish.canMove = true;
                 GameManager.Instance.myFish.animator.SetBool("isFight", false);
                 Debug.Log("Fisherman won the mash phase! Caught fish.");
             }
