@@ -228,10 +228,14 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         string roomName = createRoomName.text;
         string password = roomPasswordInput.text; // <-- Add a password InputField in your UI
 
+        // Debug: Show what region Photon is using
+        Debug.Log($"[RoomCreation] Creating room '{roomName}' with CloudRegion: '{PhotonNetwork.CloudRegion}'");
+
         if (roomPasswordInput.text.ToString() != null)
         {
             ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable();
             customProperties["pwd"] = password;
+            customProperties["region"] = PhotonNetwork.CloudRegion; // Automatically store current region
 
             RoomOptions options = new RoomOptions
             {
@@ -240,20 +244,24 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
                 IsVisible = true,
 
                 CustomRoomProperties = customProperties,
-                CustomRoomPropertiesForLobby = new string[] { "pwd" } // Optional: show password existence in lobby
+                CustomRoomPropertiesForLobby = new string[] { "pwd", "region" } // Make region visible in lobby
             };
 
             PhotonNetwork.CreateRoom(roomName, options, TypedLobby.Default);
         }
         else
         {
+            ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable();
+            customProperties["region"] = PhotonNetwork.CloudRegion; // Automatically store current region
+            
             RoomOptions options = new RoomOptions
             {
                 MaxPlayers = maxPlayers,
                 IsOpen = true,
                 IsVisible = true,
 
-                CustomRoomPropertiesForLobby = new string[] { "pwd" } // Optional: show password existence in lobby
+                CustomRoomProperties = customProperties,
+                CustomRoomPropertiesForLobby = new string[] { "pwd", "region" } // Make region visible in lobby
             };
 
             PhotonNetwork.CreateRoom(roomName, options, TypedLobby.Default);

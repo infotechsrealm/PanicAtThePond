@@ -12,6 +12,7 @@ public class LANRoomInfo
     public string roomPassword;
     public int connectedPlayers;
     public int maxPlayers;
+    public string regionName;
 
     public List<Text> fadText = new List<Text>();
 
@@ -30,6 +31,7 @@ public class RoomRowPrefab : MonoBehaviour
     public LANRoomInfo lanRoomInfo;
     public Text roomName;
     public Button btn;
+    public Image regionIcon; // Reference to the "earth" GameObject's Image component
 
 
     public void SelectRoom()
@@ -89,6 +91,20 @@ public class RoomRowPrefab : MonoBehaviour
             {
                 t.CrossFadeAlpha(1f, 0.1f, false);
             }
+        }
+    }
+
+    public void SetRegionIcon(Sprite icon)
+    {
+        if (regionIcon != null && icon != null)
+        {
+            regionIcon.sprite = icon;
+            Debug.Log($"[RoomRowPrefab] Region icon sprite set to: {icon.name}");
+        }
+        else
+        {
+            if (regionIcon == null) Debug.LogWarning("[RoomRowPrefab] regionIcon Image component is null! Assign it in the prefab.");
+            if (icon == null) Debug.LogWarning("[RoomRowPrefab] Trying to set null sprite");
         }
     }
 }

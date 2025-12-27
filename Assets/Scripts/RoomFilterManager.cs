@@ -24,13 +24,20 @@ public class RoomFilterManager : MonoBehaviour
                 continue;
 
             string name = roomRowPrefab.roomName.text.ToLower();
+            
+            // Get region name for filtering
+            string regionName = "";
+            if (!string.IsNullOrEmpty(roomRowPrefab.lanRoomInfo.regionName))
+            {
+                regionName = roomRowPrefab.lanRoomInfo.regionName.ToLower();
+            }
 
             // ---------- FILTER ----------
             if (string.IsNullOrEmpty(searchText))
             {
                 row.SetActive(true);
             }
-            else if (name.Contains(searchText))   // PARTIAL MATCH FILTER
+            else if (name.Contains(searchText) || regionName.Contains(searchText))   // PARTIAL MATCH FILTER (name OR region)
             {
                 row.SetActive(true);
             }

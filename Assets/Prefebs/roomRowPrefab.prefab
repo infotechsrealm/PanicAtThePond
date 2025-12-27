@@ -211,6 +211,7 @@ MonoBehaviour:
     roomPassword: 
     connectedPlayers: 0
     maxPlayers: 0
+    regionName: 
     fadText:
     - {fileID: 5599064870044392063}
     - {fileID: 6674626982559633979}
@@ -219,6 +220,7 @@ MonoBehaviour:
     - {fileID: 7981167917354371729}
   roomName: {fileID: 6674626982559633979}
   btn: {fileID: 1786603102631832471}
+  regionIcon: {fileID: 6808625375318064284}
 --- !u!1 &2643504284964470197
 GameObject:
   m_ObjectHideFlags: 0
