@@ -236,6 +236,12 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable();
             customProperties["pwd"] = password;
             customProperties["region"] = PhotonNetwork.CloudRegion; // Automatically store current region
+            
+            // Store creator's Steam ID for friends filtering
+            if (SteamManager.Initialized)
+            {
+                customProperties["creatorSteamId"] = Steamworks.SteamUser.GetSteamID().ToString();
+            }
 
             RoomOptions options = new RoomOptions
             {
@@ -253,6 +259,12 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         {
             ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable();
             customProperties["region"] = PhotonNetwork.CloudRegion; // Automatically store current region
+            
+            // Store creator's Steam ID for friends filtering
+            if (SteamManager.Initialized)
+            {
+                customProperties["creatorSteamId"] = Steamworks.SteamUser.GetSteamID().ToString();
+            }
             
             RoomOptions options = new RoomOptions
             {

@@ -144,13 +144,26 @@ public class RoomFilterManager : MonoBehaviour
             bool matchesFriends = true; // Default: show all rooms
             if (friendsOnlyFilter && roomRowPrefab.photonRoomInfo != null)
             {
-                // Get the room creator's UserId (Steam ID)
-                string creatorUserId = roomRowPrefab.photonRoomInfo.masterClientId;
+                // Try to get the room creator's Steam ID from custom properties
+                string creatorSteamId = "";
+                
+                if (roomRowPrefab.photonRoomInfo.CustomProperties.TryGetValue("creatorSteamId", out object creatorIdObj))
+                {
+                    creatorSteamId = creatorIdObj as string;
+                }
                 
                 // Check if creator is a Steam friend
-                matchesFriends = IsSteamFriend(creatorUserId);
-                
-                Debug.Log($"[RoomFilter] Room '{roomName}' creator ID: {creatorUserId}, isFriend: {matchesFriends}");
+                if (!string.IsNullOrEmpty(creatorSteamId))
+                {
+                    matchesFriends = IsSteamFriend(creatorSteamId);
+                    Debug.Log($"[RoomFilter] Room '{roomName}' creator Steam ID: {creatorSteamId}, isFriend: {matchesFriends}");
+                }
+                else
+                {
+                    // If no creator Steam ID stored, show the room (backward compatibility)
+                    matchesFriends = true;
+                    Debug.LogWarning($"[RoomFilter] Room '{roomName}' has no creator Steam ID stored");
+                }
             }
 
             // Show room only if it matches ALL filters
