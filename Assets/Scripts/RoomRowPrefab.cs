@@ -33,6 +33,9 @@ public class RoomRowPrefab : MonoBehaviour
     public Button btn;
     public Image regionIcon; // Reference to the "earth" GameObject's Image component
 
+    // Store Photon room info for filtering
+    public Photon.Realtime.RoomInfo photonRoomInfo;
+
 
     public void SelectRoom()
     {

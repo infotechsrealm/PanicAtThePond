@@ -64,6 +64,9 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
             // Set region icon
             if (roomRow != null && RegionManager.Instance != null)
             {
+                // Store Photon room reference for filtering
+                roomRow.photonRoomInfo = room;
+                
                 string regionString = "";
                 
                 // Try to get region from custom properties
