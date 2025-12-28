@@ -196,7 +196,9 @@ MonoBehaviour:
   dropSpeed: 3
   rodTipOffset: 0.5
   horizontalOffset: 0.1
+  leftRodHorizontalOffsetFish: 0.1
   leftRodVerticalOffset: 0.1
+  leftRodVerticalOffsetFisherman: 0.05
   wormPrefab: {fileID: 7213787239234744724, guid: ed9be4f8a38e17c45abcef0b0b7bb870, type: 3}
   wormParent: {fileID: 7448163867579369296}
   wormInstance: {fileID: 0}
