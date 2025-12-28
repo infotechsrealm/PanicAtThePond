@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Steamworks;
 
 public class RoomFilterManager : MonoBehaviour
 {
     public InputField searchField;
     public Transform roomListParent;
     public Dropdown regionDropdown; // Add this in Inspector
+    public Toggle friendsOnlyToggle; // Add this in Inspector
 
     private string currentRegionFilter = ""; // Empty = All Regions
+    private bool friendsOnlyFilter = false; // False = Show all rooms
 
     void Start()
     {
@@ -25,6 +28,12 @@ public class RoomFilterManager : MonoBehaviour
                 "Oceania"
             });
             regionDropdown.onValueChanged.AddListener(OnRegionDropdownChanged);
+        }
+
+        // Setup friends only toggle if assigned
+        if (friendsOnlyToggle != null)
+        {
+            friendsOnlyToggle.onValueChanged.AddListener(OnFriendsOnlyToggleChanged);
         }
     }
 
@@ -46,6 +55,49 @@ public class RoomFilterManager : MonoBehaviour
         
         Debug.Log($"[RoomFilter] Region filter changed to: {(string.IsNullOrEmpty(currentRegionFilter) ? "All Regions" : currentRegionFilter)}");
         FilterRooms();
+    }
+
+    void OnFriendsOnlyToggleChanged(bool isOn)
+    {
+        friendsOnlyFilter = isOn;
+        Debug.Log($"[RoomFilter] Friends Only filter: {(isOn ? "ON" : "OFF")}");
+        FilterRooms();
+    }
+
+    bool IsSteamFriend(string userId)
+    {
+        // Check if Steam is initialized
+        if (!SteamManager.Initialized)
+        {
+            Debug.LogWarning("[RoomFilter] Steam not initialized, cannot check friends");
+            return false;
+        }
+
+        // Try to parse the userId as a Steam ID
+        if (string.IsNullOrEmpty(userId))
+        {
+            return false;
+        }
+
+        // Photon's UserId for Steam is the Steam ID as a string
+        if (ulong.TryParse(userId, out ulong steamId))
+        {
+            CSteamID friendSteamId = new CSteamID(steamId);
+            
+            // Check if this Steam ID is in our friends list
+            int friendCount = SteamFriends.GetFriendCount(EFriendFlags.k_EFriendFlagImmediate);
+            
+            for (int i = 0; i < friendCount; i++)
+            {
+                CSteamID friendId = SteamFriends.GetFriendByIndex(i, EFriendFlags.k_EFriendFlagImmediate);
+                if (friendId == friendSteamId)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     void FilterRooms()
@@ -72,14 +124,12 @@ public class RoomFilterManager : MonoBehaviour
                 if (roomRowPrefab.photonRoomInfo.CustomProperties.TryGetValue("region", out object regionObj))
                 {
                     regionName = (regionObj as string)?.ToLower();
-                    Debug.Log($"[RoomFilter] Photon room '{roomName}' has region: '{regionName}'");
                 }
             }
             // Otherwise check LAN room
             else if (!string.IsNullOrEmpty(roomRowPrefab.lanRoomInfo.regionName))
             {
                 regionName = roomRowPrefab.lanRoomInfo.regionName.ToLower();
-                Debug.Log($"[RoomFilter] LAN room '{roomName}' has region: '{regionName}'");
             }
 
             // ---------- FILTER LOGIC ----------
@@ -90,10 +140,22 @@ public class RoomFilterManager : MonoBehaviour
             bool matchesRegion = string.IsNullOrEmpty(currentRegionFilter) || 
                                  regionName == currentRegionFilter;
 
-            Debug.Log($"[RoomFilter] Room '{roomName}': region='{regionName}', filter='{currentRegionFilter}', matchesRegion={matchesRegion}, visible={matchesSearch && matchesRegion}");
+            // Friends Only filter
+            bool matchesFriends = true; // Default: show all rooms
+            if (friendsOnlyFilter && roomRowPrefab.photonRoomInfo != null)
+            {
+                // Get the room creator's UserId (Steam ID)
+                string creatorUserId = roomRowPrefab.photonRoomInfo.masterClientId;
+                
+                // Check if creator is a Steam friend
+                matchesFriends = IsSteamFriend(creatorUserId);
+                
+                Debug.Log($"[RoomFilter] Room '{roomName}' creator ID: {creatorUserId}, isFriend: {matchesFriends}");
+            }
 
-            // Show room only if it matches BOTH search AND region filter
-            row.SetActive(matchesSearch && matchesRegion);
+            // Show room only if it matches ALL filters
+            bool shouldShow = matchesSearch && matchesRegion && matchesFriends;
+            row.SetActive(shouldShow);
         }
     }
 }
