@@ -8588,6 +8588,7 @@ MonoBehaviour:
   searchField: {fileID: 1808014680}
   roomListParent: {fileID: 1261448380}
   regionDropdown: {fileID: 1758176800}
+  friendsOnlyToggle: {fileID: 0}
 --- !u!4 &1162508693
 Transform:
   m_ObjectHideFlags: 0
@@ -12010,6 +12011,9 @@ MonoBehaviour:
   iconEurope: {fileID: 1222901283618394807, guid: e70c55422b3a307439cb5662a095a46d, type: 3}
   iconNorthAmerica: {fileID: 4222672834408843780, guid: 6e692d6994756ee41a56d9f81385c42b, type: 3}
   iconOceania: {fileID: 738021650142519592, guid: b3737d8825cc9c547af1f28ffba8717b, type: 3}
+  iconAsia: {fileID: 21300000, guid: eba29610e38e3e04f8252a8140c729da, type: 3}
+  iconIndia: {fileID: 21300000, guid: eba29610e38e3e04f8252a8140c729da, type: 3}
+  iconWorld: {fileID: 21300000, guid: eba29610e38e3e04f8252a8140c729da, type: 3}
   iconUnknown: {fileID: 21300000, guid: eba29610e38e3e04f8252a8140c729da, type: 3}
 --- !u!4 &1532366170
 Transform:
@@ -24363,6 +24367,7 @@ MonoBehaviour:
   searchField: {fileID: 1808014680}
   roomListParent: {fileID: 1261448380}
   regionDropdown: {fileID: 0}
+  friendsOnlyToggle: {fileID: 0}
 --- !u!1 &6099410369534820675
 GameObject:
   m_ObjectHideFlags: 0

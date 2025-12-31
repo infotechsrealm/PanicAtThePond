@@ -22,9 +22,11 @@ public class RoomFilterManager : MonoBehaviour
             regionDropdown.ClearOptions();
             regionDropdown.AddOptions(new System.Collections.Generic.List<string>()
             {
-                "All Regions",
+                "Best Region (Auto)",
                 "Europe",
                 "North America",
+                "Asia",
+                "India",
                 "Oceania"
             });
             regionDropdown.onValueChanged.AddListener(OnRegionDropdownChanged);
@@ -35,6 +37,18 @@ public class RoomFilterManager : MonoBehaviour
         {
             friendsOnlyToggle.onValueChanged.AddListener(OnFriendsOnlyToggleChanged);
         }
+
+        // Show initial region
+        Debug.Log("[RoomFilter] Initial Region: " + Photon.Pun.PhotonNetwork.CloudRegion);
+    }
+
+    void Update()
+    {
+        // Optional: Periodic check or debug key to seeing current region
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            Debug.Log($"[RoomFilter] Current Region: {Photon.Pun.PhotonNetwork.CloudRegion}, Server: {Photon.Pun.PhotonNetwork.ServerAddress}");
+        }
     }
 
     void OnSearchChanged(string searchText)
@@ -42,19 +56,55 @@ public class RoomFilterManager : MonoBehaviour
         FilterRooms();
     }
 
+
+
     void OnRegionDropdownChanged(int index)
     {
-        // Map dropdown index to region code
+        string targetRegion = "";
+        string regionLabel = "Best Region";
+
+        // Map dropdown index to Photon region code
         switch (index)
         {
-            case 0: currentRegionFilter = ""; break; // All Regions
-            case 1: currentRegionFilter = "eu"; break; // Europe
-            case 2: currentRegionFilter = "us"; break; // North America
-            case 3: currentRegionFilter = "au"; break; // Oceania
+            case 0: targetRegion = ""; regionLabel = "Best Region"; break; // Auto/All
+            case 1: targetRegion = "eu"; regionLabel = "Europe"; break;
+            case 2: targetRegion = "us"; regionLabel = "North America"; break;
+            case 3: targetRegion = "asia"; regionLabel = "Asia"; break;
+            case 4: targetRegion = "in"; regionLabel = "India"; break; // Explicit India region
+            case 5: targetRegion = "au"; regionLabel = "Oceania"; break;
         }
+
+        Debug.Log($"[RegionSwitcher] Switching to {regionLabel} ({targetRegion})...");
+
+        // Disconnect and reconnect to new region
+        // Note: This operation is asynchronous. The UI will clear as we disconnect.
+        Photon.Pun.PhotonNetwork.Disconnect();
         
-        Debug.Log($"[RoomFilter] Region filter changed to: {(string.IsNullOrEmpty(currentRegionFilter) ? "All Regions" : currentRegionFilter)}");
-        FilterRooms();
+        // We need to wait for disconnection to complete before connecting, 
+        // but ConnectToRegion usually handles this if called after Disconnect? 
+        // Safer to use a Coroutine or just set a flag, but for simplicity we'll assume 
+        // CreateJoinManager or a coroutine here is best.
+        // Actually, let's use a simple coroutine to wait for disconnect.
+        StartCoroutine(SwitchRegionRoutine(targetRegion));
+    }
+
+    System.Collections.IEnumerator SwitchRegionRoutine(string regionCode)
+    {
+        while (Photon.Pun.PhotonNetwork.IsConnected)
+        {
+            yield return null;
+        }
+
+        if (string.IsNullOrEmpty(regionCode))
+        {
+            Debug.Log("[RegionSwitcher] Connecting to Best Region...");
+            Photon.Pun.PhotonNetwork.ConnectUsingSettings();
+        }
+        else
+        {
+            Debug.Log($"[RegionSwitcher] Connecting to Region: {regionCode}");
+            Photon.Pun.PhotonNetwork.ConnectToRegion(regionCode);
+        }
     }
 
     void OnFriendsOnlyToggleChanged(bool isOn)
@@ -133,12 +183,15 @@ public class RoomFilterManager : MonoBehaviour
             }
 
             // ---------- FILTER LOGIC ----------
+            // Note: Region filtering is now handled by switching servers. 
+            // We no longer filter "regionName" inside the list because the list contains ONLY rooms from the connected region.
+            
             bool matchesSearch = string.IsNullOrEmpty(searchText) || 
                                  roomName.Contains(searchText) || 
                                  regionName.Contains(searchText);
             
-            bool matchesRegion = string.IsNullOrEmpty(currentRegionFilter) || 
-                                 regionName == currentRegionFilter;
+            // Replaced region filter with "connected region" logic (always true effectively for the loop)
+            bool matchesRegion = true; 
 
             // Friends Only filter
             bool matchesFriends = true; // Default: show all rooms

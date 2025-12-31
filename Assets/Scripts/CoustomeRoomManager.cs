@@ -638,6 +638,26 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     public Dictionary<string, RoomInfo> aliveRooms = new Dictionary<string, RoomInfo>();
 
+    public override void OnLeftLobby()
+    {
+        Debug.Log("[CoustomeRoomManager] Left Lobby - Clearing room list");
+        aliveRooms.Clear();
+        if (RoomTableManager.instance != null)
+        {
+            RoomTableManager.instance.UpdateRoomTable();
+        }
+    }
+
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        Debug.Log("[CoustomeRoomManager] Disconnected - Clearing room list. Cause: " + cause);
+        aliveRooms.Clear();
+        if (RoomTableManager.instance != null)
+        {
+            RoomTableManager.instance.UpdateRoomTable();
+        }
+    }
+
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         // Update local dictionary of alive rooms

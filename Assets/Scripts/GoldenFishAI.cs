@@ -8,20 +8,20 @@ using System.Linq;
 public class GoldenFishAI : MonoBehaviourPunCallbacks
 {
     [Header("Movement Settings")]
-    public float minSpeed = 5.0f;  // 🔼 EXTREMELY fast base speed (reduced slightly)
-    public float maxSpeed = 7.0f;   // 🔼 EXTREMELY fast max speed (reduced slightly)
-    public float speedSmooth = 0.15f; // Faster speed transitions
+    public float minSpeed = 8.0f;  // 🔼 EXTREMELY fast base speed (increased from 5)
+    public float maxSpeed = 12.0f;   // 🔼 EXTREMELY fast max speed (increased from 7)
+    public float speedSmooth = 0.1f; // Snappier speed transitions (decreased from 0.15)
 
     [Header("Hard Escape Settings")]
-    public float avoidDistance = 7.5f; // 🔼 EXTREMELY large detection range - fish detects players from very far away
-    public float panicSpeedMultiplier = 3.5f; // 🔼 EXTREMELY fast escape multiplier
-    public float maxEscapeSpeed = 12.5f;         // 🔼 EXTREMELY fast max escape speed (reduced slightly)
-    public float minEscapeSpeed = 10.0f; // 🔼 EXTREMELY fast min escape speed (reduced slightly)
+    public float avoidDistance = 11.0f; // 🔼 Detects players from much further away (increased from 7.5)
+    public float panicSpeedMultiplier = 4.0f; // 🔼 Burst speed multiplier (increased from 3.5)
+    public float maxEscapeSpeed = 20.0f;         // 🔼 Super fast escape cap (increased from 12.5)
+    public float minEscapeSpeed = 15.0f; // 🔼 High minimum escape speed (increased from 10)
 
     [Header("Movement Bounds")]
     public Vector2 minBounds = new Vector2(-8f, -4f);
     public Vector2 maxBounds = new Vector2(8f, 0f);
-    public float boundaryMargin = 1.2f;
+    public float boundaryMargin = 1.0f; // 🔼 Reduced margin so it doesn't trigger in center (was 2.5)
 
     public Transform[] sharks;
     public Animator animator;
@@ -42,11 +42,11 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
 
     // flip stability
     float lastFlipX = 0f;
-    public float flipDeadZone = 0.15f; // 🔥 jitter killer
+    public float flipDeadZone = 0.3f; // 🔥 Increased deadzone to prevent jitter at high speeds
 
     // Smooth movement variables to prevent jittering
     Vector2 smoothDirection = Vector2.zero;
-    public float directionSmoothTime = 0.04f; // 🔼 EXTREMELY fast direction changes - very reactive
+    public float directionSmoothTime = 0.15f; // Smoother, less robotic turns (was 0.05)
     Vector2 directionVelocity = Vector2.zero;
     Vector2 smoothPushVelocity = Vector2.zero;
     Vector2 pushVelocity = Vector2.zero; // Separate velocity ref for push smoothing
@@ -58,12 +58,12 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
     
     // Unpredictable escape behavior
     float lastEscapeDirectionChange = 0f;
-    public float escapeDirectionChangeInterval = 0.2f; // Change escape direction frequently
+    public float escapeDirectionChangeInterval = 0.3f; // Less spasmodic escape changes (was 0.12)
     Vector2 currentEscapeDirection = Vector2.zero;
     
     // Persistent alert system - goldfish stays alert for longer
     float lastDangerTime = 0f;
-    public float alertDuration = 15.0f; // Stay alert for 15 seconds after last danger - much longer!
+    public float alertDuration = 20.0f; // Stay alert for 20 seconds (increased from 15)
     bool isAlert = false;
 
     void Start()
@@ -374,10 +374,13 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
         transform.position = pos;
 
         // ---------- CENTER REACHED ----------
+        // Increased threshold prevents "vibrating" around target due to high speed overshooting
         if (!escapeLocked && !reachedCenter &&
-            Vector2.Distance(transform.position, centerPos) < 0.15f)
+            Vector2.Distance(transform.position, centerPos) < 1.0f) // 🔼 Much larger acceptance radius (was 0.15)
         {
             reachedCenter = true;
+            // Immediately pick a new direction when center reached to keep moving
+            PickNewDirectionAndSpeed();
         }
 
         // ---------- ESCAPE TARGET DONE ----------
@@ -473,15 +476,20 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
 
     Vector2 FindSafestSectorPosition()
     {
-        int sectors = 12;
+        int sectors = 16; // Increased sectors for better precision
         float radius = Mathf.Min(
             maxBounds.x - minBounds.x,
             maxBounds.y - minBounds.y
-        ) * 0.45f;
+        ) * 0.5f;
 
         Vector2 origin = transform.position;
         Vector2 bestPos = origin;
         float bestScore = -99999f;
+        bool foundSafe = false;
+
+        // Fallbacks for when all sectors are "blocked" (player is within 8 units)
+        Vector2 bestBlockedPos = origin;
+        float bestBlockedScore = -99999f;
 
         for (int i = 0; i < sectors; i++)
         {
@@ -495,33 +503,112 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
             float score = 0f;
             bool blocked = false;
 
+            // Check distance to all sharks
             foreach (Transform s in sharks)
             {
                 if (s == null) continue;
                 float d = Vector2.Distance(candidate, s.position);
-                if (d < 8.0f) // 🔼 EXTREMELY larger avoidance radius when finding safe positions
+                
+                // Block if very close, but still calculate score
+                if (d < 8.0f) 
                 {
                     blocked = true;
-                    break;
                 }
-                score += d;
+                
+                // Score favors distance from sharks
+                // Add weighted score: closer sharks have much more impact
+                score += d + (100f / (d + 0.1f)) * -1.0f; 
             }
 
-            if (!blocked && score > bestScore)
+            // --- 🔼 CORNER/WALL AVOIDANCE PENALTY ---
+            // Calculate how close this candidate position is to any wall
+            float distToEdgeX = Mathf.Min(Mathf.Abs(candidate.x - minBounds.x), Mathf.Abs(candidate.x - maxBounds.x));
+            float distToEdgeY = Mathf.Min(Mathf.Abs(candidate.y - minBounds.y), Mathf.Abs(candidate.y - maxBounds.y));
+            float distToEdge = Mathf.Min(distToEdgeX, distToEdgeY);
+
+            // Apply penalty if near edge
+            // penalize "corner" spots where both X and Y are close to edge
+            if (distToEdge < 1.0f) // Reduced threshold (was 1.5)
             {
-                bestScore = score;
-                bestPos = candidate;
+                score -= 200f; // Reduced soft penalty (was 500)
+            }
+            if (distToEdge < 0.5f) // Reduced threshold (was 0.8)
+            {
+                score -= 1000f; // Penalty for being right against the wall (was 2000)
+                blocked = true; // Treats wall hugging as "blocked" unless absolutely necessary
+            }
+
+            // Also penalize if the direction is pointing TOWARDS the nearest wall when we are already in the margin
+            Vector2 currentPos = transform.position;
+            bool currentlyNearWall = 
+                currentPos.x < minBounds.x + boundaryMargin || currentPos.x > maxBounds.x - boundaryMargin ||
+                currentPos.y < minBounds.y + boundaryMargin || currentPos.y > maxBounds.y - boundaryMargin;
+            
+            if (currentlyNearWall)
+            {
+                // If we are near a wall, encourage moving towards center
+                // Simple dot product check: does this direction point towards center?
+                Vector2 toCenter = (Vector2.zero - currentPos).normalized; // Assuming 0,0 is roughly center, or use (min+max)/2
+                Vector2 centerPoint = (minBounds + maxBounds) * 0.5f;
+                toCenter = (centerPoint - currentPos).normalized;
+                
+                float dot = Vector2.Dot(dir, toCenter);
+                if (dot > 0)
+                {
+                    score += dot * 200f; // Bonus for moving towards center
+                }
+                else
+                {
+                    score -= 500f; // Penalty for moving further outward
+                }
+            }
+
+            if (!blocked)
+            {
+                if (score > bestScore)
+                {
+                    bestScore = score;
+                    bestPos = candidate;
+                    foundSafe = true;
+                }
+            }
+            else
+            {
+                // Track the "least bad" option among blocked sectors
+                if (score > bestBlockedScore)
+                {
+                    bestBlockedScore = score;
+                    bestBlockedPos = candidate;
+                }
             }
         }
 
-        return bestPos;
+        // If we found a safe unblocked spot, use it
+        if (foundSafe)
+        {
+            return bestPos;
+        }
+
+        // Otherwise, use the best blocked spot (furthest from sharks among the blocked ones)
+        if (bestBlockedPos != origin)
+        {
+             return bestBlockedPos;
+        }
+
+        // Absolute fail-safe: if stuck at origin, pick a random valid point in bounds
+        // This prevents the fish from completely freezing
+        Vector2 randomFallback = new Vector2(
+            Random.Range(minBounds.x, maxBounds.x),
+            Random.Range(minBounds.y, maxBounds.y)
+        );
+        return randomFallback;
     }
 
     IEnumerator RandomDirectionRoutine()
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(0.3f, 0.7f)); // 🔼 EXTREMELY frequent direction changes - very unpredictable
+            yield return new WaitForSeconds(Random.Range(1.5f, 3.0f)); // 🔼 Longer, smoother movement arcs (was 0.3-0.7)
             // Even when escape locked or alert, occasionally change direction to be unpredictable
             if (!escapeLocked || (isAlert && Random.value < 0.4f)) // 40% chance to change direction even when alert
                 PickNewDirectionAndSpeed();
