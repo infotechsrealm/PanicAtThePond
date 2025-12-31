@@ -810,9 +810,36 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void WinFish_Mirror()
     {
-        for (int i = 0; i < allFishes.Count; i++)
+        if (GS.Instance.isLan)
         {
-            allFishes[i].CallWinFishRPC();
+            for (int i = 0; i < allFishes.Count; i++)
+            {
+                allFishes[i].CallWinFishRPC();
+            }
+        }
+        else
+        {
+            // Broadcast to ALL clients (including master) that fishes have won
+            // This is more reliable than iterating through the list which might be desynced
+            photonView.RPC(nameof(ReceiveFishWinRPC), RpcTarget.All);
+        }
+    }
+
+    [PunRPC]
+    public void ReceiveFishWinRPC()
+    {
+        Debug.Log("ReceiveFishWinRPC called");
+        
+        // If I am a fish and not the fisherman, I trigger my win state
+        if (myFish != null && !isFisherMan)
+        {
+            Debug.Log("Triggering local win for fish");
+            myFish.WinFish_mirror();
+        }
+        else if (isFisherMan) 
+        {
+            // If I am the fisherman, this confirms the loss (though it might be redundant if already handled)
+             Debug.Log("ReceiveFishWinRPC received by Fisherman - Logic handled in FishermanController");
         }
     }
 
