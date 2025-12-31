@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     internal bool goldWormEatByFish = false;
     public GameObject sky, water;
 
+    internal bool isRestoringHost = false; // Flag to track if we are waiting for host authority back
+
     private void Awake()
     {
         Instance = this;
@@ -622,6 +624,62 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
+    public void RequestHostBack(int originalHostId)
+    {
+        Debug.Log($"RequestHostBack called for ID: {originalHostId}");
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            return;
+        }
+
+        Player targetPlayer = null;
+        foreach (Player p in PhotonNetwork.PlayerList)
+        {
+            if (p.ActorNumber == originalHostId)
+            {
+                targetPlayer = p;
+                break;
+            }
+        }
+
+        if (targetPlayer != null)
+        {
+            Debug.Log($"Reverting Master Client to original host: {targetPlayer.NickName} (ID: {originalHostId})");
+            PhotonNetwork.SetMasterClient(targetPlayer);
+        }
+        else
+        {
+            Debug.LogError($"Could not find original host with ID: {originalHostId}");
+        }
+    }
+
+    public void ProcessRestart()
+    {
+        Debug.Log("=== ProcessRestart() CALLED ===");
+
+        if (PhotonNetwork.InRoom)
+        {
+            // Call RPC on GameManager's PhotonView to reset all clients
+            photonView.RPC(nameof(ResetGameState_RPC), RpcTarget.All);
+
+            // Also reset locally on host
+            ResetGameStateLocal();
+
+            Debug.Log("✅ Loading Play scene with all players in room");
+
+            // Wait for RPC to be sent and processed before loading scene
+            PhotonNetwork.SendAllOutgoingCommands();
+
+            // Start coroutine to load scene
+            StartCoroutine(LoadPlaySceneAfterDelayCoroutine());
+        }
+        else
+        {
+            Debug.LogError("❌ Cannot play again - not in a room!");
+        }
+    }
+
+    [PunRPC]
     public void ChangeHostById(int clientId)
     {
         if (!PhotonNetwork.IsMasterClient)
@@ -658,6 +716,17 @@ public class GameManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             // This client is now the master client
+            Debug.Log("I am now the Master Client!");
+
+            // Check if we were waiting for host restoration
+            if (isRestoringHost)
+            {
+                Debug.Log("✅ Host authority restored! Proceeding with restart.");
+                isRestoringHost = false;
+                ProcessRestart();
+                return;
+            }
+
             if (GameOver.Instance != null)
             {
                 GameOver.Instance.UpdateButtonVisibility();

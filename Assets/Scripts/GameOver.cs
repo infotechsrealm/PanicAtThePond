@@ -167,7 +167,7 @@ public class GameOver : MonoBehaviourPunCallbacks
             // CRITICAL FIX: Check if GameManager's photonView exists before using it
             if (GameManager.Instance == null || GameManager.Instance.photonView == null)
             {
-                Debug.LogError("âŒ CRITICAL: GameManager or its PhotonView is NULL! Cannot send RPC!");
+                Debug.LogError("❌ CRITICAL: GameManager or its PhotonView is NULL! Cannot send RPC!");
                 return;
             }
 
@@ -176,37 +176,31 @@ public class GameOver : MonoBehaviourPunCallbacks
             {
                 if (PhotonNetwork.InRoom)
                 {
-                    // Call RPC on GameManager's PhotonView to reset all clients
-                    GameManager.Instance.photonView.RPC(nameof(GameManager.ResetGameState_RPC), RpcTarget.All);
-
-                    // Also reset locally on host
-                    GameManager.Instance.ResetGameStateLocal();
-
-                    Debug.Log("✅ Loading Play scene with all players in room");
-
-                    // Wait for RPC to be sent and processed before loading scene
-                    // This ensures all clients receive the reset before scene change
-                    PhotonNetwork.SendAllOutgoingCommands();
-                    
-                    // Start coroutine on GameManager since GameOver GameObject may become inactive
-                    if (GameManager.Instance != null)
+                    // Check if we still have Master Client authority
+                    if (PhotonNetwork.IsMasterClient)
                     {
-                        GameManager.Instance.StartCoroutine(GameManager.Instance.LoadPlaySceneAfterDelayCoroutine());
+                        // We have logic to restart directly
+                        GameManager.Instance.ProcessRestart();
                     }
                     else
                     {
-                        // Fallback: use Invoke on this object (may fail if inactive)
-                        Invoke(nameof(LoadPlayScene), 0.2f);
+                        // We lost authority (likely due to role swap), so we must request it back first
+                        Debug.LogWarning("⚠️ Original Host lost Master Client authority! Requesting it back...");
+                        
+                        GameManager.Instance.isRestoringHost = true;
+                        GameManager.Instance.photonView.RPC(nameof(GameManager.RequestHostBack), RpcTarget.MasterClient, PhotonNetwork.LocalPlayer.ActorNumber);
+                        
+                        // Note: The actual restart will happen in OnMasterClientSwitched once we get authority back
                     }
                 }
                 else
                 {
-                    Debug.LogError("âŒ Cannot play again - not in a room!");
+                    Debug.LogError("❌ Cannot play again - not in a room!");
                 }
             }
             else
             {
-                Debug.LogWarning("âš ï¸ Play Again button clicked but not original host");
+                Debug.LogWarning("⚠️ Play Again button clicked but not original host");
             }
         }
     }
