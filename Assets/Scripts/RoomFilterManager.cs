@@ -25,8 +25,6 @@ public class RoomFilterManager : MonoBehaviour
                 "Best Region (Auto)",
                 "Europe",
                 "North America",
-                "Asia",
-                "India",
                 "Oceania"
             });
             regionDropdown.onValueChanged.AddListener(OnRegionDropdownChanged);
@@ -69,9 +67,7 @@ public class RoomFilterManager : MonoBehaviour
             case 0: targetRegion = ""; regionLabel = "Best Region"; break; // Auto/All
             case 1: targetRegion = "eu"; regionLabel = "Europe"; break;
             case 2: targetRegion = "us"; regionLabel = "North America"; break;
-            case 3: targetRegion = "asia"; regionLabel = "Asia"; break;
-            case 4: targetRegion = "in"; regionLabel = "India"; break; // Explicit India region
-            case 5: targetRegion = "au"; regionLabel = "Oceania"; break;
+            case 3: targetRegion = "au"; regionLabel = "Oceania"; break;
         }
 
         Debug.Log($"[RegionSwitcher] Switching to {regionLabel} ({targetRegion})...");
