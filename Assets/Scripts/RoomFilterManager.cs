@@ -22,7 +22,7 @@ public class RoomFilterManager : MonoBehaviour
             regionDropdown.ClearOptions();
             regionDropdown.AddOptions(new System.Collections.Generic.List<string>()
             {
-                "Best Region (Auto)",
+                "Best Region",
                 "Europe",
                 "North America",
                 "Oceania"

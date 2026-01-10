@@ -54,9 +54,30 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
 
             // allRommButtons.Add(btn);
 
+            // Get region string early for display
+            string regionString = "";
+
+            if (room.CustomProperties.TryGetValue("region", out object regionObj))
+            {
+                regionString = regionObj as string;
+            }
+            if (string.IsNullOrEmpty(regionString))
+            {
+                regionString = PhotonNetwork.CloudRegion;
+            }
+
             if (texts.Length >= 3) // 3 Text components
             {
-                texts[0].text = displayIndex.ToString();       // Sequential number
+                // Display Region Name instead of Index
+                if (RegionManager.Instance != null)
+                {
+                    texts[0].text = RegionManager.Instance.GetRegionDisplayName(regionString).ToUpper();
+                }
+                else
+                {
+                    texts[0].text = regionString; // Fallback
+                }
+                
                 texts[1].text = room.Name;                     // Room name
                 texts[2].text = $"{room.PlayerCount}/{room.MaxPlayers}"; // Joined / Max
             }
@@ -67,32 +88,11 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
                 // Store Photon room reference for filtering
                 roomRow.photonRoomInfo = room;
                 
-                string regionString = "";
-                
-                // Try to get region from custom properties
-                if (room.CustomProperties.TryGetValue("region", out object regionObj))
-                {
-                    regionString = regionObj as string;
-                    Debug.Log($"[RegionIcon] Room '{room.Name}' has stored region: {regionString}");
-                }
-                
-                // If no region stored, use current player's region as fallback
-                if (string.IsNullOrEmpty(regionString))
-                {
-                    regionString = PhotonNetwork.CloudRegion;
-                    Debug.Log($"[RegionIcon] Room '{room.Name}' using fallback region: {regionString}");
-                }
-                
                 // Get and set the region icon
                 Sprite regionIcon = RegionManager.Instance.GetRegionIcon(regionString);
                 if (regionIcon != null)
                 {
                     roomRow.SetRegionIcon(regionIcon);
-                    Debug.Log($"[RegionIcon] Set region icon for room '{room.Name}' with region '{regionString}'");
-                }
-                else
-                {
-                    Debug.LogWarning($"[RegionIcon] No icon found for region '{regionString}' on room '{room.Name}'");
                 }
             }
             else
@@ -142,11 +142,28 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
                 roomRowPrefeb.lanRoomInfo.connectedPlayers = server.playerCount;
                 roomRowPrefeb.lanRoomInfo.maxPlayers = server.maxPlayers;
 
+                // Determine region string
+                string regionString = roomRowPrefeb.lanRoomInfo.regionName;
+                if (string.IsNullOrEmpty(regionString) && RegionManager.Instance != null)
+                {
+                    regionString = RegionManager.Instance.GetLocalRegion();
+                    roomRowPrefeb.lanRoomInfo.regionName = regionString;
+                }
+
                 // Text components update करो
                 Text[] texts = roomRowPrefeb.GetComponentsInChildren<Text>();
                 if (texts.Length >= 3)
                 {
-                    texts[0].text = (i + 1).ToString(); // Index
+                    // Display Region Name instead of Index
+                    if (RegionManager.Instance != null)
+                    {
+                        texts[0].text = RegionManager.Instance.GetRegionDisplayName(regionString).ToUpper();
+                    }
+                    else
+                    {
+                        texts[0].text = (i + 1).ToString(); // Fallback to index if no RegionManager
+                    }
+
                     texts[1].text = server.roomName;
                     texts[2].text = $"{server.playerCount}/{server.maxPlayers}";
                 }
@@ -154,21 +171,11 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
                 // Set region icon for LAN room
                 if (RegionManager.Instance != null)
                 {
-                    // Automatically detect region from system timezone
-                    string regionString = RegionManager.Instance.GetLocalRegion();
-                    
-                    Debug.Log($"[RegionIcon-LAN] Auto-detected region '{regionString}' for LAN room (update)");
-                    
-                    roomRowPrefeb.lanRoomInfo.regionName = regionString;
                     Sprite regionIcon = RegionManager.Instance.GetRegionIcon(regionString);
                     
                     if (regionIcon != null)
                     {
                         roomRowPrefeb.SetRegionIcon(regionIcon);
-                    }
-                    else
-                    {
-                        Debug.LogWarning($"[RegionIcon-LAN] No icon found for region '{regionString}'");
                     }
                 }
 
@@ -186,10 +193,31 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
                 roomRowPrefeb.lanRoomInfo.connectedPlayers = server.playerCount;
                 roomRowPrefeb.lanRoomInfo.maxPlayers = server.maxPlayers;
 
+                // Determine region string (New Room)
+                string regionString = server.roomName; // Fallback, though we should probably check lanRoomInfo logic
+                // Actually lanRoomInfo is in the prefab, we just instantiated it.
+                // We should get local region since it's a discovered server, it might be local? 
+                // Wait, discovered server means we found it on LAN. We might not know its region unless it's in the packet, 
+                // but LAN usually implies same region (local).
+                if (RegionManager.Instance != null)
+                {
+                    regionString = RegionManager.Instance.GetLocalRegion();
+                    roomRowPrefeb.lanRoomInfo.regionName = regionString;
+                }
+
                 Text[] texts = roomRowPrefeb.GetComponentsInChildren<Text>();
                 if (texts.Length >= 3)
                 {
-                    texts[0].text = (i + 1).ToString();
+                     // Display Region Name instead of Index
+                    if (RegionManager.Instance != null)
+                    {
+                        texts[0].text = RegionManager.Instance.GetRegionDisplayName(regionString).ToUpper();
+                    }
+                    else
+                    {
+                        texts[0].text = (i + 1).ToString();
+                    }
+                    
                     texts[1].text = server.roomName;
                     texts[2].text = $"{server.playerCount}/{server.maxPlayers}";
                 }
@@ -197,21 +225,11 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
                 // Set region icon for LAN room
                 if (RegionManager.Instance != null)
                 {
-                    // Automatically detect region from system timezone
-                    string regionString = RegionManager.Instance.GetLocalRegion();
-                    
-                    Debug.Log($"[RegionIcon-LAN] Auto-detected region '{regionString}' for LAN room (new)");
-                    
-                    roomRowPrefeb.lanRoomInfo.regionName = regionString;
                     Sprite regionIcon = RegionManager.Instance.GetRegionIcon(regionString);
                     
                     if (regionIcon != null)
                     {
                         roomRowPrefeb.SetRegionIcon(regionIcon);
-                    }
-                    else
-                    {
-                        Debug.LogWarning($"[RegionIcon-LAN] No icon found for region '{regionString}'");
                     }
                 }
 
@@ -225,17 +243,7 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
             Debug.Log($"❌ Removed room (no longer active): {kvp.Key}");
         }
 
-        // 🔹 Index numbers को ensure करो कि सही हों (1,2,3,...)
-        int index = 1;
-        foreach (Transform child in roomTablePanel)
-        {
-            Text[] texts = child.GetComponentsInChildren<Text>();
-            if (texts.Length > 0)
-            {
-                texts[0].text = index.ToString();
-                index++;
-            }
-        }
+
 
         GS.Instance.DestroyPreloder();
     }

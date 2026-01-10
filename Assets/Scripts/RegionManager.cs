@@ -184,4 +184,20 @@ public class RegionManager : MonoBehaviour
     {
         return GetRegionIcon(GetRegionFromString(rawRegion));
     }
+
+    public string GetRegionDisplayName(string rawRegion)
+    {
+        RegionType regionType = GetRegionFromString(rawRegion);
+        switch (regionType)
+        {
+            case RegionType.Europe:
+                return "Europe";
+            case RegionType.NorthAmerica:
+                return "North America";
+            case RegionType.Oceania:
+                return "Oceania";
+            default:
+                return "Unknown";
+        }
+    }
 }
