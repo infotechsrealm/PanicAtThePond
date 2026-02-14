@@ -1,0 +1,806 @@
+fileFormatVersion: 2
+guid: b08fe45107185a347b2d703372381a72
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3935902512636222111
+    second: Trout-Sheet_0
+  - first:
+      213: -6742988136151696710
+    second: Trout-Sheet_1
+  - first:
+      213: -8320354711679895782
+    second: Trout-Sheet_2
+  - first:
+      213: -3705279873564857908
+    second: Trout-Sheet_3
+  - first:
+      213: -7827603974998663257
+    second: Trout-Sheet_4
+  - first:
+      213: 5472051659701044484
+    second: Trout-Sheet_5
+  - first:
+      213: 3456010764800014030
+    second: Trout-Sheet_6
+  - first:
+      213: -4516735068289862569
+    second: Trout-Sheet_7
+  - first:
+      213: 1336685739370736105
+    second: Trout-Sheet_8
+  - first:
+      213: 5324641921244905125
+    second: Trout-Sheet_9
+  - first:
+      213: 171981053151417306
+    second: Trout-Sheet_10
+  - first:
+      213: -230788024800149294
+    second: Trout-Sheet_11
+  - first:
+      213: 1408503108370567360
+    second: Trout-Sheet_12
+  - first:
+      213: 4338118220625763297
+    second: Trout-Sheet_13
+  - first:
+      213: -612290991276744227
+    second: Trout-Sheet_14
+  - first:
+      213: 7614686419405510274
+    second: Trout-Sheet_15
+  - first:
+      213: -2482229240282032863
+    second: Trout-Sheet_16
+  - first:
+      213: -2285697601978835633
+    second: Trout-Sheet_17
+  - first:
+      213: 2013380566294715204
+    second: Trout-Sheet_18
+  - first:
+      213: -4247287684273534137
+    second: Trout-Sheet_19
+  - first:
+      213: 7091187718179479427
+    second: Trout-Sheet_20
+  - first:
+      213: 8636655124594385204
+    second: Trout-Sheet_21
+  - first:
+      213: 8564947795724668779
+    second: Trout-Sheet_22
+  - first:
+      213: 2159672089506855947
+    second: Trout-Sheet_23
+  - first:
+      213: 8200355232101629998
+    second: Trout-Sheet_24
+  - first:
+      213: 8752395511499492295
+    second: Trout-Sheet_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Trout-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 281
+        width: 48
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16520cf948dd069c0800000000000000
+      internalID: -3935902512636222111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 281
+        width: 50
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aba310c14081c62a0800000000000000
+      internalID: -6742988136151696710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 281
+        width: 48
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a17721d0979288c80800000000000000
+      internalID: -8320354711679895782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 280
+        width: 46
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc923ce1693349cc0800000000000000
+      internalID: -3705279873564857908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 225
+        width: 48
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7afd4cb38a3ce5390800000000000000
+      internalID: -7827603974998663257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 225
+        width: 50
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40541190ef1a0fb40800000000000000
+      internalID: 5472051659701044484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 225
+        width: 48
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec6b4d7da7736ff20800000000000000
+      internalID: 3456010764800014030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 224
+        width: 46
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7547806d2655151c0800000000000000
+      internalID: -4516735068289862569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 169
+        width: 48
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e9e58f099cdc8210800000000000000
+      internalID: 1336685739370736105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 169
+        width: 40
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aeb4ffbd9de4e940800000000000000
+      internalID: 5324641921244905125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 169
+        width: 43
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad3103d4bdff26200800000000000000
+      internalID: 171981053151417306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 168
+        width: 44
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d08f53a3831cccf0800000000000000
+      internalID: -230788024800149294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 113
+        width: 48
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c0167f4d120c8310800000000000000
+      internalID: 1408503108370567360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 113
+        width: 50
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eb5c0e8987143c30800000000000000
+      internalID: 4338118220625763297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 113
+        width: 48
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd127c56694b087f0800000000000000
+      internalID: -612290991276744227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 112
+        width: 46
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28618a044fccca960800000000000000
+      internalID: 7614686419405510274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 57
+        width: 48
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 125d6e948a95d8dd0800000000000000
+      internalID: -2482229240282032863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 57
+        width: 50
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4dd61224229740e0800000000000000
+      internalID: -2285697601978835633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 57
+        width: 48
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44bdbab25f6f0fb10800000000000000
+      internalID: 2013380566294715204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 56
+        width: 46
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74b0cffaa5a9e05c0800000000000000
+      internalID: -4247287684273534137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 48
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38f53b1b8a5f86260800000000000000
+      internalID: 7091187718179479427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 5
+        width: 50
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 431610da3109bd770800000000000000
+      internalID: 8636655124594385204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 3
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6f0fe324aeccd670800000000000000
+      internalID: 8564947795724668779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 3
+        width: 50
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0cb16ea252b8fd10800000000000000
+      internalID: 2159672089506855947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 1
+        width: 46
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e200f61e2a38dc170800000000000000
+      internalID: 8200355232101629998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trout-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 0
+        width: 46
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cb86a47851c67970800000000000000
+      internalID: 8752395511499492295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Trout-Sheet_0: -3935902512636222111
+      Trout-Sheet_1: -6742988136151696710
+      Trout-Sheet_10: 171981053151417306
+      Trout-Sheet_11: -230788024800149294
+      Trout-Sheet_12: 1408503108370567360
+      Trout-Sheet_13: 4338118220625763297
+      Trout-Sheet_14: -612290991276744227
+      Trout-Sheet_15: 7614686419405510274
+      Trout-Sheet_16: -2482229240282032863
+      Trout-Sheet_17: -2285697601978835633
+      Trout-Sheet_18: 2013380566294715204
+      Trout-Sheet_19: -4247287684273534137
+      Trout-Sheet_2: -8320354711679895782
+      Trout-Sheet_20: 7091187718179479427
+      Trout-Sheet_21: 8636655124594385204
+      Trout-Sheet_22: 8564947795724668779
+      Trout-Sheet_23: 2159672089506855947
+      Trout-Sheet_24: 8200355232101629998
+      Trout-Sheet_25: 8752395511499492295
+      Trout-Sheet_3: -3705279873564857908
+      Trout-Sheet_4: -7827603974998663257
+      Trout-Sheet_5: 5472051659701044484
+      Trout-Sheet_6: 3456010764800014030
+      Trout-Sheet_7: -4516735068289862569
+      Trout-Sheet_8: 1336685739370736105
+      Trout-Sheet_9: 5324641921244905125
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
