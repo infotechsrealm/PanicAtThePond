@@ -37,6 +37,26 @@ public class SettingsMenu : MonoBehaviour
         lobbyButton.onClick.AddListener(GotoLobby);
         closeButton.onClick.AddListener(Quit);
         modeButtonText.text = GS.Instance.isFullscreen ? "Windowed Mode" : "Fullscreen Mode";
+
+        // Set lobby button interactability based on whether player is Host
+        UpdateLobbyButtonState();
+    }
+
+    private void UpdateLobbyButtonState()
+    {
+        bool isHost = false;
+
+        if (GS.Instance.isLan)
+        {
+            isHost = GS.Instance.IsMirrorMasterClient;
+        }
+        else
+        {
+            isHost = GS.Instance.isMasterClient;
+        }
+
+        // Only Host can use the lobby button to return all players to lobby
+        lobbyButton.interactable = isHost;
     }
 
     private void OnEnable()
@@ -114,15 +134,71 @@ public class SettingsMenu : MonoBehaviour
 
     public void GotoLobby()
     {
-        if(GS.Instance.isLan)
+        Debug.Log("=== LOBBY BUTTON CLICKED (Settings Menu) ===");
+        Debug.Log($"IsMasterClient: {PhotonNetwork.IsMasterClient}");
+        Debug.Log($"isMasterClient (original): {GS.Instance.isMasterClient}");
+        Debug.Log($"InRoom: {PhotonNetwork.InRoom}");
+        Debug.Log($"IsConnected: {PhotonNetwork.IsConnected}");
+
+        if (!GS.Instance.isLan && !GS.Instance.isMasterClient)
         {
-            GameManager.Instance.RestartGame();
+            Debug.LogWarning("⚠️ Lobby button clicked but not original host - This should not happen!");
+            return;
+        }
+
+        if (GS.Instance.isLan)
+        {
+            Debug.Log("LAN Mode - Using ServerChangeScene");
+
+            if (Mirror.NetworkServer.active)
+            {
+                Debug.Log("Server is active - Loading Dash scene");
+                Mirror.NetworkManager.singleton.ServerChangeScene("Dash");
+            }
+            else
+            {
+                Debug.LogWarning("Server is not active - Cannot load Dash scene");
+            }
         }
         else
         {
-            PhotonNetwork.LeaveRoom();
+            Debug.Log("Photon Mode - Using LoadLevel");
+
+            bool hasRoomInfo = PhotonNetwork.CurrentRoom != null;
+            bool inRoom = PhotonNetwork.InRoom;
+            bool isConnected = PhotonNetwork.IsConnected;
+
+            Debug.Log($"Room state check - InRoom: {inRoom}, HasRoomInfo: {hasRoomInfo}, IsConnected: {isConnected}");
+
+            if (GS.Instance.isMasterClient && PhotonNetwork.IsMasterClient)
+            {
+                if (hasRoomInfo && isConnected)
+                {
+                    Debug.Log("✅ Loading Dash scene - returning to lobby with all players in room");
+                    Debug.Log($"Room Name: {PhotonNetwork.CurrentRoom.Name}, Players: {PhotonNetwork.CurrentRoom.PlayerCount}");
+                    PhotonNetwork.LoadLevel("Dash");
+                }
+                else if (inRoom)
+                {
+                    Debug.Log("✅ Loading Dash scene - returning to lobby with all players in room");
+                    Debug.Log($"Room Name: {PhotonNetwork.CurrentRoom.Name}, Players: {PhotonNetwork.CurrentRoom.PlayerCount}");
+                    PhotonNetwork.LoadLevel("Dash");
+                }
+                else if (isConnected)
+                {
+                    Debug.LogWarning("⚠️ Connected but no room info - Attempting to load Dash anyway");
+                    PhotonNetwork.LoadLevel("Dash");
+                }
+                else
+                {
+                    Debug.LogError("❌ Cannot load lobby - not connected!");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ Lobby button clicked but not master client or original host");
+            }
         }
-        SceneManager.LoadScene("Dash");
     }
 
     public void Quit()

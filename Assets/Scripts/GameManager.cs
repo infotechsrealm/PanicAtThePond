@@ -25,14 +25,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     [Header("Runtime Info")]
     internal int fishermanWorms;
     public int maxWorms;
-
     public List<GameObject> fishes = new List<GameObject>();
 
     [Header("UI")]
-    public Slider castingMeter; // Assign this in Inspector
-
+    public Slider castingMeter;
     public static GameManager Instance;
-
     public GameObject gameOverPanel;
     public Text gameOverText;
 
@@ -42,27 +39,23 @@ public class GameManager : MonoBehaviourPunCallbacks
     public Sprite emptyBucket;
 
     [Header("UI References")]
-    public Image bucketImage;   // assign bucket Image (UI Image)
+    public Image bucketImage;
     public Text wormCountText;
-
     public GameObject hungerBar;
     public GameObject fisherManObjects;
     public GameObject preloderUI;
     public GameObject coverBG;
 
-    // public Transform camera;
-
     public FishController myFish;
     public List<FishController> allFishes = new List<FishController>();
-
     public Text messageText;
 
     internal bool fisherManIsSpawned = false;
     internal bool isFisherMan = false;
     internal bool goldWormEatByFish = false;
-
     public GameObject sky, water;
 
+    internal bool isRestoringHost = false; // Flag to track if we are waiting for host authority back
 
     private void Awake()
     {
@@ -80,23 +73,126 @@ public class GameManager : MonoBehaviourPunCallbacks
             GS.Instance.isMasterClient = false;
         }
     }
+
     void Start()
     {
-       
+        if (GS.Instance.isLan)
+        {
+            // LAN mode: spawn immediately
+            SpawnPlayer();
+            Invoke(nameof(setFishermanWormCounts), 2f);
+        }
+        else
+        {
+            // Photon mode: wait for network to be ready before spawning
+            // Also check if we need to reload scene (Photon doesn't support reloading same scene on clients)
+            if (PhotonNetwork.InRoom && !PhotonNetwork.IsMasterClient)
+            {
+                // Client: Check if scene is actually loaded correctly
+                // If we're in Play scene but don't have a fish, we might need to spawn
+                StartCoroutine(SpawnPlayerWhenReady());
+            }
+            else if (PhotonNetwork.IsMasterClient)
+            {
+                // Host: Always spawn
+                StartCoroutine(SpawnPlayerWhenReady());
+            }
+            else
+            {
+                // Not in room yet, wait a bit
+                StartCoroutine(SpawnPlayerWhenReady());
+            }
+        }
+    }
 
-        SpawnPlayer();
-        Invoke(nameof(setFishermanWormCounts), 2f);
+    /// <summary>
+    /// Coroutine to wait for Photon to be ready before spawning players
+    /// This ensures proper synchronization when scene loads via PhotonNetwork.LoadLevel
+    /// </summary>
+    private IEnumerator SpawnPlayerWhenReady()
+    {
+        Debug.Log($"[SpawnPlayerWhenReady] Starting coroutine - IsMasterClient: {PhotonNetwork.IsMasterClient}, InRoom: {PhotonNetwork.InRoom}, Scene: {SceneManager.GetActiveScene().name}");
+        
+        // Wait for Photon to be in a room and message queue to be running
+        // This is critical when loading scenes via PhotonNetwork.LoadLevel
+        int maxWaitTime = 10; // Increased wait time for scene reload
+        float elapsed = 0f;
+        
+        // First, wait for scene to be fully loaded
+        while (SceneManager.GetActiveScene().name != "Play" && elapsed < maxWaitTime)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        
+        if (SceneManager.GetActiveScene().name != "Play")
+        {
+            Debug.LogError($"❌ Scene not loaded after {maxWaitTime}s. Current scene: {SceneManager.GetActiveScene().name}");
+            yield break;
+        }
+        
+        Debug.Log($"[SpawnPlayerWhenReady] Scene loaded. Waiting for Photon network...");
+        elapsed = 0f;
+        
+        // Now wait for Photon network to be ready
+        while (elapsed < maxWaitTime)
+        {
+            bool inRoom = PhotonNetwork.InRoom;
+            bool messageQueueRunning = PhotonNetwork.IsMessageQueueRunning;
+            bool isConnected = PhotonNetwork.IsConnected;
+            int playerCount = PhotonNetwork.InRoom ? PhotonNetwork.CurrentRoom.PlayerCount : 0;
+            
+            // Check all conditions
+            if (inRoom && messageQueueRunning && isConnected && playerCount > 0)
+            {
+                // Additional delay to ensure everything is synchronized
+                yield return new WaitForSeconds(0.3f);
+                
+                // Double-check conditions after delay
+                if (PhotonNetwork.InRoom && PhotonNetwork.IsMessageQueueRunning && PhotonNetwork.CurrentRoom.PlayerCount > 0)
+                {
+                    Debug.Log($"✅ Photon is ready - Spawning player. PlayerCount: {PhotonNetwork.CurrentRoom.PlayerCount}, IsMasterClient: {PhotonNetwork.IsMasterClient}");
+                    SpawnPlayer();
+                    Invoke(nameof(setFishermanWormCounts), 2f);
+                    yield break;
+                }
+            }
+            
+            // Log status every second
+            if (Mathf.FloorToInt(elapsed) != Mathf.FloorToInt(elapsed - Time.deltaTime))
+            {
+                Debug.Log($"[SpawnPlayerWhenReady] Waiting... ({elapsed:F1}s) InRoom: {inRoom}, MessageQueue: {messageQueueRunning}, Connected: {isConnected}, Players: {playerCount}");
+            }
+            
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        
+        // Fallback: spawn anyway if we've waited too long
+        Debug.LogWarning($"⚠️ Photon ready timeout after {maxWaitTime}s - Attempting spawn anyway");
+        Debug.Log($"Final state - InRoom: {PhotonNetwork.InRoom}, MessageQueue: {PhotonNetwork.IsMessageQueueRunning}, Connected: {PhotonNetwork.IsConnected}, Players: {(PhotonNetwork.InRoom ? PhotonNetwork.CurrentRoom.PlayerCount : 0)}");
+        
+        if (PhotonNetwork.InRoom && PhotonNetwork.CurrentRoom.PlayerCount > 0)
+        {
+            Debug.Log("⚠️ Spawning player despite timeout");
+            SpawnPlayer();
+            Invoke(nameof(setFishermanWormCounts), 2f);
+        }
+        else
+        {
+            Debug.LogError("❌ Cannot spawn player - Not in a room or no players!");
+        }
     }
 
     public void UpdateUI(int currunt_Warms)
     {
         bucketImage.gameObject.SetActive(true);
+
         // Text
         wormCountText.text = currunt_Warms.ToString();
 
         // Percentage
         float percentage = (float)currunt_Warms / maxWorms;
-
         if (percentage >= 0.5f)
         {
             bucketImage.sprite = fullBucket;
@@ -111,10 +207,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
-
     void SpawnPlayer()
     {
         Debug.Log("GS.Instance.isLan = > " + GS.Instance.isLan);
+
         if (GS.Instance.isLan)
         {
             foreach (var conn in NetworkServer.connections.Values)
@@ -124,25 +220,20 @@ public class GameManager : MonoBehaviourPunCallbacks
                     float x = Random.Range(minBounds.x, maxBounds.x);
                     float y = Random.Range(minBounds.y, maxBounds.y);
                     Vector3 spawnPos = new Vector3(x, y, 0);
-
                     GameObject fish = Instantiate(fishPrefab, spawnPos, Quaternion.identity);
                     fishes.Add(fish);
-
                     NetworkServer.AddPlayerForConnection(conn, fish);
                 }
             }
         }
         else
         {
-
             // Spawn Fish
             float x = Random.Range(minBounds.x, maxBounds.x);
             float y = Random.Range(minBounds.y, maxBounds.y);
             Vector3 spawnPos = new Vector3(x, y, 0);
-
             GameObject fish = PhotonNetwork.Instantiate(fishPrefab.name, spawnPos, Quaternion.identity);
             fishes.Add(fish);
-
             Debug.Log("Fish Spawned: " + fishes.Count);
         }
     }
@@ -158,7 +249,6 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
             else
             {
-
                 GS.Instance.totlePlayers = totalPlayers = allFishes.Count;
                 Debug.Log("totlePlayer = " + GS.Instance.totlePlayers);
             }
@@ -170,7 +260,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         else
         {
-          
             PhotonNetwork.AutomaticallySyncScene = true;
             totalPlayers = PhotonNetwork.CurrentRoom.PlayerCount;
             int fishCount = totalPlayers - 1;
@@ -202,65 +291,313 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void ShowGameOver(string message)
     {
         Debug.Log("Game Over: " + message);
+
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(true);
 
-            if (WormSpawner.Instance.canSpawn)
+            if (WormSpawner.Instance != null && WormSpawner.Instance.canSpawn)
             {
                 WormSpawner.Instance.canSpawn = false;
             }
         }
         else
         {
-            Debug.Log("Gameover Panerl is null");
+            Debug.Log("Gameover Panel is null");
         }
 
         if (gameOverText != null)
         {
             gameOverText.text = message;
         }
+
+        // Update button visibility when game over panel is shown
+        if (GameOver.Instance != null)
+        {
+            GameOver.Instance.UpdateButtonVisibility();
+        }
     }
 
-    // Restart Button function
+    /// <summary>
+    /// ResetGameState_RPC - Called via RPC on all clients to reset game state
+    /// IMPORTANT: This method is called on GameManager, not GameOver!
+    /// </summary>
+    [PunRPC]
+    public void ResetGameState_RPC()
+    {
+        Debug.Log("=== RESETTING GAME STATE (RPC on GameManager) ===");
+        ResetGameStateLocal();
+    }
+
+    /// <summary>
+    /// ResetGameStateLocal - Core reset logic executed locally and via RPC
+    /// </summary>
+    public void ResetGameStateLocal()
+    {
+        Debug.Log("=== RESETTING GAME STATE ===");
+
+        // 1. Hide game over panel and reset UI
+        if (Instance != null && Instance.gameOverPanel != null)
+        {
+            Instance.gameOverPanel.SetActive(false);
+            Debug.Log("✅ Game over panel hidden");
+        }
+
+        // 2. Reset GameManager singleton state
+        if (Instance != null)
+        {
+            // Clear all spawned objects lists
+            Instance.fishes.Clear();
+            Instance.allFishes.Clear();
+
+            // Reset game state flags
+            Instance.fisherManIsSpawned = false;
+            Instance.isFisherMan = false;
+            Instance.goldWormEatByFish = false;
+            Instance.fishermanWorms = 0;
+
+            Debug.Log("✅ GameManager state reset");
+        }
+
+        // 3. Reset FishController singleton
+        if (FishController.Instance != null)
+        {
+            FishController.Instance.isDead = false;
+            FishController.Instance.canMove = true;
+            FishController.Instance.catchadeFish = false;
+            FishController.Instance.isFisherMan = false;
+            FishController.Instance.hunger = 100;
+            Debug.Log("✅ FishController state reset");
+        }
+
+        // 4. Reset FishermanController singleton
+        if (FishermanController.Instance != null)
+        {
+            FishermanController.Instance.catchadFish = 0;
+            FishermanController.Instance.isCanCast = true;
+            Debug.Log("✅ FishermanController state reset");
+        }
+
+        // 5. Reset HungerSystem
+        if (HungerSystem.Instance != null)
+        {
+            HungerSystem.Instance.canDecrease = true;
+            if (HungerSystem.Instance.hungerBar != null)
+            {
+                HungerSystem.Instance.hungerBar.value = 100f;
+            }
+            Debug.Log("✅ HungerSystem reset");
+        }
+
+        // 6. Reset MashPhaseManager
+        if (MashPhaseManager.Instance != null)
+        {
+            MashPhaseManager.Instance.active = false;
+            if (MashPhaseManager.Instance.mashPanel != null)
+            {
+                MashPhaseManager.Instance.mashPanel.SetActive(false);
+            }
+            Debug.Log("✅ MashPhaseManager reset");
+        }
+
+        // 7. Reset spawners
+        if (WormSpawner.Instance != null)
+        {
+            WormSpawner.Instance.canSpawn = true;
+            Debug.Log("✅ WormSpawner reset");
+        }
+
+        if (JunkSpawner.Instance != null)
+        {
+            JunkSpawner.Instance.canSpawn = true;
+            Debug.Log("✅ JunkSpawner reset");
+        }
+
+        // 8. Destroy all networked objects (fish, worms, junk, fisherman)
+        if (GS.Instance.isLan)
+        {
+            Debug.Log("✅ Mirror will clean up networked objects on scene change");
+        }
+        else
+        {
+            // For Photon: Only destroy objects we own, or let scene load handle cleanup
+            // When PhotonNetwork.LoadLevel is called, it will automatically clean up all networked objects
+            // But we'll try to clean up what we can to avoid errors
+            
+            FishController[] allFish = FindObjectsOfType<FishController>();
+            int destroyedCount = 0;
+            foreach (FishController fish in allFish)
+            {
+                if (fish != null && fish.gameObject != null)
+                {
+                    PhotonView pv = fish.GetComponent<PhotonView>();
+                    // Only destroy if we own it or if it's null (already destroyed)
+                    if (pv != null && (pv.IsMine || PhotonNetwork.IsMasterClient))
+                    {
+                        try
+                        {
+                            PhotonNetwork.Destroy(fish.gameObject);
+                            destroyedCount++;
+                        }
+                        catch (System.Exception e)
+                        {
+                            Debug.LogWarning($"Could not destroy fish: {e.Message}");
+                        }
+                    }
+                }
+            }
+            Debug.Log($"✅ Destroyed {destroyedCount} fish objects (scene load will clean up the rest)");
+
+            WormManager[] allWorms = FindObjectsOfType<WormManager>();
+            int destroyedWorms = 0;
+            foreach (WormManager worm in allWorms)
+            {
+                if (worm != null && worm.gameObject != null)
+                {
+                    PhotonView pv = worm.GetComponent<PhotonView>();
+                    // Only destroy if we own it or if master client
+                    if (pv != null && (pv.IsMine || PhotonNetwork.IsMasterClient))
+                    {
+                        try
+                        {
+                            PhotonNetwork.Destroy(worm.gameObject);
+                            destroyedWorms++;
+                        }
+                        catch (System.Exception e)
+                        {
+                            Debug.LogWarning($"Could not destroy worm: {e.Message}");
+                        }
+                    }
+                }
+            }
+            Debug.Log($"✅ Destroyed {destroyedWorms} worm objects (scene load will clean up the rest)");
+
+            JunkManager[] allJunk = FindObjectsOfType<JunkManager>();
+            int destroyedJunk = 0;
+            foreach (JunkManager junk in allJunk)
+            {
+                if (junk != null && junk.gameObject != null)
+                {
+                    PhotonView pv = junk.GetComponent<PhotonView>();
+                    // Only destroy if we own it or if master client
+                    if (pv != null && (pv.IsMine || PhotonNetwork.IsMasterClient))
+                    {
+                        try
+                        {
+                            PhotonNetwork.Destroy(junk.gameObject);
+                            destroyedJunk++;
+                        }
+                        catch (System.Exception e)
+                        {
+                            Debug.LogWarning($"Could not destroy junk: {e.Message}");
+                        }
+                    }
+                }
+            }
+            Debug.Log($"✅ Destroyed {destroyedJunk} junk objects (scene load will clean up the rest)");
+
+            FishermanController[] allFishermen = FindObjectsOfType<FishermanController>();
+            int destroyedFishermen = 0;
+            foreach (FishermanController fisherman in allFishermen)
+            {
+                if (fisherman != null && fisherman.gameObject != null)
+                {
+                    PhotonView pv = fisherman.GetComponent<PhotonView>();
+                    // Only destroy if we own it or if master client
+                    if (pv != null && (pv.IsMine || PhotonNetwork.IsMasterClient))
+                    {
+                        try
+                        {
+                            PhotonNetwork.Destroy(fisherman.gameObject);
+                            destroyedFishermen++;
+                        }
+                        catch (System.Exception e)
+                        {
+                            Debug.LogWarning($"Could not destroy fisherman: {e.Message}");
+                        }
+                    }
+                }
+            }
+            Debug.Log($"✅ Destroyed {destroyedFishermen} fisherman objects (scene load will clean up the rest)");
+        }
+
+        Debug.Log("=== GAME STATE RESET COMPLETE ===");
+    }
+
+    private static bool isLobbyButtonPressed = false;
+
+    public static void SetLobbyButtonPressed(bool value)
+    {
+        isLobbyButtonPressed = value;
+    }
+
     public void RestartGame()
     {
+        Debug.Log("=== RestartGame() CALLED ===");
+        Debug.Log($"Stack trace: {System.Environment.StackTrace}");
+        Debug.Log($"isLobbyButtonPressed flag: {isLobbyButtonPressed}");
+
+        if (isLobbyButtonPressed)
+        {
+            Debug.LogWarning("⚠️ RestartGame() called but Lobby button was pressed - Skipping disconnect!");
+            Debug.LogWarning("⚠️ Lobby button should handle scene loading without disconnecting");
+            isLobbyButtonPressed = false;
+            return;
+        }
+
+        if (GameOver.Instance != null && SceneManager.GetActiveScene().name == "Play")
+        {
+            string stackTrace = System.Environment.StackTrace;
+            if (stackTrace.Contains("Button.Press") || stackTrace.Contains("Button.OnPointerClick"))
+            {
+                Debug.LogWarning("⚠️ RestartGame() called from button click - This might be the Lobby button!");
+                Debug.LogWarning("⚠️ Lobby button should call GameOver.Lobby() instead of RestartGame()");
+                Debug.LogWarning("⚠️ Skipping disconnect - Lobby button should handle this differently");
+                return;
+            }
+        }
+
         StartCoroutine(RestartAfterDisconnect());
     }
 
     IEnumerator RestartAfterDisconnect()
     {
+        Debug.Log("=== RestartAfterDisconnect() STARTED ===");
+        Debug.Log($"isLan: {GS.Instance.isLan}");
+        Debug.Log($"InRoom: {PhotonNetwork.InRoom}");
+        Debug.Log($"IsConnected: {PhotonNetwork.IsConnected}");
+
         if (GS.Instance.isLan)
         {
+            Debug.Log("LAN Mode - ForceDisconnect()");
             ForceDisconnect();
         }
         else
         {
+            Debug.Log("Photon Mode - Disconnecting...");
             PhotonNetwork.Disconnect();
-            // wait jab tak disconnect complete na ho jaye
             yield return new WaitUntil(() => PhotonNetwork.IsConnected == false);
+            Debug.Log("Disconnected from Photon");
         }
+
+        Debug.Log("Loading Dash scene...");
         SceneManager.LoadScene("Dash");
     }
-
 
     public void ForceDisconnect()
     {
         if (NetworkServer.active && NetworkClient.isConnected)
         {
-            // HOST (server + client)
             NetworkManager.singleton.StopHost();
             Debug.Log("Stopped Host");
         }
         else if (NetworkServer.active)
         {
-            // सिर्फ SERVER
             NetworkManager.singleton.StopServer();
             Debug.Log("Stopped Server");
         }
         else if (NetworkClient.isConnected)
         {
-            // सिर्फ CLIENT
             NetworkManager.singleton.StopClient();
             Debug.Log("Stopped Client");
         }
@@ -269,7 +606,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     public IEnumerator RestartAfterLeftRoom()
     {
         PhotonNetwork.LeaveRoom();
-        // Wait until left room completely
         yield return new WaitUntil(() => PhotonNetwork.InRoom == false);
         SceneManager.LoadScene("Dash");
     }
@@ -288,16 +624,71 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    public void ChangeHostById(int clientId)
+    public void RequestHostBack(int originalHostId)
     {
+        Debug.Log($"RequestHostBack called for ID: {originalHostId}");
         if (!PhotonNetwork.IsMasterClient)
         {
-            Debug.LogWarning("❌ Sirf current MasterClient hi host change kar sakta hai!");
             return;
         }
 
         Player targetPlayer = null;
+        foreach (Player p in PhotonNetwork.PlayerList)
+        {
+            if (p.ActorNumber == originalHostId)
+            {
+                targetPlayer = p;
+                break;
+            }
+        }
 
+        if (targetPlayer != null)
+        {
+            Debug.Log($"Reverting Master Client to original host: {targetPlayer.NickName} (ID: {originalHostId})");
+            PhotonNetwork.SetMasterClient(targetPlayer);
+        }
+        else
+        {
+            Debug.LogError($"Could not find original host with ID: {originalHostId}");
+        }
+    }
+
+    public void ProcessRestart()
+    {
+        Debug.Log("=== ProcessRestart() CALLED ===");
+
+        if (PhotonNetwork.InRoom)
+        {
+            // Call RPC on GameManager's PhotonView to reset all clients
+            photonView.RPC(nameof(ResetGameState_RPC), RpcTarget.All);
+
+            // Also reset locally on host
+            ResetGameStateLocal();
+
+            Debug.Log("✅ Loading Play scene with all players in room");
+
+            // Wait for RPC to be sent and processed before loading scene
+            PhotonNetwork.SendAllOutgoingCommands();
+
+            // Start coroutine to load scene
+            StartCoroutine(LoadPlaySceneAfterDelayCoroutine());
+        }
+        else
+        {
+            Debug.LogError("❌ Cannot play again - not in a room!");
+        }
+    }
+
+    [PunRPC]
+    public void ChangeHostById(int clientId)
+    {
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            Debug.LogWarning("❌ Only current MasterClient can change host!");
+            return;
+        }
+
+        Player targetPlayer = null;
         foreach (Player p in PhotonNetwork.PlayerList)
         {
             if (p.ActorNumber == clientId)
@@ -320,11 +711,25 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public override void OnMasterClientSwitched(Player newMasterClient)
     {
+        Debug.Log("👑 New Master is: " + newMasterClient.NickName + " (ID: " + newMasterClient.ActorNumber + ")");
+        
         if (PhotonNetwork.IsMasterClient)
         {
+            // This client is now the master client
+            Debug.Log("I am now the Master Client!");
+
+            // Check if we were waiting for host restoration
+            if (isRestoringHost)
+            {
+                Debug.Log("✅ Host authority restored! Proceeding with restart.");
+                isRestoringHost = false;
+                ProcessRestart();
+                return;
+            }
+
             if (GameOver.Instance != null)
             {
-                GameOver.Instance.playAgainBtn.gameObject.SetActive(true);
+                GameOver.Instance.UpdateButtonVisibility();
             }
 
             if (goldWormEatByFish)
@@ -332,21 +737,20 @@ public class GameManager : MonoBehaviourPunCallbacks
                 if (!fisherManIsSpawned)
                 {
                     SpawnFisherman();
-                    Debug.Log("👑 New Master is: " + newMasterClient.NickName + " (ID: " + newMasterClient.ActorNumber + ")");
                 }
             }
-            else
+        }
+        else
+        {
+            // This client is no longer the master client (host migration occurred)
+            // This is normal when a client becomes the fisherman - do NOT trigger game over
+            // The original host should continue playing as a fish
+            Debug.Log("⚠️ No longer master client - Host migration occurred. Continuing to play as fish.");
+            
+            // Update button visibility if game over panel exists
+            if (GameOver.Instance != null)
             {
-                if (myFish != null)
-                {
-                    for (int i = 0; i < allFishes.Count; i++)
-                    {
-                        if (allFishes[i] != null)
-                        {
-                            allFishes[i].CallAllWinFishRPC();
-                        }
-                    }
-                }
+                GameOver.Instance.UpdateButtonVisibility();
             }
         }
     }
@@ -359,7 +763,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        Debug.Log("❌ Player Left Room: " + otherPlayer.NickName + " | ID: " + otherPlayer.ActorNumber + " | currun Player = " + PhotonNetwork.CurrentRoom.PlayerCount);
+        Debug.Log("❌ Player Left Room: " + otherPlayer.NickName + " | ID: " + otherPlayer.ActorNumber + " | current Player = " + PhotonNetwork.CurrentRoom.PlayerCount);
+
         if (PhotonNetwork.IsMasterClient)
         {
             int curruntPlayer = PhotonNetwork.CurrentRoom.PlayerCount;
@@ -374,12 +779,12 @@ public class GameManager : MonoBehaviourPunCallbacks
                     if (myFish != null)
                     {
                         Debug.Log(" OnPlayerLeftRoom CallAllWinFishRPC called");
-
                         myFish.WinFish();
                     }
                 }
             }
         }
+
         UpdateTablesUI();
     }
 
@@ -400,7 +805,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         else
         {
             photonView.RPC(nameof(PreloderOnOff), RpcTarget.All, res);
-
         }
     }
 
@@ -432,25 +836,23 @@ public class GameManager : MonoBehaviourPunCallbacks
         coverBG.SetActive(false);
     }
 
-
     public void CallLessPlayerCountRPC()
     {
         if (!GS.Instance.isLan)
         {
             photonView.RPC(nameof(LessPlayerCount), RpcTarget.MasterClient);
-            PhotonNetwork.SendAllOutgoingCommands(); // send it now
+            PhotonNetwork.SendAllOutgoingCommands();
         }
     }
 
-
-    //When Fish is Die  and Exit frome game 
     [PunRPC]
     public void LessPlayerCount()
     {
         totalPlayers--;
+
         if (PhotonNetwork.IsMasterClient)
         {
-            if(FishermanController.Instance != null)
+            if (FishermanController.Instance != null)
                 FishermanController.Instance.CheckWorms();
         }
     }
@@ -461,7 +863,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         if (GS.Instance.isLan)
         {
-            if(myFish.isFisherMan)
+            if (myFish.isFisherMan)
             {
                 FishermanController.Instance.CheckWorms();
             }
@@ -477,10 +879,92 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void WinFish_Mirror()
     {
-        for (int i = 0; i < allFishes.Count; i++)
+        if (GS.Instance.isLan)
         {
-            allFishes[i].CallWinFishRPC();
+            for (int i = 0; i < allFishes.Count; i++)
+            {
+                allFishes[i].CallWinFishRPC();
+            }
+        }
+        else
+        {
+            // Broadcast to ALL clients (including master) that fishes have won
+            // This is more reliable than iterating through the list which might be desynced
+            photonView.RPC(nameof(ReceiveFishWinRPC), RpcTarget.All);
         }
     }
 
+    [PunRPC]
+    public void ReceiveFishWinRPC()
+    {
+        Debug.Log("ReceiveFishWinRPC called");
+        
+        // If I am a fish and not the fisherman, I trigger my win state
+        if (myFish != null && !isFisherMan)
+        {
+            Debug.Log("Triggering local win for fish");
+            myFish.WinFish_mirror();
+        }
+        else if (isFisherMan) 
+        {
+            // If I am the fisherman, this confirms the loss (though it might be redundant if already handled)
+             Debug.Log("ReceiveFishWinRPC received by Fisherman - Logic handled in FishermanController");
+        }
+    }
+
+    /// <summary>
+    /// LoadPlaySceneAfterDelayCoroutine - Coroutine to wait for RPC processing before loading scene
+    /// This is called from GameOver to avoid issues when GameOver GameObject becomes inactive
+    /// </summary>
+    public IEnumerator LoadPlaySceneAfterDelayCoroutine()
+    {
+        // Wait a bit longer to ensure RPC is fully processed on all clients
+        yield return new WaitForSeconds(0.2f);
+        
+        // Double-check we're still in room before loading
+        if (PhotonNetwork.InRoom && PhotonNetwork.IsConnected)
+        {
+            Debug.Log("Loading Play scene...");
+            
+            // Send RPC to all clients (including master) to ensure they reload the scene
+            // Photon doesn't support reloading same scene on clients, so we need to force it via RPC
+            if (photonView != null)
+            {
+                // Use RPC to ensure ALL clients (including master) reload the scene
+                // This works around Photon's limitation with reloading the same scene
+                photonView.RPC(nameof(ReloadScene_RPC), RpcTarget.All);
+            }
+            else
+            {
+                Debug.LogError("❌ Cannot send ReloadScene RPC - PhotonView is null!");
+                // Fallback: just load on master
+                PhotonNetwork.LoadLevel("Play");
+            }
+        }
+        else
+        {
+            Debug.LogError("❌ Cannot load Play scene - Not in room or disconnected!");
+        }
+    }
+    
+    /// <summary>
+    /// RPC to force all clients (including master) to reload the Play scene
+    /// This is needed because Photon doesn't support reloading the same scene on clients
+    /// By using RPC, we ensure all clients reload, not just the master
+    /// </summary>
+    [PunRPC]
+    private void ReloadScene_RPC()
+    {
+        Debug.Log($"ReloadScene_RPC received - Reloading Play scene. IsMasterClient: {PhotonNetwork.IsMasterClient}");
+        if (PhotonNetwork.InRoom)
+        {
+            // Force reload by loading the scene again
+            // This ensures all clients reload, not just the master
+            PhotonNetwork.LoadLevel("Play");
+        }
+        else
+        {
+            Debug.LogError("❌ Cannot reload scene - Not in room!");
+        }
+    }
 }

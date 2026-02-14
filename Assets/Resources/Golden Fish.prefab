@@ -45,6 +45,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6508346683795485914
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -90,6 +91,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: f19dff138f845a94bb336181512ed8be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,7 +101,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &3995746989553086495
 Animator:
@@ -135,13 +136,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4946c1cba2b8e0e499f7563baf04dbef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 1.5
-  maxSpeed: 2
-  speedSmooth: 0.08
-  avoidDistance: 2.5
-  panicSpeedMultiplier: 1.8
-  maxEscapeSpeed: 6
-  minEscapeSpeed: 3.5
+  minSpeed: 5
+  maxSpeed: 7
+  speedSmooth: 0.15
+  avoidDistance: 7.5
+  panicSpeedMultiplier: 3.5
+  maxEscapeSpeed: 12.5
+  minEscapeSpeed: 10
   minBounds: {x: -8, y: -4}
   maxBounds: {x: 8, y: 0}
   boundaryMargin: 1.2
@@ -149,6 +150,11 @@ MonoBehaviour:
   animator: {fileID: 3995746989553086495}
   targetReachDistance: 0.4
   flipDeadZone: 0.15
+  directionSmoothTime: 0.04
+  pushSmoothTime: 0.03
+  sharkUpdateInterval: 0.05
+  escapeDirectionChangeInterval: 0.2
+  alertDuration: 15
 --- !u!114 &3755046863711763629
 MonoBehaviour:
   m_ObjectHideFlags: 0
