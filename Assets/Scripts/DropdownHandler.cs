@@ -31,8 +31,9 @@ public class DropdownHandler : MonoBehaviourPunCallbacks
         // Listener add
         waterDropdown.onValueChanged.AddListener(OnDropdownChanged);
     }
-    private void OnEnable()
+    public override void OnEnable()
     {
+        base.OnEnable();
        GS.Instance.rerfeshDropDown();
     }
   

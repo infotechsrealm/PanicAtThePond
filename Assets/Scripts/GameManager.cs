@@ -2,6 +2,7 @@
 using Mirror.Discovery;
 using Photon.Pun;
 using Photon.Realtime;
+using Steamworks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -292,30 +293,230 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Game Over: " + message);
 
-        if (gameOverPanel != null)
-        {
-            gameOverPanel.SetActive(true);
+        bool isQuickSurvivalist = GS.Instance != null && GS.Instance.currentGameMode == 0;
 
-            if (WormSpawner.Instance != null && WormSpawner.Instance.canSpawn)
+        if (isQuickSurvivalist || message == "You lose!" || message == "You win!" || message == "Fisherman Win!" || message.Contains("Fisherman Lose"))
+        {
+            if (gameOverPanel != null)
             {
-                WormSpawner.Instance.canSpawn = false;
+                gameOverPanel.SetActive(true);
+
+                if (WormSpawner.Instance != null && WormSpawner.Instance.canSpawn)
+                {
+                    WormSpawner.Instance.canSpawn = false;
+                }
             }
+            else
+            {
+                Debug.Log("Gameover Panel is null");
+            }
+
+            if (gameOverText != null)
+            {
+                gameOverText.text = message;
+            }
+
+            // Update button visibility when game over panel is shown
+            if (GameOver.Instance != null)
+            {
+                GameOver.Instance.UpdateButtonVisibility();
+            }
+        }
+    }
+
+    public void TriggerRoundEnd(string message)
+    {
+         if (GS.Instance == null) return;
+         if (GS.Instance.currentGameMode == 0) return; // Quick survivalist uses normal game over
+
+         if (GS.Instance.isLan)
+         {
+             if (myFish != null && myFish.fishController_Mirror != null)
+             {
+                 myFish.fishController_Mirror.CallTriggerRoundEnd_Mirror(message);
+             }
+             else if (FishermanController.Instance != null && FishermanController.Instance.fishermanController_Mirror != null)
+             {
+                 FishermanController.Instance.fishermanController_Mirror.CallTriggerRoundEnd_Mirror(message);
+             }
+         }
+         else
+         {
+             photonView.RPC(nameof(EndRoundRPC), RpcTarget.All, message);
+         }
+    }
+
+    [PunRPC]
+    public void EndRoundRPC(string message)
+    {
+         if (GS.Instance == null || GS.Instance.currentGameMode == 0) return;
+         
+         // Shut down regular Game Over panel if it's active so it doesn't overlap
+         if (gameOverPanel != null) gameOverPanel.SetActive(false);
+         
+         CalculateEndOfRoundBonuses(message);
+         StartCoroutine(ShowScoreScreenDelayed());
+    }
+
+    private IEnumerator ShowScoreScreenDelayed()
+    {
+        yield return new WaitForSeconds(0.5f);
+        if (ScoreManager.Instance != null && GS.Instance != null)
+        {
+            ScoreManager.Instance.ShowScoreScreen(GS.Instance.playerScores);
+        }
+    }
+
+    public void HandleEndOfRoundTransition()
+    {
+        if (GS.Instance == null) return;
+        
+        if (GS.Instance.currentGameMode == 1) // Quick Cast (1 round)
+        {
+            DetermineWinnerAndShowWinnerScreen();
+        }
+        else if (GS.Instance.currentGameMode == 2) // Deep Sea Fishing (5 rounds)
+        {
+            if (GS.Instance.currentRound < 5)
+            {
+                GS.Instance.currentRound++;
+                // Resets round and reloads the Play scene
+                ProcessRestart(); 
+            }
+            else
+            {
+                DetermineWinnerAndShowWinnerScreen();
+            }
+        }
+    }
+
+    public void DetermineWinnerAndShowWinnerScreen() 
+    {
+        string winnerName = "No One";
+        int highestScore = -1;
+        
+        foreach(var kvp in GS.Instance.playerScores)
+        {
+            if(kvp.Value > highestScore)
+            {
+                highestScore = kvp.Value;
+                winnerName = kvp.Key;
+            }
+        }
+        
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.ShowWinnerScreen(winnerName, highestScore);
+        }
+        
+        // Wait then go to Lobby
+        StartCoroutine(ReturnToLobbyDelayed());
+    }
+    
+    private IEnumerator ReturnToLobbyDelayed()
+    {
+         yield return new WaitForSeconds(5f);
+         if (GameOver.Instance != null)
+         {
+             GameOver.Instance.Lobby();
+         }
+    }
+
+    public void CalculateEndOfRoundBonuses(string message)
+    {
+        if (GS.Instance == null) return;
+
+        bool fishermanWon = message.Contains("Fisherman Win");
+        bool fishesWon = message.Contains("Fishes Win") || message.Contains("You win");
+
+        string myName = "Player";
+        if (GS.Instance.isLan) {
+            myName = GS.Instance.nickName;
+        }
+        else if (PhotonNetwork.InRoom) {
+            myName = PhotonNetwork.LocalPlayer.NickName;
+        }
+
+        bool isFullLobby = totalPlayers >= 6; 
+        int totalOriginalFish = totalPlayers - 1;
+        int aliveFishCount = 0;
+
+        foreach (var fish in allFishes)
+        {
+             if (fish != null && !fish.isDead) aliveFishCount++;
+        }
+
+        if (fishermanWon)
+        {
+            if (isFisherMan) 
+            {
+                AddPlayerScore(myName, 15);
+                if (fishermanWorms > 0)
+                {
+                    AddPlayerScore(myName, fishermanWorms);
+                }
+                
+                if (isFullLobby && FishermanController.Instance != null && FishermanController.Instance.catchadFish >= 6) UnlockAchievement("FISH_SLAYER");
+                if (isFullLobby && GS.Instance.currentRoundWormsUsed <= 6) UnlockAchievement("EARTH_PRAISER");
+            }
+        }
+        else if (fishesWon)
+        {
+            if (!isFisherMan && myFish != null) 
+            {
+                AddPlayerScore(myName, 10);
+
+                if (!myFish.isDead) 
+                {
+                    AddPlayerScore(myName, 5); // Survival bonus
+                    
+                    if (isFullLobby && aliveFishCount == totalOriginalFish) UnlockAchievement("WE_COME_IN_SWARMS");
+                    if (GS.Instance.currentGameMode == 2 && GS.Instance.hooksEscaped.ContainsKey(myName) && GS.Instance.hooksEscaped[myName] >= 15) UnlockAchievement("SURVIVOR");
+                    if (GS.Instance.currentGameMode == 1 && aliveFishCount == 1) UnlockAchievement("SOLO_ARTIST");
+                }
+            }
+        }
+    }
+
+    [PunRPC]
+    public void AddPlayerScoreRPC(string playerName, int amount)
+    {
+        if (GS.Instance == null) return;
+        if (!GS.Instance.playerScores.ContainsKey(playerName))
+            GS.Instance.playerScores[playerName] = 0;
+            
+        GS.Instance.playerScores[playerName] += amount;
+    }
+
+    public void AddPlayerScore(string playerName, int amount)
+    {
+        if (GS.Instance == null) return;
+
+        if (GS.Instance.isLan)
+        {
+             if (!isFisherMan && myFish != null && myFish.fishController_Mirror != null)
+             {
+                  myFish.fishController_Mirror.CallAddScore_Mirror(playerName, amount);
+             }
+             else if (isFisherMan && FishermanController.Instance != null && FishermanController.Instance.fishermanController_Mirror != null)
+             {
+                  FishermanController.Instance.fishermanController_Mirror.CallAddScore_Mirror(playerName, amount);
+             }
         }
         else
         {
-            Debug.Log("Gameover Panel is null");
+             photonView.RPC(nameof(AddPlayerScoreRPC), RpcTarget.All, playerName, amount);
         }
+    }
 
-        if (gameOverText != null)
-        {
-            gameOverText.text = message;
-        }
-
-        // Update button visibility when game over panel is shown
-        if (GameOver.Instance != null)
-        {
-            GameOver.Instance.UpdateButtonVisibility();
-        }
+    public void UnlockAchievement(string achievementId)
+    {
+         if (SteamManager.Initialized)
+         {
+             SteamUserStats.SetAchievement(achievementId);
+             SteamUserStats.StoreStats();
+             Debug.Log("Unlocked Steam Achievement: " + achievementId);
+         }
     }
 
     /// <summary>
@@ -357,6 +558,12 @@ public class GameManager : MonoBehaviourPunCallbacks
             Instance.fishermanWorms = 0;
 
             Debug.Log("✅ GameManager state reset");
+        }
+        
+        if (GS.Instance != null)
+        {
+            GS.Instance.currentRoundWormsUsed = 0;
+            GS.Instance.wormsEatenThisRound.Clear();
         }
 
         // 3. Reset FishController singleton
@@ -424,7 +631,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             // When PhotonNetwork.LoadLevel is called, it will automatically clean up all networked objects
             // But we'll try to clean up what we can to avoid errors
             
-            FishController[] allFish = FindObjectsOfType<FishController>();
+            FishController[] allFish = UnityEngine.Object.FindObjectsByType<FishController>(FindObjectsSortMode.None);
             int destroyedCount = 0;
             foreach (FishController fish in allFish)
             {
@@ -448,7 +655,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
             Debug.Log($"✅ Destroyed {destroyedCount} fish objects (scene load will clean up the rest)");
 
-            WormManager[] allWorms = FindObjectsOfType<WormManager>();
+            WormManager[] allWorms = UnityEngine.Object.FindObjectsByType<WormManager>(FindObjectsSortMode.None);
             int destroyedWorms = 0;
             foreach (WormManager worm in allWorms)
             {
@@ -472,7 +679,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
             Debug.Log($"✅ Destroyed {destroyedWorms} worm objects (scene load will clean up the rest)");
 
-            JunkManager[] allJunk = FindObjectsOfType<JunkManager>();
+            JunkManager[] allJunk = UnityEngine.Object.FindObjectsByType<JunkManager>(FindObjectsSortMode.None);
             int destroyedJunk = 0;
             foreach (JunkManager junk in allJunk)
             {
@@ -496,7 +703,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
             Debug.Log($"✅ Destroyed {destroyedJunk} junk objects (scene load will clean up the rest)");
 
-            FishermanController[] allFishermen = FindObjectsOfType<FishermanController>();
+            FishermanController[] allFishermen = UnityEngine.Object.FindObjectsByType<FishermanController>(FindObjectsSortMode.None);
             int destroyedFishermen = 0;
             foreach (FishermanController fisherman in allFishermen)
             {

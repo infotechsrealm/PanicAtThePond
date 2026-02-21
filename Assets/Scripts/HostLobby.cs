@@ -21,8 +21,9 @@ public class HostLobby : MonoBehaviourPunCallbacks
         pauseButton.onClick.AddListener(pause);
     }
 
-    private void OnEnable()
+    public override void OnEnable()
     {
+        base.OnEnable();
         BackManager.instance.RegisterScreen(pauseButton);
         playerTableManager.UpdatePlayerTable();
         //GS.Instance.rerfeshDropDown();

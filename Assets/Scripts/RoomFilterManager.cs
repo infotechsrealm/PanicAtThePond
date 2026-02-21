@@ -9,7 +9,7 @@ public class RoomFilterManager : MonoBehaviour
     public Dropdown regionDropdown; // Add this in Inspector
     public Toggle friendsOnlyToggle; // Add this in Inspector
 
-    private string currentRegionFilter = ""; // Empty = All Regions
+    // private string currentRegionFilter = ""; // Empty = All Regions
     private bool friendsOnlyFilter = false; // False = Show all rooms
 
     void Start()

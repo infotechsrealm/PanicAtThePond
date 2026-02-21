@@ -570,7 +570,11 @@ public class FishermanController : MonoBehaviourPunCallbacks
             if (worms > 0)
             {
                 worms--;
-                    GameManager.Instance.UpdateUI(worms);
+                GameManager.Instance.UpdateUI(worms);
+            }
+            if (GS.Instance != null && GameManager.Instance.isFisherMan)
+            {
+                GS.Instance.currentRoundWormsUsed++;
             }
 
             castingMeter.value = 0;
@@ -638,6 +642,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
                         if (GameManager.Instance.myFish.isFisherMan)
                         {
                             GameManager.Instance.ShowGameOver("Fisherman Win!");
+                            GameManager.Instance.TriggerRoundEnd("Fisherman Win!");
                         }
 
                         if(GS.Instance.IsMirrorMasterClient)
@@ -650,6 +655,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
                         GameManager.Instance.CallCoverBGDisableRPC();
                         WormSpawner.Instance.EnableWormDaceAnimation();
                         GameManager.Instance.ShowGameOver("Fisherman Win!");
+                        GameManager.Instance.TriggerRoundEnd("Fisherman Win!");
                         if (!GS.Instance.isMasterClient)
                         {
                             CallSetOldMaster();
@@ -690,6 +696,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             {
                 OnCryingAnimation(true);
                 GameManager.Instance.ShowGameOver("Fisherman Lose!\nFishes Win!");
+                GameManager.Instance.TriggerRoundEnd("Fisherman Lose!\nFishes Win!");
             }
 
             WormSpawner.Instance.canSpawn = isCanMove = false;

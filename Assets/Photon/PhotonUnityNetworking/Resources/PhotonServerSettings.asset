@@ -94,6 +94,8 @@ MonoBehaviour:
   - ReloadScene_RPC
   - ReceiveFishWinRPC
   - RequestHostBack
+  - AddPlayerScoreRPC
+  - EndRoundRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

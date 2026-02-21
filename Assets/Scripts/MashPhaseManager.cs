@@ -196,6 +196,14 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
             if (fishermanController != null)
             {
                 fishermanController.catchadFish++;
+                
+                if (GameManager.Instance.isFisherMan) 
+                {
+                    string myName = "Player";
+                    if (GS.Instance != null && GS.Instance.isLan) myName = GS.Instance.nickName;
+                    else if (PhotonNetwork.InRoom) myName = PhotonNetwork.LocalPlayer.NickName;
+                    GameManager.Instance.AddPlayerScore(myName, 3);
+                }
             }
 
             fishermanController.OnFightAnimation(false);
@@ -205,6 +213,12 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
         {
             if (!GameManager.Instance.myFish.isFisherMan)
             {
+                string myName = "Player";
+                if (GS.Instance != null && GS.Instance.isLan) myName = GS.Instance.nickName;
+                else if (PhotonNetwork.InRoom) myName = PhotonNetwork.LocalPlayer.NickName;
+                if (!GS.Instance.hooksEscaped.ContainsKey(myName)) GS.Instance.hooksEscaped[myName] = 0;
+                GS.Instance.hooksEscaped[myName]++;
+
                 HungerSystem.Instance.AddHunger(75f);
                 HungerSystem.Instance.canDecrease =  GameManager.Instance.myFish.canMove = true;
                 GameManager.Instance.myFish.animator.SetBool("isFight", false);
@@ -234,6 +248,14 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
             if (fishermanController != null)
             {
                 fishermanController.catchadFish++;
+                
+                if (GameManager.Instance.isFisherMan) 
+                {
+                    string myName = "Player";
+                    if (GS.Instance != null && GS.Instance.isLan) myName = GS.Instance.nickName;
+                    else if (PhotonNetwork.InRoom) myName = PhotonNetwork.LocalPlayer.NickName;
+                    GameManager.Instance.AddPlayerScore(myName, 3);
+                }
             }
             if (PhotonNetwork.IsMasterClient)
             {
@@ -245,6 +267,12 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
         {
             if (GameManager.Instance.myFish)
             {
+                string myName = "Player";
+                if (GS.Instance != null && GS.Instance.isLan) myName = GS.Instance.nickName;
+                else if (PhotonNetwork.InRoom) myName = PhotonNetwork.LocalPlayer.NickName;
+                if (!GS.Instance.hooksEscaped.ContainsKey(myName)) GS.Instance.hooksEscaped[myName] = 0;
+                GS.Instance.hooksEscaped[myName]++;
+
                 GameManager.Instance.myFish.catchadeFish = false;
                 HungerSystem.Instance.AddHunger(75f);
                 HungerSystem.Instance.canDecrease = GameManager.Instance.myFish.canMove = true;

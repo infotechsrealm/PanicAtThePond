@@ -20,8 +20,9 @@ public class ClientLobby : MonoBehaviourPunCallbacks
         pauseButton.onClick.AddListener(pause);
     }
 
-    private void OnEnable()
+    public override void OnEnable()
     {
+        base.OnEnable();
         BackManager.instance.RegisterScreen(pauseButton);
         playerTableManager.UpdatePlayerTable();
         if (GS.Instance.isLan)
@@ -52,8 +53,9 @@ public class ClientLobby : MonoBehaviourPunCallbacks
         hintUI.SetActive(true);
     }
 
-    private void OnDisable()
+    public override void OnDisable()
     {
+        base.OnDisable();
         playerTableManager.ResetTable();
     }
 

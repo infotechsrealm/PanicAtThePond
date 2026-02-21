@@ -13,7 +13,7 @@ public class GameOver : MonoBehaviourPunCallbacks
     public Text waitingForHostText;
 
     // CRITICAL: PhotonView reference for RPC calls
-    private PhotonView photonView;
+    new private PhotonView photonView;
 
     private void Awake()
     {
@@ -26,7 +26,7 @@ public class GameOver : MonoBehaviourPunCallbacks
         // Option 2: If not on this GameObject, find it in the scene
         if (photonView == null)
         {
-            photonView = FindObjectOfType<PhotonView>();
+            photonView = UnityEngine.Object.FindFirstObjectByType<PhotonView>();
         }
 
         // Option 3: If still null, create a new PhotonView

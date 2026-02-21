@@ -23,8 +23,9 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
         Instance = this;
     }
 
-    private void OnEnable()
+    public override void OnEnable()
     {
+        base.OnEnable();
         UpdatePlayerTable();
     }
 

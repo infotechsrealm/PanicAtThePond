@@ -72,6 +72,7 @@ public class FishController : MonoBehaviourPunCallbacks
             {
                 fishController_Mirror.SetVissiblity_Mirror();
                 GameManager.Instance.myFish = this;
+                fishController_Mirror.CallAddScore_Mirror(GS.Instance.nickName, 0);
             }
         }
         else
@@ -79,9 +80,10 @@ public class FishController : MonoBehaviourPunCallbacks
             if (photonView.IsMine)
             {
                 GameManager.Instance.myFish = this;
+                GameManager.Instance.AddPlayerScore(PhotonNetwork.LocalPlayer.NickName, 0);
             }
         }
-            GameManager.Instance.allFishes.Add(this);
+        GameManager.Instance.allFishes.Add(this);
     }
 
     public void SetVissiblity_Mirror()
@@ -346,7 +348,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
             }
 
-            if (other.CompareTag("GoldTrout"))
+            if (other.CompareTag("GoldWorm"))
             {
                 animator.SetTrigger("isEat");
                 GameManager.Instance.isFisherMan = true;
@@ -358,12 +360,42 @@ public class FishController : MonoBehaviourPunCallbacks
                 other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
                 StartCoroutine(GenerateFisherMan(other.gameObject));
             }
-
+            else if (other.CompareTag("GoldTrout"))
+            {
+                if (photonView.IsMine || mirrorIdentity.isLocalPlayer)
+                {
+                    GameManager.Instance.UnlockAchievement("WHAT_A_SNACK");
+                }
+                
+                animator.SetTrigger("isEat");
+                GameManager.Instance.isFisherMan = true;
+                PlaySFX(fishEatWarmSound);
+                GameManager.Instance.goldWormEatByFish = true;
+                GS.Instance.SetSFXVolume(audioSource);
+                audioSource.Play();
+                other.gameObject.transform.localScale = Vector3.zero;
+                other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+                StartCoroutine(GenerateFisherMan(other.gameObject));
+            }
+            
             if (other.CompareTag("Worm"))
             {
                 PlaySFX(fishEatWarmSound);
                 animator.SetTrigger("isEat");
                 CollectCoin();
+                
+                if (photonView.IsMine || mirrorIdentity.isLocalPlayer)
+                {
+                    string myName = "Player";
+                    if (GS.Instance != null && GS.Instance.isLan) myName = GS.Instance.nickName;
+                    else if (PhotonNetwork.InRoom) myName = PhotonNetwork.LocalPlayer.NickName;
+                    GameManager.Instance.AddPlayerScore(myName, 1);
+                    
+                    if (!GS.Instance.wormsEatenThisRound.ContainsKey(myName)) GS.Instance.wormsEatenThisRound[myName] = 0;
+                    GS.Instance.wormsEatenThisRound[myName]++;
+                    if (GS.Instance.wormsEatenThisRound[myName] >= 30) GameManager.Instance.UnlockAchievement("GULPER");
+                }
+
                 if (GS.Instance.isLan)
                 {
                     fishController_Mirror.Destroy_Mirror(other.gameObject);

@@ -41,6 +41,7 @@ public class GameModeDropdownHandler : MonoBehaviourPunCallbacks
             case "Quick Survivalist":
                 {
                     gameModeDropDownIndex = 0;
+                    if (GS.Instance != null) GS.Instance.currentGameMode = 0;
                     gameModeTitleText.text = "Quick Survivalist";
                     gameModeDescriptionText.text = "A single chaotic round where Fish and Fisherman clash. Win or lose-no points.";
                     break;
@@ -49,6 +50,7 @@ public class GameModeDropdownHandler : MonoBehaviourPunCallbacks
             case "Quick Cast":
                 {
                     gameModeDropDownIndex = 1;
+                    if (GS.Instance != null) GS.Instance.currentGameMode = 1;
                     gameModeTitleText.text = "Quick Cast";
                     gameModeDescriptionText.text = "Compete in 1 rounds and snag some points.";
                     break;
@@ -57,6 +59,7 @@ public class GameModeDropdownHandler : MonoBehaviourPunCallbacks
             case "Deep Sea Fishing":
                 {
                     gameModeDropDownIndex = 2;
+                    if (GS.Instance != null) GS.Instance.currentGameMode = 2;
                     gameModeTitleText.text = "Deep Sea Fishing";
                     gameModeDescriptionText.text = "Compete across 5 rounds and catch a bunch of points.";
                     break;

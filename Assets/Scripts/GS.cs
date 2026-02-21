@@ -40,6 +40,18 @@ public class GS : MonoBehaviour
     internal int totlePlayers;
 
     public bool isLan = false,IsMirrorMasterClient = false;
+    
+    [Header("Game Mode / Score Tracking")]
+    public int currentGameMode = 0; // 0 = Quick Survivalist, 1 = Quick Cast, 2 = Deep Sea Fishing
+    public int currentRound = 1;
+    public System.Collections.Generic.Dictionary<string, int> playerScores = new System.Collections.Generic.Dictionary<string, int>();
+    public int wormCoins = 0;
+
+    [Header("Achievement Tracking")]
+    public int currentRoundWormsUsed = 0;
+    public System.Collections.Generic.Dictionary<string, int> hooksEscaped = new System.Collections.Generic.Dictionary<string, int>();
+    public System.Collections.Generic.Dictionary<string, int> wormsEatenThisRound = new System.Collections.Generic.Dictionary<string, int>();
+
 
 
     public AudioSource BGMusic;
