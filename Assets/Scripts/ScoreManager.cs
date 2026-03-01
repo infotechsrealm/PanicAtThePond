@@ -85,23 +85,16 @@ public class ScoreManager : MonoBehaviourPunCallbacks
                     if (chestNode != null)
                     {
                         chestNode.anchoredPosition = new Vector2(chestNode.anchoredPosition.x, 0);
-
-                        Transform nameTextT = chestNode.Find("PlayerNameText");
-                        Transform scoreTextT = chestNode.Find("PlayerScore");
-
-                        if (nameTextT != null)
-                        {
-                            TextMeshProUGUI nameText = nameTextT.GetComponent<TextMeshProUGUI>();
-                            if (nameText != null) nameText.text = pName;
-                        }
-
-                        if (scoreTextT != null)
-                        {
-                            TextMeshProUGUI scoreText = scoreTextT.GetComponent<TextMeshProUGUI>();
-                            if (scoreText != null) scoreText.text = "0";
-                        }
                     }
                 }
+                
+                TextMeshProUGUI[] texts = wrapper.GetComponentsInChildren<TextMeshProUGUI>(true);
+                foreach(var t in texts)
+                {
+                    if (t.gameObject.name.Contains("Name")) t.text = pName;
+                    if (t.gameObject.name.Contains("Score")) t.text = "0";
+                }
+
                 wrapper.SetActive(true);
             }
 
@@ -129,25 +122,56 @@ public class ScoreManager : MonoBehaviourPunCallbacks
                 float currentH = Mathf.Lerp(0, targetHeights[index], t);
 
                 GameObject wrapper = playerWrappers[index];
-                if (wrapper != null && wrapper.transform.childCount > 0)
+                if (wrapper != null)
                 {
-                    RectTransform chestNode = wrapper.transform.GetChild(0).GetComponent<RectTransform>();
-                    if (chestNode != null)
+                    if (wrapper.transform.childCount > 0)
                     {
-                        chestNode.anchoredPosition = new Vector2(chestNode.anchoredPosition.x, currentH);
-
-                        Transform scoreTextT = chestNode.Find("PlayerScore");
-                        if (scoreTextT != null)
+                        RectTransform chestNode = wrapper.transform.GetChild(0).GetComponent<RectTransform>();
+                        if (chestNode != null)
                         {
-                            TextMeshProUGUI scoreText = scoreTextT.GetComponent<TextMeshProUGUI>();
-                            if (scoreText != null) scoreText.text = currentShownScore.ToString();
+                            chestNode.anchoredPosition = new Vector2(chestNode.anchoredPosition.x, currentH);
                         }
+                    }
+
+                    TextMeshProUGUI[] texts = wrapper.GetComponentsInChildren<TextMeshProUGUI>(true);
+                    foreach(var tx in texts)
+                    {
+                        if (tx.gameObject.name.Contains("Score")) tx.text = currentShownScore.ToString();
                     }
                 }
 
                 index++;
             }
             yield return null;
+        }
+
+        // Force final values ensuring counter hits target precisely
+        index = 0;
+        foreach (var kvp in scores)
+        {
+            if (index >= playerWrappers.Length) break;
+            
+            int score = kvp.Value;
+            float targetH = targetHeights[index];
+
+            GameObject wrapper = playerWrappers[index];
+            if (wrapper != null)
+            {
+                if (wrapper.transform.childCount > 0)
+                {
+                    RectTransform chestNode = wrapper.transform.GetChild(0).GetComponent<RectTransform>();
+                    if (chestNode != null)
+                    {
+                        chestNode.anchoredPosition = new Vector2(chestNode.anchoredPosition.x, targetH);
+                    }
+                }
+                TextMeshProUGUI[] texts = wrapper.GetComponentsInChildren<TextMeshProUGUI>(true);
+                foreach(var tx in texts)
+                {
+                    if (tx.gameObject.name.Contains("Score")) tx.text = score.ToString();
+                }
+            }
+            index++;
         }
 
         yield return new WaitForSeconds(3f);
