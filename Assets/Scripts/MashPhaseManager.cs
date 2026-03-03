@@ -90,8 +90,34 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
 
     public void StartMashPhase()
     {
-       float mashSpeed = Random.Range(30f,70f);
-        float mashTimes = 100 /  mashSpeed;
+        // 🔼 Base mash speed represents difficulty. Higher number = easier to catch because mashTimes will be bigger.
+        // E.g., 30 = 3.33 per mash. 70 = 1.42 per mash.
+        // We will make the mash speed LOWER to make it easier, wait:
+        // 100 / mashSpeed = mashTimes. If mashSpeed is 70, mashTimes is 1.42.
+        // This means player needs 100 / 1.42 = 70 spacebar presses.
+        // We want mashSpeed to start high (hard) and get lower (easier) over time or consecutive tries.
+
+        float mashSpeed = Random.Range(30f, 70f);
+
+        // Optional: If you want to make the GoldFish specifically easier over time:
+        // You can check if the current target is a Golden Fish. For now, we cap the max difficulty.
+        if (GameManager.Instance != null && GameManager.Instance.myFish != null)
+        {
+            // The more hooks the fish escapes, the easier it gets.
+            string myName = "Player";
+            if (GS.Instance != null && GS.Instance.isLan) myName = GS.Instance.nickName;
+            else if (PhotonNetwork.InRoom) myName = PhotonNetwork.LocalPlayer.NickName;
+
+            if (GS.Instance != null && GS.Instance.hooksEscaped.ContainsKey(myName))
+            {
+                int timesEscaped = GS.Instance.hooksEscaped[myName];
+                // For each time it escaped, reduce the mashSpeed by 10 (making it easier), down to a minimum of 20
+                float difficultyReduction = timesEscaped * 10f;
+                mashSpeed = Mathf.Clamp(mashSpeed - difficultyReduction, 15f, 70f);
+            }
+        }
+
+        float mashTimes = 100 / mashSpeed;
         Debug.Log("CallMashPhaseRPC called with mashTimes: " + mashTimes);
 
         mashTime = mashTimes;

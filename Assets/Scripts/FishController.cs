@@ -348,19 +348,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
             }
 
-            if (other.gameObject.name.Contains("GoldWorm"))
-            {
-                animator.SetTrigger("isEat");
-                GameManager.Instance.isFisherMan = true;
-                PlaySFX(fishEatWarmSound);
-                GameManager.Instance.goldWormEatByFish = true;
-                GS.Instance.SetSFXVolume(audioSource);
-                audioSource.Play();
-                other.gameObject.transform.localScale = Vector3.zero;
-                other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
-                StartCoroutine(GenerateFisherMan(other.gameObject));
-            }
-            else if (other.gameObject.name.Contains("GoldTrout"))
+            if (other.gameObject.name.Contains("Golden Fish"))
             {
                 if (photonView.IsMine || mirrorIdentity.isLocalPlayer)
                 {

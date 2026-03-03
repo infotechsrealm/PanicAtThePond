@@ -66,10 +66,10 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
     public float alertDuration = 20.0f; // Stay alert for 20 seconds (increased from 15)
     bool isAlert = false;
 
-    [Header("Difficulty Decay")]
-    public float timeToMinimumDifficulty = 60f; // Seconds until the fish is easiest to catch
-    public float minDifficultyMultiplier = 0.3f; // At worst, the fish keeps 30% of its speed/evasion
-    private float spawnTime;
+    // Fatigue system - goldfish gets tired over time
+    float spawnTime;
+    public float timeToFullFatigue = 120f; // 2 minutes to reach minimum speed
+    public float maxFatigueMultiplier = 0.4f; // Speed drops to 40% at full fatigue
 
     void Start()
     {
@@ -85,10 +85,10 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
         originalScaleX = transform.localScale.x;
         originalScaleY = transform.localScale.y;
 
+        spawnTime = Time.time; // Track when the fish spawned
+
         // Initialize sharks list - will be updated dynamically in Update()
         UpdateSharksList();
-
-        spawnTime = Time.time;
 
         PickNewDirectionAndSpeed();
         currentSpeed = moveSpeed;
@@ -112,6 +112,12 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
         if (animator != null)
             animator.SetBool("isMove", true);
 
+        // Calculate fatigue multiplier
+        float aliveTime = Time.time - spawnTime;
+        float fatigueProgress = Mathf.Clamp01(aliveTime / timeToFullFatigue);
+        // Multiplier goes from 1.0 down to maxFatigueMultiplier (e.g. 0.4)
+        float currentFatigueMultiplier = Mathf.Lerp(1.0f, maxFatigueMultiplier, fatigueProgress);
+
         // ---------- UPDATE SHARKS LIST DYNAMICALLY ----------
         // Update sharks list periodically to track all players (host and client)
         if (Time.time - lastSharkUpdateTime >= sharkUpdateInterval)
@@ -121,22 +127,12 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
         }
 
         // ---------- DANGER CHECK & DIRECT FLEE DIRECTION ----------
-        
-        // Calculate dynamic difficulty multiplier based on spawn time.
-        // It approaches minDifficultyMultiplier as time reaches timeToMinimumDifficulty.
-        float durationAlive = Time.time - spawnTime;
-        float difficultyPercentage = Mathf.Clamp01(durationAlive / timeToMinimumDifficulty);
-        float currentDifficultyMultiplier = Mathf.Lerp(1.0f, minDifficultyMultiplier, difficultyPercentage);
-
         bool danger = false;
         Vector2 fleeDirection = Vector2.zero;
         float closestDistance = float.MaxValue;
         int nearbyPlayerCount = 0;
         
         // Check ALL players to find the closest one (even if outside avoidDistance)
-        // dynamically shrink detection radius
-        float currentAvoidDistance = avoidDistance * currentDifficultyMultiplier;
-
         foreach (Transform s in sharks)
         {
             if (s == null) continue;
@@ -146,6 +142,9 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
             if (distance < closestDistance)
                 closestDistance = distance;
             
+            // Effective avoid distance is reduced by fatigue
+            float currentAvoidDistance = avoidDistance * currentFatigueMultiplier;
+
             if (distance < currentAvoidDistance)
             {
                 danger = true;
@@ -237,7 +236,7 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
                 isAlert = true;
                 
                 // Even when not in immediate danger, if alert, still try to maintain distance
-                if (closestDistance < currentAvoidDistance * 2.5f) // Extended alert range with decay
+                if (closestDistance < avoidDistance * 2.5f) // Extended alert range
                 {
                     // Continue escaping even if technically "safe"
                     if (!escapeLocked)
@@ -299,8 +298,7 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
             }
             
             // Only clear escape lock if we're VERY far from danger AND alert period has passed
-            // The distance required to clear the lock now scales down over time
-            if (closestDistance > currentAvoidDistance * 4.5f && !isAlert) // 🔼 Requires EXTREMELY more distance AND no alert
+            if (closestDistance > avoidDistance * 4.5f && !isAlert) // 🔼 Requires EXTREMELY more distance AND no alert
             {
                 escapeLocked = false;
             }
@@ -342,15 +340,15 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
 
         // ---------- SPEED (SMOOTH & LIMITED) ----------
         // Maintain high speed even when alert (not just when escape locked)
-        // Apply decay multiplier to max escape speed so the fish actually slows down when caught out.
-        float currentMaxEscapeSpeed = maxEscapeSpeed * currentDifficultyMultiplier;
-        float currentMinEscapeSpeed = minEscapeSpeed * currentDifficultyMultiplier;
-        // Ensure moveSpeed itself scales down but stays within a reasonable bound.
-        float scaledMoveSpeed = Mathf.Max(base.minSpeed * currentDifficultyMultiplier, moveSpeed * currentDifficultyMultiplier); 
+        float currentPanicMultiplier = panicSpeedMultiplier * currentFatigueMultiplier;
+        float currentMaxEscape = maxEscapeSpeed * currentFatigueMultiplier;
+        float currentMinEscape = minEscapeSpeed * currentFatigueMultiplier;
+        
+        float currentTargetMoveSpeed = moveSpeed * currentFatigueMultiplier;
 
         float targetSpeed = (escapeLocked || isAlert)
-            ? Mathf.Clamp(scaledMoveSpeed * panicSpeedMultiplier, currentMinEscapeSpeed, currentMaxEscapeSpeed)
-            : scaledMoveSpeed;
+            ? Mathf.Clamp(currentTargetMoveSpeed * currentPanicMultiplier, currentMinEscape, currentMaxEscape)
+            : currentTargetMoveSpeed;
 
         currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, speedSmooth);
 
@@ -361,9 +359,7 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
         // Only apply push when very close - main escape is handled by direction logic above
         Vector2 totalPush = Vector2.zero;
         int pushCount = 0;
-        
-        // Scale push threshold by difficulty multiplier
-        float pushThreshold = 4.0f * currentDifficultyMultiplier; // 🔼 EXTREMELY large push threshold - reacts very early
+        float pushThreshold = 4.0f; // 🔼 EXTREMELY large push threshold - reacts very early
         
         foreach (Transform s in sharks)
         {
@@ -449,19 +445,13 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
 
     Vector2 GetDirectFleeTarget(Vector2 fleeDirection, float closestPlayerDistance)
     {
-        // Re-calculate the current difficulty multiplier and avoid distance for methods outside Update
-        float durationAlive = Time.time - spawnTime;
-        float difficultyPercentage = Mathf.Clamp01(durationAlive / timeToMinimumDifficulty);
-        float currentDifficultyMultiplier = Mathf.Lerp(1.0f, minDifficultyMultiplier, difficultyPercentage);
-        float currentAvoidDistance = avoidDistance * currentDifficultyMultiplier;
-
         // Calculate a target point that moves directly away from players
-        float fleeDistance = Mathf.Max(10f, currentAvoidDistance * 3.0f); // 🔼 EXTREMELY longer flee distances
+        float fleeDistance = Mathf.Max(10f, avoidDistance * 3.0f); // 🔼 EXTREMELY longer flee distances
         
         // If we're very close to a player, flee more aggressively
-        if (closestPlayerDistance < currentAvoidDistance * 0.6f)
+        if (closestPlayerDistance < avoidDistance * 0.6f)
         {
-            fleeDistance = Mathf.Max(15f, currentAvoidDistance * 4.5f); // 🔼 EXTREMELY longer flee when very close
+            fleeDistance = Mathf.Max(15f, avoidDistance * 4.5f); // 🔼 EXTREMELY longer flee when very close
         }
         
         Vector2 targetPos = (Vector2)transform.position + fleeDirection * fleeDistance;
