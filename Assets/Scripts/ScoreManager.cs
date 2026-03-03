@@ -40,8 +40,6 @@ public class ScoreManager : MonoBehaviourPunCallbacks
         if (winScreensContainer != null) winScreensContainer.SetActive(false);
         if (scoreScreen != null) scoreScreen.SetActive(false);
         if (winnerScreen != null) winnerScreen.SetActive(false);
-        
-        ResetCoinSaveFlag(); // Reset the PlayFab call lock when screens hide for next round
     }
 
     public void ShowScoreScreen(Dictionary<string, int> currentScores)

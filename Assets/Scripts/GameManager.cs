@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     internal bool fisherManIsSpawned = false;
     internal bool isFisherMan = false;
     internal bool goldWormEatByFish = false;
+    internal bool isRoundEnding = false;
     public GameObject sky, water;
 
     internal bool isRestoringHost = false; // Flag to track if we are waiting for host authority back
@@ -359,6 +360,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void EndRoundRPC(string message)
     {
          if (GS.Instance == null || GS.Instance.currentGameMode == 0) return;
+         if (isRoundEnding) return;
+         isRoundEnding = true;
          
          // Shut down regular Game Over panel if it's active so it doesn't overlap
          if (gameOverPanel != null) gameOverPanel.SetActive(false);
@@ -565,6 +568,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             Instance.isFisherMan = false;
             Instance.goldWormEatByFish = false;
             Instance.fishermanWorms = 0;
+            Instance.isRoundEnding = false;
 
             Debug.Log("✅ GameManager state reset");
         }
@@ -573,6 +577,12 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             GS.Instance.currentRoundWormsUsed = 0;
             GS.Instance.wormsEatenThisRound.Clear();
+        }
+
+        // 3. Reset ScoreManager/PlayFab coins lock
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.ResetCoinSaveFlag();
         }
 
         // 3. Reset FishController singleton

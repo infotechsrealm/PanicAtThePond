@@ -24,12 +24,19 @@ public class PlayFabManager : MonoBehaviour
 
     public void Login()
     {
+        string customId = SystemInfo.deviceUniqueIdentifier;
+        
+        // If testing in the Unity Editor at the same time as a standalone build on the same PC, 
+        // make the Editor act as a different player to prevent PlayFab account collisions.
+#if UNITY_EDITOR
+        customId += "_EDITOR";
+#endif
+
         var request = new LoginWithCustomIDRequest
         {
-            CustomId = SystemInfo.deviceUniqueIdentifier,
+            CustomId = customId,
             CreateAccount = true
         };
-
         PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnLoginFailure);
     }
 
