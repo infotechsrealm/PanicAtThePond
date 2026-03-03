@@ -40,6 +40,8 @@ public class ScoreManager : MonoBehaviourPunCallbacks
         if (winScreensContainer != null) winScreensContainer.SetActive(false);
         if (scoreScreen != null) scoreScreen.SetActive(false);
         if (winnerScreen != null) winnerScreen.SetActive(false);
+        
+        ResetCoinSaveFlag(); // Reset the PlayFab call lock when screens hide for next round
     }
 
     public void ShowScoreScreen(Dictionary<string, int> currentScores)
@@ -205,12 +207,22 @@ public class ScoreManager : MonoBehaviourPunCallbacks
         SaveWormCoinsToPlayFab(winnerScore); 
     }
 
+    private bool hasSavedCoinsThisRound = false;
+
     public void SaveWormCoinsToPlayFab(int coinsToAdd)
     {
+        if (hasSavedCoinsThisRound) return; // Prevent network duplicate calls
+        hasSavedCoinsThisRound = true;
+
         Debug.Log("ScoreManager: SaveWormCoinsToPlayFab called with " + coinsToAdd + " coins.");
-        if (PlayFabManager.Instance != null)
+        if (PlayFabManager.Instance != null && coinsToAdd > 0)
         {
             PlayFabManager.Instance.AddCurrency(coinsToAdd);
         }
+    }
+    
+    public void ResetCoinSaveFlag()
+    {
+        hasSavedCoinsThisRound = false;
     }
 }
