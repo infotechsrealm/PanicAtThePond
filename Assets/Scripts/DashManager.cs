@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System.Collections;
 
 public class DashManager : MonoBehaviour
 {
     public GameObject createAndJoinButtons,settingUI, quitUI,craditsUI,localPlayerUI,prefabPanret,hintsUI;
 
     public Button createAndJoinButtonsBackButton;
+
+    public TextMeshProUGUI CoinText;
 
     public static DashManager Instance;
 
@@ -18,6 +22,25 @@ public class DashManager : MonoBehaviour
     {
         GS.Instance.SetMusicVolume();
         GS.Instance.BGMusic.Play();
+
+        StartCoroutine(FetchCoinsWhenReady());
+    }
+
+    private IEnumerator FetchCoinsWhenReady()
+    {
+        if (PlayFabManager.Instance != null && CoinText != null)
+        {
+            // Wait until PlayFab is fully logged in
+            while (!PlayFabManager.Instance.IsLoggedIn)
+            {
+                yield return null; // wait to next frame
+            }
+
+            PlayFabManager.Instance.GetCurrency(amount =>
+            {
+                CoinText.text = amount.ToString();
+            });
+        }
     }
     public void OnClickAction(string action)
     {

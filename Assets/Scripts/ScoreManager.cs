@@ -208,16 +208,9 @@ public class ScoreManager : MonoBehaviourPunCallbacks
     public void SaveWormCoinsToPlayFab(int coinsToAdd)
     {
         Debug.Log("ScoreManager: SaveWormCoinsToPlayFab called with " + coinsToAdd + " coins.");
-        /*
-        // UNCOMMENT THIS ONCE PLAYFAB SDK IS IMPORTED
-        var request = new PlayFab.ClientModels.AddUserVirtualCurrencyRequest
+        if (PlayFabManager.Instance != null)
         {
-            VirtualCurrency = "WC", // "WC" is your Worm Coins currency code
-            Amount = coinsToAdd
-        };
-        PlayFab.PlayFabClientAPI.AddUserVirtualCurrency(request, 
-            result => Debug.Log("Successfully awarded " + coinsToAdd + " Worm Coins!"),
-            error => Debug.LogError("Error awarding Worm Coins: " + error.GenerateErrorReport()));
-        */
+            PlayFabManager.Instance.AddCurrency(coinsToAdd);
+        }
     }
 }

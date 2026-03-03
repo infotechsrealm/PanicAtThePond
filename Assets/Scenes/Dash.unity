@@ -18603,6 +18603,7 @@ MonoBehaviour:
   prefabPanret: {fileID: 1531224906}
   hintsUI: {fileID: 2771100771793651104}
   createAndJoinButtonsBackButton: {fileID: 1051740804}
+  CoinText: {fileID: 1045905981}
 --- !u!114 &1531224912
 MonoBehaviour:
   m_ObjectHideFlags: 0

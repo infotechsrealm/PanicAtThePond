@@ -8,6 +8,11 @@ public class CoinManager : MonoBehaviour
 
     public void CollectCoin()
     {
+        if (PlayFabManager.Instance != null)
+        {
+            PlayFabManager.Instance.AddCurrency(1);
+        }
+
         if (SteamManager.Initialized)
         {
             // Update coin stats

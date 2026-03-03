@@ -20,6 +20,13 @@ public class SplashManager : MonoBehaviour
 
     void Start()
     {
+        if (PlayFabManager.Instance == null)
+        {
+            GameObject pf = new GameObject("PlayFabManager");
+            pf.AddComponent<PlayFabManager>();
+        }
+        PlayFabManager.Instance.Login();
+
         // PlayAnimation();
      /*   fadeLogo.transform.DOScale(1f, 15f);
         fadeLogo.DOFade(1f, 1f).OnComplete(() =>
