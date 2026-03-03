@@ -11839,7 +11839,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1039084477}
   m_Template: {fileID: 1081979730}
   m_CaptionText: {fileID: 1162854061}

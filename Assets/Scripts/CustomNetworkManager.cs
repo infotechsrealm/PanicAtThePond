@@ -20,6 +20,11 @@ public struct VisibilityMessage : NetworkMessage
     public bool clearWaters;
 }
 
+public struct GameModeMessage : NetworkMessage
+{
+    public int gameMode;
+}
+
 public class CustomNetworkManager : NetworkManager
 {
     private Dictionary<int, string> playerNames = new Dictionary<int, string>();
@@ -35,7 +40,6 @@ public class CustomNetworkManager : NetworkManager
         Instence = this;
     }
 
-    // 🔹 SERVER START पर message handler register करो
     public override void OnStartServer()
     {
         base.OnStartServer();
@@ -43,10 +47,10 @@ public class CustomNetworkManager : NetworkManager
         if (NetworkClient.active)
         {
             NetworkClient.RegisterHandler<VisibilityMessage>(OnClientReceive);
+            NetworkClient.RegisterHandler<GameModeMessage>(OnReceiveGameMode_Client);
         }
     }
 
-    // 🔹 CLIENT START पर PlayerListMessage receive handler register करो
     public override void OnStartClient()
     {
         base.OnStartClient();
@@ -54,6 +58,7 @@ public class CustomNetworkManager : NetworkManager
         if (NetworkClient.active)
         {
             NetworkClient.RegisterHandler<VisibilityMessage>(OnClientReceive);
+            NetworkClient.RegisterHandler<GameModeMessage>(OnReceiveGameMode_Client);
         }
     }
 
@@ -77,6 +82,14 @@ public class CustomNetworkManager : NetworkManager
         gsObj.dropDownChangeAvalable = true;
     }
    
+    private void OnReceiveGameMode_Client(GameModeMessage msg)
+    {
+        GS.Instance.currentGameMode = msg.gameMode;
+        if (GameModeDropdownHandler.Instance != null && GameModeDropdownHandler.Instance.gameModeDropdown != null)
+        {
+            GameModeDropdownHandler.Instance.gameModeDropdown.value = msg.gameMode;
+        }
+    }
     // 🔹 जब client connect करे तो अपना नाम भेज`
     public override void OnClientConnect()
     {
@@ -89,9 +102,17 @@ public class CustomNetworkManager : NetworkManager
 
         LANDiscoveryMenu.Instance.StopRoomFindCoroutine();
         Debug.Log($"✅ Connected to server, name sent: {GS.Instance.nickName}");
+        
+        // As a client, fetch the latest UI state from the connected host
+        if (!GS.Instance.IsMirrorMasterClient)
+        {
+            if (GameModeDropdownHandler.Instance != null && GameModeDropdownHandler.Instance.gameModeDropdown != null)
+            {
+                GameModeDropdownHandler.Instance.gameModeDropdown.interactable = false; // Disable local modification for clients
+            }
+        }
     }
 
-    // 🔹 Server पर जब किसी का नाम आए
     void OnReceivePlayerName(NetworkConnectionToClient conn, PlayerNameMessage msg)
     {
         playerNames[conn.connectionId] = msg.playerName;
@@ -100,6 +121,22 @@ public class CustomNetworkManager : NetworkManager
         CallBroadcastVisibility();
         // सभी clients को updated list भेजो
         SendUpdatedPlayerListToAll();
+
+        // Send current game mode and visibility to the newly joined client specifically
+        if (GS.Instance.isLan && GS.Instance.IsMirrorMasterClient)
+        {
+            VisibilityMessage visMsg = new VisibilityMessage
+            {
+                reflectiveWater = GS.Instance.ReflectiveWater,
+                deepWaters = GS.Instance.DeepWaters,
+                murkyWaters = GS.Instance.MurkyWaters,
+                clearWaters = GS.Instance.ClearWaters
+            };
+            conn.Send(visMsg);
+
+            GameModeMessage modeMsg = new GameModeMessage { gameMode = GS.Instance.currentGameMode };
+            conn.Send(modeMsg);
+        }
     }
 
     public void CallBroadcastVisibility()
@@ -110,6 +147,14 @@ public class CustomNetworkManager : NetworkManager
             {
                 BroadcastVisibility(GS.Instance.ReflectiveWater, GS.Instance.DeepWaters, GS.Instance.MurkyWaters, GS.Instance.ClearWaters);
             }
+        }
+    }
+
+    public void CallBroadcastGameMode()
+    {
+        if (GS.Instance.isLan && GS.Instance.IsMirrorMasterClient)
+        {
+            BroadcastGameMode(GS.Instance.currentGameMode);
         }
     }
 
@@ -135,6 +180,13 @@ public class CustomNetworkManager : NetworkManager
 
         Debug.Log("[Server] Visibility broadcasted to all clients.");
 
+    }
+
+    public void BroadcastGameMode(int mode)
+    {
+        if (!NetworkServer.active) return;
+        GameModeMessage msg = new GameModeMessage { gameMode = mode };
+        NetworkServer.SendToAll(msg);
     }
 
     // 🔹 जब कोई disconnect करे
@@ -252,17 +304,31 @@ public class CustomNetworkManager : NetworkManager
         }
         else
         {
-           /* foreach (var name in msg.allPlayerNames)
-            {
-                Debug.Log($"👤 {name}");
-            }*/
-
             if (PlayerTableManager.Instance != null)
             {
                 PlayerTableManager.Instance.players = msg.allPlayerNames;
                 PlayerTableManager.Instance.UpdatePlayerTable();
             }
+            
+            if (GS.Instance != null)
+            {
+                foreach (var pName in msg.allPlayerNames)
+                {
+                    if (!GS.Instance.playerScores.ContainsKey(pName))
+                    {
+                        GS.Instance.playerScores[pName] = 0;
+                    }
+                }
+            }
         }
+    }
+
+    public override void OnStopServer()
+    {
+        base.OnStopServer();
+        playerNames.Clear();
+        SendUpdatedPlayerListToAll();
+        Debug.Log("🛑 Server stopped, clearing all player names.");
     }
 
     public override void OnClientDisconnect()

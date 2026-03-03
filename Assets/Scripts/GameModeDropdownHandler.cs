@@ -66,5 +66,31 @@ public class GameModeDropdownHandler : MonoBehaviourPunCallbacks
                 }
         }
 
+        GS gsObj = GS.Instance;
+        if (gsObj.isLan)
+        {
+            #if MIRROR
+            if (gsObj.IsMirrorMasterClient)
+            {
+                if (CustomNetworkManager.Instence != null)
+                    CustomNetworkManager.Instence.CallBroadcastGameMode();
+            }
+            #else
+            if (gsObj.IsMirrorMasterClient)
+            {
+                if (CustomNetworkManager.Instence != null)
+                    CustomNetworkManager.Instence.CallBroadcastGameMode();
+            }
+            #endif
+        }
+        else
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                if (CreateJoinManager.Instance != null)
+                    CreateJoinManager.Instance.CallGameMode_Photon_RPC();
+            }
+        }
+
     }
 }

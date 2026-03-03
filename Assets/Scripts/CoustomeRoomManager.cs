@@ -465,6 +465,13 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         UpdateTablesUI();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if (CreateJoinManager.Instance != null)
+            {
+                CreateJoinManager.Instance.CallGameMode_Photon_RPC();
+            }
+        }
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)

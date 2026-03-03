@@ -348,7 +348,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
             }
 
-            if (other.CompareTag("GoldWorm"))
+            if (other.gameObject.name.Contains("GoldWorm"))
             {
                 animator.SetTrigger("isEat");
                 GameManager.Instance.isFisherMan = true;
@@ -360,7 +360,7 @@ public class FishController : MonoBehaviourPunCallbacks
                 other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
                 StartCoroutine(GenerateFisherMan(other.gameObject));
             }
-            else if (other.CompareTag("GoldTrout"))
+            else if (other.gameObject.name.Contains("GoldTrout"))
             {
                 if (photonView.IsMine || mirrorIdentity.isLocalPlayer)
                 {

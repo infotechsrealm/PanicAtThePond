@@ -274,4 +274,23 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
         GS.Instance.rerfeshDropDown();
     }
 
+    public void CallGameMode_Photon_RPC()
+    {
+        GS gsObj = GS.Instance;
+        photonView.RPC(nameof(SetGameModePhoton), RpcTarget.Others, gsObj.currentGameMode);
+        PhotonNetwork.SendAllOutgoingCommands();
+    }
+
+    [PunRPC]
+    public void SetGameModePhoton(int mode)
+    {
+        GS gsObj = GS.Instance;
+        gsObj.currentGameMode = mode;
+        if (GameModeDropdownHandler.Instance != null && GameModeDropdownHandler.Instance.gameModeDropdown != null)
+        {
+            // Just updating the value will trigger OnGameModeChanged locally to update the texts
+            GameModeDropdownHandler.Instance.gameModeDropdown.value = mode;
+        }
+    }
+
 }

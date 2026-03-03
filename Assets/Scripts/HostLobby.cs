@@ -74,12 +74,6 @@ public class HostLobby : MonoBehaviourPunCallbacks
             {
                 NetworkManager.singleton.StopServer();
             }
-          
-
-            // 3️⃣ transport बंद करो ताकि socket release हो जाए
-            var transport = (TelepathyTransport)NetworkManager.singleton.transport;
-            transport.Shutdown();
-
 
             gameObject.SetActive(false);
         }

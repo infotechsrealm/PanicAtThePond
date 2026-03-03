@@ -295,7 +295,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         bool isQuickSurvivalist = GS.Instance != null && GS.Instance.currentGameMode == 0;
 
-        if (isQuickSurvivalist || message == "You lose!" || message == "You win!" || message == "Fisherman Win!" || message.Contains("Fisherman Lose"))
+        if (isQuickSurvivalist)
         {
             if (gameOverPanel != null)
             {
@@ -321,6 +321,15 @@ public class GameManager : MonoBehaviourPunCallbacks
             {
                 GameOver.Instance.UpdateButtonVisibility();
             }
+        }
+        else
+        {
+             // For Quick Cast and Deep Sea Fishing, we don't show the Game Over screen.
+             // But we should stop the worm spawner to finalize the round state.
+             if (WormSpawner.Instance != null && WormSpawner.Instance.canSpawn)
+             {
+                 WormSpawner.Instance.canSpawn = false;
+             }
         }
     }
 
@@ -360,7 +369,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private IEnumerator ShowScoreScreenDelayed()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(3.0f);
         if (ScoreManager.Instance != null && GS.Instance != null)
         {
             ScoreManager.Instance.ShowScoreScreen(GS.Instance.playerScores);
@@ -864,7 +873,19 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("=== ProcessRestart() CALLED ===");
 
-        if (PhotonNetwork.InRoom)
+        if (GS.Instance.isLan)
+        {
+            if (GS.Instance.IsMirrorMasterClient)
+            {
+                // Also reset locally on host
+                ResetGameStateLocal();
+                Debug.Log("✅ Loading Play scene with all players in room via Mirror");
+                
+                // Force all clients to load the new scene
+                CustomNetworkManager.Instence.LoadPlaySceneForAll();
+            }
+        }
+        else if (PhotonNetwork.InRoom)
         {
             // Call RPC on GameManager's PhotonView to reset all clients
             photonView.RPC(nameof(ResetGameState_RPC), RpcTarget.All);
@@ -1057,6 +1078,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         totalPlayers--;
 
+        if (goldWormEatByFish) return; // Prevent game over trigger during host migration
+
         if (PhotonNetwork.IsMasterClient)
         {
             if (FishermanController.Instance != null)
@@ -1067,6 +1090,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void LessPlayerCount_Mirror()
     {
         totalPlayers--;
+
+        if (goldWormEatByFish) return; // Prevent game over trigger during host migration
 
         if (GS.Instance.isLan)
         {

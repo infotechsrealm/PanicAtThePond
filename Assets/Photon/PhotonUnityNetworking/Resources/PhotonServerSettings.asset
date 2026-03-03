@@ -96,6 +96,7 @@ MonoBehaviour:
   - RequestHostBack
   - AddPlayerScoreRPC
   - EndRoundRPC
+  - SetGameModePhoton
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

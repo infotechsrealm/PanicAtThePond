@@ -2,6 +2,7 @@ using Mirror;
 using Mirror.Discovery;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public static class UnityThread
 {
@@ -59,6 +60,34 @@ public class GS : MonoBehaviour
     {
         Instance = this;
         UnityThread.MainThread = SynchronizationContext.Current;
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Dash")
+        {
+            ResetGameState();
+        }
+    }
+
+    public void ResetGameState()
+    {
+        currentRound = 1;
+        playerScores.Clear();
+        currentRoundWormsUsed = 0;
+        hooksEscaped.Clear();
+        wormsEatenThisRound.Clear();
+        Debug.Log("🔄 GS Game State Reset: Round is now 1, scores cleared.");
     }
 
 
