@@ -254,7 +254,7 @@ public class CustomNetworkManager : NetworkManager
     }
 
     // 🔹 Server सभी connected clients को नामों की list भेजे
-    void SendUpdatedPlayerListToAll()
+    public void SendUpdatedPlayerListToAll()
     {
         var allNames = new List<string>(playerNames.Values);
 

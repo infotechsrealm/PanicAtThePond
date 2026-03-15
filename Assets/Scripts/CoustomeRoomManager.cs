@@ -1,4 +1,4 @@
-﻿using Mirror;
+using Mirror;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections.Generic;
@@ -59,8 +59,21 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         // When Dash scene loads, check if we're returning from a game
         if (scene.name == "Dash")
         {
-            // Small delay to ensure network state is ready
-            Invoke(nameof(ActivateLobbyIfInRoom), 0.1f);
+            // Delay to ensure mirror network state is re-established after scene load
+            Invoke(nameof(ActivateLobbyIfInRoom), 0.3f);
+            // If we're the server, broadcast the current player list to all clients
+            if (NetworkServer.active)
+            {
+                Invoke(nameof(BroadcastPlayerListOnReturn), 0.5f);
+            }
+        }
+    }
+
+    private void BroadcastPlayerListOnReturn()
+    {
+        if (CustomNetworkManager.Instence != null && NetworkServer.active)
+        {
+            CustomNetworkManager.Instence.SendUpdatedPlayerListToAll();
         }
     }
 
@@ -74,10 +87,11 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         
         if (GS.Instance.isLan)
         {
-            int playerCount = NetworkManager.singleton.numPlayers;
-            Debug.Log($"LAN Players: {playerCount}");
+            // On the server (host), check via NetworkServer. On clients, NetworkClient.isConnected.
+            bool isMirrorConnected = NetworkServer.active || NetworkClient.isConnected;
+            Debug.Log($"LAN - NetworkServer.active: {NetworkServer.active}, NetworkClient.isConnected: {NetworkClient.isConnected}");
 
-            if (playerCount > 1)
+            if (isMirrorConnected)
             {
                 if (GS.Instance.IsMirrorMasterClient)
                 {
@@ -96,7 +110,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             }
             else
             {
-                Debug.LogWarning($"⚠️ Not enough players in LAN ({playerCount})");
+                Debug.LogWarning("⚠️ LAN: Not server-active or client-connected - not returning from a game.");
             }
         }
         else

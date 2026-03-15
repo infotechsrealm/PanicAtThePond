@@ -1371,10 +1371,15 @@ MonoBehaviour:
   MurkyWaters: 0
   DeepWaters: 1
   ReflectiveWater: 0
+  isFullscreen: 0
   dropDownChangeAvalable: 0
   nickName: 
   isLan: 0
   IsMirrorMasterClient: 1
+  currentGameMode: 0
+  currentRound: 1
+  wormCoins: 0
+  currentRoundWormsUsed: 0
   BGMusic: {fileID: 1304928314}
 --- !u!4 &1771400380
 Transform:
