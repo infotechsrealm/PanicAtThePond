@@ -1,4 +1,4 @@
-﻿using Mirror;
+using Mirror;
 using Mirror.Discovery;
 using Photon.Pun;
 using Photon.Realtime;
@@ -421,8 +421,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             ScoreManager.Instance.ShowWinnerScreen(winnerName, highestScore);
         }
         
-        // Wait then go to Lobby
-        StartCoroutine(ReturnToLobbyDelayed());
+        // Wait then go to Lobby (Removed automatic transition so Host can choose via WinnerScreen buttons)
+        // StartCoroutine(ReturnToLobbyDelayed());
     }
     
     private IEnumerator ReturnToLobbyDelayed()

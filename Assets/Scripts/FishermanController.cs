@@ -1,4 +1,4 @@
-﻿using Mirror;
+using Mirror;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;

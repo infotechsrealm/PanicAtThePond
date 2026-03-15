@@ -155,6 +155,8 @@ MonoBehaviour:
   sharkUpdateInterval: 0.05
   escapeDirectionChangeInterval: 0.2
   alertDuration: 15
+  timeToFullFatigue: 120
+  maxFatigueMultiplier: 0.4
 --- !u!114 &3755046863711763629
 MonoBehaviour:
   m_ObjectHideFlags: 0

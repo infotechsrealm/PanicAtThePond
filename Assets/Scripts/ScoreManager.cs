@@ -24,6 +24,10 @@ public class ScoreManager : MonoBehaviourPunCallbacks
     public TextMeshProUGUI winnerNameText;
     public TextMeshProUGUI winnerScoreText;
 
+    [Header("Buttons (WinnerScreen)")]
+    public Button playAgainBtn;
+    public Button lobbyButton;
+
     [Header("Animation Settings")]
     public float animationDuration = 2f;
     public float maxHeight = 200f; // Adjust this in inspector
@@ -33,6 +37,20 @@ public class ScoreManager : MonoBehaviourPunCallbacks
     {
         Instance = this;
         HideAllScreens();
+    }
+
+    private void Start()
+    {
+        if (playAgainBtn != null)
+        {
+            playAgainBtn.onClick.RemoveAllListeners();
+            playAgainBtn.onClick.AddListener(OnPlayAgainClicked);
+        }
+        if (lobbyButton != null)
+        {
+            lobbyButton.onClick.RemoveAllListeners();
+            lobbyButton.onClick.AddListener(OnLobbyClicked);
+        }
     }
 
     public void HideAllScreens()
@@ -196,6 +214,23 @@ public class ScoreManager : MonoBehaviourPunCallbacks
         if (winnerNameText != null) winnerNameText.text = winnerName;
         if (winnerScoreText != null) winnerScoreText.text = winnerScore.ToString();
 
+        // Host ONLY logic for buttons
+        bool isHost = false;
+        if (GS.Instance != null)
+        {
+            if (GS.Instance.isLan)
+            {
+                isHost = GS.Instance.IsMirrorMasterClient;
+            }
+            else
+            {
+                isHost = GS.Instance.isMasterClient;
+            }
+        }
+
+        if (playAgainBtn != null) playAgainBtn.gameObject.SetActive(isHost);
+        if (lobbyButton != null)  lobbyButton.gameObject.SetActive(isHost);
+
         // Convert the points to worms coins in GS and save to Playfab
         if(GS.Instance != null)
         {
@@ -203,6 +238,46 @@ public class ScoreManager : MonoBehaviourPunCallbacks
         }
 
         SaveWormCoinsToPlayFab(winnerScore); 
+    }
+
+    public void OnPlayAgainClicked()
+    {
+        Debug.Log("ScoreManager: OnPlayAgainClicked");
+        if (GS.Instance != null && GS.Instance.wormCoins > 0)
+        {
+            SaveWormCoinsToPlayFab(GS.Instance.wormCoins);
+        }
+
+        // Bypassing GameOver.Instance since it might be inactive and fail
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ProcessRestart();
+        }
+    }
+
+    public void OnLobbyClicked()
+    {
+        Debug.Log("ScoreManager: OnLobbyClicked");
+        if (GS.Instance != null && GS.Instance.wormCoins > 0)
+        {
+            SaveWormCoinsToPlayFab(GS.Instance.wormCoins);
+        }
+
+        // Bypassing GameOver.Instance since it might be inactive
+        if (GS.Instance.isLan)
+        {
+            if (Mirror.NetworkServer.active)
+            {
+                Mirror.NetworkManager.singleton.ServerChangeScene("Dash");
+            }
+        }
+        else
+        {
+            if (PhotonNetwork.InRoom)
+            {
+                PhotonNetwork.LoadLevel("Dash");
+            }
+        }
     }
 
     private bool hasSavedCoinsThisRound = false;

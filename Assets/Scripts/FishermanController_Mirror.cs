@@ -1,4 +1,4 @@
-﻿using Mirror;
+using Mirror;
 using UnityEngine;
 
 public class FishermanController_Mirror : NetworkBehaviour
