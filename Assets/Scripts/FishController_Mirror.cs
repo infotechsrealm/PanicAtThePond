@@ -1,0 +1,637 @@
+using Mirror;
+using Photon.Pun;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using static Unity.Burst.Intrinsics.X86.Avx;
+
+public class FishController_Mirror : NetworkBehaviour
+{
+    [Header("Input System")]
+    public InputActionReference moveAction;
+
+    public FishController fishController;
+
+    public GameObject wormPrefab;
+
+    public List<WormManager> allHookWorms = new List<WormManager>();
+
+
+    private void Awake()
+    {
+    }
+    private void Start()
+    {
+        Debug.Log("=== FishController_Mirror CALLED ===");
+        Debug.Log("isServer: " + isServer);
+        Debug.Log("isClient: " + isClient);
+        Debug.Log("isLocalPlayer: " + isLocalPlayer);
+        Debug.Log("connectionToClient: " + connectionToClient);
+        MarkMeDead(false);
+    }
+
+    public void CallAddScore_Mirror(string playerName, int amount)
+    {
+        if (isLocalPlayer) {
+             CmdAddScore_Mirror(playerName, amount);
+        }
+    }
+
+    [Command]
+    public void CmdAddScore_Mirror(string playerName, int amount)
+    {
+         RpcAddScore_Mirror(playerName, amount);
+    }
+
+    [ClientRpc]
+    public void RpcAddScore_Mirror(string playerName, int amount)
+    {
+         if (GS.Instance == null) return;
+         if (!GS.Instance.playerScores.ContainsKey(playerName)) GS.Instance.playerScores[playerName] = 0;
+         GS.Instance.playerScores[playerName] += amount;
+    }
+
+    public void CallTriggerRoundEnd_Mirror(string message)
+    {
+        if (isLocalPlayer) {
+             CmdTriggerRoundEnd_Mirror(message);
+        }
+    }
+
+    [Command]
+    public void CmdTriggerRoundEnd_Mirror(string message)
+    {
+         RpcTriggerRoundEnd_Mirror(message);
+    }
+
+    [ClientRpc]
+    public void RpcTriggerRoundEnd_Mirror(string message)
+    {
+         if (GameManager.Instance != null) {
+             GameManager.Instance.EndRoundRPC(message);
+         }
+    }
+
+    public void SetVissiblity_Mirror()
+    {
+        GS gsObj = GS.Instance;
+        if (gsObj.IsMirrorMasterClient)
+        {
+            SetVisibility(gsObj.ReflectiveWater, gsObj.DeepWaters, gsObj.MurkyWaters, gsObj.ClearWaters);
+        }
+    }
+
+    [ClientRpc]
+    public void SetVisibility(bool reflectiveWater, bool deepWaters, bool murkyWaters, bool clearWaters)
+    {
+        GS gsObj = GS.Instance;
+
+        gsObj.ClearWaters = clearWaters;
+        gsObj.MurkyWaters = murkyWaters;
+        gsObj.DeepWaters = deepWaters;
+        gsObj.ReflectiveWater = reflectiveWater;
+
+        Debug.Log($"[GS] Visibility updated: All={reflectiveWater}, Deep={deepWaters}, Murky={murkyWaters}, Clear={clearWaters}");
+    }
+
+    public void Destroy_Mirror(GameObject target)
+    {
+        if (NetworkServer.active)
+        {
+            NetworkServer.Destroy(target);
+        }
+        else if (NetworkClient.active)
+        {
+            CmdRequestDestroy(target);
+        }
+    }
+
+    [Command]
+    void CmdRequestDestroy(GameObject target)
+    {
+        NetworkServer.Destroy(target);
+    }
+
+
+    //generate FisherMan
+    public GameObject fishermanPrefab;
+
+    public void RequestSpawnFisherman()
+    {
+        if (isLocalPlayer)
+        {
+            CmdSpawnFishermanOnServer();
+        }
+    }
+
+    [Command]
+    void CmdSpawnFishermanOnServer()
+    {
+        Vector3 spawnPos = new Vector3(0f, 1.95f, 0f);
+        GameObject fisherman = Instantiate(fishermanPrefab, spawnPos, Quaternion.identity);
+        NetworkServer.Spawn(fisherman, connectionToClient); // 🔹 gives authority to caller client
+        SpawnWorm(GameManager.Instance.fishermanWorms);
+    }
+
+    //Catch Junk in the Fish Mouth
+    public void TryPickupJunk(NetworkIdentity junkIdentity)
+    {
+        if (junkIdentity != null)
+        {
+            CmdPickupJunk(junkIdentity.netId);
+        }
+    }
+
+    [Command]
+    void CmdPickupJunk(uint junkNetId)
+    {
+        Debug.Log("CmdPickupJunk called ");
+
+        if (NetworkServer.spawned.TryGetValue(junkNetId, out NetworkIdentity junkIdentity))
+        {
+            GameObject junk = junkIdentity.gameObject;
+
+            junk.GetComponent<PolygonCollider2D>().enabled = false;
+            junk.transform.SetParent(fishController.junkHolder);
+            junk.transform.localPosition = Vector3.zero;
+            junk.GetComponent<JunkManager>().junkManager_Mirror.RequestFreezeObject();
+
+            RpcPickupJunk(junkNetId);
+        }
+    }
+
+
+    [ClientRpc]
+    void RpcPickupJunk(uint junkNetId)
+    {
+        Debug.Log("RpcPickupJunk called ");
+        if (NetworkClient.spawned.TryGetValue(junkNetId, out NetworkIdentity identity))
+        {
+            GameObject junk = identity.gameObject;
+
+            junk.GetComponent<PolygonCollider2D>().enabled = false;
+            junk.transform.SetParent(fishController.junkHolder);
+            junk.transform.localPosition = Vector3.zero;
+        }
+    }
+
+    //Leave Junk
+    public void TryLeaveJunk(NetworkIdentity junkIdentity)
+    {
+        if (junkIdentity != null)
+        {
+            CmdLeaveJunk(junkIdentity.netId);
+        }
+    }
+
+    [Command]
+    void CmdLeaveJunk(uint junkNetId)
+    {
+        if (NetworkServer.spawned.TryGetValue(junkNetId, out NetworkIdentity junkIdentity))
+        {
+            GameObject junk = junkIdentity.gameObject;
+
+            junk.GetComponent<JunkManager>().LeaveByFish();
+
+            RpcLeaveJunk(junkNetId);
+        }
+    }
+
+    [ClientRpc]
+    void RpcLeaveJunk(uint junkNetId)
+    {
+
+        if (NetworkClient.spawned.TryGetValue(junkNetId, out NetworkIdentity identity))
+        {
+            GameObject junk = identity.gameObject;
+
+            junk.GetComponent<JunkManager>().LeaveByFish();
+
+        }
+    }
+
+    //winFish
+    public void TryWinFish()
+    {
+        Debug.Log("TryWinFish called");
+
+        if (isLocalPlayer)
+        {
+            CmdWinFish();
+        }
+    }
+
+    [Command]
+    void CmdWinFish()
+    {
+        Debug.Log(" [Command] CmdWinFish called in server  ");
+        RpcWinFish();
+    }
+
+
+    [ClientRpc]
+    void RpcWinFish()
+    {
+        Debug.Log("  [ClientRpc] RpcWinFish called in remote player");
+
+        if (!fishController.isFisherMan)
+        {
+            for (int i = 0; i < GameManager.Instance.allFishes.Count; i++)
+            {
+                if (GameManager.Instance.allFishes[i].transform.localScale != Vector3.zero)
+                {
+                    GameManager.Instance.allFishes[i].WinFish_mirror();
+                }
+            }
+        }
+    }
+
+
+
+   
+
+
+    public void SpawnWorm(int length)
+    {
+        if (isServer)
+        {
+            for (int i = 0; i < length; i++)
+            {
+                GameObject worm = Instantiate(wormPrefab, new Vector3(0f, 10f, 0f), Quaternion.identity);
+                NetworkServer.Spawn(worm, connectionToClient); // 🔹 gives authority to caller client
+            }
+        }
+    }
+
+    //set worm in Hook
+    public GameObject SetWormInJunk(NetworkIdentity hookIdentity)
+    {
+        if (hookIdentity != null && allHookWorms.Count > 0)
+        {
+            NetworkIdentity n = allHookWorms[0].GetComponent<NetworkIdentity>();
+
+            CmdSetWormInJunk(hookIdentity.netId, n.netId);
+
+            GameObject worm = allHookWorms[0].gameObject;
+
+            allHookWorms.RemoveAt(0);  // safly remove
+            return worm;
+        }
+
+        return null;
+    }
+
+
+    [Command]
+    void CmdSetWormInJunk(uint hookNetId, uint wormNetId)
+    {
+        RPCSetWormInJunk(hookNetId, wormNetId);
+    }
+
+    [ClientRpc]
+    void RPCSetWormInJunk(uint junkNetId, uint wormNetId)
+    {
+        if (NetworkClient.spawned.TryGetValue(junkNetId, out NetworkIdentity junkIdentity))
+        {
+            Hook hook = junkIdentity.gameObject.GetComponent<Hook>();
+            hook.hasWorm = true;
+
+            if (NetworkClient.spawned.TryGetValue(wormNetId, out NetworkIdentity WormIdentity))
+            {
+                Transform worm = WormIdentity.transform;
+                worm.SetParent(hook.wormParent, false);
+                worm.localScale = Vector3.one;
+                worm.localPosition = Vector3.zero;
+            }
+        }
+    }
+
+    //
+    public void EnableWormCollider(NetworkIdentity NetId)
+    {
+        if (NetId != null)
+        {
+            CmdEnableWormCollider(NetId.netId);
+        }
+    }
+
+
+    [Command]
+    void CmdEnableWormCollider(uint NetId)
+    {
+        RPCEnableWormCollider(NetId);
+    }
+
+    [ClientRpc]
+    void RPCEnableWormCollider(uint NetId)
+    {
+        if (NetworkClient.spawned.TryGetValue(NetId, out NetworkIdentity Identity))
+        {
+            GameObject worm = Identity.gameObject;
+            PolygonCollider2D col = worm.GetComponent<PolygonCollider2D>();
+            if (col != null)
+            {
+                col.enabled = true;
+            }
+        }
+    }
+
+    public void DropWorm(NetworkIdentity NetId)
+    {
+        if (NetId != null)
+        {
+            CmdDropWorm(NetId.netId);
+        }
+    }
+
+
+    [Command]
+    void CmdDropWorm(uint NetId)
+    {
+        RPCDropWorm(NetId);
+    }
+
+    [ClientRpc]
+    void RPCDropWorm(uint NetId)
+    {
+        if (NetworkClient.spawned.TryGetValue(NetId, out NetworkIdentity Identity))
+        {
+            GameObject wormInstance = Identity.gameObject;
+            wormInstance.transform.parent = null;
+            wormInstance = null;
+        }
+    }
+
+
+
+    public void ReturnRoadOfHook()
+    {
+        if (isLocalPlayer)
+        {
+            CMDReturnRoadOfHook();
+        }
+    }
+
+    [Command]
+    public void CMDReturnRoadOfHook()
+    {
+
+        RPCReturnRoadOfHook();
+    }
+
+    [ClientRpc]
+    public void RPCReturnRoadOfHook()
+    {
+
+        Hook.Instance.LoadReturnToRod_Mirror();
+    }
+
+
+    //mash phase start in fisher man
+    public void CallMashPhase(float mashTimes)
+    {
+        Debug.Log("CallMashPhase");
+        if (isLocalPlayer)
+        {
+            CMDCallMashPhase(mashTimes);
+        }
+    }
+
+    [Command]
+    public void CMDCallMashPhase(float mashTimes)
+    {
+        Debug.Log("CMDCallMashPhase");
+        RPCCallMashPhase(mashTimes);
+    }
+
+    [ClientRpc]
+    public void RPCCallMashPhase(float mashTimes)
+    {
+        Debug.Log("RPCCallMashPhase");
+        MashPhaseManager.Instance.CallMashPhase_Mirror(mashTimes);
+    }
+
+
+    public void CallDisableMashPhase()
+    {
+        CMDDisableMashPhase();
+    }
+
+    [Command]
+    public void CMDDisableMashPhase()
+    {
+        RPCDisableMashPhase();
+    }
+
+    [ClientRpc]
+    public void RPCDisableMashPhase()
+    {
+        MashPhaseManager.Instance.DisableMashPhase();
+    }
+
+
+    public void PutFishInHook_Mirror(NetworkIdentity FishNetId, NetworkIdentity HookNetId)
+    {
+        if (FishNetId != null)
+        {
+            CMDPutFishInHook(FishNetId.netId, HookNetId.netId);
+        }
+    }
+
+
+    [Command]
+    void CMDPutFishInHook(uint FishNetId, uint HookNetId)
+    {
+        RPCPutFishInHook(FishNetId, HookNetId);
+    }
+
+
+    [ClientRpc]
+    void RPCPutFishInHook(uint FishNetId, uint HookNetId)
+    {
+        if (NetworkClient.spawned.TryGetValue(FishNetId, out NetworkIdentity FishIdentity))
+        {
+            GameObject fish = FishIdentity.gameObject;
+
+            if (NetworkClient.spawned.TryGetValue(HookNetId, out NetworkIdentity HookIdentity))
+            {
+                GameObject hook = HookIdentity.gameObject;
+
+                Transform fishParent = hook.GetComponent<Hook>().wormParent;
+                fish.transform.GetComponent<PolygonCollider2D>().enabled = false;
+                fish.transform.SetParent(fishParent);
+                fish.transform.eulerAngles = new Vector3(0f, 0f, -90f);
+                fish.transform.localPosition = Vector3.zero;
+
+                ReturnRoadOfHook();
+
+
+            }
+        }
+    }
+
+
+    public void DisableFish_Mirror(NetworkIdentity FishNetId)
+    {
+        CMDDisableFish_Mirror(FishNetId.netId);
+    }
+
+    [Command]
+    public void CMDDisableFish_Mirror(uint FishNetId)
+    {
+        RPCDisableFish_Mirror(FishNetId);
+    }
+
+    [ClientRpc]
+    public void RPCDisableFish_Mirror(uint FishNetId)
+    {
+
+        if (NetworkClient.spawned.TryGetValue(FishNetId, out NetworkIdentity FishIdentity))
+        {
+            GameObject fish = FishIdentity.gameObject;
+            fish.transform.SetParent(null, false);
+            fish.transform.localScale = Vector3.zero;
+        }
+    }
+
+
+    //Set Junk in hook
+
+    public void SetJunkInHook_Mirror(NetworkIdentity JunkNetId, NetworkIdentity HookNetId)
+    {
+        if (JunkNetId != null)
+        {
+            CMDSetJunkInHook_Mirror(JunkNetId.netId, HookNetId.netId);
+        }
+    }
+
+
+    [Command]
+    void CMDSetJunkInHook_Mirror(uint JunkNetId, uint HookNetId)
+    {
+        RPCDisableFish_Mirror(JunkNetId, HookNetId);
+    }
+
+    [ClientRpc]
+    void RPCDisableFish_Mirror(uint JunkNetId, uint HookNetId)
+    {
+        if (NetworkClient.spawned.TryGetValue(JunkNetId, out NetworkIdentity JunkIdentity))
+        {
+            GameObject junk = JunkIdentity.gameObject;
+
+            if (NetworkClient.spawned.TryGetValue(HookNetId, out NetworkIdentity HookIdentity))
+            {
+                GameObject hook = HookIdentity.gameObject;
+
+
+                junk.GetComponent<PolygonCollider2D>().enabled = false;
+                junk.transform.SetParent(hook.GetComponent<Hook>().wormParent);
+                junk.transform.localPosition = Vector3.zero;
+                fishController.carriedJunk = null;
+                ReturnRoadOfHook();
+            }
+        }
+    }
+
+
+    public void MarkMeDead(bool res)
+    {
+        NetworkConnectionToClient conn = connectionToClient;
+        if (conn != null)
+        {
+            conn.isDead = res;   // SET
+            Debug.Log("@@@@@@@@@@@@@@Marked dead on server" + conn.isDead);
+        }
+    }
+
+
+    public void SetDeadFish_Mirror(NetworkIdentity FishNetId)
+    {
+        CMDSetDeadFish_Mirror(FishNetId.netId);
+    }
+
+    [Command]
+    public void CMDSetDeadFish_Mirror(uint FishNetId)
+    {
+        RPCSetDeadFish_Mirror(FishNetId);
+    }
+
+    [ClientRpc]
+    public void RPCSetDeadFish_Mirror(uint FishNetId)
+    {
+
+        if (NetworkClient.spawned.TryGetValue(FishNetId, out NetworkIdentity FishIdentity))
+        {
+            FishController fish = FishIdentity.GetComponent<FishController>();
+            fish.isDead = true;
+            CallLessPlayerCount_Mirror();
+        }
+    }
+
+    public void CallLessPlayerCount_Mirror()
+    {
+        CMDCallLessPlayerCount_Mirror();
+    }
+
+
+    [Command]
+    public void CMDCallLessPlayerCount_Mirror()
+    {
+        RPCCallLessPlayerCount_Mirror();
+    }
+
+    [ClientRpc]
+    public void RPCCallLessPlayerCount_Mirror()
+    {
+        Debug.Log("RPCCallLessPlayerCount_Mirror called");
+        if (GameManager.Instance.isFisherMan)
+        {
+            Debug.Log("I m fisher man");
+            GameManager.Instance.LessPlayerCount_Mirror();
+        }
+    }
+
+    public void CallGamePause(bool isPause)
+    {
+        uint fishID = GetComponent<NetworkIdentity>().netId;
+        GamePause(isPause, fishID);
+    }
+
+    public void GamePause(bool isPause, uint fishID)
+    {
+        CMDCallGamePause_Mirror(isPause, fishID);
+    }
+
+    [Command]
+    public void CMDCallGamePause_Mirror(bool isPause, uint fishID)
+    {
+        RPCCallGamePause(isPause, fishID);
+    }
+
+    [ClientRpc]
+    public void RPCCallGamePause(bool isPause, uint fishID)
+    {
+        uint thisFishID = GetComponent<NetworkIdentity>().netId;
+
+        if (NetworkClient.spawned.TryGetValue(fishID, out NetworkIdentity FishIdentity))
+        {
+            if (thisFishID == fishID)
+            {
+                if (isPause)
+                {
+                    transform.GetComponent<PolygonCollider2D>().enabled = false;
+                    var sr = GetComponent<SpriteRenderer>();
+                    sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.5f);
+                    fishController.canMove = false;
+                }
+                else
+                {
+                    transform.GetComponent<PolygonCollider2D>().enabled = true;
+                    var sr = GetComponent<SpriteRenderer>();
+                    sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
+                    fishController.canMove = true;
+                }
+            }
+        }
+    }
+}
