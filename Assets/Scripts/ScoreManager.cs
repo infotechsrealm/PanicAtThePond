@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using Mirror;
 using Photon.Pun;
 using TMPro;
-// using PlayFab;
-// using PlayFab.ClientModels; // Uncomment when PlayFab SDK is imported
 
 public class ScoreManager : MonoBehaviourPunCallbacks
 {
@@ -17,8 +15,8 @@ public class ScoreManager : MonoBehaviourPunCallbacks
     public GameObject scoreScreen;
     public GameObject winnerScreen;
 
-    [Header("Player Chests (ScoreScreen)")]
-    public GameObject[] playerWrappers; // Assign Wrapper1 to Wrapper7 here
+    [Header("Player Wrappers (ScoreScreen) — Assign Wrapper1 to Wrapper7")]
+    public GameObject[] playerWrappers;
 
     [Header("Winner UI (WinnerScreen)")]
     public TextMeshProUGUI winnerNameText;
@@ -29,9 +27,24 @@ public class ScoreManager : MonoBehaviourPunCallbacks
     public Button lobbyButton;
 
     [Header("Animation Settings")]
+    [Tooltip("How long the bar-rise animation plays")]
     public float animationDuration = 2f;
-    public float maxHeight = 200f; // Adjust this in inspector
-    public float maxPointsReference = 100f; // Score that represents maxHeight
+
+    [Tooltip("Max Y rise (pixels) for the highest scorer — they will go ABOVE this (out of box)")]
+    public float maxHeight = 200f;
+
+    [Tooltip("Extra Y the WINNER overshoots past maxHeight (the 'out of box' effect)")]
+    public float winnerOvershoot = 80f;
+
+    [Tooltip("Ease curve for the rise animation (leave as default EaseOut if none assigned)")]
+    public AnimationCurve riseCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+
+    // -----------------------------------------------------------------------
+    // Internal state
+    // -----------------------------------------------------------------------
+    private bool hasSavedCoinsThisRound = false;
+
+    // -----------------------------------------------------------------------
 
     private void Awake()
     {
@@ -53,247 +66,242 @@ public class ScoreManager : MonoBehaviourPunCallbacks
         }
     }
 
+    // -----------------------------------------------------------------------
+    // Screen helpers
+    // -----------------------------------------------------------------------
+
     public void HideAllScreens()
     {
         if (winScreensContainer != null) winScreensContainer.SetActive(false);
-        if (scoreScreen != null) scoreScreen.SetActive(false);
-        if (winnerScreen != null) winnerScreen.SetActive(false);
+        if (scoreScreen != null)        scoreScreen.SetActive(false);
+        if (winnerScreen != null)       winnerScreen.SetActive(false);
     }
+
+    // -----------------------------------------------------------------------
+    // Score Screen
+    // -----------------------------------------------------------------------
 
     public void ShowScoreScreen(Dictionary<string, int> currentScores)
     {
         HideAllScreens();
-        
         if (winScreensContainer != null) winScreensContainer.SetActive(true);
-        if (scoreScreen != null) scoreScreen.SetActive(true);
+        if (scoreScreen != null)         scoreScreen.SetActive(true);
 
         StartCoroutine(AnimateChests(currentScores));
     }
 
     private IEnumerator AnimateChests(Dictionary<string, int> scores)
     {
-        int index = 0;
-        float[] targetHeights = new float[playerWrappers.Length];
-
-        int highestScore = 1; // Default to 1 to avoid division by zero
+        // ---- 1. Find the highest score so we can scale everything ----
+        int highestScore = 1;
+        string winnerName = "";
         foreach (var kvp in scores)
         {
             if (kvp.Value > highestScore)
             {
                 highestScore = kvp.Value;
+                winnerName   = kvp.Key;
             }
         }
 
+        // ---- 2. Pre-calculate target Y for every player ----
+        //         The highest scorer gets maxHeight + winnerOvershoot (pops out of box).
+        //         Everyone else is scaled relative to maxHeight.
+        int   slotCount     = 0;
+        float[] targetY     = new float[playerWrappers.Length];
+        int[]   targetScore = new int[playerWrappers.Length];
+        string[] slotNames  = new string[playerWrappers.Length];
+
         foreach (var kvp in scores)
         {
-            if (index >= playerWrappers.Length) break;
+            if (slotCount >= playerWrappers.Length) break;
 
-            string pName = kvp.Key;
-            int score = kvp.Value;
+            slotNames[slotCount]  = kvp.Key;
+            targetScore[slotCount] = kvp.Value;
 
-            float targetH = (score / (float)highestScore) * maxHeight;
-            targetHeights[index] = targetH;
-            
-            GameObject wrapper = playerWrappers[index];
-            if (wrapper != null)
+            bool isWinner = (kvp.Key == winnerName);
+            float ratio   = kvp.Value / (float)highestScore; // 0..1
+
+            if (isWinner)
+                targetY[slotCount] = maxHeight + winnerOvershoot;   // out-of-box
+            else
+                targetY[slotCount] = ratio * maxHeight;              // proportional
+
+            slotCount++;
+        }
+
+        // ---- 3. Initialise each wrapper (reset position, set name, hide unused) ----
+        for (int i = 0; i < playerWrappers.Length; i++)
+        {
+            GameObject wrapper = playerWrappers[i];
+            if (wrapper == null) continue;
+
+            if (i < slotCount)
             {
-                if (wrapper.transform.childCount > 0)
+                // Reset the Player child to Y = 0
+                RectTransform playerRT = GetPlayerRect(wrapper);
+                if (playerRT != null)
+                    playerRT.anchoredPosition = new Vector2(playerRT.anchoredPosition.x, 0f);
+
+                // Set name / score labels
+                foreach (TextMeshProUGUI t in wrapper.GetComponentsInChildren<TextMeshProUGUI>(true))
                 {
-                    RectTransform chestNode = wrapper.transform.GetChild(0).GetComponent<RectTransform>();
-                    if (chestNode != null)
-                    {
-                        chestNode.anchoredPosition = new Vector2(chestNode.anchoredPosition.x, 0);
-                    }
-                }
-                
-                TextMeshProUGUI[] texts = wrapper.GetComponentsInChildren<TextMeshProUGUI>(true);
-                foreach(var t in texts)
-                {
-                    if (t.gameObject.name.Contains("Name")) t.text = pName;
+                    if (t.gameObject.name.Contains("Name"))  t.text = slotNames[i];
                     if (t.gameObject.name.Contains("Score")) t.text = "0";
                 }
 
                 wrapper.SetActive(true);
             }
-
-            index++;
+            else
+            {
+                wrapper.SetActive(false);
+            }
         }
 
-        for (int i = index; i < playerWrappers.Length; i++)
-        {
-            if (playerWrappers[i] != null) playerWrappers[i].SetActive(false);
-        }
-
+        // ---- 4. Animate the rise ----
         float elapsed = 0f;
         while (elapsed < animationDuration)
         {
             elapsed += Time.deltaTime;
-            float t = elapsed / animationDuration;
+            float tRaw  = Mathf.Clamp01(elapsed / animationDuration);
+            float tEased = riseCurve.Evaluate(tRaw); // smooth easing
 
-            index = 0;
-            foreach (var kvp in scores)
+            for (int i = 0; i < slotCount; i++)
             {
-                if (index >= playerWrappers.Length) break;
+                GameObject wrapper = playerWrappers[i];
+                if (wrapper == null) continue;
 
-                int score = kvp.Value;
-                int currentShownScore = Mathf.RoundToInt(Mathf.Lerp(0, score, t));
-                float currentH = Mathf.Lerp(0, targetHeights[index], t);
-
-                GameObject wrapper = playerWrappers[index];
-                if (wrapper != null)
+                // Move Player child upward
+                RectTransform playerRT = GetPlayerRect(wrapper);
+                if (playerRT != null)
                 {
-                    if (wrapper.transform.childCount > 0)
-                    {
-                        RectTransform chestNode = wrapper.transform.GetChild(0).GetComponent<RectTransform>();
-                        if (chestNode != null)
-                        {
-                            chestNode.anchoredPosition = new Vector2(chestNode.anchoredPosition.x, currentH);
-                        }
-                    }
-
-                    TextMeshProUGUI[] texts = wrapper.GetComponentsInChildren<TextMeshProUGUI>(true);
-                    foreach(var tx in texts)
-                    {
-                        if (tx.gameObject.name.Contains("Score")) tx.text = currentShownScore.ToString();
-                    }
+                    float currentY = Mathf.Lerp(0f, targetY[i], tEased);
+                    playerRT.anchoredPosition = new Vector2(playerRT.anchoredPosition.x, currentY);
                 }
 
-                index++;
+                // Animate score counter
+                int shownScore = Mathf.RoundToInt(Mathf.Lerp(0, targetScore[i], tEased));
+                foreach (TextMeshProUGUI tx in wrapper.GetComponentsInChildren<TextMeshProUGUI>(true))
+                {
+                    if (tx.gameObject.name.Contains("Score")) tx.text = shownScore.ToString();
+                }
             }
+
             yield return null;
         }
 
-        // Force final values ensuring counter hits target precisely
-        index = 0;
-        foreach (var kvp in scores)
+        // ---- 5. Snap to final values ----
+        for (int i = 0; i < slotCount; i++)
         {
-            if (index >= playerWrappers.Length) break;
-            
-            int score = kvp.Value;
-            float targetH = targetHeights[index];
+            GameObject wrapper = playerWrappers[i];
+            if (wrapper == null) continue;
 
-            GameObject wrapper = playerWrappers[index];
-            if (wrapper != null)
+            RectTransform playerRT = GetPlayerRect(wrapper);
+            if (playerRT != null)
+                playerRT.anchoredPosition = new Vector2(playerRT.anchoredPosition.x, targetY[i]);
+
+            foreach (TextMeshProUGUI tx in wrapper.GetComponentsInChildren<TextMeshProUGUI>(true))
             {
-                if (wrapper.transform.childCount > 0)
-                {
-                    RectTransform chestNode = wrapper.transform.GetChild(0).GetComponent<RectTransform>();
-                    if (chestNode != null)
-                    {
-                        chestNode.anchoredPosition = new Vector2(chestNode.anchoredPosition.x, targetH);
-                    }
-                }
-                TextMeshProUGUI[] texts = wrapper.GetComponentsInChildren<TextMeshProUGUI>(true);
-                foreach(var tx in texts)
-                {
-                    if (tx.gameObject.name.Contains("Score")) tx.text = score.ToString();
-                }
+                if (tx.gameObject.name.Contains("Score")) tx.text = targetScore[i].ToString();
             }
-            index++;
         }
 
+        // ---- 6. Brief pause, then transition ----
         yield return new WaitForSeconds(3f);
         OnScoreScreenComplete();
+    }
+
+    /// <summary>
+    /// Returns the RectTransform of the FIRST child inside a Wrapper
+    /// (i.e., the "Player" GameObject that physically rises).
+    /// </summary>
+    private RectTransform GetPlayerRect(GameObject wrapper)
+    {
+        if (wrapper.transform.childCount == 0) return null;
+        return wrapper.transform.GetChild(0).GetComponent<RectTransform>();
     }
 
     private void OnScoreScreenComplete()
     {
         if (GameManager.Instance != null)
-        {
             GameManager.Instance.HandleEndOfRoundTransition();
-        }
     }
+
+    // -----------------------------------------------------------------------
+    // Winner Screen
+    // -----------------------------------------------------------------------
 
     public void ShowWinnerScreen(string winnerName, int winnerScore)
     {
         HideAllScreens();
 
         if (winScreensContainer != null) winScreensContainer.SetActive(true);
-        if (winnerScreen != null) winnerScreen.SetActive(true);
+        if (winnerScreen != null)        winnerScreen.SetActive(true);
 
-        if (winnerNameText != null) winnerNameText.text = winnerName;
+        if (winnerNameText  != null) winnerNameText.text  = winnerName;
         if (winnerScoreText != null) winnerScoreText.text = winnerScore.ToString();
 
-        // Host ONLY logic for buttons
+        // Show host-only buttons
         bool isHost = false;
         if (GS.Instance != null)
-        {
-            if (GS.Instance.isLan)
-            {
-                isHost = GS.Instance.IsMirrorMasterClient;
-            }
-            else
-            {
-                isHost = GS.Instance.isMasterClient;
-            }
-        }
+            isHost = GS.Instance.isLan ? GS.Instance.IsMirrorMasterClient : GS.Instance.isMasterClient;
 
         if (playAgainBtn != null) playAgainBtn.gameObject.SetActive(isHost);
-        if (lobbyButton != null)  lobbyButton.gameObject.SetActive(isHost);
+        if (lobbyButton  != null) lobbyButton.gameObject.SetActive(isHost);
 
-        // Convert the points to worms coins in GS and save to Playfab
-        if(GS.Instance != null)
-        {
-            GS.Instance.wormCoins += winnerScore; // Or total score logic
-        }
+        // Award coins
+        if (GS.Instance != null)
+            GS.Instance.wormCoins += winnerScore;
 
-        SaveWormCoinsToPlayFab(winnerScore); 
+        SaveWormCoinsToPlayFab(winnerScore);
     }
+
+    // -----------------------------------------------------------------------
+    // Buttons
+    // -----------------------------------------------------------------------
 
     public void OnPlayAgainClicked()
     {
         Debug.Log("ScoreManager: OnPlayAgainClicked");
         if (GS.Instance != null && GS.Instance.wormCoins > 0)
-        {
             SaveWormCoinsToPlayFab(GS.Instance.wormCoins);
-        }
 
-        // Bypassing GameOver.Instance since it might be inactive and fail
         if (GameManager.Instance != null)
-        {
             GameManager.Instance.ProcessRestart();
-        }
     }
 
     public void OnLobbyClicked()
     {
         Debug.Log("ScoreManager: OnLobbyClicked");
         if (GS.Instance != null && GS.Instance.wormCoins > 0)
-        {
             SaveWormCoinsToPlayFab(GS.Instance.wormCoins);
-        }
 
-        // Bypassing GameOver.Instance since it might be inactive
         if (GS.Instance.isLan)
         {
             if (Mirror.NetworkServer.active)
-            {
                 Mirror.NetworkManager.singleton.ServerChangeScene("Dash");
-            }
         }
         else
         {
             if (PhotonNetwork.InRoom)
-            {
                 PhotonNetwork.LoadLevel("Dash");
-            }
         }
     }
 
-    private bool hasSavedCoinsThisRound = false;
+    // -----------------------------------------------------------------------
+    // PlayFab
+    // -----------------------------------------------------------------------
 
     public void SaveWormCoinsToPlayFab(int coinsToAdd)
     {
-        if (hasSavedCoinsThisRound) return; // Prevent network duplicate calls
+        if (hasSavedCoinsThisRound) return;
         hasSavedCoinsThisRound = true;
 
-        Debug.Log("ScoreManager: SaveWormCoinsToPlayFab called with " + coinsToAdd + " coins.");
+        Debug.Log($"ScoreManager: SaveWormCoinsToPlayFab — adding {coinsToAdd} coins.");
         if (PlayFabManager.Instance != null && coinsToAdd > 0)
-        {
             PlayFabManager.Instance.AddCurrency(coinsToAdd);
-        }
     }
-    
+
     public void ResetCoinSaveFlag()
     {
         hasSavedCoinsThisRound = false;
