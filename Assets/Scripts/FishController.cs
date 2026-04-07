@@ -1,4 +1,4 @@
-﻿using Mirror;
+using Mirror;
 using Photon.Pun;
 using Steamworks;
 using System.Collections;
@@ -278,7 +278,9 @@ public class FishController : MonoBehaviourPunCallbacks
 
         if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
         {
-            GameManager.Instance.ShowGameOver("Fisherman Wins!");
+            // The networked winner screen is now handled by HungerSystem -> GameManager.TriggerRoundEnd
+            // This local call is removed to avoid overlap.
+            // GameManager.Instance.ShowGameOver("Fisherman Wins!");
         }
 
         while (transform.position.y < targetY)

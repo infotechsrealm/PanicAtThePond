@@ -337,8 +337,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void TriggerRoundEnd(string message)
     {
          if (GS.Instance == null) return;
-         if (GS.Instance.currentGameMode == 0) return; // Quick survivalist uses normal game over
-
+         
          if (GS.Instance.isLan)
          {
              if (myFish != null && myFish.fishController_Mirror != null)
@@ -359,15 +358,20 @@ public class GameManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void EndRoundRPC(string message)
     {
-         if (GS.Instance == null || GS.Instance.currentGameMode == 0) return;
+         if (GS.Instance == null) return;
          if (isRoundEnding) return;
          isRoundEnding = true;
          
-         // Shut down regular Game Over panel if it's active so it doesn't overlap
-         if (gameOverPanel != null) gameOverPanel.SetActive(false);
-         
-         CalculateEndOfRoundBonuses(message);
-         StartCoroutine(ShowScoreScreenDelayed());
+         if (GS.Instance.currentGameMode == 0)
+         {
+             ShowGameOver(message);
+         }
+         else
+         {
+             if (gameOverPanel != null) gameOverPanel.SetActive(false);
+             CalculateEndOfRoundBonuses(message);
+             StartCoroutine(ShowScoreScreenDelayed());
+         }
     }
 
     private IEnumerator ShowScoreScreenDelayed()
