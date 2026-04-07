@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [Header("Player Setup")]
     public int totalPlayers;
     public GameObject fishermanPrefab;
+    public GameObject FisherMan_Hungerbar;
     public GameObject fishPrefab;
 
     [Header("Worm Settings")]
@@ -287,6 +288,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             photonView.RPC(nameof(FisherManSpawned), RpcTarget.All, true);
             PhotonNetwork.Instantiate(fishermanPrefab.name, new Vector3(0f, 1.95f, 0f), Quaternion.identity);
+            FisherMan_Hungerbar.SetActive(false);
         }
     }
 

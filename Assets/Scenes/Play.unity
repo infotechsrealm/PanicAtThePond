@@ -6089,6 +6089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalPlayers: 0
   fishermanPrefab: {fileID: 4221548032391945581, guid: b839bcb9e6837534c89107afe33ac208, type: 3}
+  FisherMan_Hungerbar: {fileID: 118618022}
   fishPrefab: {fileID: 7780540918564372881, guid: 594a00d5a8194784f970286d56fbf078, type: 3}
   baseWormMultiplier: 3
   minBounds: {x: -8, y: 0}
