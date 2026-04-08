@@ -103,6 +103,11 @@ public class FishermanController : MonoBehaviourPunCallbacks
             if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan)
             {
                 gameManager.hungerBar.SetActive(false);
+                if (HungerSystem.Instance != null)
+                {
+                    HungerSystem.Instance.gameObject.SetActive(false);
+                    HungerSystem.Instance.canDecrease = false;
+                }
                 gameManager.fisherManObjects.SetActive(true);
                 gameManager.UpdateUI(worms);
             }
@@ -112,10 +117,12 @@ public class FishermanController : MonoBehaviourPunCallbacks
             if(GS.Instance.isLan)
             {
                 GameManager.Instance.fisherManIsSpawned = true;
+                GameManager.Instance.goldWormEatByFish = false;
             }
             else
             {
                 gameManager.CallFisherManSpawnedRPC(true);
+                GameManager.Instance.goldWormEatByFish = false;
             }
 
 

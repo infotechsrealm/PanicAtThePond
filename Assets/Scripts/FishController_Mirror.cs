@@ -72,6 +72,29 @@ public class FishController_Mirror : NetworkBehaviour
          }
     }
 
+    public void CallShowGameOver_Mirror(string message)
+    {
+        if (isLocalPlayer)
+        {
+            CmdShowGameOver_Mirror(message);
+        }
+    }
+
+    [Command]
+    public void CmdShowGameOver_Mirror(string message)
+    {
+        RpcShowGameOver_Mirror(message);
+    }
+
+    [ClientRpc]
+    public void RpcShowGameOver_Mirror(string message)
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ShowGameOver(message);
+        }
+    }
+
     public void SetVissiblity_Mirror()
     {
         GS gsObj = GS.Instance;

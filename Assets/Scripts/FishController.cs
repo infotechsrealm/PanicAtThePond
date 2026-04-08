@@ -1,4 +1,4 @@
-﻿using Mirror;
+using Mirror;
 using Photon.Pun;
 using Steamworks;
 using System.Collections;
@@ -278,7 +278,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
         if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
         {
-            GameManager.Instance.ShowGameOver("Fisherman Wins!");
+            GameManager.Instance.CallShowGameOverRPC("Fisherman Wins!");
         }
 
         while (transform.position.y < targetY)

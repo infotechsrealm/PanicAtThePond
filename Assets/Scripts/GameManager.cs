@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [Header("UI")]
     public Slider castingMeter;
     public static GameManager Instance;
-    public GameObject gameOverPanel;
+    public GameObject gameOverPanel, WinScreen, WinnerScreen, ScoreScreen;
     public Text gameOverText;
 
     [Header("Bucket Sprites")]
@@ -297,18 +297,19 @@ public class GameManager : MonoBehaviourPunCallbacks
         Debug.Log("Game Over: " + message);
 
         bool isQuickSurvivalist = GS.Instance != null && GS.Instance.currentGameMode == 0;
+        bool isQuickQast = GS.Instance != null && GS.Instance.currentGameMode == 1;
+        bool isDeepSeaFishing = GS.Instance != null && GS.Instance.currentGameMode == 2;
 
         if (isQuickSurvivalist)
         {
-            if (gameOverPanel != null)
-            {
                 gameOverPanel.SetActive(true);
+                Debug.Log("isQuicSurvivalList ShowGameOver Runingggggg");
 
                 if (WormSpawner.Instance != null && WormSpawner.Instance.canSpawn)
                 {
                     WormSpawner.Instance.canSpawn = false;
                 }
-            }
+            
             else
             {
                 Debug.Log("Gameover Panel is null");
@@ -325,6 +326,35 @@ public class GameManager : MonoBehaviourPunCallbacks
                 GameOver.Instance.UpdateButtonVisibility();
             }
         }
+        if (isQuickQast)
+        {
+            Debug.Log("isQuickQast SurvivalList ShowGameOver Runingggggg");
+
+            if (WormSpawner.Instance != null && WormSpawner.Instance.canSpawn)
+            {
+                WormSpawner.Instance.canSpawn = false;
+            }
+            WinScreen.SetActive(true);
+            
+           // ScoreScreen.SetActive(true);
+            
+            CalculateEndOfRoundBonuses(message);
+            StartCoroutine(ShowScoreScreenDelayed());
+        }
+        if(isDeepSeaFishing){
+            Debug.Log("isQuickQast SurvivalList ShowGameOver Runingggggg");
+
+            if (WormSpawner.Instance != null && WormSpawner.Instance.canSpawn)
+            {
+                WormSpawner.Instance.canSpawn = false;
+            }
+            WinScreen.SetActive(true);
+            
+            ScoreScreen.SetActive(true);
+            
+            CalculateEndOfRoundBonuses(message);
+            StartCoroutine(ShowScoreScreenDelayed());
+        }
         else
         {
              // For Quick Cast and Deep Sea Fishing, we don't show the Game Over screen.
@@ -334,6 +364,31 @@ public class GameManager : MonoBehaviourPunCallbacks
                  WormSpawner.Instance.canSpawn = false;
              }
         }
+    }
+
+    public void CallShowGameOverRPC(string message)
+    {
+        if (GS.Instance.isLan)
+        {
+            if (myFish != null && myFish.fishController_Mirror != null)
+            {
+                myFish.fishController_Mirror.CallShowGameOver_Mirror(message);
+            }
+            else if (FishermanController.Instance != null && FishermanController.Instance.fishermanController_Mirror != null)
+            {
+                FishermanController.Instance.fishermanController_Mirror.CallShowGameOver_Mirror(message);
+            }
+        }
+        else
+        {
+            photonView.RPC(nameof(ShowGameOverRPC), RpcTarget.All, message);
+        }
+    }
+
+    [PunRPC]
+    public void ShowGameOverRPC(string message)
+    {
+        ShowGameOver(message);
     }
 
     public void TriggerRoundEnd(string message)
@@ -374,7 +429,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private IEnumerator ShowScoreScreenDelayed()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1.4f);
         if (ScoreManager.Instance != null && GS.Instance != null)
         {
             ScoreManager.Instance.ShowScoreScreen(GS.Instance.playerScores);
@@ -464,11 +519,16 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             if (isFisherMan) 
             {
+                if (GS.Instance.currentGameMode == 0)
+                {
+                    gameOverPanel.SetActive(true);
+                }
                 AddPlayerScore(myName, 15);
                 if (fishermanWorms > 0)
                 {
                     AddPlayerScore(myName, fishermanWorms);
                 }
+                
                 
                 if (isFullLobby && FishermanController.Instance != null && FishermanController.Instance.catchadFish >= 6) UnlockAchievement("FISH_SLAYER");
                 if (isFullLobby && GS.Instance.currentRoundWormsUsed <= 6) UnlockAchievement("EARTH_PRAISER");
