@@ -26,6 +26,9 @@ public class ScoreManager : MonoBehaviourPunCallbacks
     public Button playAgainBtn;
     public Button lobbyButton;
 
+    [Header("Dropdown References")]
+    public Dropdown gameModeDropdown;
+
     [Header("Animation Settings")]
     [Tooltip("How long the bar-rise animation plays")]
     public float animationDuration = 2f;
@@ -275,6 +278,17 @@ public class ScoreManager : MonoBehaviourPunCallbacks
         Debug.Log("ScoreManager: OnLobbyClicked");
         if (GS.Instance != null && GS.Instance.wormCoins > 0)
             SaveWormCoinsToPlayFab(GS.Instance.wormCoins);
+
+        if (GS.Instance != null)
+        {
+            bool isHost = GS.Instance.isLan ? GS.Instance.IsMirrorMasterClient : GS.Instance.isMasterClient;
+            GS.Instance.dropDownChangeAvalable = isHost;
+            
+            if (!isHost && gameModeDropdown != null)
+            {
+                gameModeDropdown.interactable = false;
+            }
+        }
 
         if (GS.Instance.isLan)
         {

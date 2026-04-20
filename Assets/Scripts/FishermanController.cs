@@ -477,6 +477,9 @@ public class FishermanController : MonoBehaviourPunCallbacks
                 return;
             }
 
+            if (Keyboard.current.xKey.wasPressedThisFrame){GameManager.Instance.messageText.text = " ";}
+            if (Keyboard.current.vKey.wasPressedThisFrame){GameManager.Instance.messageText.text = " ";}
+
             if (leftHook != null || rightHook != null)
             {
                 Debug.Log("Rod already has a hook!");

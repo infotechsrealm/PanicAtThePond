@@ -113,14 +113,17 @@ public class GS : MonoBehaviour
         if (Screen.fullScreen)
         {
             // Go to Windowed Mode
+            Screen.SetResolution(1280, 720, FullScreenMode.Windowed);
             Screen.fullScreenMode = FullScreenMode.Windowed;
             Screen.fullScreen = false;
             isFullscreen = false;
         }
         else
         {
-            // Go to Borderless Fullscreen (BEST just like games)
-            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+            // Go to Exclusive Fullscreen to remove black lines
+            Resolution currentRes = Screen.currentResolution;
+            Screen.SetResolution(currentRes.width, currentRes.height, FullScreenMode.ExclusiveFullScreen);
+            Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
             Screen.fullScreen = true;
             isFullscreen = true;
         }

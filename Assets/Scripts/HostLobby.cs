@@ -10,15 +10,17 @@ public class HostLobby : MonoBehaviourPunCallbacks
     public PlayerTableManager playerTableManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    public Button backButton, controlsButton,hintButton,pauseButton;
+    public Button backButton, controlsButton,hintButton,pauseButton,ScoreSystem,BackScore;
 
-    public GameObject hintUI, controlUI,pauseUI;
+    public GameObject hintUI, controlUI,pauseUI,ScoreUI;
 
     private void Start()
     {
         controlsButton.onClick.AddListener(onControlPressed);
         hintButton.onClick.AddListener(onHintPressed);
         pauseButton.onClick.AddListener(pause);
+        ScoreSystem.onClick.AddListener(Open_Score);
+        BackScore.onClick.AddListener(Close_Score);
     }
 
     public override void OnEnable()
@@ -27,6 +29,14 @@ public class HostLobby : MonoBehaviourPunCallbacks
         BackManager.instance.RegisterScreen(pauseButton);
         playerTableManager.UpdatePlayerTable();
         //GS.Instance.rerfeshDropDown();
+    }
+    public void Open_Score()
+    {
+        ScoreUI.SetActive(true);
+    }
+    public void Close_Score()
+    {
+        ScoreUI.SetActive(false);
     }
     private void onControlPressed()
     {
@@ -41,6 +51,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
     {
         pauseUI.SetActive(true);
     }
+
     public void Close()
     {
         BackManager.instance.UnregisterScreen();

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 03b092549e5a44c4a9a929bae334c675
+guid: 5c2d2643fc35c244e9bc9657e16a1b89
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9101813017845505311
-    second: Paper-BG_0
+      213: 2860044062972993909
+    second: padlock_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Paper-BG_0
+      name: padlock_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 62
         y: 0
-        width: 1920
-        height: 1080
+        width: 376
+        height: 470
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 100, y: 100, z: 100, w: 100}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f1d15bc57b2205e70800000000000000
-      internalID: 9101813017845505311
+      spriteID: 571687f0ceae0b720800000000000000
+      internalID: 2860044062972993909
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 14740d80e98730c4486846025f2c8887
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Paper-BG_0: 9101813017845505311
+      padlock_0: 2860044062972993909
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
