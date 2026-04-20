@@ -97,7 +97,10 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
         // This means player needs 100 / 1.42 = 70 spacebar presses.
         // We want mashSpeed to start high (hard) and get lower (easier) over time or consecutive tries.
 
-        float mashSpeed = Random.Range(30f, 70f);
+        ScoreSystemSettings settings = GS.Instance != null ? GS.Instance.scoreSystemSettings : null;
+        float mashRangeMin = settings != null ? settings.GetSpacebarJamMin() : 30f;
+        float mashRangeMax = settings != null ? settings.GetSpacebarJamMax() : 70f;
+        float mashSpeed = Random.Range(mashRangeMin, mashRangeMax);
 
         // Optional: If you want to make the GoldFish specifically easier over time:
         // You can check if the current target is a Golden Fish. For now, we cap the max difficulty.
@@ -228,7 +231,10 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
                     string myName = "Player";
                     if (GS.Instance != null && GS.Instance.isLan) myName = GS.Instance.nickName;
                     else if (PhotonNetwork.InRoom) myName = PhotonNetwork.LocalPlayer.NickName;
-                    GameManager.Instance.AddPlayerScore(myName, 3);
+                    int catchFishPoints = GS.Instance != null && GS.Instance.scoreSystemSettings != null
+                        ? GS.Instance.scoreSystemSettings.GetFishermanCatchFishPoints()
+                        : 3;
+                    GameManager.Instance.AddPlayerScore(myName, catchFishPoints);
                 }
             }
 
@@ -280,7 +286,10 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
                     string myName = "Player";
                     if (GS.Instance != null && GS.Instance.isLan) myName = GS.Instance.nickName;
                     else if (PhotonNetwork.InRoom) myName = PhotonNetwork.LocalPlayer.NickName;
-                    GameManager.Instance.AddPlayerScore(myName, 3);
+                    int catchFishPoints = GS.Instance != null && GS.Instance.scoreSystemSettings != null
+                        ? GS.Instance.scoreSystemSettings.GetFishermanCatchFishPoints()
+                        : 3;
+                    GameManager.Instance.AddPlayerScore(myName, catchFishPoints);
                 }
             }
             if (PhotonNetwork.IsMasterClient)

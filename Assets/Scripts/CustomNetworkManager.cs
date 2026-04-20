@@ -25,6 +25,21 @@ public struct GameModeMessage : NetworkMessage
     public int gameMode;
 }
 
+public struct ScoreSystemConfigMessage : NetworkMessage
+{
+    public string fishermanWinPoints;
+    public string fishermanCatchFishPoints;
+    public string fishermanBucketWormPoints;
+    public string fishWinPoints;
+    public string fishEatWormPoints;
+    public string fishSurvivePoints;
+    public string goldenFishBonusPoints;
+    public string spacebarJamMin;
+    public string spacebarJamMax;
+    public string hungerWormRateAmount;
+    public string goldenFishSpeed;
+}
+
 public class CustomNetworkManager : NetworkManager
 {
     private Dictionary<int, string> playerNames = new Dictionary<int, string>();
@@ -48,6 +63,7 @@ public class CustomNetworkManager : NetworkManager
         {
             NetworkClient.RegisterHandler<VisibilityMessage>(OnClientReceive);
             NetworkClient.RegisterHandler<GameModeMessage>(OnReceiveGameMode_Client);
+            NetworkClient.RegisterHandler<ScoreSystemConfigMessage>(OnReceiveScoreSystemSettings_Client);
         }
     }
 
@@ -59,6 +75,7 @@ public class CustomNetworkManager : NetworkManager
         {
             NetworkClient.RegisterHandler<VisibilityMessage>(OnClientReceive);
             NetworkClient.RegisterHandler<GameModeMessage>(OnReceiveGameMode_Client);
+            NetworkClient.RegisterHandler<ScoreSystemConfigMessage>(OnReceiveScoreSystemSettings_Client);
         }
     }
 
@@ -89,6 +106,31 @@ public class CustomNetworkManager : NetworkManager
         {
             GameModeDropdownHandler.Instance.gameModeDropdown.value = msg.gameMode;
         }
+    }
+
+    private void OnReceiveScoreSystemSettings_Client(ScoreSystemConfigMessage msg)
+    {
+        if (GS.Instance == null)
+        {
+            return;
+        }
+
+        if (GS.Instance.scoreSystemSettings == null)
+        {
+            GS.Instance.scoreSystemSettings = new ScoreSystemSettings();
+        }
+
+        GS.Instance.scoreSystemSettings.fishermanWinPoints = msg.fishermanWinPoints ?? string.Empty;
+        GS.Instance.scoreSystemSettings.fishermanCatchFishPoints = msg.fishermanCatchFishPoints ?? string.Empty;
+        GS.Instance.scoreSystemSettings.fishermanBucketWormPoints = msg.fishermanBucketWormPoints ?? string.Empty;
+        GS.Instance.scoreSystemSettings.fishWinPoints = msg.fishWinPoints ?? string.Empty;
+        GS.Instance.scoreSystemSettings.fishEatWormPoints = msg.fishEatWormPoints ?? string.Empty;
+        GS.Instance.scoreSystemSettings.fishSurvivePoints = msg.fishSurvivePoints ?? string.Empty;
+        GS.Instance.scoreSystemSettings.goldenFishBonusPoints = msg.goldenFishBonusPoints ?? string.Empty;
+        GS.Instance.scoreSystemSettings.spacebarJamMin = msg.spacebarJamMin ?? string.Empty;
+        GS.Instance.scoreSystemSettings.spacebarJamMax = msg.spacebarJamMax ?? string.Empty;
+        GS.Instance.scoreSystemSettings.hungerWormRateAmount = msg.hungerWormRateAmount ?? string.Empty;
+        GS.Instance.scoreSystemSettings.goldenFishSpeed = msg.goldenFishSpeed ?? string.Empty;
     }
     // 🔹 जब client connect करे तो अपना नाम भेज`
     public override void OnClientConnect()
@@ -136,6 +178,7 @@ public class CustomNetworkManager : NetworkManager
 
             GameModeMessage modeMsg = new GameModeMessage { gameMode = GS.Instance.currentGameMode };
             conn.Send(modeMsg);
+            conn.Send(CreateScoreSystemConfigMessage(GS.Instance.scoreSystemSettings));
         }
     }
 
@@ -187,6 +230,17 @@ public class CustomNetworkManager : NetworkManager
         if (!NetworkServer.active) return;
         GameModeMessage msg = new GameModeMessage { gameMode = mode };
         NetworkServer.SendToAll(msg);
+    }
+
+    public void BroadcastScoreSystemSettings(ScoreSystemSettings settings)
+    {
+        if (!NetworkServer.active)
+        {
+            Debug.LogError("BroadcastScoreSystemSettings called but server is not active!");
+            return;
+        }
+
+        NetworkServer.SendToAll(CreateScoreSystemConfigMessage(settings));
     }
 
     // 🔹 जब कोई disconnect करे
@@ -367,6 +421,31 @@ public class CustomNetworkManager : NetworkManager
     public void LoadPlaySceneForAll()
     {
         Debug.Log("🔁 Loading play scene for all clients...");
+        if (GS.Instance != null)
+        {
+            GS.Instance.BroadcastScoreSystemSettingsIfHost();
+        }
+
         ServerChangeScene("Play");
+    }
+
+    private static ScoreSystemConfigMessage CreateScoreSystemConfigMessage(ScoreSystemSettings settings)
+    {
+        settings ??= new ScoreSystemSettings();
+
+        return new ScoreSystemConfigMessage
+        {
+            fishermanWinPoints = settings.fishermanWinPoints ?? string.Empty,
+            fishermanCatchFishPoints = settings.fishermanCatchFishPoints ?? string.Empty,
+            fishermanBucketWormPoints = settings.fishermanBucketWormPoints ?? string.Empty,
+            fishWinPoints = settings.fishWinPoints ?? string.Empty,
+            fishEatWormPoints = settings.fishEatWormPoints ?? string.Empty,
+            fishSurvivePoints = settings.fishSurvivePoints ?? string.Empty,
+            goldenFishBonusPoints = settings.goldenFishBonusPoints ?? string.Empty,
+            spacebarJamMin = settings.spacebarJamMin ?? string.Empty,
+            spacebarJamMax = settings.spacebarJamMax ?? string.Empty,
+            hungerWormRateAmount = settings.hungerWormRateAmount ?? string.Empty,
+            goldenFishSpeed = settings.goldenFishSpeed ?? string.Empty
+        };
     }
 }

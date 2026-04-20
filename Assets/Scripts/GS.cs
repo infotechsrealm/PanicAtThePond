@@ -1,5 +1,7 @@
+using ExitGames.Client.Photon;
 using Mirror;
 using Mirror.Discovery;
+using Photon.Pun;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -47,6 +49,7 @@ public class GS : MonoBehaviour
     public int currentRound = 1;
     public System.Collections.Generic.Dictionary<string, int> playerScores = new System.Collections.Generic.Dictionary<string, int>();
     public int wormCoins = 0;
+    public ScoreSystemSettings scoreSystemSettings = new ScoreSystemSettings();
 
     [Header("Achievement Tracking")]
     public int currentRoundWormsUsed = 0;
@@ -60,6 +63,10 @@ public class GS : MonoBehaviour
     {
         Instance = this;
         UnityThread.MainThread = SynchronizationContext.Current;
+        if (scoreSystemSettings == null)
+        {
+            scoreSystemSettings = new ScoreSystemSettings();
+        }
     }
 
     private void OnEnable()
@@ -77,6 +84,11 @@ public class GS : MonoBehaviour
         if (scene.name == "Dash")
         {
             ResetGameState();
+            ResetScoreSystemSettings();
+        }
+        else if (scene.name == "Play")
+        {
+            LoadScoreSystemSettingsFromPhotonRoomProperties();
         }
     }
 
@@ -88,6 +100,56 @@ public class GS : MonoBehaviour
         hooksEscaped.Clear();
         wormsEatenThisRound.Clear();
         Debug.Log("🔄 GS Game State Reset: Round is now 1, scores cleared.");
+    }
+
+    public void ResetScoreSystemSettings()
+    {
+        if (scoreSystemSettings == null)
+        {
+            scoreSystemSettings = new ScoreSystemSettings();
+        }
+
+        scoreSystemSettings.Reset();
+        BroadcastScoreSystemSettingsIfHost();
+    }
+
+    public void BroadcastScoreSystemSettingsIfHost()
+    {
+        if (scoreSystemSettings == null)
+        {
+            return;
+        }
+
+        if (isLan)
+        {
+            if (IsMirrorMasterClient && CustomNetworkManager.Instence != null)
+            {
+                CustomNetworkManager.Instence.BroadcastScoreSystemSettings(scoreSystemSettings);
+            }
+
+            return;
+        }
+
+        if (PhotonNetwork.InRoom && PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom != null)
+        {
+            Hashtable roomProperties = scoreSystemSettings.ToPhotonProperties();
+            PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
+        }
+    }
+
+    public void LoadScoreSystemSettingsFromPhotonRoomProperties()
+    {
+        if (isLan || !PhotonNetwork.InRoom || PhotonNetwork.CurrentRoom == null)
+        {
+            return;
+        }
+
+        if (scoreSystemSettings == null)
+        {
+            scoreSystemSettings = new ScoreSystemSettings();
+        }
+
+        scoreSystemSettings.ApplyPhotonProperties(PhotonNetwork.CurrentRoom.CustomProperties);
     }
 
 

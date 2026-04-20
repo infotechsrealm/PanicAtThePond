@@ -353,6 +353,17 @@ public class FishController : MonoBehaviourPunCallbacks
                 if (photonView.IsMine || mirrorIdentity.isLocalPlayer)
                 {
                     GameManager.Instance.UnlockAchievement("WHAT_A_SNACK");
+
+                    int goldenFishBonusPoints = GS.Instance != null && GS.Instance.scoreSystemSettings != null
+                        ? GS.Instance.scoreSystemSettings.GetGoldenFishBonusPoints()
+                        : 0;
+                    if (goldenFishBonusPoints > 0)
+                    {
+                        string myName = "Player";
+                        if (GS.Instance != null && GS.Instance.isLan) myName = GS.Instance.nickName;
+                        else if (PhotonNetwork.InRoom) myName = PhotonNetwork.LocalPlayer.NickName;
+                        GameManager.Instance.AddPlayerScore(myName, goldenFishBonusPoints);
+                    }
                 }
                 
                 animator.SetTrigger("isEat");
@@ -377,30 +388,37 @@ public class FishController : MonoBehaviourPunCallbacks
                     string myName = "Player";
                     if (GS.Instance != null && GS.Instance.isLan) myName = GS.Instance.nickName;
                     else if (PhotonNetwork.InRoom) myName = PhotonNetwork.LocalPlayer.NickName;
-                    GameManager.Instance.AddPlayerScore(myName, 1);
+                    int wormPoints = GS.Instance != null && GS.Instance.scoreSystemSettings != null
+                        ? GS.Instance.scoreSystemSettings.GetFishEatWormPoints()
+                        : 1;
+                    GameManager.Instance.AddPlayerScore(myName, wormPoints);
                     
                     if (!GS.Instance.wormsEatenThisRound.ContainsKey(myName)) GS.Instance.wormsEatenThisRound[myName] = 0;
                     GS.Instance.wormsEatenThisRound[myName]++;
                     if (GS.Instance.wormsEatenThisRound[myName] >= 30) GameManager.Instance.UnlockAchievement("GULPER");
                 }
 
+                float hungerWormRateAmount = GS.Instance != null && GS.Instance.scoreSystemSettings != null
+                    ? GS.Instance.scoreSystemSettings.GetHungerWormRateAmount()
+                    : 15f;
+
                 if (GS.Instance.isLan)
                 {
                     fishController_Mirror.Destroy_Mirror(other.gameObject);
-                    HungerSystem.Instance.AddHunger(15f);
+                    HungerSystem.Instance.AddHunger(hungerWormRateAmount);
                 }
                 else
                 {
                     if (PhotonNetwork.IsMasterClient)
                     {
                         DestroyWormRPC(other.GetComponent<PhotonView>().ViewID);
-                        HungerSystem.Instance.AddHunger(15f);
+                        HungerSystem.Instance.AddHunger(hungerWormRateAmount);
                     }
                     else
                     {
                         photonView.RPC(nameof(DestroyWormRPC), RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
                         PhotonNetwork.SendAllOutgoingCommands();
-                        HungerSystem.Instance.AddHunger(15f);
+                        HungerSystem.Instance.AddHunger(hungerWormRateAmount);
                     }
                 }
             }

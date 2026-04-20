@@ -1,3 +1,4 @@
+using ExitGames.Client.Photon;
 using Mirror;
 using Photon.Pun;
 using Photon.Realtime;
@@ -416,6 +417,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         GS.Instance.DestroyPreloder();
+        GS.Instance.LoadScoreSystemSettingsFromPhotonRoomProperties();
 
 
         Debug.Log("Joined Room: " + PhotonNetwork.CurrentRoom.Name +
@@ -443,6 +445,21 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
+    {
+        base.OnRoomPropertiesUpdate(propertiesThatChanged);
+
+        if (GS.Instance != null)
+        {
+            GS.Instance.LoadScoreSystemSettingsFromPhotonRoomProperties();
+        }
+
+        if (CreateJoinManager.Instance != null && CreateJoinManager.Instance.hostLobby != null)
+        {
+            CreateJoinManager.Instance.hostLobby.RefreshScoreSystemUIFromState();
+        }
+    }
+
 
     [PunRPC]
     public void EnableStartButton()
@@ -459,6 +476,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
+            GS.Instance.BroadcastScoreSystemSettingsIfHost();
             PhotonNetwork.CurrentRoom.MaxPlayers = PhotonNetwork.CurrentRoom.PlayerCount;
             if (PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
             {

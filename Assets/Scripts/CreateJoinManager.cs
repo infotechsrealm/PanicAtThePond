@@ -181,6 +181,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
                     {
                         if (NetworkServer.active)
                         {
+                            GS.Instance.BroadcastScoreSystemSettingsIfHost();
                             NetworkManager.singleton.ServerChangeScene("Play");
                         }
                     }

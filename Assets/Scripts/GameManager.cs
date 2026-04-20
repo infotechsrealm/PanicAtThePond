@@ -495,6 +495,12 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         if (GS.Instance == null) return;
 
+        ScoreSystemSettings settings = GS.Instance.scoreSystemSettings;
+        int fishermanWinPoints = settings != null ? settings.GetFishermanWinPoints() : 15;
+        int fishermanBucketWormPoints = settings != null ? settings.GetFishermanBucketWormPoints() : 1;
+        int fishWinPoints = settings != null ? settings.GetFishWinPoints() : 10;
+        int fishSurvivePoints = settings != null ? settings.GetFishSurvivePoints() : 5;
+
         bool fishermanWon = message.Contains("Fisherman Win");
         bool fishesWon = message.Contains("Fishes Win") || message.Contains("You win");
 
@@ -523,10 +529,10 @@ public class GameManager : MonoBehaviourPunCallbacks
                 {
                     gameOverPanel.SetActive(true);
                 }
-                AddPlayerScore(myName, 15);
+                AddPlayerScore(myName, fishermanWinPoints);
                 if (fishermanWorms > 0)
                 {
-                    AddPlayerScore(myName, fishermanWorms);
+                    AddPlayerScore(myName, fishermanWorms * fishermanBucketWormPoints);
                 }
                 
                 
@@ -538,11 +544,11 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             if (!isFisherMan && myFish != null) 
             {
-                AddPlayerScore(myName, 10);
+                AddPlayerScore(myName, fishWinPoints);
 
                 if (!myFish.isDead) 
                 {
-                    AddPlayerScore(myName, 5); // Survival bonus
+                    AddPlayerScore(myName, fishSurvivePoints);
                     
                     if (isFullLobby && aliveFishCount == totalOriginalFish) UnlockAchievement("WE_COME_IN_SWARMS");
                     if (GS.Instance.currentGameMode == 2 && GS.Instance.hooksEscaped.ContainsKey(myName) && GS.Instance.hooksEscaped[myName] >= 15) UnlockAchievement("SURVIVOR");
