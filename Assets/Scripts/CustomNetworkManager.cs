@@ -36,7 +36,9 @@ public struct ScoreSystemConfigMessage : NetworkMessage
     public string goldenFishBonusPoints;
     public string spacebarJamMin;
     public string spacebarJamMax;
+    public string fishTimerSeconds;
     public string hungerWormRateAmount;
+    public string hungerDepletionRate;
     public string goldenFishSpeed;
 }
 
@@ -120,17 +122,19 @@ public class CustomNetworkManager : NetworkManager
             GS.Instance.scoreSystemSettings = new ScoreSystemSettings();
         }
 
-        GS.Instance.scoreSystemSettings.fishermanWinPoints = msg.fishermanWinPoints ?? string.Empty;
-        GS.Instance.scoreSystemSettings.fishermanCatchFishPoints = msg.fishermanCatchFishPoints ?? string.Empty;
-        GS.Instance.scoreSystemSettings.fishermanBucketWormPoints = msg.fishermanBucketWormPoints ?? string.Empty;
-        GS.Instance.scoreSystemSettings.fishWinPoints = msg.fishWinPoints ?? string.Empty;
-        GS.Instance.scoreSystemSettings.fishEatWormPoints = msg.fishEatWormPoints ?? string.Empty;
-        GS.Instance.scoreSystemSettings.fishSurvivePoints = msg.fishSurvivePoints ?? string.Empty;
-        GS.Instance.scoreSystemSettings.goldenFishBonusPoints = msg.goldenFishBonusPoints ?? string.Empty;
-        GS.Instance.scoreSystemSettings.spacebarJamMin = msg.spacebarJamMin ?? string.Empty;
-        GS.Instance.scoreSystemSettings.spacebarJamMax = msg.spacebarJamMax ?? string.Empty;
-        GS.Instance.scoreSystemSettings.hungerWormRateAmount = msg.hungerWormRateAmount ?? string.Empty;
-        GS.Instance.scoreSystemSettings.goldenFishSpeed = msg.goldenFishSpeed ?? string.Empty;
+        GS.Instance.scoreSystemSettings.fishermanWinPoints = DefaultIfBlank(msg.fishermanWinPoints, ScoreSystemSettings.DefaultFishermanWinPoints.ToString());
+        GS.Instance.scoreSystemSettings.fishermanCatchFishPoints = DefaultIfBlank(msg.fishermanCatchFishPoints, ScoreSystemSettings.DefaultFishermanCatchFishPoints.ToString());
+        GS.Instance.scoreSystemSettings.fishermanBucketWormPoints = DefaultIfBlank(msg.fishermanBucketWormPoints, ScoreSystemSettings.DefaultFishermanBucketWormPoints.ToString());
+        GS.Instance.scoreSystemSettings.fishWinPoints = DefaultIfBlank(msg.fishWinPoints, ScoreSystemSettings.DefaultFishWinPoints.ToString());
+        GS.Instance.scoreSystemSettings.fishEatWormPoints = DefaultIfBlank(msg.fishEatWormPoints, ScoreSystemSettings.DefaultFishEatWormPoints.ToString());
+        GS.Instance.scoreSystemSettings.fishSurvivePoints = DefaultIfBlank(msg.fishSurvivePoints, ScoreSystemSettings.DefaultFishSurvivePoints.ToString());
+        GS.Instance.scoreSystemSettings.goldenFishBonusPoints = DefaultIfBlank(msg.goldenFishBonusPoints, ScoreSystemSettings.DefaultGoldenFishBonusPoints.ToString());
+        GS.Instance.scoreSystemSettings.spacebarJamMin = DefaultIfBlank(msg.spacebarJamMin, ScoreSystemSettings.DefaultSpacebarJamMin.ToString());
+        GS.Instance.scoreSystemSettings.spacebarJamMax = DefaultIfBlank(msg.spacebarJamMax, ScoreSystemSettings.DefaultSpacebarJamMax.ToString());
+        GS.Instance.scoreSystemSettings.fishTimerSeconds = DefaultIfBlank(msg.fishTimerSeconds, ScoreSystemSettings.DefaultFishTimerSeconds.ToString());
+        GS.Instance.scoreSystemSettings.hungerWormRateAmount = DefaultIfBlank(msg.hungerWormRateAmount, ScoreSystemSettings.DefaultHungerWormRateAmount.ToString());
+        GS.Instance.scoreSystemSettings.hungerDepletionRate = DefaultIfBlank(msg.hungerDepletionRate, ScoreSystemSettings.DefaultHungerDepletionRate.ToString());
+        GS.Instance.scoreSystemSettings.goldenFishSpeed = DefaultIfBlank(msg.goldenFishSpeed, ScoreSystemSettings.DefaultTroutSpeed.ToString());
     }
     // 🔹 जब client connect करे तो अपना नाम भेज`
     public override void OnClientConnect()
@@ -444,8 +448,15 @@ public class CustomNetworkManager : NetworkManager
             goldenFishBonusPoints = settings.goldenFishBonusPoints ?? string.Empty,
             spacebarJamMin = settings.spacebarJamMin ?? string.Empty,
             spacebarJamMax = settings.spacebarJamMax ?? string.Empty,
+            fishTimerSeconds = settings.fishTimerSeconds ?? string.Empty,
             hungerWormRateAmount = settings.hungerWormRateAmount ?? string.Empty,
+            hungerDepletionRate = settings.hungerDepletionRate ?? string.Empty,
             goldenFishSpeed = settings.goldenFishSpeed ?? string.Empty
         };
+    }
+
+    private static string DefaultIfBlank(string value, string fallback)
+    {
+        return string.IsNullOrWhiteSpace(value) ? fallback : value;
     }
 }

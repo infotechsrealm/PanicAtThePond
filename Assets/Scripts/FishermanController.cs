@@ -157,6 +157,27 @@ public class FishermanController : MonoBehaviourPunCallbacks
             }
         }
 
+        ApplyVisibilityMode(gameManager);
+
+    }
+
+    private void ApplyVisibilityMode(GameManager gameManager)
+    {
+        if (gameManager == null || GS.Instance == null)
+        {
+            return;
+        }
+
+        if (gameManager.water != null)
+        {
+            gameManager.water.SetActive(false);
+        }
+
+        if (gameManager.sky != null)
+        {
+            gameManager.sky.SetActive(false);
+        }
+
         //Everyone can see everyone.
         if (GS.Instance.ClearWaters)
         {
@@ -226,7 +247,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
                     gameManager.sky.SetActive(true);
             }
         }
-
     }
 
     IEnumerator PlayCricketRandomly()
@@ -630,18 +650,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             {
                 if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
                 {
-                    if (isRight)
-                    {
-                        animator.SetBool("isWin_r", true);
-                    }
-                    else if (isLeft)
-                    {
-                        animator.SetBool("isWin_l", true);
-                    }
-                    else
-                    {
-                        animator.SetBool("isWin_r", true);
-                    }
+                    PlayWinAnimation();
 
                     Debug.Log("Fisherman Win!");
 
@@ -799,6 +808,27 @@ public class FishermanController : MonoBehaviourPunCallbacks
         else if (isLeft)
         {
             animator.SetBool("isCrying_l", res);
+        }
+    }
+
+    public void PlayWinAnimation()
+    {
+        isCanMove = false;
+        isCanCast = false;
+        isCasting = false;
+
+        animator.SetBool("isCrying_r", false);
+        animator.SetBool("isCrying_l", false);
+        animator.SetBool("isFighting_r", false);
+        animator.SetBool("isFighting_l", false);
+
+        if (isRight)
+        {
+            animator.SetBool("isWin_r", true);
+        }
+        else
+        {
+            animator.SetBool("isWin_l", true);
         }
     }
 

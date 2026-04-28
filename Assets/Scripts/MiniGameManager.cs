@@ -33,6 +33,9 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
 
         active = true;
         progress = 0;
+        timeLimit = GS.Instance != null && GS.Instance.scoreSystemSettings != null
+            ? GS.Instance.scoreSystemSettings.GetFishTimerSeconds()
+            : ScoreSystemSettings.DefaultFishTimerSeconds;
 
         // Random sequence A–Z
         currentSequence = "";

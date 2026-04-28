@@ -67,6 +67,8 @@ public class GS : MonoBehaviour
         {
             scoreSystemSettings = new ScoreSystemSettings();
         }
+
+        scoreSystemSettings.FillBlankValuesWithDefaults();
     }
 
     private void OnEnable()
@@ -84,7 +86,10 @@ public class GS : MonoBehaviour
         if (scene.name == "Dash")
         {
             ResetGameState();
-            ResetScoreSystemSettings();
+            if (!IsInActiveLobby())
+            {
+                ResetScoreSystemSettings();
+            }
         }
         else if (scene.name == "Play")
         {
@@ -113,12 +118,24 @@ public class GS : MonoBehaviour
         BroadcastScoreSystemSettingsIfHost();
     }
 
+    private bool IsInActiveLobby()
+    {
+        if (isLan)
+        {
+            return NetworkServer.active || NetworkClient.isConnected;
+        }
+
+        return PhotonNetwork.InRoom;
+    }
+
     public void BroadcastScoreSystemSettingsIfHost()
     {
         if (scoreSystemSettings == null)
         {
             return;
         }
+
+        scoreSystemSettings.FillBlankValuesWithDefaults();
 
         if (isLan)
         {

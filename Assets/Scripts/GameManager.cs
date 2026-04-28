@@ -213,6 +213,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     void SpawnPlayer()
     {
         Debug.Log("GS.Instance.isLan = > " + GS.Instance.isLan);
+        GameObject selectedFishPrefab = ResolveSelectedFishPrefab();
 
         if (GS.Instance.isLan)
         {
@@ -223,7 +224,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                     float x = Random.Range(minBounds.x, maxBounds.x);
                     float y = Random.Range(minBounds.y, maxBounds.y);
                     Vector3 spawnPos = new Vector3(x, y, 0);
-                    GameObject fish = Instantiate(fishPrefab, spawnPos, Quaternion.identity);
+                    GameObject fish = Instantiate(selectedFishPrefab, spawnPos, Quaternion.identity);
                     fishes.Add(fish);
                     NetworkServer.AddPlayerForConnection(conn, fish);
                 }
@@ -235,10 +236,23 @@ public class GameManager : MonoBehaviourPunCallbacks
             float x = Random.Range(minBounds.x, maxBounds.x);
             float y = Random.Range(minBounds.y, maxBounds.y);
             Vector3 spawnPos = new Vector3(x, y, 0);
-            GameObject fish = PhotonNetwork.Instantiate(fishPrefab.name, spawnPos, Quaternion.identity);
+            GameObject fish = PhotonNetwork.Instantiate(selectedFishPrefab.name, spawnPos, Quaternion.identity);
             fishes.Add(fish);
             Debug.Log("Fish Spawned: " + fishes.Count);
         }
+    }
+
+    private GameObject ResolveSelectedFishPrefab()
+    {
+        string selectedFishPrefabName = LocalPlayManager.GetSelectedFishPrefabName();
+        GameObject selectedFishPrefab = Resources.Load<GameObject>(selectedFishPrefabName);
+        if (selectedFishPrefab != null)
+        {
+            return selectedFishPrefab;
+        }
+
+        Debug.LogWarning($"Selected fish prefab '{selectedFishPrefabName}' was not found in Resources. Falling back to default fish prefab.");
+        return fishPrefab;
     }
 
     public void setFishermanWormCounts()
@@ -274,8 +288,17 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void LoadSpawnFisherman()
     {
+        ResetFishHungerForRoleTransition();
         LoadPreloderOnOff(true);
         Invoke(nameof(SpawnFisherman), 0f);
+    }
+
+    public void ResetFishHungerForRoleTransition()
+    {
+        if (HungerSystem.Instance != null)
+        {
+            HungerSystem.Instance.ResetHungerToFull(true);
+        }
     }
 
     public void SpawnFisherman()
@@ -382,6 +405,26 @@ public class GameManager : MonoBehaviourPunCallbacks
         else
         {
             photonView.RPC(nameof(ShowGameOverRPC), RpcTarget.All, message);
+        }
+    }
+
+    public void CallFishermanWinAnimationRPC()
+    {
+        if (GS.Instance != null && GS.Instance.isLan)
+        {
+            PlayFishermanWinAnimationRPC();
+            return;
+        }
+
+        photonView.RPC(nameof(PlayFishermanWinAnimationRPC), RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void PlayFishermanWinAnimationRPC()
+    {
+        if (FishermanController.Instance != null)
+        {
+            FishermanController.Instance.PlayWinAnimation();
         }
     }
 
@@ -591,6 +634,9 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void UnlockAchievement(string achievementId)
     {
+         PlayerPrefs.SetInt("Achievement_" + achievementId, 1);
+         PlayerPrefs.Save();
+
          if (SteamManager.Initialized)
          {
              SteamUserStats.SetAchievement(achievementId);

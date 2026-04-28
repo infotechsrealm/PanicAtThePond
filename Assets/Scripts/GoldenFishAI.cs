@@ -84,8 +84,6 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
 
         originalScaleX = transform.localScale.x;
         originalScaleY = transform.localScale.y;
-        ApplyConfiguredSpeedOverride();
-
         spawnTime = Time.time; // Track when the fish spawned
 
         // Initialize sharks list - will be updated dynamically in Update()
@@ -653,30 +651,6 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
         {
             moveSpeed *= 1.4f; // Sudden speed boost
         }
-    }
-
-    void ApplyConfiguredSpeedOverride()
-    {
-        if (GS.Instance == null || GS.Instance.scoreSystemSettings == null)
-        {
-            return;
-        }
-
-        if (!GS.Instance.scoreSystemSettings.TryGetGoldenFishSpeed(out float configuredMaxSpeed))
-        {
-            return;
-        }
-
-        if (maxSpeed <= 0f)
-        {
-            return;
-        }
-
-        float speedMultiplier = Mathf.Clamp(configuredMaxSpeed / maxSpeed, 0.1f, 10f);
-        minSpeed *= speedMultiplier;
-        maxSpeed *= speedMultiplier;
-        minEscapeSpeed *= speedMultiplier;
-        maxEscapeSpeed *= speedMultiplier;
     }
 
     // Update sharks list from GameManager to track all players (host and client)

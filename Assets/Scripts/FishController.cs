@@ -66,6 +66,8 @@ public class FishController : MonoBehaviourPunCallbacks
     }
     void Start()
     {
+        ApplyConfiguredTroutSpeed();
+
         if (GS.Instance.isLan)
         {
             if (mirrorIdentity != null && mirrorIdentity.isLocalPlayer)
@@ -84,6 +86,16 @@ public class FishController : MonoBehaviourPunCallbacks
             }
         }
         GameManager.Instance.allFishes.Add(this);
+    }
+
+    private void ApplyConfiguredTroutSpeed()
+    {
+        if (GS.Instance == null || GS.Instance.scoreSystemSettings == null)
+        {
+            return;
+        }
+
+        speed = GS.Instance.scoreSystemSettings.GetTroutSpeed();
     }
 
     public void SetVissiblity_Mirror()
@@ -244,6 +256,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
         canMove = false;
         isDead = true;
+        ApplyHungerDeathVisibleState();
 
         if (GS.Instance.isLan)
         {
@@ -251,7 +264,7 @@ public class FishController : MonoBehaviourPunCallbacks
         }
         else
         {
-
+            photonView.RPC(nameof(ApplyHungerDeathVisibleStateRPC), RpcTarget.AllBuffered);
             GameManager.Instance.CallLessPlayerCountRPC();
         }
 
@@ -278,6 +291,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
         if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
         {
+            GameManager.Instance.CallFishermanWinAnimationRPC();
             GameManager.Instance.CallShowGameOverRPC("Fisherman Wins!");
         }
 
@@ -291,6 +305,50 @@ public class FishController : MonoBehaviourPunCallbacks
 
         transform.position = new Vector3(transform.position.x, targetY, transform.position.z);
 
+    }
+
+    [PunRPC]
+    public void ApplyHungerDeathVisibleStateRPC()
+    {
+        ApplyHungerDeathVisibleState();
+    }
+
+    public void ApplyHungerDeathVisibleState()
+    {
+        isDead = true;
+        canMove = false;
+
+        if (animator != null)
+        {
+            animator.SetBool("isFight", false);
+            animator.SetBool("isMove", false);
+            animator.SetBool("isDead", true);
+        }
+
+        PolygonCollider2D fishCollider = GetComponent<PolygonCollider2D>();
+        if (fishCollider != null)
+        {
+            fishCollider.enabled = false;
+        }
+
+        ForceDeadFishVisible();
+    }
+
+    public void ForceDeadFishVisible()
+    {
+        transform.localScale = new Vector3(
+            Mathf.Approximately(originalScaleX, 0f) ? 1f : originalScaleX,
+            Mathf.Approximately(originalScaleY, 0f) ? 1f : originalScaleY,
+            1f);
+
+        foreach (SpriteRenderer spriteRenderer in GetComponentsInChildren<SpriteRenderer>(true))
+        {
+            spriteRenderer.enabled = true;
+            Color color = spriteRenderer.color;
+            spriteRenderer.color = new Color(color.r, color.g, color.b, 1f);
+            spriteRenderer.sortingLayerID = 0;
+            spriteRenderer.sortingOrder = Mathf.Max(spriteRenderer.sortingOrder, 1000);
+        }
     }
 
     //when Fish is Die and User press space key.
@@ -480,6 +538,7 @@ public class FishController : MonoBehaviourPunCallbacks
             {
                 WormSpawner.Instance.DestroyAllWorms();
                 PhotonNetwork.Destroy(other.gameObject);
+                photonView.RPC(nameof(ResetFishHungerForRoleTransitionRPC), RpcTarget.All);
                 GameManager.Instance.LoadSpawnFisherman();
                 PhotonNetwork.Destroy(gameObject);
             }
@@ -487,9 +546,19 @@ public class FishController : MonoBehaviourPunCallbacks
             {
                 photonView.RPC(nameof(LoadDestroyAllWormsRPC), RpcTarget.MasterClient);
                 photonView.RPC(nameof(DestroyWormRPC), RpcTarget.MasterClient, other.GetComponent<PhotonView>().ViewID);
+                photonView.RPC(nameof(ResetFishHungerForRoleTransitionRPC), RpcTarget.All);
                 GameManager.Instance.LoadGetIdAndChangeHost();
                 PhotonNetwork.Destroy(gameObject);
             }
+        }
+    }
+
+    [PunRPC]
+    private void ResetFishHungerForRoleTransitionRPC()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ResetFishHungerForRoleTransition();
         }
     }
 

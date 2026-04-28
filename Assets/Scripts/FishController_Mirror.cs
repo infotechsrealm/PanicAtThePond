@@ -586,7 +586,11 @@ public class FishController_Mirror : NetworkBehaviour
         if (NetworkClient.spawned.TryGetValue(FishNetId, out NetworkIdentity FishIdentity))
         {
             FishController fish = FishIdentity.GetComponent<FishController>();
-            fish.isDead = true;
+            fish.ApplyHungerDeathVisibleState();
+            if (FishermanController.Instance != null)
+            {
+                FishermanController.Instance.PlayWinAnimation();
+            }
             CallLessPlayerCount_Mirror();
         }
     }

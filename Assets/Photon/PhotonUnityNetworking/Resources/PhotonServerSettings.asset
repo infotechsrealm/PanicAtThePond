@@ -98,6 +98,10 @@ MonoBehaviour:
   - EndRoundRPC
   - SetGameModePhoton
   - ShowGameOverRPC
+  - ForceDeadFishVisibleRPC
+  - ResetFishHungerForRoleTransitionRPC
+  - PlayFishermanWinAnimationRPC
+  - ApplyHungerDeathVisibleStateRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

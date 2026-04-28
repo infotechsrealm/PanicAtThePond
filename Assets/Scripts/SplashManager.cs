@@ -35,7 +35,7 @@ public class SplashManager : MonoBehaviour
              {
              });
         });*/
-                 PlayAnimation();
+                 //PlayAnimation();
     }
 
     void PlayAnimation()
@@ -63,12 +63,10 @@ public class SplashManager : MonoBehaviour
         seq.Join(
             nameCG.DOFade(1f, duration)
             .SetDelay(nameDelay)
-        );
+    );}
 
-        // 3️⃣ Load scene on complete
-        seq.OnComplete(() =>
+        public void LoadMainMenu()
         {
             SceneManager.LoadScene("Dash");
-        });
+        }
     }
-}

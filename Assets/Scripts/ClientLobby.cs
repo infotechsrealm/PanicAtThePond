@@ -62,6 +62,7 @@ public class ClientLobby : MonoBehaviourPunCallbacks
     public void Close()
     {
         BackManager.instance.UnregisterScreen();
+        ResetScoreSystemAfterLeavingLobby();
 
         if (PhotonNetwork.InRoom)
         {
@@ -106,6 +107,15 @@ public class ClientLobby : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
+        ResetScoreSystemAfterLeavingLobby();
         Debug.Log("Left room successfully!");
+    }
+
+    private static void ResetScoreSystemAfterLeavingLobby()
+    {
+        if (GS.Instance != null)
+        {
+            GS.Instance.ResetScoreSystemSettings();
+        }
     }
 }

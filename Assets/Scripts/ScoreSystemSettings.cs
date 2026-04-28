@@ -4,6 +4,20 @@ using UnityEngine;
 [System.Serializable]
 public class ScoreSystemSettings
 {
+    public const int DefaultFishermanWinPoints = 15;
+    public const int DefaultFishermanCatchFishPoints = 3;
+    public const int DefaultFishermanBucketWormPoints = 1;
+    public const int DefaultFishWinPoints = 10;
+    public const int DefaultFishEatWormPoints = 1;
+    public const int DefaultFishSurvivePoints = 5;
+    public const int DefaultGoldenFishBonusPoints = 0;
+    public const float DefaultSpacebarJamMin = 30f;
+    public const float DefaultSpacebarJamMax = 70f;
+    public const float DefaultFishTimerSeconds = 3f;
+    public const float DefaultHungerWormRateAmount = 15f;
+    public const float DefaultHungerDepletionRate = 5f;
+    public const float DefaultTroutSpeed = 5f;
+
     public const string FishermanWinPointsKey = "ss_fisherman_win";
     public const string FishermanCatchFishPointsKey = "ss_fisherman_catch";
     public const string FishermanBucketWormPointsKey = "ss_fisherman_bucket";
@@ -13,34 +27,57 @@ public class ScoreSystemSettings
     public const string GoldenFishBonusPointsKey = "ss_golden_bonus";
     public const string SpacebarJamMinKey = "ss_mash_min";
     public const string SpacebarJamMaxKey = "ss_mash_max";
+    public const string FishTimerSecondsKey = "ss_fish_timer";
     public const string HungerWormRateKey = "ss_hunger_worm";
+    public const string HungerDepletionRateKey = "ss_hunger_depletion";
     public const string GoldenFishSpeedKey = "ss_golden_speed";
 
-    public string fishermanWinPoints = string.Empty;
-    public string fishermanCatchFishPoints = string.Empty;
-    public string fishermanBucketWormPoints = string.Empty;
-    public string fishWinPoints = string.Empty;
-    public string fishEatWormPoints = string.Empty;
-    public string fishSurvivePoints = string.Empty;
-    public string goldenFishBonusPoints = string.Empty;
-    public string spacebarJamMin = string.Empty;
-    public string spacebarJamMax = string.Empty;
-    public string hungerWormRateAmount = string.Empty;
-    public string goldenFishSpeed = string.Empty;
+    public string fishermanWinPoints = DefaultFishermanWinPoints.ToString();
+    public string fishermanCatchFishPoints = DefaultFishermanCatchFishPoints.ToString();
+    public string fishermanBucketWormPoints = DefaultFishermanBucketWormPoints.ToString();
+    public string fishWinPoints = DefaultFishWinPoints.ToString();
+    public string fishEatWormPoints = DefaultFishEatWormPoints.ToString();
+    public string fishSurvivePoints = DefaultFishSurvivePoints.ToString();
+    public string goldenFishBonusPoints = DefaultGoldenFishBonusPoints.ToString();
+    public string spacebarJamMin = DefaultSpacebarJamMin.ToString();
+    public string spacebarJamMax = DefaultSpacebarJamMax.ToString();
+    public string fishTimerSeconds = DefaultFishTimerSeconds.ToString();
+    public string hungerWormRateAmount = DefaultHungerWormRateAmount.ToString();
+    public string hungerDepletionRate = DefaultHungerDepletionRate.ToString();
+    public string goldenFishSpeed = DefaultTroutSpeed.ToString();
 
     public void Reset()
     {
-        fishermanWinPoints = string.Empty;
-        fishermanCatchFishPoints = string.Empty;
-        fishermanBucketWormPoints = string.Empty;
-        fishWinPoints = string.Empty;
-        fishEatWormPoints = string.Empty;
-        fishSurvivePoints = string.Empty;
-        goldenFishBonusPoints = string.Empty;
-        spacebarJamMin = string.Empty;
-        spacebarJamMax = string.Empty;
-        hungerWormRateAmount = string.Empty;
-        goldenFishSpeed = string.Empty;
+        fishermanWinPoints = DefaultFishermanWinPoints.ToString();
+        fishermanCatchFishPoints = DefaultFishermanCatchFishPoints.ToString();
+        fishermanBucketWormPoints = DefaultFishermanBucketWormPoints.ToString();
+        fishWinPoints = DefaultFishWinPoints.ToString();
+        fishEatWormPoints = DefaultFishEatWormPoints.ToString();
+        fishSurvivePoints = DefaultFishSurvivePoints.ToString();
+        goldenFishBonusPoints = DefaultGoldenFishBonusPoints.ToString();
+        spacebarJamMin = DefaultSpacebarJamMin.ToString();
+        spacebarJamMax = DefaultSpacebarJamMax.ToString();
+        fishTimerSeconds = DefaultFishTimerSeconds.ToString();
+        hungerWormRateAmount = DefaultHungerWormRateAmount.ToString();
+        hungerDepletionRate = DefaultHungerDepletionRate.ToString();
+        goldenFishSpeed = DefaultTroutSpeed.ToString();
+    }
+
+    public void FillBlankValuesWithDefaults()
+    {
+        fishermanWinPoints = DefaultIfBlank(fishermanWinPoints, DefaultFishermanWinPoints.ToString());
+        fishermanCatchFishPoints = DefaultIfBlank(fishermanCatchFishPoints, DefaultFishermanCatchFishPoints.ToString());
+        fishermanBucketWormPoints = DefaultIfBlank(fishermanBucketWormPoints, DefaultFishermanBucketWormPoints.ToString());
+        fishWinPoints = DefaultIfBlank(fishWinPoints, DefaultFishWinPoints.ToString());
+        fishEatWormPoints = DefaultIfBlank(fishEatWormPoints, DefaultFishEatWormPoints.ToString());
+        fishSurvivePoints = DefaultIfBlank(fishSurvivePoints, DefaultFishSurvivePoints.ToString());
+        goldenFishBonusPoints = DefaultIfBlank(goldenFishBonusPoints, DefaultGoldenFishBonusPoints.ToString());
+        spacebarJamMin = DefaultIfBlank(spacebarJamMin, DefaultSpacebarJamMin.ToString());
+        spacebarJamMax = DefaultIfBlank(spacebarJamMax, DefaultSpacebarJamMax.ToString());
+        fishTimerSeconds = DefaultIfBlank(fishTimerSeconds, DefaultFishTimerSeconds.ToString());
+        hungerWormRateAmount = DefaultIfBlank(hungerWormRateAmount, DefaultHungerWormRateAmount.ToString());
+        hungerDepletionRate = DefaultIfBlank(hungerDepletionRate, DefaultHungerDepletionRate.ToString());
+        goldenFishSpeed = DefaultIfBlank(goldenFishSpeed, DefaultTroutSpeed.ToString());
     }
 
     public void CopyFrom(ScoreSystemSettings other)
@@ -60,7 +97,9 @@ public class ScoreSystemSettings
         goldenFishBonusPoints = other.goldenFishBonusPoints ?? string.Empty;
         spacebarJamMin = other.spacebarJamMin ?? string.Empty;
         spacebarJamMax = other.spacebarJamMax ?? string.Empty;
+        fishTimerSeconds = other.fishTimerSeconds ?? string.Empty;
         hungerWormRateAmount = other.hungerWormRateAmount ?? string.Empty;
+        hungerDepletionRate = other.hungerDepletionRate ?? string.Empty;
         goldenFishSpeed = other.goldenFishSpeed ?? string.Empty;
     }
 
@@ -77,7 +116,9 @@ public class ScoreSystemSettings
             [GoldenFishBonusPointsKey] = goldenFishBonusPoints ?? string.Empty,
             [SpacebarJamMinKey] = spacebarJamMin ?? string.Empty,
             [SpacebarJamMaxKey] = spacebarJamMax ?? string.Empty,
+            [FishTimerSecondsKey] = fishTimerSeconds ?? string.Empty,
             [HungerWormRateKey] = hungerWormRateAmount ?? string.Empty,
+            [HungerDepletionRateKey] = hungerDepletionRate ?? string.Empty,
             [GoldenFishSpeedKey] = goldenFishSpeed ?? string.Empty
         };
     }
@@ -89,52 +130,54 @@ public class ScoreSystemSettings
             return;
         }
 
-        fishermanWinPoints = GetStringValue(properties, FishermanWinPointsKey);
-        fishermanCatchFishPoints = GetStringValue(properties, FishermanCatchFishPointsKey);
-        fishermanBucketWormPoints = GetStringValue(properties, FishermanBucketWormPointsKey);
-        fishWinPoints = GetStringValue(properties, FishWinPointsKey);
-        fishEatWormPoints = GetStringValue(properties, FishEatWormPointsKey);
-        fishSurvivePoints = GetStringValue(properties, FishSurvivePointsKey);
-        goldenFishBonusPoints = GetStringValue(properties, GoldenFishBonusPointsKey);
-        spacebarJamMin = GetStringValue(properties, SpacebarJamMinKey);
-        spacebarJamMax = GetStringValue(properties, SpacebarJamMaxKey);
-        hungerWormRateAmount = GetStringValue(properties, HungerWormRateKey);
-        goldenFishSpeed = GetStringValue(properties, GoldenFishSpeedKey);
+        fishermanWinPoints = GetStringValue(properties, FishermanWinPointsKey, DefaultFishermanWinPoints.ToString());
+        fishermanCatchFishPoints = GetStringValue(properties, FishermanCatchFishPointsKey, DefaultFishermanCatchFishPoints.ToString());
+        fishermanBucketWormPoints = GetStringValue(properties, FishermanBucketWormPointsKey, DefaultFishermanBucketWormPoints.ToString());
+        fishWinPoints = GetStringValue(properties, FishWinPointsKey, DefaultFishWinPoints.ToString());
+        fishEatWormPoints = GetStringValue(properties, FishEatWormPointsKey, DefaultFishEatWormPoints.ToString());
+        fishSurvivePoints = GetStringValue(properties, FishSurvivePointsKey, DefaultFishSurvivePoints.ToString());
+        goldenFishBonusPoints = GetStringValue(properties, GoldenFishBonusPointsKey, DefaultGoldenFishBonusPoints.ToString());
+        spacebarJamMin = GetStringValue(properties, SpacebarJamMinKey, DefaultSpacebarJamMin.ToString());
+        spacebarJamMax = GetStringValue(properties, SpacebarJamMaxKey, DefaultSpacebarJamMax.ToString());
+        fishTimerSeconds = GetStringValue(properties, FishTimerSecondsKey, DefaultFishTimerSeconds.ToString());
+        hungerWormRateAmount = GetStringValue(properties, HungerWormRateKey, DefaultHungerWormRateAmount.ToString());
+        hungerDepletionRate = GetStringValue(properties, HungerDepletionRateKey, DefaultHungerDepletionRate.ToString());
+        goldenFishSpeed = GetStringValue(properties, GoldenFishSpeedKey, DefaultTroutSpeed.ToString());
     }
 
     public int GetFishermanWinPoints()
     {
-        return ParseIntOrDefault(fishermanWinPoints, 15, 0, 999);
+        return ParseIntOrDefault(fishermanWinPoints, DefaultFishermanWinPoints, 0, 999);
     }
 
     public int GetFishermanCatchFishPoints()
     {
-        return ParseIntOrDefault(fishermanCatchFishPoints, 3, 0, 999);
+        return ParseIntOrDefault(fishermanCatchFishPoints, DefaultFishermanCatchFishPoints, 0, 999);
     }
 
     public int GetFishermanBucketWormPoints()
     {
-        return ParseIntOrDefault(fishermanBucketWormPoints, 1, 0, 999);
+        return ParseIntOrDefault(fishermanBucketWormPoints, DefaultFishermanBucketWormPoints, 0, 999);
     }
 
     public int GetFishWinPoints()
     {
-        return ParseIntOrDefault(fishWinPoints, 10, 0, 999);
+        return ParseIntOrDefault(fishWinPoints, DefaultFishWinPoints, 0, 999);
     }
 
     public int GetFishEatWormPoints()
     {
-        return ParseIntOrDefault(fishEatWormPoints, 1, 0, 999);
+        return ParseIntOrDefault(fishEatWormPoints, DefaultFishEatWormPoints, 0, 999);
     }
 
     public int GetFishSurvivePoints()
     {
-        return ParseIntOrDefault(fishSurvivePoints, 5, 0, 999);
+        return ParseIntOrDefault(fishSurvivePoints, DefaultFishSurvivePoints, 0, 999);
     }
 
     public int GetGoldenFishBonusPoints()
     {
-        return ParseIntOrDefault(goldenFishBonusPoints, 0, 0, 999);
+        return ParseIntOrDefault(goldenFishBonusPoints, DefaultGoldenFishBonusPoints, 0, 999);
     }
 
     public float GetSpacebarJamMin()
@@ -151,7 +194,17 @@ public class ScoreSystemSettings
 
     public float GetHungerWormRateAmount()
     {
-        return ParseFloatOrDefault(hungerWormRateAmount, 15f, 0f, 100f);
+        return ParseFloatOrDefault(hungerWormRateAmount, DefaultHungerWormRateAmount, 0f, 100f);
+    }
+
+    public float GetFishTimerSeconds()
+    {
+        return ParseFloatOrDefault(fishTimerSeconds, DefaultFishTimerSeconds, 0.5f, 60f);
+    }
+
+    public float GetHungerDepletionRate()
+    {
+        return ParseFloatOrDefault(hungerDepletionRate, DefaultHungerDepletionRate, 0f, 100f);
     }
 
     public bool TryGetGoldenFishSpeed(out float configuredSpeed)
@@ -166,10 +219,15 @@ public class ScoreSystemSettings
         return false;
     }
 
+    public float GetTroutSpeed()
+    {
+        return ParseFloatOrDefault(goldenFishSpeed, DefaultTroutSpeed, 0.1f, 100f);
+    }
+
     private void ResolveMashRange(out float minValue, out float maxValue)
     {
-        minValue = ParseFloatOrDefault(spacebarJamMin, 30f, 1f, 100f);
-        maxValue = ParseFloatOrDefault(spacebarJamMax, 70f, 1f, 100f);
+        minValue = ParseFloatOrDefault(spacebarJamMin, DefaultSpacebarJamMin, 1f, 100f);
+        maxValue = ParseFloatOrDefault(spacebarJamMax, DefaultSpacebarJamMax, 1f, 100f);
 
         if (maxValue < minValue)
         {
@@ -199,13 +257,18 @@ public class ScoreSystemSettings
         return Mathf.Clamp(parsedValue, minValue, maxValue);
     }
 
-    private static string GetStringValue(Hashtable properties, string key)
+    private static string GetStringValue(Hashtable properties, string key, string fallbackValue)
     {
         if (properties.TryGetValue(key, out object value) && value != null)
         {
             return value.ToString();
         }
 
-        return string.Empty;
+        return fallbackValue;
+    }
+
+    private static string DefaultIfBlank(string value, string fallbackValue)
+    {
+        return string.IsNullOrWhiteSpace(value) ? fallbackValue : value;
     }
 }

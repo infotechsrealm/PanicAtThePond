@@ -20,10 +20,19 @@ public class HungerSystem : MonoBehaviour
 
     void Start()
     {
+        ApplyConfiguredDepletionRate();
         canDecrease = true;
         currentHunger = maxHunger;
         hungerBar.maxValue = maxHunger;
         hungerBar.value = currentHunger;
+    }
+
+    private void ApplyConfiguredDepletionRate()
+    {
+        if (GS.Instance != null && GS.Instance.scoreSystemSettings != null)
+        {
+            hungerDecreaseSpeed = GS.Instance.scoreSystemSettings.GetHungerDepletionRate();
+        }
     }
 
     void Update()
@@ -53,5 +62,17 @@ public class HungerSystem : MonoBehaviour
         currentHunger += (hungerBar.value*amount)/100;
         currentHunger = Mathf.Clamp(currentHunger, 0f, maxHunger);
         hungerBar.value = currentHunger;
+    }
+
+    public void ResetHungerToFull(bool allowDepletion)
+    {
+        currentHunger = maxHunger;
+        if (hungerBar != null)
+        {
+            hungerBar.maxValue = maxHunger;
+            hungerBar.value = currentHunger;
+        }
+
+        canDecrease = allowDepletion;
     }
 }
