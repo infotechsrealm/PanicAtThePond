@@ -196,6 +196,7 @@ MonoBehaviour:
   dropSpeed: 3
   rodTipOffset: 0.5
   horizontalOffset: 0.1
+  rightRodHorizontalOffsetFish: 0.1
   leftRodHorizontalOffsetFish: 0.1
   leftRodVerticalOffset: 0.1
   leftRodVerticalOffsetFisherman: 0.05

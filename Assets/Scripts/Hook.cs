@@ -1,4 +1,4 @@
-﻿using Mirror;
+using Mirror;
 using Photon.Pun;
 using System.Collections;
 using UnityEngine;
@@ -16,6 +16,7 @@ public class Hook : MonoBehaviourPunCallbacks
     [Header("Rod Tip Offset")]
     public float rodTipOffset = 0.5f; // Distance from rod pivot to tip (adjust based on your rod sprite)
     public float horizontalOffset = 0.1f; // Horizontal offset to make line appear from rod string continuation (right rod and left rod fisherman view)
+    public float rightRodHorizontalOffsetFish = 0.1f; // Horizontal offset for right rod from fish view
     public float leftRodHorizontalOffsetFish = 0.1f; // Horizontal offset for left rod from fish view
     public float leftRodVerticalOffset = 0.15f; // Vertical offset for left rod to compensate for negative scale (fish view)
     public float leftRodVerticalOffsetFisherman = 0.05f; // Vertical offset for left rod from fisherman view
@@ -67,22 +68,28 @@ public class Hook : MonoBehaviourPunCallbacks
         lineRenderer.positionCount = 2;
         lineRenderer.startWidth = 0.05f;
         lineRenderer.endWidth = 0.05f;
+        
+        // Setup material and color once in Start
+        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+        lineRenderer.startColor = Color.white;
+        lineRenderer.endColor = Color.white;
+        lineRenderer.sortingOrder = 20; // Ensure the line is drawn above water and other sprites
     }
 
     void Update()
     {
 
-        if (transform.position.x < fishermanController.transform.position.x)
+        if (rodTip == null && fishermanController != null)
         {
-            rodTip = fishermanController.leftRod; 
-        }
-        else if (transform.position.x > fishermanController.transform.position.x)
-        {
-            rodTip = fishermanController.rightRod;
-        }
-        else
-        {
-            rodTip = transform;
+            // Fallback for clients if RPC hasn't arrived yet
+            if (transform.position.x < fishermanController.transform.position.x)
+            {
+                rodTip = fishermanController.leftRod; 
+            }
+            else
+            {
+                rodTip = fishermanController.rightRod;
+            }
         }
        
 
@@ -97,14 +104,11 @@ public class Hook : MonoBehaviourPunCallbacks
 
         // Determine if this is left or right rod for horizontal offset
         bool isLeftRod = (rodTip == fishermanController.leftRod);
+        bool isFishView = IsFishView();
         
         // Calculate the actual rod tip position based on rotation and offset
         Vector3 actualRodTipPosition = GetRodTipPosition(rodTip, isLeftRod);
-        lineRenderer.SetPosition(0, actualRodTipPosition);
-        lineRenderer.SetPosition(1, transform.position);
-        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        lineRenderer.startColor = Color.white;
-        lineRenderer.endColor = Color.white;
+        DrawFishingLine(actualRodTipPosition, transform.position, isFishView);
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -167,8 +171,25 @@ public class Hook : MonoBehaviourPunCallbacks
     public void LaunchDownWithDistance(float distance, Transform _rodip)
     {
         rodTip = _rodip;
+        
+        // Sync which rod was used to all clients
+        if (fishermanController != null && photonView != null && PhotonNetwork.IsConnected)
+        {
+            bool isLeft = (_rodip == fishermanController.leftRod);
+            photonView.RPC(nameof(SyncRodTipRPC), RpcTarget.AllBuffered, isLeft);
+        }
+
         distance = Mathf.Clamp(distance, minDistance, maxDistance);
         StartCoroutine(MoveDown(distance));
+    }
+
+    [PunRPC]
+    public void SyncRodTipRPC(bool isLeft)
+    {
+        if (FishermanController.Instance != null)
+        {
+            rodTip = isLeft ? FishermanController.Instance.leftRod : FishermanController.Instance.rightRod;
+        }
     }
     private IEnumerator MoveDown(float distance)
     {
@@ -390,7 +411,7 @@ public class Hook : MonoBehaviourPunCallbacks
         if (rod == null) return Vector3.zero;
         
         // Check if we're viewing from fish side (not fisherman)
-        bool isFishView = (GameManager.Instance != null && !GameManager.Instance.isFisherMan);
+        bool isFishView = IsFishView();
         
         // Apply horizontal (X-axis) offset
         Vector3 horizontalOffsetVector;
@@ -404,7 +425,8 @@ public class Hook : MonoBehaviourPunCallbacks
         else
         {
             // For right rod, offset to the right (positive X)
-            horizontalOffsetVector = new Vector3(horizontalOffset, 0f, 0f);
+            float horizontalOffsetValue = isFishView ? rightRodHorizontalOffsetFish : horizontalOffset;
+            horizontalOffsetVector = new Vector3(horizontalOffsetValue, 0f, 0f);
         }
         
         // For left rod, account for negative Y scale which affects visual tip position
@@ -420,6 +442,27 @@ public class Hook : MonoBehaviourPunCallbacks
         
         // Return the rod's position plus offsets
         return rod.position + horizontalOffsetVector + verticalOffsetVector;
+    }
+
+    private void DrawFishingLine(Vector3 rodLineStart, Vector3 hookPosition, bool isFishView)
+    {
+        if (isFishView)
+        {
+            Vector3 verticalLinePosition = new Vector3(rodLineStart.x, hookPosition.y, hookPosition.z);
+            lineRenderer.positionCount = 2;
+            lineRenderer.SetPosition(0, new Vector3(rodLineStart.x, rodLineStart.y, hookPosition.z));
+            lineRenderer.SetPosition(1, verticalLinePosition);
+            return;
+        }
+
+        lineRenderer.positionCount = 2;
+        lineRenderer.SetPosition(0, rodLineStart);
+        lineRenderer.SetPosition(1, hookPosition);
+    }
+
+    private static bool IsFishView()
+    {
+        return GameManager.Instance != null && !GameManager.Instance.isFisherMan;
     }
    
 }

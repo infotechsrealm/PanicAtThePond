@@ -31,13 +31,16 @@ public class ScoreManager : MonoBehaviourPunCallbacks
 
     [Header("Animation Settings")]
     [Tooltip("How long the bar-rise animation plays")]
-    public float animationDuration = 2f;
+    public float animationDuration = 6f;
 
     [Tooltip("Max Y rise (pixels) for the highest scorer — they will go ABOVE this (out of box)")]
     public float maxHeight = 200f;
 
     [Tooltip("Extra Y the WINNER overshoots past maxHeight (the 'out of box' effect)")]
     public float winnerOvershoot = 80f;
+
+    [Tooltip("Horizontal padding from the left/right edges of the score area")]
+    public float horizontalPadding = 110f;
 
     [Tooltip("Ease curve for the rise animation (leave as default EaseOut if none assigned)")]
     public AnimationCurve riseCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
@@ -46,12 +49,15 @@ public class ScoreManager : MonoBehaviourPunCallbacks
     // Internal state
     // -----------------------------------------------------------------------
     private bool hasSavedCoinsThisRound = false;
+    private Vector2[] wrapperStartPositions;
 
     // -----------------------------------------------------------------------
 
     private void Awake()
     {
         Instance = this;
+        animationDuration = Mathf.Max(animationDuration, 9f);
+        CacheWrapperStartPositions();
         HideAllScreens();
     }
 
@@ -86,6 +92,7 @@ public class ScoreManager : MonoBehaviourPunCallbacks
 
     public void ShowScoreScreen(Dictionary<string, int> currentScores)
     {
+        EnsureWrapperStartPositions();
         HideAllScreens();
         if (winScreensContainer != null) winScreensContainer.SetActive(true);
         if (scoreScreen != null)         scoreScreen.SetActive(true);
@@ -133,6 +140,8 @@ public class ScoreManager : MonoBehaviourPunCallbacks
             slotCount++;
         }
 
+        Vector2[] layoutStartPositions = CalculateWrapperStartPositions(slotCount);
+
         // ---- 3. Initialise each wrapper (reset position, set name, hide unused) ----
         for (int i = 0; i < playerWrappers.Length; i++)
         {
@@ -141,10 +150,11 @@ public class ScoreManager : MonoBehaviourPunCallbacks
 
             if (i < slotCount)
             {
-                // Reset the Player child to Y = 0
-                RectTransform playerRT = GetPlayerRect(wrapper);
-                if (playerRT != null)
-                    playerRT.anchoredPosition = new Vector2(playerRT.anchoredPosition.x, 0f);
+                RectTransform wrapperRT = GetWrapperRect(wrapper);
+                if (wrapperRT != null)
+                    wrapperRT.anchoredPosition = layoutStartPositions[i];
+
+                ResetWrapperChildOffset(wrapper);
 
                 // Set name / score labels
                 foreach (TextMeshProUGUI t in wrapper.GetComponentsInChildren<TextMeshProUGUI>(true))
@@ -167,19 +177,25 @@ public class ScoreManager : MonoBehaviourPunCallbacks
         {
             elapsed += Time.deltaTime;
             float tRaw  = Mathf.Clamp01(elapsed / animationDuration);
-            float tEased = riseCurve.Evaluate(tRaw); // smooth easing
+            float tSmooth = tRaw * tRaw * tRaw * (tRaw * (tRaw * 6f - 15f) + 10f);
+            float tEased = riseCurve != null ? riseCurve.Evaluate(tSmooth) : tSmooth;
 
             for (int i = 0; i < slotCount; i++)
             {
                 GameObject wrapper = playerWrappers[i];
                 if (wrapper == null) continue;
 
-                // Move Player child upward
-                RectTransform playerRT = GetPlayerRect(wrapper);
-                if (playerRT != null)
+                RectTransform wrapperRT = GetWrapperRect(wrapper);
+                if (wrapperRT != null)
                 {
-                    float currentY = Mathf.Lerp(0f, targetY[i], tEased);
-                    playerRT.anchoredPosition = new Vector2(playerRT.anchoredPosition.x, currentY);
+                    Vector2 startPosition = GetWrapperStartPosition(i, wrapperRT);
+                    if (i < layoutStartPositions.Length)
+                    {
+                        startPosition = layoutStartPositions[i];
+                    }
+
+                    float currentY = Mathf.Lerp(startPosition.y, startPosition.y + targetY[i], tEased);
+                    wrapperRT.anchoredPosition = new Vector2(startPosition.x, currentY);
                 }
 
                 // Animate score counter
@@ -199,9 +215,17 @@ public class ScoreManager : MonoBehaviourPunCallbacks
             GameObject wrapper = playerWrappers[i];
             if (wrapper == null) continue;
 
-            RectTransform playerRT = GetPlayerRect(wrapper);
-            if (playerRT != null)
-                playerRT.anchoredPosition = new Vector2(playerRT.anchoredPosition.x, targetY[i]);
+            RectTransform wrapperRT = GetWrapperRect(wrapper);
+            if (wrapperRT != null)
+            {
+                Vector2 startPosition = GetWrapperStartPosition(i, wrapperRT);
+                if (i < layoutStartPositions.Length)
+                {
+                    startPosition = layoutStartPositions[i];
+                }
+
+                wrapperRT.anchoredPosition = new Vector2(startPosition.x, startPosition.y + targetY[i]);
+            }
 
             foreach (TextMeshProUGUI tx in wrapper.GetComponentsInChildren<TextMeshProUGUI>(true))
             {
@@ -215,13 +239,88 @@ public class ScoreManager : MonoBehaviourPunCallbacks
     }
 
     /// <summary>
-    /// Returns the RectTransform of the FIRST child inside a Wrapper
-    /// (i.e., the "Player" GameObject that physically rises).
+    /// Returns the RectTransform of the Wrapper object that physically rises.
     /// </summary>
-    private RectTransform GetPlayerRect(GameObject wrapper)
+    private RectTransform GetWrapperRect(GameObject wrapper)
     {
-        if (wrapper.transform.childCount == 0) return null;
-        return wrapper.transform.GetChild(0).GetComponent<RectTransform>();
+        return wrapper != null ? wrapper.GetComponent<RectTransform>() : null;
+    }
+
+    private void CacheWrapperStartPositions()
+    {
+        if (playerWrappers == null)
+        {
+            wrapperStartPositions = null;
+            return;
+        }
+
+        wrapperStartPositions = new Vector2[playerWrappers.Length];
+        for (int i = 0; i < playerWrappers.Length; i++)
+        {
+            RectTransform wrapperRT = GetWrapperRect(playerWrappers[i]);
+            wrapperStartPositions[i] = wrapperRT != null ? wrapperRT.anchoredPosition : Vector2.zero;
+        }
+    }
+
+    private void EnsureWrapperStartPositions()
+    {
+        if (wrapperStartPositions == null || wrapperStartPositions.Length != playerWrappers.Length)
+        {
+            CacheWrapperStartPositions();
+        }
+    }
+
+    private Vector2 GetWrapperStartPosition(int index, RectTransform wrapperRT)
+    {
+        if (wrapperStartPositions != null && index >= 0 && index < wrapperStartPositions.Length)
+        {
+            return wrapperStartPositions[index];
+        }
+
+        return wrapperRT != null ? wrapperRT.anchoredPosition : Vector2.zero;
+    }
+
+    private Vector2[] CalculateWrapperStartPositions(int slotCount)
+    {
+        Vector2[] positions = new Vector2[slotCount];
+        if (slotCount <= 0)
+        {
+            return positions;
+        }
+
+        RectTransform firstWrapperRT = slotCount > 0 ? GetWrapperRect(playerWrappers[0]) : null;
+        RectTransform layoutRect = firstWrapperRT != null ? firstWrapperRT.parent as RectTransform : null;
+        float width = layoutRect != null && layoutRect.rect.width > 0f ? layoutRect.rect.width : 900f;
+        bool usesCenteredAnchors = firstWrapperRT != null && Mathf.Approximately(firstWrapperRT.anchorMin.x, 0.5f) && Mathf.Approximately(firstWrapperRT.anchorMax.x, 0.5f);
+        float leftX = usesCenteredAnchors ? horizontalPadding - (width * 0.5f) : horizontalPadding;
+        float rightX = usesCenteredAnchors ? (width * 0.5f) - horizontalPadding : Mathf.Max(leftX, width - horizontalPadding);
+
+        for (int i = 0; i < slotCount; i++)
+        {
+            RectTransform wrapperRT = GetWrapperRect(playerWrappers[i]);
+            Vector2 basePosition = GetWrapperStartPosition(i, wrapperRT);
+            float x = slotCount == 1
+                ? (usesCenteredAnchors ? 0f : width * 0.5f)
+                : Mathf.Lerp(leftX, rightX, i / (float)(slotCount - 1));
+
+            positions[i] = new Vector2(x, basePosition.y);
+        }
+
+        return positions;
+    }
+
+    private void ResetWrapperChildOffset(GameObject wrapper)
+    {
+        if (wrapper == null || wrapper.transform.childCount == 0)
+        {
+            return;
+        }
+
+        RectTransform childRT = wrapper.transform.GetChild(0).GetComponent<RectTransform>();
+        if (childRT != null)
+        {
+            childRT.anchoredPosition = new Vector2(childRT.anchoredPosition.x, 0f);
+        }
     }
 
     private void OnScoreScreenComplete()

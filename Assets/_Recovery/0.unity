@@ -1366,6 +1366,8 @@ MonoBehaviour:
   createAndJoinPanel: {fileID: 2321393887442230052, guid: cd2ea0f2302190743b2ca83bc992b627, type: 3}
   howToPlay: {fileID: 1072194699156879840, guid: 0048f2ebe407a4b4795e2d7853778168, type: 3}
   preloder: {fileID: 1721887084397798614, guid: 595207e3fbf4e5d479050afed1957ccc, type: 3}
+  tiePreloder: {fileID: 1721887084397798614, guid: f2818632a536323469d71dd3470ee4ff, type: 3}
+  tiePreloderReturnDelay: 7
   passwordPopupPrefab: {fileID: 7950119858157386416, guid: 2afa573719fdb284d834c1fe1cc26a3d, type: 3}
   ClearWaters: 0
   MurkyWaters: 0

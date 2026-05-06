@@ -15,8 +15,9 @@ public class ScoreSystemSettings
     public const float DefaultSpacebarJamMax = 70f;
     public const float DefaultFishTimerSeconds = 3f;
     public const float DefaultHungerWormRateAmount = 15f;
-    public const float DefaultHungerDepletionRate = 5f;
-    public const float DefaultTroutSpeed = 5f;
+    public const float DefaultHungerDepletionRate = 1f;
+    public const float DefaultTroutSpeed = 3f;
+    public const float DefaultGoldenFishSpeed = 3f;
 
     public const string FishermanWinPointsKey = "ss_fisherman_win";
     public const string FishermanCatchFishPointsKey = "ss_fisherman_catch";
@@ -31,6 +32,7 @@ public class ScoreSystemSettings
     public const string HungerWormRateKey = "ss_hunger_worm";
     public const string HungerDepletionRateKey = "ss_hunger_depletion";
     public const string GoldenFishSpeedKey = "ss_golden_speed";
+    public const string TroutSpeedKey = "ss_trout_speed";
 
     public string fishermanWinPoints = DefaultFishermanWinPoints.ToString();
     public string fishermanCatchFishPoints = DefaultFishermanCatchFishPoints.ToString();
@@ -44,7 +46,8 @@ public class ScoreSystemSettings
     public string fishTimerSeconds = DefaultFishTimerSeconds.ToString();
     public string hungerWormRateAmount = DefaultHungerWormRateAmount.ToString();
     public string hungerDepletionRate = DefaultHungerDepletionRate.ToString();
-    public string goldenFishSpeed = DefaultTroutSpeed.ToString();
+    public string goldenFishSpeed = DefaultGoldenFishSpeed.ToString();
+    public string troutSpeed = DefaultTroutSpeed.ToString();
 
     public void Reset()
     {
@@ -60,7 +63,8 @@ public class ScoreSystemSettings
         fishTimerSeconds = DefaultFishTimerSeconds.ToString();
         hungerWormRateAmount = DefaultHungerWormRateAmount.ToString();
         hungerDepletionRate = DefaultHungerDepletionRate.ToString();
-        goldenFishSpeed = DefaultTroutSpeed.ToString();
+        goldenFishSpeed = DefaultGoldenFishSpeed.ToString();
+        troutSpeed = DefaultTroutSpeed.ToString();
     }
 
     public void FillBlankValuesWithDefaults()
@@ -77,7 +81,8 @@ public class ScoreSystemSettings
         fishTimerSeconds = DefaultIfBlank(fishTimerSeconds, DefaultFishTimerSeconds.ToString());
         hungerWormRateAmount = DefaultIfBlank(hungerWormRateAmount, DefaultHungerWormRateAmount.ToString());
         hungerDepletionRate = DefaultIfBlank(hungerDepletionRate, DefaultHungerDepletionRate.ToString());
-        goldenFishSpeed = DefaultIfBlank(goldenFishSpeed, DefaultTroutSpeed.ToString());
+        goldenFishSpeed = DefaultIfBlank(goldenFishSpeed, DefaultGoldenFishSpeed.ToString());
+        troutSpeed = DefaultIfBlank(troutSpeed, DefaultTroutSpeed.ToString());
     }
 
     public void CopyFrom(ScoreSystemSettings other)
@@ -101,6 +106,7 @@ public class ScoreSystemSettings
         hungerWormRateAmount = other.hungerWormRateAmount ?? string.Empty;
         hungerDepletionRate = other.hungerDepletionRate ?? string.Empty;
         goldenFishSpeed = other.goldenFishSpeed ?? string.Empty;
+        troutSpeed = other.troutSpeed ?? string.Empty;
     }
 
     public Hashtable ToPhotonProperties()
@@ -119,7 +125,8 @@ public class ScoreSystemSettings
             [FishTimerSecondsKey] = fishTimerSeconds ?? string.Empty,
             [HungerWormRateKey] = hungerWormRateAmount ?? string.Empty,
             [HungerDepletionRateKey] = hungerDepletionRate ?? string.Empty,
-            [GoldenFishSpeedKey] = goldenFishSpeed ?? string.Empty
+            [GoldenFishSpeedKey] = goldenFishSpeed ?? string.Empty,
+            [TroutSpeedKey] = troutSpeed ?? string.Empty
         };
     }
 
@@ -142,7 +149,8 @@ public class ScoreSystemSettings
         fishTimerSeconds = GetStringValue(properties, FishTimerSecondsKey, DefaultFishTimerSeconds.ToString());
         hungerWormRateAmount = GetStringValue(properties, HungerWormRateKey, DefaultHungerWormRateAmount.ToString());
         hungerDepletionRate = GetStringValue(properties, HungerDepletionRateKey, DefaultHungerDepletionRate.ToString());
-        goldenFishSpeed = GetStringValue(properties, GoldenFishSpeedKey, DefaultTroutSpeed.ToString());
+        goldenFishSpeed = GetStringValue(properties, GoldenFishSpeedKey, DefaultGoldenFishSpeed.ToString());
+        troutSpeed = GetStringValue(properties, TroutSpeedKey, DefaultTroutSpeed.ToString());
     }
 
     public int GetFishermanWinPoints()
@@ -221,7 +229,12 @@ public class ScoreSystemSettings
 
     public float GetTroutSpeed()
     {
-        return ParseFloatOrDefault(goldenFishSpeed, DefaultTroutSpeed, 0.1f, 100f);
+        return ParseFloatOrDefault(troutSpeed, DefaultTroutSpeed, 0.1f, 100f);
+    }
+
+    public float GetGoldenFishSpeed()
+    {
+        return ParseFloatOrDefault(goldenFishSpeed, DefaultGoldenFishSpeed, 0.1f, 100f);
     }
 
     private void ResolveMashRange(out float minValue, out float maxValue)

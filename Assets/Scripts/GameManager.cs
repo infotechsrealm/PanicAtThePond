@@ -322,6 +322,20 @@ public class GameManager : MonoBehaviourPunCallbacks
         bool isQuickSurvivalist = GS.Instance != null && GS.Instance.currentGameMode == 0;
         bool isQuickQast = GS.Instance != null && GS.Instance.currentGameMode == 1;
         bool isDeepSeaFishing = GS.Instance != null && GS.Instance.currentGameMode == 2;
+        bool isStarvationTie = (isQuickQast || isDeepSeaFishing)
+            && !goldWormEatByFish
+            && !string.IsNullOrEmpty(message)
+            && message.Contains("Starve");
+
+        if (isStarvationTie && GS.Instance != null)
+        {
+            Debug.Log("Starvation tie detected. Score screen will complete before returning to Dash with tie preloader.");
+            GS.Instance.MarkTiePreloderForDash();
+
+            if (gameOverPanel != null) gameOverPanel.SetActive(false);
+            if (WinnerScreen != null) WinnerScreen.SetActive(false);
+        }
+
 
         if (isQuickSurvivalist)
         {
@@ -362,7 +376,7 @@ public class GameManager : MonoBehaviourPunCallbacks
            // ScoreScreen.SetActive(true);
             
             CalculateEndOfRoundBonuses(message);
-            StartCoroutine(ShowScoreScreenDelayed());
+            ShowScoreScreenNow();
         }
         if(isDeepSeaFishing){
             Debug.Log("isQuickQast SurvivalList ShowGameOver Runingggggg");
@@ -373,10 +387,10 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
             WinScreen.SetActive(true);
             
-            ScoreScreen.SetActive(true);
+            if (ScoreScreen != null) ScoreScreen.SetActive(false);
             
             CalculateEndOfRoundBonuses(message);
-            StartCoroutine(ShowScoreScreenDelayed());
+            ShowScoreScreenNow();
         }
         else
         {
@@ -467,12 +481,17 @@ public class GameManager : MonoBehaviourPunCallbacks
          if (gameOverPanel != null) gameOverPanel.SetActive(false);
          
          CalculateEndOfRoundBonuses(message);
-         StartCoroutine(ShowScoreScreenDelayed());
+         ShowScoreScreenNow();
     }
 
     private IEnumerator ShowScoreScreenDelayed()
     {
-        yield return new WaitForSeconds(1.4f);
+        yield return null;
+        ShowScoreScreenNow();
+    }
+
+    private void ShowScoreScreenNow()
+    {
         if (ScoreManager.Instance != null && GS.Instance != null)
         {
             ScoreManager.Instance.ShowScoreScreen(GS.Instance.playerScores);
@@ -482,6 +501,15 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void HandleEndOfRoundTransition()
     {
         if (GS.Instance == null) return;
+
+        bool isTieReturn = (GS.Instance.currentGameMode == 1 || GS.Instance.currentGameMode == 2)
+            && IsStarvationTieReturnPending();
+
+        if (isTieReturn)
+        {
+            GS.Instance.ReturnToLobbyWithPendingTiePreloder();
+            return;
+        }
         
         if (GS.Instance.currentGameMode == 1) // Quick Cast (1 round)
         {
@@ -523,6 +551,11 @@ public class GameManager : MonoBehaviourPunCallbacks
         
         // Wait then go to Lobby (Removed automatic transition so Host can choose via WinnerScreen buttons)
         // StartCoroutine(ReturnToLobbyDelayed());
+    }
+
+    private bool IsStarvationTieReturnPending()
+    {
+        return GS.Instance != null && GS.Instance.ShouldShowTiePreloderOnDash;
     }
     
     private IEnumerator ReturnToLobbyDelayed()

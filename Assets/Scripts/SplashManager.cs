@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 public class SplashManager : MonoBehaviour
@@ -35,7 +35,7 @@ public class SplashManager : MonoBehaviour
              {
              });
         });*/
-                 //PlayAnimation();
+                 PlayAnimation();
     }
 
     void PlayAnimation()
@@ -63,10 +63,16 @@ public class SplashManager : MonoBehaviour
         seq.Join(
             nameCG.DOFade(1f, duration)
             .SetDelay(nameDelay)
-    );}
+        );
 
-        public void LoadMainMenu()
+       // 3️⃣ Load scene on complete
+        seq.OnComplete(() =>
         {
             SceneManager.LoadScene("Dash");
-        }
+        });
     }
+    // public void LoadDashScene()
+    // {
+    //     SceneManager.LoadScene("Dash");
+    // }
+}

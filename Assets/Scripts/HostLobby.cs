@@ -17,13 +17,19 @@ public class HostLobby : MonoBehaviourPunCallbacks
     private const string SpacebarJamMaxFieldName = "SpaceBar_Jam_Max_InputField";
     private const string HungerWormRateFieldName = "Hunger Worm Rate_InputField";
     private const string GoldenFishSpeedFieldName = "GoldenFish_Speed_InputField";
+    private const string TroutSpeedFieldName = "Trout_Speed_InputField";
     private const string GoldenFishBonusFieldName = "Bonuses(Golden Fish)InputField";
     private const string FishTimerFieldName = "FishTimer_InputField";
     private const string HungerDepletionRateFieldName = "DepletionHungerRate_InputField";
     private static readonly Vector2 FishTimerInputOffset = new Vector2(0f, -70f);
     private static readonly Vector2 FishTimerLabelOffset = new Vector2(-115f, 0f);
     private static readonly Vector2 HungerDepletionInputOffset = new Vector2(155f, 0f);
-    private static readonly Vector2 HungerDepletionLabelOffset = new Vector2(5f, 55f);
+    private static readonly Vector2 HungerDepletionLabelOffset = new Vector2(0f, 55f);
+    private static readonly Vector2 TroutSpeedInputPosition = new Vector2(310f, -318f);
+    private static readonly Vector2 TroutSpeedInputSize = new Vector2(49.4f, 42.2f);
+    private static readonly Vector2 DepletionLabelPosition = new Vector2(163f, -270f);
+    private static readonly Vector2 DepletionLabelSize = new Vector2(180f, 56f);
+    private static readonly Vector2 ScoreResetButtonPosition = new Vector2(290f, 214f);
 
     public PlayerTableManager playerTableManager;
     public Button backButton, controlsButton, hintButton, pauseButton, ScoreSystem, BackScore;
@@ -45,6 +51,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
     private TMP_InputField hungerWormRateInput;
     private TMP_InputField hungerDepletionRateInput;
     private TMP_InputField goldenFishSpeedInput;
+    private TMP_InputField troutSpeedInput;
     private TMP_InputField goldenFishBonusInput;
     private Button scoreResetButton;
     private bool scoreLayoutAdjusted;
@@ -173,8 +180,11 @@ public class HostLobby : MonoBehaviourPunCallbacks
         fishSurviveInput = FindInput(allInputs, FishSurviveFieldName);
         spacebarJamMinInput = FindInput(allInputs, SpacebarJamMinFieldName);
         spacebarJamMaxInput = FindInput(allInputs, SpacebarJamMaxFieldName);
+        fishTimerInput = FindInput(allInputs, FishTimerFieldName);
         hungerWormRateInput = FindInput(allInputs, HungerWormRateFieldName);
+        hungerDepletionRateInput = FindInput(allInputs, HungerDepletionRateFieldName);
         goldenFishSpeedInput = FindInput(allInputs, GoldenFishSpeedFieldName);
+        troutSpeedInput = FindInput(allInputs, TroutSpeedFieldName);
         goldenFishBonusInput = FindInput(allInputs, GoldenFishBonusFieldName);
         CreateAdditionalDebugInputs(allInputs);
 
@@ -191,6 +201,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
         TryRegisterInput(hungerWormRateInput);
         TryRegisterInput(hungerDepletionRateInput);
         TryRegisterInput(goldenFishSpeedInput);
+        TryRegisterInput(troutSpeedInput);
         TryRegisterInput(goldenFishBonusInput);
 
         CreateScoreResetButton();
@@ -222,6 +233,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
         GS.Instance.scoreSystemSettings.hungerWormRateAmount = ReadInputValue(hungerWormRateInput);
         GS.Instance.scoreSystemSettings.hungerDepletionRate = ReadInputValue(hungerDepletionRateInput);
         GS.Instance.scoreSystemSettings.goldenFishSpeed = ReadInputValue(goldenFishSpeedInput);
+        GS.Instance.scoreSystemSettings.troutSpeed = ReadInputValue(troutSpeedInput);
         GS.Instance.scoreSystemSettings.goldenFishBonusPoints = ReadInputValue(goldenFishBonusInput);
         GS.Instance.scoreSystemSettings.FillBlankValuesWithDefaults();
 
@@ -251,6 +263,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
         WriteInputValue(hungerWormRateInput, GS.Instance.scoreSystemSettings.hungerWormRateAmount);
         WriteInputValue(hungerDepletionRateInput, GS.Instance.scoreSystemSettings.hungerDepletionRate);
         WriteInputValue(goldenFishSpeedInput, GS.Instance.scoreSystemSettings.goldenFishSpeed);
+        WriteInputValue(troutSpeedInput, GS.Instance.scoreSystemSettings.troutSpeed);
         WriteInputValue(goldenFishBonusInput, GS.Instance.scoreSystemSettings.goldenFishBonusPoints);
 
         suppressScoreInputCallbacks = false;
@@ -340,8 +353,8 @@ public class HostLobby : MonoBehaviourPunCallbacks
         RectTransform resetRect = resetObject.GetComponent<RectTransform>();
         resetRect.anchorMin = new Vector2(0.5f, 0.5f);
         resetRect.anchorMax = new Vector2(0.5f, 0.5f);
-        resetRect.sizeDelta = new Vector2(82f, 28f);
-        resetRect.anchoredPosition = new Vector2(-350f, 60f);
+        resetRect.sizeDelta = new Vector2(72.5f, 20.7f);
+        resetRect.anchoredPosition = ScoreResetButtonPosition;
         resetRect.localScale = Vector3.one * 1.9f;
 
         Image resetImage = resetObject.GetComponent<Image>();
@@ -393,16 +406,9 @@ public class HostLobby : MonoBehaviourPunCallbacks
             string normalizedText = NormalizeInputName(label.text);
             if (normalizedText == "Spacebar Jam" ||
                 normalizedText == "Fish Timer" ||
-                normalizedText == "Hunger Worm Rate" ||
-                normalizedText == "Golden Fish Speed" ||
-                normalizedText == "Trout Speed")
+                normalizedText == "Hunger Worm Rate")
             {
                 MoveLabelLeft(label, 22f);
-            }
-
-            if (normalizedText == "Golden Fish Speed")
-            {
-                label.text = "Trout Speed";
             }
         }
 
@@ -413,6 +419,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
             AlignLabelWithInput(fishTimerLabel, fishTimerInput, FishTimerLabelOffset);
         }
 
+        ApplyScoreDebugExactRects();
         scoreLayoutAdjusted = true;
     }
 
@@ -426,8 +433,16 @@ public class HostLobby : MonoBehaviourPunCallbacks
         if (hungerDepletionRateInput == null)
         {
             hungerDepletionRateInput = CreateScoreInput(HungerDepletionRateFieldName, goldenFishBonusInput, HungerDepletionInputOffset, ScoreSystemSettings.DefaultHungerDepletionRate.ToString(), allInputs);
-            CreateScoreLabel("Depletion\nHunger Rate:", hungerDepletionRateInput, HungerDepletionLabelOffset);
+            GameObject depLabelObj = CreateScoreLabel("Depletion\nHunger Rate:", hungerDepletionRateInput, HungerDepletionLabelOffset);
+            if (depLabelObj != null) depLabelObj.name = "Depletion";
         }
+
+        if (troutSpeedInput == null && goldenFishSpeedInput != null)
+        {
+            troutSpeedInput = CreateScoreInput(TroutSpeedFieldName, goldenFishSpeedInput, new Vector2(-160f, 0f), ScoreSystemSettings.DefaultTroutSpeed.ToString(), allInputs);
+        }
+
+        ApplyScoreDebugExactRects();
     }
 
     private TMP_InputField CreateScoreInput(string objectName, TMP_InputField template, Vector2 offsetFromTemplate, string defaultValue, List<TMP_InputField> allInputs)
@@ -459,11 +474,11 @@ public class HostLobby : MonoBehaviourPunCallbacks
         return input;
     }
 
-    private void CreateScoreLabel(string text, TMP_InputField anchorInput, Vector2 offsetFromInput)
+    private GameObject CreateScoreLabel(string text, TMP_InputField anchorInput, Vector2 offsetFromInput)
     {
         if (anchorInput == null || anchorInput.transform.parent.Find(text) != null)
         {
-            return;
+            return null;
         }
 
         TextMeshProUGUI templateLabel = ScoreUI.GetComponentsInChildren<TextMeshProUGUI>(true)
@@ -491,6 +506,8 @@ public class HostLobby : MonoBehaviourPunCallbacks
         {
             label.font = templateLabel.font;
         }
+
+        return labelObject;
     }
 
     private static void AlignLabelWithInput(TextMeshProUGUI label, TMP_InputField input, Vector2 offsetFromInput)
@@ -536,6 +553,27 @@ public class HostLobby : MonoBehaviourPunCallbacks
         {
             rectTransform.anchoredPosition += Vector2.left * amount;
         }
+    }
+
+    private void ApplyScoreDebugExactRects()
+    {
+        SetRect(troutSpeedInput != null ? troutSpeedInput.transform as RectTransform : null, TroutSpeedInputPosition, TroutSpeedInputSize);
+
+        TextMeshProUGUI depletionLabel = ScoreUI != null
+            ? ScoreUI.GetComponentsInChildren<TextMeshProUGUI>(true).FirstOrDefault(label => label.name == "Depletion")
+            : null;
+        SetRect(depletionLabel != null ? depletionLabel.transform as RectTransform : null, DepletionLabelPosition, DepletionLabelSize);
+    }
+
+    private static void SetRect(RectTransform rectTransform, Vector2 anchoredPosition, Vector2 sizeDelta)
+    {
+        if (rectTransform == null)
+        {
+            return;
+        }
+
+        rectTransform.anchoredPosition = anchoredPosition;
+        rectTransform.sizeDelta = sizeDelta;
     }
 
     private static TMP_InputField FindInput(IEnumerable<TMP_InputField> inputs, string targetName)

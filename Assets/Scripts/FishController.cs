@@ -289,12 +289,6 @@ public class FishController : MonoBehaviourPunCallbacks
         float targetY = maxBounds.y; // Surface
         HungerSystem.Instance.canDecrease = false;
 
-        if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
-        {
-            GameManager.Instance.CallFishermanWinAnimationRPC();
-            GameManager.Instance.CallShowGameOverRPC("Fisherman Wins!");
-        }
-
         while (transform.position.y < targetY)
         {
             transform.position += Vector3.up * floatSpeed * Time.deltaTime;
@@ -304,6 +298,12 @@ public class FishController : MonoBehaviourPunCallbacks
         PlaySFX(fishCameToSurfaceSound);
 
         transform.position = new Vector3(transform.position.x, targetY, transform.position.z);
+
+        if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
+        {
+            GameManager.Instance.CallFishermanWinAnimationRPC();
+            GameManager.Instance.CallShowGameOverRPC("You all Starve!");
+        }
 
     }
 

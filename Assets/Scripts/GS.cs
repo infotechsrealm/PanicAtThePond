@@ -23,6 +23,15 @@ public class GS : MonoBehaviour
                       howToPlay,
                       preloder;
 
+    [Header("Tie Preloader")]
+    public GameObject tiePreloder;
+    public float tiePreloderReturnDelay = 7f;
+
+    private bool isTiePreloderReturnRunning = false;
+    private bool shouldShowTiePreloderOnDash = false;
+    private bool isTiePreloderVisible = false;
+    public bool ShouldShowTiePreloderOnDash => shouldShowTiePreloderOnDash;
+
 
     [SerializeField]
     public GameObject passwordPopupPrefab; // Assign in Inspector
@@ -89,6 +98,11 @@ public class GS : MonoBehaviour
             if (!IsInActiveLobby())
             {
                 ResetScoreSystemSettings();
+            }
+
+            if (shouldShowTiePreloderOnDash)
+            {
+                StartCoroutine(ShowPendingTiePreloderOnDash());
             }
         }
         else if (scene.name == "Play")
@@ -236,9 +250,14 @@ public class GS : MonoBehaviour
         }
     }
 
-    public void DestroyPreloder()
+    public void DestroyPreloder(bool force = false)
     {
       //  Debug.Log("Trying to Destroy Preloader ............");
+        if (isTiePreloderVisible && !force)
+        {
+            return;
+        }
+
         if (Preloader.Instence != null)
         {
            // Debug.Log("Destroying Preloader ==============");
@@ -248,6 +267,113 @@ public class GS : MonoBehaviour
         {
            // Debug.Log("No Preloader found to destroy.");
         }
+
+        isTiePreloderVisible = false;
+    }
+
+    public void GenerateTiePreloder(Transform parent = null)
+    {
+        if (tiePreloder == null)
+        {
+            Debug.LogWarning("Tie preloader prefab is not assigned on GS.");
+            return;
+        }
+
+        DestroyPreloder(true);
+
+        if (parent != null)
+        {
+            Instantiate(tiePreloder, parent, false);
+        }
+        else
+        {
+            Instantiate(tiePreloder);
+        }
+
+        isTiePreloderVisible = true;
+    }
+
+    public void ShowTiePreloderAndReturnToLobby()
+    {
+        if (isTiePreloderReturnRunning)
+        {
+            return;
+        }
+
+        StartCoroutine(ShowTiePreloderAndReturnToLobbyCoroutine());
+    }
+
+    public void MarkTiePreloderForDash()
+    {
+        shouldShowTiePreloderOnDash = true;
+    }
+
+    public void ReturnToLobbyWithPendingTiePreloder()
+    {
+        MarkTiePreloderForDash();
+        dropDownChangeAvalable = isLan ? IsMirrorMasterClient : isMasterClient;
+
+        if (isLan)
+        {
+            if (NetworkServer.active && NetworkManager.singleton != null)
+            {
+                NetworkManager.singleton.ServerChangeScene("Dash");
+            }
+        }
+        else if (PhotonNetwork.InRoom && PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.LoadLevel("Dash");
+        }
+    }
+
+    private System.Collections.IEnumerator ShowTiePreloderAndReturnToLobbyCoroutine()
+    {
+        isTiePreloderReturnRunning = true;
+        GenerateTiePreloder();
+
+        yield return new WaitForSeconds(GetTiePreloderDelay());
+
+        dropDownChangeAvalable = isLan ? IsMirrorMasterClient : isMasterClient;
+
+        if (isLan)
+        {
+            if (NetworkServer.active && NetworkManager.singleton != null)
+            {
+                NetworkManager.singleton.ServerChangeScene("Dash");
+            }
+        }
+        else if (PhotonNetwork.InRoom && PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.LoadLevel("Dash");
+        }
+
+        isTiePreloderReturnRunning = false;
+    }
+
+    private System.Collections.IEnumerator ShowPendingTiePreloderOnDash()
+    {
+        shouldShowTiePreloderOnDash = false;
+
+        float elapsed = 0f;
+        while ((DashManager.Instance == null || DashManager.Instance.prefabPanret == null) && elapsed < 3f)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        Transform parent = DashManager.Instance != null && DashManager.Instance.prefabPanret != null
+            ? DashManager.Instance.prefabPanret.transform
+            : null;
+
+        GenerateTiePreloder(parent);
+
+        yield return new WaitForSeconds(GetTiePreloderDelay());
+        DestroyPreloder(true);
+    }
+
+    private float GetTiePreloderDelay()
+    {
+        return Mathf.Max(7f, tiePreloderReturnDelay);
     }
 
     public void rerfeshDropDown()

@@ -1,4 +1,4 @@
-﻿using Mirror;
+using Mirror;
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
@@ -82,6 +82,7 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
             if (!photonView.IsMine) return;
         }
 
+        ApplyConfiguredGoldenFishSpeed();
         originalScaleX = transform.localScale.x;
         originalScaleY = transform.localScale.y;
         spawnTime = Time.time; // Track when the fish spawned
@@ -95,6 +96,24 @@ public class GoldenFishAI : MonoBehaviourPunCallbacks
 
         centerPos = FindSafestSectorPosition();
         StartCoroutine(RandomDirectionRoutine());
+    }
+    private void ApplyConfiguredGoldenFishSpeed()
+    {
+        if (GS.Instance == null || GS.Instance.scoreSystemSettings == null)
+        {
+            return;
+        }
+
+        float configuredSpeed = GS.Instance.scoreSystemSettings.GetGoldenFishSpeed();
+        minSpeed = configuredSpeed;
+        maxSpeed = configuredSpeed;
+        
+        // Scale escape speeds based on the base speed to maintain relative panic behavior
+        float originalBaseAvg = 10f; // Average of original min(8) and max(12)
+        float scaleFactor = configuredSpeed / originalBaseAvg;
+        
+        minEscapeSpeed *= scaleFactor;
+        maxEscapeSpeed *= scaleFactor;
     }
 
     void Update()

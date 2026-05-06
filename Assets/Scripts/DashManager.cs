@@ -85,5 +85,15 @@ public class DashManager : MonoBehaviour
         }
     }
 
-
+    public void Click_Fish(){
+        craditsUI.SetActive(true);
+    }
+    public void Back_Credit()
+    {
+        craditsUI.SetActive(false);
+    }
+    public void LocalPLayBack()
+    {
+        localPlayerUI.SetActive(false);
+    }
 }
