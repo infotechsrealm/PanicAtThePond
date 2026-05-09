@@ -8,6 +8,8 @@ using UnityEngine.InputSystem;
 public class FishController : MonoBehaviourPunCallbacks 
 {
     public static FishController Instance;  
+    private const string StarvationGameOverMessage = "You all Starve!";
+    private const string FishermanWinGameOverMessage = "Fisherman Win!";
 
     public PhotonTransformViewClassic photonTransformViewClassic;
 
@@ -301,10 +303,25 @@ public class FishController : MonoBehaviourPunCallbacks
 
         if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
         {
-            GameManager.Instance.CallFishermanWinAnimationRPC();
-            GameManager.Instance.CallShowGameOverRPC("You all Starve!");
+            string gameOverMessage = IsFishermanRoundActive()
+                ? FishermanWinGameOverMessage
+                : StarvationGameOverMessage;
+
+            if (gameOverMessage == FishermanWinGameOverMessage)
+            {
+                GameManager.Instance.CallFishermanWinAnimationRPC();
+            }
+
+            GameManager.Instance.CallShowGameOverRPC(gameOverMessage);
         }
 
+    }
+
+    private static bool IsFishermanRoundActive()
+    {
+        GameManager gameManager = GameManager.Instance;
+        return gameManager != null
+            && (gameManager.fisherManIsSpawned || gameManager.isFisherMan);
     }
 
     [PunRPC]

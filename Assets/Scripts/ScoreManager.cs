@@ -31,7 +31,7 @@ public class ScoreManager : MonoBehaviourPunCallbacks
 
     [Header("Animation Settings")]
     [Tooltip("How long the bar-rise animation plays")]
-    public float animationDuration = 6f;
+    public float animationDuration = 4f;
 
     [Tooltip("Max Y rise (pixels) for the highest scorer — they will go ABOVE this (out of box)")]
     public float maxHeight = 200f;

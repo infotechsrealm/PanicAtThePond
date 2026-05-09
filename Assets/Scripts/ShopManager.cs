@@ -5,8 +5,8 @@ using System.Collections;
 
 public class ShopManager : MonoBehaviour
 {
-    public Button HatButton, KeyButton, BackHatButton;
-    public GameObject ShopItemPanel, HatItemsPanel, FishVoyageDiagram;
+    public Button HatButton, RoadButton,CheastButton, BackHatButton, BackCheastButton;
+    public GameObject ShopItemPanel, HatItemsPanel, FishVoyageDiagram, cheastPanel, RoadPanel;
     public TextMeshProUGUI ShopCoinText;
 
     private void Awake()
@@ -16,14 +16,24 @@ public class ShopManager : MonoBehaviour
             HatButton.onClick.AddListener(HatShopUI);
         }
 
-        if (KeyButton != null)
+        if (RoadButton != null)
         {
-            KeyButton.onClick.AddListener(KeyShopUI);
+            RoadButton.onClick.AddListener(RoadShopUI);
         }
 
         if (BackHatButton != null)
         {
             BackHatButton.onClick.AddListener(BackHatPanelUI);
+        }
+
+        if (CheastButton != null)
+        {
+            CheastButton.onClick.AddListener(CheastShopUI);
+        }
+
+        if (BackCheastButton != null)
+        {
+            BackCheastButton.onClick.AddListener(BackCheastPanelUI);
         }
     }
 
@@ -63,6 +73,14 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    public void BackCheastPanelUI()
+    {
+        if (cheastPanel != null)
+        {
+            cheastPanel.SetActive(false);
+        }
+    }
+
     private void OnDestroy()
     {
         if (HatButton != null)
@@ -70,14 +88,38 @@ public class ShopManager : MonoBehaviour
             HatButton.onClick.RemoveListener(HatShopUI);
         }
 
-        if (KeyButton != null)
+        if (RoadButton != null)
         {
-            KeyButton.onClick.RemoveListener(KeyShopUI);
+            RoadButton.onClick.RemoveListener(RoadShopUI);
         }
 
         if (BackHatButton != null)
         {
             BackHatButton.onClick.RemoveListener(BackHatPanelUI);
+        }
+            
+    }
+
+    public void CheastShopUI()
+    {
+        if (ShopItemPanel != null)
+        {
+            ShopItemPanel.SetActive(true);
+        }
+
+        if (HatItemsPanel != null)
+        {
+            HatItemsPanel.SetActive(false);
+        }
+
+        if (FishVoyageDiagram != null)
+        {
+            FishVoyageDiagram.SetActive(false);
+        }
+
+        if (cheastPanel != null)
+        {
+            cheastPanel.SetActive(true);
         }
     }
 
@@ -97,9 +139,17 @@ public class ShopManager : MonoBehaviour
         {
             FishVoyageDiagram.SetActive(false);
         }
+        if (cheastPanel != null)
+        {
+            cheastPanel.SetActive(false);
+        }
+        if (RoadPanel != null)
+        {
+            RoadPanel.SetActive(false);
+        }
     }
 
-    public void KeyShopUI()
+    public void RoadShopUI()
     {
         if (ShopItemPanel != null)
         {
@@ -114,6 +164,11 @@ public class ShopManager : MonoBehaviour
         if (FishVoyageDiagram != null)
         {
             FishVoyageDiagram.SetActive(true);
+        }
+
+        if (RoadPanel != null)
+        {
+            RoadPanel.SetActive(true);
         }
     }
 
@@ -132,6 +187,11 @@ public class ShopManager : MonoBehaviour
         if (FishVoyageDiagram != null)
         {
             FishVoyageDiagram.SetActive(false);
+        }
+
+        if (RoadPanel != null)
+        {
+            RoadPanel.SetActive(false);
         }
     }
 

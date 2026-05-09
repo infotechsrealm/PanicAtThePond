@@ -646,57 +646,36 @@ public class FishermanController : MonoBehaviourPunCallbacks
         Debug.Log("catchadFish = " + catchadFish + " GameManager.instance.totalPlayers = " + GameManager.Instance.totalPlayers);
         if (catchadFish >= (GameManager.Instance.totalPlayers - 1))
         {
-            if (catchadFish > 0)
+            if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
             {
-                if (GameManager.Instance != null && GameManager.Instance.gameOverText != null)
+                PlayWinAnimation();
+
+                Debug.Log("Fisherman Win!");
+
+                if (GS.Instance.isLan)
                 {
-                    PlayWinAnimation();
-
-                    Debug.Log("Fisherman Win!");
-
-
-
-                    if (GS.Instance.isLan)
+                    if (GameManager.Instance.myFish.isFisherMan)
                     {
-                        if (GameManager.Instance.myFish.isFisherMan)
-                        {
-                            GameManager.Instance.ShowGameOver("Fisherman Win!");
-                            GameManager.Instance.TriggerRoundEnd("Fisherman Win!");
-                        }
-
-                        if(GS.Instance.IsMirrorMasterClient)
-                        {
-                            WormSpawner.Instance.EnableWormDaceAnimation();
-                        }
-                    }
-                    else
-                    {
-                        GameManager.Instance.CallCoverBGDisableRPC();
-                        WormSpawner.Instance.EnableWormDaceAnimation();
                         GameManager.Instance.ShowGameOver("Fisherman Win!");
                         GameManager.Instance.TriggerRoundEnd("Fisherman Win!");
-                        if (!GS.Instance.isMasterClient)
-                        {
-                            CallSetOldMaster();
-                        }
                     }
-                }
-            }
-            else
-            {
-                if (isRight)
-                {
-                    animator.SetBool("isCrying_r", true);
-                }
-                else if (isLeft)
-                {
-                    animator.SetBool("isCrying_l", true);
+
+                    if(GS.Instance.IsMirrorMasterClient)
+                    {
+                        WormSpawner.Instance.EnableWormDaceAnimation();
+                    }
                 }
                 else
                 {
-                    animator.SetBool("isWin_r", true);
+                    GameManager.Instance.CallCoverBGDisableRPC();
+                    WormSpawner.Instance.EnableWormDaceAnimation();
+                    GameManager.Instance.ShowGameOver("Fisherman Win!");
+                    GameManager.Instance.TriggerRoundEnd("Fisherman Win!");
+                    if (!GS.Instance.isMasterClient)
+                    {
+                        CallSetOldMaster();
+                    }
                 }
-                GameManager.Instance.ShowGameOver("GameOver!");
             }
             WormSpawner.Instance.canSpawn = isCanMove = false;
 

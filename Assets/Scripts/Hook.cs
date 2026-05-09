@@ -102,13 +102,8 @@ public class Hook : MonoBehaviourPunCallbacks
 
         lineRenderer.enabled = true;
 
-        // Determine if this is left or right rod for horizontal offset
-        bool isLeftRod = (rodTip == fishermanController.leftRod);
-        bool isFishView = IsFishView();
-        
-        // Calculate the actual rod tip position based on rotation and offset
-        Vector3 actualRodTipPosition = GetRodTipPosition(rodTip, isLeftRod);
-        DrawFishingLine(actualRodTipPosition, transform.position, isFishView);
+        Vector3 actualRodTipPosition = GetRodTipPosition(rodTip);
+        DrawFishingLine(actualRodTipPosition, GetHookLineEndPosition());
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -248,9 +243,7 @@ public class Hook : MonoBehaviourPunCallbacks
             GS.Instance.SetSFXVolume(hookBack);
             hookBack.Play();
             isReturning = true;
-            // Determine if this is left or right rod for horizontal offset
-            bool isLeftRod = (rodTip == fishermanController.leftRod);
-            Vector3 target = GetRodTipPosition(rodTip, isLeftRod);
+            Vector3 target = GetRodTipPosition(rodTip);
 
             // Detach worm from hook so it stays in scene
                     hasWorm = false;
@@ -402,67 +395,23 @@ public class Hook : MonoBehaviourPunCallbacks
         AttachWorm();
     }
     
-    /// <summary>
-    /// Calculates the actual position of the rod tip based on the rod's rotation and offset.
-    /// This ensures the fishing line appears to come from the visual tip of the rod.
-    /// </summary>
-    private Vector3 GetRodTipPosition(Transform rod, bool isLeftRod)
+    private Vector3 GetRodTipPosition(Transform rod)
     {
         if (rod == null) return Vector3.zero;
-        
-        // Check if we're viewing from fish side (not fisherman)
-        bool isFishView = IsFishView();
-        
-        // Apply horizontal (X-axis) offset
-        Vector3 horizontalOffsetVector;
-        if (isLeftRod)
-        {
-            // For left rod, use different horizontal offset based on view
-            // Negative X direction (to the left)
-            float horizontalOffsetValue = isFishView ? leftRodHorizontalOffsetFish : horizontalOffset;
-            horizontalOffsetVector = new Vector3(-horizontalOffsetValue, 0f, 0f);
-        }
-        else
-        {
-            // For right rod, offset to the right (positive X)
-            float horizontalOffsetValue = isFishView ? rightRodHorizontalOffsetFish : horizontalOffset;
-            horizontalOffsetVector = new Vector3(horizontalOffsetValue, 0f, 0f);
-        }
-        
-        // For left rod, account for negative Y scale which affects visual tip position
-        Vector3 verticalOffsetVector = Vector3.zero;
-        if (isLeftRod)
-        {
-            // Left rod has negative Y scale (y: -1, z: -1), which flips the visual
-            // From fish view, the tip appears at a different Y position due to the scale flip
-            // Use different offset values for fisherman vs fish view
-            float verticalOffsetValue = isFishView ? -leftRodVerticalOffset : leftRodVerticalOffsetFisherman;
-            verticalOffsetVector = new Vector3(0f, verticalOffsetValue, 0f);
-        }
-        
-        // Return the rod's position plus offsets
-        return rod.position + horizontalOffsetVector + verticalOffsetVector;
+
+        return rod.position;
     }
 
-    private void DrawFishingLine(Vector3 rodLineStart, Vector3 hookPosition, bool isFishView)
+    private Vector3 GetHookLineEndPosition()
     {
-        if (isFishView)
-        {
-            Vector3 verticalLinePosition = new Vector3(rodLineStart.x, hookPosition.y, hookPosition.z);
-            lineRenderer.positionCount = 2;
-            lineRenderer.SetPosition(0, new Vector3(rodLineStart.x, rodLineStart.y, hookPosition.z));
-            lineRenderer.SetPosition(1, verticalLinePosition);
-            return;
-        }
+        return transform.position;
+    }
 
+    private void DrawFishingLine(Vector3 rodLineStart, Vector3 hookPosition)
+    {
         lineRenderer.positionCount = 2;
         lineRenderer.SetPosition(0, rodLineStart);
         lineRenderer.SetPosition(1, hookPosition);
     }
 
-    private static bool IsFishView()
-    {
-        return GameManager.Instance != null && !GameManager.Instance.isFisherMan;
-    }
-   
 }
