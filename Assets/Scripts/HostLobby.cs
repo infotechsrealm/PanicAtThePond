@@ -16,6 +16,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
     private const string SpacebarJamMinFieldName = "SpaceBar_Jam_Min_InputField";
     private const string SpacebarJamMaxFieldName = "SpaceBar_Jam_Max_InputField";
     private const string HungerWormRateFieldName = "Hunger Worm Rate_InputField";
+    private const string WormSpawnRateFieldName = "Worm Spawn Rate";
     private const string GoldenFishSpeedFieldName = "GoldenFish_Speed_InputField";
     private const string TroutSpeedFieldName = "Trout_Speed_InputField";
     private const string GoldenFishBonusFieldName = "Bonuses(Golden Fish)InputField";
@@ -49,12 +50,17 @@ public class HostLobby : MonoBehaviourPunCallbacks
     private TMP_InputField spacebarJamMaxInput;
     private TMP_InputField fishTimerInput;
     private TMP_InputField hungerWormRateInput;
+    private TMP_InputField wormSpawnRateInput;
     private TMP_InputField hungerDepletionRateInput;
     private TMP_InputField goldenFishSpeedInput;
     private TMP_InputField troutSpeedInput;
     private TMP_InputField goldenFishBonusInput;
     private Button scoreResetButton;
+    private GameObject scoreSecondPage;
+    private Button scoreNextPageButton;
+    private Button scorePreviousPageButton;
     private bool scoreLayoutAdjusted;
+    private bool scorePagesInitialized;
 
     private void Start()
     {
@@ -78,6 +84,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
     {
         ScoreUI.SetActive(true);
         RefreshScoreSystemUIFromState();
+        CloseScoreSecondPage();
     }
 
     public void Close_Score()
@@ -182,6 +189,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
         spacebarJamMaxInput = FindInput(allInputs, SpacebarJamMaxFieldName);
         fishTimerInput = FindInput(allInputs, FishTimerFieldName);
         hungerWormRateInput = FindInput(allInputs, HungerWormRateFieldName);
+        wormSpawnRateInput = FindInput(allInputs, WormSpawnRateFieldName);
         hungerDepletionRateInput = FindInput(allInputs, HungerDepletionRateFieldName);
         goldenFishSpeedInput = FindInput(allInputs, GoldenFishSpeedFieldName);
         troutSpeedInput = FindInput(allInputs, TroutSpeedFieldName);
@@ -199,12 +207,14 @@ public class HostLobby : MonoBehaviourPunCallbacks
         TryRegisterInput(spacebarJamMaxInput);
         TryRegisterInput(fishTimerInput);
         TryRegisterInput(hungerWormRateInput);
+        TryRegisterInput(wormSpawnRateInput);
         TryRegisterInput(hungerDepletionRateInput);
         TryRegisterInput(goldenFishSpeedInput);
         TryRegisterInput(troutSpeedInput);
         TryRegisterInput(goldenFishBonusInput);
 
         CreateScoreResetButton();
+        InitializeScoreSystemPages();
         AdjustScoreSystemDebugLayout();
         scoreInputsInitialized = true;
     }
@@ -231,6 +241,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
         GS.Instance.scoreSystemSettings.spacebarJamMax = ReadInputValue(spacebarJamMaxInput);
         GS.Instance.scoreSystemSettings.fishTimerSeconds = ReadInputValue(fishTimerInput);
         GS.Instance.scoreSystemSettings.hungerWormRateAmount = ReadInputValue(hungerWormRateInput);
+        GS.Instance.scoreSystemSettings.wormSpawnRate = ReadInputValue(wormSpawnRateInput);
         GS.Instance.scoreSystemSettings.hungerDepletionRate = ReadInputValue(hungerDepletionRateInput);
         GS.Instance.scoreSystemSettings.goldenFishSpeed = ReadInputValue(goldenFishSpeedInput);
         GS.Instance.scoreSystemSettings.troutSpeed = ReadInputValue(troutSpeedInput);
@@ -261,6 +272,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
         WriteInputValue(spacebarJamMaxInput, GS.Instance.scoreSystemSettings.spacebarJamMax);
         WriteInputValue(fishTimerInput, GS.Instance.scoreSystemSettings.fishTimerSeconds);
         WriteInputValue(hungerWormRateInput, GS.Instance.scoreSystemSettings.hungerWormRateAmount);
+        WriteInputValue(wormSpawnRateInput, GS.Instance.scoreSystemSettings.wormSpawnRate);
         WriteInputValue(hungerDepletionRateInput, GS.Instance.scoreSystemSettings.hungerDepletionRate);
         WriteInputValue(goldenFishSpeedInput, GS.Instance.scoreSystemSettings.goldenFishSpeed);
         WriteInputValue(troutSpeedInput, GS.Instance.scoreSystemSettings.troutSpeed);
@@ -284,6 +296,57 @@ public class HostLobby : MonoBehaviourPunCallbacks
         if (scoreResetButton != null)
         {
             scoreResetButton.interactable = canEdit;
+        }
+    }
+
+    private void InitializeScoreSystemPages()
+    {
+        if (ScoreUI == null || scorePagesInitialized)
+        {
+            return;
+        }
+
+        Transform secondPageTransform = FindChildByName(ScoreUI.transform, "2nd Panel");
+        scoreSecondPage = secondPageTransform != null ? secondPageTransform.gameObject : null;
+
+        Button[] buttons = ScoreUI.GetComponentsInChildren<Button>(true);
+        scoreNextPageButton = buttons.FirstOrDefault(button =>
+            NormalizeInputName(button.name) == "Right" &&
+            (scoreSecondPage == null || !button.transform.IsChildOf(scoreSecondPage.transform)));
+        scorePreviousPageButton = buttons.FirstOrDefault(button =>
+            NormalizeInputName(button.name) == "Left" &&
+            scoreSecondPage != null &&
+            button.transform.IsChildOf(scoreSecondPage.transform));
+
+        if (scoreNextPageButton != null)
+        {
+            scoreNextPageButton.onClick.RemoveListener(OpenScoreSecondPage);
+            scoreNextPageButton.onClick.AddListener(OpenScoreSecondPage);
+        }
+
+        if (scorePreviousPageButton != null)
+        {
+            scorePreviousPageButton.onClick.RemoveListener(CloseScoreSecondPage);
+            scorePreviousPageButton.onClick.AddListener(CloseScoreSecondPage);
+        }
+
+        CloseScoreSecondPage();
+        scorePagesInitialized = true;
+    }
+
+    private void OpenScoreSecondPage()
+    {
+        if (scoreSecondPage != null)
+        {
+            scoreSecondPage.SetActive(true);
+        }
+    }
+
+    private void CloseScoreSecondPage()
+    {
+        if (scoreSecondPage != null)
+        {
+            scoreSecondPage.SetActive(false);
         }
     }
 
@@ -579,6 +642,25 @@ public class HostLobby : MonoBehaviourPunCallbacks
     private static TMP_InputField FindInput(IEnumerable<TMP_InputField> inputs, string targetName)
     {
         return FindInputs(inputs, targetName).FirstOrDefault();
+    }
+
+    private static Transform FindChildByName(Transform root, string targetName)
+    {
+        if (root == null)
+        {
+            return null;
+        }
+
+        string normalizedTargetName = NormalizeInputName(targetName);
+        foreach (Transform child in root.GetComponentsInChildren<Transform>(true))
+        {
+            if (NormalizeInputName(child.name) == normalizedTargetName)
+            {
+                return child;
+            }
+        }
+
+        return null;
     }
 
     private static IEnumerable<TMP_InputField> FindInputs(IEnumerable<TMP_InputField> inputs, string targetName)

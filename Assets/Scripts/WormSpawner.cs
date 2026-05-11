@@ -18,6 +18,7 @@ public class WormSpawner : MonoBehaviourPunCallbacks
 
 
     internal List<GameObject> activeWorms = new List<GameObject>(); // track all junks
+    private Coroutine spawnCoroutine;
 
 
     private void Awake()
@@ -52,48 +53,62 @@ public class WormSpawner : MonoBehaviourPunCallbacks
 
     public void LoadSpawnWorm()
     {
-        StartCoroutine(SpawnWorm());
+        if (spawnCoroutine == null)
+        {
+            spawnCoroutine = StartCoroutine(SpawnWorm());
+        }
     }
 
     IEnumerator SpawnWorm()
     {
-        if (canSpawn)
+        while (true)
         {
-            for (int i = 0; i < activeWorms.Count; i++)
+            if (canSpawn)
             {
-                if (activeWorms[i] == null)
+                for (int i = activeWorms.Count - 1; i >= 0; i--)
                 {
-                    activeWorms.Remove(activeWorms[i]);
-                }
-            }
-
-            if (activeWorms.Count < 5)
-            {
-                float x = Random.Range(-xRange, xRange);
-                float y = Random.Range(-yRange, 0);
-                Vector2 pos = new Vector2(x, y);
-
-                if (GS.Instance.isLan)
-                {
-                    GameObject worm = Instantiate(wormPrefab, pos, Quaternion.identity);
-                    NetworkServer.Spawn(worm);
-                    activeWorms.Add(worm);
-                }
-                else
-                {
-                    GameObject worm = PhotonNetwork.Instantiate(wormPrefab.name, pos, Quaternion.identity).gameObject;
-                    if (FishermanController.Instance != null)
+                    if (activeWorms[i] == null)
                     {
-                        worm.GetComponent<AudioSource>().mute = true;
+                        activeWorms.RemoveAt(i);
                     }
-                    activeWorms.Add(worm);
+                }
+
+                if (activeWorms.Count < 5)
+                {
+                    float x = Random.Range(-xRange, xRange);
+                    float y = Random.Range(-yRange, 0);
+                    Vector2 pos = new Vector2(x, y);
+
+                    if (GS.Instance.isLan)
+                    {
+                        GameObject worm = Instantiate(wormPrefab, pos, Quaternion.identity);
+                        NetworkServer.Spawn(worm);
+                        activeWorms.Add(worm);
+                    }
+                    else
+                    {
+                        GameObject worm = PhotonNetwork.Instantiate(wormPrefab.name, pos, Quaternion.identity).gameObject;
+                        if (FishermanController.Instance != null)
+                        {
+                            worm.GetComponent<AudioSource>().mute = true;
+                        }
+                        activeWorms.Add(worm);
+                    }
                 }
             }
+
+            yield return new WaitForSeconds(GetConfiguredSpawnInterval());
+        }
+    }
+
+    private float GetConfiguredSpawnInterval()
+    {
+        if (GS.Instance != null && GS.Instance.scoreSystemSettings != null)
+        {
+            return GS.Instance.scoreSystemSettings.GetWormSpawnRate();
         }
 
-        yield return new WaitForSeconds(Random.Range(5f, 10f));
-        StartCoroutine(SpawnWorm());
-
+        return Mathf.Clamp(spawnInterval, 0.25f, 60f);
     }
 
     void SpawnGoldWorm()

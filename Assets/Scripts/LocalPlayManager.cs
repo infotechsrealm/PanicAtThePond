@@ -10,6 +10,12 @@ public class LocalPlayManager : MonoBehaviour
     public Button Left_BTN,Right_BTN;
     public GameObject[] InfoText;
     public GameObject LockItem,BuyPanel;
+    public GameObject FishermanDisplayObject;
+
+    [Header("Fish Voyage Diagram")]
+    public Color lockedDiagramFishColor = new Color(0.14150941f, 0.13950692f, 0.13950692f, 1f);
+    public Color unlockedDiagramFishColor = Color.white;
+
     private int Next_Fish;
 
     public const string SelectedFishPrefKey = "SelectedFish";
@@ -43,13 +49,18 @@ public class LocalPlayManager : MonoBehaviour
         if (BuyButton != null)
         {
             BuyButton.gameObject.SetActive(false);
+            BuyButton.onClick.RemoveListener(BuyPanelON);
             BuyButton.onClick.AddListener(BuyPanelON);
         }
 
         if (BuyPanelBackButton != null)
         {
+            BuyPanelBackButton.onClick.RemoveListener(BuyPanleClose);
             BuyPanelBackButton.onClick.AddListener(BuyPanleClose);
         }
+
+        RegisterArrowButtons();
+        ResolveDisplayObjects();
 
         if (BuyPanel != null)
         {
@@ -60,6 +71,29 @@ public class LocalPlayManager : MonoBehaviour
         KeepArrowButtonsOnScreen();
     }
 
+    private void OnDestroy()
+    {
+        if (BuyButton != null)
+        {
+            BuyButton.onClick.RemoveListener(BuyPanelON);
+        }
+
+        if (BuyPanelBackButton != null)
+        {
+            BuyPanelBackButton.onClick.RemoveListener(BuyPanleClose);
+        }
+
+        if (Right_BTN != null)
+        {
+            Right_BTN.onClick.RemoveListener(Tap_NextButton);
+        }
+
+        if (Left_BTN != null)
+        {
+            Left_BTN.onClick.RemoveListener(Tap_PreviosButton);
+        }
+    }
+
     private void OnEnable()
     {
         if (BackManager.instance != null && backButton != null)
@@ -68,6 +102,7 @@ public class LocalPlayManager : MonoBehaviour
         }
 
         RefreshFishUnlocks();
+        ResolveDisplayObjects();
         if (!IsFishUnlocked(Next_Fish))
         {
             Next_Fish = GetFirstUnlockedFishIndex();
@@ -89,41 +124,64 @@ public class LocalPlayManager : MonoBehaviour
 
     public void Tap_NextButton()
     {
+        HideFishermanDisplay();
+
         int nextUnlockedFish = FindUnlockedFish(Next_Fish, 1);
-        if (nextUnlockedFish >= 0)
+        if (nextUnlockedFish < 0)
         {
-            Next_Fish = nextUnlockedFish;
-            ShowSelectedFish();
+            RefreshArrowButtons();
+            return;
         }
+
+        Next_Fish = nextUnlockedFish;
+        ShowSelectedFish();
     }
 
     public void Tap_PreviosButton()
     {
+        HideFishermanDisplay();
+
         int previousUnlockedFish = FindUnlockedFish(Next_Fish, -1);
-        if (previousUnlockedFish >= 0)
+        if (previousUnlockedFish < 0)
         {
-            Next_Fish = previousUnlockedFish;
-            ShowSelectedFish();
+            RefreshArrowButtons();
+            return;
         }
+
+        Next_Fish = previousUnlockedFish;
+        ShowSelectedFish();
     }
 
     private void ShowSelectedFish()
     {
         RefreshFishUnlocks();
+        bool troutUnlocked = IsFishUnlocked(1);
+        RefreshFishVoyageDiagram(troutUnlocked);
 
-        for (int i = 0; i < Fish_Sprite.Length; i++)
+        if (!IsFishUnlocked(Next_Fish))
         {
-            if (Fish_Sprite[i] != null)
+            Next_Fish = GetFirstUnlockedFishIndex();
+        }
+
+        if (Fish_Sprite != null)
+        {
+            for (int i = 0; i < Fish_Sprite.Length; i++)
             {
-                Fish_Sprite[i].SetActive(i == Next_Fish && IsFishUnlocked(i));
+                if (Fish_Sprite[i] != null)
+                {
+                    Fish_Sprite[i].SetActive(i == Next_Fish);
+                }
             }
         }
 
-        for (int i = 0; i < BuyFishInfoText.Length; i++)
+        if (BuyFishInfoText != null)
         {
-            if (BuyFishInfoText[i] != null)
+            for (int i = 0; i < BuyFishInfoText.Length; i++)
             {
-                BuyFishInfoText[i].SetActive(false);
+                if (BuyFishInfoText[i] != null)
+                {
+                    BuyFishInfoText[i].SetActive(false);
+                }
             }
         }
 
@@ -148,12 +206,87 @@ public class LocalPlayManager : MonoBehaviour
             BuyPanel.SetActive(false);
         }
 
-        SetButtonInteractable(Left_BTN, FindUnlockedFish(Next_Fish, -1) >= 0);
-        SetButtonInteractable(Right_BTN, FindUnlockedFish(Next_Fish, 1) >= 0);
+        RefreshArrowButtons();
 
         PlayerPrefs.SetInt(SelectedFishPrefKey, Next_Fish);
         PlayerPrefs.SetString(SelectedFishPrefabPrefKey, GetSelectedFishPrefabName());
         PlayerPrefs.Save();
+    }
+
+    private void RefreshArrowButtons()
+    {
+        SetButtonInteractable(Left_BTN, FindUnlockedFish(Next_Fish, -1) >= 0);
+        SetButtonInteractable(Right_BTN, FindUnlockedFish(Next_Fish, 1) >= 0);
+    }
+
+    private void RegisterArrowButtons()
+    {
+        if (Right_BTN != null)
+        {
+            Right_BTN.onClick.RemoveListener(Tap_NextButton);
+            Right_BTN.onClick.AddListener(Tap_NextButton);
+        }
+
+        if (Left_BTN != null)
+        {
+            Left_BTN.onClick.RemoveListener(Tap_PreviosButton);
+            Left_BTN.onClick.AddListener(Tap_PreviosButton);
+        }
+    }
+
+    private void HideFishermanDisplay()
+    {
+        if (FishermanDisplayObject != null)
+        {
+            FishermanDisplayObject.SetActive(false);
+        }
+    }
+
+    private void ResolveDisplayObjects()
+    {
+        if (FishermanDisplayObject == null)
+        {
+            Transform fisherman = FindChildByName(transform, "FisherMan");
+            if (fisherman == null)
+            {
+                fisherman = FindChildByName(transform, "Fisherman");
+            }
+
+            FishermanDisplayObject = fisherman != null ? fisherman.gameObject : null;
+        }
+    }
+
+    private void RefreshFishVoyageDiagram(bool troutUnlocked)
+    {
+        SetActiveInfoText(0, troutUnlocked);
+        SetActiveInfoText(1, troutUnlocked);
+        SetActiveInfoText(2, !troutUnlocked);
+        SetActiveInfoText(3, !troutUnlocked);
+
+        if (SecondFish != null)
+        {
+            SecondFish.color = troutUnlocked ? GetUnlockedDiagramFishColor() : GetLockedDiagramFishColor();
+        }
+    }
+
+    private Color GetLockedDiagramFishColor()
+    {
+        return lockedDiagramFishColor.a > 0f ? lockedDiagramFishColor : new Color(0.14150941f, 0.13950692f, 0.13950692f, 1f);
+    }
+
+    private Color GetUnlockedDiagramFishColor()
+    {
+        return unlockedDiagramFishColor.a > 0f ? unlockedDiagramFishColor : Color.white;
+    }
+
+    private void SetActiveInfoText(int index, bool active)
+    {
+        if (InfoText == null || index < 0 || index >= InfoText.Length || InfoText[index] == null)
+        {
+            return;
+        }
+
+        InfoText[index].SetActive(active);
     }
 
     private static void SetButtonInteractable(Button button, bool interactable)
@@ -284,6 +417,30 @@ public class LocalPlayManager : MonoBehaviour
         Vector2 position = rect.anchoredPosition;
         position.x = Mathf.Clamp(position.x, -halfWidth + halfButtonWidth + margin, halfWidth - halfButtonWidth - margin);
         rect.anchoredPosition = position;
+    }
+
+    private static Transform FindChildByName(Transform root, string childName)
+    {
+        if (root == null)
+        {
+            return null;
+        }
+
+        if (root.name == childName)
+        {
+            return root;
+        }
+
+        for (int i = 0; i < root.childCount; i++)
+        {
+            Transform match = FindChildByName(root.GetChild(i), childName);
+            if (match != null)
+            {
+                return match;
+            }
+        }
+
+        return null;
     }
 
     public void BuyPanelON()

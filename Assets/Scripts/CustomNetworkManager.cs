@@ -41,6 +41,7 @@ public struct ScoreSystemConfigMessage : NetworkMessage
     public string hungerDepletionRate;
     public string goldenFishSpeed;
     public string troutSpeed;
+    public string wormSpawnRate;
 }
 
 public class CustomNetworkManager : NetworkManager
@@ -137,6 +138,7 @@ public class CustomNetworkManager : NetworkManager
         GS.Instance.scoreSystemSettings.hungerDepletionRate = DefaultIfBlank(msg.hungerDepletionRate, ScoreSystemSettings.DefaultHungerDepletionRate.ToString());
         GS.Instance.scoreSystemSettings.goldenFishSpeed = DefaultIfBlank(msg.goldenFishSpeed, ScoreSystemSettings.DefaultGoldenFishSpeed.ToString());
         GS.Instance.scoreSystemSettings.troutSpeed = DefaultIfBlank(msg.troutSpeed, ScoreSystemSettings.DefaultTroutSpeed.ToString());
+        GS.Instance.scoreSystemSettings.wormSpawnRate = DefaultIfBlank(msg.wormSpawnRate, ScoreSystemSettings.DefaultWormSpawnRate.ToString());
     }
     // 🔹 जब client connect करे तो अपना नाम भेज`
     public override void OnClientConnect()
@@ -454,7 +456,8 @@ public class CustomNetworkManager : NetworkManager
             hungerWormRateAmount = settings.hungerWormRateAmount ?? string.Empty,
             hungerDepletionRate = settings.hungerDepletionRate ?? string.Empty,
             goldenFishSpeed = settings.goldenFishSpeed ?? string.Empty,
-            troutSpeed = settings.troutSpeed ?? string.Empty
+            troutSpeed = settings.troutSpeed ?? string.Empty,
+            wormSpawnRate = settings.wormSpawnRate ?? string.Empty
         };
     }
 

@@ -18,6 +18,7 @@ public class ScoreSystemSettings
     public const float DefaultHungerDepletionRate = 1f;
     public const float DefaultTroutSpeed = 3f;
     public const float DefaultGoldenFishSpeed = 3f;
+    public const float DefaultWormSpawnRate = 5f;
 
     public const string FishermanWinPointsKey = "ss_fisherman_win";
     public const string FishermanCatchFishPointsKey = "ss_fisherman_catch";
@@ -33,6 +34,7 @@ public class ScoreSystemSettings
     public const string HungerDepletionRateKey = "ss_hunger_depletion";
     public const string GoldenFishSpeedKey = "ss_golden_speed";
     public const string TroutSpeedKey = "ss_trout_speed";
+    public const string WormSpawnRateKey = "ss_worm_spawn_rate";
 
     public string fishermanWinPoints = DefaultFishermanWinPoints.ToString();
     public string fishermanCatchFishPoints = DefaultFishermanCatchFishPoints.ToString();
@@ -48,6 +50,7 @@ public class ScoreSystemSettings
     public string hungerDepletionRate = DefaultHungerDepletionRate.ToString();
     public string goldenFishSpeed = DefaultGoldenFishSpeed.ToString();
     public string troutSpeed = DefaultTroutSpeed.ToString();
+    public string wormSpawnRate = DefaultWormSpawnRate.ToString();
 
     public void Reset()
     {
@@ -65,6 +68,7 @@ public class ScoreSystemSettings
         hungerDepletionRate = DefaultHungerDepletionRate.ToString();
         goldenFishSpeed = DefaultGoldenFishSpeed.ToString();
         troutSpeed = DefaultTroutSpeed.ToString();
+        wormSpawnRate = DefaultWormSpawnRate.ToString();
     }
 
     public void FillBlankValuesWithDefaults()
@@ -83,6 +87,7 @@ public class ScoreSystemSettings
         hungerDepletionRate = DefaultIfBlank(hungerDepletionRate, DefaultHungerDepletionRate.ToString());
         goldenFishSpeed = DefaultIfBlank(goldenFishSpeed, DefaultGoldenFishSpeed.ToString());
         troutSpeed = DefaultIfBlank(troutSpeed, DefaultTroutSpeed.ToString());
+        wormSpawnRate = DefaultIfBlank(wormSpawnRate, DefaultWormSpawnRate.ToString());
     }
 
     public void CopyFrom(ScoreSystemSettings other)
@@ -107,6 +112,7 @@ public class ScoreSystemSettings
         hungerDepletionRate = other.hungerDepletionRate ?? string.Empty;
         goldenFishSpeed = other.goldenFishSpeed ?? string.Empty;
         troutSpeed = other.troutSpeed ?? string.Empty;
+        wormSpawnRate = other.wormSpawnRate ?? string.Empty;
     }
 
     public Hashtable ToPhotonProperties()
@@ -126,7 +132,8 @@ public class ScoreSystemSettings
             [HungerWormRateKey] = hungerWormRateAmount ?? string.Empty,
             [HungerDepletionRateKey] = hungerDepletionRate ?? string.Empty,
             [GoldenFishSpeedKey] = goldenFishSpeed ?? string.Empty,
-            [TroutSpeedKey] = troutSpeed ?? string.Empty
+            [TroutSpeedKey] = troutSpeed ?? string.Empty,
+            [WormSpawnRateKey] = wormSpawnRate ?? string.Empty
         };
     }
 
@@ -151,6 +158,7 @@ public class ScoreSystemSettings
         hungerDepletionRate = GetStringValue(properties, HungerDepletionRateKey, DefaultHungerDepletionRate.ToString());
         goldenFishSpeed = GetStringValue(properties, GoldenFishSpeedKey, DefaultGoldenFishSpeed.ToString());
         troutSpeed = GetStringValue(properties, TroutSpeedKey, DefaultTroutSpeed.ToString());
+        wormSpawnRate = GetStringValue(properties, WormSpawnRateKey, DefaultWormSpawnRate.ToString());
     }
 
     public int GetFishermanWinPoints()
@@ -235,6 +243,11 @@ public class ScoreSystemSettings
     public float GetGoldenFishSpeed()
     {
         return ParseFloatOrDefault(goldenFishSpeed, DefaultGoldenFishSpeed, 0.1f, 100f);
+    }
+
+    public float GetWormSpawnRate()
+    {
+        return ParseFloatOrDefault(wormSpawnRate, DefaultWormSpawnRate, 0.25f, 60f);
     }
 
     private void ResolveMashRange(out float minValue, out float maxValue)

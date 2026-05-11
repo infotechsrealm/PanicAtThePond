@@ -75,6 +75,51 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             GS.Instance.isMasterClient = false;
         }
+
+        // === STEAM ACHIEVEMENT DEBUG ON START ===
+        Debug.Log("========================================");
+        Debug.Log("       STEAM ACHIEVEMENT DEBUG LOG      ");
+        Debug.Log("========================================");
+
+        Debug.Log("Steam Initialized: " + (SteamManager.Initialized ? "YES ✓" : "NO ✗"));
+
+        string[] allAchievements = { "SOLO_ARTIST", "SURVIVOR", "EARTH_PRAISER", "WHAT_A_SNACK", "FISH_SLAYER", "WE_COME_IN_SWARMS", "GULPER" };
+
+        Debug.Log("\n--- Local Unlocked Achievements ---");
+        int unlockedCount = 0;
+        foreach (string ach in allAchievements)
+        {
+            bool unlocked = PlayerPrefs.GetInt("Achievement_" + ach, 0) == 1;
+            if (unlocked)
+            {
+                unlockedCount++;
+                Debug.Log($"  ✓ {ach} - UNLOCKED (saved locally)");
+            }
+        }
+        if (unlockedCount == 0) Debug.Log("  (none)");
+
+        Debug.Log($"\n--- Steam Status ---");
+        Debug.Log($"  Total unlocked: {unlockedCount}/7");
+        Debug.Log($"  Steam connected: {(SteamManager.Initialized ? "YES" : "NO")}");
+
+        if (SteamManager.Initialized)
+        {
+            Debug.Log("\n--- Syncing to Steam Data Admin ---");
+            foreach (string ach in allAchievements)
+            {
+                bool unlocked = PlayerPrefs.GetInt("Achievement_" + ach, 0) == 1;
+                if (unlocked)
+                {
+                    SteamUserStats.SetAchievement(ach);
+                    Debug.Log($"  → Sent to Steam: {ach}");
+                }
+            }
+            SteamUserStats.StoreStats();
+            Debug.Log("\n✓ All unlocked achievements synced to Steam Data Admin!");
+        }
+
+        Debug.Log("========================================");
+        // ==========================================
     }
 
     void Start()
@@ -667,14 +712,33 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void UnlockAchievement(string achievementId)
     {
+         // Check if already unlocked to avoid duplicate calls
+         if (PlayerPrefs.GetInt("Achievement_" + achievementId, 0) == 1)
+         {
+             Debug.Log("Achievement already unlocked: " + achievementId);
+             return;
+         }
+
          PlayerPrefs.SetInt("Achievement_" + achievementId, 1);
          PlayerPrefs.Save();
 
          if (SteamManager.Initialized)
          {
-             SteamUserStats.SetAchievement(achievementId);
-             SteamUserStats.StoreStats();
-             Debug.Log("Unlocked Steam Achievement: " + achievementId);
+             bool success = SteamUserStats.SetAchievement(achievementId);
+             if (success)
+             {
+                 SteamUserStats.StoreStats();
+                 Debug.Log("✓ Steam Achievement UNLOCKED and saved: " + achievementId);
+                 Debug.Log("  → Check Steam Data Admin → Achievements to see it!");
+             }
+             else
+             {
+                 Debug.LogError("✗ Failed to set Steam achievement: " + achievementId);
+             }
+         }
+         else
+         {
+             Debug.LogWarning("Steam not initialized - achievement saved locally only: " + achievementId);
          }
     }
 
