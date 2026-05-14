@@ -68,6 +68,7 @@ public class FishController : MonoBehaviourPunCallbacks
     }
     void Start()
     {
+        CosmeticRuntimeApplier.ApplyToFish(gameObject);
         ApplyConfiguredTroutSpeed();
 
         if (GS.Instance.isLan)

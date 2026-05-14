@@ -152,6 +152,7 @@ public class FishController_Mirror : NetworkBehaviour
     {
         Vector3 spawnPos = new Vector3(0f, 1.95f, 0f);
         GameObject fisherman = Instantiate(fishermanPrefab, spawnPos, Quaternion.identity);
+        CosmeticRuntimeApplier.ApplyToFisherman(fisherman);
         NetworkServer.Spawn(fisherman, connectionToClient); // 🔹 gives authority to caller client
         SpawnWorm(GameManager.Instance.fishermanWorms);
     }

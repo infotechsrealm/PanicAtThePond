@@ -1925,8 +1925,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -181.6054, y: 33.90001}
-  m_SizeDelta: {x: 47.941, y: 34.761}
+  m_AnchoredPosition: {x: -171.22, y: 17.22}
+  m_SizeDelta: {x: 47.941, y: 28.853}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &66773583
 MonoBehaviour:
@@ -3052,7 +3052,7 @@ GameObject:
   - component: {fileID: 105152696}
   - component: {fileID: 105152695}
   m_Layer: 5
-  m_Name: cosmeteic 4
+  m_Name: cosmeteic 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3172,7 +3172,7 @@ GameObject:
   - component: {fileID: 123727391}
   - component: {fileID: 123727390}
   m_Layer: 5
-  m_Name: cosmeteic 3
+  m_Name: cosmeteic 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3653,7 +3653,7 @@ GameObject:
   - component: {fileID: 135250768}
   - component: {fileID: 135250767}
   m_Layer: 5
-  m_Name: x icon (2)
+  m_Name: cosmeteic 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3794,6 +3794,126 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137668557}
+  m_CullTransparentMesh: 1
+--- !u!1 &140310232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 140310233}
+  - component: {fileID: 140310236}
+  - component: {fileID: 140310235}
+  - component: {fileID: 140310234}
+  m_Layer: 5
+  m_Name: Close
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &140310233
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140310232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.31127957, y: 0.26628995, z: 0.31127957}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2002247167}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -19.100006, y: -22.300003}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &140310234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140310232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 140310235}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &140310235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140310232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 3959922740387019359, guid: 7291cfba532ea4d4d93f122d97d4575f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &140310236
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140310232}
   m_CullTransparentMesh: 1
 --- !u!1 &141221652
 GameObject:
@@ -4572,7 +4692,7 @@ GameObject:
   - component: {fileID: 180231690}
   - component: {fileID: 180231689}
   m_Layer: 5
-  m_Name: x icon (1)
+  m_Name: cosmeteic 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5082,7 +5202,7 @@ GameObject:
   - component: {fileID: 230352794}
   - component: {fileID: 230352793}
   m_Layer: 5
-  m_Name: cosmeteic 4
+  m_Name: cosmeteic 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11023,7 +11143,7 @@ GameObject:
   - component: {fileID: 492162067}
   - component: {fileID: 492162066}
   m_Layer: 5
-  m_Name: cosmeteic 3
+  m_Name: cosmeteic 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12044,7 +12164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 523501004}
   m_Layer: 5
-  m_Name: fish Cosmetics
+  m_Name: fisherman Cosmetics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13048,7 +13168,7 @@ GameObject:
   - component: {fileID: 572644351}
   - component: {fileID: 572644350}
   m_Layer: 5
-  m_Name: x icon (3)
+  m_Name: cosmeteic 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14894,7 +15014,7 @@ GameObject:
   - component: {fileID: 682271410}
   - component: {fileID: 682271409}
   m_Layer: 5
-  m_Name: Fish ermanCosmetic (1)
+  m_Name: Fisherman Cosmetic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15053,7 +15173,7 @@ GameObject:
   - component: {fileID: 685601412}
   - component: {fileID: 685601411}
   m_Layer: 5
-  m_Name: cosmeteic 1
+  m_Name: cosmeteic 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21744,7 +21864,7 @@ GameObject:
   - component: {fileID: 983741303}
   - component: {fileID: 983741302}
   m_Layer: 5
-  m_Name: cosmeteic 1
+  m_Name: cosmeteic 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22136,7 +22256,7 @@ GameObject:
   - component: {fileID: 992943648}
   - component: {fileID: 992943647}
   m_Layer: 5
-  m_Name: cosmeteic 2
+  m_Name: cosmeteic 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25218,7 +25338,7 @@ GameObject:
   - component: {fileID: 1108500667}
   - component: {fileID: 1108500666}
   m_Layer: 5
-  m_Name: cosmeteic 5
+  m_Name: cosmeteic 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33415,7 +33535,7 @@ GameObject:
   - component: {fileID: 1499892273}
   - component: {fileID: 1499892272}
   m_Layer: 5
-  m_Name: cosmeteic 2
+  m_Name: cosmeteic 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37218,12 +37338,29 @@ MonoBehaviour:
   CheastButton: {fileID: 0}
   BackHatButton: {fileID: 880513966}
   BackCheastButton: {fileID: 0}
+  FishButtonCosmetic: {fileID: 708940084}
+  FisherManButtonCostmetic: {fileID: 486743250}
+  Close_FishShopUi: {fileID: 801225487}
+  Close_FishermanShopUI: {fileID: 638434914}
+  close_Fish_FishermanCosmeticPanelButton: {fileID: 140310234}
   ShopItemPanel: {fileID: 930360021}
   HatItemsPanel: {fileID: 1169929221}
-  FishVoyageDiagram: {fileID: 0}
+  FishVoyageDiagram: {fileID: 958455515}
   cheastPanel: {fileID: 1163457419}
   RoadPanel: {fileID: 661500571}
   ShopCoinText: {fileID: 1699993788}
+  FishFishermanCosmeticPanel: {fileID: 2002247166}
+  FishCosmeticPanel: {fileID: 422095127}
+  FishermanCosmeticPanel: {fileID: 682271407}
+  FishFaceButton: {fileID: 0}
+  FishermanFaceButton: {fileID: 1951598614}
+  FishermanHatButton: {fileID: 66773583}
+  FishermanHatObject: {fileID: 2131789396}
+  FishermanHairObject: {fileID: 1774741614}
+  FishCosmeticItemsRoot: {fileID: 455556277}
+  FishermanCosmeticItemsRoot: {fileID: 523501004}
+  SelectedItemOpacity: 1
+  UnselectedItemOpacity: 0.35
   FishFishermanDropdownButton: {fileID: 1897823772}
   FishFishermanDropdownList: {fileID: 877651856}
   FishOptionButton: {fileID: 2012822624}
@@ -37241,9 +37378,6 @@ MonoBehaviour:
   SaltShopButton: {fileID: 103248581}
   SaltShopPanel: {fileID: 569712921}
   SaltShopBackButton: {fileID: 710938683}
-  autoAnimateFishingshopGif: 1
-  fishingshopFramesResourceFolder: Fishingshop2Frames
-  fishingshopFramesPerSecond: 10
 --- !u!1 &1688158529
 GameObject:
   m_ObjectHideFlags: 0
@@ -41512,7 +41646,7 @@ GameObject:
   - component: {fileID: 1852015993}
   - component: {fileID: 1852015992}
   m_Layer: 5
-  m_Name: x icon (1)
+  m_Name: cosmeteic 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41725,7 +41859,7 @@ GameObject:
   - component: {fileID: 1854142765}
   - component: {fileID: 1854142764}
   m_Layer: 5
-  m_Name: cosmeteic 5
+  m_Name: cosmeteic 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43966,7 +44100,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -181.6054, y: 74.200005}
+  m_AnchoredPosition: {x: -170, y: 74}
   m_SizeDelta: {x: 35.6, y: 30.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1951598614
@@ -45266,7 +45400,7 @@ GameObject:
   - component: {fileID: 2002247169}
   - component: {fileID: 2002247168}
   m_Layer: 5
-  m_Name: Fish/Fisherman Cosmetic Image
+  m_Name: Fish/Fisherman Cosmetic Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45287,6 +45421,7 @@ RectTransform:
   - {fileID: 708940083}
   - {fileID: 486743249}
   - {fileID: 174677706}
+  - {fileID: 140310233}
   m_Father: {fileID: 930360022}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -70397,7 +70532,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.514038, y: -12.705078}
+  m_AnchoredPosition: {x: -5.514282, y: -12.705017}
   m_SizeDelta: {x: 11.028, y: 25.091}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6869785581264469884
@@ -73829,7 +73964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 716.84125, y: -24.999996}
+  m_AnchoredPosition: {x: 716.8413, y: -24.999996}
   m_SizeDelta: {x: 292.6786, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8052128748931950941

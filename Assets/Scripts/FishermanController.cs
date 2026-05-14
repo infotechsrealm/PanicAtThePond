@@ -74,6 +74,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        CosmeticRuntimeApplier.ApplyToFisherman(gameObject);
         GameManager gameManager = GameManager.Instance;
         Debug.Log("FishermanController Start called");
         gameManager.LoadPreloderOnOff(false);

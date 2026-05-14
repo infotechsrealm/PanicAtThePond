@@ -270,6 +270,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                     float y = Random.Range(minBounds.y, maxBounds.y);
                     Vector3 spawnPos = new Vector3(x, y, 0);
                     GameObject fish = Instantiate(selectedFishPrefab, spawnPos, Quaternion.identity);
+                    CosmeticRuntimeApplier.ApplyToFish(fish);
                     fishes.Add(fish);
                     NetworkServer.AddPlayerForConnection(conn, fish);
                 }
@@ -282,6 +283,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             float y = Random.Range(minBounds.y, maxBounds.y);
             Vector3 spawnPos = new Vector3(x, y, 0);
             GameObject fish = PhotonNetwork.Instantiate(selectedFishPrefab.name, spawnPos, Quaternion.identity);
+            CosmeticRuntimeApplier.ApplyToFish(fish);
             fishes.Add(fish);
             Debug.Log("Fish Spawned: " + fishes.Count);
         }
@@ -355,7 +357,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         else
         {
             photonView.RPC(nameof(FisherManSpawned), RpcTarget.All, true);
-            PhotonNetwork.Instantiate(fishermanPrefab.name, new Vector3(0f, 1.95f, 0f), Quaternion.identity);
+            GameObject fisherman = PhotonNetwork.Instantiate(fishermanPrefab.name, new Vector3(0f, 1.95f, 0f), Quaternion.identity);
+            CosmeticRuntimeApplier.ApplyToFisherman(fisherman);
             FisherMan_Hungerbar.SetActive(false);
         }
     }

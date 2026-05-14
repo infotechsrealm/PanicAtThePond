@@ -2,12 +2,52 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class ShopManager : MonoBehaviour
 {
-    public Button HatButton, RoadButton,CheastButton, BackHatButton, BackCheastButton;
-    public GameObject ShopItemPanel, HatItemsPanel, FishVoyageDiagram, cheastPanel, RoadPanel;
+    [Header("Main Shop Buttons")]
+    public Button HatButton;
+    public Button RoadButton;
+    public Button CheastButton;
+    public Button BackHatButton;
+    public Button BackCheastButton;
+
+    [Header("Fish/Fisherman Buttons")]
+    public Button FishButtonCosmetic;
+    public Button FisherManButtonCostmetic;
+    public Button Close_FishShopUi;
+    public Button Close_FishermanShopUI;
+    public Button close_Fish_FishermanCosmeticPanelButton;
+
+    [Header("Shop Panels")]
+    public GameObject ShopItemPanel;
+    public GameObject HatItemsPanel;
+    public GameObject FishVoyageDiagram;
+    public GameObject cheastPanel;
+    public GameObject RoadPanel;
     public TextMeshProUGUI ShopCoinText;
+
+    [Header("Fish/Fisherman Cosmetic Panels")]
+    public GameObject FishFishermanCosmeticPanel;
+    public GameObject FishCosmeticPanel;
+    public GameObject FishermanCosmeticPanel;
+
+    [Header("Cosmetic Category Buttons")]
+    public Button FishFaceButton;
+    public Button FishermanFaceButton;
+    public Button FishermanHatButton;
+
+    [Header("Fisherman Cosmetic Categories")]
+    public GameObject FishermanHatObject;
+    public GameObject FishermanHairObject;
+
+    [Header("Cosmetic Item Opacity")]
+    public Transform FishCosmeticItemsRoot;
+    public Transform FishermanCosmeticItemsRoot;
+    [Range(0f, 1f)] public float SelectedItemOpacity = 1f;
+    [Range(0f, 1f)] public float UnselectedItemOpacity = 0.35f;
 
     [Header("Fish/Fisherman Dropdown")]
     public Button FishFishermanDropdownButton;
@@ -32,270 +72,201 @@ public class ShopManager : MonoBehaviour
 
     [Header("Animated Shop GIF")]
     public bool autoAnimateFishingshopGif = true;
+    public Image SaltShopAnimatedImage;
     public string fishingshopFramesResourceFolder = "Fishingshop2Frames";
     public float fishingshopFramesPerSecond = 10f;
 
     private bool isFishFishermanDropdownOpen;
-    private RectTransform fishFishermanDropdownClickArea;
-    private LocalPlayManager displayLocalPlayManager;
+    private UIImageFrameAnimator saltShopAnimator;
+    private readonly List<Button> fishCosmeticItemButtons = new List<Button>();
+    private readonly List<Button> fishermanCosmeticItemButtons = new List<Button>();
+    private readonly List<UnityAction> fishCosmeticItemActions = new List<UnityAction>();
+    private readonly List<UnityAction> fishermanCosmeticItemActions = new List<UnityAction>();
 
     private void Awake()
     {
-        if (HatButton != null)
-        {
-            HatButton.onClick.AddListener(HatShopUI);
-        }
+        ResolvePanelReferences();
+        ResolveCloseButton();
+        ResolveCosmeticCategoryReferences();
+        ResolveCosmeticItemRoots();
 
-        if (RoadButton != null)
-        {
-            RoadButton.onClick.AddListener(RoadShopUI);
-        }
+        AddButtonListener(HatButton, HatShopUI);
+        AddButtonListener(RoadButton, RoadShopUI);
+        AddButtonListener(BackHatButton, BackHatPanelUI);
+        AddButtonListener(CheastButton, CheastShopUI);
+        AddButtonListener(BackCheastButton, BackCheastPanelUI);
+        AddButtonListener(FishButtonCosmetic, FishShopUI);
+        AddButtonListener(FisherManButtonCostmetic, FishermanShopUI);
+        AddButtonListener(Close_FishShopUi, CloseFishShopUI);
+        AddButtonListener(Close_FishermanShopUI, CloseFishermanShopUI);
+        AddButtonListener(close_Fish_FishermanCosmeticPanelButton, CloseFishFishermanShopUI);
+        AddButtonListener(FishFishermanDropdownButton, ToggleFishFishermanDropdown);
+        AddButtonListener(FishOptionButton, SelectFishDisplay);
+        AddButtonListener(FishermanOptionButton, SelectFishermanDisplay);
+        AddButtonListener(DisplayHatButton, SelectHatDisplay);
+        AddButtonListener(FishFaceButton, FishShopUI);
+        AddButtonListener(FishermanFaceButton, SelectFishermanHairCategory);
+        AddButtonListener(FishermanHatButton, SelectFishermanHatCategory);
+        AddButtonListener(SaltShopButton, OpenSaltShop);
+        AddButtonListener(SaltShopBackButton, CloseSaltShop);
 
-        if (BackHatButton != null)
-        {
-            BackHatButton.onClick.AddListener(BackHatPanelUI);
-        }
-
-        if (CheastButton != null)
-        {
-            CheastButton.onClick.AddListener(CheastShopUI);
-        }
-
-        if (BackCheastButton != null)
-        {
-            BackCheastButton.onClick.AddListener(BackCheastPanelUI);
-        }
-
-        ResolveOptionalReferences();
-        RegisterOptionalButtons();
+        RegisterCosmeticItemButtons();
     }
 
     private void Start()
     {
-        ResolveOptionalReferences();
-
-        if (FishVoyageDiagram == null && ShopItemPanel != null)
-        {
-            Transform diagram = FindChildByName(ShopItemPanel.transform.root, "Fish Voyage Diagram");
-            if (diagram != null)
-            {
-                FishVoyageDiagram = diagram.gameObject;
-            }
-        }
-
-        if (FishVoyageDiagram != null)
-        {
-            FishVoyageDiagram.SetActive(false);
-        }
-
-        CloseFishFishermanDropdown();
-        SelectFishDisplay();
-        if (SaltShopPanel != null)
-        {
-            SaltShopPanel.SetActive(false);
-        }
-
-        SetupAnimatedShopGif();
+        SetActiveIfNotNull(FishVoyageDiagram, false);
+        SetActiveIfNotNull(FishFishermanDropdownList, false);
+        SetupAnimatedSaltShopGif();
+        SetActiveIfNotNull(SaltShopPanel, false);
         StartCoroutine(FetchCoinsForShop());
-    }
-
-    private void Update()
-    {
-        if (FishFishermanDropdownButton != null || fishFishermanDropdownClickArea == null)
-        {
-            return;
-        }
-
-        if (!fishFishermanDropdownClickArea.gameObject.activeInHierarchy || !Input.GetMouseButtonDown(0))
-        {
-            return;
-        }
-
-        if (RectTransformUtility.RectangleContainsScreenPoint(
-            fishFishermanDropdownClickArea,
-            Input.mousePosition,
-            GetDropdownClickCamera()))
-        {
-            ToggleFishFishermanDropdown();
-        }
-    }
-
-    private IEnumerator FetchCoinsForShop()
-    {
-        if (PlayFabManager.Instance != null && ShopCoinText != null)
-        {
-            // Wait until PlayFab is fully logged in
-            while (!PlayFabManager.Instance.IsLoggedIn)
-            {
-                yield return null; // wait to next frame
-            }
-
-            PlayFabManager.Instance.GetCurrency(amount =>
-            {
-                ShopCoinText.text = amount.ToString();
-            });
-        }
-    }
-
-    public void BackCheastPanelUI()
-    {
-        if (cheastPanel != null)
-        {
-            cheastPanel.SetActive(false);
-        }
     }
 
     private void OnDestroy()
     {
-        if (HatButton != null)
-        {
-            HatButton.onClick.RemoveListener(HatShopUI);
-        }
-
-        if (RoadButton != null)
-        {
-            RoadButton.onClick.RemoveListener(RoadShopUI);
-        }
-
-        if (BackHatButton != null)
-        {
-            BackHatButton.onClick.RemoveListener(BackHatPanelUI);
-        }
-
-        if (CheastButton != null)
-        {
-            CheastButton.onClick.RemoveListener(CheastShopUI);
-        }
-
-        if (BackCheastButton != null)
-        {
-            BackCheastButton.onClick.RemoveListener(BackCheastPanelUI);
-        }
-
-        if (FishFishermanDropdownButton != null)
-        {
-            FishFishermanDropdownButton.onClick.RemoveListener(ToggleFishFishermanDropdown);
-        }
-
-        if (FishOptionButton != null)
-        {
-            FishOptionButton.onClick.RemoveListener(SelectFishDisplay);
-        }
-
-        if (FishermanOptionButton != null)
-        {
-            FishermanOptionButton.onClick.RemoveListener(SelectFishermanDisplay);
-        }
-
-        if (DisplayHatButton != null)
-        {
-            DisplayHatButton.onClick.RemoveListener(SelectHatDisplay);
-        }
-
-        if (SaltShopButton != null)
-        {
-            SaltShopButton.onClick.RemoveListener(OpenSaltShop);
-        }
-
-        if (SaltShopBackButton != null)
-        {
-            SaltShopBackButton.onClick.RemoveListener(CloseSaltShop);
-        }
+        RemoveButtonListener(HatButton, HatShopUI);
+        RemoveButtonListener(RoadButton, RoadShopUI);
+        RemoveButtonListener(BackHatButton, BackHatPanelUI);
+        RemoveButtonListener(CheastButton, CheastShopUI);
+        RemoveButtonListener(BackCheastButton, BackCheastPanelUI);
+        RemoveButtonListener(FishButtonCosmetic, FishShopUI);
+        RemoveButtonListener(FisherManButtonCostmetic, FishermanShopUI);
+        RemoveButtonListener(Close_FishShopUi, CloseFishShopUI);
+        RemoveButtonListener(Close_FishermanShopUI, CloseFishermanShopUI);
+        RemoveButtonListener(close_Fish_FishermanCosmeticPanelButton, CloseFishFishermanShopUI);
+        RemoveButtonListener(FishFishermanDropdownButton, ToggleFishFishermanDropdown);
+        RemoveButtonListener(FishOptionButton, SelectFishDisplay);
+        RemoveButtonListener(FishermanOptionButton, SelectFishermanDisplay);
+        RemoveButtonListener(DisplayHatButton, SelectHatDisplay);
+        RemoveButtonListener(FishFaceButton, FishShopUI);
+        RemoveButtonListener(FishermanFaceButton, SelectFishermanHairCategory);
+        RemoveButtonListener(FishermanHatButton, SelectFishermanHatCategory);
+        RemoveButtonListener(SaltShopButton, OpenSaltShop);
+        RemoveButtonListener(SaltShopBackButton, CloseSaltShop);
+        RemoveCosmeticItemButtonListeners(fishCosmeticItemButtons, fishCosmeticItemActions);
+        RemoveCosmeticItemButtonListeners(fishermanCosmeticItemButtons, fishermanCosmeticItemActions);
     }
 
-    public void CheastShopUI()
+    private IEnumerator FetchCoinsForShop()
     {
-        if (ShopItemPanel != null)
+        if (PlayFabManager.Instance == null || ShopCoinText == null)
         {
-            ShopItemPanel.SetActive(true);
+            yield break;
         }
 
-        if (HatItemsPanel != null)
+        while (!PlayFabManager.Instance.IsLoggedIn)
         {
-            HatItemsPanel.SetActive(false);
+            yield return null;
         }
 
-        if (FishVoyageDiagram != null)
+        PlayFabManager.Instance.GetCurrency(amount =>
         {
-            FishVoyageDiagram.SetActive(false);
-        }
-
-        if (cheastPanel != null)
-        {
-            cheastPanel.SetActive(true);
-        }
+            ShopCoinText.text = amount.ToString();
+        });
     }
 
     public void HatShopUI()
     {
-        if (ShopItemPanel != null)
-        {
-            ShopItemPanel.SetActive(true);
-        }
-
-        if (HatItemsPanel != null)
-        {
-            HatItemsPanel.SetActive(true);
-        }
-
-        if (FishVoyageDiagram != null)
-        {
-            FishVoyageDiagram.SetActive(false);
-        }
-        if (cheastPanel != null)
-        {
-            cheastPanel.SetActive(false);
-        }
-        if (RoadPanel != null)
-        {
-            RoadPanel.SetActive(false);
-        }
+        OpenShopItemPanel();
+        SetActiveIfNotNull(HatItemsPanel, true);
+        SetActiveIfNotNull(FishVoyageDiagram, false);
+        SetActiveIfNotNull(cheastPanel, false);
+        SetActiveIfNotNull(RoadPanel, false);
+        SetActiveIfNotNull(FishFishermanCosmeticPanel, true);
+        SetActiveIfNotNull(FishCosmeticPanel, false);
+        SetActiveIfNotNull(FishermanCosmeticPanel, false);
     }
 
     public void RoadShopUI()
     {
-        if (ShopItemPanel != null)
-        {
-            ShopItemPanel.SetActive(true);
-        }
+        OpenShopItemPanel();
+        SetActiveIfNotNull(HatItemsPanel, false);
+        SetActiveIfNotNull(FishVoyageDiagram, true);
+        SetActiveIfNotNull(RoadPanel, true);
+        SetActiveIfNotNull(cheastPanel, false);
+        CloseFishFishermanShopUI();
+    }
 
-        if (HatItemsPanel != null)
-        {
-            HatItemsPanel.SetActive(false);
-        }
+    public void CheastShopUI()
+    {
+        OpenShopItemPanel();
+        SetActiveIfNotNull(HatItemsPanel, false);
+        SetActiveIfNotNull(FishVoyageDiagram, false);
+        SetActiveIfNotNull(RoadPanel, false);
+        SetActiveIfNotNull(cheastPanel, true);
+        CloseFishFishermanShopUI();
+    }
 
-        if (FishVoyageDiagram != null)
-        {
-            FishVoyageDiagram.SetActive(true);
-        }
+    public void FishShopUI()
+    {
+        OpenShopItemPanel();
+        SetActiveIfNotNull(HatItemsPanel, false);
+        SetActiveIfNotNull(FishVoyageDiagram, false);
+        SetActiveIfNotNull(cheastPanel, false);
+        SetActiveIfNotNull(RoadPanel, false);
+        SetActiveIfNotNull(FishFishermanCosmeticPanel, true);
+        SetActiveIfNotNull(FishCosmeticPanel, true);
+        SetActiveIfNotNull(FishermanCosmeticPanel, false);
+    }
 
-        if (RoadPanel != null)
-        {
-            RoadPanel.SetActive(true);
-        }
+    public void FishermanShopUI()
+    {
+        OpenShopItemPanel();
+        SetActiveIfNotNull(HatItemsPanel, false);
+        SetActiveIfNotNull(FishVoyageDiagram, false);
+        SetActiveIfNotNull(cheastPanel, false);
+        SetActiveIfNotNull(RoadPanel, false);
+        SetActiveIfNotNull(FishFishermanCosmeticPanel, true);
+        SetActiveIfNotNull(FishCosmeticPanel, false);
+        SetActiveIfNotNull(FishermanCosmeticPanel, true);
+        SelectFishermanHatCategory();
+    }
+
+    public void fishermanShopUI()
+    {
+        FishermanShopUI();
     }
 
     public void BackHatPanelUI()
     {
-        if (HatItemsPanel != null)
-        {
-            HatItemsPanel.SetActive(false);
-        }
+        SetActiveIfNotNull(HatItemsPanel, false);
+        SetActiveIfNotNull(ShopItemPanel, false);
+        SetActiveIfNotNull(FishVoyageDiagram, false);
+        SetActiveIfNotNull(RoadPanel, false);
+        CloseFishFishermanShopUI();
+    }
 
-        if (ShopItemPanel != null)
-        {
-            ShopItemPanel.SetActive(false);
-        }
+    public void BackCheastPanelUI()
+    {
+        SetActiveIfNotNull(cheastPanel, false);
+    }
 
-        if (FishVoyageDiagram != null)
-        {
-            FishVoyageDiagram.SetActive(false);
-        }
+    public void CloseFishShopUI()
+    {
+        SetActiveIfNotNull(FishCosmeticPanel, false);
+    }
 
-        if (RoadPanel != null)
-        {
-            RoadPanel.SetActive(false);
-        }
+    public void CloseFishermanShopUI()
+    {
+        SetActiveIfNotNull(FishermanCosmeticPanel, false);
+        SetActiveIfNotNull(FishermanHairObject, false);
+        SetActiveIfNotNull(FishermanHatObject, false);
+    }
+
+    public void CloseFishFishermanShopUI()
+    {
+        SetActiveIfNotNull(FishFishermanCosmeticPanel, false);
+        SetActiveIfNotNull(FishCosmeticPanel, false);
+        SetActiveIfNotNull(FishermanCosmeticPanel, false);
+        SetActiveIfNotNull(FishermanHairObject, false);
+        SetActiveIfNotNull(FishermanHatObject, false);
+        CloseFishFishermanDropdown();
+        SetActiveIfNotNull(ShopItemPanel, false);
+    }
+
+    public void CloseFish_FishermanShopUI()
+    {
+        CloseFishFishermanShopUI();
     }
 
     public void ToggleFishFishermanDropdown()
@@ -306,52 +277,63 @@ public class ShopManager : MonoBehaviour
     public void SelectFishDisplay()
     {
         SetDisplayMode("Fish", true, false, false);
+        FishShopUI();
     }
 
     public void SelectFishermanDisplay()
     {
         SetDisplayMode("Fisherman", false, true, false);
+        FishermanShopUI();
     }
 
     public void SelectHatDisplay()
     {
-        SetActiveIfNotNull(HatDisplayObject, true);
-        CloseFishFishermanDropdown();
+        SetDisplayMode("Hat", false, false, true);
+    }
+
+    public void SelectFishermanHairCategory()
+    {
+        SetActiveIfNotNull(FishermanHairObject, true);
+        SetActiveIfNotNull(FishermanHatObject, false);
+        SetActiveIfNotNull(FishermanCosmeticPanel, true);
+        SetActiveIfNotNull(FishCosmeticPanel, false);
+    }
+
+    public void SelectFishermanHatCategory()
+    {
+        SetActiveIfNotNull(FishermanHatObject, true);
+        SetActiveIfNotNull(FishermanHairObject, false);
+        SetActiveIfNotNull(FishermanCosmeticPanel, true);
+        SetActiveIfNotNull(FishCosmeticPanel, false);
     }
 
     public void HideFishFishermanDisplay()
     {
-        SetFishDisplayVisible(false);
-        SetActiveIfNotNull(FishermanDisplayObject, false);
-        CloseFishFishermanDropdown();
+        SetDisplayMode(string.Empty, false, false, false);
     }
 
     public void OpenSaltShop()
     {
-        if (ShopItemPanel != null)
-        {
-            ShopItemPanel.SetActive(true);
-        }
-
-        if (SaltShopPanel != null)
-        {
-            SaltShopPanel.SetActive(true);
-        }
-
+        OpenShopItemPanel();
+        SetActiveIfNotNull(SaltShopPanel, true);
+        SetActiveIfNotNull(FishFishermanCosmeticPanel, false);
+        SetActiveIfNotNull(FishCosmeticPanel, false);
+        SetActiveIfNotNull(FishermanCosmeticPanel, false);
+        SetActiveIfNotNull(FishermanHairObject, false);
+        SetActiveIfNotNull(FishermanHatObject, false);
         CloseFishFishermanDropdown();
+        PlaySaltShopGif();
     }
 
     public void CloseSaltShop()
     {
-        if (SaltShopPanel != null)
-        {
-            SaltShopPanel.SetActive(false);
-        }
+        SetActiveIfNotNull(SaltShopPanel, false);
+        SetActiveIfNotNull(ShopItemPanel, false);
+    }
 
-        if (ShopItemPanel != null)
-        {
-            ShopItemPanel.SetActive(false);
-        }
+    private void OpenShopItemPanel()
+    {
+        SetActiveIfNotNull(ShopItemPanel, true);
     }
 
     private void SetDisplayMode(string label, bool showFish, bool showFisherman, bool showHat)
@@ -365,42 +347,17 @@ public class ShopManager : MonoBehaviour
 
     private void SetFishDisplayVisible(bool visible)
     {
-        GameObject[] fishDisplays = GetFishDisplayObjects();
-        if (fishDisplays == null || fishDisplays.Length == 0)
-        {
-            SetActiveIfNotNull(FishDisplayObject, visible);
-            return;
-        }
-
-        for (int i = 0; i < fishDisplays.Length; i++)
-        {
-            SetActiveIfNotNull(fishDisplays[i], false);
-        }
-
-        if (!visible)
-        {
-            return;
-        }
-
-        int selectedFish = Mathf.Clamp(PlayerPrefs.GetInt(LocalPlayManager.SelectedFishPrefKey, 0), 0, fishDisplays.Length - 1);
-        GameObject selectedFishDisplay = fishDisplays[selectedFish] != null ? fishDisplays[selectedFish] : FishDisplayObject;
-        SetActiveIfNotNull(selectedFishDisplay, true);
-    }
-
-    private GameObject[] GetFishDisplayObjects()
-    {
         if (FishDisplayObjects != null && FishDisplayObjects.Length > 0)
         {
-            return FishDisplayObjects;
+            for (int i = 0; i < FishDisplayObjects.Length; i++)
+            {
+                SetActiveIfNotNull(FishDisplayObjects[i], visible && i == 0);
+            }
+
+            return;
         }
 
-        if (displayLocalPlayManager != null && displayLocalPlayManager.Fish_Sprite != null && displayLocalPlayManager.Fish_Sprite.Length > 0)
-        {
-            FishDisplayObjects = displayLocalPlayManager.Fish_Sprite;
-            return FishDisplayObjects;
-        }
-
-        return FishDisplayObject != null ? new[] { FishDisplayObject } : null;
+        SetActiveIfNotNull(FishDisplayObject, visible);
     }
 
     private void SetFishFishermanDropdownOpen(bool open)
@@ -421,42 +378,6 @@ public class ShopManager : MonoBehaviour
         SetFishFishermanDropdownOpen(false);
     }
 
-    private void SetupAnimatedShopGif()
-    {
-        if (!autoAnimateFishingshopGif)
-        {
-            return;
-        }
-
-        Transform searchRoot = ShopItemPanel != null ? ShopItemPanel.transform.root : transform.root;
-        if (searchRoot == null)
-        {
-            return;
-        }
-
-        Image[] images = searchRoot.GetComponentsInChildren<Image>(true);
-        for (int i = 0; i < images.Length; i++)
-        {
-            Image image = images[i];
-            if (image == null || image.sprite == null || !image.sprite.name.StartsWith("Fishingshop2"))
-            {
-                continue;
-            }
-
-            UIImageFrameAnimator animator = image.GetComponent<UIImageFrameAnimator>();
-            if (animator == null)
-            {
-                animator = image.gameObject.AddComponent<UIImageFrameAnimator>();
-            }
-
-            animator.resourcesFolder = fishingshopFramesResourceFolder;
-            animator.framesPerSecond = fishingshopFramesPerSecond;
-            animator.loop = true;
-            animator.playOnEnable = true;
-            animator.Play();
-        }
-    }
-
     private void SetDropdownLabel(string label)
     {
         if (FishFishermanDropdownText != null)
@@ -470,259 +391,375 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    private static void SetActiveIfNotNull(GameObject target, bool active)
+    private void SetupAnimatedSaltShopGif()
     {
-        if (target != null)
+        if (!autoAnimateFishingshopGif || SaltShopPanel == null)
         {
-            target.SetActive(active);
+            return;
+        }
+
+        if (SaltShopAnimatedImage == null)
+        {
+            SaltShopAnimatedImage = FindAnimatedShopImage(SaltShopPanel.transform);
+        }
+
+        if (SaltShopAnimatedImage == null)
+        {
+            return;
+        }
+
+        saltShopAnimator = SaltShopAnimatedImage.GetComponent<UIImageFrameAnimator>();
+        if (saltShopAnimator == null)
+        {
+            saltShopAnimator = SaltShopAnimatedImage.gameObject.AddComponent<UIImageFrameAnimator>();
+        }
+
+        saltShopAnimator.resourcesFolder = fishingshopFramesResourceFolder;
+        saltShopAnimator.framesPerSecond = fishingshopFramesPerSecond;
+        saltShopAnimator.loop = true;
+        saltShopAnimator.playOnEnable = true;
+    }
+
+    private void PlaySaltShopGif()
+    {
+        if (!autoAnimateFishingshopGif)
+        {
+            return;
+        }
+
+        if (saltShopAnimator == null)
+        {
+            SetupAnimatedSaltShopGif();
+        }
+
+        if (saltShopAnimator != null)
+        {
+            saltShopAnimator.Play();
         }
     }
 
-    private void RegisterOptionalButtons()
+    private void ResolveCloseButton()
     {
-        if (FishFishermanDropdownButton != null)
+        if (Close_FishShopUi == null && FishCosmeticPanel != null)
         {
-            FishFishermanDropdownButton.onClick.AddListener(ToggleFishFishermanDropdown);
+            Close_FishShopUi = FindButtonByNames(FishCosmeticPanel.transform, "x", "X", "Close", "Close Button", "CloseButton");
         }
 
-        if (FishOptionButton != null)
+        if (Close_FishermanShopUI == null && FishermanCosmeticPanel != null)
         {
-            FishOptionButton.onClick.AddListener(SelectFishDisplay);
+            Close_FishermanShopUI = FindButtonByNames(FishermanCosmeticPanel.transform, "x", "X", "Close", "Close Button", "CloseButton");
         }
 
-        if (FishermanOptionButton != null)
+        if (close_Fish_FishermanCosmeticPanelButton == null)
         {
-            FishermanOptionButton.onClick.AddListener(SelectFishermanDisplay);
-        }
-
-        if (DisplayHatButton != null)
-        {
-            DisplayHatButton.onClick.AddListener(SelectHatDisplay);
-        }
-
-        if (SaltShopButton != null)
-        {
-            SaltShopButton.onClick.AddListener(OpenSaltShop);
-        }
-
-        if (SaltShopBackButton != null)
-        {
-            SaltShopBackButton.onClick.AddListener(CloseSaltShop);
+            Transform root = FishFishermanCosmeticPanel != null ? FishFishermanCosmeticPanel.transform : transform.root;
+            close_Fish_FishermanCosmeticPanelButton = FindButtonByNames(root, "Close", "Close Button", "CloseButton", "X", "x", "Back");
         }
     }
 
-    private void ResolveOptionalReferences()
+    private void ResolvePanelReferences()
     {
-        Transform searchRoot = ShopItemPanel != null ? ShopItemPanel.transform.root : transform.root;
-        Transform shopRoot = ResolveDisplayShopRoot(searchRoot);
-        displayLocalPlayManager = shopRoot != null ? shopRoot.GetComponent<LocalPlayManager>() : null;
-        GameObject dropdownRoot = FindFirstChildByNames(shopRoot, "Dropdown", "Fish&Fisherman DD", "Fish & FisherMan DD", "FishFishermanDropdown");
+        Transform root = transform.root;
 
-        if (IsInvalidDropdownList(FishFishermanDropdownList))
+        if (FishFishermanCosmeticPanel == null)
         {
-            Transform listSearchRoot = dropdownRoot != null ? dropdownRoot.transform : shopRoot;
-            FishFishermanDropdownList = FindFirstChildByNames(listSearchRoot, "DD list", "DD List", "Dropdown List");
+            FishFishermanCosmeticPanel = FindGameObjectByNames(
+                root,
+                "Fish/Fisherman Cosmetic Panel",
+                "Fish Fisherman Cosmetic Panel",
+                "FishFishermanCosmeticPanel");
         }
 
-        if (dropdownRoot != null)
+        if (FishCosmeticPanel == null)
         {
-            DisableIncompleteTMPDropdown(dropdownRoot);
+            FishCosmeticPanel = FindGameObjectByNames(root, "Fish Cosmetic", "Fish Cosmetic Panel", "FishCosmeticPanel");
         }
 
-        if (IsInvalidMainDropdownButton(FishFishermanDropdownButton))
+        if (FishermanCosmeticPanel == null)
         {
-            FishFishermanDropdownButton = FindExistingDropdownToggleButton(shopRoot, dropdownRoot);
+            FishermanCosmeticPanel = FindGameObjectByNames(
+                root,
+                "Fisherman Cosmetic",
+                "FisherMan Cosmetic",
+                "Fisherman Cosmetic Panel",
+                "FishermanCosmeticPanel");
+        }
+    }
+
+    private void ResolveCosmeticCategoryReferences()
+    {
+        Transform root = FishFishermanCosmeticPanel != null ? FishFishermanCosmeticPanel.transform : transform.root;
+
+        if (FishFaceButton == null)
+        {
+            FishFaceButton = FindButtonByNames(root, "FishButton", "Fish Button");
         }
 
-        fishFishermanDropdownClickArea = FishFishermanDropdownButton != null
-            ? FishFishermanDropdownButton.GetComponent<RectTransform>()
-            : dropdownRoot != null ? dropdownRoot.GetComponent<RectTransform>() : null;
-
-        Transform optionRoot = FishFishermanDropdownList != null ? FishFishermanDropdownList.transform : shopRoot;
-
-        if (IsInvalidOptionButton(FishOptionButton, "Fish"))
+        if (FishermanFaceButton == null)
         {
-            FishOptionButton = GetComponentFromNames<Button>(optionRoot, "Fish Button ", "Fish Button", "FishButton");
+            FishermanFaceButton = FindButtonByNames(root, "FishermanButton", "FisherMan Button", "Fisherman Button");
         }
 
-        if (IsInvalidOptionButton(FishermanOptionButton, "Fisher"))
+        if (FishermanHatButton == null)
         {
-            FishermanOptionButton = GetComponentFromNames<Button>(optionRoot, "FisherMan Button", "Fisherman Button", "FisherManButton", "FishermanButton");
+            FishermanHatButton = FindButtonByNames(root, "hatButton", "HatButton", "Hat Button");
         }
 
-        if (FishFishermanDropdownArrow == null)
+        Transform fishermanItemsRoot = FishermanCosmeticPanel != null ? FishermanCosmeticPanel.transform : root;
+
+        if (FishermanHatObject == null)
         {
-            Transform arrowSearchRoot = dropdownRoot != null ? dropdownRoot.transform : shopRoot;
-            GameObject arrow = FindFirstChildByNames(arrowSearchRoot, "Arrow");
-            FishFishermanDropdownArrow = arrow != null ? arrow.transform : null;
+            FishermanHatObject = FindGameObjectByNames(fishermanItemsRoot, "hat", "Hat");
         }
 
-        if (FishFishermanDropdownText == null)
+        if (FishermanHairObject == null)
         {
-            GameObject label = FindFirstChildByNames(shopRoot, "Label", "SelectedItemText");
-            FishFishermanDropdownText = label != null ? label.GetComponentInChildren<Text>(true) : null;
+            FishermanHairObject = FindGameObjectByNames(fishermanItemsRoot, "hair", "Hair");
+        }
+    }
+
+    private void ResolveCosmeticItemRoots()
+    {
+        if (FishCosmeticItemsRoot == null)
+        {
+            GameObject fishItemsRoot = FishCosmeticPanel != null
+                ? FindGameObjectByNames(FishCosmeticPanel.transform, "fish Cosmetics", "Fish Cosmetics", "FishCosmetics")
+                : FindGameObjectByNames(transform.root, "fish Cosmetics", "Fish Cosmetics", "FishCosmetics");
+            FishCosmeticItemsRoot = fishItemsRoot != null ? fishItemsRoot.transform : null;
         }
 
-        if (FishFishermanDropdownTMPText == null)
+        if (FishermanCosmeticItemsRoot == null)
         {
-            GameObject label = FindFirstChildByNames(shopRoot, "Label", "SelectedItemText");
-            FishFishermanDropdownTMPText = label != null ? label.GetComponentInChildren<TMP_Text>(true) : null;
+            GameObject fishermanItemsRoot = FishermanCosmeticPanel != null
+                ? FindGameObjectByNames(FishermanCosmeticPanel.transform, "fisherman Cosmetics", "Fisherman Cosmetics", "FishermanCosmetics")
+                : FindGameObjectByNames(transform.root, "fisherman Cosmetics", "Fisherman Cosmetics", "FishermanCosmetics");
+            FishermanCosmeticItemsRoot = fishermanItemsRoot != null ? fishermanItemsRoot.transform : null;
+        }
+    }
+
+    private void RegisterCosmeticItemButtons()
+    {
+        RegisterCosmeticItemButtons(FishCosmeticItemsRoot, fishCosmeticItemButtons, fishCosmeticItemActions, false);
+        RegisterCosmeticItemButtons(FishermanCosmeticItemsRoot, fishermanCosmeticItemButtons, fishermanCosmeticItemActions, true);
+
+        ApplyItemOpacity(fishCosmeticItemButtons, null);
+        ApplyItemOpacity(fishermanCosmeticItemButtons, null);
+    }
+
+    private void RegisterCosmeticItemButtons(Transform root, List<Button> buttons, List<UnityAction> actions, bool isFishermanCosmetic)
+    {
+        buttons.Clear();
+        actions.Clear();
+
+        if (root == null)
+        {
+            return;
         }
 
-        if (FishDisplayObject == null)
+        Button[] foundButtons = root.GetComponentsInChildren<Button>(true);
+        for (int i = 0; i < foundButtons.Length; i++)
         {
-            FishDisplayObject = FindFirstChildByNames(shopRoot, "Fish 1", "SelectedItem");
-        }
-
-        if ((FishDisplayObjects == null || FishDisplayObjects.Length == 0) && displayLocalPlayManager != null)
-        {
-            FishDisplayObjects = displayLocalPlayManager.Fish_Sprite;
-        }
-
-        if (FishermanDisplayObject == null)
-        {
-            FishermanDisplayObject = FindFirstChildByNames(shopRoot, "FisherMan", "Fisherman");
-        }
-
-        if (DisplayHatButton == null)
-        {
-            Transform directHatButton = FindDirectChildByName(shopRoot, "Hat");
-            DisplayHatButton = directHatButton != null
-                ? directHatButton.GetComponent<Button>()
-                : GetComponentFromNames<Button>(shopRoot, "Hat Button", "Display Hat Button", "DisplayHatButton");
-        }
-
-        if (HatDisplayObject == null)
-        {
-            Transform directHatImage = FindDirectChildByName(shopRoot, "Hatimage");
-            if (directHatImage == null)
+            Button button = foundButtons[i];
+            if (button == null || IsCloseButton(button))
             {
-                directHatImage = FindDirectChildByName(shopRoot, "Hat Image");
+                continue;
             }
 
-            if (directHatImage == null)
+            MakeButtonClickable(button);
+            buttons.Add(button);
+            UnityAction action = () => SelectCosmeticItem(buttons, button, isFishermanCosmetic);
+            actions.Add(action);
+            button.onClick.RemoveListener(action);
+            button.onClick.AddListener(action);
+        }
+
+        Image[] images = root.GetComponentsInChildren<Image>(true);
+        for (int i = 0; i < images.Length; i++)
+        {
+            Image image = images[i];
+            if (!IsCosmeticItemImage(image))
             {
-                directHatImage = FindDirectChildByName(shopRoot, "DisplayHatImage");
+                continue;
             }
 
-            HatDisplayObject = directHatImage != null ? directHatImage.gameObject : null;
-        }
+            Button button = image.GetComponent<Button>();
+            if (button == null)
+            {
+                button = image.gameObject.AddComponent<Button>();
+            }
 
-        if (SaltShopButton == null)
-        {
-            SaltShopButton = GetComponentFromNames<Button>(shopRoot, "Sal - TButton", "Sal -TButton", "Sal-TButton", "SaltShopButton");
-        }
+            if (buttons.Contains(button))
+            {
+                continue;
+            }
 
-        if (SaltShopPanel == null)
-        {
-            SaltShopPanel = FindFirstChildByNames(searchRoot, "Sal -t Image BackGround", "Sal-t Image BackGround", "Salt Image BackGround", "SaltShopPanel");
-        }
-
-        if (SaltShopBackButton == null && SaltShopPanel != null)
-        {
-            SaltShopBackButton = GetComponentFromNames<Button>(SaltShopPanel.transform, "Back", "Back Button");
+            MakeButtonClickable(button);
+            buttons.Add(button);
+            UnityAction action = () => SelectCosmeticItem(buttons, button, isFishermanCosmetic);
+            actions.Add(action);
+            button.onClick.RemoveListener(action);
+            button.onClick.AddListener(action);
         }
     }
 
-    private static Transform ResolveDisplayShopRoot(Transform searchRoot)
+    private void SelectCosmeticItem(List<Button> buttons, Button selectedButton, bool isFishermanCosmetic)
     {
-        if (searchRoot == null)
+        ApplyItemOpacity(buttons, selectedButton);
+
+        Sprite selectedSprite = GetButtonSprite(selectedButton);
+        if (selectedSprite == null)
+        {
+            return;
+        }
+
+        if (!isFishermanCosmetic)
+        {
+            CosmeticRuntimeApplier.SelectFishHat(selectedSprite);
+            return;
+        }
+
+        if (FishermanHairObject != null && selectedButton.transform.IsChildOf(FishermanHairObject.transform))
+        {
+            CosmeticRuntimeApplier.SelectFishermanHair(selectedSprite);
+        }
+        else
+        {
+            CosmeticRuntimeApplier.SelectFishermanHat(selectedSprite);
+        }
+    }
+
+    private static Sprite GetButtonSprite(Button button)
+    {
+        Image image = button != null ? button.GetComponent<Image>() : null;
+        if (image != null && image.sprite != null)
+        {
+            return image.sprite;
+        }
+
+        image = button != null ? button.GetComponentInChildren<Image>(true) : null;
+        return image != null ? image.sprite : null;
+    }
+
+    private static void RemoveCosmeticItemButtonListeners(List<Button> buttons, List<UnityAction> actions)
+    {
+        int count = Mathf.Min(buttons.Count, actions.Count);
+        for (int i = 0; i < count; i++)
+        {
+            if (buttons[i] != null && actions[i] != null)
+            {
+                buttons[i].onClick.RemoveListener(actions[i]);
+            }
+        }
+    }
+
+    private void ApplyItemOpacity(List<Button> buttons, Button selectedButton)
+    {
+        for (int i = 0; i < buttons.Count; i++)
+        {
+            Button button = buttons[i];
+            if (button == null)
+            {
+                continue;
+            }
+
+            float alpha = selectedButton != null && button == selectedButton ? SelectedItemOpacity : UnselectedItemOpacity;
+            SetGraphicAlpha(button.gameObject, alpha);
+        }
+    }
+
+    private static void SetGraphicAlpha(GameObject root, float alpha)
+    {
+        if (root == null)
+        {
+            return;
+        }
+
+        Graphic[] graphics = root.GetComponentsInChildren<Graphic>(true);
+        for (int i = 0; i < graphics.Length; i++)
+        {
+            Graphic graphic = graphics[i];
+            if (graphic == null)
+            {
+                continue;
+            }
+
+            Color color = graphic.color;
+            color.a = alpha;
+            graphic.color = color;
+        }
+    }
+
+    private static bool IsCloseButton(Button button)
+    {
+        string name = button.name.ToLowerInvariant();
+        return name.Contains("close") || name == "x" || name.Contains("back");
+    }
+
+    private static bool IsCosmeticItemImage(Image image)
+    {
+        if (image == null || image.sprite == null)
+        {
+            return false;
+        }
+
+        string name = image.name.ToLowerInvariant();
+        if (name.Contains("close") || name == "x" || name.Contains("button") || name.Contains("background"))
+        {
+            return false;
+        }
+
+        return name.Contains("cosmeteic") || name.Contains("cosmetic") || name.Contains("hat") || name.Contains("hair");
+    }
+
+    private static Image FindAnimatedShopImage(Transform root)
+    {
+        if (root == null)
         {
             return null;
         }
 
-        LocalPlayManager localPlayManager = searchRoot.GetComponentInChildren<LocalPlayManager>(true);
-        if (localPlayManager != null)
+        Image[] images = root.GetComponentsInChildren<Image>(true);
+        for (int i = 0; i < images.Length; i++)
         {
-            return localPlayManager.transform;
+            Image image = images[i];
+            if (image != null && image.sprite != null && image.sprite.name.StartsWith("Fishingshop2"))
+            {
+                return image;
+            }
         }
 
-        Transform shop = FindChildByName(searchRoot, "Shop");
-        return shop != null ? shop : searchRoot;
+        return images.Length > 0 ? images[0] : null;
     }
 
-    private static T GetComponentFromNames<T>(Transform root, params string[] names) where T : Component
+    private static void MakeButtonClickable(Button button)
     {
-        GameObject match = FindFirstChildByNames(root, names);
-        return match != null ? match.GetComponent<T>() : null;
-    }
+        button.interactable = true;
 
-    private static bool IsInvalidDropdownList(GameObject dropdownList)
-    {
-        if (dropdownList == null)
+        Graphic targetGraphic = button.targetGraphic;
+        if (targetGraphic == null)
         {
-            return true;
+            targetGraphic = button.GetComponent<Graphic>();
+            button.targetGraphic = targetGraphic;
         }
 
-        return !dropdownList.name.ToLowerInvariant().Contains("list");
-    }
-
-    private bool IsInvalidMainDropdownButton(Button button)
-    {
-        if (button == null)
+        if (targetGraphic != null)
         {
-            return true;
+            targetGraphic.raycastTarget = true;
         }
 
-        return FishFishermanDropdownList != null && button.transform.IsChildOf(FishFishermanDropdownList.transform);
-    }
-
-    private Button FindExistingDropdownToggleButton(Transform shopRoot, GameObject dropdownRoot)
-    {
-        Button button = dropdownRoot != null ? dropdownRoot.GetComponent<Button>() : null;
-        if (button != null)
+        Graphic[] graphics = button.GetComponentsInChildren<Graphic>(true);
+        for (int i = 0; i < graphics.Length; i++)
         {
-            return button;
-        }
-
-        button = GetComponentFromNames<Button>(
-            shopRoot,
-            "Dropdown Button",
-            "FishFishermanDropdownButton",
-            "Fish&Fisherman Dropdown Button",
-            "Fish & Fisherman Dropdown Button");
-
-        if (button != null && !IsInvalidMainDropdownButton(button))
-        {
-            return button;
-        }
-
-        return null;
-    }
-
-    private static bool IsInvalidOptionButton(Button button, string expectedNamePart)
-    {
-        if (button == null)
-        {
-            return true;
-        }
-
-        return button.name.IndexOf(expectedNamePart, System.StringComparison.OrdinalIgnoreCase) < 0;
-    }
-
-    private static void DisableIncompleteTMPDropdown(GameObject dropdownRoot)
-    {
-        TMP_Dropdown tmpDropdown = dropdownRoot.GetComponent<TMP_Dropdown>();
-        if (tmpDropdown != null && tmpDropdown.template == null)
-        {
-            tmpDropdown.enabled = false;
+            if (graphics[i] != null)
+            {
+                graphics[i].raycastTarget = true;
+            }
         }
     }
 
-    private Camera GetDropdownClickCamera()
+    private static GameObject FindGameObjectByNames(Transform root, params string[] names)
     {
-        if (fishFishermanDropdownClickArea == null)
-        {
-            return null;
-        }
-
-        Canvas canvas = fishFishermanDropdownClickArea.GetComponentInParent<Canvas>();
-        return canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay ? canvas.worldCamera : null;
-    }
-
-    private static GameObject FindFirstChildByNames(Transform root, params string[] names)
-    {
-        if (root == null || names == null)
+        if (root == null)
         {
             return null;
         }
@@ -739,19 +776,25 @@ public class ShopManager : MonoBehaviour
         return null;
     }
 
-    private static Transform FindDirectChildByName(Transform root, string childName)
+    private static Button FindButtonByNames(Transform root, params string[] names)
     {
         if (root == null)
         {
             return null;
         }
 
-        for (int i = 0; i < root.childCount; i++)
+        for (int i = 0; i < names.Length; i++)
         {
-            Transform child = root.GetChild(i);
-            if (child.name == childName)
+            Transform match = FindChildByName(root, names[i]);
+            if (match == null)
             {
-                return child;
+                continue;
+            }
+
+            Button button = match.GetComponent<Button>();
+            if (button != null)
+            {
+                return button;
             }
         }
 
@@ -780,5 +823,32 @@ public class ShopManager : MonoBehaviour
         }
 
         return null;
+    }
+
+    private static void AddButtonListener(Button button, UnityEngine.Events.UnityAction action)
+    {
+        if (button == null)
+        {
+            return;
+        }
+
+        button.onClick.RemoveListener(action);
+        button.onClick.AddListener(action);
+    }
+
+    private static void RemoveButtonListener(Button button, UnityEngine.Events.UnityAction action)
+    {
+        if (button != null)
+        {
+            button.onClick.RemoveListener(action);
+        }
+    }
+
+    private static void SetActiveIfNotNull(GameObject target, bool active)
+    {
+        if (target != null)
+        {
+            target.SetActive(active);
+        }
     }
 }

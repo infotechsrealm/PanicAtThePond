@@ -628,7 +628,7 @@ MonoBehaviour:
   ClearWaters: 0
   MurkyWaters: 0
   DeepWaters: 1
-  ReflectiveWater: 0
+  ReflectiveWater: 1
   isFullscreen: 0
   dropDownChangeAvalable: 0
   nickName: 
@@ -652,6 +652,7 @@ MonoBehaviour:
     hungerDepletionRate: 1
     goldenFishSpeed: 3
     troutSpeed: 3
+    wormSpawnRate: 5
   currentRoundWormsUsed: 0
   BGMusic: {fileID: 1304928314}
 --- !u!4 &1771400380
