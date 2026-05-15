@@ -63,7 +63,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
         if (selectedFishermanHat != null)
         {
-            CreateOrUpdateCosmetic(fisherman, FishermanHatChildName, selectedFishermanHat, new Vector3(0f, 0.82f, -0.02f), Vector3.one * 3.5f, 3, true);
+            CreateOrUpdateCosmetic(fisherman, FishermanHatChildName, selectedFishermanHat, new Vector3(0f, 0.82f, -0.02f), Vector3.one * 3.9f, 3, true);
         }
     }
 
@@ -118,23 +118,64 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             return;
         }
 
-        cosmeticRenderer.flipX = rootRenderer.flipX;
-        cosmeticRenderer.flipY = rootRenderer.flipY;
-
         if (followsFishermanAnimation)
         {
+            cosmeticRenderer.flipY = rootRenderer.flipY;
             ApplyFishermanAnimationOffset();
+        }
+        else
+        {
+            cosmeticRenderer.flipX = rootRenderer.flipX;
+            cosmeticRenderer.flipY = rootRenderer.flipY;
         }
     }
 
     private void ApplyFishermanAnimationOffset()
     {
         string clipName = GetCurrentClipName();
+        string state = string.IsNullOrEmpty(clipName) ? string.Empty : clipName.ToLowerInvariant();
         int frameIndex = GetCurrentSpriteFrameIndex();
-        Vector3 offset = GetFishermanHeadOffset(clipName, frameIndex);
 
-        transform.localPosition = baseLocalPosition + offset;
-        transform.localScale = baseLocalScale;
+        bool isLeft = state.Contains("left") || (rootRenderer != null && rootRenderer.flipX && !state.Contains("right"));
+
+        if (gameObject.name == FishermanHatChildName || gameObject.name == FishermanHairChildName)
+        {
+            float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+            Vector3 targetPos;
+            Vector3 targetRot;
+
+            if (isLeft)
+            {
+                targetPos = new Vector3(-0.005f, 0.77f, 0f);
+                targetRot = new Vector3(0, 0, 2.5f);
+            }
+            else
+            {
+                targetPos = new Vector3(-0.005f, 0.77f, 0f);
+                targetRot = new Vector3(0, -168, 2.5f);
+            }
+
+            if (state.Contains("move"))
+            {
+                targetPos.y += 0.03f;
+                targetRot = new Vector3(0, 0, 2.5f);
+            }
+            if (state.Contains("cast") || state.Contains("fish") || state.Contains("reel") || state.Contains("fight")) targetPos.y -= 0.02f;
+            
+            targetPos.y += bob;
+
+            transform.localPosition = targetPos;
+            transform.localEulerAngles = targetRot;
+            transform.localScale = baseLocalScale;
+            cosmeticRenderer.flipX = false;
+        }
+        else
+        {
+            Vector3 offset = GetFishermanHeadOffset(state, frameIndex);
+            transform.localPosition = baseLocalPosition + offset;
+            transform.localScale = baseLocalScale;
+            cosmeticRenderer.flipX = rootRenderer.flipX;
+        }
     }
 
     private string GetCurrentClipName()

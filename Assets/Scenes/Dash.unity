@@ -29924,7 +29924,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.99215686}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -29938,7 +29938,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1293268661}
   m_OnClick:
     m_PersistentCalls:
@@ -37364,20 +37364,23 @@ MonoBehaviour:
   FishFishermanDropdownButton: {fileID: 1897823772}
   FishFishermanDropdownList: {fileID: 877651856}
   FishOptionButton: {fileID: 2012822624}
-  FishermanOptionButton: {fileID: 2012822624}
+  FishermanOptionButton: {fileID: 390749606}
   FishFishermanDropdownArrow: {fileID: 2077682624}
   FishFishermanDropdownText: {fileID: 1951379690}
   FishFishermanDropdownTMPText: {fileID: 1270717776}
-  FishDisplayObject: {fileID: 0}
+  FishDisplayObject: {fileID: 1498720489}
   FishDisplayObjects:
   - {fileID: 1498720489}
-  - {fileID: 1828661388}
   FishermanDisplayObject: {fileID: 1812482358}
   DisplayHatButton: {fileID: 271325828}
   HatDisplayObject: {fileID: 839384849}
   SaltShopButton: {fileID: 103248581}
   SaltShopPanel: {fileID: 569712921}
   SaltShopBackButton: {fileID: 710938683}
+  autoAnimateFishingshopGif: 1
+  SaltShopAnimatedImage: {fileID: 569712923}
+  fishingshopFramesResourceFolder: Fishingshop2Frames
+  fishingshopFramesPerSecond: 10
 --- !u!1 &1688158529
 GameObject:
   m_ObjectHideFlags: 0
@@ -52778,7 +52781,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -250.00012, y: 118.29999}
+  m_AnchoredPosition: {x: -250.00015, y: 118.29999}
   m_SizeDelta: {x: -841.1121, y: -592.8751}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1446265951281744824

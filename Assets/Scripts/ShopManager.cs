@@ -276,19 +276,20 @@ public class ShopManager : MonoBehaviour
 
     public void SelectFishDisplay()
     {
-        SetDisplayMode("Fish", true, false, false);
-        FishShopUI();
+        bool isHatVisible = HatDisplayObject != null && HatDisplayObject.activeSelf;
+        SetDisplayMode("Fish", true, false, isHatVisible);
     }
 
     public void SelectFishermanDisplay()
     {
-        SetDisplayMode("Fisherman", false, true, false);
-        FishermanShopUI();
+        bool isHatVisible = HatDisplayObject != null && HatDisplayObject.activeSelf;
+        SetDisplayMode("Fisherman", false, true, isHatVisible);
     }
 
     public void SelectHatDisplay()
     {
-        SetDisplayMode("Hat", false, false, true);
+        if (HatDisplayObject != null) HatDisplayObject.SetActive(true);
+        CloseFishFishermanDropdown();
     }
 
     public void SelectFishermanHairCategory()
@@ -351,7 +352,7 @@ public class ShopManager : MonoBehaviour
         {
             for (int i = 0; i < FishDisplayObjects.Length; i++)
             {
-                SetActiveIfNotNull(FishDisplayObjects[i], visible && i == 0);
+                SetActiveIfNotNull(FishDisplayObjects[i], visible);
             }
 
             return;
