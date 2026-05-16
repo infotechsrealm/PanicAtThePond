@@ -89,6 +89,7 @@ public class ShopManager : MonoBehaviour
         ResolveCloseButton();
         ResolveCosmeticCategoryReferences();
         ResolveCosmeticItemRoots();
+        ResolveFishDisplayObjects();
 
         AddButtonListener(HatButton, HatShopUI);
         AddButtonListener(RoadButton, RoadShopUI);
@@ -348,17 +349,47 @@ public class ShopManager : MonoBehaviour
 
     private void SetFishDisplayVisible(bool visible)
     {
+        ResolveFishDisplayObjects();
+
         if (FishDisplayObjects != null && FishDisplayObjects.Length > 0)
         {
+            int selectedFish = PlayerPrefs.GetInt("SelectedFish", 0);
             for (int i = 0; i < FishDisplayObjects.Length; i++)
             {
-                SetActiveIfNotNull(FishDisplayObjects[i], visible);
+                SetActiveIfNotNull(FishDisplayObjects[i], visible && (i == selectedFish));
             }
 
             return;
         }
 
         SetActiveIfNotNull(FishDisplayObject, visible);
+    }
+
+    private void ResolveFishDisplayObjects()
+    {
+        if (FishDisplayObjects != null && FishDisplayObjects.Length > 1)
+        {
+            return;
+        }
+
+        Transform displayRoot = FishDisplayObject != null ? FishDisplayObject.transform.parent : null;
+        if (displayRoot == null)
+        {
+            return;
+        }
+
+        GameObject fishOne = FindGameObjectByNames(displayRoot, "Fish 1", "Fish1", "Fish");
+        GameObject fishTwo = FindGameObjectByNames(displayRoot, "Fish 2", "Fish2");
+        if (fishOne == null && fishTwo == null)
+        {
+            return;
+        }
+
+        FishDisplayObjects = new GameObject[]
+        {
+            fishOne != null ? fishOne : FishDisplayObject,
+            fishTwo
+        };
     }
 
     private void SetFishFishermanDropdownOpen(bool open)

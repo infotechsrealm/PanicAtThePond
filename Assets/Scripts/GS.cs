@@ -2,6 +2,7 @@ using ExitGames.Client.Photon;
 using Mirror;
 using Mirror.Discovery;
 using Photon.Pun;
+using Steamworks;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,16 @@ public static class UnityThread
 
 public class GS : MonoBehaviour  
 {
+    private static readonly string[] SteamAchievementIds =
+    {
+        "SOLO_ARTIST",
+        "SURVIVOR",
+        "EARTH_PRAISER",
+        "WHAT_A_SNACK",
+        "FISH_SLAYER",
+        "WE_COME_IN_SWARMS",
+        "GULPER"
+    };
 
     public static GS Instance;
 
@@ -65,6 +76,9 @@ public class GS : MonoBehaviour
     public System.Collections.Generic.Dictionary<string, int> hooksEscaped = new System.Collections.Generic.Dictionary<string, int>();
     public System.Collections.Generic.Dictionary<string, int> wormsEatenThisRound = new System.Collections.Generic.Dictionary<string, int>();
 
+    private Callback<UserStatsStored_t> steamStatsStoredCallback;
+    private Callback<UserStatsReceived_t> steamStatsReceivedCallback;
+    private bool steamAchievementSyncRequested;
 
 
     public AudioSource BGMusic;
@@ -190,6 +204,8 @@ public class GS : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         nickName = "Player_" + UnityEngine.Random.Range(100, 999);
+        RegisterSteamAchievementCallbacks();
+        StartCoroutine(SyncUnlockedAchievementsToSteamAfterDelay());
     }
 
     private void Update()
@@ -401,6 +417,156 @@ public class GS : MonoBehaviour
         dropdownHandler.OnDropdownChanged(index);
         dropdownHandler.waterDropdown.value = index;   // dropdown option index set karega
         dropdownHandler.waterDropdown.RefreshShownValue();   // UI ko update karega
+    }
+
+    public void SyncUnlockedAchievementsToSteamDataAdmin(string reason = "manual")
+    {
+        Debug.Log($"[GS][SteamAchievementSync] Start. Reason: {reason}");
+        Debug.Log($"[GS][SteamAchievementSync] SteamManager.Initialized = {SteamManager.Initialized}");
+
+        if (!SteamManager.Initialized)
+        {
+            Debug.LogWarning("[GS][SteamAchievementSync] Steam is not initialized. Local unlocked achievements remain saved in PlayerPrefs only.");
+            LogLocalAchievementState();
+            return;
+        }
+
+        RegisterSteamAchievementCallbacks();
+
+        Debug.Log($"[GS][SteamAchievementSync] Steam persona = {SteamFriends.GetPersonaName()}");
+        Debug.Log($"[GS][SteamAchievementSync] SteamID = {SteamUser.GetSteamID()}");
+        Debug.Log($"[GS][SteamAchievementSync] AppID = {SteamUtils.GetAppID()}");
+
+        Debug.Log("[GS][SteamAchievementSync] RequestCurrentStats() is not exposed by this Steamworks.NET version; current-user stats are handled by the Steam client before game startup.");
+
+        int localUnlockedCount = 0;
+        int setAchievementSuccessCount = 0;
+
+        for (int i = 0; i < SteamAchievementIds.Length; i++)
+        {
+            string achievementId = SteamAchievementIds[i];
+            bool localUnlocked = PlayerPrefs.GetInt("Achievement_" + achievementId, 0) == 1;
+            bool steamGetSuccess = SteamUserStats.GetAchievement(achievementId, out bool steamUnlocked);
+
+            Debug.Log($"[GS][SteamAchievementSync] {achievementId}: local={localUnlocked}, steamGetSuccess={steamGetSuccess}, steamAlreadyUnlocked={steamUnlocked}");
+
+            if (!localUnlocked)
+            {
+                continue;
+            }
+
+            localUnlockedCount++;
+
+            if (steamGetSuccess && steamUnlocked)
+            {
+                Debug.Log($"[GS][SteamAchievementSync] {achievementId}: already unlocked in Steam backend.");
+                continue;
+            }
+
+            bool setResult = SteamUserStats.SetAchievement(achievementId);
+            Debug.Log($"[GS][SteamAchievementSync] SetAchievement({achievementId}) returned {setResult}");
+            if (setResult)
+            {
+                setAchievementSuccessCount++;
+            }
+        }
+
+        if (localUnlockedCount == 0)
+        {
+            Debug.Log("[GS][SteamAchievementSync] No locally unlocked achievements found to send.");
+            return;
+        }
+
+        bool storeResult = SteamUserStats.StoreStats();
+        steamAchievementSyncRequested = storeResult;
+        Debug.Log($"[GS][SteamAchievementSync] StoreStats() returned {storeResult}. LocalUnlocked={localUnlockedCount}, NewlySetThisSync={setAchievementSuccessCount}");
+        Debug.Log("[GS][SteamAchievementSync] If StoreStats returned true, wait for UserStatsStored_t callback below to confirm Steam accepted the write.");
+    }
+
+    public void UnlockAchievementAndSyncToSteam(string achievementId)
+    {
+        if (string.IsNullOrEmpty(achievementId))
+        {
+            Debug.LogWarning("[GS][SteamAchievementSync] UnlockAchievementAndSyncToSteam called with empty achievement id.");
+            return;
+        }
+
+        bool alreadyLocalUnlocked = PlayerPrefs.GetInt("Achievement_" + achievementId, 0) == 1;
+        PlayerPrefs.SetInt("Achievement_" + achievementId, 1);
+        PlayerPrefs.Save();
+
+        Debug.Log($"[GS][SteamAchievementSync] Local achievement marked unlocked: {achievementId}. AlreadyLocalUnlocked={alreadyLocalUnlocked}");
+
+        if (!SteamManager.Initialized)
+        {
+            Debug.LogWarning($"[GS][SteamAchievementSync] Steam is not initialized. {achievementId} saved locally and will sync next time Steam is available.");
+            return;
+        }
+
+        RegisterSteamAchievementCallbacks();
+
+        bool setResult = SteamUserStats.SetAchievement(achievementId);
+        bool storeResult = SteamUserStats.StoreStats();
+        steamAchievementSyncRequested = storeResult;
+
+        Debug.Log($"[GS][SteamAchievementSync] Immediate sync for {achievementId}: SetAchievement={setResult}, StoreStats={storeResult}");
+    }
+
+    private System.Collections.IEnumerator SyncUnlockedAchievementsToSteamAfterDelay()
+    {
+        yield return null;
+        yield return new WaitForSeconds(1f);
+        SyncUnlockedAchievementsToSteamDataAdmin("GS.Start");
+    }
+
+    private void RegisterSteamAchievementCallbacks()
+    {
+        if (!SteamManager.Initialized)
+        {
+            return;
+        }
+
+        if (steamStatsStoredCallback == null)
+        {
+            steamStatsStoredCallback = Callback<UserStatsStored_t>.Create(OnSteamUserStatsStored);
+            Debug.Log("[GS][SteamAchievementSync] Registered UserStatsStored_t callback.");
+        }
+
+        if (steamStatsReceivedCallback == null)
+        {
+            steamStatsReceivedCallback = Callback<UserStatsReceived_t>.Create(OnSteamUserStatsReceived);
+            Debug.Log("[GS][SteamAchievementSync] Registered UserStatsReceived_t callback.");
+        }
+    }
+
+    private void OnSteamUserStatsStored(UserStatsStored_t callback)
+    {
+        Debug.Log($"[GS][SteamAchievementSync] UserStatsStored_t callback. gameID={callback.m_nGameID}, result={callback.m_eResult}, syncWasRequested={steamAchievementSyncRequested}");
+        steamAchievementSyncRequested = false;
+
+        if (callback.m_eResult != EResult.k_EResultOK)
+        {
+            Debug.LogError($"[GS][SteamAchievementSync] Steam rejected StoreStats. Result={callback.m_eResult}. Check Steam Data Admin achievement API names and app configuration.");
+        }
+        else
+        {
+            Debug.Log("[GS][SteamAchievementSync] Steam accepted StoreStats. Unlocked achievements were sent to Steam backend.");
+        }
+    }
+
+    private void OnSteamUserStatsReceived(UserStatsReceived_t callback)
+    {
+        Debug.Log($"[GS][SteamAchievementSync] UserStatsReceived_t callback. gameID={callback.m_nGameID}, result={callback.m_eResult}");
+    }
+
+    private void LogLocalAchievementState()
+    {
+        for (int i = 0; i < SteamAchievementIds.Length; i++)
+        {
+            string achievementId = SteamAchievementIds[i];
+            bool localUnlocked = PlayerPrefs.GetInt("Achievement_" + achievementId, 0) == 1;
+            Debug.Log($"[GS][SteamAchievementSync] Local PlayerPrefs Achievement_{achievementId} = {localUnlocked}");
+        }
     }
 
 }

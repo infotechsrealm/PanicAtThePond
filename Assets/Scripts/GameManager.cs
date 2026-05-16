@@ -270,6 +270,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                     float y = Random.Range(minBounds.y, maxBounds.y);
                     Vector3 spawnPos = new Vector3(x, y, 0);
                     GameObject fish = Instantiate(selectedFishPrefab, spawnPos, Quaternion.identity);
+                    ApplySelectedFishTransform(fish);
                     CosmeticRuntimeApplier.ApplyToFish(fish);
                     fishes.Add(fish);
                     NetworkServer.AddPlayerForConnection(conn, fish);
@@ -283,6 +284,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             float y = Random.Range(minBounds.y, maxBounds.y);
             Vector3 spawnPos = new Vector3(x, y, 0);
             GameObject fish = PhotonNetwork.Instantiate(selectedFishPrefab.name, spawnPos, Quaternion.identity);
+            ApplySelectedFishTransform(fish);
             CosmeticRuntimeApplier.ApplyToFish(fish);
             fishes.Add(fish);
             Debug.Log("Fish Spawned: " + fishes.Count);
@@ -300,6 +302,23 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         Debug.LogWarning($"Selected fish prefab '{selectedFishPrefabName}' was not found in Resources. Falling back to default fish prefab.");
         return fishPrefab;
+    }
+
+    private void ApplySelectedFishTransform(GameObject fish)
+    {
+        if (fish == null)
+        {
+            return;
+        }
+
+        float selectedFishScale = LocalPlayManager.GetSelectedFishScale();
+        fish.transform.localScale = Vector3.one * selectedFishScale;
+
+        FishController fishController = fish.GetComponent<FishController>();
+        if (fishController != null)
+        {
+            fishController.RefreshOriginalScaleFromTransform();
+        }
     }
 
     public void setFishermanWormCounts()
@@ -715,34 +734,16 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void UnlockAchievement(string achievementId)
     {
-         // Check if already unlocked to avoid duplicate calls
-         if (PlayerPrefs.GetInt("Achievement_" + achievementId, 0) == 1)
+         if (GS.Instance != null)
          {
-             Debug.Log("Achievement already unlocked: " + achievementId);
+             GS.Instance.UnlockAchievementAndSyncToSteam(achievementId);
              return;
          }
 
+         bool alreadyUnlocked = PlayerPrefs.GetInt("Achievement_" + achievementId, 0) == 1;
          PlayerPrefs.SetInt("Achievement_" + achievementId, 1);
          PlayerPrefs.Save();
-
-         if (SteamManager.Initialized)
-         {
-             bool success = SteamUserStats.SetAchievement(achievementId);
-             if (success)
-             {
-                 SteamUserStats.StoreStats();
-                 Debug.Log("✓ Steam Achievement UNLOCKED and saved: " + achievementId);
-                 Debug.Log("  → Check Steam Data Admin → Achievements to see it!");
-             }
-             else
-             {
-                 Debug.LogError("✗ Failed to set Steam achievement: " + achievementId);
-             }
-         }
-         else
-         {
-             Debug.LogWarning("Steam not initialized - achievement saved locally only: " + achievementId);
-         }
+         Debug.LogWarning($"[GameManager] GS.Instance is null. Achievement saved locally only: {achievementId}. AlreadyUnlocked={alreadyUnlocked}");
     }
 
     /// <summary>

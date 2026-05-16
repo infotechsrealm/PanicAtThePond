@@ -30,6 +30,12 @@ public class LocalPlayManager : MonoBehaviour
         TroutFishPrefabName
     };
 
+    private static readonly float[] FishPrefabScales =
+    {
+        1f,
+        3.3f
+    };
+
     private static readonly string[] TroutAchievementIds =
     {
         "GULPER",
@@ -209,7 +215,7 @@ public class LocalPlayManager : MonoBehaviour
         RefreshArrowButtons();
 
         PlayerPrefs.SetInt(SelectedFishPrefKey, Next_Fish);
-        PlayerPrefs.SetString(SelectedFishPrefabPrefKey, GetSelectedFishPrefabName());
+        PlayerPrefs.SetString(SelectedFishPrefabPrefKey, GetFishPrefabNameForSelection(Next_Fish));
         PlayerPrefs.Save();
     }
 
@@ -393,7 +399,32 @@ public class LocalPlayManager : MonoBehaviour
             selectedFish = 0;
         }
 
-        return FishPrefabNames[selectedFish];
+        return GetFishPrefabNameForSelection(selectedFish);
+    }
+
+    public static float GetSelectedFishScale()
+    {
+        RefreshFishUnlocks();
+
+        int selectedFish = Mathf.Clamp(PlayerPrefs.GetInt(SelectedFishPrefKey, 0), 0, FishPrefabScales.Length - 1);
+        if (!IsFishUnlocked(selectedFish))
+        {
+            selectedFish = 0;
+        }
+
+        return GetFishScaleForSelection(selectedFish);
+    }
+
+    public static string GetFishPrefabNameForSelection(int selectedFish)
+    {
+        int fishIndex = Mathf.Clamp(selectedFish, 0, FishPrefabNames.Length - 1);
+        return FishPrefabNames[fishIndex];
+    }
+
+    public static float GetFishScaleForSelection(int selectedFish)
+    {
+        int fishIndex = Mathf.Clamp(selectedFish, 0, FishPrefabScales.Length - 1);
+        return FishPrefabScales[fishIndex];
     }
 
     private void KeepArrowButtonsOnScreen()

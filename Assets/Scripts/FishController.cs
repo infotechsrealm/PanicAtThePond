@@ -42,6 +42,7 @@ public class FishController : MonoBehaviourPunCallbacks
 
     internal float originalScaleX;
     internal float originalScaleY;
+    internal float originalScaleZ;
     public bool canMove = true;
     internal bool catchadeFish = false;
     internal GameObject carriedJunk;
@@ -62,9 +63,15 @@ public class FishController : MonoBehaviourPunCallbacks
         {
             Instance = this;
         }
+        RefreshOriginalScaleFromTransform();
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    public void RefreshOriginalScaleFromTransform()
+    {
         originalScaleX = transform.localScale.x;
         originalScaleY = transform.localScale.y;
-        rb = GetComponent<Rigidbody2D>();
+        originalScaleZ = transform.localScale.z;
     }
     void Start()
     {
@@ -213,9 +220,9 @@ public class FishController : MonoBehaviourPunCallbacks
 
         // Flip fish based on direction
         if (moveX < 0)
-            transform.localScale = new Vector3(originalScaleX, originalScaleY, 1);
+            transform.localScale = new Vector3(originalScaleX, originalScaleY, originalScaleZ);
         else if (moveX > 0)
-            transform.localScale = new Vector3(-originalScaleX, originalScaleY, 1);
+            transform.localScale = new Vector3(-originalScaleX, originalScaleY, originalScaleZ);
 
         // Clamp position
         Vector3 clampedPos = transform.position;
@@ -357,7 +364,7 @@ public class FishController : MonoBehaviourPunCallbacks
         transform.localScale = new Vector3(
             Mathf.Approximately(originalScaleX, 0f) ? 1f : originalScaleX,
             Mathf.Approximately(originalScaleY, 0f) ? 1f : originalScaleY,
-            1f);
+            Mathf.Approximately(originalScaleZ, 0f) ? 1f : originalScaleZ);
 
         foreach (SpriteRenderer spriteRenderer in GetComponentsInChildren<SpriteRenderer>(true))
         {
