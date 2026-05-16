@@ -105,7 +105,10 @@ public class FishController : MonoBehaviourPunCallbacks
             return;
         }
 
-        speed = GS.Instance.scoreSystemSettings.GetTroutSpeed();
+        if (CosmeticRuntimeApplier.IsTroutFish(gameObject))
+        {
+            speed = GS.Instance.scoreSystemSettings.GetTroutSpeed();
+        }
     }
 
     public void SetVissiblity_Mirror()

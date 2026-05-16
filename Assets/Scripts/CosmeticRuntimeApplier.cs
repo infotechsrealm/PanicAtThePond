@@ -199,7 +199,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         string clipName = GetCurrentClipName();
         string state = string.IsNullOrEmpty(clipName) ? string.Empty : clipName.ToLowerInvariant();
         int frameIndex = GetCurrentSpriteFrameIndex();
-        bool isLeft = state.Contains("left") || (rootRenderer != null && rootRenderer.flipX && !state.Contains("right"));
+        bool isLeft = state.Contains("left") || state == "move forward" || state == "move backwards" || (rootRenderer != null && rootRenderer.flipX && !state.Contains("right") && !state.Contains("reverse"));
 
         if (gameObject.name == FishermanHatChildName || gameObject.name == FishermanHairChildName)
         {
@@ -318,27 +318,27 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             case "fishermanhatbluecap":
                 return new CosmeticTransform(
                     new Vector3(-0.005f, 0.67f, 0f),
-                    new Vector3(0f, -168f, -1.767f),
+                    new Vector3(0f, -160f, -1.767f),
                     new Vector3(5.137857f, 4.707734f, 3.9f));
             case "fishermanhatredcap":
                 return new CosmeticTransform(
                     new Vector3(0.04f, 0.7f, -0.01f),
-                    new Vector3(0f, -168f, 2.5f),
+                    new Vector3(0f, -160f, 2.5f),
                     new Vector3(4.668904f, 4.27908f, 4.27908f));
             case "fishermanhatchefhat":
                 return new CosmeticTransform(
                     new Vector3(0f, 0.78f, 0f),
-                    new Vector3(0f, -168f, 20.4f),
+                    new Vector3(0f, -160f, 20.4f),
                     Vector3.one * 6.25f);
             case "fishermanhatsodahat":
                 return new CosmeticTransform(
                     new Vector3(-0.005f, 0.73f, 0f),
-                    new Vector3(0f, -168f, 2.5f),
+                    new Vector3(0f, -160f, 2.5f),
                     Vector3.one * 4f);
             default:
                 return new CosmeticTransform(
                     new Vector3(-0.005f, 0.77f, 0f),
-                    new Vector3(0f, -168f, 2.5f),
+                    new Vector3(0f, -160f, 2.5f),
                     Vector3.one * 3.9f);
         }
     }
@@ -347,11 +347,11 @@ public class CosmeticRuntimeApplier : MonoBehaviour
     {
         return new CosmeticTransform(
             new Vector3(0.04f, -0.2f, 0f),
-            new Vector3(0f, 0f, 2.5f),
+            new Vector3(0f, -160f, 2.5f),
             new Vector3(4.86f, 5.72f, 10.99f));
     }
 
-    private static bool IsTroutFish(GameObject fish)
+    public static bool IsTroutFish(GameObject fish)
     {
         string objectName = fish.name.ToLowerInvariant();
         if (objectName.Contains("fish 2") || objectName.Contains("trout"))
