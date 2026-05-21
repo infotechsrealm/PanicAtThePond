@@ -1,0 +1,3263 @@
+fileFormatVersion: 2
+guid: 9a64fb3d7ba893849ba26fec65bfd80f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8482661155693870366
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_0
+  - first:
+      213: -8533597264099359904
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_1
+  - first:
+      213: 6634569341490415342
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_2
+  - first:
+      213: -6970692725155382679
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_3
+  - first:
+      213: 6257284728796334353
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_4
+  - first:
+      213: -2392386662906411316
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_5
+  - first:
+      213: -3268249260098590151
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_6
+  - first:
+      213: -8782606319579166573
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_7
+  - first:
+      213: 7749232153425891015
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_8
+  - first:
+      213: 8378010364739919144
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_9
+  - first:
+      213: 9073178755283991013
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_10
+  - first:
+      213: -491632002542770088
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_11
+  - first:
+      213: 8972833510332666321
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_12
+  - first:
+      213: 1444701127936081952
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_13
+  - first:
+      213: 8885236844744903662
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_14
+  - first:
+      213: 6251270151557032025
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_15
+  - first:
+      213: 485257783525387147
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_16
+  - first:
+      213: 1392082850850466978
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_17
+  - first:
+      213: -1966900395970874013
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_18
+  - first:
+      213: 2174663861344514124
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_19
+  - first:
+      213: 1121596575588433066
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_20
+  - first:
+      213: 5744107171342517465
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_21
+  - first:
+      213: -1307626935242467043
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_22
+  - first:
+      213: 9211994808895976785
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_23
+  - first:
+      213: 3029617037682060137
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_24
+  - first:
+      213: 2547361763160448524
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_25
+  - first:
+      213: 2076976879238541678
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_26
+  - first:
+      213: 6951258161978897230
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_27
+  - first:
+      213: 7375434546156605199
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_28
+  - first:
+      213: 7027589891248769805
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_29
+  - first:
+      213: -7293944935316416147
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_30
+  - first:
+      213: 299279307926011471
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_31
+  - first:
+      213: -2076417375503625219
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_32
+  - first:
+      213: 4729206799243582101
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_33
+  - first:
+      213: -4161191424358202953
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_34
+  - first:
+      213: 6323481990651613974
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_35
+  - first:
+      213: 6757818247145104007
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_36
+  - first:
+      213: -9052189939819657227
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_37
+  - first:
+      213: -9071743234074557509
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_38
+  - first:
+      213: 2884683846703744661
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_39
+  - first:
+      213: 1409119658497281617
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_40
+  - first:
+      213: -7170990335683721968
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_41
+  - first:
+      213: -3728490820778392494
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_42
+  - first:
+      213: -7868748335416875400
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_43
+  - first:
+      213: -6000279030016020552
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_44
+  - first:
+      213: 534130049824796346
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_45
+  - first:
+      213: -6731564401980950090
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_46
+  - first:
+      213: -1783655480447461835
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_47
+  - first:
+      213: 1723075497381247557
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_48
+  - first:
+      213: -3609540384801430097
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_49
+  - first:
+      213: -5025456847804654259
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_50
+  - first:
+      213: -8510478593766886907
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_51
+  - first:
+      213: -8553046852764684627
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_52
+  - first:
+      213: -5220416678503377991
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_53
+  - first:
+      213: 3921247893765081236
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_54
+  - first:
+      213: 6434735104503176423
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_55
+  - first:
+      213: -8654450754436570862
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_56
+  - first:
+      213: -5568457691191370876
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_57
+  - first:
+      213: 1303174690802159221
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_58
+  - first:
+      213: -7572424246590456219
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_59
+  - first:
+      213: 8044221119895061847
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_60
+  - first:
+      213: 304450620825855892
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_61
+  - first:
+      213: -2290131448708639621
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_62
+  - first:
+      213: 5084699363769391776
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_63
+  - first:
+      213: -4404450942944676238
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_64
+  - first:
+      213: -4818961911885985479
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_65
+  - first:
+      213: -1058162676350007044
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_66
+  - first:
+      213: 3917566939382467943
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_67
+  - first:
+      213: 8448407623259305111
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_68
+  - first:
+      213: -6901668667381493784
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_69
+  - first:
+      213: -7590861248641175306
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_70
+  - first:
+      213: 2897656426267801068
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_71
+  - first:
+      213: 1615930591934051281
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_72
+  - first:
+      213: 4811269938788166737
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_73
+  - first:
+      213: -6146687835290530083
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_74
+  - first:
+      213: -9221467634530290916
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_75
+  - first:
+      213: 8225797877908957169
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_76
+  - first:
+      213: -4384271218939493600
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_77
+  - first:
+      213: -3515644437390910066
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_78
+  - first:
+      213: 4581347290122736729
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_79
+  - first:
+      213: 3862243307226513458
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_80
+  - first:
+      213: -7383594546556082536
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_81
+  - first:
+      213: 987182095936472085
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_82
+  - first:
+      213: 3524443969088590139
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_83
+  - first:
+      213: -2942285263762598948
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_84
+  - first:
+      213: 6108598416251867464
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_85
+  - first:
+      213: 4998228010289042182
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_86
+  - first:
+      213: 7557573654683538354
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_87
+  - first:
+      213: -3935383631379657978
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_88
+  - first:
+      213: 8747147895994430262
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_89
+  - first:
+      213: 5476417676435064262
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_90
+  - first:
+      213: 4586170715413989078
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_91
+  - first:
+      213: 8529378835090825549
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_92
+  - first:
+      213: -7755563205990004654
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_93
+  - first:
+      213: -6081352058626595179
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_94
+  - first:
+      213: -1625447483030959689
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_95
+  - first:
+      213: 1315569863014109607
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_96
+  - first:
+      213: 8096037225916113565
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_97
+  - first:
+      213: -4680205654471224511
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_98
+  - first:
+      213: 3950236791105901331
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_99
+  - first:
+      213: -6949754569459966362
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_100
+  - first:
+      213: -1998146067340796220
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_101
+  - first:
+      213: 7314144436328002327
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_102
+  - first:
+      213: -4124849681640558158
+    second: FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_103
+  - first:
+      213: 4838346504950427820
+    second: CastingLeft_1
+  - first:
+      213: -3474477495019423615
+    second: CastingLeft_2
+  - first:
+      213: 2570935580851181488
+    second: CastingLeft_3
+  - first:
+      213: -5442605550370972828
+    second: CastingLeft_4
+  - first:
+      213: -233943917680886046
+    second: CastingRight_1
+  - first:
+      213: 1344012712819213184
+    second: CastingRight_2
+  - first:
+      213: -457422354158442896
+    second: CastingRight_3
+  - first:
+      213: -2693684738626987165
+    second: CastingRight_4
+  - first:
+      213: -2316851647671349663
+    second: CryLeft_1
+  - first:
+      213: 4328563586561357420
+    second: CryLeft_2
+  - first:
+      213: 2863510105659738649
+    second: CryLeft_3
+  - first:
+      213: 6372699366901722838
+    second: CryLeft_4
+  - first:
+      213: 1489823084815493158
+    second: CryRight_1
+  - first:
+      213: -803989869803237250
+    second: CryRight_2
+  - first:
+      213: -7868490176545534191
+    second: CryRight_3
+  - first:
+      213: -5810219012442193072
+    second: CryRight_4
+  - first:
+      213: -7507990297462547535
+    second: FightingLeft_1
+  - first:
+      213: 3810890807428030676
+    second: FightingLeft_2
+  - first:
+      213: 5711555660543413503
+    second: FightingLeft_3
+  - first:
+      213: 1190192250840786434
+    second: FightingLeft_4
+  - first:
+      213: -2976088255212797881
+    second: FightingRight_1
+  - first:
+      213: 7858986444431771377
+    second: FightingRight_2
+  - first:
+      213: -140891411417630160
+    second: FightingRight_3
+  - first:
+      213: 1046926479143310458
+    second: FightingRight_4
+  - first:
+      213: -6583434336192033149
+    second: FishGotOffFacingLeft_1
+  - first:
+      213: -4150974648913394061
+    second: FishGotOffFacingLeft_2
+  - first:
+      213: -4233282135413857951
+    second: FishGotOffFacingLeft_3
+  - first:
+      213: -5951079960370756008
+    second: FishGotOffFacingLeft_4
+  - first:
+      213: -1143362058871052160
+    second: FishGotOffFacingRight_1
+  - first:
+      213: 6891873643516195134
+    second: FishGotOffFacingRight_2
+  - first:
+      213: -5032868033852123462
+    second: FishGotOffFacingRight_3
+  - first:
+      213: -2399901537056255326
+    second: FishGotOffFacingRight_4
+  - first:
+      213: -2649661347411659126
+    second: FishingLeft_1
+  - first:
+      213: -1449219665982914740
+    second: FishingLeft_2
+  - first:
+      213: 3354845582684221861
+    second: FishingLeft_3
+  - first:
+      213: -5823481749953900143
+    second: FishingLeft_4
+  - first:
+      213: -8205474372070856571
+    second: FishingRight_1
+  - first:
+      213: 7372829192766221755
+    second: FishingRight_2
+  - first:
+      213: -5490707629306274639
+    second: FishingRight_3
+  - first:
+      213: -5048799693685294619
+    second: FishingRight_4
+  - first:
+      213: -1168303515814519174
+    second: IdelLeft_1
+  - first:
+      213: 2741622541294843416
+    second: IdelLeft_2
+  - first:
+      213: 4075517570525716923
+    second: IdelLeft_3
+  - first:
+      213: -5380760053366452500
+    second: IdelLeft_4
+  - first:
+      213: -514425343705030917
+    second: IdelRight_1
+  - first:
+      213: 4157241664557217917
+    second: IdelRight_2
+  - first:
+      213: -4423904912223737664
+    second: IdelRight_3
+  - first:
+      213: -2002244186722375095
+    second: IdelRight_4
+  - first:
+      213: -2797233407370742013
+    second: LeftPoleToOar_1
+  - first:
+      213: -8995004947697500322
+    second: LeftPoleToOar_2
+  - first:
+      213: -1758500000323673065
+    second: LeftPoleToOar_3
+  - first:
+      213: -3719902945025500579
+    second: LeftPoleToOar_4
+  - first:
+      213: 6945023625257151586
+    second: LeftToRightPole_1
+  - first:
+      213: 5318383379404904039
+    second: LeftToRightPole_2
+  - first:
+      213: 1124322686824380908
+    second: LeftToRightPole_3
+  - first:
+      213: -7030840185982401641
+    second: LeftToRightPole_4
+  - first:
+      213: 2045494236220983473
+    second: MoveBackwards_1
+  - first:
+      213: -3883187993524241352
+    second: MoveBackwards_2
+  - first:
+      213: 4561877360696046986
+    second: MoveBackwards_3
+  - first:
+      213: -3934613397147708225
+    second: MoveBackwards_4
+  - first:
+      213: -4339027952457134203
+    second: MoveForward_1
+  - first:
+      213: 493729242611564843
+    second: MoveForward_2
+  - first:
+      213: -8108497975172691117
+    second: MoveForward_3
+  - first:
+      213: -381436218883791708
+    second: MoveForward_4
+  - first:
+      213: 3088874699192429766
+    second: MoveReverseBackwards_1
+  - first:
+      213: 5757962346161115803
+    second: MoveReverseBackwards_2
+  - first:
+      213: -3618125055616324131
+    second: MoveReverseBackwards_3
+  - first:
+      213: 8370184654067029568
+    second: MoveReverseBackwards_4
+  - first:
+      213: 8897823820585047702
+    second: MoveReverseForward_1
+  - first:
+      213: -3626166834216040622
+    second: MoveReverseForward_2
+  - first:
+      213: -4070952018456946626
+    second: MoveReverseForward_3
+  - first:
+      213: -713215395255692379
+    second: MoveReverseForward_4
+  - first:
+      213: -3573962685279743892
+    second: OarToLeftPole_1
+  - first:
+      213: -8710840999419920586
+    second: OarToLeftPole_2
+  - first:
+      213: -6126402327512314475
+    second: OarToLeftPole_3
+  - first:
+      213: 6164960943392694904
+    second: OarToLeftPole_4
+  - first:
+      213: 1722810702832372981
+    second: OarToRightPole_1
+  - first:
+      213: 4945750007009082809
+    second: OarToRightPole_2
+  - first:
+      213: -7477197537645698409
+    second: OarToRightPole_3
+  - first:
+      213: 206022187016158324
+    second: OarToRightPole_4
+  - first:
+      213: -463294156084589751
+    second: ReelingLeft_1
+  - first:
+      213: -8469777251768361814
+    second: ReelingLeft_2
+  - first:
+      213: -8525072264159879899
+    second: ReelingLeft_3
+  - first:
+      213: -1732395436986358144
+    second: ReelingLeft_4
+  - first:
+      213: -5587141887749016375
+    second: ReelingRight_1
+  - first:
+      213: -1447079583383551764
+    second: ReelingRight_2
+  - first:
+      213: -5126293364249226056
+    second: ReelingRight_3
+  - first:
+      213: -7103827440106482884
+    second: ReelingRight_4
+  - first:
+      213: -1555260035619288073
+    second: RightPoleToOar_1
+  - first:
+      213: -8081666394183390707
+    second: RightPoleToOar_2
+  - first:
+      213: 5287831947088795772
+    second: RightPoleToOar_3
+  - first:
+      213: -6931689248512631397
+    second: RightPoleToOar_4
+  - first:
+      213: 6030640021950616656
+    second: RightToLeftPole_1
+  - first:
+      213: 494242063214314876
+    second: RightToLeftPole_2
+  - first:
+      213: -8502182280899456209
+    second: RightToLeftPole_3
+  - first:
+      213: 1814254278941077780
+    second: RightToLeftPole_4
+  - first:
+      213: 1983054580964538294
+    second: WinningLeft_1
+  - first:
+      213: 182968409223880454
+    second: WinningLeft_2
+  - first:
+      213: 6789553082375936647
+    second: WinningLeft_3
+  - first:
+      213: 2775794865871529770
+    second: WinningLeft_4
+  - first:
+      213: 36127878709862182
+    second: WinningRight_1
+  - first:
+      213: 2449504784834041992
+    second: WinningRight_2
+  - first:
+      213: -191057397837648631
+    second: WinningRight_3
+  - first:
+      213: -8962782826177923742
+    second: WinningRight_4
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 25
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CastingLeft_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca0b2d7f282452340800000000000000
+      internalID: 4838346504950427820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastingLeft_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1883749702d28cfc0800000000000000
+      internalID: -3474477495019423615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastingLeft_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b71c051a4ccda320800000000000000
+      internalID: 2570935580851181488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastingLeft_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1600
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46b919d861bf774b0800000000000000
+      internalID: -5442605550370972828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastingRight_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ee74411f3dd0ccf0800000000000000
+      internalID: -233943917680886046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastingRight_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 083c2310174e6a210800000000000000
+      internalID: 1344012712819213184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastingRight_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 076201cdac8e6a9f0800000000000000
+      internalID: -457422354158442896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastingRight_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1536
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36b5f31800c1e9ad0800000000000000
+      internalID: -2693684738626987165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CryLeft_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1472
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16e454f93b3e8dfd0800000000000000
+      internalID: -2316851647671349663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CryLeft_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1472
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c663ea4f5a5221c30800000000000000
+      internalID: 4328563586561357420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CryLeft_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1472
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91a0792054b3db720800000000000000
+      internalID: 2863510105659738649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CryLeft_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1472
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dea8886f40607850800000000000000
+      internalID: 6372699366901722838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CryRight_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 628aa94c33aeca410800000000000000
+      internalID: 1489823084815493158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CryRight_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e709d5f1977a7d4f0800000000000000
+      internalID: -803989869803237250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CryRight_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11f4a5c9fd18dc290800000000000000
+      internalID: -7868490176545534191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CryRight_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05389209794fd5fa0800000000000000
+      internalID: -5810219012442193072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FightingLeft_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bb5aae7a924ec790800000000000000
+      internalID: -7507990297462547535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FightingLeft_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d0ac869ff003e430800000000000000
+      internalID: 3810890807428030676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FightingLeft_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffccf85bc95834f40800000000000000
+      internalID: 5711555660543413503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FightingLeft_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 206a9c5db89648010800000000000000
+      internalID: 1190192250840786434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FightingRight_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74044d7ff7fc2b6d0800000000000000
+      internalID: -2976088255212797881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FightingRight_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1280
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f647f2588ab01d60800000000000000
+      internalID: 7858986444431771377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FightingRight_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1280
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03a7c8ef1047b0ef0800000000000000
+      internalID: -140891411417630160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FightingRight_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1280
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a74994ff51e678e00800000000000000
+      internalID: 1046926479143310458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishGotOffFacingLeft_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1216
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38e0a2d0a51f2a4a0800000000000000
+      internalID: -6583434336192033149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishGotOffFacingLeft_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1216
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3768dd3bc86c466c0800000000000000
+      internalID: -4150974648913394061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishGotOffFacingLeft_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1216
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16166a4a35c5045c0800000000000000
+      internalID: -4233282135413857951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishGotOffFacingLeft_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1216
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 856c7246e44896da0800000000000000
+      internalID: -5951079960370756008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishGotOffFacingRight_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 088e457e346f120f0800000000000000
+      internalID: -1143362058871052160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishGotOffFacingRight_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1152
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e31f8a6609ad4af50800000000000000
+      internalID: 6891873643516195134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishGotOffFacingRight_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1152
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab653d04039a72ab0800000000000000
+      internalID: -5032868033852123462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishGotOffFacingRight_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1152
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a219db6446d1bed0800000000000000
+      internalID: -2399901537056255326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingLeft_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1088
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a86f1740b038a3bd0800000000000000
+      internalID: -2649661347411659126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingLeft_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1088
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4ff39f546653ebe0800000000000000
+      internalID: -1449219665982914740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingLeft_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1088
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a17e20684ece8e20800000000000000
+      internalID: 3354845582684221861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingLeft_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1088
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 191170ad336de2fa0800000000000000
+      internalID: -5823481749953900143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingRight_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5882527788c402e80800000000000000
+      internalID: -8205474372070856571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingRight_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbde570861d815660800000000000000
+      internalID: 7372829192766221755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingRight_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bc1cad80861dc3b0800000000000000
+      internalID: -5490707629306274639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingRight_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1024
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e979c3ad6f0fe9b0800000000000000
+      internalID: -5048799693685294619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdelLeft_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7e190e642a59cfe0800000000000000
+      internalID: -1168303515814519174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdelLeft_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8163512fc233c0620800000000000000
+      internalID: 2741622541294843416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdelLeft_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb16c0b23a52f8830800000000000000
+      internalID: 4075517570525716923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdelLeft_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cee0b7d6d33b355b0800000000000000
+      internalID: -5380760053366452500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdelRight_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfed00d10e46cd8f0800000000000000
+      internalID: -514425343705030917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdelRight_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d78f265944d71b930800000000000000
+      internalID: 4157241664557217917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdelRight_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c86cc2dbe12b92c0800000000000000
+      internalID: -4423904912223737664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdelRight_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94a62d045899634e0800000000000000
+      internalID: -2002244186722375095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftPoleToOar_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 307bfcf490b3e29d0800000000000000
+      internalID: -2797233407370742013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftPoleToOar_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5ffb9b58a25b2380800000000000000
+      internalID: -8995004947697500322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftPoleToOar_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 714ee2f019d8897e0800000000000000
+      internalID: -1758500000323673065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftPoleToOar_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5a53dafaff306cc0800000000000000
+      internalID: -3719902945025500579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftToRightPole_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26ce52cd03ea16060800000000000000
+      internalID: 6945023625257151586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftToRightPole_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76655cc6181bec940800000000000000
+      internalID: 5318383379404904039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftToRightPole_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce97419d6856a9f00800000000000000
+      internalID: 1124322686824380908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftToRightPole_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7934af11a107d6e90800000000000000
+      internalID: -7030840185982401641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveBackwards_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b88f0c9b2e036c10800000000000000
+      internalID: 2045494236220983473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveBackwards_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83cfce908152c1ac0800000000000000
+      internalID: -3883187993524241352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveBackwards_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a853f292a4b0f4f30800000000000000
+      internalID: 4561877360696046986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveBackwards_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb4948636f17569c0800000000000000
+      internalID: -3934613397147708225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveForward_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58f4d4ff01da8c3c0800000000000000
+      internalID: -4339027952457134203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveForward_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b21c51951241ad600800000000000000
+      internalID: 493729242611564843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveForward_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35b8bdf5d04d87f80800000000000000
+      internalID: -8108497975172691117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveForward_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a4a6f4a7cdd4baf0800000000000000
+      internalID: -381436218883791708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveReverseBackwards_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cc6e016c23edda20800000000000000
+      internalID: 3088874699192429766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveReverseBackwards_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9212013f3468ef40800000000000000
+      internalID: 5757962346161115803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveReverseBackwards_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddd6c0b7e66d9cdc0800000000000000
+      internalID: -3618125055616324131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveReverseBackwards_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0465712889ed82470800000000000000
+      internalID: 8370184654067029568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveReverseForward_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6961bf34f9b6b7b70800000000000000
+      internalID: 8897823820585047702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveReverseForward_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 257004ef9744dadc0800000000000000
+      internalID: -3626166834216040622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveReverseForward_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e38d63245b21187c0800000000000000
+      internalID: -4070952018456946626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveReverseForward_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a3d17570662a16f0800000000000000
+      internalID: -713215395255692379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OarToLeftPole_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6056679fdbb66ec0800000000000000
+      internalID: -3573962685279743892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OarToLeftPole_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63fbaa65340ec1780800000000000000
+      internalID: -8710840999419920586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OarToLeftPole_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59d808dca85aafaa0800000000000000
+      internalID: -6126402327512314475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OarToLeftPole_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 872241d80575e8550800000000000000
+      internalID: 6164960943392694904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OarToRightPole_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fc8095d437a8e710800000000000000
+      internalID: 1722810702832372981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OarToRightPole_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bd79ab7d65d2a440800000000000000
+      internalID: 4945750007009082809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OarToRightPole_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 792e3359478ab3890800000000000000
+      internalID: -7477197537645698409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OarToRightPole_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47c72f86610fbd200800000000000000
+      internalID: 206022187016158324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ReelingLeft_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94b40107b6c0299f0800000000000000
+      internalID: -463294156084589751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ReelingLeft_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aac99add67e457a80800000000000000
+      internalID: -8469777251768361814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ReelingLeft_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52d173a81fbd0b980800000000000000
+      internalID: -8525072264159879899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ReelingLeft_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 086abe7578b45f7e0800000000000000
+      internalID: -1732395436986358144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ReelingRight_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c4b3071e0c7672b0800000000000000
+      internalID: -5587141887749016375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ReelingRight_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce004be29c0faebe0800000000000000
+      internalID: -1447079583383551764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ReelingRight_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b49b71785fbbd8b0800000000000000
+      internalID: -5126293364249226056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ReelingRight_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c33d7c6b4922a6d90800000000000000
+      internalID: -7103827440106482884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightPoleToOar_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fb0d8bdc3b9a6ae0800000000000000
+      internalID: -1555260035619288073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightPoleToOar_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0aac75ab3728df80800000000000000
+      internalID: -8081666394183390707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightPoleToOar_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c789036c327226940800000000000000
+      internalID: 5287831947088795772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightPoleToOar_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9d9209aa51bdcf90800000000000000
+      internalID: -6931689248512631397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightToLeftPole_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 054de94f52321b350800000000000000
+      internalID: 6030640021950616656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightToLeftPole_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7502f2b986ebd600800000000000000
+      internalID: 494242063214314876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightToLeftPole_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f231e53134e220a80800000000000000
+      internalID: -8502182280899456209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightToLeftPole_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 411f38487a68d2910800000000000000
+      internalID: 1814254278941077780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WinningLeft_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b73a9c72a9358b10800000000000000
+      internalID: 1983054580964538294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WinningLeft_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60f58ec7cc80a8200800000000000000
+      internalID: 182968409223880454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WinningLeft_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78a1daa4e86593e50800000000000000
+      internalID: 6789553082375936647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WinningLeft_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2720a549ba958620800000000000000
+      internalID: 2775794865871529770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WinningRight_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62f5df04d1a508000800000000000000
+      internalID: 36127878709862182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WinningRight_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88817afaf936ef120800000000000000
+      internalID: 2449504784834041992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WinningRight_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90d2d261f4a395df0800000000000000
+      internalID: -191057397837648631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WinningRight_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26571b6a18ccd9380800000000000000
+      internalID: -8962782826177923742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CastingLeft_1: 4838346504950427820
+      CastingLeft_2: -3474477495019423615
+      CastingLeft_3: 2570935580851181488
+      CastingLeft_4: -5442605550370972828
+      CastingRight_1: -233943917680886046
+      CastingRight_2: 1344012712819213184
+      CastingRight_3: -457422354158442896
+      CastingRight_4: -2693684738626987165
+      CryLeft_1: -2316851647671349663
+      CryLeft_2: 4328563586561357420
+      CryLeft_3: 2863510105659738649
+      CryLeft_4: 6372699366901722838
+      CryRight_1: 1489823084815493158
+      CryRight_2: -803989869803237250
+      CryRight_3: -7868490176545534191
+      CryRight_4: -5810219012442193072
+      FightingLeft_1: -7507990297462547535
+      FightingLeft_2: 3810890807428030676
+      FightingLeft_3: 5711555660543413503
+      FightingLeft_4: 1190192250840786434
+      FightingRight_1: -2976088255212797881
+      FightingRight_2: 7858986444431771377
+      FightingRight_3: -140891411417630160
+      FightingRight_4: 1046926479143310458
+      FishGotOffFacingLeft_1: -6583434336192033149
+      FishGotOffFacingLeft_2: -4150974648913394061
+      FishGotOffFacingLeft_3: -4233282135413857951
+      FishGotOffFacingLeft_4: -5951079960370756008
+      FishGotOffFacingRight_1: -1143362058871052160
+      FishGotOffFacingRight_2: 6891873643516195134
+      FishGotOffFacingRight_3: -5032868033852123462
+      FishGotOffFacingRight_4: -2399901537056255326
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_0: 8482661155693870366
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_1: -8533597264099359904
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_10: 9073178755283991013
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_100: -6949754569459966362
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_101: -1998146067340796220
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_102: 7314144436328002327
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_103: -4124849681640558158
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_11: -491632002542770088
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_12: 8972833510332666321
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_13: 1444701127936081952
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_14: 8885236844744903662
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_15: 6251270151557032025
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_16: 485257783525387147
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_17: 1392082850850466978
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_18: -1966900395970874013
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_19: 2174663861344514124
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_2: 6634569341490415342
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_20: 1121596575588433066
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_21: 5744107171342517465
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_22: -1307626935242467043
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_23: 9211994808895976785
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_24: 3029617037682060137
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_25: 2547361763160448524
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_26: 2076976879238541678
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_27: 6951258161978897230
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_28: 7375434546156605199
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_29: 7027589891248769805
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_3: -6970692725155382679
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_30: -7293944935316416147
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_31: 299279307926011471
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_32: -2076417375503625219
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_33: 4729206799243582101
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_34: -4161191424358202953
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_35: 6323481990651613974
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_36: 6757818247145104007
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_37: -9052189939819657227
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_38: -9071743234074557509
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_39: 2884683846703744661
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_4: 6257284728796334353
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_40: 1409119658497281617
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_41: -7170990335683721968
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_42: -3728490820778392494
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_43: -7868748335416875400
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_44: -6000279030016020552
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_45: 534130049824796346
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_46: -6731564401980950090
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_47: -1783655480447461835
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_48: 1723075497381247557
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_49: -3609540384801430097
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_5: -2392386662906411316
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_50: -5025456847804654259
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_51: -8510478593766886907
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_52: -8553046852764684627
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_53: -5220416678503377991
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_54: 3921247893765081236
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_55: 6434735104503176423
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_56: -8654450754436570862
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_57: -5568457691191370876
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_58: 1303174690802159221
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_59: -7572424246590456219
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_6: -3268249260098590151
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_60: 8044221119895061847
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_61: 304450620825855892
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_62: -2290131448708639621
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_63: 5084699363769391776
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_64: -4404450942944676238
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_65: -4818961911885985479
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_66: -1058162676350007044
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_67: 3917566939382467943
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_68: 8448407623259305111
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_69: -6901668667381493784
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_7: -8782606319579166573
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_70: -7590861248641175306
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_71: 2897656426267801068
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_72: 1615930591934051281
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_73: 4811269938788166737
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_74: -6146687835290530083
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_75: -9221467634530290916
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_76: 8225797877908957169
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_77: -4384271218939493600
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_78: -3515644437390910066
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_79: 4581347290122736729
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_8: 7749232153425891015
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_80: 3862243307226513458
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_81: -7383594546556082536
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_82: 987182095936472085
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_83: 3524443969088590139
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_84: -2942285263762598948
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_85: 6108598416251867464
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_86: 4998228010289042182
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_87: 7557573654683538354
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_88: -3935383631379657978
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_89: 8747147895994430262
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_9: 8378010364739919144
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_90: 5476417676435064262
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_91: 4586170715413989078
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_92: 8529378835090825549
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_93: -7755563205990004654
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_94: -6081352058626595179
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_95: -1625447483030959689
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_96: 1315569863014109607
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_97: 8096037225916113565
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_98: -4680205654471224511
+      FisherMan_Hat_-Default_-_Fishing_Hat_AllUsedAnimations_Sheet_99: 3950236791105901331
+      FishingLeft_1: -2649661347411659126
+      FishingLeft_2: -1449219665982914740
+      FishingLeft_3: 3354845582684221861
+      FishingLeft_4: -5823481749953900143
+      FishingRight_1: -8205474372070856571
+      FishingRight_2: 7372829192766221755
+      FishingRight_3: -5490707629306274639
+      FishingRight_4: -5048799693685294619
+      IdelLeft_1: -1168303515814519174
+      IdelLeft_2: 2741622541294843416
+      IdelLeft_3: 4075517570525716923
+      IdelLeft_4: -5380760053366452500
+      IdelRight_1: -514425343705030917
+      IdelRight_2: 4157241664557217917
+      IdelRight_3: -4423904912223737664
+      IdelRight_4: -2002244186722375095
+      LeftPoleToOar_1: -2797233407370742013
+      LeftPoleToOar_2: -8995004947697500322
+      LeftPoleToOar_3: -1758500000323673065
+      LeftPoleToOar_4: -3719902945025500579
+      LeftToRightPole_1: 6945023625257151586
+      LeftToRightPole_2: 5318383379404904039
+      LeftToRightPole_3: 1124322686824380908
+      LeftToRightPole_4: -7030840185982401641
+      MoveBackwards_1: 2045494236220983473
+      MoveBackwards_2: -3883187993524241352
+      MoveBackwards_3: 4561877360696046986
+      MoveBackwards_4: -3934613397147708225
+      MoveForward_1: -4339027952457134203
+      MoveForward_2: 493729242611564843
+      MoveForward_3: -8108497975172691117
+      MoveForward_4: -381436218883791708
+      MoveReverseBackwards_1: 3088874699192429766
+      MoveReverseBackwards_2: 5757962346161115803
+      MoveReverseBackwards_3: -3618125055616324131
+      MoveReverseBackwards_4: 8370184654067029568
+      MoveReverseForward_1: 8897823820585047702
+      MoveReverseForward_2: -3626166834216040622
+      MoveReverseForward_3: -4070952018456946626
+      MoveReverseForward_4: -713215395255692379
+      OarToLeftPole_1: -3573962685279743892
+      OarToLeftPole_2: -8710840999419920586
+      OarToLeftPole_3: -6126402327512314475
+      OarToLeftPole_4: 6164960943392694904
+      OarToRightPole_1: 1722810702832372981
+      OarToRightPole_2: 4945750007009082809
+      OarToRightPole_3: -7477197537645698409
+      OarToRightPole_4: 206022187016158324
+      ReelingLeft_1: -463294156084589751
+      ReelingLeft_2: -8469777251768361814
+      ReelingLeft_3: -8525072264159879899
+      ReelingLeft_4: -1732395436986358144
+      ReelingRight_1: -5587141887749016375
+      ReelingRight_2: -1447079583383551764
+      ReelingRight_3: -5126293364249226056
+      ReelingRight_4: -7103827440106482884
+      RightPoleToOar_1: -1555260035619288073
+      RightPoleToOar_2: -8081666394183390707
+      RightPoleToOar_3: 5287831947088795772
+      RightPoleToOar_4: -6931689248512631397
+      RightToLeftPole_1: 6030640021950616656
+      RightToLeftPole_2: 494242063214314876
+      RightToLeftPole_3: -8502182280899456209
+      RightToLeftPole_4: 1814254278941077780
+      WinningLeft_1: 1983054580964538294
+      WinningLeft_2: 182968409223880454
+      WinningLeft_3: 6789553082375936647
+      WinningLeft_4: 2775794865871529770
+      WinningRight_1: 36127878709862182
+      WinningRight_2: 2449504784834041992
+      WinningRight_3: -191057397837648631
+      WinningRight_4: -8962782826177923742
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

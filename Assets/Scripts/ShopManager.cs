@@ -107,6 +107,14 @@ public class ShopManager : MonoBehaviour
     private readonly Dictionary<string, Sprite> previewSpritesByName = new Dictionary<string, Sprite>();
     private bool previewMapsBuilt;
     private const string FishHatPreviewChildName = "Applied Fish Hat Cosmetic Preview";
+    private const string FishDisplayModeHat = "Hat";
+    private const string FishDisplayModeSpecies = "Fish Species";
+    private const string FishermanDisplayModeHat = "Hat";
+    private const string FishermanDisplayModeHair = "Hair";
+    private static readonly Color SelectedCellOutlineColor = new Color(0.12f, 0.55f, 1f, 1f);
+    private static readonly Vector2 SelectedCellOutlineDistance = new Vector2(3f, -3f);
+    private string selectedFishDisplayMode = FishDisplayModeHat;
+    private string selectedFishermanDisplayMode = FishermanDisplayModeHat;
 
     private void Awake()
     {
@@ -144,6 +152,7 @@ public class ShopManager : MonoBehaviour
     {
         SetActiveIfNotNull(FishVoyageDiagram, false);
         SetActiveIfNotNull(FishFishermanDropdownList, false);
+        SetDisplayControlLabel(selectedFishDisplayMode);
         SetupAnimatedSaltShopGif();
         SetActiveIfNotNull(SaltShopPanel, false);
         StartCoroutine(FetchCoinsForShop());
@@ -228,12 +237,12 @@ public class ShopManager : MonoBehaviour
     {
         OpenShopItemPanel();
         SetActiveIfNotNull(HatItemsPanel, false);
-        SetActiveIfNotNull(FishVoyageDiagram, false);
         SetActiveIfNotNull(cheastPanel, false);
         SetActiveIfNotNull(RoadPanel, false);
         SetActiveIfNotNull(FishFishermanCosmeticPanel, true);
         SetActiveIfNotNull(FishCosmeticPanel, true);
         SetActiveIfNotNull(FishermanCosmeticPanel, false);
+        SelectFishDisplay();
     }
 
     public void FishermanShopUI()
@@ -246,7 +255,7 @@ public class ShopManager : MonoBehaviour
         SetActiveIfNotNull(FishFishermanCosmeticPanel, true);
         SetActiveIfNotNull(FishCosmeticPanel, false);
         SetActiveIfNotNull(FishermanCosmeticPanel, true);
-        SelectFishermanHatCategory();
+        SelectFishermanDisplay();
     }
 
     public void fishermanShopUI()
@@ -304,48 +313,59 @@ public class ShopManager : MonoBehaviour
 
     public void SelectFishDisplay()
     {
-        bool isHatVisible = HatDisplayObject != null && HatDisplayObject.activeSelf;
-        SetDisplayMode("Fish", true, false, isHatVisible);
+        SetDisplayMode("Fish", true, false, IsFishHatModeSelected());
         ClearFishermanHatFromDisplay();
-        ApplySavedFishHatToDisplay();
+        ApplySelectedFishDisplayMode();
     }
 
     public void SelectFishermanDisplay()
     {
-        bool isHatVisible = HatDisplayObject != null && HatDisplayObject.activeSelf;
-        SetDisplayMode("Fisherman", false, true, isHatVisible);
+        SetDisplayMode("Fisherman", false, true, IsFishermanHatModeSelected());
         ClearFishHatFromDisplay();
-        ApplySavedFishermanHatToDisplay();
+        ApplySelectedFishermanDisplayMode();
     }
 
     public void SelectHatDisplay()
     {
-        if (HatDisplayObject != null) HatDisplayObject.SetActive(!UseDynamicHatPreviewSprites);
         if (IsFishDisplayVisible())
         {
-            ApplySavedFishHatToDisplay();
+            selectedFishDisplayMode = IsFishHatModeSelected() ? FishDisplayModeSpecies : FishDisplayModeHat;
+            ApplySelectedFishDisplayMode();
         }
         else if (IsFishermanDisplayVisible())
         {
-            ApplySavedFishermanHatToDisplay();
+            selectedFishermanDisplayMode = IsFishermanHatModeSelected() ? FishermanDisplayModeHair : FishermanDisplayModeHat;
+            ApplySelectedFishermanDisplayMode();
         }
         CloseFishFishermanDropdown();
     }
 
     public void SelectFishermanHairCategory()
     {
+        selectedFishermanDisplayMode = FishermanDisplayModeHair;
+        SetDisplayControlLabel(selectedFishermanDisplayMode);
         SetActiveIfNotNull(FishermanHairObject, true);
         SetActiveIfNotNull(FishermanHatObject, false);
         SetActiveIfNotNull(FishermanCosmeticPanel, true);
         SetActiveIfNotNull(FishCosmeticPanel, false);
+        if (IsFishermanDisplayVisible())
+        {
+            ApplySelectedFishermanDisplayMode();
+        }
     }
 
     public void SelectFishermanHatCategory()
     {
+        selectedFishermanDisplayMode = FishermanDisplayModeHat;
+        SetDisplayControlLabel(selectedFishermanDisplayMode);
         SetActiveIfNotNull(FishermanHatObject, true);
         SetActiveIfNotNull(FishermanHairObject, false);
         SetActiveIfNotNull(FishermanCosmeticPanel, true);
         SetActiveIfNotNull(FishCosmeticPanel, false);
+        if (IsFishermanDisplayVisible())
+        {
+            ApplySelectedFishermanDisplayMode();
+        }
     }
 
     public void HideFishFishermanDisplay()
@@ -384,6 +404,90 @@ public class ShopManager : MonoBehaviour
         SetActiveIfNotNull(HatDisplayObject, showHat && !UseDynamicHatPreviewSprites);
         SetDropdownLabel(label);
         CloseFishFishermanDropdown();
+    }
+
+    private void ApplySelectedFishDisplayMode()
+    {
+        SetDisplayControlLabel(selectedFishDisplayMode);
+        bool showSpecies = IsFishSpeciesModeSelected();
+        SetActiveIfNotNull(FishVoyageDiagram, showSpecies);
+        SetActiveIfNotNull(HatDisplayObject, !showSpecies && !UseDynamicHatPreviewSprites);
+
+        if (showSpecies)
+        {
+            ClearFishHatFromDisplay();
+            RefreshSelectedFishDisplay();
+            return;
+        }
+
+        ApplySavedFishHatToDisplay();
+    }
+
+    private void ApplySelectedFishermanDisplayMode()
+    {
+        SetActiveIfNotNull(FishVoyageDiagram, false);
+        SetDisplayControlLabel(selectedFishermanDisplayMode);
+        SetActiveIfNotNull(HatDisplayObject, IsFishermanHatModeSelected() && !UseDynamicHatPreviewSprites);
+
+        if (IsFishermanHatModeSelected())
+        {
+            SetActiveIfNotNull(FishermanHatObject, true);
+            SetActiveIfNotNull(FishermanHairObject, false);
+            SetActiveIfNotNull(FishermanCosmeticPanel, true);
+            SetActiveIfNotNull(FishCosmeticPanel, false);
+        }
+        else
+        {
+            SetActiveIfNotNull(FishermanHairObject, true);
+            SetActiveIfNotNull(FishermanHatObject, false);
+            SetActiveIfNotNull(FishermanCosmeticPanel, true);
+            SetActiveIfNotNull(FishCosmeticPanel, false);
+        }
+
+        ApplySavedFishermanDisplayModeSprite();
+    }
+
+    private void ApplySavedFishermanDisplayModeSprite()
+    {
+        Sprite selectedSprite = IsFishermanHatModeSelected()
+            ? CosmeticRuntimeApplier.GetSelectedFishermanHat()
+            : CosmeticRuntimeApplier.GetSelectedFishermanHair();
+
+        if (selectedSprite == null)
+        {
+            ClearFishermanHatFromDisplay();
+            return;
+        }
+
+        ApplySelectedFishermanHatToDisplay(selectedSprite);
+    }
+
+    private void RefreshSelectedFishDisplay()
+    {
+        ResolveFishDisplayObjects();
+        if (FishDisplayObjects != null && FishDisplayObjects.Length > 0)
+        {
+            int selectedFish = Mathf.Clamp(PlayerPrefs.GetInt(LocalPlayManager.SelectedFishPrefKey, 0), 0, FishDisplayObjects.Length - 1);
+            for (int i = 0; i < FishDisplayObjects.Length; i++)
+            {
+                SetActiveIfNotNull(FishDisplayObjects[i], i == selectedFish);
+            }
+        }
+    }
+
+    private bool IsFishHatModeSelected()
+    {
+        return selectedFishDisplayMode == FishDisplayModeHat;
+    }
+
+    private bool IsFishSpeciesModeSelected()
+    {
+        return selectedFishDisplayMode == FishDisplayModeSpecies;
+    }
+
+    private bool IsFishermanHatModeSelected()
+    {
+        return selectedFishermanDisplayMode == FishermanDisplayModeHat;
     }
 
     private void HideFishermanDisplayPreview()
@@ -470,6 +574,26 @@ public class ShopManager : MonoBehaviour
         if (FishFishermanDropdownTMPText != null)
         {
             FishFishermanDropdownTMPText.text = label;
+        }
+    }
+
+    private void SetDisplayControlLabel(string label)
+    {
+        if (DisplayHatButton == null || string.IsNullOrEmpty(label))
+        {
+            return;
+        }
+
+        TMP_Text tmpText = DisplayHatButton.GetComponentInChildren<TMP_Text>(true);
+        if (tmpText != null)
+        {
+            tmpText.text = label;
+        }
+
+        Text legacyText = DisplayHatButton.GetComponentInChildren<Text>(true);
+        if (legacyText != null)
+        {
+            legacyText.text = label;
         }
     }
 
@@ -709,6 +833,15 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
+        if (isFishermanCosmetic && IsClearFishermanCosmeticButton(selectedButton))
+        {
+            selectedFishermanDisplayMode = FishermanDisplayModeHat;
+            SetDisplayControlLabel(selectedFishermanDisplayMode);
+            CosmeticRuntimeApplier.SelectFishermanHat(null);
+            ClearFishermanHatFromDisplay();
+            return;
+        }
+
         Sprite selectedSprite = GetButtonSprite(selectedButton);
         if (selectedSprite == null)
         {
@@ -717,6 +850,9 @@ public class ShopManager : MonoBehaviour
 
         if (!isFishermanCosmetic)
         {
+            selectedFishDisplayMode = FishDisplayModeHat;
+            SetDisplayControlLabel(selectedFishDisplayMode);
+            SetActiveIfNotNull(FishVoyageDiagram, false);
             CosmeticRuntimeApplier.SelectFishHat(selectedSprite);
             ApplySelectedFishHatToDisplay(selectedSprite);
             return;
@@ -724,11 +860,15 @@ public class ShopManager : MonoBehaviour
 
         if (FishermanHairObject != null && selectedButton.transform.IsChildOf(FishermanHairObject.transform))
         {
+            selectedFishermanDisplayMode = FishermanDisplayModeHair;
+            SetDisplayControlLabel(selectedFishermanDisplayMode);
             CosmeticRuntimeApplier.SelectFishermanHair(selectedSprite);
             ApplySelectedFishermanHatToDisplay(selectedSprite);
         }
         else
         {
+            selectedFishermanDisplayMode = FishermanDisplayModeHat;
+            SetDisplayControlLabel(selectedFishermanDisplayMode);
             CosmeticRuntimeApplier.SelectFishermanHat(selectedSprite);
             ApplySelectedFishermanHatToDisplay(selectedSprite);
         }
@@ -1012,7 +1152,7 @@ public class ShopManager : MonoBehaviour
         CacheDisplayBaseSprite(fishermanImage);
         if (!TryApplyCompositePreviewSprite(fishermanImage, selectedSprite, 0, true))
         {
-            RestoreDisplayBaseSprite(fishermanImage);
+            ApplyFishermanRedHairPreview(fishermanImage);
         }
     }
 
@@ -1024,7 +1164,33 @@ public class ShopManager : MonoBehaviour
         }
 
         Image fishermanImage = FishermanDisplayObject.GetComponent<Image>();
-        RestoreDisplayBaseSprite(fishermanImage);
+        if (!ApplyFishermanRedHairPreview(fishermanImage))
+        {
+            RestoreDisplayBaseSprite(fishermanImage);
+        }
+    }
+
+    private bool ApplyFishermanRedHairPreview(Image fishermanImage)
+    {
+        if (fishermanImage == null)
+        {
+            return false;
+        }
+
+        Sprite redHairSprite = GetPreviewSpriteByName("Fisherman Red hair");
+        if (redHairSprite == null)
+        {
+            redHairSprite = GetPreviewSpriteByName("fisherman_red_hair");
+        }
+
+        if (redHairSprite == null)
+        {
+            return false;
+        }
+
+        fishermanImage.sprite = redHairSprite;
+        fishermanImage.preserveAspect = true;
+        return true;
     }
 
     private void BuildPreviewMapsIfNeeded()
@@ -1478,7 +1644,7 @@ public class ShopManager : MonoBehaviour
             return "green";
         }
 
-        if (name.Contains("headphone"))
+        if (name.Contains("headphone") || name.Contains("soda"))
         {
             return "headphone";
         }
@@ -1599,14 +1765,53 @@ public class ShopManager : MonoBehaviour
 
     private static Sprite GetButtonSprite(Button button)
     {
-        Image image = button != null ? button.GetComponent<Image>() : null;
-        if (image != null && image.sprite != null)
+        if (button == null)
         {
+            return null;
+        }
+
+        Image[] images = button.GetComponentsInChildren<Image>(true);
+        for (int i = 0; i < images.Length; i++)
+        {
+            Image image = images[i];
+            if (image == null || image.sprite == null || IsCellBackgroundImage(image, button))
+            {
+                continue;
+            }
+
             return image.sprite;
         }
 
-        image = button != null ? button.GetComponentInChildren<Image>(true) : null;
-        return image != null ? image.sprite : null;
+        Image directImage = button.GetComponent<Image>();
+        return directImage != null && directImage.sprite != null && !IsCellBackgroundImage(directImage, button)
+            ? directImage.sprite
+            : null;
+    }
+
+    private static bool IsCellBackgroundImage(Image image, Button ownerButton)
+    {
+        if (image == null || image.sprite == null)
+        {
+            return true;
+        }
+
+        string imageName = NormalizeSpriteName(image.name);
+        string spriteName = NormalizeSpriteName(image.sprite);
+        if (spriteName.Contains("boxselected")
+            || spriteName.Contains("boxunselected")
+            || spriteName.Contains("background")
+            || spriteName.Contains("button")
+            || spriteName == "uisprite")
+        {
+            return true;
+        }
+
+        if (image.transform == ownerButton.transform)
+        {
+            return imageName.Contains("cell") || imageName.Contains("slot") || imageName.Contains("box");
+        }
+
+        return false;
     }
 
     private bool IsFishDisplayVisible()
@@ -1672,6 +1877,31 @@ public class ShopManager : MonoBehaviour
             && button.transform.GetSiblingIndex() == 0;
     }
 
+    private bool IsClearFishermanCosmeticButton(Button button)
+    {
+        if (button == null)
+        {
+            return false;
+        }
+
+        string buttonName = button.name.ToLowerInvariant();
+        if (buttonName.Contains("clear") || buttonName.Contains("none") || buttonName.Contains("empty") || buttonName.Contains("x icon"))
+        {
+            return true;
+        }
+
+        if (FishermanHatObject != null
+            && button.transform.parent == FishermanHatObject.transform
+            && button.transform.GetSiblingIndex() == 0)
+        {
+            return true;
+        }
+
+        return FishermanCosmeticItemsRoot != null
+            && button.transform.parent == FishermanCosmeticItemsRoot
+            && button.transform.GetSiblingIndex() == 0;
+    }
+
     private static void RemoveCosmeticItemButtonListeners(List<Button> buttons, List<UnityAction> actions)
     {
         int count = Mathf.Min(buttons.Count, actions.Count);
@@ -1696,7 +1926,71 @@ public class ShopManager : MonoBehaviour
 
             float alpha = selectedButton != null && button == selectedButton ? SelectedItemOpacity : UnselectedItemOpacity;
             SetGraphicAlpha(button.gameObject, alpha);
+            SetSelectedCellOutline(button, selectedButton != null && button == selectedButton);
         }
+    }
+
+    private static void SetSelectedCellOutline(Button button, bool selected)
+    {
+        if (button == null)
+        {
+            return;
+        }
+
+        Graphic targetGraphic = FindSelectionOutlineGraphic(button);
+        if (targetGraphic == null)
+        {
+            return;
+        }
+
+        Outline outline = targetGraphic.GetComponent<Outline>();
+        if (outline == null && selected)
+        {
+            outline = targetGraphic.gameObject.AddComponent<Outline>();
+        }
+
+        if (outline == null)
+        {
+            return;
+        }
+
+        outline.effectColor = SelectedCellOutlineColor;
+        outline.effectDistance = SelectedCellOutlineDistance;
+        outline.useGraphicAlpha = false;
+        outline.enabled = selected;
+    }
+
+    private static Graphic FindSelectionOutlineGraphic(Button button)
+    {
+        if (button == null)
+        {
+            return null;
+        }
+
+        Transform current = button.transform;
+        for (int i = 0; current != null && i < 4; i++)
+        {
+            Image image = current.GetComponent<Image>();
+            if (image != null && (IsCellBackgroundImage(image, button) || IsNamedCellContainer(current)))
+            {
+                return image;
+            }
+
+            current = current.parent;
+        }
+
+        return button.targetGraphic != null ? button.targetGraphic : button.GetComponent<Graphic>();
+    }
+
+    private static bool IsNamedCellContainer(Transform transform)
+    {
+        if (transform == null)
+        {
+            return false;
+        }
+
+        string name = NormalizeSpriteName(transform.name);
+        return name.Contains("cell") || name.Contains("slot") || name.Contains("box");
     }
 
     private static void SetGraphicAlpha(GameObject root, float alpha)
