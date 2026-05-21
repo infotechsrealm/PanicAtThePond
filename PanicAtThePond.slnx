@@ -40,6 +40,7 @@
   <Project Path="Unity.VisualScripting.State.Editor.csproj" />
   <Project Path="Unity.AI.Pbr.csproj" />
   <Project Path="Unity.AI.Generators.Sdk.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
   <Project Path="Unity.Burst.CodeGen.csproj" />
   <Project Path="PhotonUnityNetworking.csproj" />
   <Project Path="Unity.VisualScripting.Flow.csproj" />
@@ -118,7 +119,6 @@
   <Project Path="Mirror.CompilerSymbols.csproj" />
   <Project Path="Unity.InputSystem.DocCodeSamples.csproj" />
   <Project Path="Unity.AI.Toolkit.GenerationContextMenu.csproj" />
-  <Project Path="Assembly-CSharp-Editor.csproj" />
   <Project Path="glTFast.dots.csproj" />
   <Project Path="Unity.VisualScripting.DocCodeExamples.csproj" />
   <Project Path="Unity.PlasticSCM.Editor.Entities.csproj" />

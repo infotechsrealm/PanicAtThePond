@@ -1,0 +1,3835 @@
+fileFormatVersion: 2
+guid: 6d4cec03c17f61e42a9d6d39ec446b64
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 725859256933816841
+    second: FishermansAnimations-Arms_Sheet_0
+  - first:
+      213: -3348677590309220473
+    second: FishermansAnimations-Arms_Sheet_1
+  - first:
+      213: 8865140103199508827
+    second: FishermansAnimations-Arms_Sheet_2
+  - first:
+      213: -4802974563793421675
+    second: FishermansAnimations-Arms_Sheet_3
+  - first:
+      213: 6590090607534776137
+    second: FishermansAnimations-Arms_Sheet_4
+  - first:
+      213: 129478790681640290
+    second: FishermansAnimations-Arms_Sheet_5
+  - first:
+      213: 8052950916232156663
+    second: FishermansAnimations-Arms_Sheet_6
+  - first:
+      213: 6143867567996157506
+    second: FishermansAnimations-Arms_Sheet_7
+  - first:
+      213: -7630694636419935781
+    second: FishermansAnimations-Arms_Sheet_8
+  - first:
+      213: 3057146952210552477
+    second: FishermansAnimations-Arms_Sheet_9
+  - first:
+      213: 1038014037759878985
+    second: FishermansAnimations-Arms_Sheet_10
+  - first:
+      213: -4379090041782795459
+    second: FishermansAnimations-Arms_Sheet_11
+  - first:
+      213: -5039929477805582902
+    second: FishermansAnimations-Arms_Sheet_12
+  - first:
+      213: -7707245797882102447
+    second: FishermansAnimations-Arms_Sheet_13
+  - first:
+      213: -4094739151786491379
+    second: FishermansAnimations-Arms_Sheet_14
+  - first:
+      213: 5619514254414173632
+    second: FishermansAnimations-Arms_Sheet_15
+  - first:
+      213: 5486303736780639523
+    second: FishermansAnimations-Arms_Sheet_16
+  - first:
+      213: 125221762837737996
+    second: FishermansAnimations-Arms_Sheet_17
+  - first:
+      213: -813338234613566281
+    second: FishermansAnimations-Arms_Sheet_18
+  - first:
+      213: 6476870252576885811
+    second: FishermansAnimations-Arms_Sheet_19
+  - first:
+      213: -3209727097878170845
+    second: FishermansAnimations-Arms_Sheet_20
+  - first:
+      213: -3087001041047175074
+    second: FishermansAnimations-Arms_Sheet_21
+  - first:
+      213: -544798558331964816
+    second: FishermansAnimations-Arms_Sheet_22
+  - first:
+      213: -7708032682348311261
+    second: FishermansAnimations-Arms_Sheet_23
+  - first:
+      213: 7019723679265535163
+    second: FishermansAnimations-Arms_Sheet_24
+  - first:
+      213: 4420903845520460594
+    second: FishermansAnimations-Arms_Sheet_25
+  - first:
+      213: -5969578427004962557
+    second: FishermansAnimations-Arms_Sheet_26
+  - first:
+      213: -535766010151098858
+    second: FishermansAnimations-Arms_Sheet_27
+  - first:
+      213: 4532940839976157297
+    second: FishermansAnimations-Arms_Sheet_28
+  - first:
+      213: -211935778308029566
+    second: FishermansAnimations-Arms_Sheet_29
+  - first:
+      213: 1875147228509821825
+    second: FishermansAnimations-Arms_Sheet_30
+  - first:
+      213: 3364457331995439314
+    second: FishermansAnimations-Arms_Sheet_31
+  - first:
+      213: 6649546291084336160
+    second: FishermansAnimations-Arms_Sheet_32
+  - first:
+      213: -8730280414701724515
+    second: FishermansAnimations-Arms_Sheet_33
+  - first:
+      213: 490760397541888061
+    second: FishermansAnimations-Arms_Sheet_34
+  - first:
+      213: -7734675482511182994
+    second: FishermansAnimations-Arms_Sheet_35
+  - first:
+      213: -7043718341503048296
+    second: FishermansAnimations-Arms_Sheet_36
+  - first:
+      213: -871181420961102100
+    second: FishermansAnimations-Arms_Sheet_37
+  - first:
+      213: -9048898007614518170
+    second: FishermansAnimations-Arms_Sheet_38
+  - first:
+      213: 3049276241699062729
+    second: FishermansAnimations-Arms_Sheet_39
+  - first:
+      213: 1956191178024023264
+    second: FishermansAnimations-Arms_Sheet_40
+  - first:
+      213: -4479444946306019823
+    second: FishermansAnimations-Arms_Sheet_41
+  - first:
+      213: -5569830115479362226
+    second: FishermansAnimations-Arms_Sheet_42
+  - first:
+      213: 1989177605689468493
+    second: FishermansAnimations-Arms_Sheet_43
+  - first:
+      213: -8695452538780570242
+    second: FishermansAnimations-Arms_Sheet_44
+  - first:
+      213: 3063998288322739497
+    second: FishermansAnimations-Arms_Sheet_45
+  - first:
+      213: -4314886427051355954
+    second: FishermansAnimations-Arms_Sheet_46
+  - first:
+      213: -2907418830632983914
+    second: FishermansAnimations-Arms_Sheet_47
+  - first:
+      213: -2521168651037645527
+    second: FishermansAnimations-Arms_Sheet_48
+  - first:
+      213: -7257242495792366148
+    second: FishermansAnimations-Arms_Sheet_49
+  - first:
+      213: -1281771291503813653
+    second: FishermansAnimations-Arms_Sheet_50
+  - first:
+      213: 7269254709051926079
+    second: FishermansAnimations-Arms_Sheet_51
+  - first:
+      213: 7413576934232679637
+    second: FishermansAnimations-Arms_Sheet_52
+  - first:
+      213: 3891940400424516548
+    second: FishermansAnimations-Arms_Sheet_53
+  - first:
+      213: 5849579546350546363
+    second: FishermansAnimations-Arms_Sheet_54
+  - first:
+      213: 7213061189706218616
+    second: FishermansAnimations-Arms_Sheet_55
+  - first:
+      213: -3187014896883819108
+    second: FishermansAnimations-Arms_Sheet_56
+  - first:
+      213: -1711164393284171667
+    second: FishermansAnimations-Arms_Sheet_57
+  - first:
+      213: -4474592187987250169
+    second: FishermansAnimations-Arms_Sheet_58
+  - first:
+      213: 1928043424950698409
+    second: FishermansAnimations-Arms_Sheet_59
+  - first:
+      213: -2064058027331602028
+    second: FishermansAnimations-Arms_Sheet_60
+  - first:
+      213: 7378566525666053996
+    second: FishermansAnimations-Arms_Sheet_61
+  - first:
+      213: -2391662919157215120
+    second: FishermansAnimations-Arms_Sheet_62
+  - first:
+      213: -7045520609882559167
+    second: FishermansAnimations-Arms_Sheet_63
+  - first:
+      213: 5745813126289285045
+    second: FishermansAnimations-Arms_Sheet_64
+  - first:
+      213: -5265253326233365556
+    second: FishermansAnimations-Arms_Sheet_65
+  - first:
+      213: -6665502572782527072
+    second: FishermansAnimations-Arms_Sheet_66
+  - first:
+      213: -730039268080644353
+    second: FishermansAnimations-Arms_Sheet_67
+  - first:
+      213: 7330635586065150917
+    second: FishermansAnimations-Arms_Sheet_68
+  - first:
+      213: -2105247301081287068
+    second: FishermansAnimations-Arms_Sheet_69
+  - first:
+      213: -5635668953792449346
+    second: FishermansAnimations-Arms_Sheet_70
+  - first:
+      213: 843796113874189598
+    second: FishermansAnimations-Arms_Sheet_71
+  - first:
+      213: -7241480380079961648
+    second: FishermansAnimations-Arms_Sheet_72
+  - first:
+      213: -762477823220034611
+    second: FishermansAnimations-Arms_Sheet_73
+  - first:
+      213: 3179804415310736449
+    second: FishermansAnimations-Arms_Sheet_74
+  - first:
+      213: -1755755828697385861
+    second: FishermansAnimations-Arms_Sheet_75
+  - first:
+      213: 1054773073809620989
+    second: FishermansAnimations-Arms_Sheet_76
+  - first:
+      213: -2721177266472307820
+    second: FishermansAnimations-Arms_Sheet_77
+  - first:
+      213: 6241153798157716420
+    second: FishermansAnimations-Arms_Sheet_78
+  - first:
+      213: -3051711410909293990
+    second: FishermansAnimations-Arms_Sheet_79
+  - first:
+      213: 1095921991453267598
+    second: FishermansAnimations-Arms_Sheet_80
+  - first:
+      213: 3991729416726625679
+    second: FishermansAnimations-Arms_Sheet_81
+  - first:
+      213: -1219939902093491647
+    second: FishermansAnimations-Arms_Sheet_82
+  - first:
+      213: -8712129730199751022
+    second: FishermansAnimations-Arms_Sheet_83
+  - first:
+      213: -9202184340664533125
+    second: FishermansAnimations-Arms_Sheet_84
+  - first:
+      213: 2157982872515699419
+    second: FishermansAnimations-Arms_Sheet_85
+  - first:
+      213: -4155860342127889610
+    second: FishermansAnimations-Arms_Sheet_86
+  - first:
+      213: 3103976756655424154
+    second: FishermansAnimations-Arms_Sheet_87
+  - first:
+      213: 8886957896558754960
+    second: FishermansAnimations-Arms_Sheet_88
+  - first:
+      213: -4626883874627527849
+    second: FishermansAnimations-Arms_Sheet_89
+  - first:
+      213: -7037765286514286700
+    second: FishermansAnimations-Arms_Sheet_90
+  - first:
+      213: 3068996593698448747
+    second: FishermansAnimations-Arms_Sheet_91
+  - first:
+      213: 3839431692841824995
+    second: FishermansAnimations-Arms_Sheet_92
+  - first:
+      213: 6854236898825020038
+    second: FishermansAnimations-Arms_Sheet_93
+  - first:
+      213: 3078241811447317463
+    second: FishermansAnimations-Arms_Sheet_94
+  - first:
+      213: 8207750668841119156
+    second: FishermansAnimations-Arms_Sheet_95
+  - first:
+      213: -5036311528302834824
+    second: FishermansAnimations-Arms_Sheet_96
+  - first:
+      213: -9169986429799651721
+    second: FishermansAnimations-Arms_Sheet_97
+  - first:
+      213: 448805684932393924
+    second: FishermansAnimations-Arms_Sheet_98
+  - first:
+      213: -7063048739350652866
+    second: FishermansAnimations-Arms_Sheet_99
+  - first:
+      213: 3255379591663857393
+    second: FishermansAnimations-Arms_Sheet_100
+  - first:
+      213: 1130348208168679668
+    second: FishermansAnimations-Arms_Sheet_101
+  - first:
+      213: 5404247774227124305
+    second: FishermansAnimations-Arms_Sheet_102
+  - first:
+      213: -3916661575211161843
+    second: FishermansAnimations-Arms_Sheet_103
+  - first:
+      213: 3132021336265221973
+    second: FishermansAnimations-Arms_Sheet_104
+  - first:
+      213: 6046516113893799889
+    second: FishermansAnimations-Arms_Sheet_105
+  - first:
+      213: -7884617698243288443
+    second: FishermansAnimations-Arms_Sheet_106
+  - first:
+      213: -1353986441256922126
+    second: FishermansAnimations-Arms_Sheet_107
+  - first:
+      213: -3684522379866615165
+    second: FishermansAnimations-Arms_Sheet_108
+  - first:
+      213: 4192086854755824895
+    second: FishermansAnimations-Arms_Sheet_109
+  - first:
+      213: -7116467548116581972
+    second: FishermansAnimations-Arms_Sheet_110
+  - first:
+      213: 2169020050417431737
+    second: FishermansAnimations-Arms_Sheet_111
+  - first:
+      213: 7605894990725171720
+    second: FishermansAnimations-Arms_Sheet_112
+  - first:
+      213: -303599689071195047
+    second: FishermansAnimations-Arms_Sheet_113
+  - first:
+      213: 6274653683945827260
+    second: FishermansAnimations-Arms_Sheet_114
+  - first:
+      213: 998745445465461972
+    second: FishermansAnimations-Arms_Sheet_115
+  - first:
+      213: 530177252977690967
+    second: FishermansAnimations-Arms_Sheet_116
+  - first:
+      213: -8236627987032467941
+    second: FishermansAnimations-Arms_Sheet_117
+  - first:
+      213: -1144633787327724642
+    second: FishermansAnimations-Arms_Sheet_118
+  - first:
+      213: -6825089310248105154
+    second: FishermansAnimations-Arms_Sheet_119
+  - first:
+      213: 8087763145157018830
+    second: FishermansAnimations-Arms_Sheet_120
+  - first:
+      213: -4947597997278880909
+    second: FishermansAnimations-Arms_Sheet_121
+  - first:
+      213: -1083519168880066272
+    second: FishermansAnimations-Arms_Sheet_122
+  - first:
+      213: 3081346301196994311
+    second: FishermansAnimations-Arms_Sheet_123
+  - first:
+      213: -7318390832723525201
+    second: FishermansAnimations-Arms_Sheet_124
+  - first:
+      213: 1391527313463107926
+    second: FishermansAnimations-Arms_Sheet_125
+  - first:
+      213: 2801786246856772476
+    second: FishermansAnimations-Arms_Sheet_126
+  - first:
+      213: 6603072545518753778
+    second: FishermansAnimations-Arms_Sheet_127
+  - first:
+      213: 7534381337691067017
+    second: FishermansAnimations-Arms_Sheet_128
+  - first:
+      213: 283628548391608604
+    second: FishermansAnimations-Arms_Sheet_129
+  - first:
+      213: 9087066008776075717
+    second: FishermansAnimations-Arms_Sheet_130
+  - first:
+      213: -2540757643363877797
+    second: FishermansAnimations-Arms_Sheet_131
+  - first:
+      213: -9127144591955471418
+    second: FishermansAnimations-Arms_Sheet_132
+  - first:
+      213: -7436721665266348696
+    second: FishermansAnimations-Arms_Sheet_133
+  - first:
+      213: -1351908818741981897
+    second: FishermansAnimations-Arms_Sheet_134
+  - first:
+      213: -752336007097822301
+    second: FishermansAnimations-Arms_Sheet_135
+  - first:
+      213: -5174988875352622213
+    second: FishermansAnimations-Arms_Sheet_136
+  - first:
+      213: 7562735974313167922
+    second: FishermansAnimations-Arms_Sheet_137
+  - first:
+      213: -7914970602139139032
+    second: FishermansAnimations-Arms_Sheet_138
+  - first:
+      213: -1020169215553593677
+    second: FishermansAnimations-Arms_Sheet_139
+  - first:
+      213: -2096943492587337609
+    second: FishermansAnimations-Arms_Sheet_140
+  - first:
+      213: -4451628500815919332
+    second: FishermansAnimations-Arms_Sheet_141
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 1501
+        width: 11
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90a187ef525c21a00800000000000000
+      internalID: 725859256933816841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 1499
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78fce42497b1781d0800000000000000
+      internalID: -3348677590309220473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 1498
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b59c64f44fd470b70800000000000000
+      internalID: 8865140103199508827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1498
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59a3bdbd418685db0800000000000000
+      internalID: -4802974563793421675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 1429
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94f9fb3ed74b47b50800000000000000
+      internalID: 6590090607534776137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 1428
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26db68c26400cc100800000000000000
+      internalID: 129478790681640290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1430
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f59ca32134d1cf60800000000000000
+      internalID: 8052950916232156663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 1429
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24e34716007634550800000000000000
+      internalID: 6143867567996157506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 1430
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd116b648a35a1690800000000000000
+      internalID: -7630694636419935781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 1429
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d969da0a4fa2d6a20800000000000000
+      internalID: 3057146952210552477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1429
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 947eb888444c76e00800000000000000
+      internalID: 1038014037759878985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 1428
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d330614fec85a33c0800000000000000
+      internalID: -4379090041782795459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1365
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac5d066b7d29e0ab0800000000000000
+      internalID: -5039929477805582902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1366
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d7d9418cc5a0590800000000000000
+      internalID: -7707245797882102447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1366
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d02c1e1bf609c27c0800000000000000
+      internalID: -4094739151786491379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 1365
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c5d990e0768cfd40800000000000000
+      internalID: 5619514254414173632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 1301
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32d45b05e24432c40800000000000000
+      internalID: 5486303736780639523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 1300
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c027714a780ecb100800000000000000
+      internalID: 125221762837737996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 1304
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b47d935f2176b4f0800000000000000
+      internalID: -813338234613566281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 1303
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33cc325cd2772e950800000000000000
+      internalID: 6476870252576885811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 1303
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 323b609d532c473d0800000000000000
+      internalID: -3209727097878170845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1302
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e504f17a8e4c825d0800000000000000
+      internalID: -3087001041047175074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 1300
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0727a70099c7078f0800000000000000
+      internalID: -544798558331964816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 1299
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32d07834d11970590800000000000000
+      internalID: -7708032682348311261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1236
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb435048e711b6160800000000000000
+      internalID: 7019723679265535163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 1235
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23bc762ef943a5d30800000000000000
+      internalID: 4420903845520460594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1239
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 309b88f7c0cc72da0800000000000000
+      internalID: -5969578427004962557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 1238
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 616273207a39098f0800000000000000
+      internalID: -535766010151098858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 1240
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 170c3aa6dad38ee30800000000000000
+      internalID: 4532940839976157297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 1239
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28301c2588d0f0df0800000000000000
+      internalID: -211935778308029566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 1237
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18bd2e8287cd50a10800000000000000
+      internalID: 1875147228509821825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 1236
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d0fb872e14f0be20800000000000000
+      internalID: 3364457331995439314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1174
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02c1995fe1fe74c50800000000000000
+      internalID: 6649546291084336160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1175
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9c5724c730d7d680800000000000000
+      internalID: -8730280414701724515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1173
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d30505d3bf78fc600800000000000000
+      internalID: 490760397541888061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 1173
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e637ff3f0a9e8a490800000000000000
+      internalID: -7734675482511182994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 1114
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 895aec4dc7faf3e90800000000000000
+      internalID: -7043718341503048296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 1114
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce681b40d11f8e3f0800000000000000
+      internalID: -871181420961102100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 1115
+        width: 13
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66c8567843bdb6280800000000000000
+      internalID: -9048898007614518170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 1117
+        width: 11
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c3c2880694315a20800000000000000
+      internalID: 3049276241699062729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 1048
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e4ffd61389c52b10800000000000000
+      internalID: 1956191178024023264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 1044
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11ec280fd80d5d1c0800000000000000
+      internalID: -4479444946306019823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 1049
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e45649b250df3b2b0800000000000000
+      internalID: -5569830115479362226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 1045
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4668464e7afa9b10800000000000000
+      internalID: 1989177605689468493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1050
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7d27b88cfb835780800000000000000
+      internalID: -8695452538780570242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 1046
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92db1ef9532858a20800000000000000
+      internalID: 3063998288322739497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 1049
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec01375e7a17e14c0800000000000000
+      internalID: -4314886427051355954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 1045
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 692e6da4af5c6a7d0800000000000000
+      internalID: -2907418830632983914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 981
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 925ec083872030dd0800000000000000
+      internalID: -2521168651037645527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 982
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbd3d6d8668194b90800000000000000
+      internalID: -7257242495792366148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 982
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beb1f9e2dcb363ee0800000000000000
+      internalID: -1281771291503813653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 981
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3620eac4a491e460800000000000000
+      internalID: 7269254709051926079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 918
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d4e7ff51f052e660800000000000000
+      internalID: 7413576934232679637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 919
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cb7b4e7c23f20630800000000000000
+      internalID: 3891940400424516548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 918
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbd6d91ea91ed2150800000000000000
+      internalID: 5849579546350546363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 917
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87c78938fe0f91460800000000000000
+      internalID: 7213061189706218616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 852
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9d9c5936d275c3d0800000000000000
+      internalID: -3187014896883819108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 856
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d68000aec09b048e0800000000000000
+      internalID: -1711164393284171667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 858
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7043848cc1e07e1c0800000000000000
+      internalID: -4474592187987250169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_59
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 856
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a1c6bf9749c1ca10800000000000000
+      internalID: 1928043424950698409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 858
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4993b15f82efa53e0800000000000000
+      internalID: -2064058027331602028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 856
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6fc9e9692fe56660800000000000000
+      internalID: 7378566525666053996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 859
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07019212f3b1fced0800000000000000
+      internalID: -2391662919157215120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 792
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14da1468558493e90800000000000000
+      internalID: -7045520609882559167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_64
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 795
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bfdf32889a3dbf40800000000000000
+      internalID: 5745813126289285045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_65
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 792
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc39a6d0fff0ee6b0800000000000000
+      internalID: -5265253326233365556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_66
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 795
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ad58d3b9b06f73a0800000000000000
+      internalID: -6665502572782527072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_67
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 792
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffe87f157216ed5f0800000000000000
+      internalID: -730039268080644353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_68
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 794
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c33045e936abb560800000000000000
+      internalID: 7330635586065150917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_69
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 792
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46633b6dbb8a8c2e0800000000000000
+      internalID: -2105247301081287068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_70
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 794
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb4f08112f41ac1b0800000000000000
+      internalID: -5635668953792449346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_71
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 733
+        width: 11
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1d735e4814c5bb00800000000000000
+      internalID: 843796113874189598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_72
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 731
+        width: 13
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d98f5916f7118b90800000000000000
+      internalID: -7241480380079961648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_73
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 730
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc35bd5a5722b65f0800000000000000
+      internalID: -762477823220034611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_74
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 730
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14ca0d5b44fe02c20800000000000000
+      internalID: 3179804415310736449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_75
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 660
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b74bb2e406d42a7e0800000000000000
+      internalID: -1755755828697385861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_76
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 661
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dffb11fa58e43ae00800000000000000
+      internalID: 1054773073809620989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_77
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 661
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 493bc0d81bf6c3ad0800000000000000
+      internalID: -2721177266472307820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_78
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 662
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cb45c7ff480d9650800000000000000
+      internalID: 6241153798157716420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_79
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 661
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a52deb3f3a426a5d0800000000000000
+      internalID: -3051711410909293990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_80
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 662
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e865c1aae3f753f00800000000000000
+      internalID: 1095921991453267598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_81
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 660
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8db77361c8756730800000000000000
+      internalID: 3991729416726625679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_82
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 661
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14284606f17e11fe0800000000000000
+      internalID: -1219939902093491647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_83
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 597
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 296f2525b2c481780800000000000000
+      internalID: -8712129730199751022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_84
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 598
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7f3701f8164b4080800000000000000
+      internalID: -9202184340664533125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_85
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 598
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd2eca33df1b2fd10800000000000000
+      internalID: 2157982872515699419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_86
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 597
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 633755b990b6356c0800000000000000
+      internalID: -4155860342127889610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_87
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 532
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9204832a6a831b20800000000000000
+      internalID: 3103976756655424154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_88
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 533
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09cbc3e2f11d45b70800000000000000
+      internalID: 8886957896558754960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_89
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 535
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75bd7db51a10acfb0800000000000000
+      internalID: -4626883874627527849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_90
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 536
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49f9db472c5d45e90800000000000000
+      internalID: -7037765286514286700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_91
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 534
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b65a7484424479a20800000000000000
+      internalID: 3068996593698448747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_92
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 535
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e2b63f48c6684530800000000000000
+      internalID: 3839431692841824995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_93
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 531
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68227d8e4242f1f50800000000000000
+      internalID: 6854236898825020038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_94
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 532
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d382184e9c18ba20800000000000000
+      internalID: 3078241811447317463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_95
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 467
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bdef3d2fb9c7e170800000000000000
+      internalID: 8207750668841119156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_96
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 468
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87b0e49395d6b1ab0800000000000000
+      internalID: -5036311528302834824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_97
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 470
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 776a3a04de9adb080800000000000000
+      internalID: -9169986429799651721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_98
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 471
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cb329f746a7a3600800000000000000
+      internalID: 448805684932393924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_99
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 471
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e38dbbbd7920bfd90800000000000000
+      internalID: -7063048739350652866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_100
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 472
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fe2e2aad7e6d2d20800000000000000
+      internalID: 3255379591663857393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_101
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 468
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f8b46cd4bdcfaf00800000000000000
+      internalID: 1130348208168679668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_102
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 469
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 150d00db7bebffa40800000000000000
+      internalID: 5404247774227124305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_103
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 406
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d07ed187c0935a9c0800000000000000
+      internalID: -3916661575211161843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_104
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 407
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5576809afcc277b20800000000000000
+      internalID: 3132021336265221973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_105
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 405
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d7b059ae5a89e350800000000000000
+      internalID: 6046516113893799889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_106
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 405
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 582637a5af5349290800000000000000
+      internalID: -7884617698243288443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_107
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 346
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f39f22618ca53de0800000000000000
+      internalID: -1353986441256922126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_108
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 346
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 382d21dba62fddcc0800000000000000
+      internalID: -3684522379866615165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_109
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 347
+        width: 13
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff43e45a8c84d2a30800000000000000
+      internalID: 4192086854755824895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_110
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 349
+        width: 11
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca18aea387a3d3d90800000000000000
+      internalID: -7116467548116581972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_111
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 276
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b4b4df6e38e91e10800000000000000
+      internalID: 2169020050417431737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_112
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 280
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ac81142319d8960800000000000000
+      internalID: 7605894990725171720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_113
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 277
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95c0efaf0b569cbf0800000000000000
+      internalID: -303599689071195047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_114
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 281
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbbef20f74c041750800000000000000
+      internalID: 6274653683945827260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_115
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 278
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d4120ae0b14cdd00800000000000000
+      internalID: 998745445465461972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_116
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 282
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7594abf07619b5700800000000000000
+      internalID: 530177252977690967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_117
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 277
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1693ed3c7e91bd80800000000000000
+      internalID: -8236627987032467941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_118
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 281
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e93cb6c82a17d10f0800000000000000
+      internalID: -1144633787327724642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_119
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 213
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3b8856ee696841a0800000000000000
+      internalID: -6825089310248105154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_120
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 214
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec4849ecab18d3070800000000000000
+      internalID: 8087763145157018830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_121
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 214
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37b12c0c5d9965bb0800000000000000
+      internalID: -4947597997278880909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_122
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 213
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 021c39f7e0196f0f0800000000000000
+      internalID: -1083519168880066272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_123
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 150
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7078fc0a22423ca20800000000000000
+      internalID: 3081346301196994311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_124
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 151
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa10a08ef4adf6a90800000000000000
+      internalID: -7318390832723525201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_125
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 150
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 651e83e08b2bf4310800000000000000
+      internalID: 1391527313463107926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_126
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 149
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7b097c3fb1f1e620800000000000000
+      internalID: 2801786246856772476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_127
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 84
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f797cdde73d2ab50800000000000000
+      internalID: 6603072545518753778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_128
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 90
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 982986368ef7f8860800000000000000
+      internalID: 7534381337691067017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_129
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 88
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c11aa0b79a6afe300800000000000000
+      internalID: 283628548391608604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_130
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 90
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c9ef9fb36ebb1e70800000000000000
+      internalID: 9087066008776075717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_131
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 88
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5cffe6826a6dbcd0800000000000000
+      internalID: -2540757643363877797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_132
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 91
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c3dddee95ed55180800000000000000
+      internalID: -9127144591955471418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_133
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 88
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86d09500c057bc890800000000000000
+      internalID: -7436721665266348696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_134
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 27
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73d8a22971e0d3de0800000000000000
+      internalID: -1351908818741981897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_135
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 24
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a3d239336a2f85f0800000000000000
+      internalID: -752336007097822301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_136
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 27
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7b3200490fbe28b0800000000000000
+      internalID: -5174988875352622213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_137
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 24
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23c010fac4c34f860800000000000000
+      internalID: 7562735974313167922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_138
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 26
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82446d33c20682290800000000000000
+      internalID: -7914970602139139032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_139
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 24
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3be9328e081a7d1f0800000000000000
+      internalID: -1020169215553593677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_140
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 26
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 778c34ae00926e2e0800000000000000
+      internalID: -2096943492587337609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Arms_Sheet_141
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 24
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c17ccd8d673a832c0800000000000000
+      internalID: -4451628500815919332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FishermansAnimations-Arms_Sheet_0: 725859256933816841
+      FishermansAnimations-Arms_Sheet_1: -3348677590309220473
+      FishermansAnimations-Arms_Sheet_10: 1038014037759878985
+      FishermansAnimations-Arms_Sheet_100: 3255379591663857393
+      FishermansAnimations-Arms_Sheet_101: 1130348208168679668
+      FishermansAnimations-Arms_Sheet_102: 5404247774227124305
+      FishermansAnimations-Arms_Sheet_103: -3916661575211161843
+      FishermansAnimations-Arms_Sheet_104: 3132021336265221973
+      FishermansAnimations-Arms_Sheet_105: 6046516113893799889
+      FishermansAnimations-Arms_Sheet_106: -7884617698243288443
+      FishermansAnimations-Arms_Sheet_107: -1353986441256922126
+      FishermansAnimations-Arms_Sheet_108: -3684522379866615165
+      FishermansAnimations-Arms_Sheet_109: 4192086854755824895
+      FishermansAnimations-Arms_Sheet_11: -4379090041782795459
+      FishermansAnimations-Arms_Sheet_110: -7116467548116581972
+      FishermansAnimations-Arms_Sheet_111: 2169020050417431737
+      FishermansAnimations-Arms_Sheet_112: 7605894990725171720
+      FishermansAnimations-Arms_Sheet_113: -303599689071195047
+      FishermansAnimations-Arms_Sheet_114: 6274653683945827260
+      FishermansAnimations-Arms_Sheet_115: 998745445465461972
+      FishermansAnimations-Arms_Sheet_116: 530177252977690967
+      FishermansAnimations-Arms_Sheet_117: -8236627987032467941
+      FishermansAnimations-Arms_Sheet_118: -1144633787327724642
+      FishermansAnimations-Arms_Sheet_119: -6825089310248105154
+      FishermansAnimations-Arms_Sheet_12: -5039929477805582902
+      FishermansAnimations-Arms_Sheet_120: 8087763145157018830
+      FishermansAnimations-Arms_Sheet_121: -4947597997278880909
+      FishermansAnimations-Arms_Sheet_122: -1083519168880066272
+      FishermansAnimations-Arms_Sheet_123: 3081346301196994311
+      FishermansAnimations-Arms_Sheet_124: -7318390832723525201
+      FishermansAnimations-Arms_Sheet_125: 1391527313463107926
+      FishermansAnimations-Arms_Sheet_126: 2801786246856772476
+      FishermansAnimations-Arms_Sheet_127: 6603072545518753778
+      FishermansAnimations-Arms_Sheet_128: 7534381337691067017
+      FishermansAnimations-Arms_Sheet_129: 283628548391608604
+      FishermansAnimations-Arms_Sheet_13: -7707245797882102447
+      FishermansAnimations-Arms_Sheet_130: 9087066008776075717
+      FishermansAnimations-Arms_Sheet_131: -2540757643363877797
+      FishermansAnimations-Arms_Sheet_132: -9127144591955471418
+      FishermansAnimations-Arms_Sheet_133: -7436721665266348696
+      FishermansAnimations-Arms_Sheet_134: -1351908818741981897
+      FishermansAnimations-Arms_Sheet_135: -752336007097822301
+      FishermansAnimations-Arms_Sheet_136: -5174988875352622213
+      FishermansAnimations-Arms_Sheet_137: 7562735974313167922
+      FishermansAnimations-Arms_Sheet_138: -7914970602139139032
+      FishermansAnimations-Arms_Sheet_139: -1020169215553593677
+      FishermansAnimations-Arms_Sheet_14: -4094739151786491379
+      FishermansAnimations-Arms_Sheet_140: -2096943492587337609
+      FishermansAnimations-Arms_Sheet_141: -4451628500815919332
+      FishermansAnimations-Arms_Sheet_15: 5619514254414173632
+      FishermansAnimations-Arms_Sheet_16: 5486303736780639523
+      FishermansAnimations-Arms_Sheet_17: 125221762837737996
+      FishermansAnimations-Arms_Sheet_18: -813338234613566281
+      FishermansAnimations-Arms_Sheet_19: 6476870252576885811
+      FishermansAnimations-Arms_Sheet_2: 8865140103199508827
+      FishermansAnimations-Arms_Sheet_20: -3209727097878170845
+      FishermansAnimations-Arms_Sheet_21: -3087001041047175074
+      FishermansAnimations-Arms_Sheet_22: -544798558331964816
+      FishermansAnimations-Arms_Sheet_23: -7708032682348311261
+      FishermansAnimations-Arms_Sheet_24: 7019723679265535163
+      FishermansAnimations-Arms_Sheet_25: 4420903845520460594
+      FishermansAnimations-Arms_Sheet_26: -5969578427004962557
+      FishermansAnimations-Arms_Sheet_27: -535766010151098858
+      FishermansAnimations-Arms_Sheet_28: 4532940839976157297
+      FishermansAnimations-Arms_Sheet_29: -211935778308029566
+      FishermansAnimations-Arms_Sheet_3: -4802974563793421675
+      FishermansAnimations-Arms_Sheet_30: 1875147228509821825
+      FishermansAnimations-Arms_Sheet_31: 3364457331995439314
+      FishermansAnimations-Arms_Sheet_32: 6649546291084336160
+      FishermansAnimations-Arms_Sheet_33: -8730280414701724515
+      FishermansAnimations-Arms_Sheet_34: 490760397541888061
+      FishermansAnimations-Arms_Sheet_35: -7734675482511182994
+      FishermansAnimations-Arms_Sheet_36: -7043718341503048296
+      FishermansAnimations-Arms_Sheet_37: -871181420961102100
+      FishermansAnimations-Arms_Sheet_38: -9048898007614518170
+      FishermansAnimations-Arms_Sheet_39: 3049276241699062729
+      FishermansAnimations-Arms_Sheet_4: 6590090607534776137
+      FishermansAnimations-Arms_Sheet_40: 1956191178024023264
+      FishermansAnimations-Arms_Sheet_41: -4479444946306019823
+      FishermansAnimations-Arms_Sheet_42: -5569830115479362226
+      FishermansAnimations-Arms_Sheet_43: 1989177605689468493
+      FishermansAnimations-Arms_Sheet_44: -8695452538780570242
+      FishermansAnimations-Arms_Sheet_45: 3063998288322739497
+      FishermansAnimations-Arms_Sheet_46: -4314886427051355954
+      FishermansAnimations-Arms_Sheet_47: -2907418830632983914
+      FishermansAnimations-Arms_Sheet_48: -2521168651037645527
+      FishermansAnimations-Arms_Sheet_49: -7257242495792366148
+      FishermansAnimations-Arms_Sheet_5: 129478790681640290
+      FishermansAnimations-Arms_Sheet_50: -1281771291503813653
+      FishermansAnimations-Arms_Sheet_51: 7269254709051926079
+      FishermansAnimations-Arms_Sheet_52: 7413576934232679637
+      FishermansAnimations-Arms_Sheet_53: 3891940400424516548
+      FishermansAnimations-Arms_Sheet_54: 5849579546350546363
+      FishermansAnimations-Arms_Sheet_55: 7213061189706218616
+      FishermansAnimations-Arms_Sheet_56: -3187014896883819108
+      FishermansAnimations-Arms_Sheet_57: -1711164393284171667
+      FishermansAnimations-Arms_Sheet_58: -4474592187987250169
+      FishermansAnimations-Arms_Sheet_59: 1928043424950698409
+      FishermansAnimations-Arms_Sheet_6: 8052950916232156663
+      FishermansAnimations-Arms_Sheet_60: -2064058027331602028
+      FishermansAnimations-Arms_Sheet_61: 7378566525666053996
+      FishermansAnimations-Arms_Sheet_62: -2391662919157215120
+      FishermansAnimations-Arms_Sheet_63: -7045520609882559167
+      FishermansAnimations-Arms_Sheet_64: 5745813126289285045
+      FishermansAnimations-Arms_Sheet_65: -5265253326233365556
+      FishermansAnimations-Arms_Sheet_66: -6665502572782527072
+      FishermansAnimations-Arms_Sheet_67: -730039268080644353
+      FishermansAnimations-Arms_Sheet_68: 7330635586065150917
+      FishermansAnimations-Arms_Sheet_69: -2105247301081287068
+      FishermansAnimations-Arms_Sheet_7: 6143867567996157506
+      FishermansAnimations-Arms_Sheet_70: -5635668953792449346
+      FishermansAnimations-Arms_Sheet_71: 843796113874189598
+      FishermansAnimations-Arms_Sheet_72: -7241480380079961648
+      FishermansAnimations-Arms_Sheet_73: -762477823220034611
+      FishermansAnimations-Arms_Sheet_74: 3179804415310736449
+      FishermansAnimations-Arms_Sheet_75: -1755755828697385861
+      FishermansAnimations-Arms_Sheet_76: 1054773073809620989
+      FishermansAnimations-Arms_Sheet_77: -2721177266472307820
+      FishermansAnimations-Arms_Sheet_78: 6241153798157716420
+      FishermansAnimations-Arms_Sheet_79: -3051711410909293990
+      FishermansAnimations-Arms_Sheet_8: -7630694636419935781
+      FishermansAnimations-Arms_Sheet_80: 1095921991453267598
+      FishermansAnimations-Arms_Sheet_81: 3991729416726625679
+      FishermansAnimations-Arms_Sheet_82: -1219939902093491647
+      FishermansAnimations-Arms_Sheet_83: -8712129730199751022
+      FishermansAnimations-Arms_Sheet_84: -9202184340664533125
+      FishermansAnimations-Arms_Sheet_85: 2157982872515699419
+      FishermansAnimations-Arms_Sheet_86: -4155860342127889610
+      FishermansAnimations-Arms_Sheet_87: 3103976756655424154
+      FishermansAnimations-Arms_Sheet_88: 8886957896558754960
+      FishermansAnimations-Arms_Sheet_89: -4626883874627527849
+      FishermansAnimations-Arms_Sheet_9: 3057146952210552477
+      FishermansAnimations-Arms_Sheet_90: -7037765286514286700
+      FishermansAnimations-Arms_Sheet_91: 3068996593698448747
+      FishermansAnimations-Arms_Sheet_92: 3839431692841824995
+      FishermansAnimations-Arms_Sheet_93: 6854236898825020038
+      FishermansAnimations-Arms_Sheet_94: 3078241811447317463
+      FishermansAnimations-Arms_Sheet_95: 8207750668841119156
+      FishermansAnimations-Arms_Sheet_96: -5036311528302834824
+      FishermansAnimations-Arms_Sheet_97: -9169986429799651721
+      FishermansAnimations-Arms_Sheet_98: 448805684932393924
+      FishermansAnimations-Arms_Sheet_99: -7063048739350652866
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

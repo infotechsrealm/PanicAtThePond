@@ -17,6 +17,21 @@ public class FishController_Mirror : NetworkBehaviour
     public List<WormManager> allHookWorms = new List<WormManager>();
 
 
+    [SyncVar(hook = nameof(OnHatChanged))]
+    public string syncedHatName = "";
+
+    public void OnHatChanged(string oldHat, string newHat)
+    {
+        if (fishController != null)
+            CosmeticRuntimeApplier.ApplyFishHatByName(fishController.gameObject, newHat);
+    }
+
+    [Command]
+    public void CmdSetHat(string hatName)
+    {
+        syncedHatName = hatName;
+    }
+
     private void Awake()
     {
     }

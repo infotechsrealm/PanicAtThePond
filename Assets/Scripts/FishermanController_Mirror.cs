@@ -14,6 +14,25 @@ public class FishermanController_Mirror : NetworkBehaviour
     {
         Instance = this;
     }
+
+    [SyncVar(hook = nameof(OnCosmeticsChanged))]
+    public string syncedHatName = "";
+    [SyncVar(hook = nameof(OnCosmeticsChanged))]
+    public string syncedHairName = "";
+
+    public void OnCosmeticsChanged(string oldVal, string newVal)
+    {
+        if (FishermanController != null)
+            CosmeticRuntimeApplier.ApplyFishermanCosmeticsByName(FishermanController.gameObject, syncedHatName, syncedHairName);
+    }
+
+    [Command]
+    public void CmdSetCosmetics(string hatName, string hairName)
+    {
+        syncedHatName = hatName;
+        syncedHairName = hairName;
+    }
+
     private void Start()
     {
         Debug.Log("=== FishermanController_Mirror CALLED ===");

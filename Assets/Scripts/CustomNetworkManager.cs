@@ -39,6 +39,7 @@ public struct ScoreSystemConfigMessage : NetworkMessage
     public string fishTimerSeconds;
     public string hungerWormRateAmount;
     public string hungerDepletionRate;
+    public string bassSpeed;
     public string goldenFishSpeed;
     public string troutSpeed;
     public string wormSpawnRate;
@@ -136,6 +137,7 @@ public class CustomNetworkManager : NetworkManager
         GS.Instance.scoreSystemSettings.fishTimerSeconds = DefaultIfBlank(msg.fishTimerSeconds, ScoreSystemSettings.DefaultFishTimerSeconds.ToString());
         GS.Instance.scoreSystemSettings.hungerWormRateAmount = DefaultIfBlank(msg.hungerWormRateAmount, ScoreSystemSettings.DefaultHungerWormRateAmount.ToString());
         GS.Instance.scoreSystemSettings.hungerDepletionRate = DefaultIfBlank(msg.hungerDepletionRate, ScoreSystemSettings.DefaultHungerDepletionRate.ToString());
+        GS.Instance.scoreSystemSettings.bassSpeed = DefaultIfBlank(msg.bassSpeed, ScoreSystemSettings.DefaultBassSpeed.ToString());
         GS.Instance.scoreSystemSettings.goldenFishSpeed = DefaultIfBlank(msg.goldenFishSpeed, ScoreSystemSettings.DefaultGoldenFishSpeed.ToString());
         GS.Instance.scoreSystemSettings.troutSpeed = DefaultIfBlank(msg.troutSpeed, ScoreSystemSettings.DefaultTroutSpeed.ToString());
         GS.Instance.scoreSystemSettings.wormSpawnRate = DefaultIfBlank(msg.wormSpawnRate, ScoreSystemSettings.DefaultWormSpawnRate.ToString());
@@ -455,6 +457,7 @@ public class CustomNetworkManager : NetworkManager
             fishTimerSeconds = settings.fishTimerSeconds ?? string.Empty,
             hungerWormRateAmount = settings.hungerWormRateAmount ?? string.Empty,
             hungerDepletionRate = settings.hungerDepletionRate ?? string.Empty,
+            bassSpeed = settings.bassSpeed ?? string.Empty,
             goldenFishSpeed = settings.goldenFishSpeed ?? string.Empty,
             troutSpeed = settings.troutSpeed ?? string.Empty,
             wormSpawnRate = settings.wormSpawnRate ?? string.Empty

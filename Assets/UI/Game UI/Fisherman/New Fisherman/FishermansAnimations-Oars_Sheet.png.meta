@@ -1,0 +1,2639 @@
+fileFormatVersion: 2
+guid: 469dad9e8abd4d748b2e5f8aea4251a5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5579363083554885146
+    second: FishermansAnimations-Oars_Sheet_0
+  - first:
+      213: -2994047360568935802
+    second: FishermansAnimations-Oars_Sheet_1
+  - first:
+      213: 45688189134400265
+    second: FishermansAnimations-Oars_Sheet_2
+  - first:
+      213: 4230190674914891612
+    second: FishermansAnimations-Oars_Sheet_3
+  - first:
+      213: -7793640292611182669
+    second: FishermansAnimations-Oars_Sheet_4
+  - first:
+      213: -3081542779702681926
+    second: FishermansAnimations-Oars_Sheet_5
+  - first:
+      213: -5316878311372171729
+    second: FishermansAnimations-Oars_Sheet_6
+  - first:
+      213: 2787483854665471513
+    second: FishermansAnimations-Oars_Sheet_7
+  - first:
+      213: -1308963134476427136
+    second: FishermansAnimations-Oars_Sheet_8
+  - first:
+      213: -5895372255125167095
+    second: FishermansAnimations-Oars_Sheet_9
+  - first:
+      213: -8388194924552329973
+    second: FishermansAnimations-Oars_Sheet_10
+  - first:
+      213: 5490248983112214491
+    second: FishermansAnimations-Oars_Sheet_11
+  - first:
+      213: 4670302124736416122
+    second: FishermansAnimations-Oars_Sheet_12
+  - first:
+      213: -3192463235649354425
+    second: FishermansAnimations-Oars_Sheet_13
+  - first:
+      213: 3476269627358209155
+    second: FishermansAnimations-Oars_Sheet_14
+  - first:
+      213: -6471367038495445033
+    second: FishermansAnimations-Oars_Sheet_15
+  - first:
+      213: -2665237356074831164
+    second: FishermansAnimations-Oars_Sheet_16
+  - first:
+      213: -3700380723117782696
+    second: FishermansAnimations-Oars_Sheet_17
+  - first:
+      213: 8784771329696382152
+    second: FishermansAnimations-Oars_Sheet_18
+  - first:
+      213: 3072512175375031898
+    second: FishermansAnimations-Oars_Sheet_19
+  - first:
+      213: -8254359512161417931
+    second: FishermansAnimations-Oars_Sheet_20
+  - first:
+      213: -7208635592843533413
+    second: FishermansAnimations-Oars_Sheet_21
+  - first:
+      213: 6562320010607956694
+    second: FishermansAnimations-Oars_Sheet_22
+  - first:
+      213: 8821819589430013802
+    second: FishermansAnimations-Oars_Sheet_23
+  - first:
+      213: 1942274119747546791
+    second: FishermansAnimations-Oars_Sheet_24
+  - first:
+      213: 8840127102656751758
+    second: FishermansAnimations-Oars_Sheet_25
+  - first:
+      213: 1508945425620358618
+    second: FishermansAnimations-Oars_Sheet_26
+  - first:
+      213: -7945142376579396718
+    second: FishermansAnimations-Oars_Sheet_27
+  - first:
+      213: -2886250018048508031
+    second: FishermansAnimations-Oars_Sheet_28
+  - first:
+      213: -4485413903588411831
+    second: FishermansAnimations-Oars_Sheet_29
+  - first:
+      213: 7057073490503174140
+    second: FishermansAnimations-Oars_Sheet_30
+  - first:
+      213: 7103054283760341469
+    second: FishermansAnimations-Oars_Sheet_31
+  - first:
+      213: -2426898483894688746
+    second: FishermansAnimations-Oars_Sheet_32
+  - first:
+      213: -7593890523866859251
+    second: FishermansAnimations-Oars_Sheet_33
+  - first:
+      213: -6448112331501965956
+    second: FishermansAnimations-Oars_Sheet_34
+  - first:
+      213: -9104823016409539207
+    second: FishermansAnimations-Oars_Sheet_35
+  - first:
+      213: 3055365410744449509
+    second: FishermansAnimations-Oars_Sheet_36
+  - first:
+      213: -763468383978596775
+    second: FishermansAnimations-Oars_Sheet_37
+  - first:
+      213: -4180066918692453464
+    second: FishermansAnimations-Oars_Sheet_38
+  - first:
+      213: -7059271172369723110
+    second: FishermansAnimations-Oars_Sheet_39
+  - first:
+      213: -693487949649365434
+    second: FishermansAnimations-Oars_Sheet_40
+  - first:
+      213: 2988264725589501893
+    second: FishermansAnimations-Oars_Sheet_41
+  - first:
+      213: -2940978327701018395
+    second: FishermansAnimations-Oars_Sheet_42
+  - first:
+      213: -101859943807635768
+    second: FishermansAnimations-Oars_Sheet_43
+  - first:
+      213: -6989723891594640726
+    second: FishermansAnimations-Oars_Sheet_44
+  - first:
+      213: 1882739627680038772
+    second: FishermansAnimations-Oars_Sheet_45
+  - first:
+      213: -2937982540842698758
+    second: FishermansAnimations-Oars_Sheet_46
+  - first:
+      213: -4397477491858086885
+    second: FishermansAnimations-Oars_Sheet_47
+  - first:
+      213: 6260331068384860429
+    second: FishermansAnimations-Oars_Sheet_48
+  - first:
+      213: -3797870449251492956
+    second: FishermansAnimations-Oars_Sheet_49
+  - first:
+      213: 4129675081033488003
+    second: FishermansAnimations-Oars_Sheet_50
+  - first:
+      213: 8577532569982211643
+    second: FishermansAnimations-Oars_Sheet_51
+  - first:
+      213: 4069423016266031903
+    second: FishermansAnimations-Oars_Sheet_52
+  - first:
+      213: -6343530782481044886
+    second: FishermansAnimations-Oars_Sheet_53
+  - first:
+      213: -6585118398664398104
+    second: FishermansAnimations-Oars_Sheet_54
+  - first:
+      213: 3589887687996133959
+    second: FishermansAnimations-Oars_Sheet_55
+  - first:
+      213: -8731524674316282659
+    second: FishermansAnimations-Oars_Sheet_56
+  - first:
+      213: -2419540121908663941
+    second: FishermansAnimations-Oars_Sheet_57
+  - first:
+      213: 6614522315774644990
+    second: FishermansAnimations-Oars_Sheet_58
+  - first:
+      213: 4178556489381323607
+    second: FishermansAnimations-Oars_Sheet_59
+  - first:
+      213: 6610576024241564750
+    second: FishermansAnimations-Oars_Sheet_60
+  - first:
+      213: 543793589783138861
+    second: FishermansAnimations-Oars_Sheet_61
+  - first:
+      213: 6902305726662765908
+    second: FishermansAnimations-Oars_Sheet_62
+  - first:
+      213: 1202179837149556385
+    second: FishermansAnimations-Oars_Sheet_63
+  - first:
+      213: -6210759930062968599
+    second: FishermansAnimations-Oars_Sheet_64
+  - first:
+      213: 1925176192664284453
+    second: FishermansAnimations-Oars_Sheet_65
+  - first:
+      213: -5227449393959837434
+    second: FishermansAnimations-Oars_Sheet_66
+  - first:
+      213: 2807625949521034409
+    second: FishermansAnimations-Oars_Sheet_67
+  - first:
+      213: 1905318190880295485
+    second: FishermansAnimations-Oars_Sheet_68
+  - first:
+      213: 132184211795433539
+    second: FishermansAnimations-Oars_Sheet_69
+  - first:
+      213: 6360710911433225780
+    second: FishermansAnimations-Oars_Sheet_70
+  - first:
+      213: -8746170284127345874
+    second: FishermansAnimations-Oars_Sheet_71
+  - first:
+      213: 7903252281312449181
+    second: FishermansAnimations-Oars_Sheet_72
+  - first:
+      213: -2156728162586530081
+    second: FishermansAnimations-Oars_Sheet_73
+  - first:
+      213: -5203401269509097370
+    second: FishermansAnimations-Oars_Sheet_74
+  - first:
+      213: -6439627658254119807
+    second: FishermansAnimations-Oars_Sheet_75
+  - first:
+      213: -1809473160387773653
+    second: FishermansAnimations-Oars_Sheet_76
+  - first:
+      213: 7615558696488639266
+    second: FishermansAnimations-Oars_Sheet_77
+  - first:
+      213: -701156696346891186
+    second: FishermansAnimations-Oars_Sheet_78
+  - first:
+      213: 1362733091375897747
+    second: FishermansAnimations-Oars_Sheet_79
+  - first:
+      213: -2320693006556938723
+    second: FishermansAnimations-Oars_Sheet_80
+  - first:
+      213: -5987856278100533038
+    second: FishermansAnimations-Oars_Sheet_81
+  - first:
+      213: -9188621143220043100
+    second: FishermansAnimations-Oars_Sheet_82
+  - first:
+      213: 3072035726331828350
+    second: FishermansAnimations-Oars_Sheet_83
+  - first:
+      213: -1750996984412185585
+    second: FishermansAnimations-Oars_Sheet_84
+  - first:
+      213: 2162915638746492656
+    second: FishermansAnimations-Oars_Sheet_85
+  - first:
+      213: -5609804311846698358
+    second: FishermansAnimations-Oars_Sheet_86
+  - first:
+      213: 6569717910046673520
+    second: FishermansAnimations-Oars_Sheet_87
+  - first:
+      213: -1639185752350146210
+    second: FishermansAnimations-Oars_Sheet_88
+  - first:
+      213: -936210734869994719
+    second: FishermansAnimations-Oars_Sheet_89
+  - first:
+      213: 5886274368414108950
+    second: FishermansAnimations-Oars_Sheet_90
+  - first:
+      213: 4324795088903470472
+    second: FishermansAnimations-Oars_Sheet_91
+  - first:
+      213: -499578265996762820
+    second: FishermansAnimations-Oars_Sheet_92
+  - first:
+      213: -1982850732714507578
+    second: FishermansAnimations-Oars_Sheet_93
+  - first:
+      213: -808466874477194614
+    second: FishermansAnimations-Oars_Sheet_94
+  - first:
+      213: 6615653286621042785
+    second: FishermansAnimations-Oars_Sheet_95
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1473
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e178c316de1292b0800000000000000
+      internalID: -5579363083554885146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 1473
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68ab798e9c10376d0800000000000000
+      internalID: -2994047360568935802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1472
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90b69cb7a2152a000800000000000000
+      internalID: 45688189134400265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 1472
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c57d87e9108a4ba30800000000000000
+      internalID: 4230190674914891612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1408
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bf2db3427d67d390800000000000000
+      internalID: -7793640292611182669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1409
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abed6a72b292c35d0800000000000000
+      internalID: -3081542779702681926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1409
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f26dea88857a636b0800000000000000
+      internalID: -5316878311372171729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1408
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 916d87e0cc12fa620800000000000000
+      internalID: 2787483854665471513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 1344
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0806371e6f0a5dde0800000000000000
+      internalID: -1308963134476427136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 1345
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90422924b2e6f2ea0800000000000000
+      internalID: -5895372255125167095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1345
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b05e25f9825279b80800000000000000
+      internalID: -8388194924552329973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1344
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd76ade8c58413c40800000000000000
+      internalID: 5490248983112214491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1280
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a798aa2c90f30d040800000000000000
+      internalID: 4670302124736416122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 1288
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74540a00a9712b3d0800000000000000
+      internalID: -3192463235649354425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1279
+        width: 11
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3846a2adec03e3030800000000000000
+      internalID: 3476269627358209155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 1281
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dfae4b17f51136a0800000000000000
+      internalID: -6471367038495445033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1217
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c2fe05eebc230bd0800000000000000
+      internalID: -2665237356074831164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 1215
+        width: 11
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8598cd8765b95acc0800000000000000
+      internalID: -3700380723117782696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1224
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ccb69b0bf6c9e970800000000000000
+      internalID: 8784771329696382152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 1216
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5e9a4d6b81c3aa20800000000000000
+      internalID: 3072512175375031898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 1152
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5358045d1cf927d80800000000000000
+      internalID: -8254359512161417931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 1153
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b93e25d0f18c5fb90800000000000000
+      internalID: -7208635592843533413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1153
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d299bee74b021b50800000000000000
+      internalID: 6562320010607956694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1152
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6fee843d266d6a70800000000000000
+      internalID: 8821819589430013802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1088
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aeacf3750854fa10800000000000000
+      internalID: 1942274119747546791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 1088
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e88a82b43c07eaa70800000000000000
+      internalID: 8840127102656751758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1089
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad55d8faed9d0f410800000000000000
+      internalID: 1508945425620358618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 1089
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29b051a8a1f2db190800000000000000
+      internalID: -7945142376579396718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1024
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18ff04d86eaf1f7d0800000000000000
+      internalID: -2886250018048508031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1025
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 946b306c1db90c1c0800000000000000
+      internalID: -4485413903588411831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1026
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf7844b13f2cfe160800000000000000
+      internalID: 7057073490503174140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1024
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd11adbcc3e139260800000000000000
+      internalID: 7103054283760341469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 960
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 614e589eface15ed0800000000000000
+      internalID: -2426898483894688746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 961
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d09f5bd7dc41d9690800000000000000
+      internalID: -7593890523866859251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 961
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7d62018ff3b386a0800000000000000
+      internalID: -6448112331501965956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 960
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97ddb1cb4bb25a180800000000000000
+      internalID: -9104823016409539207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 896
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e9307e27a6d66a20800000000000000
+      internalID: 3055365410744449509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 897
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 956d6bfbc8d9765f0800000000000000
+      internalID: -763468383978596775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 897
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a389fdc84b6df5c0800000000000000
+      internalID: -4180066918692453464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 896
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a115fb5354e680e90800000000000000
+      internalID: -7059271172369723110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 832
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 646b221526c3066f0800000000000000
+      internalID: -693487949649365434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 833
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c7a7977fe2787920800000000000000
+      internalID: 2988264725589501893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 833
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e8224dfacb8f27d0800000000000000
+      internalID: -2940978327701018395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 832
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ce2188bbee169ef0800000000000000
+      internalID: -101859943807635768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 768
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa2c07b57238ffe90800000000000000
+      internalID: -6989723891594640726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 769
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47f7b6857b5d02a10800000000000000
+      internalID: 1882739627680038772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 769
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af775c8f1703a37d0800000000000000
+      internalID: -2937982540842698758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 768
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b14e50e158509f2c0800000000000000
+      internalID: -4397477491858086885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 705
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d09db6320f921e650800000000000000
+      internalID: 6260331068384860429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 705
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ab5969c2f04b4bc0800000000000000
+      internalID: -3797870449251492956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 704
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38698c23b9d8f4930800000000000000
+      internalID: 4129675081033488003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 704
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b36122b3d64890770800000000000000
+      internalID: 8577532569982211643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 640
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f13e55d2cae797830800000000000000
+      internalID: 4069423016266031903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 641
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6a2670ec5047f7a0800000000000000
+      internalID: -6343530782481044886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 641
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ea28b3b4b5fc94a0800000000000000
+      internalID: -6585118398664398104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 640
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 742de8a05d7d1d130800000000000000
+      internalID: 3589887687996133959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 576
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd4d1dff19463d680800000000000000
+      internalID: -8731524674316282659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 577
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7924d114111c6ed0800000000000000
+      internalID: -2419540121908663941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 577
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef254ae30018bcb50800000000000000
+      internalID: 6614522315774644990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_59
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 576
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7532a77fcf63df930800000000000000
+      internalID: 4178556489381323607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 512
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4ce1a5aedb7dbb50800000000000000
+      internalID: 6610576024241564750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 520
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2298268361fb8700800000000000000
+      internalID: 543793589783138861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 511
+        width: 11
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45de0e80d7ae9cf50800000000000000
+      internalID: 6902305726662765908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 513
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aeaf6541300fa010800000000000000
+      internalID: 1202179837149556385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_64
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 449
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e8ed57efb2fec9a0800000000000000
+      internalID: -6210759930062968599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_65
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 447
+        width: 11
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52d2bc51c8997ba10800000000000000
+      internalID: 1925176192664284453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_66
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 456
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60161bfe87e5477b0800000000000000
+      internalID: -5227449393959837434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_67
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 448
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9acbe57fce0b6f620800000000000000
+      internalID: 2807625949521034409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_68
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 384
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3a828fbccc017a10800000000000000
+      internalID: 1905318190880295485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_69
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 385
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3485bfc17dc95d100800000000000000
+      internalID: 132184211795433539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_70
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 385
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 436bdea9fd8c54850800000000000000
+      internalID: 6360710911433225780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_71
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 384
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e23238d377c5f9680800000000000000
+      internalID: -8746170284127345874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_72
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 320
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d929ced931efdad60800000000000000
+      internalID: 7903252281312449181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_73
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 320
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdee2f7b923c112e0800000000000000
+      internalID: -2156728162586530081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_74
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 321
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 668f71b3d1ec9c7b0800000000000000
+      internalID: -5203401269509097370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_75
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 321
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18c8bff63c8d1a6a0800000000000000
+      internalID: -6439627658254119807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_76
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 256
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2bbb746fb573e6e0800000000000000
+      internalID: -1809473160387773653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_77
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 257
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22b97561946efa960800000000000000
+      internalID: 7615558696488639266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_78
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 258
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4c6b5613bdf446f0800000000000000
+      internalID: -701156696346891186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_79
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 256
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39c512bc68669e210800000000000000
+      internalID: 1362733091375897747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_80
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 192
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1eb07f810e3bcfd0800000000000000
+      internalID: -2320693006556938723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_81
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 193
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d0a9b9a07cd6eca0800000000000000
+      internalID: -5987856278100533038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_82
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 193
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a2c9bee0c57b7080800000000000000
+      internalID: -9188621143220043100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_83
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 192
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e78515d773012aa20800000000000000
+      internalID: 3072035726331828350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_84
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 128
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0cd455158533b7e0800000000000000
+      internalID: -1750996984412185585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_85
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 129
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fe2f965058340e10800000000000000
+      internalID: 2162915638746492656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_86
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 129
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a824cec43b8f522b0800000000000000
+      internalID: -5609804311846698358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_87
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 128
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07a8ade91a35c2b50800000000000000
+      internalID: 6569717910046673520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_88
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 64
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e51c9463e317049e0800000000000000
+      internalID: -1639185752350146210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_89
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 65
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 123aa210c49e103f0800000000000000
+      internalID: -936210734869994719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_90
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 65
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61d4fcbe95f30b150800000000000000
+      internalID: 5886274368414108950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_91
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 64
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88df1783832c40c30800000000000000
+      internalID: 4324795088903470472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_92
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c31e1c5c6342119f0800000000000000
+      internalID: -499578265996762820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_93
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 1
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c2cde1a3cf7b74e0800000000000000
+      internalID: -1982850732714507578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_94
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a82dd1e39afb7c4f0800000000000000
+      internalID: -808466874477194614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Oars_Sheet_95
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 0
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 168513aec958fcb50800000000000000
+      internalID: 6615653286621042785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FishermansAnimations-Oars_Sheet_0: -5579363083554885146
+      FishermansAnimations-Oars_Sheet_1: -2994047360568935802
+      FishermansAnimations-Oars_Sheet_10: -8388194924552329973
+      FishermansAnimations-Oars_Sheet_11: 5490248983112214491
+      FishermansAnimations-Oars_Sheet_12: 4670302124736416122
+      FishermansAnimations-Oars_Sheet_13: -3192463235649354425
+      FishermansAnimations-Oars_Sheet_14: 3476269627358209155
+      FishermansAnimations-Oars_Sheet_15: -6471367038495445033
+      FishermansAnimations-Oars_Sheet_16: -2665237356074831164
+      FishermansAnimations-Oars_Sheet_17: -3700380723117782696
+      FishermansAnimations-Oars_Sheet_18: 8784771329696382152
+      FishermansAnimations-Oars_Sheet_19: 3072512175375031898
+      FishermansAnimations-Oars_Sheet_2: 45688189134400265
+      FishermansAnimations-Oars_Sheet_20: -8254359512161417931
+      FishermansAnimations-Oars_Sheet_21: -7208635592843533413
+      FishermansAnimations-Oars_Sheet_22: 6562320010607956694
+      FishermansAnimations-Oars_Sheet_23: 8821819589430013802
+      FishermansAnimations-Oars_Sheet_24: 1942274119747546791
+      FishermansAnimations-Oars_Sheet_25: 8840127102656751758
+      FishermansAnimations-Oars_Sheet_26: 1508945425620358618
+      FishermansAnimations-Oars_Sheet_27: -7945142376579396718
+      FishermansAnimations-Oars_Sheet_28: -2886250018048508031
+      FishermansAnimations-Oars_Sheet_29: -4485413903588411831
+      FishermansAnimations-Oars_Sheet_3: 4230190674914891612
+      FishermansAnimations-Oars_Sheet_30: 7057073490503174140
+      FishermansAnimations-Oars_Sheet_31: 7103054283760341469
+      FishermansAnimations-Oars_Sheet_32: -2426898483894688746
+      FishermansAnimations-Oars_Sheet_33: -7593890523866859251
+      FishermansAnimations-Oars_Sheet_34: -6448112331501965956
+      FishermansAnimations-Oars_Sheet_35: -9104823016409539207
+      FishermansAnimations-Oars_Sheet_36: 3055365410744449509
+      FishermansAnimations-Oars_Sheet_37: -763468383978596775
+      FishermansAnimations-Oars_Sheet_38: -4180066918692453464
+      FishermansAnimations-Oars_Sheet_39: -7059271172369723110
+      FishermansAnimations-Oars_Sheet_4: -7793640292611182669
+      FishermansAnimations-Oars_Sheet_40: -693487949649365434
+      FishermansAnimations-Oars_Sheet_41: 2988264725589501893
+      FishermansAnimations-Oars_Sheet_42: -2940978327701018395
+      FishermansAnimations-Oars_Sheet_43: -101859943807635768
+      FishermansAnimations-Oars_Sheet_44: -6989723891594640726
+      FishermansAnimations-Oars_Sheet_45: 1882739627680038772
+      FishermansAnimations-Oars_Sheet_46: -2937982540842698758
+      FishermansAnimations-Oars_Sheet_47: -4397477491858086885
+      FishermansAnimations-Oars_Sheet_48: 6260331068384860429
+      FishermansAnimations-Oars_Sheet_49: -3797870449251492956
+      FishermansAnimations-Oars_Sheet_5: -3081542779702681926
+      FishermansAnimations-Oars_Sheet_50: 4129675081033488003
+      FishermansAnimations-Oars_Sheet_51: 8577532569982211643
+      FishermansAnimations-Oars_Sheet_52: 4069423016266031903
+      FishermansAnimations-Oars_Sheet_53: -6343530782481044886
+      FishermansAnimations-Oars_Sheet_54: -6585118398664398104
+      FishermansAnimations-Oars_Sheet_55: 3589887687996133959
+      FishermansAnimations-Oars_Sheet_56: -8731524674316282659
+      FishermansAnimations-Oars_Sheet_57: -2419540121908663941
+      FishermansAnimations-Oars_Sheet_58: 6614522315774644990
+      FishermansAnimations-Oars_Sheet_59: 4178556489381323607
+      FishermansAnimations-Oars_Sheet_6: -5316878311372171729
+      FishermansAnimations-Oars_Sheet_60: 6610576024241564750
+      FishermansAnimations-Oars_Sheet_61: 543793589783138861
+      FishermansAnimations-Oars_Sheet_62: 6902305726662765908
+      FishermansAnimations-Oars_Sheet_63: 1202179837149556385
+      FishermansAnimations-Oars_Sheet_64: -6210759930062968599
+      FishermansAnimations-Oars_Sheet_65: 1925176192664284453
+      FishermansAnimations-Oars_Sheet_66: -5227449393959837434
+      FishermansAnimations-Oars_Sheet_67: 2807625949521034409
+      FishermansAnimations-Oars_Sheet_68: 1905318190880295485
+      FishermansAnimations-Oars_Sheet_69: 132184211795433539
+      FishermansAnimations-Oars_Sheet_7: 2787483854665471513
+      FishermansAnimations-Oars_Sheet_70: 6360710911433225780
+      FishermansAnimations-Oars_Sheet_71: -8746170284127345874
+      FishermansAnimations-Oars_Sheet_72: 7903252281312449181
+      FishermansAnimations-Oars_Sheet_73: -2156728162586530081
+      FishermansAnimations-Oars_Sheet_74: -5203401269509097370
+      FishermansAnimations-Oars_Sheet_75: -6439627658254119807
+      FishermansAnimations-Oars_Sheet_76: -1809473160387773653
+      FishermansAnimations-Oars_Sheet_77: 7615558696488639266
+      FishermansAnimations-Oars_Sheet_78: -701156696346891186
+      FishermansAnimations-Oars_Sheet_79: 1362733091375897747
+      FishermansAnimations-Oars_Sheet_8: -1308963134476427136
+      FishermansAnimations-Oars_Sheet_80: -2320693006556938723
+      FishermansAnimations-Oars_Sheet_81: -5987856278100533038
+      FishermansAnimations-Oars_Sheet_82: -9188621143220043100
+      FishermansAnimations-Oars_Sheet_83: 3072035726331828350
+      FishermansAnimations-Oars_Sheet_84: -1750996984412185585
+      FishermansAnimations-Oars_Sheet_85: 2162915638746492656
+      FishermansAnimations-Oars_Sheet_86: -5609804311846698358
+      FishermansAnimations-Oars_Sheet_87: 6569717910046673520
+      FishermansAnimations-Oars_Sheet_88: -1639185752350146210
+      FishermansAnimations-Oars_Sheet_89: -936210734869994719
+      FishermansAnimations-Oars_Sheet_9: -5895372255125167095
+      FishermansAnimations-Oars_Sheet_90: 5886274368414108950
+      FishermansAnimations-Oars_Sheet_91: 4324795088903470472
+      FishermansAnimations-Oars_Sheet_92: -499578265996762820
+      FishermansAnimations-Oars_Sheet_93: -1982850732714507578
+      FishermansAnimations-Oars_Sheet_94: -808466874477194614
+      FishermansAnimations-Oars_Sheet_95: 6615653286621042785
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

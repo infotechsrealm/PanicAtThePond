@@ -74,12 +74,30 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        CosmeticRuntimeApplier.ApplyToFisherman(gameObject);
         GameManager gameManager = GameManager.Instance;
         Debug.Log("FishermanController Start called");
         gameManager.LoadPreloderOnOff(false);
 
         fishController = GameManager.Instance.myFish;
+
+        if (GS.Instance.isLan)
+        {
+            if (GameManager.Instance.isFisherMan)
+            {
+                string hat = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHatPrefKey, string.Empty);
+                string hair = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHairPrefKey, string.Empty);
+                if (fishermanController_Mirror != null) fishermanController_Mirror.CmdSetCosmetics(hat, hair);
+            }
+        }
+        else
+        {
+            if (GameManager.Instance.isFisherMan && photonView.IsMine)
+            {
+                string hat = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHatPrefKey, string.Empty);
+                string hair = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHairPrefKey, string.Empty);
+                photonView.RPC(nameof(RpcSetFishermanCosmetics), RpcTarget.AllBuffered, hat, hair);
+            }
+        }
 
         if (gameManager == null)
         {
@@ -823,6 +841,12 @@ public class FishermanController : MonoBehaviourPunCallbacks
         {
             animator.SetBool("isFighting_l", res);
         }
+    }
+
+    [PunRPC]
+    public void RpcSetFishermanCosmetics(string hatName, string hairName)
+    {
+        CosmeticRuntimeApplier.ApplyFishermanCosmeticsByName(gameObject, hatName, hairName);
     }
 
     internal void OnReeling()

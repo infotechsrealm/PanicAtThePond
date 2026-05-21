@@ -103,6 +103,8 @@ MonoBehaviour:
   - PlayFishermanWinAnimationRPC
   - ApplyHungerDeathVisibleStateRPC
   - SyncRodTipRPC
+  - RpcSetFishermanCosmetics
+  - RpcSetFishHat
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

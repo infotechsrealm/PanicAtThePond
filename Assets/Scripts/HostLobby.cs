@@ -17,6 +17,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
     private const string SpacebarJamMaxFieldName = "SpaceBar_Jam_Max_InputField";
     private const string HungerWormRateFieldName = "Hunger Worm Rate_InputField";
     private const string WormSpawnRateFieldName = "Worm Spawn Rate";
+    private const string BassSpeedFieldName = "Bass_Speed_InputField";
     private const string GoldenFishSpeedFieldName = "GoldenFish_Speed_InputField";
     private const string TroutSpeedFieldName = "Trout_Speed_InputField";
     private const string GoldenFishBonusFieldName = "Bonuses(Golden Fish)InputField";
@@ -28,6 +29,8 @@ public class HostLobby : MonoBehaviourPunCallbacks
     private static readonly Vector2 HungerDepletionLabelOffset = new Vector2(0f, 55f);
     private static readonly Vector2 TroutSpeedInputPosition = new Vector2(310f, -318f);
     private static readonly Vector2 TroutSpeedInputSize = new Vector2(49.4f, 42.2f);
+    private static readonly Vector2 BassSpeedInputOffset = new Vector2(0f, -62f);
+    private static readonly Vector2 BassSpeedLabelOffset = new Vector2(-140f, 0f);
     private static readonly Vector2 DepletionLabelPosition = new Vector2(163f, -270f);
     private static readonly Vector2 DepletionLabelSize = new Vector2(180f, 56f);
     private static readonly Vector2 ScoreResetButtonPosition = new Vector2(290f, 214f);
@@ -51,6 +54,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
     private TMP_InputField fishTimerInput;
     private TMP_InputField hungerWormRateInput;
     private TMP_InputField wormSpawnRateInput;
+    private TMP_InputField bassSpeedInput;
     private TMP_InputField hungerDepletionRateInput;
     private TMP_InputField goldenFishSpeedInput;
     private TMP_InputField troutSpeedInput;
@@ -190,6 +194,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
         fishTimerInput = FindInput(allInputs, FishTimerFieldName);
         hungerWormRateInput = FindInput(allInputs, HungerWormRateFieldName);
         wormSpawnRateInput = FindInput(allInputs, WormSpawnRateFieldName);
+        bassSpeedInput = FindInput(allInputs, BassSpeedFieldName);
         hungerDepletionRateInput = FindInput(allInputs, HungerDepletionRateFieldName);
         goldenFishSpeedInput = FindInput(allInputs, GoldenFishSpeedFieldName);
         troutSpeedInput = FindInput(allInputs, TroutSpeedFieldName);
@@ -208,6 +213,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
         TryRegisterInput(fishTimerInput);
         TryRegisterInput(hungerWormRateInput);
         TryRegisterInput(wormSpawnRateInput);
+        TryRegisterInput(bassSpeedInput);
         TryRegisterInput(hungerDepletionRateInput);
         TryRegisterInput(goldenFishSpeedInput);
         TryRegisterInput(troutSpeedInput);
@@ -242,6 +248,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
         GS.Instance.scoreSystemSettings.fishTimerSeconds = ReadInputValue(fishTimerInput);
         GS.Instance.scoreSystemSettings.hungerWormRateAmount = ReadInputValue(hungerWormRateInput);
         GS.Instance.scoreSystemSettings.wormSpawnRate = ReadInputValue(wormSpawnRateInput);
+        GS.Instance.scoreSystemSettings.bassSpeed = ReadInputValue(bassSpeedInput);
         GS.Instance.scoreSystemSettings.hungerDepletionRate = ReadInputValue(hungerDepletionRateInput);
         GS.Instance.scoreSystemSettings.goldenFishSpeed = ReadInputValue(goldenFishSpeedInput);
         GS.Instance.scoreSystemSettings.troutSpeed = ReadInputValue(troutSpeedInput);
@@ -273,6 +280,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
         WriteInputValue(fishTimerInput, GS.Instance.scoreSystemSettings.fishTimerSeconds);
         WriteInputValue(hungerWormRateInput, GS.Instance.scoreSystemSettings.hungerWormRateAmount);
         WriteInputValue(wormSpawnRateInput, GS.Instance.scoreSystemSettings.wormSpawnRate);
+        WriteInputValue(bassSpeedInput, GS.Instance.scoreSystemSettings.bassSpeed);
         WriteInputValue(hungerDepletionRateInput, GS.Instance.scoreSystemSettings.hungerDepletionRate);
         WriteInputValue(goldenFishSpeedInput, GS.Instance.scoreSystemSettings.goldenFishSpeed);
         WriteInputValue(troutSpeedInput, GS.Instance.scoreSystemSettings.troutSpeed);
@@ -503,6 +511,13 @@ public class HostLobby : MonoBehaviourPunCallbacks
         if (troutSpeedInput == null && goldenFishSpeedInput != null)
         {
             troutSpeedInput = CreateScoreInput(TroutSpeedFieldName, goldenFishSpeedInput, new Vector2(-160f, 0f), ScoreSystemSettings.DefaultTroutSpeed.ToString(), allInputs);
+        }
+
+        if (bassSpeedInput == null && wormSpawnRateInput != null)
+        {
+            bassSpeedInput = CreateScoreInput(BassSpeedFieldName, wormSpawnRateInput, BassSpeedInputOffset, ScoreSystemSettings.DefaultBassSpeed.ToString(), allInputs);
+            GameObject bassLabelObj = CreateScoreLabel("Bass Speed", bassSpeedInput, BassSpeedLabelOffset);
+            if (bassLabelObj != null) bassLabelObj.name = "Bass Speed";
         }
 
         ApplyScoreDebugExactRects();

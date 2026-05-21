@@ -463,6 +463,7 @@ MonoBehaviour:
   fishController: {fileID: 7523997375063487631}
   wormPrefab: {fileID: 7213787239234744724, guid: ed9be4f8a38e17c45abcef0b0b7bb870, type: 3}
   allHookWorms: []
+  syncedHatName: 
   fishermanPrefab: {fileID: 4221548032391945581, guid: b839bcb9e6837534c89107afe33ac208, type: 3}
 --- !u!114 &6406305328387331440
 MonoBehaviour:

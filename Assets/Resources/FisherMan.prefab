@@ -521,6 +521,8 @@ MonoBehaviour:
   syncInterval: 0
   FishermanController: {fileID: -7015520195006371029}
   hookPrefab: {fileID: 8745433059096344888, guid: 7425abcbde3b9664da206dab5c02a51a, type: 3}
+  syncedHatName: 
+  syncedHairName: 
 --- !u!114 &4899643278755721038
 MonoBehaviour:
   m_ObjectHideFlags: 0

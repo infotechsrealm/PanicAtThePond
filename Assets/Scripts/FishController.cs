@@ -75,13 +75,15 @@ public class FishController : MonoBehaviourPunCallbacks
     }
     void Start()
     {
-        CosmeticRuntimeApplier.ApplyToFish(gameObject);
-        ApplyConfiguredTroutSpeed();
+        ApplyConfiguredFishSpeed();
 
         if (GS.Instance.isLan)
         {
             if (mirrorIdentity != null && mirrorIdentity.isLocalPlayer)
             {
+                string myHat = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishHatPrefKey, string.Empty);
+                if (fishController_Mirror != null) fishController_Mirror.CmdSetHat(myHat);
+
                 fishController_Mirror.SetVissiblity_Mirror();
                 GameManager.Instance.myFish = this;
                 fishController_Mirror.CallAddScore_Mirror(GS.Instance.nickName, 0);
@@ -91,6 +93,9 @@ public class FishController : MonoBehaviourPunCallbacks
         {
             if (photonView.IsMine)
             {
+                string myHat = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishHatPrefKey, string.Empty);
+                photonView.RPC(nameof(RpcSetFishHat), RpcTarget.AllBuffered, myHat);
+
                 GameManager.Instance.myFish = this;
                 GameManager.Instance.AddPlayerScore(PhotonNetwork.LocalPlayer.NickName, 0);
             }
@@ -98,7 +103,13 @@ public class FishController : MonoBehaviourPunCallbacks
         GameManager.Instance.allFishes.Add(this);
     }
 
-    private void ApplyConfiguredTroutSpeed()
+    [PunRPC]
+    public void RpcSetFishHat(string hatName)
+    {
+        CosmeticRuntimeApplier.ApplyFishHatByName(gameObject, hatName);
+    }
+
+    private void ApplyConfiguredFishSpeed()
     {
         if (GS.Instance == null || GS.Instance.scoreSystemSettings == null)
         {
@@ -108,6 +119,10 @@ public class FishController : MonoBehaviourPunCallbacks
         if (CosmeticRuntimeApplier.IsTroutFish(gameObject))
         {
             speed = GS.Instance.scoreSystemSettings.GetTroutSpeed();
+        }
+        else if (CosmeticRuntimeApplier.IsBassFish(gameObject))
+        {
+            speed = GS.Instance.scoreSystemSettings.GetBassSpeed();
         }
     }
 

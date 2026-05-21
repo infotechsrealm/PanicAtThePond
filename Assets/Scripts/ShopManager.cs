@@ -1,12 +1,24 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine.Events;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class ShopManager : MonoBehaviour
 {
+    [Serializable]
+    public class CosmeticPreviewRule
+    {
+        public string CosmeticName;
+        public string PreviewSpriteName;
+    }
+
     [Header("Main Shop Buttons")]
     public Button HatButton;
     public Button RoadButton;
@@ -65,6 +77,13 @@ public class ShopManager : MonoBehaviour
     public Button DisplayHatButton;
     public GameObject HatDisplayObject;
 
+    [Header("Dynamic Hat Preview")]
+    public bool UseDynamicHatPreviewSprites = true;
+    public string FishPreviewAssetFolder = "Assets/UI/Game UI/Fish preview";
+    public string FishermanPreviewAssetFolder = "Assets/UI/Game UI/Fishermna Preview";
+    public List<CosmeticPreviewRule> FishPreviewRules = new List<CosmeticPreviewRule>();
+    public List<CosmeticPreviewRule> FishermanPreviewRules = new List<CosmeticPreviewRule>();
+
     [Header("Sal-t Shop")]
     public Button SaltShopButton;
     public GameObject SaltShopPanel;
@@ -82,6 +101,12 @@ public class ShopManager : MonoBehaviour
     private readonly List<Button> fishermanCosmeticItemButtons = new List<Button>();
     private readonly List<UnityAction> fishCosmeticItemActions = new List<UnityAction>();
     private readonly List<UnityAction> fishermanCosmeticItemActions = new List<UnityAction>();
+    private readonly Dictionary<Image, Sprite> displayBaseSprites = new Dictionary<Image, Sprite>();
+    private readonly Dictionary<string, Sprite>[] fishPreviewSpritesByCosmetic = new Dictionary<string, Sprite>[2];
+    private readonly Dictionary<string, Sprite> fishermanPreviewSpritesByCosmetic = new Dictionary<string, Sprite>();
+    private readonly Dictionary<string, Sprite> previewSpritesByName = new Dictionary<string, Sprite>();
+    private bool previewMapsBuilt;
+    private const string FishHatPreviewChildName = "Applied Fish Hat Cosmetic Preview";
 
     private void Awake()
     {
@@ -90,6 +115,7 @@ public class ShopManager : MonoBehaviour
         ResolveCosmeticCategoryReferences();
         ResolveCosmeticItemRoots();
         ResolveFishDisplayObjects();
+        ResolvePreviewAssetFolderPaths();
 
         AddButtonListener(HatButton, HatShopUI);
         AddButtonListener(RoadButton, RoadShopUI);
@@ -272,6 +298,7 @@ public class ShopManager : MonoBehaviour
 
     public void ToggleFishFishermanDropdown()
     {
+        HideFishermanDisplayPreview();
         SetFishFishermanDropdownOpen(!isFishFishermanDropdownOpen);
     }
 
@@ -279,17 +306,29 @@ public class ShopManager : MonoBehaviour
     {
         bool isHatVisible = HatDisplayObject != null && HatDisplayObject.activeSelf;
         SetDisplayMode("Fish", true, false, isHatVisible);
+        ClearFishermanHatFromDisplay();
+        ApplySavedFishHatToDisplay();
     }
 
     public void SelectFishermanDisplay()
     {
         bool isHatVisible = HatDisplayObject != null && HatDisplayObject.activeSelf;
         SetDisplayMode("Fisherman", false, true, isHatVisible);
+        ClearFishHatFromDisplay();
+        ApplySavedFishermanHatToDisplay();
     }
 
     public void SelectHatDisplay()
     {
-        if (HatDisplayObject != null) HatDisplayObject.SetActive(true);
+        if (HatDisplayObject != null) HatDisplayObject.SetActive(!UseDynamicHatPreviewSprites);
+        if (IsFishDisplayVisible())
+        {
+            ApplySavedFishHatToDisplay();
+        }
+        else if (IsFishermanDisplayVisible())
+        {
+            ApplySavedFishermanHatToDisplay();
+        }
         CloseFishFishermanDropdown();
     }
 
@@ -342,9 +381,20 @@ public class ShopManager : MonoBehaviour
     {
         SetFishDisplayVisible(showFish);
         SetActiveIfNotNull(FishermanDisplayObject, showFisherman);
-        SetActiveIfNotNull(HatDisplayObject, showHat);
+        SetActiveIfNotNull(HatDisplayObject, showHat && !UseDynamicHatPreviewSprites);
         SetDropdownLabel(label);
         CloseFishFishermanDropdown();
+    }
+
+    private void HideFishermanDisplayPreview()
+    {
+        if (FishermanDisplayObject == null || !FishermanDisplayObject.activeSelf)
+        {
+            return;
+        }
+
+        ClearFishermanHatFromDisplay();
+        SetActiveIfNotNull(FishermanDisplayObject, false);
     }
 
     private void SetFishDisplayVisible(bool visible)
@@ -569,6 +619,20 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    private void ResolvePreviewAssetFolderPaths()
+    {
+        if (string.IsNullOrEmpty(FishPreviewAssetFolder))
+        {
+            FishPreviewAssetFolder = "Assets/UI/Game UI/Fish preview";
+        }
+
+        if (string.IsNullOrEmpty(FishermanPreviewAssetFolder)
+            || NormalizeSpriteName(FishermanPreviewAssetFolder) == NormalizeSpriteName("Assets/UI/Game UI"))
+        {
+            FishermanPreviewAssetFolder = "Assets/UI/Game UI/Fishermna Preview";
+        }
+    }
+
     private void RegisterCosmeticItemButtons()
     {
         RegisterCosmeticItemButtons(FishCosmeticItemsRoot, fishCosmeticItemButtons, fishCosmeticItemActions, false);
@@ -609,7 +673,7 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i < images.Length; i++)
         {
             Image image = images[i];
-            if (!IsCosmeticItemImage(image))
+            if (!IsCosmeticItemImage(image) && !IsClearCosmeticItemImage(root, image))
             {
                 continue;
             }
@@ -638,6 +702,13 @@ public class ShopManager : MonoBehaviour
     {
         ApplyItemOpacity(buttons, selectedButton);
 
+        if (!isFishermanCosmetic && IsClearFishCosmeticButton(selectedButton))
+        {
+            CosmeticRuntimeApplier.SelectFishHat(null);
+            ClearFishHatFromDisplay();
+            return;
+        }
+
         Sprite selectedSprite = GetButtonSprite(selectedButton);
         if (selectedSprite == null)
         {
@@ -647,16 +718,882 @@ public class ShopManager : MonoBehaviour
         if (!isFishermanCosmetic)
         {
             CosmeticRuntimeApplier.SelectFishHat(selectedSprite);
+            ApplySelectedFishHatToDisplay(selectedSprite);
             return;
         }
 
         if (FishermanHairObject != null && selectedButton.transform.IsChildOf(FishermanHairObject.transform))
         {
             CosmeticRuntimeApplier.SelectFishermanHair(selectedSprite);
+            ApplySelectedFishermanHatToDisplay(selectedSprite);
         }
         else
         {
             CosmeticRuntimeApplier.SelectFishermanHat(selectedSprite);
+            ApplySelectedFishermanHatToDisplay(selectedSprite);
+        }
+    }
+
+    private void ApplySavedFishHatToDisplay()
+    {
+        Sprite selectedSprite = CosmeticRuntimeApplier.GetSelectedFishHat();
+        if (selectedSprite == null)
+        {
+            ClearFishHatFromDisplay();
+            return;
+        }
+
+        ApplySelectedFishHatToDisplay(selectedSprite);
+    }
+
+    private void ApplySelectedFishHatToDisplay(Sprite selectedSprite)
+    {
+        if (selectedSprite == null)
+        {
+            return;
+        }
+
+        ResolveFishDisplayObjects();
+
+        if (FishDisplayObjects != null && FishDisplayObjects.Length > 0)
+        {
+            for (int i = 0; i < FishDisplayObjects.Length; i++)
+            {
+                if (FishDisplayObjects[i] != null)
+                {
+                    ApplySelectedFishHatToDisplayObject(FishDisplayObjects[i], selectedSprite);
+                }
+            }
+
+            return;
+        }
+
+        if (FishDisplayObject != null)
+        {
+            ApplySelectedFishHatToDisplayObject(FishDisplayObject, selectedSprite);
+        }
+    }
+
+    private void ClearFishHatFromDisplay()
+    {
+        ResolveFishDisplayObjects();
+
+        if (FishDisplayObjects != null && FishDisplayObjects.Length > 0)
+        {
+            for (int i = 0; i < FishDisplayObjects.Length; i++)
+            {
+                ClearFishHatFromDisplayObject(FishDisplayObjects[i]);
+            }
+
+            return;
+        }
+
+        ClearFishHatFromDisplayObject(FishDisplayObject);
+    }
+
+    private void ClearFishHatFromDisplayObject(GameObject fishDisplay)
+    {
+        if (fishDisplay == null)
+        {
+            return;
+        }
+
+        if (fishDisplay.GetComponent<SpriteRenderer>() != null)
+        {
+            CosmeticRuntimeApplier.RemoveFishHat(fishDisplay);
+            return;
+        }
+
+        RectTransform fishRect = fishDisplay.GetComponent<RectTransform>();
+        if (fishRect == null)
+        {
+            return;
+        }
+
+        Image fishImage = fishDisplay.GetComponent<Image>();
+        RestoreDisplayBaseSprite(fishImage);
+
+        Transform previewTransform = fishRect.Find(FishHatPreviewChildName);
+        if (previewTransform == null)
+        {
+            return;
+        }
+
+        if (Application.isPlaying)
+        {
+            Destroy(previewTransform.gameObject);
+        }
+        else
+        {
+            DestroyImmediate(previewTransform.gameObject);
+        }
+    }
+
+    private void ApplySelectedFishHatToDisplayObject(GameObject fishDisplay, Sprite selectedSprite)
+    {
+        if (fishDisplay == null || selectedSprite == null)
+        {
+            return;
+        }
+
+        if (fishDisplay.GetComponent<SpriteRenderer>() != null)
+        {
+            CosmeticRuntimeApplier.ApplyFishHatByName(fishDisplay, selectedSprite.name);
+            return;
+        }
+
+        RectTransform fishRect = fishDisplay.GetComponent<RectTransform>();
+        Image fishImage = fishDisplay.GetComponent<Image>();
+        if (fishRect == null || fishImage == null)
+        {
+            return;
+        }
+
+        CacheDisplayBaseSprite(fishImage);
+
+        if (UseDynamicHatPreviewSprites && TryApplyCompositePreviewSprite(fishImage, selectedSprite, GetFishDisplayIndex(fishDisplay), false))
+        {
+            ClearFishHatPreviewChild(fishRect);
+            return;
+        }
+
+        Transform previewTransform = fishRect.Find(FishHatPreviewChildName);
+        if (previewTransform == null)
+        {
+            GameObject previewObject = new GameObject(FishHatPreviewChildName, typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+            previewTransform = previewObject.transform;
+            previewTransform.SetParent(fishRect, false);
+        }
+
+        RectTransform previewRect = previewTransform as RectTransform;
+        Image previewImage = previewTransform.GetComponent<Image>();
+        previewImage.sprite = selectedSprite;
+        previewImage.raycastTarget = false;
+        previewImage.preserveAspect = true;
+
+        previewRect.anchorMin = new Vector2(0.5f, 0.5f);
+        previewRect.anchorMax = new Vector2(0.5f, 0.5f);
+        previewRect.pivot = new Vector2(0.5f, 0.5f);
+        previewRect.anchoredPosition = GetFishHatPreviewPosition(selectedSprite);
+        previewRect.localEulerAngles = new Vector3(0f, 0f, GetFishHatPreviewRotation(selectedSprite));
+        previewRect.sizeDelta = GetFishHatPreviewSize(selectedSprite);
+        previewRect.SetAsLastSibling();
+    }
+
+    private void ClearFishHatPreviewChild(RectTransform fishRect)
+    {
+        Transform previewTransform = fishRect != null ? fishRect.Find(FishHatPreviewChildName) : null;
+        if (previewTransform == null)
+        {
+            return;
+        }
+
+        if (Application.isPlaying)
+        {
+            Destroy(previewTransform.gameObject);
+        }
+        else
+        {
+            DestroyImmediate(previewTransform.gameObject);
+        }
+    }
+
+    private bool TryApplyCompositePreviewSprite(Image targetImage, Sprite selectedSprite, int fishDisplayIndex, bool isFisherman)
+    {
+        if (targetImage == null || selectedSprite == null)
+        {
+            return false;
+        }
+
+        BuildPreviewMapsIfNeeded();
+
+        string cosmeticKey = NormalizeSpriteName(selectedSprite);
+        Sprite previewSprite = ResolvePreviewSpriteFromRules(
+            isFisherman ? FishermanPreviewRules : FishPreviewRules,
+            cosmeticKey);
+
+        if (previewSprite == null)
+        {
+            if (isFisherman)
+            {
+                fishermanPreviewSpritesByCosmetic.TryGetValue(cosmeticKey, out previewSprite);
+            }
+            else
+            {
+                int index = Mathf.Clamp(fishDisplayIndex, 0, fishPreviewSpritesByCosmetic.Length - 1);
+                Dictionary<string, Sprite> fishMap = fishPreviewSpritesByCosmetic[index];
+                if (fishMap != null)
+                {
+                    fishMap.TryGetValue(cosmeticKey, out previewSprite);
+                }
+            }
+        }
+
+        if (previewSprite == null)
+        {
+            return false;
+        }
+
+        targetImage.sprite = previewSprite;
+        targetImage.preserveAspect = true;
+        return true;
+    }
+
+    private Sprite ResolvePreviewSpriteFromRules(List<CosmeticPreviewRule> rules, string cosmeticKey)
+    {
+        if (rules == null || string.IsNullOrEmpty(cosmeticKey))
+        {
+            return null;
+        }
+
+        for (int i = 0; i < rules.Count; i++)
+        {
+            CosmeticPreviewRule rule = rules[i];
+            if (rule == null || NormalizeSpriteName(rule.CosmeticName) != cosmeticKey)
+            {
+                continue;
+            }
+
+            Sprite sprite = GetPreviewSpriteByName(rule.PreviewSpriteName);
+            if (sprite != null)
+            {
+                return sprite;
+            }
+        }
+
+        return null;
+    }
+
+    private Sprite GetPreviewSpriteByName(string spriteName)
+    {
+        BuildPreviewMapsIfNeeded();
+        previewSpritesByName.TryGetValue(NormalizeSpriteName(spriteName), out Sprite sprite);
+        return sprite;
+    }
+
+    private void ApplySavedFishermanHatToDisplay()
+    {
+        Sprite selectedHat = CosmeticRuntimeApplier.GetSelectedFishermanHat();
+        Sprite selectedHair = CosmeticRuntimeApplier.GetSelectedFishermanHair();
+        if (selectedHair != null)
+        {
+            ApplySelectedFishermanHatToDisplay(selectedHair);
+            return;
+        }
+
+        if (selectedHat == null)
+        {
+            ClearFishermanHatFromDisplay();
+            return;
+        }
+
+        ApplySelectedFishermanHatToDisplay(selectedHat);
+    }
+
+    private void ApplySelectedFishermanHatToDisplay(Sprite selectedSprite)
+    {
+        if (selectedSprite == null || FishermanDisplayObject == null)
+        {
+            return;
+        }
+
+        if (FishermanDisplayObject.GetComponent<SpriteRenderer>() != null)
+        {
+            CosmeticRuntimeApplier.ApplyFishermanCosmeticsByName(FishermanDisplayObject, selectedSprite.name, null);
+            return;
+        }
+
+        Image fishermanImage = FishermanDisplayObject.GetComponent<Image>();
+        if (fishermanImage == null)
+        {
+            return;
+        }
+
+        CacheDisplayBaseSprite(fishermanImage);
+        if (!TryApplyCompositePreviewSprite(fishermanImage, selectedSprite, 0, true))
+        {
+            RestoreDisplayBaseSprite(fishermanImage);
+        }
+    }
+
+    private void ClearFishermanHatFromDisplay()
+    {
+        if (FishermanDisplayObject == null)
+        {
+            return;
+        }
+
+        Image fishermanImage = FishermanDisplayObject.GetComponent<Image>();
+        RestoreDisplayBaseSprite(fishermanImage);
+    }
+
+    private void BuildPreviewMapsIfNeeded()
+    {
+        if (previewMapsBuilt)
+        {
+            return;
+        }
+
+        previewMapsBuilt = true;
+        fishPreviewSpritesByCosmetic[0] = BuildFishPreviewMap(false);
+        fishPreviewSpritesByCosmetic[1] = BuildFishPreviewMap(true);
+        BuildFishermanPreviewMap();
+    }
+
+    private Dictionary<string, Sprite> BuildFishPreviewMap(bool useTroutPreview)
+    {
+        Dictionary<string, Sprite> map = new Dictionary<string, Sprite>();
+        List<Button> cosmeticButtons = GetOrderedCosmeticButtons(fishCosmeticItemButtons, FishCosmeticItemsRoot, null);
+        Dictionary<string, Sprite> previewSpritesByHat = GetFishPreviewSpritesByHat(useTroutPreview);
+
+        for (int i = 0; i < cosmeticButtons.Count; i++)
+        {
+            Sprite cosmeticSprite = GetButtonSprite(cosmeticButtons[i]);
+            if (cosmeticSprite == null)
+            {
+                continue;
+            }
+
+            Sprite previewSprite = ResolveFishPreviewSprite(cosmeticSprite, previewSpritesByHat);
+            if (previewSprite != null)
+            {
+                map[NormalizeSpriteName(cosmeticSprite)] = previewSprite;
+            }
+        }
+
+        return map;
+    }
+
+    private void BuildFishermanPreviewMap()
+    {
+        fishermanPreviewSpritesByCosmetic.Clear();
+        List<Button> cosmeticButtons = GetOrderedCosmeticButtons(fishermanCosmeticItemButtons, FishermanCosmeticItemsRoot, FishermanHatObject);
+        List<Button> hairButtons = GetOrderedCosmeticButtons(fishermanCosmeticItemButtons, FishermanCosmeticItemsRoot, FishermanHairObject);
+        Dictionary<string, Sprite> previewSpritesByHat = GetFishermanPreviewSpritesByHat();
+
+        AddFishermanPreviewMappings(cosmeticButtons, previewSpritesByHat);
+        AddFishermanPreviewMappings(hairButtons, previewSpritesByHat);
+    }
+
+    private void AddFishermanPreviewMappings(List<Button> cosmeticButtons, Dictionary<string, Sprite> previewSpritesByHat)
+    {
+        if (cosmeticButtons == null || previewSpritesByHat == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < cosmeticButtons.Count; i++)
+        {
+            Sprite cosmeticSprite = GetButtonSprite(cosmeticButtons[i]);
+            if (cosmeticSprite == null)
+            {
+                continue;
+            }
+
+            Sprite previewSprite = ResolveFishermanPreviewSprite(cosmeticSprite, previewSpritesByHat);
+            if (previewSprite != null)
+            {
+                fishermanPreviewSpritesByCosmetic[NormalizeSpriteName(cosmeticSprite)] = previewSprite;
+            }
+        }
+    }
+
+    private List<Button> GetOrderedCosmeticButtons(List<Button> sourceButtons, Transform itemRoot, GameObject requiredParent)
+    {
+        List<Button> orderedButtons = new List<Button>();
+        if (sourceButtons == null)
+        {
+            return orderedButtons;
+        }
+
+        for (int i = 0; i < sourceButtons.Count; i++)
+        {
+            Button button = sourceButtons[i];
+            if (button == null || IsClearFishCosmeticButton(button))
+            {
+                continue;
+            }
+
+            if (requiredParent != null && !button.transform.IsChildOf(requiredParent.transform))
+            {
+                continue;
+            }
+
+            if (itemRoot != null && !button.transform.IsChildOf(itemRoot))
+            {
+                continue;
+            }
+
+            if (GetButtonSprite(button) != null)
+            {
+                orderedButtons.Add(button);
+            }
+        }
+
+        orderedButtons.Sort((a, b) => GetHierarchySortKey(a.transform).CompareTo(GetHierarchySortKey(b.transform)));
+        return orderedButtons;
+    }
+
+    private static string GetHierarchySortKey(Transform transform)
+    {
+        if (transform == null)
+        {
+            return string.Empty;
+        }
+
+        List<int> indices = new List<int>();
+        Transform current = transform;
+        while (current != null)
+        {
+            indices.Add(current.GetSiblingIndex());
+            current = current.parent;
+        }
+
+        indices.Reverse();
+        return string.Join(".", indices.ConvertAll(index => index.ToString("D4")).ToArray());
+    }
+
+    private Dictionary<string, Sprite> GetFishPreviewSpritesByHat(bool useTroutPreview)
+    {
+        Dictionary<string, Sprite> spritesByHat = new Dictionary<string, Sprite>();
+        List<Sprite> sprites = LoadPreviewSpritesFromFolder(FishPreviewAssetFolder, useTroutPreview ? "Trout" : "Fish");
+        for (int i = 0; i < sprites.Count; i++)
+        {
+            Sprite sprite = sprites[i];
+            if (sprite == null)
+            {
+                continue;
+            }
+
+            RegisterPreviewSprite(sprite);
+            string hatKey = GetFishPreviewHatKey(sprite.name);
+            if (!string.IsNullOrEmpty(hatKey) && !spritesByHat.ContainsKey(hatKey))
+            {
+                spritesByHat.Add(hatKey, sprite);
+            }
+        }
+
+        return spritesByHat;
+    }
+
+    private Sprite ResolveFishPreviewSprite(Sprite cosmeticSprite, Dictionary<string, Sprite> previewSpritesByHat)
+    {
+        if (cosmeticSprite == null || previewSpritesByHat == null)
+        {
+            return null;
+        }
+
+        string hatKey = GetFishCosmeticHatKey(cosmeticSprite.name);
+        if (!string.IsNullOrEmpty(hatKey) && previewSpritesByHat.TryGetValue(hatKey, out Sprite previewSprite))
+        {
+            return previewSprite;
+        }
+
+        return null;
+    }
+
+    private Dictionary<string, Sprite> GetFishermanPreviewSpritesByHat()
+    {
+        Dictionary<string, Sprite> spritesByHat = new Dictionary<string, Sprite>();
+        List<Sprite> sprites = LoadPreviewSpritesFromFolder(FishermanPreviewAssetFolder, "fisher");
+        for (int i = 0; i < sprites.Count; i++)
+        {
+            Sprite sprite = sprites[i];
+            if (sprite == null)
+            {
+                continue;
+            }
+
+            RegisterPreviewSprite(sprite);
+            string hatKey = GetFishermanPreviewHatKey(sprite.name);
+            if (!string.IsNullOrEmpty(hatKey) && !spritesByHat.ContainsKey(hatKey))
+            {
+                spritesByHat.Add(hatKey, sprite);
+            }
+        }
+
+        return spritesByHat;
+    }
+
+    private Sprite ResolveFishermanPreviewSprite(Sprite cosmeticSprite, Dictionary<string, Sprite> previewSpritesByHat)
+    {
+        if (cosmeticSprite == null || previewSpritesByHat == null)
+        {
+            return null;
+        }
+
+        string hatKey = GetFishermanCosmeticHatKey(cosmeticSprite.name);
+        if (!string.IsNullOrEmpty(hatKey) && previewSpritesByHat.TryGetValue(hatKey, out Sprite previewSprite))
+        {
+            return previewSprite;
+        }
+
+        return null;
+    }
+
+    private List<Sprite> FindScenePreviewSprites(string prefix)
+    {
+        List<Sprite> sprites = new List<Sprite>();
+        string normalizedPrefix = NormalizeSpriteName(prefix);
+        Image[] images = transform.root.GetComponentsInChildren<Image>(true);
+        for (int i = 0; i < images.Length; i++)
+        {
+            Image image = images[i];
+            Sprite sprite = image != null ? image.sprite : null;
+            if (sprite == null)
+            {
+                continue;
+            }
+
+            string imageName = NormalizeSpriteName(image.name);
+            string spriteName = NormalizeSpriteName(sprite);
+            if (IsNumberedPreviewName(imageName, normalizedPrefix) || IsNumberedPreviewName(spriteName, normalizedPrefix))
+            {
+                sprites.Add(sprite);
+            }
+        }
+
+        return sprites;
+    }
+
+    private List<Sprite> LoadPreviewSpritesFromAsset(string assetPath)
+    {
+        List<Sprite> sprites = new List<Sprite>();
+#if UNITY_EDITOR
+        if (!string.IsNullOrEmpty(assetPath))
+        {
+            UnityEngine.Object[] assets = AssetDatabase.LoadAllAssetsAtPath(assetPath);
+            for (int i = 0; i < assets.Length; i++)
+            {
+                if (assets[i] is Sprite sprite)
+                {
+                    sprites.Add(sprite);
+                    RegisterPreviewSprite(sprite);
+                }
+            }
+        }
+#endif
+        return sprites;
+    }
+
+    private List<Sprite> LoadPreviewSpritesFromFolder(string folderPath, string filePrefix)
+    {
+        List<Sprite> sprites = new List<Sprite>();
+#if UNITY_EDITOR
+        if (string.IsNullOrEmpty(folderPath) || !Directory.Exists(folderPath))
+        {
+            return sprites;
+        }
+
+        string normalizedPrefix = NormalizeSpriteName(filePrefix);
+        string[] files = Directory.GetFiles(folderPath, "*.png", SearchOption.TopDirectoryOnly);
+        for (int i = 0; i < files.Length; i++)
+        {
+            string assetPath = files[i].Replace("\\", "/");
+            string fileName = Path.GetFileNameWithoutExtension(assetPath);
+            if (!NormalizeSpriteName(fileName).StartsWith(normalizedPrefix))
+            {
+                continue;
+            }
+
+            sprites.AddRange(LoadPreviewSpritesFromAsset(assetPath));
+        }
+#endif
+        return sprites;
+    }
+
+    private static string GetFishCosmeticHatKey(string cosmeticName)
+    {
+        string name = NormalizeSpriteName(cosmeticName);
+        if (string.IsNullOrEmpty(name))
+        {
+            return string.Empty;
+        }
+
+        if (name.Contains("paperboat") || name.Contains("boat"))
+        {
+            return "boat";
+        }
+
+        if (name.Contains("cap"))
+        {
+            return "cap";
+        }
+
+        if (name.Contains("beret") || name.Contains("polish"))
+        {
+            return "polish";
+        }
+
+        if (name.Contains("default") || name.Contains("fishing"))
+        {
+            return "yellow";
+        }
+
+        if (name.Contains("hat2") || name.Contains("black") || name.Contains("top"))
+        {
+            return "black";
+        }
+
+        if (name == "hat" || name.Contains("orange"))
+        {
+            return "orange";
+        }
+
+        return string.Empty;
+    }
+
+    private static string GetFishPreviewHatKey(string previewName)
+    {
+        string name = NormalizeSpriteName(previewName);
+        if (string.IsNullOrEmpty(name))
+        {
+            return string.Empty;
+        }
+
+        if (name.Contains("boat"))
+        {
+            return "boat";
+        }
+
+        if (name.Contains("cap"))
+        {
+            return "cap";
+        }
+
+        if (name.Contains("polish"))
+        {
+            return "polish";
+        }
+
+        if (name.Contains("yellow"))
+        {
+            return "yellow";
+        }
+
+        if (name.Contains("black"))
+        {
+            return "black";
+        }
+
+        if (name.Contains("orange"))
+        {
+            return "orange";
+        }
+
+        return string.Empty;
+    }
+
+    private static string GetFishermanCosmeticHatKey(string cosmeticName)
+    {
+        string name = NormalizeSpriteName(cosmeticName);
+        if (string.IsNullOrEmpty(name))
+        {
+            return string.Empty;
+        }
+
+        if (name.Contains("redhair"))
+        {
+            return "redhair";
+        }
+
+        if (name.Contains("bluecap"))
+        {
+            return "bluecap";
+        }
+
+        if (name.Contains("chef") || name.Contains("white"))
+        {
+            return "white";
+        }
+
+        if (name.Contains("fishhat") || name.Contains("frog"))
+        {
+            return "frog";
+        }
+
+        if (name.Contains("turtle"))
+        {
+            return "turtle";
+        }
+
+        if (name.Contains("ranger"))
+        {
+            return "green";
+        }
+
+        if (name.Contains("redcap"))
+        {
+            return "red";
+        }
+
+        if (name.Contains("soda") || name.Contains("headphone"))
+        {
+            return "headphone";
+        }
+
+        if (name.Contains("default") || name.Contains("fishing"))
+        {
+            return "yellow";
+        }
+
+        return string.Empty;
+    }
+
+    private static string GetFishermanPreviewHatKey(string previewName)
+    {
+        string name = NormalizeSpriteName(previewName);
+        if (string.IsNullOrEmpty(name))
+        {
+            return string.Empty;
+        }
+
+        if (name.Contains("redhair"))
+        {
+            return "redhair";
+        }
+
+        if (name.Contains("bluecap"))
+        {
+            return "bluecap";
+        }
+
+        if (name.Contains("white"))
+        {
+            return "white";
+        }
+
+        if (name.Contains("griin"))
+        {
+            return "frog";
+        }
+
+        if (name.Contains("turtle"))
+        {
+            return "turtle";
+        }
+
+        if (name.Contains("green"))
+        {
+            return "green";
+        }
+
+        if (name.Contains("headphone"))
+        {
+            return "headphone";
+        }
+
+        if (name.Contains("redhat"))
+        {
+            return "red";
+        }
+
+        if (name.Contains("yellow"))
+        {
+            return "yellow";
+        }
+
+        return string.Empty;
+    }
+
+    private void RegisterPreviewSprite(Sprite sprite)
+    {
+        if (sprite == null)
+        {
+            return;
+        }
+
+        string key = NormalizeSpriteName(sprite);
+        if (!previewSpritesByName.ContainsKey(key))
+        {
+            previewSpritesByName.Add(key, sprite);
+        }
+    }
+
+    private static bool IsCharacterBasePreviewSprite(Sprite sprite)
+    {
+        if (sprite == null)
+        {
+            return true;
+        }
+
+        return sprite.rect.height > sprite.rect.width * 1.5f;
+    }
+
+    private static bool IsNumberedPreviewName(string normalizedName, string normalizedPrefix)
+    {
+        if (string.IsNullOrEmpty(normalizedName) || string.IsNullOrEmpty(normalizedPrefix))
+        {
+            return false;
+        }
+
+        if (!normalizedName.StartsWith(normalizedPrefix) || normalizedName.Length <= normalizedPrefix.Length)
+        {
+            return false;
+        }
+
+        char next = normalizedName[normalizedPrefix.Length];
+        return next >= '0' && next <= '9';
+    }
+
+    private void CacheDisplayBaseSprite(Image image)
+    {
+        if (image != null && !displayBaseSprites.ContainsKey(image))
+        {
+            displayBaseSprites.Add(image, image.sprite);
+        }
+    }
+
+    private void RestoreDisplayBaseSprite(Image image)
+    {
+        if (image == null)
+        {
+            return;
+        }
+
+        if (displayBaseSprites.TryGetValue(image, out Sprite baseSprite))
+        {
+            image.sprite = baseSprite;
+            image.preserveAspect = true;
+        }
+    }
+
+    private static Vector2 GetFishHatPreviewPosition(Sprite selectedSprite)
+    {
+        string name = NormalizeSpriteName(selectedSprite);
+        switch (name)
+        {
+            case "beret": return new Vector2(-16f, 29f);
+            case "fishermanhatdefaultfishinghat": return new Vector2(-8f, 29f);
+            case "hat2": return new Vector2(-18f, 30f);
+            case "cap": return new Vector2(-18f, 25f);
+            case "paperboat": return new Vector2(-7f, 31f);
+            default: return new Vector2(0f, 29f);
+        }
+    }
+
+    private static Vector2 GetFishHatPreviewSize(Sprite selectedSprite)
+    {
+        string name = NormalizeSpriteName(selectedSprite);
+        switch (name)
+        {
+            case "beret": return new Vector2(58f, 36f);
+            case "fishermanhatdefaultfishinghat": return new Vector2(58f, 42f);
+            case "paperboat": return new Vector2(52f, 34f);
+            default: return new Vector2(54f, 38f);
+        }
+    }
+
+    private static float GetFishHatPreviewRotation(Sprite selectedSprite)
+    {
+        string name = NormalizeSpriteName(selectedSprite);
+        switch (name)
+        {
+            case "beret": return -8f;
+            case "cap": return -15f;
+            case "paperboat": return -15f;
+            case "hat2": return 5f;
+            default: return 0f;
         }
     }
 
@@ -670,6 +1607,69 @@ public class ShopManager : MonoBehaviour
 
         image = button != null ? button.GetComponentInChildren<Image>(true) : null;
         return image != null ? image.sprite : null;
+    }
+
+    private bool IsFishDisplayVisible()
+    {
+        ResolveFishDisplayObjects();
+
+        if (FishDisplayObjects != null && FishDisplayObjects.Length > 0)
+        {
+            for (int i = 0; i < FishDisplayObjects.Length; i++)
+            {
+                if (FishDisplayObjects[i] != null && FishDisplayObjects[i].activeSelf)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        return FishDisplayObject != null && FishDisplayObject.activeSelf;
+    }
+
+    private bool IsFishermanDisplayVisible()
+    {
+        return FishermanDisplayObject != null && FishermanDisplayObject.activeSelf;
+    }
+
+    private int GetFishDisplayIndex(GameObject fishDisplay)
+    {
+        ResolveFishDisplayObjects();
+
+        if (FishDisplayObjects == null || fishDisplay == null)
+        {
+            return 0;
+        }
+
+        for (int i = 0; i < FishDisplayObjects.Length; i++)
+        {
+            if (FishDisplayObjects[i] == fishDisplay)
+            {
+                return i;
+            }
+        }
+
+        return 0;
+    }
+
+    private bool IsClearFishCosmeticButton(Button button)
+    {
+        if (button == null)
+        {
+            return false;
+        }
+
+        string buttonName = button.name.ToLowerInvariant();
+        if (buttonName.Contains("clear") || buttonName.Contains("none") || buttonName.Contains("empty") || buttonName.Contains("x icon"))
+        {
+            return true;
+        }
+
+        return FishCosmeticItemsRoot != null
+            && button.transform.parent == FishCosmeticItemsRoot
+            && button.transform.GetSiblingIndex() == 0;
     }
 
     private static void RemoveCosmeticItemButtonListeners(List<Button> buttons, List<UnityAction> actions)
@@ -741,6 +1741,87 @@ public class ShopManager : MonoBehaviour
         }
 
         return name.Contains("cosmeteic") || name.Contains("cosmetic") || name.Contains("hat") || name.Contains("hair");
+    }
+
+    private static bool IsClearCosmeticItemImage(Transform root, Image image)
+    {
+        if (root == null || image == null)
+        {
+            return false;
+        }
+
+        string name = image.name.ToLowerInvariant();
+        if (name.Contains("clear") || name.Contains("none") || name.Contains("empty") || name.Contains("x icon"))
+        {
+            return true;
+        }
+
+        return image.transform.parent == root && image.transform.GetSiblingIndex() == 0;
+    }
+
+    private static string NormalizeSpriteName(Sprite sprite)
+    {
+        if (sprite == null)
+        {
+            return string.Empty;
+        }
+
+        string name = sprite.name.ToLowerInvariant();
+        if (name.EndsWith("_0"))
+        {
+            name = name.Substring(0, name.Length - 2);
+        }
+
+        return name
+            .Replace("_", string.Empty)
+            .Replace("-", string.Empty)
+            .Replace(" ", string.Empty);
+    }
+
+    private static string NormalizeSpriteName(string spriteName)
+    {
+        if (string.IsNullOrEmpty(spriteName))
+        {
+            return string.Empty;
+        }
+
+        string name = spriteName.ToLowerInvariant();
+        if (name.EndsWith("_0"))
+        {
+            name = name.Substring(0, name.Length - 2);
+        }
+
+        return name
+            .Replace("_", string.Empty)
+            .Replace("-", string.Empty)
+            .Replace(" ", string.Empty);
+    }
+
+    private static int GetSpriteNumericSuffix(string spriteName)
+    {
+        if (string.IsNullOrEmpty(spriteName))
+        {
+            return 0;
+        }
+
+        int value = 0;
+        int multiplier = 1;
+        bool foundDigit = false;
+
+        for (int i = spriteName.Length - 1; i >= 0; i--)
+        {
+            char c = spriteName[i];
+            if (c < '0' || c > '9')
+            {
+                break;
+            }
+
+            foundDigit = true;
+            value += (c - '0') * multiplier;
+            multiplier *= 10;
+        }
+
+        return foundDigit ? value : 0;
     }
 
     private static Image FindAnimatedShopImage(Transform root)

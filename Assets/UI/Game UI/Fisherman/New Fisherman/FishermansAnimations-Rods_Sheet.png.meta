@@ -1,0 +1,5343 @@
+fileFormatVersion: 2
+guid: 04a5d6874dcd91640a495815bd587227
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 585012745848555992
+    second: FishermansAnimations-Rods_Sheet_0
+  - first:
+      213: 7283777686598944079
+    second: FishermansAnimations-Rods_Sheet_1
+  - first:
+      213: 5465475140425180329
+    second: FishermansAnimations-Rods_Sheet_2
+  - first:
+      213: 6418402573477567594
+    second: FishermansAnimations-Rods_Sheet_3
+  - first:
+      213: 5699173313858029982
+    second: FishermansAnimations-Rods_Sheet_4
+  - first:
+      213: -8177755913085802453
+    second: FishermansAnimations-Rods_Sheet_5
+  - first:
+      213: -6776451622664719333
+    second: FishermansAnimations-Rods_Sheet_6
+  - first:
+      213: -4766227532074887873
+    second: FishermansAnimations-Rods_Sheet_7
+  - first:
+      213: -8955897654469351068
+    second: FishermansAnimations-Rods_Sheet_8
+  - first:
+      213: -5889865518105956899
+    second: FishermansAnimations-Rods_Sheet_9
+  - first:
+      213: -436556762586830135
+    second: FishermansAnimations-Rods_Sheet_10
+  - first:
+      213: 2536441097278047696
+    second: FishermansAnimations-Rods_Sheet_11
+  - first:
+      213: -2932825644571579977
+    second: FishermansAnimations-Rods_Sheet_12
+  - first:
+      213: -66825113715938564
+    second: FishermansAnimations-Rods_Sheet_13
+  - first:
+      213: 3213654598213526604
+    second: FishermansAnimations-Rods_Sheet_14
+  - first:
+      213: 7098982432722036185
+    second: FishermansAnimations-Rods_Sheet_15
+  - first:
+      213: -2345046670423886112
+    second: FishermansAnimations-Rods_Sheet_16
+  - first:
+      213: -6407087502070528857
+    second: FishermansAnimations-Rods_Sheet_17
+  - first:
+      213: -7124174862300752417
+    second: FishermansAnimations-Rods_Sheet_18
+  - first:
+      213: 4934661231137287609
+    second: FishermansAnimations-Rods_Sheet_19
+  - first:
+      213: -1922440595212417269
+    second: FishermansAnimations-Rods_Sheet_20
+  - first:
+      213: 4707431652970743214
+    second: FishermansAnimations-Rods_Sheet_21
+  - first:
+      213: 270854963127048062
+    second: FishermansAnimations-Rods_Sheet_22
+  - first:
+      213: 3585149235361383800
+    second: FishermansAnimations-Rods_Sheet_23
+  - first:
+      213: -8379444505507944834
+    second: FishermansAnimations-Rods_Sheet_24
+  - first:
+      213: 8733667772792075462
+    second: FishermansAnimations-Rods_Sheet_25
+  - first:
+      213: 8925483005084369145
+    second: FishermansAnimations-Rods_Sheet_26
+  - first:
+      213: 1800373976669305975
+    second: FishermansAnimations-Rods_Sheet_27
+  - first:
+      213: 1423222619060167044
+    second: FishermansAnimations-Rods_Sheet_28
+  - first:
+      213: -218748654595743033
+    second: FishermansAnimations-Rods_Sheet_29
+  - first:
+      213: -3232498563233884725
+    second: FishermansAnimations-Rods_Sheet_30
+  - first:
+      213: -464310750734583476
+    second: FishermansAnimations-Rods_Sheet_31
+  - first:
+      213: 5559491894090612418
+    second: FishermansAnimations-Rods_Sheet_32
+  - first:
+      213: 6783161845430912763
+    second: FishermansAnimations-Rods_Sheet_33
+  - first:
+      213: -4765142875225648500
+    second: FishermansAnimations-Rods_Sheet_34
+  - first:
+      213: -2734985206652802204
+    second: FishermansAnimations-Rods_Sheet_35
+  - first:
+      213: -1196735676928340172
+    second: FishermansAnimations-Rods_Sheet_36
+  - first:
+      213: 2878507549895640153
+    second: FishermansAnimations-Rods_Sheet_37
+  - first:
+      213: -208464029182928190
+    second: FishermansAnimations-Rods_Sheet_38
+  - first:
+      213: 3915302234135409129
+    second: FishermansAnimations-Rods_Sheet_39
+  - first:
+      213: -4813263604517125845
+    second: FishermansAnimations-Rods_Sheet_40
+  - first:
+      213: -8028658052856980930
+    second: FishermansAnimations-Rods_Sheet_41
+  - first:
+      213: 3327366573530476170
+    second: FishermansAnimations-Rods_Sheet_42
+  - first:
+      213: 6026269737306037801
+    second: FishermansAnimations-Rods_Sheet_43
+  - first:
+      213: -3110213619399369644
+    second: FishermansAnimations-Rods_Sheet_44
+  - first:
+      213: 6877270770469766132
+    second: FishermansAnimations-Rods_Sheet_45
+  - first:
+      213: -530811246604162929
+    second: FishermansAnimations-Rods_Sheet_46
+  - first:
+      213: 5149281868917322321
+    second: FishermansAnimations-Rods_Sheet_47
+  - first:
+      213: 2590655039313606066
+    second: FishermansAnimations-Rods_Sheet_48
+  - first:
+      213: -3079135078721069689
+    second: FishermansAnimations-Rods_Sheet_49
+  - first:
+      213: -4543118254327794699
+    second: FishermansAnimations-Rods_Sheet_50
+  - first:
+      213: 2302928978986389032
+    second: FishermansAnimations-Rods_Sheet_51
+  - first:
+      213: 662714162103384743
+    second: FishermansAnimations-Rods_Sheet_52
+  - first:
+      213: 4018975164584856463
+    second: FishermansAnimations-Rods_Sheet_53
+  - first:
+      213: -45090049355132688
+    second: FishermansAnimations-Rods_Sheet_54
+  - first:
+      213: -6568215621194098467
+    second: FishermansAnimations-Rods_Sheet_55
+  - first:
+      213: -112385363501103197
+    second: FishermansAnimations-Rods_Sheet_56
+  - first:
+      213: 2965404675161636046
+    second: FishermansAnimations-Rods_Sheet_57
+  - first:
+      213: 9015026127573054201
+    second: FishermansAnimations-Rods_Sheet_58
+  - first:
+      213: -7442551955667253627
+    second: FishermansAnimations-Rods_Sheet_59
+  - first:
+      213: 6727801305973326614
+    second: FishermansAnimations-Rods_Sheet_60
+  - first:
+      213: -1691152094708084137
+    second: FishermansAnimations-Rods_Sheet_61
+  - first:
+      213: 1861930805755457383
+    second: FishermansAnimations-Rods_Sheet_62
+  - first:
+      213: 3969797590317251483
+    second: FishermansAnimations-Rods_Sheet_63
+  - first:
+      213: 7927502478195164067
+    second: FishermansAnimations-Rods_Sheet_64
+  - first:
+      213: 3833423244931135829
+    second: FishermansAnimations-Rods_Sheet_65
+  - first:
+      213: -8843574540739027308
+    second: FishermansAnimations-Rods_Sheet_66
+  - first:
+      213: -7245521415608881472
+    second: FishermansAnimations-Rods_Sheet_67
+  - first:
+      213: 5341890612803036625
+    second: FishermansAnimations-Rods_Sheet_68
+  - first:
+      213: 6771076126838366852
+    second: FishermansAnimations-Rods_Sheet_69
+  - first:
+      213: -5296598094531785031
+    second: FishermansAnimations-Rods_Sheet_70
+  - first:
+      213: -4696454528645962837
+    second: FishermansAnimations-Rods_Sheet_71
+  - first:
+      213: 1421239355033183536
+    second: FishermansAnimations-Rods_Sheet_72
+  - first:
+      213: 6477760791280658459
+    second: FishermansAnimations-Rods_Sheet_73
+  - first:
+      213: 3056559371537139149
+    second: FishermansAnimations-Rods_Sheet_74
+  - first:
+      213: -6477481961217922237
+    second: FishermansAnimations-Rods_Sheet_75
+  - first:
+      213: 13940319302521669
+    second: FishermansAnimations-Rods_Sheet_76
+  - first:
+      213: 2528404976354057040
+    second: FishermansAnimations-Rods_Sheet_77
+  - first:
+      213: -1621446965640828428
+    second: FishermansAnimations-Rods_Sheet_78
+  - first:
+      213: -4147749468908603572
+    second: FishermansAnimations-Rods_Sheet_79
+  - first:
+      213: -1266469824853472004
+    second: FishermansAnimations-Rods_Sheet_80
+  - first:
+      213: -8679932843466254747
+    second: FishermansAnimations-Rods_Sheet_81
+  - first:
+      213: -2240004312407689056
+    second: FishermansAnimations-Rods_Sheet_82
+  - first:
+      213: 3810496140369404876
+    second: FishermansAnimations-Rods_Sheet_83
+  - first:
+      213: 2071007604629668448
+    second: FishermansAnimations-Rods_Sheet_84
+  - first:
+      213: -223684898926254316
+    second: FishermansAnimations-Rods_Sheet_85
+  - first:
+      213: -9173404102938146006
+    second: FishermansAnimations-Rods_Sheet_86
+  - first:
+      213: -6107585537275770264
+    second: FishermansAnimations-Rods_Sheet_87
+  - first:
+      213: -1691346075811948236
+    second: FishermansAnimations-Rods_Sheet_88
+  - first:
+      213: -7912837867019730309
+    second: FishermansAnimations-Rods_Sheet_89
+  - first:
+      213: 3406218179428788754
+    second: FishermansAnimations-Rods_Sheet_90
+  - first:
+      213: -5535763166093022570
+    second: FishermansAnimations-Rods_Sheet_91
+  - first:
+      213: 5052987134564837622
+    second: FishermansAnimations-Rods_Sheet_92
+  - first:
+      213: -8530469362251663042
+    second: FishermansAnimations-Rods_Sheet_93
+  - first:
+      213: 8923207257115136266
+    second: FishermansAnimations-Rods_Sheet_94
+  - first:
+      213: 2527944972057817795
+    second: FishermansAnimations-Rods_Sheet_95
+  - first:
+      213: -7027549694383324186
+    second: FishermansAnimations-Rods_Sheet_96
+  - first:
+      213: 7448715712870833663
+    second: FishermansAnimations-Rods_Sheet_97
+  - first:
+      213: -3776302571775485857
+    second: FishermansAnimations-Rods_Sheet_98
+  - first:
+      213: 4716232617597182191
+    second: FishermansAnimations-Rods_Sheet_99
+  - first:
+      213: -1884442472814165077
+    second: FishermansAnimations-Rods_Sheet_100
+  - first:
+      213: -6927206652257914861
+    second: FishermansAnimations-Rods_Sheet_101
+  - first:
+      213: -5556158815582934893
+    second: FishermansAnimations-Rods_Sheet_102
+  - first:
+      213: 6568797123597813627
+    second: FishermansAnimations-Rods_Sheet_103
+  - first:
+      213: 4710639780755418808
+    second: FishermansAnimations-Rods_Sheet_104
+  - first:
+      213: -3235112474586792277
+    second: FishermansAnimations-Rods_Sheet_105
+  - first:
+      213: 5785500474607136766
+    second: FishermansAnimations-Rods_Sheet_106
+  - first:
+      213: -8084869951245077669
+    second: FishermansAnimations-Rods_Sheet_107
+  - first:
+      213: 5617978060122361566
+    second: FishermansAnimations-Rods_Sheet_108
+  - first:
+      213: -2813257455168123807
+    second: FishermansAnimations-Rods_Sheet_109
+  - first:
+      213: 480820989755678028
+    second: FishermansAnimations-Rods_Sheet_110
+  - first:
+      213: 7219971895783752449
+    second: FishermansAnimations-Rods_Sheet_111
+  - first:
+      213: 5492145464222115024
+    second: FishermansAnimations-Rods_Sheet_112
+  - first:
+      213: 2461082187871783408
+    second: FishermansAnimations-Rods_Sheet_113
+  - first:
+      213: -2473737358917165190
+    second: FishermansAnimations-Rods_Sheet_114
+  - first:
+      213: 3896569750065993419
+    second: FishermansAnimations-Rods_Sheet_115
+  - first:
+      213: -6659597434109880268
+    second: FishermansAnimations-Rods_Sheet_116
+  - first:
+      213: -6855155515221307304
+    second: FishermansAnimations-Rods_Sheet_117
+  - first:
+      213: 8097219501291929265
+    second: FishermansAnimations-Rods_Sheet_118
+  - first:
+      213: 7521481285239283198
+    second: FishermansAnimations-Rods_Sheet_119
+  - first:
+      213: -4045133425088741348
+    second: FishermansAnimations-Rods_Sheet_120
+  - first:
+      213: 8565559990639682637
+    second: FishermansAnimations-Rods_Sheet_121
+  - first:
+      213: -7472806558853565640
+    second: FishermansAnimations-Rods_Sheet_122
+  - first:
+      213: -5629257353175167695
+    second: FishermansAnimations-Rods_Sheet_123
+  - first:
+      213: 4884090231494424898
+    second: FishermansAnimations-Rods_Sheet_124
+  - first:
+      213: -5553795439952860770
+    second: FishermansAnimations-Rods_Sheet_125
+  - first:
+      213: -2276448601520617791
+    second: FishermansAnimations-Rods_Sheet_126
+  - first:
+      213: -1571923407997763994
+    second: FishermansAnimations-Rods_Sheet_127
+  - first:
+      213: -77327319096354458
+    second: FishermansAnimations-Rods_Sheet_128
+  - first:
+      213: 4807938286361803111
+    second: FishermansAnimations-Rods_Sheet_129
+  - first:
+      213: 2772668045021155789
+    second: FishermansAnimations-Rods_Sheet_130
+  - first:
+      213: 5803837819495044014
+    second: FishermansAnimations-Rods_Sheet_131
+  - first:
+      213: -4296768049040253784
+    second: FishermansAnimations-Rods_Sheet_132
+  - first:
+      213: -1165684002167696088
+    second: FishermansAnimations-Rods_Sheet_133
+  - first:
+      213: 4153515297487486494
+    second: FishermansAnimations-Rods_Sheet_134
+  - first:
+      213: 9056329803890937179
+    second: FishermansAnimations-Rods_Sheet_135
+  - first:
+      213: -6687780255311812731
+    second: FishermansAnimations-Rods_Sheet_136
+  - first:
+      213: -1815519650662623910
+    second: FishermansAnimations-Rods_Sheet_137
+  - first:
+      213: 3472184580666495665
+    second: FishermansAnimations-Rods_Sheet_138
+  - first:
+      213: -550460910249351595
+    second: FishermansAnimations-Rods_Sheet_139
+  - first:
+      213: 653056952321093946
+    second: FishermansAnimations-Rods_Sheet_140
+  - first:
+      213: 998709311762020160
+    second: FishermansAnimations-Rods_Sheet_141
+  - first:
+      213: 5179881593289178122
+    second: FishermansAnimations-Rods_Sheet_142
+  - first:
+      213: -7759283656196862342
+    second: FishermansAnimations-Rods_Sheet_143
+  - first:
+      213: 3111692726274862181
+    second: FishermansAnimations-Rods_Sheet_144
+  - first:
+      213: 2827014890786127124
+    second: FishermansAnimations-Rods_Sheet_145
+  - first:
+      213: 99788156756814429
+    second: FishermansAnimations-Rods_Sheet_146
+  - first:
+      213: 3412993830300007542
+    second: FishermansAnimations-Rods_Sheet_147
+  - first:
+      213: -6342243728689710798
+    second: FishermansAnimations-Rods_Sheet_148
+  - first:
+      213: 4920597409909412837
+    second: FishermansAnimations-Rods_Sheet_149
+  - first:
+      213: 3604512580808165076
+    second: FishermansAnimations-Rods_Sheet_150
+  - first:
+      213: 3756317303913640163
+    second: FishermansAnimations-Rods_Sheet_151
+  - first:
+      213: -7541847224467223847
+    second: FishermansAnimations-Rods_Sheet_152
+  - first:
+      213: -1895860291033285177
+    second: FishermansAnimations-Rods_Sheet_153
+  - first:
+      213: -946966006831327269
+    second: FishermansAnimations-Rods_Sheet_154
+  - first:
+      213: -5668647784388152541
+    second: FishermansAnimations-Rods_Sheet_155
+  - first:
+      213: 8112714083947421530
+    second: FishermansAnimations-Rods_Sheet_156
+  - first:
+      213: -5054071051336726498
+    second: FishermansAnimations-Rods_Sheet_157
+  - first:
+      213: 4685599050211783539
+    second: FishermansAnimations-Rods_Sheet_158
+  - first:
+      213: 5692490956040882719
+    second: FishermansAnimations-Rods_Sheet_159
+  - first:
+      213: -9018269174946316037
+    second: FishermansAnimations-Rods_Sheet_160
+  - first:
+      213: -531393706685692147
+    second: FishermansAnimations-Rods_Sheet_161
+  - first:
+      213: -8423015930185182097
+    second: FishermansAnimations-Rods_Sheet_162
+  - first:
+      213: 3105249110588947576
+    second: FishermansAnimations-Rods_Sheet_163
+  - first:
+      213: 8366293469389895924
+    second: FishermansAnimations-Rods_Sheet_164
+  - first:
+      213: 5503738037152262242
+    second: FishermansAnimations-Rods_Sheet_165
+  - first:
+      213: 4325470218437730770
+    second: FishermansAnimations-Rods_Sheet_166
+  - first:
+      213: 3387388914073312305
+    second: FishermansAnimations-Rods_Sheet_167
+  - first:
+      213: -2310366464996165718
+    second: FishermansAnimations-Rods_Sheet_168
+  - first:
+      213: 4426212375867613107
+    second: FishermansAnimations-Rods_Sheet_169
+  - first:
+      213: -6286606441478628456
+    second: FishermansAnimations-Rods_Sheet_170
+  - first:
+      213: 1908486143105922477
+    second: FishermansAnimations-Rods_Sheet_171
+  - first:
+      213: -6915866684146193291
+    second: FishermansAnimations-Rods_Sheet_172
+  - first:
+      213: -1123174204871549553
+    second: FishermansAnimations-Rods_Sheet_173
+  - first:
+      213: -412423454863120596
+    second: FishermansAnimations-Rods_Sheet_174
+  - first:
+      213: 4826104419947744733
+    second: FishermansAnimations-Rods_Sheet_175
+  - first:
+      213: -5234275680204566224
+    second: FishermansAnimations-Rods_Sheet_176
+  - first:
+      213: -2819510944296862657
+    second: FishermansAnimations-Rods_Sheet_177
+  - first:
+      213: 2731624826781784510
+    second: FishermansAnimations-Rods_Sheet_178
+  - first:
+      213: -7147523684357746163
+    second: FishermansAnimations-Rods_Sheet_179
+  - first:
+      213: 4004732194690466129
+    second: FishermansAnimations-Rods_Sheet_180
+  - first:
+      213: -8803038118876911793
+    second: FishermansAnimations-Rods_Sheet_181
+  - first:
+      213: -7142294894605865152
+    second: FishermansAnimations-Rods_Sheet_182
+  - first:
+      213: 5177012338930944713
+    second: FishermansAnimations-Rods_Sheet_183
+  - first:
+      213: 4394979228600610784
+    second: FishermansAnimations-Rods_Sheet_184
+  - first:
+      213: 4535966571897754810
+    second: FishermansAnimations-Rods_Sheet_185
+  - first:
+      213: 686710665485138694
+    second: FishermansAnimations-Rods_Sheet_186
+  - first:
+      213: -653407070803035425
+    second: FishermansAnimations-Rods_Sheet_187
+  - first:
+      213: -1342533161046820424
+    second: FishermansAnimations-Rods_Sheet_188
+  - first:
+      213: -9173321409464343238
+    second: FishermansAnimations-Rods_Sheet_189
+  - first:
+      213: 816371220435449874
+    second: FishermansAnimations-Rods_Sheet_190
+  - first:
+      213: -2759534910740895417
+    second: FishermansAnimations-Rods_Sheet_191
+  - first:
+      213: 3217618832507620125
+    second: FishermansAnimations-Rods_Sheet_192
+  - first:
+      213: -434710864805582016
+    second: FishermansAnimations-Rods_Sheet_193
+  - first:
+      213: 4472381180091000064
+    second: FishermansAnimations-Rods_Sheet_194
+  - first:
+      213: -9070051347691569592
+    second: FishermansAnimations-Rods_Sheet_195
+  - first:
+      213: -7505221441001203556
+    second: FishermansAnimations-Rods_Sheet_196
+  - first:
+      213: 4123952750282165760
+    second: FishermansAnimations-Rods_Sheet_197
+  - first:
+      213: 4373110251828344248
+    second: FishermansAnimations-Rods_Sheet_198
+  - first:
+      213: -6297123325841373075
+    second: FishermansAnimations-Rods_Sheet_199
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1515
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d901692ef16e1800800000000000000
+      internalID: 585012745848555992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 1514
+        width: 26
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4585a0073d251560800000000000000
+      internalID: 7283777686598944079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 1514
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a465c1dea449db40800000000000000
+      internalID: 5465475140425180329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 1522
+        width: 28
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6c5599622fb21950800000000000000
+      internalID: 6418402573477567594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 1498
+        width: 43
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e99c4e5fee7871f40800000000000000
+      internalID: 5699173313858029982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 1521
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b28abac1356c28e80800000000000000
+      internalID: -8177755913085802453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1494
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b143371072535f1a0800000000000000
+      internalID: -6776451622664719333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1495
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f355df7ef45faddb0800000000000000
+      internalID: -4766227532074887873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 1495
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 469a99c988246b380800000000000000
+      internalID: -8955897654469351068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 1494
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddde872648ef24ea0800000000000000
+      internalID: -5889865518105956899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1430
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9caa7b9ffe901f9f0800000000000000
+      internalID: -436556762586830135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1430
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d5c5f44dbf333320800000000000000
+      internalID: 2536441097278047696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1430
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b9a7237d928c47d0800000000000000
+      internalID: -2932825644571579977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1430
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfae2e2c9e6921ff0800000000000000
+      internalID: -66825113715938564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1431
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c44615594d1399c20800000000000000
+      internalID: 3213654598213526604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 1431
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d5a22919e6a48260800000000000000
+      internalID: 7098982432722036185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1431
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e6fba35a78b47fd0800000000000000
+      internalID: -2345046670423886112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 1431
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a4cd32fcd37517a0800000000000000
+      internalID: -6407087502070528857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1373
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd5dbce45b8d12d90800000000000000
+      internalID: -7124174862300752417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1367
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bd64d8ae307b7440800000000000000
+      internalID: 4934661231137287609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 1374
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b07c294d67e1255e0800000000000000
+      internalID: -1922440595212417269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1368
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea540c7b528245140800000000000000
+      internalID: 4707431652970743214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 1373
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e77d6d6672542c300800000000000000
+      internalID: 270854963127048062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 1367
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8758a701c3201c130800000000000000
+      internalID: 3585149235361383800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1372
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e76a9125e9b36bb80800000000000000
+      internalID: -8379444505507944834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 1366
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c47c8ff098343970800000000000000
+      internalID: 8733667772792075462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1302
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f007def08faddb70800000000000000
+      internalID: 8925483005084369145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1302
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77c3b3ec7963cf810800000000000000
+      internalID: 1800373976669305975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1302
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 481e1657e6d40c310800000000000000
+      internalID: 1423222619060167044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1302
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c2e9b3f149d6fcf0800000000000000
+      internalID: -218748654595743033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1303
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc5db79eeabd323d0800000000000000
+      internalID: -3232498563233884725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 1303
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c49f11d05df6e89f0800000000000000
+      internalID: -464310750734583476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1303
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ce3fe61c68472d40800000000000000
+      internalID: 5559491894090612418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 1303
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf684ea72c1a22e50800000000000000
+      internalID: 6783161845430912763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1239
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8211324dcfceddb0800000000000000
+      internalID: -4765142875225648500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1239
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46be283f1716b0ad0800000000000000
+      internalID: -2734985206652802204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1239
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43f46ae0e37546fe0800000000000000
+      internalID: -1196735676928340172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1239
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9544fca9d5382f720800000000000000
+      internalID: 2878507549895640153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1238
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cada18e1136b1df0800000000000000
+      internalID: -208464029182928190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 1238
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e13fe543a2f55630800000000000000
+      internalID: 3915302234135409129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1238
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b21c072e04ad33db0800000000000000
+      internalID: -4813263604517125845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 1238
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3a5160e90a749090800000000000000
+      internalID: -8028658052856980930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1180
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8eeaccf44e2d2e20800000000000000
+      internalID: 3327366573530476170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1175
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e10d4c56c91a350800000000000000
+      internalID: 6026269737306037801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 1180
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45c5e18113d46d4d0800000000000000
+      internalID: -3110213619399369644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1176
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f307021459f07f50800000000000000
+      internalID: 6877270770469766132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 1177
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f88606bcbfd22a8f0800000000000000
+      internalID: -530811246604162929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 1175
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1523d25e39ce57740800000000000000
+      internalID: 5149281868917322321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1180
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b5fcd9480bd3f320800000000000000
+      internalID: 2590655039313606066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 1174
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78dd269b5f6b445d0800000000000000
+      internalID: -3079135078721069689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1114
+        width: 42
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f3f236a40a93f0c0800000000000000
+      internalID: -4543118254327794699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 1137
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82ecf6774b5a5ff10800000000000000
+      internalID: 2302928978986389032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 1130
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aafacbe40f623900800000000000000
+      internalID: 662714162103384743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 1138
+        width: 28
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8b82366e9446c730800000000000000
+      internalID: 4018975164584856463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 1130
+        width: 26
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f05849c6decf5ff0800000000000000
+      internalID: -45090049355132688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 1131
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd8dd8241b209d4a0800000000000000
+      internalID: -6568215621194098467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1110
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a7409a7b1ab07ef0800000000000000
+      internalID: -112385363501103197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1111
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eccba4637db372920800000000000000
+      internalID: 2965404675161636046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 1111
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f27bd6df7ecb1d70800000000000000
+      internalID: 9015026127573054201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_59
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 1110
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 586801cbd6eb6b890800000000000000
+      internalID: -7442551955667253627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1046
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61303f174a3fd5d50800000000000000
+      internalID: 6727801305973326614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1046
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75254c54122d788e0800000000000000
+      internalID: -1691152094708084137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1046
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76f2961f338e6d910800000000000000
+      internalID: 1861930805755457383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1046
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9bbf0120ed871730800000000000000
+      internalID: 3969797590317251483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_64
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1047
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a30ad09085240e60800000000000000
+      internalID: 7927502478195164067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_65
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 1047
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55978d3812e033530800000000000000
+      internalID: 3833423244931135829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_66
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1046
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49edf8a7fcf454580800000000000000
+      internalID: -8843574540739027308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_67
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 1046
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cea52239acb27b90800000000000000
+      internalID: -7245521415608881472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_68
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 988
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d56e15b535322a40800000000000000
+      internalID: 5341890612803036625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_69
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 983
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4822457dcd1b7fd50800000000000000
+      internalID: 6771076126838366852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_70
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 988
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9be0c697814be76b0800000000000000
+      internalID: -5296598094531785031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_71
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 993
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba368443d77d2deb0800000000000000
+      internalID: -4696454528645962837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_72
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 993
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 035ee81d9a149b310800000000000000
+      internalID: 1421239355033183536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_73
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 988
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b18ac387e11a5e950800000000000000
+      internalID: 6477760791280658459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_74
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 983
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc5cc57dd841b6a20800000000000000
+      internalID: 3056559371537139149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_75
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 988
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34bea96b97c5b16a0800000000000000
+      internalID: -6477481961217922237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_76
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 924
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 543151485a6813000800000000000000
+      internalID: 13940319302521669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_77
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 919
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05bd9ef0ee2b61320800000000000000
+      internalID: 2528404976354057040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_78
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 925
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f9e7d653967f79e0800000000000000
+      internalID: -1621446965640828428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_79
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 920
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c47336075db3076c0800000000000000
+      internalID: -4147749468908603572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_80
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 924
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfc8bd287689c6ee0800000000000000
+      internalID: -1266469824853472004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_81
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 919
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56692fe211faa8780800000000000000
+      internalID: -8679932843466254747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_82
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 924
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a8b89722f7e9e0e0800000000000000
+      internalID: -2240004312407689056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_83
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 919
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc327b00d0a91e430800000000000000
+      internalID: 3810496140369404876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_84
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 860
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06285199172bdbc10800000000000000
+      internalID: 2071007604629668448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_85
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 855
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 417a1e105cf45ecf0800000000000000
+      internalID: -223684898926254316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_86
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 861
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2bc247329581b080800000000000000
+      internalID: -9173404102938146006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_87
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 856
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86a4d5f205f7d3ba0800000000000000
+      internalID: -6107585537275770264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_88
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 860
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4395af684b12788e0800000000000000
+      internalID: -1691346075811948236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_89
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 855
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b72870b42e3ff2290800000000000000
+      internalID: -7912837867019730309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_90
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 860
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21aa4542361554f20800000000000000
+      internalID: 3406218179428788754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_91
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 855
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69a655ceab40d23b0800000000000000
+      internalID: -5535763166093022570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_92
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 796
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f82b5ae601df1640800000000000000
+      internalID: 5052987134564837622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_93
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 791
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e39f2a7bf4fad9980800000000000000
+      internalID: -8530469362251663042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_94
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 797
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a01198129b995db70800000000000000
+      internalID: 8923207257115136266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_95
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 792
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c2bd37fe80151320800000000000000
+      internalID: 2527944972057817795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_96
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 796
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e380e859c0297e90800000000000000
+      internalID: -7027549694383324186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_97
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 791
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffd5982d9772f5760800000000000000
+      internalID: 7448715712870833663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_98
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 796
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f589de491d0e79bc0800000000000000
+      internalID: -3776302571775485857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_99
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 791
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe0adf9f39c637140800000000000000
+      internalID: 4716232617597182191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_100
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 747
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba3c0402e8d19d5e0800000000000000
+      internalID: -1884442472814165077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_101
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 746
+        width: 26
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 310b17e604e9ddf90800000000000000
+      internalID: -6927206652257914861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_102
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 754
+        width: 28
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3982689befe84e2b0800000000000000
+      internalID: -5556158815582934893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_103
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 746
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b77c7a15e2e092b50800000000000000
+      internalID: 6568797123597813627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_104
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 753
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8be20cc2ced8f5140800000000000000
+      internalID: 4710639780755418808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_105
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 730
+        width: 42
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baeb1df38529a13d0800000000000000
+      internalID: -3235112474586792277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_106
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 726
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: effefcc570a3a4050800000000000000
+      internalID: 5785500474607136766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_107
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 727
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b53bec46d95cccf80800000000000000
+      internalID: -8084869951245077669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_108
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 727
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ede0885c74117fd40800000000000000
+      internalID: 5617978060122361566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_109
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 726
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16c0cf2ff3d45f8d0800000000000000
+      internalID: -2813257455168123807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_110
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 662
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4d50f684283ca600800000000000000
+      internalID: 480820989755678028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_111
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 662
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1038e78af2e723460800000000000000
+      internalID: 7219971895783752449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_112
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 662
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d46bb97335083c40800000000000000
+      internalID: 5492145464222115024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_113
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 662
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f98323e535872220800000000000000
+      internalID: 2461082187871783408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_114
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 663
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7f112e7af48badd0800000000000000
+      internalID: -2473737358917165190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_115
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 663
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc65733fa85631630800000000000000
+      internalID: 3896569750065993419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_116
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 663
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43817c0fa6b5493a0800000000000000
+      internalID: -6659597434109880268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_117
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 663
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8509c2b01689dd0a0800000000000000
+      internalID: -6855155515221307304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_118
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 599
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1befeda4c3a1f5070800000000000000
+      internalID: 8097219501291929265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_119
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 605
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efd9f6fd06ba16860800000000000000
+      internalID: 7521481285239283198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_120
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 600
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c10c688f49cccd7c0800000000000000
+      internalID: -4045133425088741348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_121
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 606
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d446060ed6bfed670800000000000000
+      internalID: 8565559990639682637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_122
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 599
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 833f25007024b4890800000000000000
+      internalID: -7472806558853565640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_123
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 605
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13d0dba234cd0e1b0800000000000000
+      internalID: -5629257353175167695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_124
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 598
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2493e234036c7c340800000000000000
+      internalID: 4884090231494424898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_125
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 604
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e99ec6ef874fce2b0800000000000000
+      internalID: -5553795439952860770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_126
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 534
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c6cdecde0e6860e0800000000000000
+      internalID: -2276448601520617791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_127
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 534
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66efb242df76f2ae0800000000000000
+      internalID: -1571923407997763994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_128
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 534
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66914d586374deef0800000000000000
+      internalID: -77327319096354458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_129
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 534
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 769789cd56a39b240800000000000000
+      internalID: 4807938286361803111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_130
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 535
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc1109f85ee7a7620800000000000000
+      internalID: 2772668045021155789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_131
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 535
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea3dafc2fbf5b8050800000000000000
+      internalID: 5803837819495044014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_132
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 535
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ac15b28930de54c0800000000000000
+      internalID: -4296768049040253784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_133
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 535
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 825507a7398a2dfe0800000000000000
+      internalID: -1165684002167696088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_134
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 471
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1e74e3282044a930800000000000000
+      internalID: 4153515297487486494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_135
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 471
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5dc3b169fb8ead70800000000000000
+      internalID: 9056329803890937179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_136
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 471
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 587a44a8a4b3033a0800000000000000
+      internalID: -6687780255311812731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_137
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 471
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a55538b2f7afdc6e0800000000000000
+      internalID: -1815519650662623910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_138
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 470
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b2173dca7daf2030800000000000000
+      internalID: 3472184580666495665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_139
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 470
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55669d5f7be5c58f0800000000000000
+      internalID: -550460910249351595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_140
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 470
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a31b23d86df101900800000000000000
+      internalID: 653056952321093946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_141
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 470
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0473371e3d02cdd00800000000000000
+      internalID: 998709311762020160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_142
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 407
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0cf59a6dd2a2e740800000000000000
+      internalID: 5179881593289178122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_143
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 412
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7e44e800ac715490800000000000000
+      internalID: -7759283656196862342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_144
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 408
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56ca7cf4c04fe2b20800000000000000
+      internalID: 3111692726274862181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_145
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 412
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41dfb04a0139b3720800000000000000
+      internalID: 2827014890786127124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_146
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 407
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5ae744ccc4826100800000000000000
+      internalID: 99788156756814429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_147
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 409
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67cb1ab4ec36d5f20800000000000000
+      internalID: 3412993830300007542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_148
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 406
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23930807ee2dbf7a0800000000000000
+      internalID: -6342243728689710798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_149
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 412
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e39b5c1649794440800000000000000
+      internalID: 4920597409909412837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_150
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 369
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d64f7f381dc50230800000000000000
+      internalID: 3604512580808165076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_151
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 346
+        width: 43
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e0fc63afae112430800000000000000
+      internalID: 3756317303913640163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_152
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 370
+        width: 28
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9da8d5368e9f55790800000000000000
+      internalID: -7541847224467223847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_153
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 362
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cd31392c1d80b5e0800000000000000
+      internalID: -1895860291033285177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_154
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 362
+        width: 26
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd7d27c1f63bbd2f0800000000000000
+      internalID: -946966006831327269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_155
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 363
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3233db6bfdae451b0800000000000000
+      internalID: -5668647784388152541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_156
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 342
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5f9ef1f976269070800000000000000
+      internalID: 8112714083947421530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_157
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 343
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e184d7b08255cd9b0800000000000000
+      internalID: -5054071051336726498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_158
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 343
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 373f7c3c287960140800000000000000
+      internalID: 4685599050211783539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_159
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 342
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1ac0f94d5acffe40800000000000000
+      internalID: 5692490956040882719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_160
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 278
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf0487a57fba8d280800000000000000
+      internalID: -9018269174946316037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_161
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 278
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d070f1d3d3c10a8f0800000000000000
+      internalID: -531393706685692147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_162
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 278
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f641bd773af6b1b80800000000000000
+      internalID: -8423015930185182097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_163
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 278
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87c70cf1d9f081b20800000000000000
+      internalID: 3105249110588947576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_164
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 279
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f8b7a9759b0b1470800000000000000
+      internalID: 8366293469389895924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_165
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 279
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2682441b594316c40800000000000000
+      internalID: 5503738037152262242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_166
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 278
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d123801f38270c30800000000000000
+      internalID: 4325470218437730770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_167
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 278
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13c9f6b254c620f20800000000000000
+      internalID: 3387388914073312305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_168
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 215
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa7bde0e0fdefefd0800000000000000
+      internalID: -2310366464996165718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_169
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 220
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bfd60c64b01d6d30800000000000000
+      internalID: 4426212375867613107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_170
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 225
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89bdbf4dfbc71c8a0800000000000000
+      internalID: -6286606441478628456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_171
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 220
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da5759a190e4c7a10800000000000000
+      internalID: 1908486143105922477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_172
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 220
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57ce18184e7e500a0800000000000000
+      internalID: -6915866684146193291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_173
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 225
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8ddfb1f20fa960f0800000000000000
+      internalID: -1123174204871549553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_174
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 220
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2728db8d07c64af0800000000000000
+      internalID: -412423454863120596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_175
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 215
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddd8def6664c9f240800000000000000
+      internalID: 4826104419947744733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_176
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 151
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 031d0f0500e1c57b0800000000000000
+      internalID: -5234275680204566224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_177
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 156
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3cfbdc0cb51fd8d0800000000000000
+      internalID: -2819510944296862657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_178
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 152
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb957f3ae4ea8e520800000000000000
+      internalID: 2731624826781784510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_179
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 157
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d025a2a0415eecc90800000000000000
+      internalID: -7147523684357746163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_180
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 151
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 151881d86baa39730800000000000000
+      internalID: 4004732194690466129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_181
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 156
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f476e1ca87355d580800000000000000
+      internalID: -8803038118876911793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_182
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 151
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04f6ee582a871ec90800000000000000
+      internalID: -7142294894605865152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_183
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 156
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ca0bc31b4178d740800000000000000
+      internalID: 5177012338930944713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_184
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 87
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0efa5f3a25a1efc30800000000000000
+      internalID: 4394979228600610784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_185
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 92
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab41307809df2fe30800000000000000
+      internalID: 4535966571897754810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_186
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 88
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60bb6bf36bfa78900800000000000000
+      internalID: 686710665485138694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_187
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 93
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fda7e032bb1aee6f0800000000000000
+      internalID: -653407070803035425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_188
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 87
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b93f9cf33d5e5de0800000000000000
+      internalID: -1342533161046820424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_189
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 92
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a35646ac7c0d1b080800000000000000
+      internalID: -9173321409464343238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_190
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 87
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21838e6bc45545b00800000000000000
+      internalID: 816371220435449874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_191
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 92
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 749effb8e9924b9d0800000000000000
+      internalID: -2759534910740895417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_192
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 23
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1b493ec74747ac20800000000000000
+      internalID: 3217618832507620125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_193
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 28
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04ba24b85c897f9f0800000000000000
+      internalID: -434710864805582016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_194
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 24
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0056773dcf6111e30800000000000000
+      internalID: 4472381180091000064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_195
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 29
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84e7a4eba54b02280800000000000000
+      internalID: -9070051347691569592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_196
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 23
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c985a702dd818d790800000000000000
+      internalID: -7505221441001203556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_197
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 28
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00e401f3d293b3930800000000000000
+      internalID: 4123952750282165760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_198
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 23
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b5f8d3ba9860bc30800000000000000
+      internalID: 4373110251828344248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Rods_Sheet_199
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 28
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d680660e2bf1c98a0800000000000000
+      internalID: -6297123325841373075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FishermansAnimations-Rods_Sheet_0: 585012745848555992
+      FishermansAnimations-Rods_Sheet_1: 7283777686598944079
+      FishermansAnimations-Rods_Sheet_10: -436556762586830135
+      FishermansAnimations-Rods_Sheet_100: -1884442472814165077
+      FishermansAnimations-Rods_Sheet_101: -6927206652257914861
+      FishermansAnimations-Rods_Sheet_102: -5556158815582934893
+      FishermansAnimations-Rods_Sheet_103: 6568797123597813627
+      FishermansAnimations-Rods_Sheet_104: 4710639780755418808
+      FishermansAnimations-Rods_Sheet_105: -3235112474586792277
+      FishermansAnimations-Rods_Sheet_106: 5785500474607136766
+      FishermansAnimations-Rods_Sheet_107: -8084869951245077669
+      FishermansAnimations-Rods_Sheet_108: 5617978060122361566
+      FishermansAnimations-Rods_Sheet_109: -2813257455168123807
+      FishermansAnimations-Rods_Sheet_11: 2536441097278047696
+      FishermansAnimations-Rods_Sheet_110: 480820989755678028
+      FishermansAnimations-Rods_Sheet_111: 7219971895783752449
+      FishermansAnimations-Rods_Sheet_112: 5492145464222115024
+      FishermansAnimations-Rods_Sheet_113: 2461082187871783408
+      FishermansAnimations-Rods_Sheet_114: -2473737358917165190
+      FishermansAnimations-Rods_Sheet_115: 3896569750065993419
+      FishermansAnimations-Rods_Sheet_116: -6659597434109880268
+      FishermansAnimations-Rods_Sheet_117: -6855155515221307304
+      FishermansAnimations-Rods_Sheet_118: 8097219501291929265
+      FishermansAnimations-Rods_Sheet_119: 7521481285239283198
+      FishermansAnimations-Rods_Sheet_12: -2932825644571579977
+      FishermansAnimations-Rods_Sheet_120: -4045133425088741348
+      FishermansAnimations-Rods_Sheet_121: 8565559990639682637
+      FishermansAnimations-Rods_Sheet_122: -7472806558853565640
+      FishermansAnimations-Rods_Sheet_123: -5629257353175167695
+      FishermansAnimations-Rods_Sheet_124: 4884090231494424898
+      FishermansAnimations-Rods_Sheet_125: -5553795439952860770
+      FishermansAnimations-Rods_Sheet_126: -2276448601520617791
+      FishermansAnimations-Rods_Sheet_127: -1571923407997763994
+      FishermansAnimations-Rods_Sheet_128: -77327319096354458
+      FishermansAnimations-Rods_Sheet_129: 4807938286361803111
+      FishermansAnimations-Rods_Sheet_13: -66825113715938564
+      FishermansAnimations-Rods_Sheet_130: 2772668045021155789
+      FishermansAnimations-Rods_Sheet_131: 5803837819495044014
+      FishermansAnimations-Rods_Sheet_132: -4296768049040253784
+      FishermansAnimations-Rods_Sheet_133: -1165684002167696088
+      FishermansAnimations-Rods_Sheet_134: 4153515297487486494
+      FishermansAnimations-Rods_Sheet_135: 9056329803890937179
+      FishermansAnimations-Rods_Sheet_136: -6687780255311812731
+      FishermansAnimations-Rods_Sheet_137: -1815519650662623910
+      FishermansAnimations-Rods_Sheet_138: 3472184580666495665
+      FishermansAnimations-Rods_Sheet_139: -550460910249351595
+      FishermansAnimations-Rods_Sheet_14: 3213654598213526604
+      FishermansAnimations-Rods_Sheet_140: 653056952321093946
+      FishermansAnimations-Rods_Sheet_141: 998709311762020160
+      FishermansAnimations-Rods_Sheet_142: 5179881593289178122
+      FishermansAnimations-Rods_Sheet_143: -7759283656196862342
+      FishermansAnimations-Rods_Sheet_144: 3111692726274862181
+      FishermansAnimations-Rods_Sheet_145: 2827014890786127124
+      FishermansAnimations-Rods_Sheet_146: 99788156756814429
+      FishermansAnimations-Rods_Sheet_147: 3412993830300007542
+      FishermansAnimations-Rods_Sheet_148: -6342243728689710798
+      FishermansAnimations-Rods_Sheet_149: 4920597409909412837
+      FishermansAnimations-Rods_Sheet_15: 7098982432722036185
+      FishermansAnimations-Rods_Sheet_150: 3604512580808165076
+      FishermansAnimations-Rods_Sheet_151: 3756317303913640163
+      FishermansAnimations-Rods_Sheet_152: -7541847224467223847
+      FishermansAnimations-Rods_Sheet_153: -1895860291033285177
+      FishermansAnimations-Rods_Sheet_154: -946966006831327269
+      FishermansAnimations-Rods_Sheet_155: -5668647784388152541
+      FishermansAnimations-Rods_Sheet_156: 8112714083947421530
+      FishermansAnimations-Rods_Sheet_157: -5054071051336726498
+      FishermansAnimations-Rods_Sheet_158: 4685599050211783539
+      FishermansAnimations-Rods_Sheet_159: 5692490956040882719
+      FishermansAnimations-Rods_Sheet_16: -2345046670423886112
+      FishermansAnimations-Rods_Sheet_160: -9018269174946316037
+      FishermansAnimations-Rods_Sheet_161: -531393706685692147
+      FishermansAnimations-Rods_Sheet_162: -8423015930185182097
+      FishermansAnimations-Rods_Sheet_163: 3105249110588947576
+      FishermansAnimations-Rods_Sheet_164: 8366293469389895924
+      FishermansAnimations-Rods_Sheet_165: 5503738037152262242
+      FishermansAnimations-Rods_Sheet_166: 4325470218437730770
+      FishermansAnimations-Rods_Sheet_167: 3387388914073312305
+      FishermansAnimations-Rods_Sheet_168: -2310366464996165718
+      FishermansAnimations-Rods_Sheet_169: 4426212375867613107
+      FishermansAnimations-Rods_Sheet_17: -6407087502070528857
+      FishermansAnimations-Rods_Sheet_170: -6286606441478628456
+      FishermansAnimations-Rods_Sheet_171: 1908486143105922477
+      FishermansAnimations-Rods_Sheet_172: -6915866684146193291
+      FishermansAnimations-Rods_Sheet_173: -1123174204871549553
+      FishermansAnimations-Rods_Sheet_174: -412423454863120596
+      FishermansAnimations-Rods_Sheet_175: 4826104419947744733
+      FishermansAnimations-Rods_Sheet_176: -5234275680204566224
+      FishermansAnimations-Rods_Sheet_177: -2819510944296862657
+      FishermansAnimations-Rods_Sheet_178: 2731624826781784510
+      FishermansAnimations-Rods_Sheet_179: -7147523684357746163
+      FishermansAnimations-Rods_Sheet_18: -7124174862300752417
+      FishermansAnimations-Rods_Sheet_180: 4004732194690466129
+      FishermansAnimations-Rods_Sheet_181: -8803038118876911793
+      FishermansAnimations-Rods_Sheet_182: -7142294894605865152
+      FishermansAnimations-Rods_Sheet_183: 5177012338930944713
+      FishermansAnimations-Rods_Sheet_184: 4394979228600610784
+      FishermansAnimations-Rods_Sheet_185: 4535966571897754810
+      FishermansAnimations-Rods_Sheet_186: 686710665485138694
+      FishermansAnimations-Rods_Sheet_187: -653407070803035425
+      FishermansAnimations-Rods_Sheet_188: -1342533161046820424
+      FishermansAnimations-Rods_Sheet_189: -9173321409464343238
+      FishermansAnimations-Rods_Sheet_19: 4934661231137287609
+      FishermansAnimations-Rods_Sheet_190: 816371220435449874
+      FishermansAnimations-Rods_Sheet_191: -2759534910740895417
+      FishermansAnimations-Rods_Sheet_192: 3217618832507620125
+      FishermansAnimations-Rods_Sheet_193: -434710864805582016
+      FishermansAnimations-Rods_Sheet_194: 4472381180091000064
+      FishermansAnimations-Rods_Sheet_195: -9070051347691569592
+      FishermansAnimations-Rods_Sheet_196: -7505221441001203556
+      FishermansAnimations-Rods_Sheet_197: 4123952750282165760
+      FishermansAnimations-Rods_Sheet_198: 4373110251828344248
+      FishermansAnimations-Rods_Sheet_199: -6297123325841373075
+      FishermansAnimations-Rods_Sheet_2: 5465475140425180329
+      FishermansAnimations-Rods_Sheet_20: -1922440595212417269
+      FishermansAnimations-Rods_Sheet_21: 4707431652970743214
+      FishermansAnimations-Rods_Sheet_22: 270854963127048062
+      FishermansAnimations-Rods_Sheet_23: 3585149235361383800
+      FishermansAnimations-Rods_Sheet_24: -8379444505507944834
+      FishermansAnimations-Rods_Sheet_25: 8733667772792075462
+      FishermansAnimations-Rods_Sheet_26: 8925483005084369145
+      FishermansAnimations-Rods_Sheet_27: 1800373976669305975
+      FishermansAnimations-Rods_Sheet_28: 1423222619060167044
+      FishermansAnimations-Rods_Sheet_29: -218748654595743033
+      FishermansAnimations-Rods_Sheet_3: 6418402573477567594
+      FishermansAnimations-Rods_Sheet_30: -3232498563233884725
+      FishermansAnimations-Rods_Sheet_31: -464310750734583476
+      FishermansAnimations-Rods_Sheet_32: 5559491894090612418
+      FishermansAnimations-Rods_Sheet_33: 6783161845430912763
+      FishermansAnimations-Rods_Sheet_34: -4765142875225648500
+      FishermansAnimations-Rods_Sheet_35: -2734985206652802204
+      FishermansAnimations-Rods_Sheet_36: -1196735676928340172
+      FishermansAnimations-Rods_Sheet_37: 2878507549895640153
+      FishermansAnimations-Rods_Sheet_38: -208464029182928190
+      FishermansAnimations-Rods_Sheet_39: 3915302234135409129
+      FishermansAnimations-Rods_Sheet_4: 5699173313858029982
+      FishermansAnimations-Rods_Sheet_40: -4813263604517125845
+      FishermansAnimations-Rods_Sheet_41: -8028658052856980930
+      FishermansAnimations-Rods_Sheet_42: 3327366573530476170
+      FishermansAnimations-Rods_Sheet_43: 6026269737306037801
+      FishermansAnimations-Rods_Sheet_44: -3110213619399369644
+      FishermansAnimations-Rods_Sheet_45: 6877270770469766132
+      FishermansAnimations-Rods_Sheet_46: -530811246604162929
+      FishermansAnimations-Rods_Sheet_47: 5149281868917322321
+      FishermansAnimations-Rods_Sheet_48: 2590655039313606066
+      FishermansAnimations-Rods_Sheet_49: -3079135078721069689
+      FishermansAnimations-Rods_Sheet_5: -8177755913085802453
+      FishermansAnimations-Rods_Sheet_50: -4543118254327794699
+      FishermansAnimations-Rods_Sheet_51: 2302928978986389032
+      FishermansAnimations-Rods_Sheet_52: 662714162103384743
+      FishermansAnimations-Rods_Sheet_53: 4018975164584856463
+      FishermansAnimations-Rods_Sheet_54: -45090049355132688
+      FishermansAnimations-Rods_Sheet_55: -6568215621194098467
+      FishermansAnimations-Rods_Sheet_56: -112385363501103197
+      FishermansAnimations-Rods_Sheet_57: 2965404675161636046
+      FishermansAnimations-Rods_Sheet_58: 9015026127573054201
+      FishermansAnimations-Rods_Sheet_59: -7442551955667253627
+      FishermansAnimations-Rods_Sheet_6: -6776451622664719333
+      FishermansAnimations-Rods_Sheet_60: 6727801305973326614
+      FishermansAnimations-Rods_Sheet_61: -1691152094708084137
+      FishermansAnimations-Rods_Sheet_62: 1861930805755457383
+      FishermansAnimations-Rods_Sheet_63: 3969797590317251483
+      FishermansAnimations-Rods_Sheet_64: 7927502478195164067
+      FishermansAnimations-Rods_Sheet_65: 3833423244931135829
+      FishermansAnimations-Rods_Sheet_66: -8843574540739027308
+      FishermansAnimations-Rods_Sheet_67: -7245521415608881472
+      FishermansAnimations-Rods_Sheet_68: 5341890612803036625
+      FishermansAnimations-Rods_Sheet_69: 6771076126838366852
+      FishermansAnimations-Rods_Sheet_7: -4766227532074887873
+      FishermansAnimations-Rods_Sheet_70: -5296598094531785031
+      FishermansAnimations-Rods_Sheet_71: -4696454528645962837
+      FishermansAnimations-Rods_Sheet_72: 1421239355033183536
+      FishermansAnimations-Rods_Sheet_73: 6477760791280658459
+      FishermansAnimations-Rods_Sheet_74: 3056559371537139149
+      FishermansAnimations-Rods_Sheet_75: -6477481961217922237
+      FishermansAnimations-Rods_Sheet_76: 13940319302521669
+      FishermansAnimations-Rods_Sheet_77: 2528404976354057040
+      FishermansAnimations-Rods_Sheet_78: -1621446965640828428
+      FishermansAnimations-Rods_Sheet_79: -4147749468908603572
+      FishermansAnimations-Rods_Sheet_8: -8955897654469351068
+      FishermansAnimations-Rods_Sheet_80: -1266469824853472004
+      FishermansAnimations-Rods_Sheet_81: -8679932843466254747
+      FishermansAnimations-Rods_Sheet_82: -2240004312407689056
+      FishermansAnimations-Rods_Sheet_83: 3810496140369404876
+      FishermansAnimations-Rods_Sheet_84: 2071007604629668448
+      FishermansAnimations-Rods_Sheet_85: -223684898926254316
+      FishermansAnimations-Rods_Sheet_86: -9173404102938146006
+      FishermansAnimations-Rods_Sheet_87: -6107585537275770264
+      FishermansAnimations-Rods_Sheet_88: -1691346075811948236
+      FishermansAnimations-Rods_Sheet_89: -7912837867019730309
+      FishermansAnimations-Rods_Sheet_9: -5889865518105956899
+      FishermansAnimations-Rods_Sheet_90: 3406218179428788754
+      FishermansAnimations-Rods_Sheet_91: -5535763166093022570
+      FishermansAnimations-Rods_Sheet_92: 5052987134564837622
+      FishermansAnimations-Rods_Sheet_93: -8530469362251663042
+      FishermansAnimations-Rods_Sheet_94: 8923207257115136266
+      FishermansAnimations-Rods_Sheet_95: 2527944972057817795
+      FishermansAnimations-Rods_Sheet_96: -7027549694383324186
+      FishermansAnimations-Rods_Sheet_97: 7448715712870833663
+      FishermansAnimations-Rods_Sheet_98: -3776302571775485857
+      FishermansAnimations-Rods_Sheet_99: 4716232617597182191
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

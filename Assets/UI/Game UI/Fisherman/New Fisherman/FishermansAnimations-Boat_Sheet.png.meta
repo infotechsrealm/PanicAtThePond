@@ -1,0 +1,2639 @@
+fileFormatVersion: 2
+guid: 689d9e204ef6de1409600bb7f2ca8afc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8705707544067865833
+    second: FishermansAnimations-Boat_Sheet_0
+  - first:
+      213: 515062074859940886
+    second: FishermansAnimations-Boat_Sheet_1
+  - first:
+      213: 4203998170104224687
+    second: FishermansAnimations-Boat_Sheet_2
+  - first:
+      213: 4133266008879153895
+    second: FishermansAnimations-Boat_Sheet_3
+  - first:
+      213: 1731469739508449375
+    second: FishermansAnimations-Boat_Sheet_4
+  - first:
+      213: -7486851980145554882
+    second: FishermansAnimations-Boat_Sheet_5
+  - first:
+      213: 1515768935985024331
+    second: FishermansAnimations-Boat_Sheet_6
+  - first:
+      213: -2321140802388093195
+    second: FishermansAnimations-Boat_Sheet_7
+  - first:
+      213: 2952933673556491981
+    second: FishermansAnimations-Boat_Sheet_8
+  - first:
+      213: -4974165215663193597
+    second: FishermansAnimations-Boat_Sheet_9
+  - first:
+      213: 7104961064146401269
+    second: FishermansAnimations-Boat_Sheet_10
+  - first:
+      213: 6412359631008323258
+    second: FishermansAnimations-Boat_Sheet_11
+  - first:
+      213: 8687142889035593306
+    second: FishermansAnimations-Boat_Sheet_12
+  - first:
+      213: -3361361092633451432
+    second: FishermansAnimations-Boat_Sheet_13
+  - first:
+      213: -226849860123991544
+    second: FishermansAnimations-Boat_Sheet_14
+  - first:
+      213: 4121479698168961927
+    second: FishermansAnimations-Boat_Sheet_15
+  - first:
+      213: -9112212076675362005
+    second: FishermansAnimations-Boat_Sheet_16
+  - first:
+      213: 199077290326221960
+    second: FishermansAnimations-Boat_Sheet_17
+  - first:
+      213: -6138840566800775179
+    second: FishermansAnimations-Boat_Sheet_18
+  - first:
+      213: 8897990141799131737
+    second: FishermansAnimations-Boat_Sheet_19
+  - first:
+      213: 407792864690390330
+    second: FishermansAnimations-Boat_Sheet_20
+  - first:
+      213: -7289038078406357678
+    second: FishermansAnimations-Boat_Sheet_21
+  - first:
+      213: -2426472984211797316
+    second: FishermansAnimations-Boat_Sheet_22
+  - first:
+      213: 4210779472795102384
+    second: FishermansAnimations-Boat_Sheet_23
+  - first:
+      213: -8107120819565229787
+    second: FishermansAnimations-Boat_Sheet_24
+  - first:
+      213: -5584003881715118673
+    second: FishermansAnimations-Boat_Sheet_25
+  - first:
+      213: 8046995888498779478
+    second: FishermansAnimations-Boat_Sheet_26
+  - first:
+      213: 8391636060559085898
+    second: FishermansAnimations-Boat_Sheet_27
+  - first:
+      213: -1130282272596345169
+    second: FishermansAnimations-Boat_Sheet_28
+  - first:
+      213: 8931363103757554096
+    second: FishermansAnimations-Boat_Sheet_29
+  - first:
+      213: 5853056815544452383
+    second: FishermansAnimations-Boat_Sheet_30
+  - first:
+      213: 6395645518652962170
+    second: FishermansAnimations-Boat_Sheet_31
+  - first:
+      213: -3459238624220312996
+    second: FishermansAnimations-Boat_Sheet_32
+  - first:
+      213: -343975792120084448
+    second: FishermansAnimations-Boat_Sheet_33
+  - first:
+      213: -1305766731657084050
+    second: FishermansAnimations-Boat_Sheet_34
+  - first:
+      213: -8019850703686275785
+    second: FishermansAnimations-Boat_Sheet_35
+  - first:
+      213: -8474408181592067413
+    second: FishermansAnimations-Boat_Sheet_36
+  - first:
+      213: 1617936881836739295
+    second: FishermansAnimations-Boat_Sheet_37
+  - first:
+      213: 1699923430716330326
+    second: FishermansAnimations-Boat_Sheet_38
+  - first:
+      213: 4546484396302081544
+    second: FishermansAnimations-Boat_Sheet_39
+  - first:
+      213: 7581836191230537907
+    second: FishermansAnimations-Boat_Sheet_40
+  - first:
+      213: 661808761421182471
+    second: FishermansAnimations-Boat_Sheet_41
+  - first:
+      213: 3438744814647647316
+    second: FishermansAnimations-Boat_Sheet_42
+  - first:
+      213: 4024133457613056316
+    second: FishermansAnimations-Boat_Sheet_43
+  - first:
+      213: -1963295991961914731
+    second: FishermansAnimations-Boat_Sheet_44
+  - first:
+      213: -3752750925659925780
+    second: FishermansAnimations-Boat_Sheet_45
+  - first:
+      213: 2362598461184046989
+    second: FishermansAnimations-Boat_Sheet_46
+  - first:
+      213: 1140404153973786152
+    second: FishermansAnimations-Boat_Sheet_47
+  - first:
+      213: -7380735467326522962
+    second: FishermansAnimations-Boat_Sheet_48
+  - first:
+      213: 7266214892543610982
+    second: FishermansAnimations-Boat_Sheet_49
+  - first:
+      213: -4563512157571687430
+    second: FishermansAnimations-Boat_Sheet_50
+  - first:
+      213: 8457791467397935639
+    second: FishermansAnimations-Boat_Sheet_51
+  - first:
+      213: -5386356902097025875
+    second: FishermansAnimations-Boat_Sheet_52
+  - first:
+      213: 5055528446567915160
+    second: FishermansAnimations-Boat_Sheet_53
+  - first:
+      213: 6830277157245428230
+    second: FishermansAnimations-Boat_Sheet_54
+  - first:
+      213: 3763032067347064037
+    second: FishermansAnimations-Boat_Sheet_55
+  - first:
+      213: 2119271515570094309
+    second: FishermansAnimations-Boat_Sheet_56
+  - first:
+      213: 2424173630970603993
+    second: FishermansAnimations-Boat_Sheet_57
+  - first:
+      213: -1908971715788741889
+    second: FishermansAnimations-Boat_Sheet_58
+  - first:
+      213: 4289894494104079191
+    second: FishermansAnimations-Boat_Sheet_59
+  - first:
+      213: -6308660168208155204
+    second: FishermansAnimations-Boat_Sheet_60
+  - first:
+      213: -3753233678625207145
+    second: FishermansAnimations-Boat_Sheet_61
+  - first:
+      213: 8174349031456371478
+    second: FishermansAnimations-Boat_Sheet_62
+  - first:
+      213: -2247941806921550351
+    second: FishermansAnimations-Boat_Sheet_63
+  - first:
+      213: 3176371910354018950
+    second: FishermansAnimations-Boat_Sheet_64
+  - first:
+      213: 278083497758596428
+    second: FishermansAnimations-Boat_Sheet_65
+  - first:
+      213: 1310303217957497048
+    second: FishermansAnimations-Boat_Sheet_66
+  - first:
+      213: -7106424234355217659
+    second: FishermansAnimations-Boat_Sheet_67
+  - first:
+      213: 5417807772714650473
+    second: FishermansAnimations-Boat_Sheet_68
+  - first:
+      213: 331924825324626872
+    second: FishermansAnimations-Boat_Sheet_69
+  - first:
+      213: 8509926946118466220
+    second: FishermansAnimations-Boat_Sheet_70
+  - first:
+      213: 6674002927364643213
+    second: FishermansAnimations-Boat_Sheet_71
+  - first:
+      213: 7013549034150738288
+    second: FishermansAnimations-Boat_Sheet_72
+  - first:
+      213: 2140325345832332259
+    second: FishermansAnimations-Boat_Sheet_73
+  - first:
+      213: 8007933588031812526
+    second: FishermansAnimations-Boat_Sheet_74
+  - first:
+      213: 6538831980872833086
+    second: FishermansAnimations-Boat_Sheet_75
+  - first:
+      213: -1425123578935317010
+    second: FishermansAnimations-Boat_Sheet_76
+  - first:
+      213: 3206443584659986429
+    second: FishermansAnimations-Boat_Sheet_77
+  - first:
+      213: 5285923595954040241
+    second: FishermansAnimations-Boat_Sheet_78
+  - first:
+      213: -6706459351871257580
+    second: FishermansAnimations-Boat_Sheet_79
+  - first:
+      213: -6604942285982548056
+    second: FishermansAnimations-Boat_Sheet_80
+  - first:
+      213: -4947650187263795904
+    second: FishermansAnimations-Boat_Sheet_81
+  - first:
+      213: -5327092928918866245
+    second: FishermansAnimations-Boat_Sheet_82
+  - first:
+      213: -7169357006568441722
+    second: FishermansAnimations-Boat_Sheet_83
+  - first:
+      213: 7644728070175611666
+    second: FishermansAnimations-Boat_Sheet_84
+  - first:
+      213: -7435817437158733790
+    second: FishermansAnimations-Boat_Sheet_85
+  - first:
+      213: 3902065995239835037
+    second: FishermansAnimations-Boat_Sheet_86
+  - first:
+      213: -1538135215899584034
+    second: FishermansAnimations-Boat_Sheet_87
+  - first:
+      213: 3948526742804952948
+    second: FishermansAnimations-Boat_Sheet_88
+  - first:
+      213: -2880290097758056629
+    second: FishermansAnimations-Boat_Sheet_89
+  - first:
+      213: -2435019042503221741
+    second: FishermansAnimations-Boat_Sheet_90
+  - first:
+      213: 957035393551368496
+    second: FishermansAnimations-Boat_Sheet_91
+  - first:
+      213: 3977850719892287847
+    second: FishermansAnimations-Boat_Sheet_92
+  - first:
+      213: -786178005852517879
+    second: FishermansAnimations-Boat_Sheet_93
+  - first:
+      213: 997051074341096968
+    second: FishermansAnimations-Boat_Sheet_94
+  - first:
+      213: -2043768539938088275
+    second: FishermansAnimations-Boat_Sheet_95
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1478
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ec7a92f2e2e0d870800000000000000
+      internalID: 8705707544067865833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1477
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61c6d496a3ed52700800000000000000
+      internalID: 515062074859940886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1476
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fab547ddf0a975a30800000000000000
+      internalID: 4203998170104224687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 1477
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e2407d398f4c5930800000000000000
+      internalID: 4133266008879153895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1413
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f504dbaed8a670810800000000000000
+      internalID: 1731469739508449375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1414
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3a8e758acb591890800000000000000
+      internalID: -7486851980145554882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1413
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4d85fef0d7190510800000000000000
+      internalID: 1515768935985024331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 1412
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f61ef7fcb6a9cfd0800000000000000
+      internalID: -2321140802388093195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1349
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcebf91e78deaf820800000000000000
+      internalID: 2952933673556491981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1350
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3028a42371738fab0800000000000000
+      internalID: -4974165215663193597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1349
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f77d63b174e99260800000000000000
+      internalID: 7104961064146401269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 1348
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab65e4a3c174df850800000000000000
+      internalID: 6412359631008323258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1285
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a56f60e5e6eee8870800000000000000
+      internalID: 8687142889035593306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1286
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 854a3cf35eb0a51d0800000000000000
+      internalID: -3361361092633451432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1285
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80266fd01411adcf0800000000000000
+      internalID: -226849860123991544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 1284
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78b585ee2ff623930800000000000000
+      internalID: 4121479698168961927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1220
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b239db3156bea8180800000000000000
+      internalID: -9112212076675362005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1221
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 884edb4adb343c200800000000000000
+      internalID: 199077290326221960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1222
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f7051b87057ecaa0800000000000000
+      internalID: -6138840566800775179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 1221
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95a6dd0f3e20c7b70800000000000000
+      internalID: 8897990141799131737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1157
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a354fc92375c8a500800000000000000
+      internalID: 407792864690390330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1158
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25d0b469c7228da90800000000000000
+      internalID: -7289038078406357678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1157
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cba49f64daf635ed0800000000000000
+      internalID: -2426472984211797316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 1156
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bc657fee91bf6a30800000000000000
+      internalID: 4210779472795102384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1093
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52904a66198bd7f80800000000000000
+      internalID: -8107120819565229787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1092
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fadc7fd0e02a182b0800000000000000
+      internalID: -5584003881715118673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1093
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 655aff2302cacaf60800000000000000
+      internalID: 8046995888498779478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 1094
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a419bf94984157470800000000000000
+      internalID: 8391636060559085898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1029
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fae39f5f24e6050f0800000000000000
+      internalID: -1130282272596345169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1030
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b1df772c6392fb70800000000000000
+      internalID: 8931363103757554096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1029
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f15c4b4b92c3a3150800000000000000
+      internalID: 5853056815544452383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 1028
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a75f0a0b6b5e1c850800000000000000
+      internalID: 6395645518652962170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 965
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5a89029cc05effc0800000000000000
+      internalID: -3459238624220312996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 966
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 028495be6d3f93bf0800000000000000
+      internalID: -343975792120084448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 965
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e638e08631cf0ede0800000000000000
+      internalID: -1305766731657084050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 964
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73dec17a644c3b090800000000000000
+      internalID: -8019850703686275785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 901
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba27a8e78aad46a80800000000000000
+      internalID: -8474408181592067413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 902
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdac1e69501147610800000000000000
+      internalID: 1617936881836739295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 901
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 651d5398a57579710800000000000000
+      internalID: 1699923430716330326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 900
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e117a587b581f30800000000000000
+      internalID: 4546484396302081544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 837
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b03f7b78d7183960800000000000000
+      internalID: 7581836191230537907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 838
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70630c5ef873f2900800000000000000
+      internalID: 661808761421182471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 837
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45c1a4e8030e8bf20800000000000000
+      internalID: 3438744814647647316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 836
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c396ac51f0898d730800000000000000
+      internalID: 4024133457613056316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 773
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 592792282b8f0c4e0800000000000000
+      internalID: -1963295991961914731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 774
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce295818aec8bebc0800000000000000
+      internalID: -3752750925659925780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 773
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8772c968c2a9c020800000000000000
+      internalID: 2362598461184046989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 772
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 826ccf1398783df00800000000000000
+      internalID: 1140404153973786152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 710
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea930e0823c529990800000000000000
+      internalID: -7380735467326522962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 709
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66017bb52f7c6d460800000000000000
+      internalID: 7266214892543610982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 708
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afb53c70fd52ba0c0800000000000000
+      internalID: -4563512157571687430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 709
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 712759e378c106570800000000000000
+      internalID: 8457791467397935639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 645
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da488098fe0df35b0800000000000000
+      internalID: -5386356902097025875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 646
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89e10993658d82640800000000000000
+      internalID: 5055528446567915160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 645
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 602241bd2e40ace50800000000000000
+      internalID: 6830277157245428230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 644
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e420a45ab9f83430800000000000000
+      internalID: 3763032067347064037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 581
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e0c82c073a296d10800000000000000
+      internalID: 2119271515570094309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 582
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d92fd3d21564a120800000000000000
+      internalID: 2424173630970603993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 581
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff2e422b658f185e0800000000000000
+      internalID: -1908971715788741889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_59
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 580
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75b4af44054c88b30800000000000000
+      internalID: 4289894494104079191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 517
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbdfb4170032378a0800000000000000
+      internalID: -6308660168208155204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 518
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79c0382dad5d9ebc0800000000000000
+      internalID: -3753233678625207145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 517
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 613f302722f117170800000000000000
+      internalID: 8174349031456371478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 516
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f5f0b236d4bdc0e0800000000000000
+      internalID: -2247941806921550351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_64
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 452
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6822e2f5c6db41c20800000000000000
+      internalID: 3176371910354018950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_65
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 453
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4d9cc5c773fbd300800000000000000
+      internalID: 278083497758596428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_66
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 454
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d8686e95d12f2210800000000000000
+      internalID: 1310303217957497048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_67
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 453
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50ba7007fc8e06d90800000000000000
+      internalID: -7106424234355217659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_68
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 389
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96bc10ae67bef2b40800000000000000
+      internalID: 5417807772714650473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_69
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 390
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b3ab99bedb3b9400800000000000000
+      internalID: 331924825324626872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_70
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 389
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caa7aef4875591670800000000000000
+      internalID: 8509926946118466220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_71
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 388
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d899c735d42de9c50800000000000000
+      internalID: 6674002927364643213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_72
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 325
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 079b65befa1255160800000000000000
+      internalID: 7013549034150738288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_73
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 324
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ebe916ef86f3bd10800000000000000
+      internalID: 2140325345832332259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_74
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 325
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea33e83ab25e12f60800000000000000
+      internalID: 8007933588031812526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_75
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 326
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3893e9da099eba50800000000000000
+      internalID: 6538831980872833086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_76
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 261
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eede684d7a1f83ce0800000000000000
+      internalID: -1425123578935317010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_77
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 262
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df71df7a3739f7c20800000000000000
+      internalID: 3206443584659986429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_78
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 261
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bd22b6218f5b5940800000000000000
+      internalID: 5285923595954040241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_79
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 260
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4140e1770cedde2a0800000000000000
+      internalID: -6706459351871257580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_80
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 196
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8afbd024cf78654a0800000000000000
+      internalID: -6604942285982548056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_81
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 197
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04d1f335e5a665bb0800000000000000
+      internalID: -4947650187263795904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_82
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 198
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb6bb4e843d5216b0800000000000000
+      internalID: -5327092928918866245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_83
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 197
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 688b78399c3518c90800000000000000
+      internalID: -7169357006568441722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_84
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 133
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21b56432da7871a60800000000000000
+      internalID: 7644728070175611666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_85
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 134
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2288f73007baec890800000000000000
+      internalID: -7435817437158733790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_86
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 133
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d95c660495ce62630800000000000000
+      internalID: 3902065995239835037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_87
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 132
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed959c7ab2277aae0800000000000000
+      internalID: -1538135215899584034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_88
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 69
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 477f403072cfbc630800000000000000
+      internalID: 3948526742804952948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_89
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 70
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4f4e01aa672708d0800000000000000
+      internalID: -2880290097758056629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_90
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 69
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31e98460513153ed0800000000000000
+      internalID: -2435019042503221741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_91
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 68
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0310b1eae92184d00800000000000000
+      internalID: 957035393551368496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_92
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 5
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76136b8772a243730800000000000000
+      internalID: 3977850719892287847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_93
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 6
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90a8feed44fe615f0800000000000000
+      internalID: -786178005852517879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_94
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 5
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ec5056bac36dd00800000000000000
+      internalID: 997051074341096968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-Boat_Sheet_95
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 4
+        width: 52
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daa1fdd575313a3e0800000000000000
+      internalID: -2043768539938088275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FishermansAnimations-Boat_Sheet_0: 8705707544067865833
+      FishermansAnimations-Boat_Sheet_1: 515062074859940886
+      FishermansAnimations-Boat_Sheet_10: 7104961064146401269
+      FishermansAnimations-Boat_Sheet_11: 6412359631008323258
+      FishermansAnimations-Boat_Sheet_12: 8687142889035593306
+      FishermansAnimations-Boat_Sheet_13: -3361361092633451432
+      FishermansAnimations-Boat_Sheet_14: -226849860123991544
+      FishermansAnimations-Boat_Sheet_15: 4121479698168961927
+      FishermansAnimations-Boat_Sheet_16: -9112212076675362005
+      FishermansAnimations-Boat_Sheet_17: 199077290326221960
+      FishermansAnimations-Boat_Sheet_18: -6138840566800775179
+      FishermansAnimations-Boat_Sheet_19: 8897990141799131737
+      FishermansAnimations-Boat_Sheet_2: 4203998170104224687
+      FishermansAnimations-Boat_Sheet_20: 407792864690390330
+      FishermansAnimations-Boat_Sheet_21: -7289038078406357678
+      FishermansAnimations-Boat_Sheet_22: -2426472984211797316
+      FishermansAnimations-Boat_Sheet_23: 4210779472795102384
+      FishermansAnimations-Boat_Sheet_24: -8107120819565229787
+      FishermansAnimations-Boat_Sheet_25: -5584003881715118673
+      FishermansAnimations-Boat_Sheet_26: 8046995888498779478
+      FishermansAnimations-Boat_Sheet_27: 8391636060559085898
+      FishermansAnimations-Boat_Sheet_28: -1130282272596345169
+      FishermansAnimations-Boat_Sheet_29: 8931363103757554096
+      FishermansAnimations-Boat_Sheet_3: 4133266008879153895
+      FishermansAnimations-Boat_Sheet_30: 5853056815544452383
+      FishermansAnimations-Boat_Sheet_31: 6395645518652962170
+      FishermansAnimations-Boat_Sheet_32: -3459238624220312996
+      FishermansAnimations-Boat_Sheet_33: -343975792120084448
+      FishermansAnimations-Boat_Sheet_34: -1305766731657084050
+      FishermansAnimations-Boat_Sheet_35: -8019850703686275785
+      FishermansAnimations-Boat_Sheet_36: -8474408181592067413
+      FishermansAnimations-Boat_Sheet_37: 1617936881836739295
+      FishermansAnimations-Boat_Sheet_38: 1699923430716330326
+      FishermansAnimations-Boat_Sheet_39: 4546484396302081544
+      FishermansAnimations-Boat_Sheet_4: 1731469739508449375
+      FishermansAnimations-Boat_Sheet_40: 7581836191230537907
+      FishermansAnimations-Boat_Sheet_41: 661808761421182471
+      FishermansAnimations-Boat_Sheet_42: 3438744814647647316
+      FishermansAnimations-Boat_Sheet_43: 4024133457613056316
+      FishermansAnimations-Boat_Sheet_44: -1963295991961914731
+      FishermansAnimations-Boat_Sheet_45: -3752750925659925780
+      FishermansAnimations-Boat_Sheet_46: 2362598461184046989
+      FishermansAnimations-Boat_Sheet_47: 1140404153973786152
+      FishermansAnimations-Boat_Sheet_48: -7380735467326522962
+      FishermansAnimations-Boat_Sheet_49: 7266214892543610982
+      FishermansAnimations-Boat_Sheet_5: -7486851980145554882
+      FishermansAnimations-Boat_Sheet_50: -4563512157571687430
+      FishermansAnimations-Boat_Sheet_51: 8457791467397935639
+      FishermansAnimations-Boat_Sheet_52: -5386356902097025875
+      FishermansAnimations-Boat_Sheet_53: 5055528446567915160
+      FishermansAnimations-Boat_Sheet_54: 6830277157245428230
+      FishermansAnimations-Boat_Sheet_55: 3763032067347064037
+      FishermansAnimations-Boat_Sheet_56: 2119271515570094309
+      FishermansAnimations-Boat_Sheet_57: 2424173630970603993
+      FishermansAnimations-Boat_Sheet_58: -1908971715788741889
+      FishermansAnimations-Boat_Sheet_59: 4289894494104079191
+      FishermansAnimations-Boat_Sheet_6: 1515768935985024331
+      FishermansAnimations-Boat_Sheet_60: -6308660168208155204
+      FishermansAnimations-Boat_Sheet_61: -3753233678625207145
+      FishermansAnimations-Boat_Sheet_62: 8174349031456371478
+      FishermansAnimations-Boat_Sheet_63: -2247941806921550351
+      FishermansAnimations-Boat_Sheet_64: 3176371910354018950
+      FishermansAnimations-Boat_Sheet_65: 278083497758596428
+      FishermansAnimations-Boat_Sheet_66: 1310303217957497048
+      FishermansAnimations-Boat_Sheet_67: -7106424234355217659
+      FishermansAnimations-Boat_Sheet_68: 5417807772714650473
+      FishermansAnimations-Boat_Sheet_69: 331924825324626872
+      FishermansAnimations-Boat_Sheet_7: -2321140802388093195
+      FishermansAnimations-Boat_Sheet_70: 8509926946118466220
+      FishermansAnimations-Boat_Sheet_71: 6674002927364643213
+      FishermansAnimations-Boat_Sheet_72: 7013549034150738288
+      FishermansAnimations-Boat_Sheet_73: 2140325345832332259
+      FishermansAnimations-Boat_Sheet_74: 8007933588031812526
+      FishermansAnimations-Boat_Sheet_75: 6538831980872833086
+      FishermansAnimations-Boat_Sheet_76: -1425123578935317010
+      FishermansAnimations-Boat_Sheet_77: 3206443584659986429
+      FishermansAnimations-Boat_Sheet_78: 5285923595954040241
+      FishermansAnimations-Boat_Sheet_79: -6706459351871257580
+      FishermansAnimations-Boat_Sheet_8: 2952933673556491981
+      FishermansAnimations-Boat_Sheet_80: -6604942285982548056
+      FishermansAnimations-Boat_Sheet_81: -4947650187263795904
+      FishermansAnimations-Boat_Sheet_82: -5327092928918866245
+      FishermansAnimations-Boat_Sheet_83: -7169357006568441722
+      FishermansAnimations-Boat_Sheet_84: 7644728070175611666
+      FishermansAnimations-Boat_Sheet_85: -7435817437158733790
+      FishermansAnimations-Boat_Sheet_86: 3902065995239835037
+      FishermansAnimations-Boat_Sheet_87: -1538135215899584034
+      FishermansAnimations-Boat_Sheet_88: 3948526742804952948
+      FishermansAnimations-Boat_Sheet_89: -2880290097758056629
+      FishermansAnimations-Boat_Sheet_9: -4974165215663193597
+      FishermansAnimations-Boat_Sheet_90: -2435019042503221741
+      FishermansAnimations-Boat_Sheet_91: 957035393551368496
+      FishermansAnimations-Boat_Sheet_92: 3977850719892287847
+      FishermansAnimations-Boat_Sheet_93: -786178005852517879
+      FishermansAnimations-Boat_Sheet_94: 997051074341096968
+      FishermansAnimations-Boat_Sheet_95: -2043768539938088275
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

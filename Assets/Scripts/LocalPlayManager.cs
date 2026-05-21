@@ -11,6 +11,7 @@ public class LocalPlayManager : MonoBehaviour
     public GameObject[] InfoText;
     public GameObject LockItem,BuyPanel;
     public GameObject FishermanDisplayObject;
+    public GameObject fishermanYellowHat;
 
     [Header("Fish Voyage Diagram")]
     public Color lockedDiagramFishColor = new Color(0.14150941f, 0.13950692f, 0.13950692f, 1f);
@@ -246,6 +247,11 @@ public class LocalPlayManager : MonoBehaviour
         {
             FishermanDisplayObject.SetActive(false);
         }
+
+        if (fishermanYellowHat != null)
+        {
+            fishermanYellowHat.SetActive(false);
+        }
     }
 
     private void ResolveDisplayObjects()
@@ -259,6 +265,17 @@ public class LocalPlayManager : MonoBehaviour
             }
 
             FishermanDisplayObject = fisherman != null ? fisherman.gameObject : null;
+        }
+
+        if (fishermanYellowHat == null)
+        {
+            Transform yellowHat = FindChildByName(transform, "FisherMan yellow hat");
+            if (yellowHat == null)
+            {
+                yellowHat = FindChildByName(transform, "Fisherman yellow hat");
+            }
+
+            fishermanYellowHat = yellowHat != null ? yellowHat.gameObject : null;
         }
     }
 

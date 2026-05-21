@@ -1,0 +1,2639 @@
+fileFormatVersion: 2
+guid: d20e87d87f518d1419c987507ca86564
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -319251152209153669
+    second: FishermansAnimations-GreenBody_Sheet_0
+  - first:
+      213: 6969850465023745809
+    second: FishermansAnimations-GreenBody_Sheet_1
+  - first:
+      213: -4999566967827454506
+    second: FishermansAnimations-GreenBody_Sheet_2
+  - first:
+      213: 4664118187656907852
+    second: FishermansAnimations-GreenBody_Sheet_3
+  - first:
+      213: 2835735836949463373
+    second: FishermansAnimations-GreenBody_Sheet_4
+  - first:
+      213: 1419293145379144549
+    second: FishermansAnimations-GreenBody_Sheet_5
+  - first:
+      213: 9199693740753126231
+    second: FishermansAnimations-GreenBody_Sheet_6
+  - first:
+      213: -6638608475482845738
+    second: FishermansAnimations-GreenBody_Sheet_7
+  - first:
+      213: 1474555663983344045
+    second: FishermansAnimations-GreenBody_Sheet_8
+  - first:
+      213: -2040893034878400464
+    second: FishermansAnimations-GreenBody_Sheet_9
+  - first:
+      213: -67841908260301069
+    second: FishermansAnimations-GreenBody_Sheet_10
+  - first:
+      213: -1062965711010530013
+    second: FishermansAnimations-GreenBody_Sheet_11
+  - first:
+      213: 6704795631120616813
+    second: FishermansAnimations-GreenBody_Sheet_12
+  - first:
+      213: 6222085010053185460
+    second: FishermansAnimations-GreenBody_Sheet_13
+  - first:
+      213: -6449020050031092520
+    second: FishermansAnimations-GreenBody_Sheet_14
+  - first:
+      213: -2514878096642955265
+    second: FishermansAnimations-GreenBody_Sheet_15
+  - first:
+      213: -5966216250963103215
+    second: FishermansAnimations-GreenBody_Sheet_16
+  - first:
+      213: 3707879122521046649
+    second: FishermansAnimations-GreenBody_Sheet_17
+  - first:
+      213: -255470257992231459
+    second: FishermansAnimations-GreenBody_Sheet_18
+  - first:
+      213: 4969686368124731068
+    second: FishermansAnimations-GreenBody_Sheet_19
+  - first:
+      213: -1015803476752231503
+    second: FishermansAnimations-GreenBody_Sheet_20
+  - first:
+      213: -9061915620286223928
+    second: FishermansAnimations-GreenBody_Sheet_21
+  - first:
+      213: -4549522888899098356
+    second: FishermansAnimations-GreenBody_Sheet_22
+  - first:
+      213: -3903640960954284891
+    second: FishermansAnimations-GreenBody_Sheet_23
+  - first:
+      213: 2447944084485716983
+    second: FishermansAnimations-GreenBody_Sheet_24
+  - first:
+      213: -5451109562967645320
+    second: FishermansAnimations-GreenBody_Sheet_25
+  - first:
+      213: -7181065152024485965
+    second: FishermansAnimations-GreenBody_Sheet_26
+  - first:
+      213: 8133582846903166289
+    second: FishermansAnimations-GreenBody_Sheet_27
+  - first:
+      213: 5395345424497435242
+    second: FishermansAnimations-GreenBody_Sheet_28
+  - first:
+      213: 8853356041062490644
+    second: FishermansAnimations-GreenBody_Sheet_29
+  - first:
+      213: 140893044746313013
+    second: FishermansAnimations-GreenBody_Sheet_30
+  - first:
+      213: -7421828632827381227
+    second: FishermansAnimations-GreenBody_Sheet_31
+  - first:
+      213: -3864536921464971986
+    second: FishermansAnimations-GreenBody_Sheet_32
+  - first:
+      213: -4825006531468212904
+    second: FishermansAnimations-GreenBody_Sheet_33
+  - first:
+      213: -3561422741196189464
+    second: FishermansAnimations-GreenBody_Sheet_34
+  - first:
+      213: -6138207675033551277
+    second: FishermansAnimations-GreenBody_Sheet_35
+  - first:
+      213: 1490903270324813328
+    second: FishermansAnimations-GreenBody_Sheet_36
+  - first:
+      213: -363069006048452648
+    second: FishermansAnimations-GreenBody_Sheet_37
+  - first:
+      213: -9086139298033482627
+    second: FishermansAnimations-GreenBody_Sheet_38
+  - first:
+      213: 6324096888563829480
+    second: FishermansAnimations-GreenBody_Sheet_39
+  - first:
+      213: 6539816790953001266
+    second: FishermansAnimations-GreenBody_Sheet_40
+  - first:
+      213: -3734326450959964775
+    second: FishermansAnimations-GreenBody_Sheet_41
+  - first:
+      213: -3695024529558694552
+    second: FishermansAnimations-GreenBody_Sheet_42
+  - first:
+      213: -2423708865638763429
+    second: FishermansAnimations-GreenBody_Sheet_43
+  - first:
+      213: 1421931542489198524
+    second: FishermansAnimations-GreenBody_Sheet_44
+  - first:
+      213: -1918033990669072929
+    second: FishermansAnimations-GreenBody_Sheet_45
+  - first:
+      213: 8946186508493559787
+    second: FishermansAnimations-GreenBody_Sheet_46
+  - first:
+      213: -8341963676544595950
+    second: FishermansAnimations-GreenBody_Sheet_47
+  - first:
+      213: -977120404163368876
+    second: FishermansAnimations-GreenBody_Sheet_48
+  - first:
+      213: 5933518497215131159
+    second: FishermansAnimations-GreenBody_Sheet_49
+  - first:
+      213: 1479734300194463899
+    second: FishermansAnimations-GreenBody_Sheet_50
+  - first:
+      213: 6512239628427805144
+    second: FishermansAnimations-GreenBody_Sheet_51
+  - first:
+      213: 2645848129932511958
+    second: FishermansAnimations-GreenBody_Sheet_52
+  - first:
+      213: 7600957066717316498
+    second: FishermansAnimations-GreenBody_Sheet_53
+  - first:
+      213: 6501112185479650322
+    second: FishermansAnimations-GreenBody_Sheet_54
+  - first:
+      213: 8367557080277285237
+    second: FishermansAnimations-GreenBody_Sheet_55
+  - first:
+      213: 3419853754777516773
+    second: FishermansAnimations-GreenBody_Sheet_56
+  - first:
+      213: -1792263515177932500
+    second: FishermansAnimations-GreenBody_Sheet_57
+  - first:
+      213: -6431452912884923552
+    second: FishermansAnimations-GreenBody_Sheet_58
+  - first:
+      213: -576834379513204104
+    second: FishermansAnimations-GreenBody_Sheet_59
+  - first:
+      213: -6911826103073451899
+    second: FishermansAnimations-GreenBody_Sheet_60
+  - first:
+      213: -3397472599885293292
+    second: FishermansAnimations-GreenBody_Sheet_61
+  - first:
+      213: 694917642899604739
+    second: FishermansAnimations-GreenBody_Sheet_62
+  - first:
+      213: -546340544727406661
+    second: FishermansAnimations-GreenBody_Sheet_63
+  - first:
+      213: 1944015737241078191
+    second: FishermansAnimations-GreenBody_Sheet_64
+  - first:
+      213: -7677325280516839580
+    second: FishermansAnimations-GreenBody_Sheet_65
+  - first:
+      213: 4192581352748895412
+    second: FishermansAnimations-GreenBody_Sheet_66
+  - first:
+      213: -1940443404446353965
+    second: FishermansAnimations-GreenBody_Sheet_67
+  - first:
+      213: -7058903416469256311
+    second: FishermansAnimations-GreenBody_Sheet_68
+  - first:
+      213: -7382826553071515858
+    second: FishermansAnimations-GreenBody_Sheet_69
+  - first:
+      213: -5317285741406959741
+    second: FishermansAnimations-GreenBody_Sheet_70
+  - first:
+      213: 6876812244225062432
+    second: FishermansAnimations-GreenBody_Sheet_71
+  - first:
+      213: 6652738369836021260
+    second: FishermansAnimations-GreenBody_Sheet_72
+  - first:
+      213: -6450803327851933223
+    second: FishermansAnimations-GreenBody_Sheet_73
+  - first:
+      213: 5241919311292664006
+    second: FishermansAnimations-GreenBody_Sheet_74
+  - first:
+      213: 8944133718900647016
+    second: FishermansAnimations-GreenBody_Sheet_75
+  - first:
+      213: 1969059399279990145
+    second: FishermansAnimations-GreenBody_Sheet_76
+  - first:
+      213: 89002859318584116
+    second: FishermansAnimations-GreenBody_Sheet_77
+  - first:
+      213: -8457417156255184683
+    second: FishermansAnimations-GreenBody_Sheet_78
+  - first:
+      213: -4109228631100725227
+    second: FishermansAnimations-GreenBody_Sheet_79
+  - first:
+      213: 636781705563192553
+    second: FishermansAnimations-GreenBody_Sheet_80
+  - first:
+      213: 4283116032561359446
+    second: FishermansAnimations-GreenBody_Sheet_81
+  - first:
+      213: 4020879404781650504
+    second: FishermansAnimations-GreenBody_Sheet_82
+  - first:
+      213: 7525060379341897962
+    second: FishermansAnimations-GreenBody_Sheet_83
+  - first:
+      213: -7138318362990620130
+    second: FishermansAnimations-GreenBody_Sheet_84
+  - first:
+      213: -1070562612607422149
+    second: FishermansAnimations-GreenBody_Sheet_85
+  - first:
+      213: 1495449704559688659
+    second: FishermansAnimations-GreenBody_Sheet_86
+  - first:
+      213: 3648854784936346816
+    second: FishermansAnimations-GreenBody_Sheet_87
+  - first:
+      213: 7423734853772723128
+    second: FishermansAnimations-GreenBody_Sheet_88
+  - first:
+      213: 6001894202082212689
+    second: FishermansAnimations-GreenBody_Sheet_89
+  - first:
+      213: -3267206224396897624
+    second: FishermansAnimations-GreenBody_Sheet_90
+  - first:
+      213: 2925328643401240093
+    second: FishermansAnimations-GreenBody_Sheet_91
+  - first:
+      213: -4324431927725333059
+    second: FishermansAnimations-GreenBody_Sheet_92
+  - first:
+      213: 845357643642041592
+    second: FishermansAnimations-GreenBody_Sheet_93
+  - first:
+      213: 8592939876538108793
+    second: FishermansAnimations-GreenBody_Sheet_94
+  - first:
+      213: 5636769661367142987
+    second: FishermansAnimations-GreenBody_Sheet_95
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1490
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b71707eb4cac19bf0800000000000000
+      internalID: -319251152209153669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 1489
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11fd451f112e9b060800000000000000
+      internalID: 6969850465023745809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 1489
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d52ed3e458fd9ab0800000000000000
+      internalID: -4999566967827454506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 1489
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4c8ab5b7c64ab040800000000000000
+      internalID: 4664118187656907852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1425
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d41c73628be8a5720800000000000000
+      internalID: 2835735836949463373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 1426
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5638872989752b310800000000000000
+      internalID: 1419293145379144549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 1426
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75389f317b0ebaf70800000000000000
+      internalID: 9199693740753126231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 1425
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dd82ffa3cceed3a0800000000000000
+      internalID: -6638608475482845738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 1361
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da97449509ca67410800000000000000
+      internalID: 1474555663983344045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1362
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 038018f099a4da3e0800000000000000
+      internalID: -2040893034878400464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 1361
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f69245d42afe0ff0800000000000000
+      internalID: -67841908260301069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 1361
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32dfbc251569f31f0800000000000000
+      internalID: -1062965711010530013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1297
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6d098c5a183c0d50800000000000000
+      internalID: 6704795631120616813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 1298
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bfb082c959495650800000000000000
+      internalID: 6222085010053185460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 1298
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dc5680de6a7086a0800000000000000
+      internalID: -6449020050031092520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 1297
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff7af2c02bb591dd0800000000000000
+      internalID: -2514878096642955265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1233
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1127e2c1eedb33da0800000000000000
+      internalID: -5966216250963103215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1234
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97e34ffaa68057330800000000000000
+      internalID: 3707879122521046649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 1234
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd512b56723647cf0800000000000000
+      internalID: -255470257992231459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 1233
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbefc29db6fd7f440800000000000000
+      internalID: 4969686368124731068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 1169
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b3939eae1427e1f0800000000000000
+      internalID: -1015803476752231503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1170
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c9a64461cb9d3280800000000000000
+      internalID: -9061915620286223928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 1169
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0909a57909dcd0c0800000000000000
+      internalID: -4549522888899098356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 1169
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a4c7a77a3b73d9c0800000000000000
+      internalID: -3903640960954284891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 1105
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fb3ac1dc28d8f120800000000000000
+      internalID: 2447944084485716983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 1105
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8732493dbb4c954b0800000000000000
+      internalID: -5451109562967645320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 1105
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bfd4a88a4bb75c90800000000000000
+      internalID: -7181065152024485965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 1106
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 155afd4718a40e070800000000000000
+      internalID: 8133582846903166289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1041
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a62e2bbe31e10ea40800000000000000
+      internalID: 5395345424497435242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 1042
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 412a69989607dda70800000000000000
+      internalID: 8853356041062490644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 1042
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53d5d6b4a7d84f100800000000000000
+      internalID: 140893044746313013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 1041
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51a30845e2e500990800000000000000
+      internalID: -7421828632827381227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 977
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2dd2b625286e5ac0800000000000000
+      internalID: -3864536921464971986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 978
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 855c5e4af122a0db0800000000000000
+      internalID: -4825006531468212904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 978
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e0d008d2e8439ec0800000000000000
+      internalID: -3561422741196189464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 977
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35e7c0424a4b0daa0800000000000000
+      internalID: -6138207675033551277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 913
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01ebd2e00a0c0b410800000000000000
+      internalID: 1490903270324813328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 914
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8df1781a9ae16faf0800000000000000
+      internalID: -363069006048452648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 913
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d744ff8e27c87e180800000000000000
+      internalID: -9086139298033482627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 913
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ea00081d94b3c750800000000000000
+      internalID: 6324096888563829480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 849
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23183e0d8b812ca50800000000000000
+      internalID: 6539816790953001266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 850
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 995af2fc0e10d2cc0800000000000000
+      internalID: -3734326450959964775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 849
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8659c4774c2a8bcc0800000000000000
+      internalID: -3695024529558694552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 849
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b54f2a8c0a14d5ed0800000000000000
+      internalID: -2423708865638763429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 785
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbfedf44437bbb310800000000000000
+      internalID: 1421931542489198524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 786
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd58b076f36c165e0800000000000000
+      internalID: -1918033990669072929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 785
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be796250b3d372c70800000000000000
+      internalID: 8946186508493559787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 785
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 218095adb346b3c80800000000000000
+      internalID: -8341963676544595950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 722
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4586e0f5b229072f0800000000000000
+      internalID: -977120404163368876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 721
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71ea7b6d2a7185250800000000000000
+      internalID: 5933518497215131159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 721
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b906d0d8182198410800000000000000
+      internalID: 1479734300194463899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 721
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d149a0507f106a50800000000000000
+      internalID: 6512239628427805144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 657
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6da424a1bd0f7b420800000000000000
+      internalID: 2645848129932511958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 658
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2954eaa3e260c7960800000000000000
+      internalID: 7600957066717316498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 658
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21c5a7c9617983a50800000000000000
+      internalID: 6501112185479650322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 657
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5797bbfc4d88f1470800000000000000
+      internalID: 8367557080277285237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 593
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eabc4deed2c57f20800000000000000
+      internalID: 3419853754777516773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 594
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c292de924d99027e0800000000000000
+      internalID: -1792263515177932500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 593
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 063c7d9a6a3eeb6a0800000000000000
+      internalID: -6431452912884923552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_59
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 593
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 872f1e2203caef7f0800000000000000
+      internalID: -576834379513204104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 529
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 580d80997c24410a0800000000000000
+      internalID: -6911826103073451899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 530
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 419d6b5cba0c9d0d0800000000000000
+      internalID: -3397472599885293292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 530
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 305ce251ae7d4a900800000000000000
+      internalID: 694917642899604739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 529
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb721215b220b68f0800000000000000
+      internalID: -546340544727406661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_64
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 465
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa9060063088afa10800000000000000
+      internalID: 1944015737241078191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_65
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 466
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 467eaa56559a47590800000000000000
+      internalID: -7677325280516839580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_66
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 466
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bc468ee68a0f2a30800000000000000
+      internalID: 4192581352748895412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_67
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 465
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d5b93b21092215e0800000000000000
+      internalID: -1940443404446353965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_68
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 401
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9870f8d0ebcb90e90800000000000000
+      internalID: -7058903416469256311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_69
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 402
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e27c9d9ad5eea8990800000000000000
+      internalID: -7382826553071515858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_70
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 401
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38740365ac43536b0800000000000000
+      internalID: -5317285741406959741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_71
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 401
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 026771c1d485f6f50800000000000000
+      internalID: 6876812244225062432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_72
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 337
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c06ffa5bc46435c50800000000000000
+      internalID: 6652738369836021260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_73
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 337
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d15a771d842a76a0800000000000000
+      internalID: -6450803327851933223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_74
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 337
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c80cda37d90fb840800000000000000
+      internalID: 5241919311292664006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_75
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 338
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 864aaa2ba32ff1c70800000000000000
+      internalID: 8944133718900647016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_76
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 273
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1855ab35711835b10800000000000000
+      internalID: 1969059399279990145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_77
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 274
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 433ada501a33c3100800000000000000
+      internalID: 89002859318584116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_78
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 274
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d88d1cd7e731aa80800000000000000
+      internalID: -8457417156255184683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_79
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 273
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5186066e45619f6c0800000000000000
+      internalID: -4109228631100725227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_80
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 209
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ecbf8f569d46d800800000000000000
+      internalID: 636781705563192553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_81
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 210
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65aa994b65fa07b30800000000000000
+      internalID: 4283116032561359446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_82
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 210
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 842c1bed3880dc730800000000000000
+      internalID: 4020879404781650504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_83
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 209
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae04a08ab826e6860800000000000000
+      internalID: 7525060379341897962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_84
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 145
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e12db40f4499fec90800000000000000
+      internalID: -7138318362990620130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_85
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 146
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3178b5d9f89421f0800000000000000
+      internalID: -1070562612607422149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_86
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 145
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3db3eb34597e0c410800000000000000
+      internalID: 1495449704559688659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_87
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 145
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c48d1d281653a230800000000000000
+      internalID: 3648854784936346816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_88
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 81
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b34fc15487660760800000000000000
+      internalID: 7423734853772723128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_89
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 82
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15b36963af20b4350800000000000000
+      internalID: 6001894202082212689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_90
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 81
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a2b0e2df3d88a2d0800000000000000
+      internalID: -3267206224396897624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_91
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 81
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1ec431f6ead89820800000000000000
+      internalID: 2925328643401240093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_92
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 17
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db5e294d2188cf3c0800000000000000
+      internalID: -4324431927725333059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_93
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 18
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f4f1794c405bbb00800000000000000
+      internalID: 845357643642041592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_94
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 17
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97bc7555a41404770800000000000000
+      internalID: 8592939876538108793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishermansAnimations-GreenBody_Sheet_95
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 17
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4acc726424d93e40800000000000000
+      internalID: 5636769661367142987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FishermansAnimations-GreenBody_Sheet_0: -319251152209153669
+      FishermansAnimations-GreenBody_Sheet_1: 6969850465023745809
+      FishermansAnimations-GreenBody_Sheet_10: -67841908260301069
+      FishermansAnimations-GreenBody_Sheet_11: -1062965711010530013
+      FishermansAnimations-GreenBody_Sheet_12: 6704795631120616813
+      FishermansAnimations-GreenBody_Sheet_13: 6222085010053185460
+      FishermansAnimations-GreenBody_Sheet_14: -6449020050031092520
+      FishermansAnimations-GreenBody_Sheet_15: -2514878096642955265
+      FishermansAnimations-GreenBody_Sheet_16: -5966216250963103215
+      FishermansAnimations-GreenBody_Sheet_17: 3707879122521046649
+      FishermansAnimations-GreenBody_Sheet_18: -255470257992231459
+      FishermansAnimations-GreenBody_Sheet_19: 4969686368124731068
+      FishermansAnimations-GreenBody_Sheet_2: -4999566967827454506
+      FishermansAnimations-GreenBody_Sheet_20: -1015803476752231503
+      FishermansAnimations-GreenBody_Sheet_21: -9061915620286223928
+      FishermansAnimations-GreenBody_Sheet_22: -4549522888899098356
+      FishermansAnimations-GreenBody_Sheet_23: -3903640960954284891
+      FishermansAnimations-GreenBody_Sheet_24: 2447944084485716983
+      FishermansAnimations-GreenBody_Sheet_25: -5451109562967645320
+      FishermansAnimations-GreenBody_Sheet_26: -7181065152024485965
+      FishermansAnimations-GreenBody_Sheet_27: 8133582846903166289
+      FishermansAnimations-GreenBody_Sheet_28: 5395345424497435242
+      FishermansAnimations-GreenBody_Sheet_29: 8853356041062490644
+      FishermansAnimations-GreenBody_Sheet_3: 4664118187656907852
+      FishermansAnimations-GreenBody_Sheet_30: 140893044746313013
+      FishermansAnimations-GreenBody_Sheet_31: -7421828632827381227
+      FishermansAnimations-GreenBody_Sheet_32: -3864536921464971986
+      FishermansAnimations-GreenBody_Sheet_33: -4825006531468212904
+      FishermansAnimations-GreenBody_Sheet_34: -3561422741196189464
+      FishermansAnimations-GreenBody_Sheet_35: -6138207675033551277
+      FishermansAnimations-GreenBody_Sheet_36: 1490903270324813328
+      FishermansAnimations-GreenBody_Sheet_37: -363069006048452648
+      FishermansAnimations-GreenBody_Sheet_38: -9086139298033482627
+      FishermansAnimations-GreenBody_Sheet_39: 6324096888563829480
+      FishermansAnimations-GreenBody_Sheet_4: 2835735836949463373
+      FishermansAnimations-GreenBody_Sheet_40: 6539816790953001266
+      FishermansAnimations-GreenBody_Sheet_41: -3734326450959964775
+      FishermansAnimations-GreenBody_Sheet_42: -3695024529558694552
+      FishermansAnimations-GreenBody_Sheet_43: -2423708865638763429
+      FishermansAnimations-GreenBody_Sheet_44: 1421931542489198524
+      FishermansAnimations-GreenBody_Sheet_45: -1918033990669072929
+      FishermansAnimations-GreenBody_Sheet_46: 8946186508493559787
+      FishermansAnimations-GreenBody_Sheet_47: -8341963676544595950
+      FishermansAnimations-GreenBody_Sheet_48: -977120404163368876
+      FishermansAnimations-GreenBody_Sheet_49: 5933518497215131159
+      FishermansAnimations-GreenBody_Sheet_5: 1419293145379144549
+      FishermansAnimations-GreenBody_Sheet_50: 1479734300194463899
+      FishermansAnimations-GreenBody_Sheet_51: 6512239628427805144
+      FishermansAnimations-GreenBody_Sheet_52: 2645848129932511958
+      FishermansAnimations-GreenBody_Sheet_53: 7600957066717316498
+      FishermansAnimations-GreenBody_Sheet_54: 6501112185479650322
+      FishermansAnimations-GreenBody_Sheet_55: 8367557080277285237
+      FishermansAnimations-GreenBody_Sheet_56: 3419853754777516773
+      FishermansAnimations-GreenBody_Sheet_57: -1792263515177932500
+      FishermansAnimations-GreenBody_Sheet_58: -6431452912884923552
+      FishermansAnimations-GreenBody_Sheet_59: -576834379513204104
+      FishermansAnimations-GreenBody_Sheet_6: 9199693740753126231
+      FishermansAnimations-GreenBody_Sheet_60: -6911826103073451899
+      FishermansAnimations-GreenBody_Sheet_61: -3397472599885293292
+      FishermansAnimations-GreenBody_Sheet_62: 694917642899604739
+      FishermansAnimations-GreenBody_Sheet_63: -546340544727406661
+      FishermansAnimations-GreenBody_Sheet_64: 1944015737241078191
+      FishermansAnimations-GreenBody_Sheet_65: -7677325280516839580
+      FishermansAnimations-GreenBody_Sheet_66: 4192581352748895412
+      FishermansAnimations-GreenBody_Sheet_67: -1940443404446353965
+      FishermansAnimations-GreenBody_Sheet_68: -7058903416469256311
+      FishermansAnimations-GreenBody_Sheet_69: -7382826553071515858
+      FishermansAnimations-GreenBody_Sheet_7: -6638608475482845738
+      FishermansAnimations-GreenBody_Sheet_70: -5317285741406959741
+      FishermansAnimations-GreenBody_Sheet_71: 6876812244225062432
+      FishermansAnimations-GreenBody_Sheet_72: 6652738369836021260
+      FishermansAnimations-GreenBody_Sheet_73: -6450803327851933223
+      FishermansAnimations-GreenBody_Sheet_74: 5241919311292664006
+      FishermansAnimations-GreenBody_Sheet_75: 8944133718900647016
+      FishermansAnimations-GreenBody_Sheet_76: 1969059399279990145
+      FishermansAnimations-GreenBody_Sheet_77: 89002859318584116
+      FishermansAnimations-GreenBody_Sheet_78: -8457417156255184683
+      FishermansAnimations-GreenBody_Sheet_79: -4109228631100725227
+      FishermansAnimations-GreenBody_Sheet_8: 1474555663983344045
+      FishermansAnimations-GreenBody_Sheet_80: 636781705563192553
+      FishermansAnimations-GreenBody_Sheet_81: 4283116032561359446
+      FishermansAnimations-GreenBody_Sheet_82: 4020879404781650504
+      FishermansAnimations-GreenBody_Sheet_83: 7525060379341897962
+      FishermansAnimations-GreenBody_Sheet_84: -7138318362990620130
+      FishermansAnimations-GreenBody_Sheet_85: -1070562612607422149
+      FishermansAnimations-GreenBody_Sheet_86: 1495449704559688659
+      FishermansAnimations-GreenBody_Sheet_87: 3648854784936346816
+      FishermansAnimations-GreenBody_Sheet_88: 7423734853772723128
+      FishermansAnimations-GreenBody_Sheet_89: 6001894202082212689
+      FishermansAnimations-GreenBody_Sheet_9: -2040893034878400464
+      FishermansAnimations-GreenBody_Sheet_90: -3267206224396897624
+      FishermansAnimations-GreenBody_Sheet_91: 2925328643401240093
+      FishermansAnimations-GreenBody_Sheet_92: -4324431927725333059
+      FishermansAnimations-GreenBody_Sheet_93: 845357643642041592
+      FishermansAnimations-GreenBody_Sheet_94: 8592939876538108793
+      FishermansAnimations-GreenBody_Sheet_95: 5636769661367142987
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

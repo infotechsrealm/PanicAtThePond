@@ -16,6 +16,7 @@ public class ScoreSystemSettings
     public const float DefaultFishTimerSeconds = 3f;
     public const float DefaultHungerWormRateAmount = 15f;
     public const float DefaultHungerDepletionRate = 1f;
+    public const float DefaultBassSpeed = 3f;
     public const float DefaultTroutSpeed = 3f;
     public const float DefaultGoldenFishSpeed = 3f;
     public const float DefaultWormSpawnRate = 5f;
@@ -32,6 +33,7 @@ public class ScoreSystemSettings
     public const string FishTimerSecondsKey = "ss_fish_timer";
     public const string HungerWormRateKey = "ss_hunger_worm";
     public const string HungerDepletionRateKey = "ss_hunger_depletion";
+    public const string BassSpeedKey = "ss_bass_speed";
     public const string GoldenFishSpeedKey = "ss_golden_speed";
     public const string TroutSpeedKey = "ss_trout_speed";
     public const string WormSpawnRateKey = "ss_worm_spawn_rate";
@@ -48,6 +50,7 @@ public class ScoreSystemSettings
     public string fishTimerSeconds = DefaultFishTimerSeconds.ToString();
     public string hungerWormRateAmount = DefaultHungerWormRateAmount.ToString();
     public string hungerDepletionRate = DefaultHungerDepletionRate.ToString();
+    public string bassSpeed = DefaultBassSpeed.ToString();
     public string goldenFishSpeed = DefaultGoldenFishSpeed.ToString();
     public string troutSpeed = DefaultTroutSpeed.ToString();
     public string wormSpawnRate = DefaultWormSpawnRate.ToString();
@@ -66,6 +69,7 @@ public class ScoreSystemSettings
         fishTimerSeconds = DefaultFishTimerSeconds.ToString();
         hungerWormRateAmount = DefaultHungerWormRateAmount.ToString();
         hungerDepletionRate = DefaultHungerDepletionRate.ToString();
+        bassSpeed = DefaultBassSpeed.ToString();
         goldenFishSpeed = DefaultGoldenFishSpeed.ToString();
         troutSpeed = DefaultTroutSpeed.ToString();
         wormSpawnRate = DefaultWormSpawnRate.ToString();
@@ -85,6 +89,7 @@ public class ScoreSystemSettings
         fishTimerSeconds = DefaultIfBlank(fishTimerSeconds, DefaultFishTimerSeconds.ToString());
         hungerWormRateAmount = DefaultIfBlank(hungerWormRateAmount, DefaultHungerWormRateAmount.ToString());
         hungerDepletionRate = DefaultIfBlank(hungerDepletionRate, DefaultHungerDepletionRate.ToString());
+        bassSpeed = DefaultIfBlank(bassSpeed, DefaultBassSpeed.ToString());
         goldenFishSpeed = DefaultIfBlank(goldenFishSpeed, DefaultGoldenFishSpeed.ToString());
         troutSpeed = DefaultIfBlank(troutSpeed, DefaultTroutSpeed.ToString());
         wormSpawnRate = DefaultIfBlank(wormSpawnRate, DefaultWormSpawnRate.ToString());
@@ -110,6 +115,7 @@ public class ScoreSystemSettings
         fishTimerSeconds = other.fishTimerSeconds ?? string.Empty;
         hungerWormRateAmount = other.hungerWormRateAmount ?? string.Empty;
         hungerDepletionRate = other.hungerDepletionRate ?? string.Empty;
+        bassSpeed = other.bassSpeed ?? string.Empty;
         goldenFishSpeed = other.goldenFishSpeed ?? string.Empty;
         troutSpeed = other.troutSpeed ?? string.Empty;
         wormSpawnRate = other.wormSpawnRate ?? string.Empty;
@@ -131,6 +137,7 @@ public class ScoreSystemSettings
             [FishTimerSecondsKey] = fishTimerSeconds ?? string.Empty,
             [HungerWormRateKey] = hungerWormRateAmount ?? string.Empty,
             [HungerDepletionRateKey] = hungerDepletionRate ?? string.Empty,
+            [BassSpeedKey] = bassSpeed ?? string.Empty,
             [GoldenFishSpeedKey] = goldenFishSpeed ?? string.Empty,
             [TroutSpeedKey] = troutSpeed ?? string.Empty,
             [WormSpawnRateKey] = wormSpawnRate ?? string.Empty
@@ -156,6 +163,7 @@ public class ScoreSystemSettings
         fishTimerSeconds = GetStringValue(properties, FishTimerSecondsKey, DefaultFishTimerSeconds.ToString());
         hungerWormRateAmount = GetStringValue(properties, HungerWormRateKey, DefaultHungerWormRateAmount.ToString());
         hungerDepletionRate = GetStringValue(properties, HungerDepletionRateKey, DefaultHungerDepletionRate.ToString());
+        bassSpeed = GetStringValue(properties, BassSpeedKey, DefaultBassSpeed.ToString());
         goldenFishSpeed = GetStringValue(properties, GoldenFishSpeedKey, DefaultGoldenFishSpeed.ToString());
         troutSpeed = GetStringValue(properties, TroutSpeedKey, DefaultTroutSpeed.ToString());
         wormSpawnRate = GetStringValue(properties, WormSpawnRateKey, DefaultWormSpawnRate.ToString());
@@ -221,6 +229,11 @@ public class ScoreSystemSettings
     public float GetHungerDepletionRate()
     {
         return ParseFloatOrDefault(hungerDepletionRate, DefaultHungerDepletionRate, 0f, 100f);
+    }
+
+    public float GetBassSpeed()
+    {
+        return ParseFloatOrDefault(bassSpeed, DefaultBassSpeed, 0.1f, 100f);
     }
 
     public bool TryGetGoldenFishSpeed(out float configuredSpeed)
