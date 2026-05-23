@@ -61,6 +61,10 @@ public class ShopManager : MonoBehaviour
     [Range(0f, 1f)] public float SelectedItemOpacity = 1f;
     [Range(0f, 1f)] public float UnselectedItemOpacity = 0.35f;
 
+    [Header("Cosmetic Cell Sprites")]
+    public Sprite BoxSelectedSprite;
+    public Sprite BoxUnselectedSprite;
+
     [Header("Fish/Fisherman Dropdown")]
     public Button FishFishermanDropdownButton;
     public GameObject FishFishermanDropdownList;
@@ -1152,7 +1156,15 @@ public class ShopManager : MonoBehaviour
         CacheDisplayBaseSprite(fishermanImage);
         if (!TryApplyCompositePreviewSprite(fishermanImage, selectedSprite, 0, true))
         {
-            ApplyFishermanRedHairPreview(fishermanImage);
+            string cosmeticKey = GetFishermanCosmeticHatKey(selectedSprite.name);
+            if (cosmeticKey == "yellow")
+            {
+                RestoreDisplayBaseSprite(fishermanImage);
+            }
+            else
+            {
+                ApplyFishermanRedHairPreview(fishermanImage);
+            }
         }
     }
 
@@ -1361,7 +1373,7 @@ public class ShopManager : MonoBehaviour
     private Dictionary<string, Sprite> GetFishermanPreviewSpritesByHat()
     {
         Dictionary<string, Sprite> spritesByHat = new Dictionary<string, Sprite>();
-        List<Sprite> sprites = LoadPreviewSpritesFromFolder(FishermanPreviewAssetFolder, "fisher");
+        List<Sprite> sprites = LoadPreviewSpritesFromFolder(FishermanPreviewAssetFolder, string.Empty);
         for (int i = 0; i < sprites.Count; i++)
         {
             Sprite sprite = sprites[i];
@@ -1568,7 +1580,7 @@ public class ShopManager : MonoBehaviour
             return "bluecap";
         }
 
-        if (name.Contains("chef") || name.Contains("white"))
+        if (name.Contains("chef") || name.Contains("white") || name.Contains("soda"))
         {
             return "white";
         }
@@ -1593,7 +1605,7 @@ public class ShopManager : MonoBehaviour
             return "red";
         }
 
-        if (name.Contains("soda") || name.Contains("headphone"))
+        if (name.Contains("headphone"))
         {
             return "headphone";
         }
@@ -1624,7 +1636,7 @@ public class ShopManager : MonoBehaviour
             return "bluecap";
         }
 
-        if (name.Contains("white"))
+        if (name.Contains("white") || name.Contains("soda"))
         {
             return "white";
         }
@@ -1644,7 +1656,7 @@ public class ShopManager : MonoBehaviour
             return "green";
         }
 
-        if (name.Contains("headphone") || name.Contains("soda"))
+        if (name.Contains("headphone"))
         {
             return "headphone";
         }
@@ -1930,34 +1942,37 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    private static void SetSelectedCellOutline(Button button, bool selected)
+    private void SetSelectedCellOutline(Button button, bool selected)
     {
-        if (button == null)
+        if (button == null || BoxSelectedSprite == null || BoxUnselectedSprite == null)
         {
             return;
         }
 
-        Graphic targetGraphic = FindSelectionOutlineGraphic(button);
-        if (targetGraphic == null)
+        Image targetImage = FindSelectionOutlineGraphic(button) as Image;
+        if (targetImage != null)
         {
-            return;
-        }
+            Sprite previousSprite = targetImage.sprite;
+            Sprite newSprite = selected ? BoxSelectedSprite : BoxUnselectedSprite;
 
-        Outline outline = targetGraphic.GetComponent<Outline>();
-        if (outline == null && selected)
-        {
-            outline = targetGraphic.gameObject.AddComponent<Outline>();
-        }
+            if (previousSprite != newSprite)
+            {
+                targetImage.sprite = newSprite;
+                targetImage.preserveAspect = false;
 
-        if (outline == null)
-        {
-            return;
-        }
+                string targetName = targetImage.gameObject.name;
+                string newSpriteName = newSprite.name;
 
-        outline.effectColor = SelectedCellOutlineColor;
-        outline.effectDistance = SelectedCellOutlineDistance;
-        outline.useGraphicAlpha = false;
-        outline.enabled = selected;
+                if (selected)
+                {
+                    Debug.Log($"[ShopManager] Selected cosmetic: '{button.name}'. Changed element image '{targetName}' to '{newSpriteName}' (BoxSelected).");
+                }
+                else
+                {
+                    Debug.Log($"[ShopManager] Unselected cosmetic: '{button.name}'. Reassigned element image '{targetName}' to '{newSpriteName}' (BoxUnselected).");
+                }
+            }
+        }
     }
 
     private static Graphic FindSelectionOutlineGraphic(Button button)
