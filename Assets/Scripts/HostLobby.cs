@@ -33,7 +33,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
     private static readonly Vector2 BassSpeedLabelOffset = new Vector2(-140f, 0f);
     private static readonly Vector2 DepletionLabelPosition = new Vector2(163f, -270f);
     private static readonly Vector2 DepletionLabelSize = new Vector2(180f, 56f);
-    private static readonly Vector2 ScoreResetButtonPosition = new Vector2(290f, 214f);
+    private static readonly Vector2 ScoreResetButtonPosition = new Vector2(290f, 190f);
 
     public PlayerTableManager playerTableManager;
     public Button backButton, controlsButton, hintButton, pauseButton, ScoreSystem, BackScore;
@@ -176,11 +176,32 @@ public class HostLobby : MonoBehaviourPunCallbacks
             return;
         }
 
+        Transform secondPageTransform = FindChildByName(ScoreUI.transform, "2nd Panel");
+        scoreSecondPage = secondPageTransform != null ? secondPageTransform.gameObject : null;
+
+        // Find and destroy the duplicate fisherman input under 2nd Panel
+        if (secondPageTransform != null)
+        {
+            Transform dupInput = FindChildByName(secondPageTransform, FishermanFishFieldName);
+            if (dupInput != null)
+            {
+                if (Application.isPlaying)
+                {
+                    Destroy(dupInput.gameObject);
+                }
+                else
+                {
+                    DestroyImmediate(dupInput.gameObject);
+                }
+            }
+        }
+
         List<TMP_InputField> allInputs = ScoreUI.GetComponentsInChildren<TMP_InputField>(true).ToList();
 
         fishermanWinInput = FindInput(allInputs, FishermanWinFieldName);
 
         List<TMP_InputField> fishermanFishInputs = FindInputs(allInputs, FishermanFishFieldName)
+            .Where(input => secondPageTransform == null || !input.transform.IsChildOf(secondPageTransform))
             .OrderBy(GetInputXPosition)
             .ToList();
         fishermanCatchFishInput = fishermanFishInputs.ElementAtOrDefault(0);
@@ -516,8 +537,6 @@ public class HostLobby : MonoBehaviourPunCallbacks
         if (bassSpeedInput == null && wormSpawnRateInput != null)
         {
             bassSpeedInput = CreateScoreInput(BassSpeedFieldName, wormSpawnRateInput, BassSpeedInputOffset, ScoreSystemSettings.DefaultBassSpeed.ToString(), allInputs);
-            GameObject bassLabelObj = CreateScoreLabel("Bass Speed", bassSpeedInput, BassSpeedLabelOffset);
-            if (bassLabelObj != null) bassLabelObj.name = "Bass Speed";
         }
 
         ApplyScoreDebugExactRects();

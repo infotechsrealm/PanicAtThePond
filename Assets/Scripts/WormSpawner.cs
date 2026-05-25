@@ -1,4 +1,4 @@
-﻿using Mirror;
+using Mirror;
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
@@ -105,7 +105,11 @@ public class WormSpawner : MonoBehaviourPunCallbacks
     {
         if (GS.Instance != null && GS.Instance.scoreSystemSettings != null)
         {
-            return GS.Instance.scoreSystemSettings.GetWormSpawnRate();
+            float rate = GS.Instance.scoreSystemSettings.GetWormSpawnRate();
+            if (rate > 0f)
+            {
+                return Mathf.Clamp(25.0f / rate, 0.25f, 60f);
+            }
         }
 
         return Mathf.Clamp(spawnInterval, 0.25f, 60f);

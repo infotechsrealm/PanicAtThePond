@@ -131,32 +131,86 @@ public class LocalPlayManager : MonoBehaviour
 
     public void Tap_NextButton()
     {
-        HideFishermanDisplay();
-
-        int nextUnlockedFish = FindUnlockedFish(Next_Fish, 1);
-        if (nextUnlockedFish < 0)
+        if (TryCycleShopSelection(1))
         {
-            RefreshArrowButtons();
             return;
         }
 
-        Next_Fish = nextUnlockedFish;
-        ShowSelectedFish();
+        CycleActiveFish(1);
     }
 
     public void Tap_PreviosButton()
     {
-        HideFishermanDisplay();
-
-        int previousUnlockedFish = FindUnlockedFish(Next_Fish, -1);
-        if (previousUnlockedFish < 0)
+        if (TryCycleShopSelection(-1))
         {
-            RefreshArrowButtons();
             return;
         }
 
-        Next_Fish = previousUnlockedFish;
-        ShowSelectedFish();
+        CycleActiveFish(-1);
+    }
+
+    private bool TryCycleShopSelection(int direction)
+    {
+        ShopManager shop = FindShopManager();
+        if (shop != null && shop.IsShopOpen())
+        {
+            return shop.CycleActiveDisplaySelection(direction, this);
+        }
+
+        return false;
+    }
+
+    private static ShopManager FindShopManager()
+    {
+        ShopManager shop = FindFirstObjectByType<ShopManager>();
+        if (shop == null)
+        {
+            ShopManager[] shops = FindObjectsByType<ShopManager>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            shop = shops != null && shops.Length > 0 ? shops[0] : null;
+        }
+
+        if (shop != null)
+        {
+            if (!shop.gameObject.activeSelf)
+            {
+                shop.gameObject.SetActive(true);
+            }
+
+            if (!shop.enabled)
+            {
+                shop.enabled = true;
+            }
+        }
+
+        return shop;
+    }
+
+    public bool CycleActiveFish(int direction)
+    {
+        HideFishermanDisplay();
+
+        int nextUnlocked = FindUnlockedFish(Next_Fish, direction);
+        if (nextUnlocked < 0)
+        {
+            int startCheck = (direction > 0) ? 0 : FishPrefabNames.Length - 1;
+            if (IsFishUnlocked(startCheck))
+            {
+                nextUnlocked = startCheck;
+            }
+            else
+            {
+                nextUnlocked = FindUnlockedFish(startCheck, direction);
+            }
+        }
+
+        if (nextUnlocked >= 0 && nextUnlocked != Next_Fish)
+        {
+            Next_Fish = nextUnlocked;
+            ShowSelectedFish();
+            return true;
+        }
+
+        return false;
     }
 
     private void ShowSelectedFish()
@@ -222,8 +276,8 @@ public class LocalPlayManager : MonoBehaviour
 
     private void RefreshArrowButtons()
     {
-        SetButtonInteractable(Left_BTN, FindUnlockedFish(Next_Fish, -1) >= 0);
-        SetButtonInteractable(Right_BTN, FindUnlockedFish(Next_Fish, 1) >= 0);
+        SetButtonInteractable(Left_BTN, true);
+        SetButtonInteractable(Right_BTN, true);
     }
 
     private void RegisterArrowButtons()

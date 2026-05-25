@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntiVirusProduct)",
+      "PowerShell(Get-Service -Name WinDefend)",
+      "PowerShell(sc query WinDefend)",
+      "PowerShell(Get-Process -Id 27888,27656,23108,1628,5168,12136,25660,10712,19564)",
+      "PowerShell(Get-ScheduledTask | Where-Object {$_.State -eq \"Running\"} | Select-Object TaskName,TaskPath,State | Format-Table -AutoSize)",
+      "WebFetch(domain:minimax-algeng-chat-tts-us.oss-us-east-1.aliyuncs.com)",
+      "Bash(Get-ChildItem \"C:\\\\Users\\\\rishi\\\\.claude\\\\projects\\\\e--PanicAtThePond\\\\314c49ab-dfb1-458c-a4e8-333600f07d5e\\\\tool-results\\\\\" -ErrorAction SilentlyContinue)",
+      "Bash(copy \"C:\\\\Users\\\\rishi\\\\.claude\\\\projects\\\\e--PanicAtThePond\\\\314c49ab-dfb1-458c-a4e8-333600f07d5e\\\\tool-results\\\\webfetch-1779698601748-dup5wn.png\" \"e:\\\\PanicAtThePond\\\\query\\\\editor_view.png\")",
+      "Bash(Copy-Item \"C:\\\\Users\\\\rishi\\\\.claude\\\\projects\\\\e--PanicAtThePond\\\\314c49ab-dfb1-458c-a4e8-333600f07d5e\\\\tool-results\\\\webfetch-1779698601748-dup5wn.png\" \"e:\\\\PanicAtThePond\\\\query\\\\editor_view.png\")",
+      "Bash(cp \"C:/Users/rishi/.claude/projects/e--PanicAtThePond/314c49ab-dfb1-458c-a4e8-333600f07d5e/tool-results/webfetch-1779698601748-dup5wn.png\" \"e:/PanicAtThePond/query/editor_view.png\")",
+      "Bash(mkdir -p \"e:/PanicAtThePond/query\" && cp \"C:/Users/rishi/.claude/projects/e--PanicAtThePond/314c49ab-dfb1-458c-a4e8-333600f07d5e/tool-results/webfetch-1779698601748-dup5wn.png\" \"e:/PanicAtThePond/query/editor_view.png\")",
+      "Bash(rm \"e:/PanicAtThePond/query\" && mkdir -p \"e:/PanicAtThePond/query\" && cp \"C:/Users/rishi/.claude/projects/e--PanicAtThePond/314c49ab-dfb1-458c-a4e8-333600f07d5e/tool-results/webfetch-1779698601748-dup5wn.png\" \"e:/PanicAtThePond/query/editor_view.png\")",
+      "Bash(cp \"C:/Users/rishi/.claude/projects/e--PanicAtThePond/314c49ab-dfb1-458c-a4e8-333600f07d5e/tool-results/webfetch-1779698602692-108cvk.png\" \"e:/PanicAtThePond/query/build_view.png\")",
+      "Bash(Get-ChildItem \"E:\\\\PanicAtThePond\\\\Assets\\\\UI\\\\Game UI\\\\Fish preview\" -ErrorAction SilentlyContinue)",
+      "Bash(Select-Object Name, Length)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\rishi\\.claude\\projects\\e--PanicAtThePond\\314c49ab-dfb1-458c-a4e8-333600f07d5e\\tool-results"
+    ]
+  }
+}

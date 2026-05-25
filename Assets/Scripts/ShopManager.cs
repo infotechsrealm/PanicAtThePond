@@ -2273,4 +2273,149 @@ public class ShopManager : MonoBehaviour
             target.SetActive(active);
         }
     }
+
+    public bool CycleActiveDisplaySelection(int direction, LocalPlayManager localPlay)
+    {
+        if (ShopItemPanel != null && ShopItemPanel.activeSelf)
+        {
+            if (IsFishDisplayVisible() && IsFishHatModeSelected())
+            {
+                CycleFishHat(direction, localPlay);
+                return true;
+            }
+            else if (IsFishermanDisplayVisible())
+            {
+                CycleFishermanHat(direction);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool IsShopOpen()
+    {
+        return ShopItemPanel != null && ShopItemPanel.activeSelf;
+    }
+
+    public bool IsCyclingSpecies()
+    {
+        if (ShopItemPanel != null && ShopItemPanel.activeSelf)
+        {
+            if (IsFishDisplayVisible() && IsFishSpeciesModeSelected())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private List<Button> GetActiveCosmeticButtons(bool isFisherman)
+    {
+        List<Button> result = new List<Button>();
+        List<Button> source = isFisherman ? fishermanCosmeticItemButtons : fishCosmeticItemButtons;
+        
+        if (!isFisherman)
+        {
+            for (int i = 0; i < source.Count; i++)
+            {
+                Button btn = source[i];
+                if (btn != null)
+                {
+                    bool isClear = IsClearFishCosmeticButton(btn);
+                    bool hasSprite = GetButtonSprite(btn) != null;
+                    if (isClear || hasSprite)
+                    {
+                        result.Add(btn);
+                    }
+                }
+            }
+        }
+        else
+        {
+            GameObject requiredParent = (selectedFishermanDisplayMode == FishermanDisplayModeHat)
+                ? FishermanHatObject
+                : FishermanHairObject;
+            
+            for (int i = 0; i < source.Count; i++)
+            {
+                Button btn = source[i];
+                if (btn != null)
+                {
+                    if (requiredParent == null || btn.transform.IsChildOf(requiredParent.transform))
+                    {
+                        bool isClear = IsClearFishermanCosmeticButton(btn);
+                        bool hasSprite = GetButtonSprite(btn) != null;
+                        if (isClear || hasSprite)
+                        {
+                            result.Add(btn);
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Sort the buttons based on their hierarchy order so they cycle in the exact visual grid order!
+        result.Sort((a, b) => GetHierarchySortKey(a.transform).CompareTo(GetHierarchySortKey(b.transform)));
+        return result;
+    }
+
+    private int GetSelectedButtonIndex(List<Button> activeButtons, bool isFisherman)
+    {
+        Sprite selectedSprite = null;
+        if (!isFisherman)
+        {
+            selectedSprite = CosmeticRuntimeApplier.GetSelectedFishHat();
+        }
+        else
+        {
+            selectedSprite = (selectedFishermanDisplayMode == FishermanDisplayModeHat)
+                ? CosmeticRuntimeApplier.GetSelectedFishermanHat()
+                : CosmeticRuntimeApplier.GetSelectedFishermanHair();
+        }
+
+        for (int i = 0; i < activeButtons.Count; i++)
+        {
+            Button btn = activeButtons[i];
+            if (selectedSprite == null)
+            {
+                if (isFisherman ? IsClearFishermanCosmeticButton(btn) : IsClearFishCosmeticButton(btn))
+                {
+                    return i;
+                }
+            }
+            else
+            {
+                if (GetButtonSprite(btn) == selectedSprite)
+                {
+                    return i;
+                }
+            }
+        }
+        return 0;
+    }
+
+    public void CycleFishHat(int direction, LocalPlayManager localPlay)
+    {
+        List<Button> activeButtons = GetActiveCosmeticButtons(false);
+        if (activeButtons.Count == 0) return;
+        
+        int currentIndex = GetSelectedButtonIndex(activeButtons, false);
+        int nextIndex = (currentIndex + direction + activeButtons.Count) % activeButtons.Count;
+        
+        Button btn = activeButtons[nextIndex];
+        SelectCosmeticItem(fishCosmeticItemButtons, btn, false);
+    }
+
+    public void CycleFishermanHat(int direction)
+    {
+        List<Button> activeButtons = GetActiveCosmeticButtons(true);
+        if (activeButtons.Count == 0) return;
+        
+        int currentIndex = GetSelectedButtonIndex(activeButtons, true);
+        int nextIndex = (currentIndex + direction + activeButtons.Count) % activeButtons.Count;
+        
+        Button targetButton = activeButtons[nextIndex];
+        SelectCosmeticItem(fishermanCosmeticItemButtons, targetButton, true);
+    }
 }
+
