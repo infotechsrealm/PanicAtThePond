@@ -132,6 +132,7 @@ public class ShopManager : MonoBehaviour
     private const string FishDisplayModeSpecies = "Fish Species";
     private const string FishermanDisplayModeHat = "Hat";
     private const string FishermanDisplayModeHair = "Hair";
+    private const string FishermanHeadphonePreviewResourcePath = "ShopUI/Fisherman Preview/Fishermna headphone hat";
     private static readonly Color SelectedCellOutlineColor = new Color(0.12f, 0.55f, 1f, 1f);
     private static readonly Vector2 SelectedCellOutlineDistance = new Vector2(3f, -3f);
     private string selectedFishDisplayMode = FishDisplayModeHat;
@@ -501,8 +502,8 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
-        HideFishVoyageDiagramPreview();
         ApplySavedFishHatToDisplay();
+        RefreshBottomRightPreview();
     }
 
     private void ApplySelectedFishermanDisplayMode()
@@ -527,6 +528,7 @@ public class ShopManager : MonoBehaviour
         }
 
         ApplySavedFishermanDisplayModeSprite();
+        RefreshBottomRightPreview();
     }
 
     private void ApplySavedFishermanDisplayModeSprite()
@@ -565,6 +567,7 @@ public class ShopManager : MonoBehaviour
 
         fishermanImage.sprite = previewSprites[0];
         fishermanImage.preserveAspect = true;
+        RefreshBottomRightPreview();
         return true;
     }
 
@@ -721,7 +724,6 @@ public class ShopManager : MonoBehaviour
         CloseHatDropdown();
         SetHatDropdownLabel(FishDisplayModeHat);
         SetDisplayControlLabel(FishDisplayModeHat);
-        HideFishVoyageDiagramPreview();
         SetActiveIfNotNull(FishCosmeticPanel, true);
         ApplySelectedFishDisplayMode();
     }
@@ -752,7 +754,6 @@ public class ShopManager : MonoBehaviour
         CloseHatDropdown();
         SetHatDropdownLabel(FishermanDisplayModeHair);
         SetDisplayControlLabel(FishermanDisplayModeHair);
-        HideFishVoyageDiagramPreview();
         ApplySelectedFishermanDisplayMode();
     }
 
@@ -767,7 +768,6 @@ public class ShopManager : MonoBehaviour
         CloseHatDropdown();
         SetHatDropdownLabel(FishermanDisplayModeHat);
         SetDisplayControlLabel(FishermanDisplayModeHat);
-        HideFishVoyageDiagramPreview();
         ApplySelectedFishermanDisplayMode();
     }
 
@@ -818,6 +818,62 @@ public class ShopManager : MonoBehaviour
         {
             DiagramPreviewImage.gameObject.SetActive(false);
         }
+    }
+
+    private bool IsHatIconPreviewMode()
+    {
+        if (isFishSelected && IsFishHatModeSelected())
+        {
+            return true;
+        }
+
+        return isFishermanSelected && IsFishermanHatModeSelected();
+    }
+
+    private void RefreshBottomRightPreview()
+    {
+        if (IsFishSpeciesModeSelected() && isFishSelected)
+        {
+            ShowFishVoyageDiagramPreview();
+            return;
+        }
+
+        if (IsHatIconPreviewMode())
+        {
+            ShowCurrentHatIconPreview();
+            return;
+        }
+
+        HideBottomRightPreview();
+    }
+
+    private void ShowCurrentHatIconPreview()
+    {
+        if (DiagramPreviewImage == null)
+        {
+            return;
+        }
+
+        Sprite hatIcon = isFishermanSelected
+            ? CosmeticRuntimeApplier.GetSelectedFishermanHat()
+            : CosmeticRuntimeApplier.GetSelectedFishHat();
+
+        if (hatIcon == null)
+        {
+            HideBottomRightPreview();
+            return;
+        }
+
+        DiagramPreviewImage.sprite = hatIcon;
+        DiagramPreviewImage.preserveAspect = true;
+        DiagramPreviewImage.enabled = true;
+        DiagramPreviewImage.gameObject.SetActive(true);
+        DiagramPreviewImage.transform.SetAsLastSibling();
+    }
+
+    private void HideBottomRightPreview()
+    {
+        HideFishVoyageDiagramPreview();
     }
 
     private void LoadDiagramPreviewSprite()
@@ -1136,6 +1192,7 @@ public class ShopManager : MonoBehaviour
         {
             CosmeticRuntimeApplier.SelectFishHat(null);
             ClearFishHatFromDisplay();
+            RefreshBottomRightPreview();
             return;
         }
 
@@ -1145,6 +1202,7 @@ public class ShopManager : MonoBehaviour
             SetDisplayControlLabel(selectedFishermanDisplayMode);
             CosmeticRuntimeApplier.SelectFishermanHat(null);
             ClearFishermanHatFromDisplay();
+            RefreshBottomRightPreview();
             return;
         }
 
@@ -1161,6 +1219,7 @@ public class ShopManager : MonoBehaviour
             SetActiveIfNotNull(FishVoyageDiagram, false);
             CosmeticRuntimeApplier.SelectFishHat(selectedSprite);
             ApplySelectedFishHatToDisplay(selectedSprite);
+            RefreshBottomRightPreview();
             return;
         }
 
@@ -1170,6 +1229,7 @@ public class ShopManager : MonoBehaviour
             SetDisplayControlLabel(selectedFishermanDisplayMode);
             CosmeticRuntimeApplier.SelectFishermanHair(selectedSprite);
             ApplySelectedFishermanHatToDisplay(selectedSprite);
+            RefreshBottomRightPreview();
         }
         else
         {
@@ -1177,6 +1237,7 @@ public class ShopManager : MonoBehaviour
             SetDisplayControlLabel(selectedFishermanDisplayMode);
             CosmeticRuntimeApplier.SelectFishermanHat(selectedSprite);
             ApplySelectedFishermanHatToDisplay(selectedSprite);
+            RefreshBottomRightPreview();
         }
     }
 
@@ -1344,11 +1405,11 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    private bool TryApplyCompositePreviewSprite(Image targetImage, Sprite selectedSprite, int fishDisplayIndex, bool isFisherman)
+    private Sprite GetCompositePreviewSprite(Sprite selectedSprite, int fishDisplayIndex, bool isFisherman)
     {
-        if (targetImage == null || selectedSprite == null)
+        if (selectedSprite == null)
         {
-            return false;
+            return null;
         }
 
         BuildPreviewMapsIfNeeded();
@@ -1363,6 +1424,10 @@ public class ShopManager : MonoBehaviour
             if (isFisherman)
             {
                 fishermanPreviewSpritesByCosmetic.TryGetValue(cosmeticKey, out previewSprite);
+                if (previewSprite == null)
+                {
+                    previewSprite = ResolveFishermanHatPreviewSprite(selectedSprite);
+                }
             }
             else
             {
@@ -1375,6 +1440,17 @@ public class ShopManager : MonoBehaviour
             }
         }
 
+        return previewSprite;
+    }
+
+    private bool TryApplyCompositePreviewSprite(Image targetImage, Sprite selectedSprite, int fishDisplayIndex, bool isFisherman)
+    {
+        if (targetImage == null || selectedSprite == null)
+        {
+            return false;
+        }
+
+        Sprite previewSprite = GetCompositePreviewSprite(selectedSprite, fishDisplayIndex, isFisherman);
         if (previewSprite == null)
         {
             return false;
@@ -1383,6 +1459,28 @@ public class ShopManager : MonoBehaviour
         targetImage.sprite = previewSprite;
         targetImage.preserveAspect = true;
         return true;
+    }
+
+    private Sprite ResolveFishermanHatPreviewSprite(Sprite cosmeticSprite)
+    {
+        if (cosmeticSprite == null)
+        {
+            return null;
+        }
+
+        string hatKey = GetFishermanCosmeticHatKey(cosmeticSprite.name);
+        if (hatKey == "headphone")
+        {
+            Sprite headphonePreview = Resources.Load<Sprite>(FishermanHeadphonePreviewResourcePath);
+            if (headphonePreview != null)
+            {
+                RegisterPreviewSprite(headphonePreview);
+                return headphonePreview;
+            }
+        }
+
+        Dictionary<string, Sprite> previewSpritesByHat = GetFishermanPreviewSpritesByHat();
+        return ResolveFishermanPreviewSprite(cosmeticSprite, previewSpritesByHat);
     }
 
     private Sprite ResolvePreviewSpriteFromRules(List<CosmeticPreviewRule> rules, string cosmeticKey)
@@ -1456,17 +1554,33 @@ public class ShopManager : MonoBehaviour
         }
 
         CacheDisplayBaseSprite(fishermanImage);
-        if (!TryApplyCompositePreviewSprite(fishermanImage, selectedSprite, 0, true))
+
+        bool isHairSelection = FishermanHairObject != null
+            && selectedFishermanDisplayMode == FishermanDisplayModeHair;
+
+        if (isHairSelection)
         {
-            string cosmeticKey = GetFishermanCosmeticHatKey(selectedSprite.name);
-            if (cosmeticKey == "yellow")
-            {
-                RestoreDisplayBaseSprite(fishermanImage);
-            }
-            else
+            if (!TryApplyCompositePreviewSprite(fishermanImage, selectedSprite, 0, true))
             {
                 ApplyFishermanRedHairPreview(fishermanImage);
             }
+
+            return;
+        }
+
+        Sprite previewSprite = GetCompositePreviewSprite(selectedSprite, 0, true);
+        if (previewSprite != null)
+        {
+            fishermanImage.sprite = previewSprite;
+            fishermanImage.preserveAspect = true;
+        }
+        else if (GetFishermanCosmeticHatKey(selectedSprite.name) == "yellow")
+        {
+            RestoreDisplayBaseSprite(fishermanImage);
+        }
+        else
+        {
+            RestoreDisplayBaseSprite(fishermanImage);
         }
     }
 
@@ -1915,7 +2029,7 @@ public class ShopManager : MonoBehaviour
             return "red";
         }
 
-        if (name.Contains("headphone"))
+        if (name.Contains("headphone") || name.Contains("headphones"))
         {
             return "headphone";
         }
@@ -1966,7 +2080,7 @@ public class ShopManager : MonoBehaviour
             return "green";
         }
 
-        if (name.Contains("headphone"))
+        if (name.Contains("headphone") || name.Contains("headphones") || name.Contains("fishermnaheadphone"))
         {
             return "headphone";
         }
@@ -2942,6 +3056,7 @@ public class ShopManager : MonoBehaviour
             CosmeticRuntimeApplier.SelectFishermanHat(null);
         }
 
+        RefreshBottomRightPreview();
         return true;
     }
 
