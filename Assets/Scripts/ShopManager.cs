@@ -796,10 +796,8 @@ public class ShopManager : MonoBehaviour
     {
         if (DiagramPreviewImage != null)
         {
-            if (DiagramPreviewImage.sprite == null)
-            {
-                LoadDiagramPreviewSprite();
-            }
+            // Always reload — hat mode may have swapped this image to a hat icon sprite.
+            LoadDiagramPreviewSprite();
 
             DiagramPreviewImage.enabled = true;
             DiagramPreviewImage.gameObject.SetActive(true);
@@ -886,7 +884,21 @@ public class ShopManager : MonoBehaviour
         Sprite diagramSprite = Resources.Load<Sprite>("ShopUI/daigram preview");
         if (diagramSprite == null)
         {
+            diagramSprite = Resources.Load<Sprite>("ShopUI/daigram preview_0");
+        }
+
+        if (diagramSprite == null)
+        {
             diagramSprite = Resources.Load<Sprite>("ShopUI/diagram preview");
+        }
+
+        if (diagramSprite == null)
+        {
+            Sprite[] sprites = Resources.LoadAll<Sprite>("ShopUI/daigram preview");
+            if (sprites != null && sprites.Length > 0)
+            {
+                diagramSprite = sprites[0];
+            }
         }
 
         if (diagramSprite == null)
