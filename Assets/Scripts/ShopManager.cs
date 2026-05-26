@@ -74,6 +74,18 @@ public class ShopManager : MonoBehaviour
     public Text FishFishermanDropdownText;
     public TMP_Text FishFishermanDropdownTMPText;
 
+    [Header("Hat Category Dropdown")]
+    public Button HatDropdownButton;
+    public GameObject HatDropdownList;
+    public Button HatOptionButton;
+    public Button FishSpeciesOptionButton;
+    public Button HairOptionButton;
+    public Button HatHairOptionButton;
+    public Transform HatDropdownArrow;
+    public Text HatDropdownText;
+    public TMP_Text HatDropdownTMPText;
+    public Image DiagramPreviewImage; // Shows "daigram preview.png" in bottom right when Fish Species selected
+
     [Header("Display Preview")]
     public GameObject FishDisplayObject;
     public GameObject[] FishDisplayObjects;
@@ -100,6 +112,7 @@ public class ShopManager : MonoBehaviour
     public float fishingshopFramesPerSecond = 10f;
 
     private bool isFishFishermanDropdownOpen;
+    private bool isHatDropdownOpen;
     private UIImageFrameAnimator saltShopAnimator;
     private readonly List<Button> fishCosmeticItemButtons = new List<Button>();
     private readonly List<Button> fishermanCosmeticItemButtons = new List<Button>();
@@ -143,6 +156,11 @@ public class ShopManager : MonoBehaviour
         AddButtonListener(FishOptionButton, SelectFishDisplay);
         AddButtonListener(FishermanOptionButton, SelectFishermanDisplay);
         AddButtonListener(DisplayHatButton, SelectHatDisplay);
+        AddButtonListener(HatDropdownButton, ToggleHatDropdown);
+        AddButtonListener(HatOptionButton, SelectHatOption);
+        AddButtonListener(FishSpeciesOptionButton, SelectFishSpeciesOption);
+        AddButtonListener(HairOptionButton, SelectHairOption);
+        AddButtonListener(HatHairOptionButton, SelectHatHairOption);
         AddButtonListener(FishFaceButton, FishShopUI);
         AddButtonListener(FishermanFaceButton, SelectFishermanHairCategory);
         AddButtonListener(FishermanHatButton, SelectFishermanHatCategory);
@@ -156,10 +174,12 @@ public class ShopManager : MonoBehaviour
     {
         SetActiveIfNotNull(FishVoyageDiagram, false);
         SetActiveIfNotNull(FishFishermanDropdownList, false);
+        SetActiveIfNotNull(HatDropdownList, false);
         SetDisplayControlLabel(selectedFishDisplayMode);
         SetupAnimatedSaltShopGif();
         SetActiveIfNotNull(SaltShopPanel, false);
         StartCoroutine(FetchCoinsForShop());
+        LoadDiagramPreviewSprite();
     }
 
     private void OnDestroy()
@@ -311,65 +331,52 @@ public class ShopManager : MonoBehaviour
 
     public void ToggleFishFishermanDropdown()
     {
-        HideFishermanDisplayPreview();
         SetFishFishermanDropdownOpen(!isFishFishermanDropdownOpen);
+    }
+
+    public void ToggleHatDropdown()
+    {
+        SetHatDropdownOpen(!isHatDropdownOpen);
     }
 
     public void SelectFishDisplay()
     {
         SetDisplayMode("Fish", true, false, IsFishHatModeSelected());
         ClearFishermanHatFromDisplay();
-        ApplySelectedFishDisplayMode();
+        CloseFishFishermanDropdown();
     }
 
     public void SelectFishermanDisplay()
     {
         SetDisplayMode("Fisherman", false, true, IsFishermanHatModeSelected());
         ClearFishHatFromDisplay();
-        ApplySelectedFishermanDisplayMode();
+        CloseFishFishermanDropdown();
     }
 
     public void SelectHatDisplay()
     {
-        if (IsFishDisplayVisible())
-        {
-            selectedFishDisplayMode = IsFishHatModeSelected() ? FishDisplayModeSpecies : FishDisplayModeHat;
-            ApplySelectedFishDisplayMode();
-        }
-        else if (IsFishermanDisplayVisible())
-        {
-            selectedFishermanDisplayMode = IsFishermanHatModeSelected() ? FishermanDisplayModeHair : FishermanDisplayModeHat;
-            ApplySelectedFishermanDisplayMode();
-        }
         CloseFishFishermanDropdown();
+        CloseHatDropdown();
     }
 
     public void SelectFishermanHairCategory()
     {
         selectedFishermanDisplayMode = FishermanDisplayModeHair;
-        SetDisplayControlLabel(selectedFishermanDisplayMode);
         SetActiveIfNotNull(FishermanHairObject, true);
         SetActiveIfNotNull(FishermanHatObject, false);
         SetActiveIfNotNull(FishermanCosmeticPanel, true);
         SetActiveIfNotNull(FishCosmeticPanel, false);
-        if (IsFishermanDisplayVisible())
-        {
-            ApplySelectedFishermanDisplayMode();
-        }
+        CloseHatDropdown();
     }
 
     public void SelectFishermanHatCategory()
     {
         selectedFishermanDisplayMode = FishermanDisplayModeHat;
-        SetDisplayControlLabel(selectedFishermanDisplayMode);
         SetActiveIfNotNull(FishermanHatObject, true);
         SetActiveIfNotNull(FishermanHairObject, false);
         SetActiveIfNotNull(FishermanCosmeticPanel, true);
         SetActiveIfNotNull(FishCosmeticPanel, false);
-        if (IsFishermanDisplayVisible())
-        {
-            ApplySelectedFishermanDisplayMode();
-        }
+        CloseHatDropdown();
     }
 
     public void HideFishFishermanDisplay()
@@ -565,6 +572,127 @@ public class ShopManager : MonoBehaviour
     private void CloseFishFishermanDropdown()
     {
         SetFishFishermanDropdownOpen(false);
+        CloseHatDropdown();
+    }
+
+    private void CloseHatDropdown()
+    {
+        SetHatDropdownOpen(false);
+    }
+
+    private void SetHatDropdownOpen(bool open)
+    {
+        isHatDropdownOpen = open;
+        SetActiveIfNotNull(HatDropdownList, open);
+
+        if (HatDropdownArrow != null)
+        {
+            Vector3 angles = HatDropdownArrow.localEulerAngles;
+            angles.z = open ? 180f : 0f;
+            HatDropdownArrow.localEulerAngles = angles;
+        }
+    }
+
+    // Duplicate of line 337 - removed
+
+    public void SelectHatOption()
+    {
+        selectedFishDisplayMode = FishDisplayModeHat;
+        selectedFishermanDisplayMode = FishermanDisplayModeHat;
+        CloseHatDropdown();
+        SetActiveIfNotNull(FishermanHatObject, true);
+        SetActiveIfNotNull(FishermanHairObject, false);
+    }
+
+    public void SelectFishSpeciesOption()
+    {
+        selectedFishDisplayMode = FishDisplayModeSpecies;
+        CloseHatDropdown();
+        ShowDiagramPreview();
+    }
+
+    public void SelectHairOption()
+    {
+        selectedFishermanDisplayMode = FishermanDisplayModeHair;
+        CloseHatDropdown();
+        SetActiveIfNotNull(FishermanHairObject, true);
+        SetActiveIfNotNull(FishermanHatObject, false);
+    }
+
+    public void SelectHatHairOption()
+    {
+        selectedFishermanDisplayMode = FishermanDisplayModeHat;
+        CloseHatDropdown();
+        SelectFishermanHatCategory();
+    }
+
+    // Duplicate removed - kept only at line 619
+
+    private void SetHatDropdownLabel(string label)
+    {
+        if (HatDropdownText != null)
+        {
+            HatDropdownText.text = label;
+        }
+
+        if (HatDropdownTMPText != null)
+        {
+            HatDropdownTMPText.text = label;
+        }
+    }
+
+    private void ShowDiagramPreview()
+    {
+        if (DiagramPreviewImage != null)
+        {
+            DiagramPreviewImage.gameObject.SetActive(true);
+        }
+        if (HatDisplayObject != null)
+        {
+            HatDisplayObject.SetActive(false);
+        }
+    }
+
+    private void HideDiagramPreview()
+    {
+        if (DiagramPreviewImage != null)
+        {
+            DiagramPreviewImage.gameObject.SetActive(false);
+        }
+    }
+
+    private void LoadDiagramPreviewSprite()
+    {
+        if (DiagramPreviewImage != null)
+        {
+            Sprite diagramSprite = Resources.Load<Sprite>("ShopUI/daigram preview");
+            if (diagramSprite != null)
+            {
+                DiagramPreviewImage.sprite = diagramSprite;
+            }
+            DiagramPreviewImage.gameObject.SetActive(false);
+        }
+    }
+
+    private void UpdateDisplayedDropdownOptions()
+    {
+        bool isFishermanSelected = IsFishermanDisplayVisible();
+        bool isFishSelected = IsFishDisplayVisible();
+
+        if (isFishermanSelected)
+        {
+            SetActiveIfNotNull(HatHairOptionButton?.gameObject, true);
+            SetActiveIfNotNull(HairOptionButton?.gameObject, true);
+            SetActiveIfNotNull(HatOptionButton?.gameObject, true);
+            SetActiveIfNotNull(FishSpeciesOptionButton?.gameObject, false);
+        }
+        else if (isFishSelected)
+        {
+            SetActiveIfNotNull(HatOptionButton?.gameObject, true);
+            SetActiveIfNotNull(FishSpeciesOptionButton?.gameObject, true);
+            SetActiveIfNotNull(HairOptionButton?.gameObject, false);
+            SetActiveIfNotNull(HatHairOptionButton?.gameObject, false);
+        }
     }
 
     private void SetDropdownLabel(string label)
@@ -2285,7 +2413,11 @@ public class ShopManager : MonoBehaviour
     {
         if (ShopItemPanel != null && ShopItemPanel.activeSelf)
         {
-            if (IsFishDisplayVisible() && IsFishHatModeSelected())
+            if (IsFishDisplayVisible() && IsFishSpeciesModeSelected())
+            {
+                return false;
+            }
+            else if (IsFishDisplayVisible() && IsFishHatModeSelected())
             {
                 CycleFishHat(direction, localPlay);
                 return true;
