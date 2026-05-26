@@ -87,6 +87,7 @@ public class ShopManager : MonoBehaviour
     public Image DiagramPreviewImage; // Shows "daigram preview.png" in bottom right when Fish Species selected
 
     [Header("Display Preview")]
+    public GameObject ShopPreviewRoot;
     public GameObject FishDisplayObject;
     public GameObject[] FishDisplayObjects;
     public GameObject FishermanDisplayObject;
@@ -124,6 +125,7 @@ public class ShopManager : MonoBehaviour
     private readonly Dictionary<string, Sprite>[] fishPreviewSpritesByCosmetic = new Dictionary<string, Sprite>[2];
     private readonly Dictionary<string, Sprite> fishermanPreviewSpritesByCosmetic = new Dictionary<string, Sprite>();
     private readonly Dictionary<string, Sprite> previewSpritesByName = new Dictionary<string, Sprite>();
+    private List<Sprite> orderedFishermanHatPreviewSprites;
     private bool previewMapsBuilt;
     private const string FishHatPreviewChildName = "Applied Fish Hat Cosmetic Preview";
     private const string FishDisplayModeHat = "Hat";
@@ -134,6 +136,8 @@ public class ShopManager : MonoBehaviour
     private static readonly Vector2 SelectedCellOutlineDistance = new Vector2(3f, -3f);
     private string selectedFishDisplayMode = FishDisplayModeHat;
     private string selectedFishermanDisplayMode = FishermanDisplayModeHat;
+    private LocalPlayManager shopLocalPlayManager;
+    private bool useLegacyHatDropdownLabel;
 
     private void Awake()
     {
@@ -141,8 +145,10 @@ public class ShopManager : MonoBehaviour
         ResolveCloseButton();
         ResolveCosmeticCategoryReferences();
         ResolveCosmeticItemRoots();
+        ResolveShopPreviewReferences();
         ResolveFishDisplayObjects();
         ResolvePreviewAssetFolderPaths();
+        ConfigureHatDropdownLabels();
 
         AddButtonListener(HatButton, HatShopUI);
         AddButtonListener(RoadButton, RoadShopUI);
@@ -161,8 +167,9 @@ public class ShopManager : MonoBehaviour
         AddButtonListener(HatDropdownButton, ToggleHatDropdown);
         AddButtonListener(HatOptionButton, SelectHatOption);
         AddButtonListener(FishSpeciesOptionButton, SelectFishSpeciesOption);
-        AddButtonListener(HairOptionButton, SelectHairOption);
-        AddButtonListener(HatHairOptionButton, SelectHatHairOption);
+        // Scene wiring: HairOptionButton = "hat Button Fisherman", HatHairOptionButton = "Hair Button Fisherman."
+        AddButtonListener(HairOptionButton, SelectHatHairOption);
+        AddButtonListener(HatHairOptionButton, SelectHairOption);
         AddButtonListener(FishFaceButton, FishShopUI);
         AddButtonListener(FishermanFaceButton, SelectFishermanHairCategory);
         AddButtonListener(FishermanHatButton, SelectFishermanHatCategory);
@@ -200,6 +207,11 @@ public class ShopManager : MonoBehaviour
         RemoveButtonListener(FishOptionButton, SelectFishDisplay);
         RemoveButtonListener(FishermanOptionButton, SelectFishermanDisplay);
         RemoveButtonListener(DisplayHatButton, SelectHatDisplay);
+        RemoveButtonListener(HatDropdownButton, ToggleHatDropdown);
+        RemoveButtonListener(HatOptionButton, SelectHatOption);
+        RemoveButtonListener(FishSpeciesOptionButton, SelectFishSpeciesOption);
+        RemoveButtonListener(HairOptionButton, SelectHatHairOption);
+        RemoveButtonListener(HatHairOptionButton, SelectHairOption);
         RemoveButtonListener(FishFaceButton, FishShopUI);
         RemoveButtonListener(FishermanFaceButton, SelectFishermanHairCategory);
         RemoveButtonListener(FishermanHatButton, SelectFishermanHatCategory);
@@ -347,22 +359,28 @@ public class ShopManager : MonoBehaviour
 
     public void SelectFishDisplay()
     {
+        EnsureShopPreviewRootActive();
         isFishSelected = true;
         isFishermanSelected = false;
         SetDisplayMode("Fish", true, false, IsFishHatModeSelected());
         ClearFishermanHatFromDisplay();
-        CloseFishFishermanDropdown();
+        HideFishVoyageDiagramPreview();
+        UpdateDisplayedDropdownOptions();
         ApplySelectedFishDisplayMode();
+        CloseFishFishermanDropdown();
     }
 
     public void SelectFishermanDisplay()
     {
+        EnsureShopPreviewRootActive();
         isFishermanSelected = true;
         isFishSelected = false;
         SetDisplayMode("Fisherman", false, true, IsFishermanHatModeSelected());
         ClearFishHatFromDisplay();
-        CloseFishFishermanDropdown();
+        HideFishVoyageDiagramPreview();
+        UpdateDisplayedDropdownOptions();
         ApplySelectedFishermanDisplayMode();
+        CloseFishFishermanDropdown();
     }
 
     public void SelectHatDisplay()
@@ -418,6 +436,46 @@ public class ShopManager : MonoBehaviour
     private void OpenShopItemPanel()
     {
         SetActiveIfNotNull(ShopItemPanel, true);
+        EnsureShopPreviewRootActive();
+    }
+
+    private void EnsureShopPreviewRootActive()
+    {
+        SetActiveIfNotNull(ShopPreviewRoot, true);
+    }
+
+    private void ResolveShopPreviewReferences()
+    {
+        if (ShopPreviewRoot == null)
+        {
+            ShopPreviewRoot = FindGameObjectByNames(transform.root, "Shop");
+        }
+
+        if (ShopPreviewRoot != null && shopLocalPlayManager == null)
+        {
+            shopLocalPlayManager = ShopPreviewRoot.GetComponent<LocalPlayManager>();
+        }
+
+        if (FishermanDisplayObject == null && ShopPreviewRoot != null)
+        {
+            FishermanDisplayObject = FindGameObjectByNames(
+                ShopPreviewRoot.transform,
+                "FisherMan yellow hat",
+                "Fisherman yellow hat",
+                "Fisherman Display",
+                "FishermanDisplay");
+        }
+    }
+
+    private void ConfigureHatDropdownLabels()
+    {
+        useLegacyHatDropdownLabel = HatDropdownTMPText == null && HatDropdownText != null;
+
+        if (HatDropdownTMPText != null && HatDropdownText != null)
+        {
+            HatDropdownText.gameObject.SetActive(false);
+            useLegacyHatDropdownLabel = false;
+        }
     }
 
     private void SetDisplayMode(string label, bool showFish, bool showFisherman, bool showHat)
@@ -439,11 +497,11 @@ public class ShopManager : MonoBehaviour
         {
             ClearFishHatFromDisplay();
             RefreshSelectedFishDisplay();
-            ShowDiagramPreview();
+            ShowFishVoyageDiagramPreview();
             return;
         }
 
-        HideDiagramPreview();
+        HideFishVoyageDiagramPreview();
         ApplySavedFishHatToDisplay();
     }
 
@@ -479,11 +537,35 @@ public class ShopManager : MonoBehaviour
 
         if (selectedSprite == null)
         {
+            if (IsFishermanHatModeSelected() && TryShowDefaultFishermanHatPreview())
+            {
+                return;
+            }
+
             ClearFishermanHatFromDisplay();
             return;
         }
 
         ApplySelectedFishermanHatToDisplay(selectedSprite);
+    }
+
+    private bool TryShowDefaultFishermanHatPreview()
+    {
+        List<Sprite> previewSprites = GetOrderedFishermanHatPreviewSprites();
+        if (previewSprites.Count == 0 || FishermanDisplayObject == null)
+        {
+            return false;
+        }
+
+        Image fishermanImage = FishermanDisplayObject.GetComponent<Image>();
+        if (fishermanImage == null)
+        {
+            return false;
+        }
+
+        fishermanImage.sprite = previewSprites[0];
+        fishermanImage.preserveAspect = true;
+        return true;
     }
 
     private void RefreshSelectedFishDisplay()
@@ -545,29 +627,48 @@ public class ShopManager : MonoBehaviour
 
     private void ResolveFishDisplayObjects()
     {
+        if (FishDisplayObject == null && ShopPreviewRoot != null)
+        {
+            FishDisplayObject = FindGameObjectByNames(ShopPreviewRoot.transform, "Fish 1", "Fish1", "Fish");
+        }
+
         if (FishDisplayObjects != null && FishDisplayObjects.Length > 1)
         {
             return;
         }
 
         Transform displayRoot = FishDisplayObject != null ? FishDisplayObject.transform.parent : null;
+        if (displayRoot == null && ShopPreviewRoot != null)
+        {
+            displayRoot = ShopPreviewRoot.transform;
+        }
+
         if (displayRoot == null)
         {
             return;
         }
 
-        GameObject fishOne = FindGameObjectByNames(displayRoot, "Fish 1", "Fish1", "Fish");
+        GameObject fishOne = FishDisplayObject != null
+            ? FishDisplayObject
+            : FindGameObjectByNames(displayRoot, "Fish 1", "Fish1", "Fish");
         GameObject fishTwo = FindGameObjectByNames(displayRoot, "Fish 2", "Fish2");
         if (fishOne == null && fishTwo == null)
         {
             return;
         }
 
-        FishDisplayObjects = new GameObject[]
+        if (fishTwo != null)
         {
-            fishOne != null ? fishOne : FishDisplayObject,
-            fishTwo
-        };
+            FishDisplayObjects = new GameObject[]
+            {
+                fishOne != null ? fishOne : fishTwo,
+                fishTwo
+            };
+        }
+        else if (fishOne != null)
+        {
+            FishDisplayObjects = new GameObject[] { fishOne };
+        }
     }
 
     private void SetFishFishermanDropdownOpen(bool open)
@@ -611,40 +712,62 @@ public class ShopManager : MonoBehaviour
 
     public void SelectHatOption()
     {
-        selectedFishDisplayMode = FishDisplayModeHat;
-        selectedFishermanDisplayMode = FishermanDisplayModeHat;
-        CloseHatDropdown();
-        HideDiagramPreview();
-
         if (isFishermanSelected)
         {
-            ApplySelectedFishermanDisplayMode();
+            return;
         }
-        else if (isFishSelected)
-        {
-            ApplySelectedFishDisplayMode();
-        }
+
+        selectedFishDisplayMode = FishDisplayModeHat;
+        CloseHatDropdown();
+        SetHatDropdownLabel(FishDisplayModeHat);
+        SetDisplayControlLabel(FishDisplayModeHat);
+        HideFishVoyageDiagramPreview();
+        SetActiveIfNotNull(FishCosmeticPanel, true);
+        ApplySelectedFishDisplayMode();
     }
 
     public void SelectFishSpeciesOption()
     {
+        if (isFishermanSelected)
+        {
+            return;
+        }
+
+        EnsureShopPreviewRootActive();
         selectedFishDisplayMode = FishDisplayModeSpecies;
         CloseHatDropdown();
+        SetHatDropdownLabel(FishDisplayModeSpecies);
+        SetDisplayControlLabel(FishDisplayModeSpecies);
         ApplySelectedFishDisplayMode();
-        ShowDiagramPreview();
     }
 
     public void SelectHairOption()
     {
+        if (!isFishermanSelected)
+        {
+            return;
+        }
+
         selectedFishermanDisplayMode = FishermanDisplayModeHair;
         CloseHatDropdown();
+        SetHatDropdownLabel(FishermanDisplayModeHair);
+        SetDisplayControlLabel(FishermanDisplayModeHair);
+        HideFishVoyageDiagramPreview();
         ApplySelectedFishermanDisplayMode();
     }
 
     public void SelectHatHairOption()
     {
+        if (!isFishermanSelected)
+        {
+            return;
+        }
+
         selectedFishermanDisplayMode = FishermanDisplayModeHat;
         CloseHatDropdown();
+        SetHatDropdownLabel(FishermanDisplayModeHat);
+        SetDisplayControlLabel(FishermanDisplayModeHat);
+        HideFishVoyageDiagramPreview();
         ApplySelectedFishermanDisplayMode();
     }
 
@@ -652,30 +775,44 @@ public class ShopManager : MonoBehaviour
 
     private void SetHatDropdownLabel(string label)
     {
-        if (HatDropdownText != null)
+        if (useLegacyHatDropdownLabel)
         {
-            HatDropdownText.text = label;
+            if (HatDropdownText != null)
+            {
+                HatDropdownText.text = label;
+            }
         }
-
-        if (HatDropdownTMPText != null)
+        else if (HatDropdownTMPText != null)
         {
             HatDropdownTMPText.text = label;
         }
+        else if (HatDropdownText != null)
+        {
+            HatDropdownText.text = label;
+        }
     }
 
-    private void ShowDiagramPreview()
+    private void ShowFishVoyageDiagramPreview()
     {
         if (DiagramPreviewImage != null)
         {
+            if (DiagramPreviewImage.sprite == null)
+            {
+                LoadDiagramPreviewSprite();
+            }
+
+            DiagramPreviewImage.enabled = true;
             DiagramPreviewImage.gameObject.SetActive(true);
+            DiagramPreviewImage.transform.SetAsLastSibling();
         }
-        if (HatDisplayObject != null)
+
+        if (HatDisplayObject != null && HatDisplayObject != DiagramPreviewImage?.gameObject)
         {
             HatDisplayObject.SetActive(false);
         }
     }
 
-    private void HideDiagramPreview()
+    private void HideFishVoyageDiagramPreview()
     {
         if (DiagramPreviewImage != null)
         {
@@ -685,17 +822,35 @@ public class ShopManager : MonoBehaviour
 
     private void LoadDiagramPreviewSprite()
     {
-        if (DiagramPreviewImage != null)
+        if (DiagramPreviewImage == null)
         {
-            Sprite diagramSprite = Resources.Load<Sprite>("ShopUI/daigram preview");
-            if (diagramSprite == null)
+            return;
+        }
+
+        Sprite diagramSprite = Resources.Load<Sprite>("ShopUI/daigram preview");
+        if (diagramSprite == null)
+        {
+            diagramSprite = Resources.Load<Sprite>("ShopUI/diagram preview");
+        }
+
+        if (diagramSprite == null)
+        {
+            Sprite[] sprites = Resources.LoadAll<Sprite>("ShopUI");
+            for (int i = 0; i < sprites.Length; i++)
             {
-                diagramSprite = Resources.Load<Sprite>("ShopUI/daigram preview.png");
+                string spriteName = NormalizeSpriteName(sprites[i].name);
+                if (spriteName.Contains("diagram") || spriteName.Contains("daigram") || spriteName.Contains("voyage"))
+                {
+                    diagramSprite = sprites[i];
+                    break;
+                }
             }
-            if (diagramSprite != null)
-            {
-                DiagramPreviewImage.sprite = diagramSprite;
-            }
+        }
+
+        if (diagramSprite != null)
+        {
+            DiagramPreviewImage.sprite = diagramSprite;
+            DiagramPreviewImage.preserveAspect = true;
         }
     }
 
@@ -703,10 +858,11 @@ public class ShopManager : MonoBehaviour
     {
         if (isFishermanSelected)
         {
-            SetActiveIfNotNull(HatHairOptionButton?.gameObject, true);
-            SetActiveIfNotNull(HairOptionButton?.gameObject, true);
+            // Hide fish-only options; show fisherman Hat + Hair (last two buttons in the dropdown list).
             SetActiveIfNotNull(HatOptionButton?.gameObject, false);
             SetActiveIfNotNull(FishSpeciesOptionButton?.gameObject, false);
+            SetActiveIfNotNull(HairOptionButton?.gameObject, true);
+            SetActiveIfNotNull(HatHairOptionButton?.gameObject, true);
         }
         else if (isFishSelected)
         {
@@ -739,22 +895,12 @@ public class ShopManager : MonoBehaviour
 
     private void SetDisplayControlLabel(string label)
     {
-        if (DisplayHatButton == null || string.IsNullOrEmpty(label))
+        if (string.IsNullOrEmpty(label))
         {
             return;
         }
 
-        TMP_Text tmpText = DisplayHatButton.GetComponentInChildren<TMP_Text>(true);
-        if (tmpText != null)
-        {
-            tmpText.text = label;
-        }
-
-        Text legacyText = DisplayHatButton.GetComponentInChildren<Text>(true);
-        if (legacyText != null)
-        {
-            legacyText.text = label;
-        }
+        SetHatDropdownLabel(label);
     }
 
     private void SetupAnimatedSaltShopGif()
@@ -913,7 +1059,7 @@ public class ShopManager : MonoBehaviour
         if (string.IsNullOrEmpty(FishermanPreviewAssetFolder)
             || NormalizeSpriteName(FishermanPreviewAssetFolder) == NormalizeSpriteName("Assets/UI/Game UI"))
         {
-            FishermanPreviewAssetFolder = "Assets/UI/Game UI/Fishermna Preview";
+            FishermanPreviewAssetFolder = "Assets/Resources/ShopUI/Fisherman Preview";
         }
     }
 
@@ -1739,7 +1885,7 @@ public class ShopManager : MonoBehaviour
             return "redhair";
         }
 
-        if (name.Contains("bluecap") || name.Contains("blue"))
+        if (name.Contains("bluecap"))
         {
             return "bluecap";
         }
@@ -1749,7 +1895,7 @@ public class ShopManager : MonoBehaviour
             return "white";
         }
 
-        if (name.Contains("fishhat") || name.Contains("frog") || name.Contains("greenbig"))
+        if (name.Contains("fishhat") || name.Contains("frog"))
         {
             return "frog";
         }
@@ -1759,12 +1905,12 @@ public class ShopManager : MonoBehaviour
             return "turtle";
         }
 
-        if (name.Contains("ranger") || name.Contains("greencap") || name.Contains("green"))
+        if (name.Contains("ranger"))
         {
             return "green";
         }
 
-        if (name.Contains("redcap") || name.Contains("red"))
+        if (name.Contains("redcap"))
         {
             return "red";
         }
@@ -1774,7 +1920,7 @@ public class ShopManager : MonoBehaviour
             return "headphone";
         }
 
-        if (name.Contains("default") || name.Contains("fishing") || name.Contains("yellow"))
+        if (name.Contains("default") || name.Contains("fishing"))
         {
             return "yellow";
         }
@@ -1795,7 +1941,7 @@ public class ShopManager : MonoBehaviour
             return "redhair";
         }
 
-        if (name.Contains("bluecap") || name.Contains("blue"))
+        if (name.Contains("bluecap"))
         {
             return "bluecap";
         }
@@ -1805,7 +1951,7 @@ public class ShopManager : MonoBehaviour
             return "white";
         }
 
-        if (name.Contains("griin") || name.Contains("frog"))
+        if (name.Contains("griin"))
         {
             return "frog";
         }
@@ -1825,7 +1971,7 @@ public class ShopManager : MonoBehaviour
             return "headphone";
         }
 
-        if (name.Contains("redhat") || name.Contains("red"))
+        if (name.Contains("redhat"))
         {
             return "red";
         }
@@ -1992,13 +2138,18 @@ public class ShopManager : MonoBehaviour
 
     private bool IsFishDisplayVisible()
     {
+        if (!isFishSelected)
+        {
+            return false;
+        }
+
         ResolveFishDisplayObjects();
 
         if (FishDisplayObjects != null && FishDisplayObjects.Length > 0)
         {
             for (int i = 0; i < FishDisplayObjects.Length; i++)
             {
-                if (FishDisplayObjects[i] != null && FishDisplayObjects[i].activeSelf)
+                if (FishDisplayObjects[i] != null && FishDisplayObjects[i].activeInHierarchy)
                 {
                     return true;
                 }
@@ -2007,12 +2158,14 @@ public class ShopManager : MonoBehaviour
             return false;
         }
 
-        return FishDisplayObject != null && FishDisplayObject.activeSelf;
+        return FishDisplayObject != null && FishDisplayObject.activeInHierarchy;
     }
 
     private bool IsFishermanDisplayVisible()
     {
-        return FishermanDisplayObject != null && FishermanDisplayObject.activeSelf;
+        return isFishermanSelected
+            && FishermanDisplayObject != null
+            && FishermanDisplayObject.activeInHierarchy;
     }
 
     private int GetFishDisplayIndex(GameObject fishDisplay)
@@ -2440,29 +2593,53 @@ public class ShopManager : MonoBehaviour
 
     public bool CycleActiveDisplaySelection(int direction, LocalPlayManager localPlay)
     {
-        if (ShopItemPanel != null && ShopItemPanel.activeSelf)
+        if (!IsShopOpen())
         {
-            if (IsFishDisplayVisible() && IsFishSpeciesModeSelected())
-            {
-                return false;
-            }
-            else if (IsFishDisplayVisible() && IsFishHatModeSelected())
-            {
-                CycleFishHat(direction, localPlay);
-                return true;
-            }
-            else if (IsFishermanDisplayVisible() && IsFishermanHatModeSelected())
-            {
-                CycleFishermanHat(direction);
-                return true;
-            }
+            return false;
         }
+
+        LocalPlayManager playManager = localPlay != null ? localPlay : shopLocalPlayManager;
+
+        if (IsFishDisplayVisible() && IsFishSpeciesModeSelected())
+        {
+            CycleFishSpecies(direction, playManager);
+            return true;
+        }
+
+        if (IsFishDisplayVisible() && IsFishHatModeSelected())
+        {
+            CycleFishHat(direction, playManager);
+            return true;
+        }
+
+        if (IsFishermanDisplayVisible() && IsFishermanHatModeSelected())
+        {
+            CycleFishermanHat(direction);
+            return true;
+        }
+
+        if (IsFishermanDisplayVisible())
+        {
+            CycleFishermanHair(direction);
+            return true;
+        }
+
         return false;
     }
 
     public bool IsShopOpen()
     {
-        return ShopItemPanel != null && ShopItemPanel.activeSelf;
+        if (ShopItemPanel != null && ShopItemPanel.activeSelf)
+        {
+            return true;
+        }
+
+        if (FishFishermanCosmeticPanel != null && FishFishermanCosmeticPanel.activeSelf)
+        {
+            return true;
+        }
+
+        return ShopPreviewRoot != null && ShopPreviewRoot.activeSelf;
     }
 
     public bool IsCyclingSpecies()
@@ -2565,25 +2742,281 @@ public class ShopManager : MonoBehaviour
     public void CycleFishHat(int direction, LocalPlayManager localPlay)
     {
         List<Button> activeButtons = GetActiveCosmeticButtons(false);
-        if (activeButtons.Count == 0) return;
-        
+        if (activeButtons.Count == 0)
+        {
+            return;
+        }
+
         int currentIndex = GetSelectedButtonIndex(activeButtons, false);
         int nextIndex = (currentIndex + direction + activeButtons.Count) % activeButtons.Count;
-        
+
         Button btn = activeButtons[nextIndex];
         SelectCosmeticItem(fishCosmeticItemButtons, btn, false);
     }
 
+    public void CycleFishSpecies(int direction, LocalPlayManager localPlay)
+    {
+        EnsureShopPreviewRootActive();
+        ResolveFishDisplayObjects();
+
+        if (FishDisplayObjects == null || FishDisplayObjects.Length == 0)
+        {
+            return;
+        }
+
+        int currentFish = Mathf.Clamp(PlayerPrefs.GetInt(LocalPlayManager.SelectedFishPrefKey, 0), 0, FishDisplayObjects.Length - 1);
+        int fishCount = FishDisplayObjects.Length;
+        for (int step = 0; step < fishCount; step++)
+        {
+            int candidate = (currentFish + direction + fishCount) % fishCount;
+            if (IsFishSpeciesUnlocked(candidate, localPlay))
+            {
+                if (candidate == currentFish)
+                {
+                    break;
+                }
+
+                currentFish = candidate;
+                PlayerPrefs.SetInt(LocalPlayManager.SelectedFishPrefKey, currentFish);
+                PlayerPrefs.Save();
+                RefreshSelectedFishDisplay();
+                SyncLocalPlayFishSelection(currentFish, localPlay);
+                return;
+            }
+
+            currentFish = candidate;
+        }
+    }
+
+    private static bool IsFishSpeciesUnlocked(int fishIndex, LocalPlayManager localPlay)
+    {
+        if (fishIndex <= 0)
+        {
+            return true;
+        }
+
+        if (fishIndex == 1)
+        {
+            return PlayerPrefs.GetInt(LocalPlayManager.TroutUnlockedPrefKey, 0) == 1;
+        }
+
+        return false;
+    }
+
+    private void SyncLocalPlayFishSelection(int fishIndex, LocalPlayManager localPlay)
+    {
+        if (localPlay == null)
+        {
+            return;
+        }
+
+        localPlay.ApplyFishSelectionFromShop(fishIndex);
+    }
+
     public void CycleFishermanHat(int direction)
     {
+        EnsureShopPreviewRootActive();
+
+        if (TryCycleFishermanHatPreviewSprites(direction))
+        {
+            return;
+        }
+
         List<Button> activeButtons = GetActiveCosmeticButtons(true);
-        if (activeButtons.Count == 0) return;
-        
+        if (activeButtons.Count == 0)
+        {
+            return;
+        }
+
         int currentIndex = GetSelectedButtonIndex(activeButtons, true);
         int nextIndex = (currentIndex + direction + activeButtons.Count) % activeButtons.Count;
-        
+
         Button targetButton = activeButtons[nextIndex];
         SelectCosmeticItem(fishermanCosmeticItemButtons, targetButton, true);
+    }
+
+    public void CycleFishermanHair(int direction)
+    {
+        List<Button> activeButtons = GetActiveCosmeticButtons(true);
+        if (activeButtons.Count == 0)
+        {
+            return;
+        }
+
+        int currentIndex = GetSelectedButtonIndex(activeButtons, true);
+        int nextIndex = (currentIndex + direction + activeButtons.Count) % activeButtons.Count;
+
+        Button targetButton = activeButtons[nextIndex];
+        SelectCosmeticItem(fishermanCosmeticItemButtons, targetButton, true);
+    }
+
+    private List<Sprite> GetOrderedFishermanHatPreviewSprites()
+    {
+        if (orderedFishermanHatPreviewSprites != null)
+        {
+            return orderedFishermanHatPreviewSprites;
+        }
+
+        orderedFishermanHatPreviewSprites = new List<Sprite>();
+        List<Sprite> loadedSprites = LoadPreviewSpritesFromFolder(FishermanPreviewAssetFolder, string.Empty);
+        for (int i = 0; i < loadedSprites.Count; i++)
+        {
+            Sprite sprite = loadedSprites[i];
+            if (sprite == null || IsFishermanHairPreviewSprite(sprite))
+            {
+                continue;
+            }
+
+            orderedFishermanHatPreviewSprites.Add(sprite);
+        }
+
+        orderedFishermanHatPreviewSprites.Sort((a, b) =>
+            string.Compare(a.name, b.name, StringComparison.OrdinalIgnoreCase));
+        return orderedFishermanHatPreviewSprites;
+    }
+
+    private static bool IsFishermanHairPreviewSprite(Sprite sprite)
+    {
+        if (sprite == null)
+        {
+            return false;
+        }
+
+        string name = NormalizeSpriteName(sprite.name);
+        return name.Contains("redhair") || (name.Contains("red") && name.Contains("hair") && !name.Contains("hat"));
+    }
+
+    private bool TryCycleFishermanHatPreviewSprites(int direction)
+    {
+        if (FishermanDisplayObject == null)
+        {
+            return false;
+        }
+
+        Image fishermanImage = FishermanDisplayObject.GetComponent<Image>();
+        if (fishermanImage == null)
+        {
+            return false;
+        }
+
+        List<Sprite> previewSprites = GetOrderedFishermanHatPreviewSprites();
+        if (previewSprites.Count == 0)
+        {
+            return false;
+        }
+
+        int currentIndex = 0;
+        Sprite currentSprite = fishermanImage.sprite;
+        if (currentSprite != null)
+        {
+            string currentKey = NormalizeSpriteName(currentSprite);
+            for (int i = 0; i < previewSprites.Count; i++)
+            {
+                if (NormalizeSpriteName(previewSprites[i]) == currentKey)
+                {
+                    currentIndex = i;
+                    break;
+                }
+            }
+        }
+
+        int nextIndex = (currentIndex + direction + previewSprites.Count) % previewSprites.Count;
+        Sprite nextPreview = previewSprites[nextIndex];
+        if (nextPreview == null)
+        {
+            return false;
+        }
+
+        fishermanImage.sprite = nextPreview;
+        fishermanImage.preserveAspect = true;
+
+        Sprite cosmeticSprite = FindFishermanCosmeticSpriteForPreview(nextPreview);
+        if (cosmeticSprite != null)
+        {
+            CosmeticRuntimeApplier.SelectFishermanHat(cosmeticSprite);
+            List<Button> hatButtons = GetActiveCosmeticButtons(true);
+            ApplyItemOpacity(hatButtons, FindCosmeticButtonForSprite(hatButtons, cosmeticSprite));
+        }
+        else
+        {
+            CosmeticRuntimeApplier.SelectFishermanHat(null);
+        }
+
+        return true;
+    }
+
+    private Sprite FindFishermanCosmeticSpriteForPreview(Sprite previewSprite)
+    {
+        if (previewSprite == null)
+        {
+            return null;
+        }
+
+        BuildPreviewMapsIfNeeded();
+        string previewKey = NormalizeSpriteName(previewSprite);
+
+        foreach (KeyValuePair<string, Sprite> entry in fishermanPreviewSpritesByCosmetic)
+        {
+            if (entry.Value != null && NormalizeSpriteName(entry.Value) == previewKey)
+            {
+                return GetSpriteByNormalizedName(entry.Key);
+            }
+        }
+
+        List<CosmeticPreviewRule> rules = FishermanPreviewRules;
+        if (rules != null)
+        {
+            for (int i = 0; i < rules.Count; i++)
+            {
+                CosmeticPreviewRule rule = rules[i];
+                if (rule == null || NormalizeSpriteName(rule.PreviewSpriteName) != previewKey)
+                {
+                    continue;
+                }
+
+                Sprite cosmeticSprite = GetSpriteByNormalizedName(rule.CosmeticName);
+                if (cosmeticSprite != null)
+                {
+                    return cosmeticSprite;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private Sprite GetSpriteByNormalizedName(string normalizedName)
+    {
+        List<Button> buttons = fishermanCosmeticItemButtons;
+        for (int i = 0; i < buttons.Count; i++)
+        {
+            Sprite sprite = GetButtonSprite(buttons[i]);
+            if (sprite != null && NormalizeSpriteName(sprite) == NormalizeSpriteName(normalizedName))
+            {
+                return sprite;
+            }
+        }
+
+        return null;
+    }
+
+    private static Button FindCosmeticButtonForSprite(List<Button> buttons, Sprite sprite)
+    {
+        if (buttons == null || sprite == null)
+        {
+            return null;
+        }
+
+        for (int i = 0; i < buttons.Count; i++)
+        {
+            Button button = buttons[i];
+            if (button != null && GetButtonSprite(button) == sprite)
+            {
+                return button;
+            }
+        }
+
+        return null;
     }
 }
 

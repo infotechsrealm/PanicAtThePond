@@ -39077,9 +39077,11 @@ MonoBehaviour:
   HatDropdownText: {fileID: 993127179}
   HatDropdownTMPText: {fileID: 1543286826}
   DiagramPreviewImage: {fileID: 839384851}
+  ShopPreviewRoot: {fileID: 2066827977}
   FishDisplayObject: {fileID: 1498720489}
   FishDisplayObjects:
   - {fileID: 1498720489}
+  - {fileID: 1828661388}
   FishermanDisplayObject: {fileID: 1812482358}
   DisplayHatButton: {fileID: 271325828}
   HatDisplayObject: {fileID: 839384849}
@@ -48934,7 +48936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2066827978
 RectTransform:
   m_ObjectHideFlags: 0

@@ -267,6 +267,12 @@ public class LocalPlayManager : MonoBehaviour
         return shop;
     }
 
+    public void ApplyFishSelectionFromShop(int fishIndex)
+    {
+        Next_Fish = Mathf.Clamp(fishIndex, 0, FishPrefabNames.Length - 1);
+        ShowSelectedFish();
+    }
+
     public bool CycleActiveFish(int direction)
     {
         HideFishermanDisplay();
