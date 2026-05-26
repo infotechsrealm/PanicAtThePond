@@ -1,6 +1,8 @@
 using Steamworks;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using TMPro;
 
 public class LocalPlayManager : MonoBehaviour
 {
@@ -18,6 +20,22 @@ public class LocalPlayManager : MonoBehaviour
     public Color unlockedDiagramFishColor = Color.white;
 
     private int Next_Fish;
+    private Sprite[] originalFishSprites;
+
+    [Header("Hat Dropdown UI")]
+    public Button HatButton;
+    public GameObject DD_List_HatButton;
+    public Button FishOptionButton;
+    public Button FishSpeciesOptionButton;
+    public TMP_Text HatButtonText;
+    public Text HatButtonLegacyText;
+
+    private enum CyclingMode
+    {
+        FishHats,
+        FishSpecies
+    }
+    private CyclingMode currentCyclingMode = CyclingMode.FishHats;
 
     public const string SelectedFishPrefKey = "SelectedFish";
     public const string TroutUnlockedPrefKey = "FishUnlocked_Trout";
@@ -66,6 +84,38 @@ public class LocalPlayManager : MonoBehaviour
             BuyPanelBackButton.onClick.AddListener(BuyPanleClose);
         }
 
+        if (HatButton != null)
+        {
+            HatButton.onClick.RemoveListener(ToggleHatDropdown);
+            HatButton.onClick.AddListener(ToggleHatDropdown);
+        }
+
+        if (FishOptionButton != null)
+        {
+            FishOptionButton.onClick.RemoveListener(SelectFishMode);
+            FishOptionButton.onClick.AddListener(SelectFishMode);
+        }
+
+        if (FishSpeciesOptionButton != null)
+        {
+            FishSpeciesOptionButton.onClick.RemoveListener(SelectFishSpeciesMode);
+            FishSpeciesOptionButton.onClick.AddListener(SelectFishSpeciesMode);
+        }
+
+        if (DD_List_HatButton != null)
+        {
+            DD_List_HatButton.SetActive(false);
+        }
+
+        if (HatButtonText != null)
+        {
+            HatButtonText.text = currentCyclingMode == CyclingMode.FishHats ? "FISH" : "FISH SPECIES";
+        }
+        if (HatButtonLegacyText != null)
+        {
+            HatButtonLegacyText.text = currentCyclingMode == CyclingMode.FishHats ? "FISH" : "FISH SPECIES";
+        }
+
         RegisterArrowButtons();
         ResolveDisplayObjects();
 
@@ -77,6 +127,7 @@ public class LocalPlayManager : MonoBehaviour
         ShowSelectedFish();
         KeepArrowButtonsOnScreen();
     }
+
 
     private void OnDestroy()
     {
@@ -90,6 +141,21 @@ public class LocalPlayManager : MonoBehaviour
             BuyPanelBackButton.onClick.RemoveListener(BuyPanleClose);
         }
 
+        if (HatButton != null)
+        {
+            HatButton.onClick.RemoveListener(ToggleHatDropdown);
+        }
+
+        if (FishOptionButton != null)
+        {
+            FishOptionButton.onClick.RemoveListener(SelectFishMode);
+        }
+
+        if (FishSpeciesOptionButton != null)
+        {
+            FishSpeciesOptionButton.onClick.RemoveListener(SelectFishSpeciesMode);
+        }
+
         if (Right_BTN != null)
         {
             Right_BTN.onClick.RemoveListener(Tap_NextButton);
@@ -100,6 +166,7 @@ public class LocalPlayManager : MonoBehaviour
             Left_BTN.onClick.RemoveListener(Tap_PreviosButton);
         }
     }
+
 
     private void OnEnable()
     {
@@ -136,7 +203,14 @@ public class LocalPlayManager : MonoBehaviour
             return;
         }
 
-        CycleActiveFish(1);
+        if (currentCyclingMode == CyclingMode.FishHats)
+        {
+            CycleActiveFishHat(1);
+        }
+        else
+        {
+            CycleActiveFish(1);
+        }
     }
 
     public void Tap_PreviosButton()
@@ -146,8 +220,16 @@ public class LocalPlayManager : MonoBehaviour
             return;
         }
 
-        CycleActiveFish(-1);
+        if (currentCyclingMode == CyclingMode.FishHats)
+        {
+            CycleActiveFishHat(-1);
+        }
+        else
+        {
+            CycleActiveFish(-1);
+        }
     }
+
 
     private bool TryCycleShopSelection(int direction)
     {
@@ -231,9 +313,23 @@ public class LocalPlayManager : MonoBehaviour
                 if (Fish_Sprite[i] != null)
                 {
                     Fish_Sprite[i].SetActive(i == Next_Fish);
+                    if (i == Next_Fish)
+                    {
+                        Sprite compSprite = GetCompositeSpriteForSelectedHat(i);
+                        SetPreviewFishSprite(Fish_Sprite[i], compSprite);
+                    }
+                    else
+                    {
+                        CacheOriginalSprites();
+                        if (originalFishSprites != null && i < originalFishSprites.Length)
+                        {
+                            SetPreviewFishSprite(Fish_Sprite[i], originalFishSprites[i]);
+                        }
+                    }
                 }
             }
         }
+
 
         if (BuyFishInfoText != null)
         {
@@ -560,4 +656,263 @@ public class LocalPlayManager : MonoBehaviour
             BuyPanel.SetActive(false);
         }
     }
+
+    private void CacheOriginalSprites()
+    {
+        if (originalFishSprites != null) return;
+
+        originalFishSprites = new Sprite[Fish_Sprite.Length];
+        for (int i = 0; i < Fish_Sprite.Length; i++)
+        {
+            if (Fish_Sprite[i] != null)
+            {
+                SpriteRenderer sr = Fish_Sprite[i].GetComponent<SpriteRenderer>();
+                if (sr != null)
+                {
+                    originalFishSprites[i] = sr.sprite;
+                }
+                else
+                {
+                    Image img = Fish_Sprite[i].GetComponent<Image>();
+                    if (img != null)
+                    {
+                        originalFishSprites[i] = img.sprite;
+                    }
+                }
+            }
+        }
+    }
+
+    private void SetPreviewFishSprite(GameObject fishDisplay, Sprite sprite)
+    {
+        if (fishDisplay == null || sprite == null) return;
+
+        SpriteRenderer sr = fishDisplay.GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            sr.sprite = sprite;
+        }
+        else
+        {
+            Image img = fishDisplay.GetComponent<Image>();
+            if (img != null)
+            {
+                img.sprite = sprite;
+            }
+        }
+    }
+
+    private List<Sprite> GetCompositePreviewSprites(int fishIndex)
+    {
+        List<Sprite> list = new List<Sprite>();
+        
+        CacheOriginalSprites();
+        if (originalFishSprites != null && fishIndex >= 0 && fishIndex < originalFishSprites.Length)
+        {
+            list.Add(originalFishSprites[fishIndex]);
+        }
+        else
+        {
+            list.Add(null);
+        }
+
+        Sprite[] compositeSprites = Resources.LoadAll<Sprite>("ShopUI/Fish preview");
+        if (compositeSprites != null)
+        {
+            foreach (Sprite sprite in compositeSprites)
+            {
+                if (sprite == null) continue;
+
+                string name = sprite.name.ToLowerInvariant();
+                if (fishIndex == 0) // Bass
+                {
+                    if (name.Contains("fish") && !name.Contains("trout"))
+                    {
+                        list.Add(sprite);
+                    }
+                }
+                else if (fishIndex == 1) // Trout
+                {
+                    if (name.Contains("trout"))
+                    {
+                        list.Add(sprite);
+                    }
+                }
+            }
+        }
+        
+        return list;
+    }
+
+    private Sprite GetCompositeSpriteForSelectedHat(int fishIndex)
+    {
+        Sprite currentHat = CosmeticRuntimeApplier.GetSelectedFishHat();
+        if (currentHat == null)
+        {
+            CacheOriginalSprites();
+            if (originalFishSprites != null && fishIndex >= 0 && fishIndex < originalFishSprites.Length)
+            {
+                return originalFishSprites[fishIndex];
+            }
+            return null;
+        }
+
+        string hatNorm = NormalizeSpriteName(currentHat.name);
+        List<Sprite> compositeList = GetCompositePreviewSprites(fishIndex);
+        foreach (Sprite compSprite in compositeList)
+        {
+            if (compSprite == null) continue;
+
+            string hatName = GetHatNameFromCompositeSpriteName(compSprite.name);
+            if (!string.IsNullOrEmpty(hatName) && NormalizeSpriteName(hatName) == hatNorm)
+            {
+                return compSprite;
+            }
+        }
+
+        CacheOriginalSprites();
+        if (originalFishSprites != null && fishIndex >= 0 && fishIndex < originalFishSprites.Length)
+        {
+            return originalFishSprites[fishIndex];
+        }
+        return null;
+    }
+
+    private string GetHatNameFromCompositeSpriteName(string compositeName)
+    {
+        string normName = compositeName.ToLowerInvariant();
+        if (normName.Contains("yellow"))
+        {
+            return "FisherMan_Hat_-Default_-_Fishing_Hat";
+        }
+        if (normName.Contains("polish"))
+        {
+            return "beret";
+        }
+        if (normName.Contains("black"))
+        {
+            return "hat2";
+        }
+        if (normName.Contains("boat"))
+        {
+            return "paper_boat";
+        }
+        if (normName.Contains("cap"))
+        {
+            return "cap";
+        }
+        if (normName.Contains("orange"))
+        {
+            return "hat";
+        }
+        return ""; // No hat
+    }
+
+    private void CycleActiveFishHat(int direction)
+    {
+        List<Sprite> availableSprites = GetCompositePreviewSprites(Next_Fish);
+        if (availableSprites.Count == 0) return;
+
+        Sprite currentShowSprite = null;
+        if (Fish_Sprite != null && Next_Fish >= 0 && Next_Fish < Fish_Sprite.Length && Fish_Sprite[Next_Fish] != null)
+        {
+            SpriteRenderer sr = Fish_Sprite[Next_Fish].GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                currentShowSprite = sr.sprite;
+            }
+            else
+            {
+                Image img = Fish_Sprite[Next_Fish].GetComponent<Image>();
+                if (img != null)
+                {
+                    currentShowSprite = img.sprite;
+                }
+            }
+        }
+
+        int currentIndex = 0;
+        if (currentShowSprite != null)
+        {
+            currentIndex = availableSprites.IndexOf(currentShowSprite);
+        }
+
+        if (currentIndex < 0) currentIndex = 0;
+
+        int nextIndex = (currentIndex + direction + availableSprites.Count) % availableSprites.Count;
+        Sprite nextSprite = availableSprites[nextIndex];
+
+        if (Fish_Sprite != null && Next_Fish >= 0 && Next_Fish < Fish_Sprite.Length && Fish_Sprite[Next_Fish] != null)
+        {
+            SetPreviewFishSprite(Fish_Sprite[Next_Fish], nextSprite);
+        }
+
+        string hatName = nextSprite != null ? GetHatNameFromCompositeSpriteName(nextSprite.name) : "";
+        Sprite hatSprite = string.IsNullOrEmpty(hatName) ? null : CosmeticRuntimeApplier.GetSpriteByName(hatName);
+        CosmeticRuntimeApplier.SelectFishHat(hatSprite);
+    }
+
+    private static string NormalizeSpriteName(string spriteName)
+    {
+        if (string.IsNullOrEmpty(spriteName))
+        {
+            return string.Empty;
+        }
+
+        string name = spriteName.ToLowerInvariant();
+        if (name.EndsWith("_0"))
+        {
+            name = name.Substring(0, name.Length - 2);
+        }
+
+        return name
+            .Replace("_", string.Empty)
+            .Replace("-", string.Empty)
+            .Replace(" ", string.Empty);
+    }
+
+    public void ToggleHatDropdown()
+    {
+        if (DD_List_HatButton != null)
+        {
+            DD_List_HatButton.SetActive(!DD_List_HatButton.activeSelf);
+        }
+    }
+
+    public void SelectFishMode()
+    {
+        currentCyclingMode = CyclingMode.FishHats;
+        if (DD_List_HatButton != null)
+        {
+            DD_List_HatButton.SetActive(false);
+        }
+        
+        if (HatButtonText != null)
+        {
+            HatButtonText.text = "FISH";
+        }
+        if (HatButtonLegacyText != null)
+        {
+            HatButtonLegacyText.text = "FISH";
+        }
+    }
+
+    public void SelectFishSpeciesMode()
+    {
+        currentCyclingMode = CyclingMode.FishSpecies;
+        if (DD_List_HatButton != null)
+        {
+            DD_List_HatButton.SetActive(false);
+        }
+        
+        if (HatButtonText != null)
+        {
+            HatButtonText.text = "FISH SPECIES";
+        }
+        if (HatButtonLegacyText != null)
+        {
+            HatButtonLegacyText.text = "FISH SPECIES";
+        }
+    }
 }
+

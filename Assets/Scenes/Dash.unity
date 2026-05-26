@@ -21957,6 +21957,12 @@ MonoBehaviour:
   fishermanYellowHat: {fileID: 0}
   lockedDiagramFishColor: {r: 0.14150941, g: 0.13950692, b: 0.13950692, a: 1}
   unlockedDiagramFishColor: {r: 1, g: 1, b: 1, a: 1}
+  HatButton: {fileID: 0}
+  DD_List_HatButton: {fileID: 0}
+  FishOptionButton: {fileID: 0}
+  FishSpeciesOptionButton: {fileID: 0}
+  HatButtonText: {fileID: 0}
+  HatButtonLegacyText: {fileID: 0}
 --- !u!114 &958455518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27929,7 +27935,7 @@ GameObject:
   - component: {fileID: 1191416918}
   - component: {fileID: 1191416917}
   m_Layer: 5
-  m_Name: DD list
+  m_Name: 'DD list hat button '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38591,10 +38597,6 @@ MonoBehaviour:
   FishermanDisplayObject: {fileID: 1812482358}
   DisplayHatButton: {fileID: 271325828}
   HatDisplayObject: {fileID: 839384849}
-  DisplayHatDropdownList: {fileID: 0}
-  DisplayHatDropdownArrow: {fileID: 0}
-  DisplayHatOption1Button: {fileID: 0}
-  DisplayHatOption2Button: {fileID: 0}
   UseDynamicHatPreviewSprites: 1
   FishPreviewAssetFolder: Assets/UI/Game UI/Fish preview
   FishermanPreviewAssetFolder: ShopUI/Fisherman Preview
@@ -48325,7 +48327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2066827978
 RectTransform:
   m_ObjectHideFlags: 0
@@ -48398,6 +48400,12 @@ MonoBehaviour:
   fishermanYellowHat: {fileID: 0}
   lockedDiagramFishColor: {r: 0.14150941, g: 0.13950692, b: 0.13950692, a: 1}
   unlockedDiagramFishColor: {r: 1, g: 1, b: 1, a: 1}
+  HatButton: {fileID: 271325828}
+  DD_List_HatButton: {fileID: 1191416915}
+  FishOptionButton: {fileID: 1292759544}
+  FishSpeciesOptionButton: {fileID: 194200704}
+  HatButtonText: {fileID: 1543286826}
+  HatButtonLegacyText: {fileID: 0}
 --- !u!114 &2066827980
 MonoBehaviour:
   m_ObjectHideFlags: 0

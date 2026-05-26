@@ -414,7 +414,6 @@ public class ShopManager : MonoBehaviour
     {
         SetDisplayControlLabel(selectedFishDisplayMode);
         bool showSpecies = IsFishSpeciesModeSelected();
-        SetActiveIfNotNull(FishVoyageDiagram, showSpecies);
         SetActiveIfNotNull(HatDisplayObject, !showSpecies && !UseDynamicHatPreviewSprites);
 
         if (showSpecies)
@@ -1457,28 +1456,36 @@ public class ShopManager : MonoBehaviour
     private List<Sprite> LoadPreviewSpritesFromFolder(string folderPath, string filePrefix)
     {
         List<Sprite> sprites = new List<Sprite>();
-#if UNITY_EDITOR
-        if (string.IsNullOrEmpty(folderPath) || !Directory.Exists(folderPath))
+        
+        string resourcePath = "";
+        if (!string.IsNullOrEmpty(folderPath) && folderPath.ToLowerInvariant().Contains("fisherman"))
         {
-            return sprites;
+            resourcePath = "ShopUI/Fisherman Preview";
+        }
+        else
+        {
+            resourcePath = "ShopUI/Fish preview";
         }
 
-        string normalizedPrefix = NormalizeSpriteName(filePrefix);
-        string[] files = Directory.GetFiles(folderPath, "*.png", SearchOption.TopDirectoryOnly);
-        for (int i = 0; i < files.Length; i++)
+        Sprite[] loadedSprites = Resources.LoadAll<Sprite>(resourcePath);
+        if (loadedSprites != null)
         {
-            string assetPath = files[i].Replace("\\", "/");
-            string fileName = Path.GetFileNameWithoutExtension(assetPath);
-            if (!NormalizeSpriteName(fileName).StartsWith(normalizedPrefix))
+            string normalizedPrefix = NormalizeSpriteName(filePrefix);
+            for (int i = 0; i < loadedSprites.Length; i++)
             {
-                continue;
-            }
+                Sprite sprite = loadedSprites[i];
+                if (sprite == null) continue;
 
-            sprites.AddRange(LoadPreviewSpritesFromAsset(assetPath));
+                if (string.IsNullOrEmpty(normalizedPrefix) || NormalizeSpriteName(sprite.name).StartsWith(normalizedPrefix))
+                {
+                    sprites.Add(sprite);
+                }
+            }
         }
-#endif
+        
         return sprites;
     }
+
 
     private static string GetFishCosmeticHatKey(string cosmeticName)
     {
