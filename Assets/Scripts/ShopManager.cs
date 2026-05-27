@@ -182,6 +182,9 @@ public class ShopManager : MonoBehaviour
 
     private void Start()
     {
+        isFishSelected = true;
+        UpdateDisplayedDropdownOptions();
+        
         SetActiveIfNotNull(FishVoyageDiagram, false);
         SetActiveIfNotNull(FishFishermanDropdownList, false);
         SetActiveIfNotNull(HatDropdownList, false);
@@ -438,6 +441,16 @@ public class ShopManager : MonoBehaviour
     {
         SetActiveIfNotNull(ShopItemPanel, true);
         EnsureShopPreviewRootActive();
+        StartCoroutine(ClearFishHatAfterDelay());
+    }
+
+    private System.Collections.IEnumerator ClearFishHatAfterDelay()
+    {
+        yield return null; // Wait for LocalPlayManager.OnEnable to finish
+        if (shopLocalPlayManager != null)
+        {
+            shopLocalPlayManager.RestoreOriginalFishSprites();
+        }
     }
 
     private void EnsureShopPreviewRootActive()
@@ -1574,7 +1587,15 @@ public class ShopManager : MonoBehaviour
         {
             if (!TryApplyCompositePreviewSprite(fishermanImage, selectedSprite, 0, true))
             {
-                ApplyFishermanRedHairPreview(fishermanImage);
+                if (selectedSprite != null && selectedSprite.name.ToLowerInvariant().Contains("red"))
+                {
+                    ApplyFishermanRedHairPreview(fishermanImage);
+                }
+                else
+                {
+                    // Fallback for black hair or other missing preview sprites
+                    RestoreDisplayBaseSprite(fishermanImage);
+                }
             }
 
             return;
@@ -1617,7 +1638,12 @@ public class ShopManager : MonoBehaviour
             return false;
         }
 
-        Sprite redHairSprite = GetPreviewSpriteByName("Fisherman Red hair");
+        Sprite redHairSprite = GetPreviewSpriteByName("image-removebg-preview");
+        if (redHairSprite == null)
+        {
+            redHairSprite = GetPreviewSpriteByName("Fisherman Red hair");
+        }
+
         if (redHairSprite == null)
         {
             redHairSprite = GetPreviewSpriteByName("fisherman_red_hair");

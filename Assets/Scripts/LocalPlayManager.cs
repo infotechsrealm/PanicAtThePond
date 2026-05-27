@@ -62,6 +62,11 @@ public class LocalPlayManager : MonoBehaviour
         "SOLO_ARTIST"
     };
 
+    private void Awake()
+    {
+        CacheOriginalSprites();
+    }
+
     private void Start()
     {
         Next_Fish = Mathf.Clamp(PlayerPrefs.GetInt(SelectedFishPrefKey, 0), 0, FishPrefabNames.Length - 1);
@@ -704,6 +709,21 @@ public class LocalPlayManager : MonoBehaviour
             if (img != null)
             {
                 img.sprite = sprite;
+            }
+        }
+    }
+
+    public void RestoreOriginalFishSprites()
+    {
+        CacheOriginalSprites();
+        if (originalFishSprites != null && Fish_Sprite != null)
+        {
+            for (int i = 0; i < Fish_Sprite.Length; i++)
+            {
+                if (Fish_Sprite[i] != null && i < originalFishSprites.Length)
+                {
+                    SetPreviewFishSprite(Fish_Sprite[i], originalFishSprites[i]);
+                }
             }
         }
     }

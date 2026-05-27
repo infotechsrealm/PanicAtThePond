@@ -133,9 +133,25 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             
             if (hatName.Contains("yellow") || hatName.Contains("fishing_hat")) 
                 newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan Yellow hat");
+            else if (hatName.Contains("backwards_cap"))
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Backwards Cap)");
+            else if (hatName.Contains("blue_cap"))
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Blue Cap)");
+            else if (hatName.Contains("frog"))
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Frog Hat)");
+            else if (hatName.Contains("green_bucket_hat"))
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Green Bucket Hat)");
+            else if (hatName.Contains("green_pointed_hat"))
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Green Pointed Hat)");
+            else if (hatName.Contains("headphones"))
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Headphones)");
+            else if (hatName.Contains("silver_bucket_hat"))
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Silver Bucket Hat)");
+            else if (hatName.Contains("straw_hat"))
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Straw Hat)");
             else if (hairName.Contains("black"))
                 newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Black Hair)");
-            else 
+            else if (hairName.Contains("red"))
                 newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Red Hair)");
                 
             if (newController != null && anim.runtimeAnimatorController != newController)
