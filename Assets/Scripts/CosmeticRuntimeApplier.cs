@@ -85,13 +85,34 @@ public class CosmeticRuntimeApplier : MonoBehaviour
     {
         EnsureSelectionsLoaded();
 
-        if (fish == null || selectedFishHat == null)
+        if (fish == null)
         {
             return;
         }
 
-        CosmeticTransform cosmeticTransform = GetFishHatTransform(fish, selectedFishHat);
-        CreateOrUpdateCosmetic(fish, FishHatChildName, selectedFishHat, cosmeticTransform.Position, cosmeticTransform.Rotation, cosmeticTransform.Scale, 2, false);
+        Animator anim = fish.GetComponent<Animator>();
+        RemoveCosmetic(fish, FishHatChildName);
+
+        if (selectedFishHat == null)
+        {
+            if (anim != null)
+            {
+                if (IsBassFish(fish))
+                    anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("FishControllers/Fish 1 Default");
+                else if (IsTroutFish(fish))
+                    anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("FishControllers/Fish 2 Default");
+            }
+            return;
+        }
+
+        if (anim != null)
+        {
+            RuntimeAnimatorController newController = Resources.Load<RuntimeAnimatorController>("FishControllers/" + selectedFishHat.name);
+            if (newController != null && anim.runtimeAnimatorController != newController)
+            {
+                anim.runtimeAnimatorController = newController;
+            }
+        }
     }
 
     public static void ApplyToFisherman(GameObject fisherman)
