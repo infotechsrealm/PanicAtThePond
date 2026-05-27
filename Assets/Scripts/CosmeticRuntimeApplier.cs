@@ -103,8 +103,36 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             return;
         }
 
+        Animator anim = fisherman.GetComponent<Animator>();
+        if (anim != null) 
+        {
+            string hairName = selectedFishermanHair != null ? selectedFishermanHair.name.ToLowerInvariant() : "";
+            string hatName = selectedFishermanHat != null ? selectedFishermanHat.name.ToLowerInvariant() : "";
+            RuntimeAnimatorController newController = null;
+            
+            if (hatName.Contains("yellow") || hatName.Contains("fishing_hat")) 
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan Yellow hat");
+            else if (hairName.Contains("black"))
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Black Hair)");
+            else 
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Red Hair)");
+                
+            if (newController != null && anim.runtimeAnimatorController != newController)
+            {
+                anim.runtimeAnimatorController = newController;
+            }
+        }
+
         if (selectedFishermanHair != null)
         {
+            string hairName = selectedFishermanHair.name.ToLowerInvariant();
+            if (hairName.Contains("red") || hairName.Contains("black"))
+            {
+                RemoveCosmetic(fisherman, FishermanHairChildName);
+                RemoveCosmetic(fisherman, FishermanHatChildName);
+                return;
+            }
+
             RemoveCosmetic(fisherman, FishermanHatChildName);
             CosmeticTransform hairTransform = GetFishermanHairTransform(selectedFishermanHair);
             CreateOrUpdateCosmetic(fisherman, FishermanHairChildName, selectedFishermanHair, hairTransform.Position, hairTransform.Rotation, hairTransform.Scale, 5, true);
@@ -113,6 +141,14 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
         if (selectedFishermanHat != null)
         {
+            string hatNameCheck = selectedFishermanHat.name.ToLowerInvariant();
+            if (hatNameCheck.Contains("yellow") || hatNameCheck.Contains("fishing_hat"))
+            {
+                RemoveCosmetic(fisherman, FishermanHairChildName);
+                RemoveCosmetic(fisherman, FishermanHatChildName);
+                return;
+            }
+
             RemoveCosmetic(fisherman, FishermanHairChildName);
             CosmeticTransform hatTransform = GetFishermanHatTransform(selectedFishermanHat);
             CreateOrUpdateCosmetic(fisherman, FishermanHatChildName, selectedFishermanHat, hatTransform.Position, hatTransform.Rotation, hatTransform.Scale, 3, true);
@@ -126,8 +162,36 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         Sprite hatSprite = GetSpriteByName(hatName);
         Sprite hairSprite = GetSpriteByName(hairName);
 
+        Animator anim = fisherman.GetComponent<Animator>();
+        if (anim != null) 
+        {
+            string currentHairName = hairSprite != null ? hairSprite.name.ToLowerInvariant() : "";
+            string currentHatName = hatSprite != null ? hatSprite.name.ToLowerInvariant() : "";
+            RuntimeAnimatorController newController = null;
+            
+            if (currentHatName.Contains("yellow") || currentHatName.Contains("fishing_hat"))
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan Yellow hat");
+            else if (currentHairName.Contains("black"))
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Black Hair)");
+            else 
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Red Hair)");
+                
+            if (newController != null && anim.runtimeAnimatorController != newController)
+            {
+                anim.runtimeAnimatorController = newController;
+            }
+        }
+
         if (hairSprite != null)
         {
+            string currentHairName = hairSprite.name.ToLowerInvariant();
+            if (currentHairName.Contains("red") || currentHairName.Contains("black"))
+            {
+                RemoveCosmetic(fisherman, FishermanHairChildName);
+                RemoveCosmetic(fisherman, FishermanHatChildName);
+                return;
+            }
+
             RemoveCosmetic(fisherman, FishermanHatChildName);
             CosmeticTransform hairTransform = GetFishermanHairTransform(hairSprite);
             CreateOrUpdateCosmetic(fisherman, FishermanHairChildName, hairSprite, hairTransform.Position, hairTransform.Rotation, hairTransform.Scale, 5, true);
@@ -136,6 +200,14 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
         if (hatSprite != null)
         {
+            string currentHatNameCheck = hatSprite.name.ToLowerInvariant();
+            if (currentHatNameCheck.Contains("yellow") || currentHatNameCheck.Contains("fishing_hat"))
+            {
+                RemoveCosmetic(fisherman, FishermanHairChildName);
+                RemoveCosmetic(fisherman, FishermanHatChildName);
+                return;
+            }
+
             RemoveCosmetic(fisherman, FishermanHairChildName);
             CosmeticTransform hatTransform = GetFishermanHatTransform(hatSprite);
             CreateOrUpdateCosmetic(fisherman, FishermanHatChildName, hatSprite, hatTransform.Position, hatTransform.Rotation, hatTransform.Scale, 3, true);
@@ -533,7 +605,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         }
 
         string objectName = fish.name.ToLowerInvariant();
-        if (objectName.Contains("fish 1") || objectName.Contains("bass"))
+        if (objectName.Contains("fish 1") || objectName.Contains("bass") || objectName == "fish" || objectName.StartsWith("fish(clone)"))
         {
             return true;
         }

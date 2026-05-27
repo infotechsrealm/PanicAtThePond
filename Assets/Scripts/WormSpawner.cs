@@ -73,7 +73,13 @@ public class WormSpawner : MonoBehaviourPunCallbacks
                     }
                 }
 
-                if (activeWorms.Count < 5)
+                int maxWorms = 5;
+                if (GS.Instance != null && GS.Instance.scoreSystemSettings != null)
+                {
+                    maxWorms = (int)GS.Instance.scoreSystemSettings.GetWormSpawnRate();
+                }
+
+                if (activeWorms.Count < maxWorms)
                 {
                     float x = Random.Range(-xRange, xRange);
                     float y = Random.Range(-yRange, 0);
