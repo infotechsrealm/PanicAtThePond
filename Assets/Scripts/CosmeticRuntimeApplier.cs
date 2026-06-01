@@ -43,6 +43,14 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
     public static void SelectFishHat(Sprite sprite)
     {
+        if (sprite != null && IsPreviewSprite(sprite.name))
+        {
+            Sprite cleanSprite = GetSpriteByName(sprite.name);
+            if (cleanSprite != null)
+            {
+                sprite = cleanSprite;
+            }
+        }
         selectedFishHat = sprite;
         SaveSelectedSpriteName(SelectedFishHatPrefKey, sprite);
     }
@@ -55,6 +63,14 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
     public static void SelectFishermanHat(Sprite sprite)
     {
+        if (sprite != null && IsPreviewSprite(sprite.name))
+        {
+            Sprite cleanSprite = GetSpriteByName(sprite.name);
+            if (cleanSprite != null)
+            {
+                sprite = cleanSprite;
+            }
+        }
         selectedFishermanHat = sprite;
         selectedFishermanHair = null;
         SaveSelectedSpriteName(SelectedFishermanHatPrefKey, sprite);
@@ -69,6 +85,14 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
     public static void SelectFishermanHair(Sprite sprite)
     {
+        if (sprite != null && IsPreviewSprite(sprite.name))
+        {
+            Sprite cleanSprite = GetSpriteByName(sprite.name);
+            if (cleanSprite != null)
+            {
+                sprite = cleanSprite;
+            }
+        }
         selectedFishermanHair = sprite;
         selectedFishermanHat = null;
         SaveSelectedSpriteName(SelectedFishermanHairPrefKey, sprite);
@@ -123,6 +147,151 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         {
             return;
         }
+
+        // --- NEW MODULAR FISHERMAN LOGIC ---
+        Transform headTransform = fisherman.transform.Find("head"); // Prefab (2) uses lowercase "head"
+        if (headTransform == null) headTransform = fisherman.transform.Find("Head");
+
+        if (headTransform != null)
+        {
+            // Destroy obsolete modular animation components at runtime to prevent logs/warnings and conflicts
+            MonoBehaviour[] scripts = fisherman.GetComponents<MonoBehaviour>();
+            foreach (MonoBehaviour script in scripts)
+            {
+                if (script != null)
+                {
+                    string typeName = script.GetType().Name;
+                    if (typeName == "FishermanAnimationSystem" ||
+                        typeName == "FishermanAnimationController" ||
+                        typeName == "FishermanAnimationVerifier" ||
+                        typeName == "FishermanHatSystem")
+                    {
+                        if (Application.isPlaying)
+                            Destroy(script);
+                        else
+                            DestroyImmediate(script);
+                    }
+                }
+            }
+
+            // Ensure the root has a SpriteRenderer for the animation to play on!
+            SpriteRenderer rootRenderer = fisherman.GetComponent<SpriteRenderer>();
+            if (rootRenderer == null)
+            {
+                rootRenderer = fisherman.AddComponent<SpriteRenderer>();
+                rootRenderer.sortingLayerName = "Default"; 
+                rootRenderer.sortingOrder = 1; 
+            }
+
+            // Let's resolve the controller to play on the root based on selected hat and hair
+            string hairName = selectedFishermanHair != null ? selectedFishermanHair.name.ToLowerInvariant() : "";
+            string hatName = selectedFishermanHat != null ? selectedFishermanHat.name.ToLowerInvariant() : "";
+            RuntimeAnimatorController newController = null;
+            
+            bool isPreBaked = IsHatPreBaked(hatName);
+
+            if (isPreBaked)
+            {
+                if (hatName.Contains("yellow") || hatName.Contains("fishing_hat") || hatName.Contains("default")) 
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan Yellow Hat");
+                else if (hatName.Contains("backwards_cap") || hatName.Contains("backwards"))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Backwards Cap)");
+                else if (hatName.Contains("blue_cap") || hatName.Contains("blue cap"))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Blue Cap)");
+                else if (hatName.Contains("frog") || hatName.Contains("griin"))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Frog Hat)");
+                else if (hatName.Contains("green_bucket_hat") || (hatName.Contains("green") && !hatName.Contains("pointed") && !hatName.Contains("griin")))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Green Bucket Hat)");
+                else if (hatName.Contains("green_pointed_hat") || hatName.Contains("griin"))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Green Pointed Hat)");
+                else if (hatName.Contains("headphones") || hatName.Contains("headphone"))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Headphones)");
+                else if (hatName.Contains("silver_bucket_hat") || hatName.Contains("silver"))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Silver Bucket Hat)");
+                else if (hatName.Contains("straw_hat") || hatName.Contains("straw") || hatName.Contains("white hat"))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Straw Hat)");
+            }
+            
+            if (newController == null)
+            {
+                // Fallback to clean hair controller (no hat pre-baked)
+                if (hairName.Contains("black"))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Black Hair)");
+                else 
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Red Hair)");
+            }
+
+            Animator rootAnim = fisherman.GetComponent<Animator>();
+            if (rootAnim != null && newController != null)
+            {
+                if (rootAnim.runtimeAnimatorController != newController)
+                {
+                    rootAnim.runtimeAnimatorController = newController;
+                }
+            }
+
+            // Enable root renderer only if pre-baked; otherwise disable to animate child parts
+            rootRenderer.enabled = isPreBaked;
+
+            // Find or setup the child hat cosmetic object
+            Transform hatCosmeticTransform = headTransform.Find("hat Cosmetic");
+            bool enableHatCosmetic = selectedFishermanHat != null && !isPreBaked;
+
+            // Ensure the child head and hat Cosmetic GameObjects are kept active/enabled!
+            headTransform.gameObject.SetActive(true);
+            if (hatCosmeticTransform != null)
+            {
+                hatCosmeticTransform.gameObject.SetActive(true);
+            }
+
+            // If we are pre-baked, disable child modular renderers; if modular, enable them!
+            SpriteRenderer[] allRenderers = fisherman.GetComponentsInChildren<SpriteRenderer>(true);
+            foreach (SpriteRenderer sr in allRenderers)
+            {
+                if (sr.gameObject == fisherman) continue;
+                
+                if (hatCosmeticTransform != null && sr.gameObject == hatCosmeticTransform.gameObject)
+                {
+                    sr.enabled = enableHatCosmetic;
+                    continue;
+                }
+                
+                sr.enabled = !isPreBaked;
+            }
+
+            // If we have a custom non-prebaked hat, assign its sprite and setup bobbing
+            if (enableHatCosmetic && hatCosmeticTransform != null)
+            {
+                SpriteRenderer hatSR = hatCosmeticTransform.GetComponent<SpriteRenderer>();
+                if (hatSR != null)
+                {
+                    hatSR.sprite = selectedFishermanHat;
+                    hatSR.sortingOrder = rootRenderer.sortingOrder + 10;
+                }
+
+                CosmeticRuntimeApplier applier = hatCosmeticTransform.GetComponent<CosmeticRuntimeApplier>();
+                if (applier == null)
+                {
+                    applier = hatCosmeticTransform.gameObject.AddComponent<CosmeticRuntimeApplier>();
+                }
+                applier.rootRenderer = rootRenderer;
+                applier.cosmeticRenderer = hatSR;
+                applier.rootAnimator = rootAnim;
+                applier.baseLocalPosition = new Vector3(-0.029f, 0.075f, -0.9f); // Perfect alignment as requested
+                applier.baseLocalRotation = Vector3.zero;
+                applier.baseLocalScale = new Vector3(0.73484f, 0.73484f, 0.73484f);
+                applier.followsFishermanAnimation = true;
+            }
+
+            // Attach the flipper script to flip the root sprite automatically
+            if (fisherman.GetComponent<FishermanDirectionFlipper>() == null)
+            {
+                fisherman.AddComponent<FishermanDirectionFlipper>();
+            }
+
+            return;
+        }
+        // --- END MODULAR LOGIC ---
 
         Animator anim = fisherman.GetComponent<Animator>();
         if (anim != null) 
@@ -198,6 +367,144 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
         Sprite hatSprite = GetSpriteByName(hatName);
         Sprite hairSprite = GetSpriteByName(hairName);
+
+        // --- NEW MODULAR FISHERMAN LOGIC ---
+        Transform headTransform = fisherman.transform.Find("head");
+        if (headTransform == null) headTransform = fisherman.transform.Find("Head");
+
+        if (headTransform != null)
+        {
+            // Destroy obsolete modular animation components at runtime to prevent logs/warnings and conflicts
+            MonoBehaviour[] scripts = fisherman.GetComponents<MonoBehaviour>();
+            foreach (MonoBehaviour script in scripts)
+            {
+                if (script != null)
+                {
+                    string typeName = script.GetType().Name;
+                    if (typeName == "FishermanAnimationSystem" ||
+                        typeName == "FishermanAnimationController" ||
+                        typeName == "FishermanAnimationVerifier" ||
+                        typeName == "FishermanHatSystem")
+                    {
+                        if (Application.isPlaying)
+                            Destroy(script);
+                        else
+                            DestroyImmediate(script);
+                    }
+                }
+            }
+
+            // Ensure the root has a SpriteRenderer for the animation to play on!
+            SpriteRenderer rootRenderer = fisherman.GetComponent<SpriteRenderer>();
+            if (rootRenderer == null)
+            {
+                rootRenderer = fisherman.AddComponent<SpriteRenderer>();
+                rootRenderer.sortingLayerName = "Default"; 
+                rootRenderer.sortingOrder = 1; 
+            }
+
+            // Let's resolve the controller to play on the root based on selected hat and hair
+            string normalizedHairName = hairSprite != null ? hairSprite.name.ToLowerInvariant() : "";
+            string normalizedHatName = hatSprite != null ? hatSprite.name.ToLowerInvariant() : "";
+            RuntimeAnimatorController newController = null;
+            
+            bool isPreBaked = IsHatPreBaked(normalizedHatName);
+
+            if (isPreBaked)
+            {
+                if (normalizedHatName.Contains("yellow") || normalizedHatName.Contains("fishing_hat") || normalizedHatName.Contains("default")) 
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan Yellow Hat");
+                else if (normalizedHatName.Contains("backwards_cap") || normalizedHatName.Contains("backwards"))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Backwards Cap)");
+                else if (normalizedHatName.Contains("blue_cap") || normalizedHatName.Contains("blue cap"))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Blue Cap)");
+                else if (normalizedHatName.Contains("frog") || normalizedHatName.Contains("griin"))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Frog Hat)");
+                else if (normalizedHatName.Contains("green_bucket_hat") || (normalizedHatName.Contains("green") && !normalizedHatName.Contains("pointed") && !normalizedHatName.Contains("griin")))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Green Bucket Hat)");
+                else if (normalizedHatName.Contains("green_pointed_hat") || normalizedHatName.Contains("griin"))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Green Pointed Hat)");
+                else if (normalizedHatName.Contains("headphones") || normalizedHatName.Contains("headphone"))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Headphones)");
+                else if (normalizedHatName.Contains("silver_bucket_hat") || normalizedHatName.Contains("silver"))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Silver Bucket Hat)");
+                else if (normalizedHatName.Contains("straw_hat") || normalizedHatName.Contains("straw") || normalizedHatName.Contains("white hat"))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Straw Hat)");
+            }
+            
+            if (newController == null)
+            {
+                if (normalizedHairName.Contains("black"))
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Black Hair)");
+                else 
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Red Hair)");
+            }
+
+            Animator rootAnim = fisherman.GetComponent<Animator>();
+            if (rootAnim != null && newController != null)
+            {
+                if (rootAnim.runtimeAnimatorController != newController)
+                {
+                    rootAnim.runtimeAnimatorController = newController;
+                }
+            }
+
+            // Enable root renderer only if pre-baked; otherwise disable to animate child parts
+            rootRenderer.enabled = isPreBaked;
+
+            // Find or setup the child hat cosmetic object
+            Transform hatCosmeticTransform = headTransform.Find("hat Cosmetic");
+            bool enableHatCosmetic = hatSprite != null && !isPreBaked;
+
+            // Ensure the child head and hat Cosmetic GameObjects are kept active/enabled!
+            headTransform.gameObject.SetActive(true);
+            if (hatCosmeticTransform != null)
+            {
+                hatCosmeticTransform.gameObject.SetActive(true);
+            }
+
+            // If we are pre-baked, disable child modular renderers; if modular, enable them!
+            SpriteRenderer[] allRenderers = fisherman.GetComponentsInChildren<SpriteRenderer>(true);
+            foreach (SpriteRenderer sr in allRenderers)
+            {
+                if (sr.gameObject == fisherman) continue;
+                
+                if (hatCosmeticTransform != null && sr.gameObject == hatCosmeticTransform.gameObject)
+                {
+                    sr.enabled = enableHatCosmetic;
+                    continue;
+                }
+                
+                sr.enabled = !isPreBaked;
+            }
+
+            // If we have a custom non-prebaked hat, assign its sprite and setup bobbing
+            if (enableHatCosmetic && hatCosmeticTransform != null)
+            {
+                SpriteRenderer hatSR = hatCosmeticTransform.GetComponent<SpriteRenderer>();
+                if (hatSR != null)
+                {
+                    hatSR.sprite = hatSprite;
+                    hatSR.sortingOrder = rootRenderer.sortingOrder + 10;
+                }
+
+                CosmeticRuntimeApplier applier = hatCosmeticTransform.GetComponent<CosmeticRuntimeApplier>();
+                if (applier == null)
+                {
+                    applier = hatCosmeticTransform.gameObject.AddComponent<CosmeticRuntimeApplier>();
+                }
+                applier.rootRenderer = rootRenderer;
+                applier.cosmeticRenderer = hatSR;
+                applier.rootAnimator = rootAnim;
+                applier.baseLocalPosition = new Vector3(-0.029f, 0.075f, -0.9f); // Perfect alignment as requested
+                applier.baseLocalRotation = Vector3.zero;
+                applier.baseLocalScale = new Vector3(0.73484f, 0.73484f, 0.73484f);
+                applier.followsFishermanAnimation = true;
+            }
+
+            return;
+        }
+        // --- END MODULAR LOGIC ---
 
         Animator anim = fisherman.GetComponent<Animator>();
         if (anim != null) 
@@ -276,11 +583,21 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             cachedShopSprites = Resources.LoadAll<Sprite>(ShopSpritesResourcePath);
         }
 
-        string normalizedName = NormalizeSpriteName(spriteName);
+        // Try to find a non-preview match first
         for (int i = 0; i < cachedShopSprites.Length; i++)
         {
             Sprite sprite = cachedShopSprites[i];
-            if (sprite != null && NormalizeSpriteName(sprite.name) == normalizedName)
+            if (sprite != null && !IsPreviewSprite(sprite.name) && AreSpritesMatching(sprite.name, spriteName))
+            {
+                return sprite;
+            }
+        }
+
+        // Fallback
+        for (int i = 0; i < cachedShopSprites.Length; i++)
+        {
+            Sprite sprite = cachedShopSprites[i];
+            if (sprite != null && AreSpritesMatching(sprite.name, spriteName))
             {
                 return sprite;
             }
@@ -388,19 +705,32 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
     private void ApplyFishermanAnimationOffset()
     {
+        string state = "";
+        int frameIndex = 0;
+
         string clipName = GetCurrentClipName();
-        string state = string.IsNullOrEmpty(clipName) ? string.Empty : clipName.ToLowerInvariant();
-        int frameIndex = GetCurrentSpriteFrameIndex();
-        bool isLeft = state.Contains("left") || state == "move forward" || state == "move backwards" || (rootRenderer != null && rootRenderer.flipX && !state.Contains("right") && !state.Contains("reverse"));
+        state = string.IsNullOrEmpty(clipName) ? string.Empty : clipName.ToLowerInvariant();
+        frameIndex = GetCurrentSpriteFrameIndex();
 
-        if (gameObject.name == FishermanHatChildName || gameObject.name == FishermanHairChildName)
+        bool isLeft = true;
+        FishermanController fc = GetComponentInParent<FishermanController>();
+        if (fc != null)
         {
-            if (usesAnimatedFishermanHeadReplacement)
-            {
-                ApplyAnimatedFishermanHeadReplacement(state);
-                return;
-            }
+            isLeft = fc.isLeft;
+        }
+        else
+        {
+            isLeft = state.Contains("left") || state == "move forward" || state == "move backwards" || (rootRenderer != null && rootRenderer.flipX && !state.Contains("right") && !state.Contains("reverse"));
+        }
 
+        if (usesAnimatedFishermanHeadReplacement)
+        {
+            ApplyAnimatedFishermanHeadReplacement(state);
+            return;
+        }
+
+        if (gameObject.name == FishermanHatChildName || gameObject.name == FishermanHairChildName || gameObject.name == "hat Cosmetic")
+        {
             transform.localPosition = baseLocalPosition + GetFishermanHeadBobOffset(state, frameIndex);
             transform.localEulerAngles = isLeft
                 ? new Vector3(baseLocalRotation.x, 0f, baseLocalRotation.z)
@@ -571,7 +901,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
     {
         if (animatedFishermanHeadSprites == null || animatedFishermanHeadSprites.Length == 0)
         {
-            animatedFishermanHeadSprites = GetAnimatedFishermanHeadSprites();
+            animatedFishermanHeadSprites = GetAnimatedFishermanHeadSprites(selectedFishermanHair);
         }
 
         int row = GetAnimatedFishermanHeadRow(state);
@@ -584,10 +914,13 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             if (headSprite != null)
             {
                 cosmeticRenderer.sprite = headSprite;
-                AlignTrimmedHeadSpriteToRootFrame(headSprite);
             }
         }
 
+        // Apply bobbing offset and preserve local scale (including sign for flipX)
+        transform.localPosition = baseLocalPosition + GetFishermanHeadBobOffset(state, frameIndex);
+        float currentSignX = Mathf.Sign(transform.localScale.x);
+        transform.localScale = new Vector3(currentSignX * Mathf.Abs(baseLocalScale.x), baseLocalScale.y, baseLocalScale.z);
         transform.localEulerAngles = Vector3.zero;
         cosmeticRenderer.flipX = false;
         cosmeticRenderer.flipY = rootRenderer.flipY;
@@ -734,11 +1067,21 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             cachedShopSprites = Resources.LoadAll<Sprite>(ShopSpritesResourcePath);
         }
 
-        string normalizedSelectedName = NormalizeSpriteName(selectedSpriteName);
+        // Try to find a non-preview match first
         for (int i = 0; i < cachedShopSprites.Length; i++)
         {
             Sprite sprite = cachedShopSprites[i];
-            if (sprite != null && NormalizeSpriteName(sprite.name) == normalizedSelectedName)
+            if (sprite != null && !IsPreviewSprite(sprite.name) && AreSpritesMatching(sprite.name, selectedSpriteName))
+            {
+                return sprite;
+            }
+        }
+
+        // Fallback
+        for (int i = 0; i < cachedShopSprites.Length; i++)
+        {
+            Sprite sprite = cachedShopSprites[i];
+            if (sprite != null && AreSpritesMatching(sprite.name, selectedSpriteName))
             {
                 return sprite;
             }
@@ -834,12 +1177,56 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
     private static bool IsAnimatedFishermanHeadSelection(Sprite sprite)
     {
+        if (sprite == null) return false;
         string name = NormalizeSpriteName(sprite);
-        return name == "redhair" || name.StartsWith(NormalizeSpriteName(FishermanAnimatedHeadSheetName));
+        return name == "redhair" || name == "blackhair" || name.Contains("hair") || name.StartsWith(NormalizeSpriteName(FishermanAnimatedHeadSheetName));
     }
 
-    private static Sprite[] GetAnimatedFishermanHeadSprites()
+    private static string GetHeadSheetPrefixForHair(Sprite hairSprite)
     {
+        if (hairSprite == null)
+        {
+            return "FishermansAnimations-Head_Sheet";
+        }
+
+        string hairName = hairSprite.name;
+        if (hairName.StartsWith("FishermansAnimations-Head"))
+        {
+            int underscoreIdx = hairName.LastIndexOf('_');
+            if (underscoreIdx > 0 && char.IsDigit(hairName[hairName.Length - 1]))
+            {
+                return hairName.Substring(0, underscoreIdx);
+            }
+            return hairName;
+        }
+
+        string normalizedHairName = hairName.ToLowerInvariant().Replace("_", "").Replace("-", "");
+        if (normalizedHairName.Contains("blackhair"))
+        {
+            return "FishermansAnimations-Head-BlackHair-Sheet";
+        }
+        if (normalizedHairName.Contains("redhair"))
+        {
+            return "FishermansAnimations-Head_Sheet";
+        }
+
+        string cleanName = hairName.Replace("_", "").Replace("-", "");
+        if (cleanName.EndsWith("Hair", System.StringComparison.OrdinalIgnoreCase))
+        {
+            return "FishermansAnimations-Head-" + cleanName + "-Sheet";
+        }
+
+        return "FishermansAnimations-Head_Sheet";
+    }
+
+    private static Sprite[] GetAnimatedFishermanHeadSprites(Sprite hairSprite = null)
+    {
+        if (hairSprite == null)
+        {
+            EnsureSelectionsLoaded();
+            hairSprite = selectedFishermanHair;
+        }
+
         if (cachedShopSprites == null || cachedShopSprites.Length == 0)
         {
             cachedShopSprites = Resources.LoadAll<Sprite>(ShopSpritesResourcePath);
@@ -850,7 +1237,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             return new Sprite[0];
         }
 
-        string sheetPrefix = NormalizeSpriteName(FishermanAnimatedHeadSheetName);
+        string sheetPrefix = NormalizeSpriteName(GetHeadSheetPrefixForHair(hairSprite));
         Sprite[] matches = System.Array.FindAll(cachedShopSprites, sprite =>
             sprite != null && NormalizeSpriteName(sprite.name).StartsWith(sheetPrefix));
 
@@ -980,5 +1367,66 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
         PlayerPrefs.SetString(key, sprite.name);
         PlayerPrefs.Save();
+    }
+
+    private static bool AreSpritesMatching(string nameA, string nameB)
+    {
+        if (string.IsNullOrEmpty(nameA) || string.IsNullOrEmpty(nameB)) return false;
+        
+        string a = nameA.ToLowerInvariant();
+        string b = nameB.ToLowerInvariant();
+        
+        if (a == b) return true;
+        
+        // Remove spaces, underscores, dashes, numbers and suffixes
+        string cleanA = a.Replace(" ", "").Replace("_", "").Replace("-", "").Replace("hat", "").Replace("cosmetic", "");
+        string cleanB = b.Replace(" ", "").Replace("_", "").Replace("-", "").Replace("hat", "").Replace("cosmetic", "");
+        
+        if (cleanA.EndsWith("0")) cleanA = cleanA.Substring(0, cleanA.Length - 1);
+        if (cleanB.EndsWith("0")) cleanB = cleanB.Substring(0, cleanB.Length - 1);
+        
+        if (cleanA == cleanB) return true;
+        if (cleanA.Contains(cleanB) || cleanB.Contains(cleanA)) return true;
+        
+        // Special case for turtle and other keywords
+        if (a.Contains("turtle") && b.Contains("turtle")) return true;
+        if (a.Contains("frog") && b.Contains("frog")) return true;
+        if (a.Contains("blue") && a.Contains("cap") && b.Contains("blue") && b.Contains("cap")) return true;
+        if (a.Contains("backwards") && b.Contains("backwards")) return true;
+        if (a.Contains("headphones") && b.Contains("headphones")) return true;
+        if (a.Contains("straw") && b.Contains("straw")) return true;
+        if (a.Contains("silver") && b.Contains("silver")) return true;
+        if (a.Contains("pointed") && b.Contains("pointed")) return true;
+        if (a.Contains("green") && a.Contains("bucket") && b.Contains("green") && b.Contains("bucket")) return true;
+        if (a.Contains("black") && a.Contains("hair") && b.Contains("black") && b.Contains("hair")) return true;
+        if (a.Contains("red") && a.Contains("hair") && b.Contains("red") && b.Contains("hair")) return true;
+        
+        return false;
+    }
+
+    public static bool IsHatPreBaked(string hatName)
+    {
+        if (string.IsNullOrEmpty(hatName)) return false;
+        string name = hatName.ToLowerInvariant();
+        return name.Contains("yellow") || name.Contains("fishing_hat") || name.Contains("default") ||
+               name.Contains("backwards") || name.Contains("blue") || name.Contains("frog") || name.Contains("griin") ||
+               (name.Contains("green") && !name.Contains("turtle")) || name.Contains("headphones") || 
+               name.Contains("silver") || name.Contains("straw") || name.Contains("white");
+    }
+
+    private static bool IsPreviewSprite(string spriteName)
+    {
+        if (string.IsNullOrEmpty(spriteName)) return false;
+        string name = spriteName.ToLowerInvariant();
+        
+        // Fisherman preview sprites have a space after fisherman/fishermna/fishaerman
+        if (name.StartsWith("fisherman ") || 
+            name.StartsWith("fishermna ") || 
+            name.StartsWith("fishaerman ") || 
+            name.Contains("preview"))
+        {
+            return true;
+        }
+        return false;
     }
 }

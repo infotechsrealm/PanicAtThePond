@@ -78,6 +78,9 @@ public class FishermanController : MonoBehaviourPunCallbacks
         Debug.Log("FishermanController Start called");
         gameManager.LoadPreloderOnOff(false);
 
+        // Reset any stuck animation states from previous games
+        ResetAnimationStates();
+
         fishController = GameManager.Instance.myFish;
 
         if (GS.Instance.isLan)
@@ -565,7 +568,6 @@ public class FishermanController : MonoBehaviourPunCallbacks
     IEnumerator ReleaseCast()
     {
         Debug.Log("ReleaseCast");
-        isCasting = false;
         isCanMove = false;
 
         PlaySFX(throwWorm);
@@ -582,7 +584,11 @@ public class FishermanController : MonoBehaviourPunCallbacks
             animator.SetTrigger("casting_r");
         }
 
-        yield return new WaitForSeconds(0.5f);
+        // Keep isCasting true briefly after trigger to ensure animation is detected
+        yield return new WaitForSeconds(0.1f);
+        isCasting = false;
+
+        yield return new WaitForSeconds(0.4f);
 
         Hook hook;
         hook = null;
@@ -807,6 +813,67 @@ public class FishermanController : MonoBehaviourPunCallbacks
         {
             animator.SetBool("isCrying_l", res);
         }
+    }
+
+    // Call this at game start or when fisherman resets to clear stuck animations
+    public void ResetAnimationStates()
+    {
+        // Try to get animator if not assigned
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+            Debug.Log("Animator was null, got via GetComponent: " + (animator != null));
+        }
+
+        if (animator == null)
+        {
+            // Try to find FishermanChildAnimatorSync and get its rootAnimator
+            FishermanChildAnimatorSync sync = GetComponent<FishermanChildAnimatorSync>();
+            if (sync != null && sync.rootAnimator != null)
+            {
+                animator = sync.rootAnimator;
+                Debug.Log("[FishermanController] Assigned animator from FishermanChildAnimatorSync.rootAnimator");
+            }
+        }
+
+        if (animator == null)
+        {
+            // Try to find "chest" child Animator
+            Transform chestTransform = transform.Find("chest");
+            if (chestTransform != null)
+            {
+                animator = chestTransform.GetComponent<Animator>();
+                Debug.Log("[FishermanController] Assigned chest animator as primary animator.");
+            }
+        }
+
+        if (animator == null)
+        {
+            Debug.LogError("Animator not found on FishermanController! Cannot reset animation states.");
+            return;
+        }
+
+        // Reset all animation bools to false
+        animator.SetBool("isCrying_l", false);
+        animator.SetBool("isCrying_r", false);
+        animator.SetBool("isFighting_l", false);
+        animator.SetBool("isFighting_r", false);
+        animator.SetBool("fishGotFacing_l", false);
+        animator.SetBool("fishGotFacing_r", false);
+        animator.SetBool("isWin_l", false);
+        animator.SetBool("isWin_r", false);
+        animator.SetBool("fishing_l", false);
+        animator.SetBool("fishing_r", false);
+        animator.SetBool("idel_l", false);
+        animator.SetBool("idel_r", false);
+
+        // Also reset movement bools
+        animator.SetBool("moveForward_l", false);
+        animator.SetBool("moveBackward_l", false);
+        animator.SetBool("moveReverceForward_r", false);
+        animator.SetBool("moveReverceBackward_r", false);
+
+        Debug.Log("Fisherman animation states reset - all bools set to false");
     }
 
     public void PlayWinAnimation()
