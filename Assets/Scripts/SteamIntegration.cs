@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using Steamworks;
 using UnityEngine.UI;
 
@@ -14,6 +14,8 @@ public class SteamIntegration : MonoBehaviour
         if (!SteamManager.Initialized)
         {
             Debug.LogError("Steam is not initialized!");
+            if (avatarImage != null) avatarImage.gameObject.SetActive(false);
+            if (nameText != null) nameText.gameObject.SetActive(false);
             return;
         }
 

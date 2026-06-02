@@ -481,6 +481,12 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
             if (PhotonNetwork.CurrentRoom.PlayerCount >= PhotonNetwork.CurrentRoom.MaxPlayers)
             {
                 photonView.RPC(nameof(GeneratePreloder), RpcTarget.All);
+
+                if (PhotonNetwork.NetworkingClient != null && PhotonNetwork.NetworkingClient.LoadBalancingPeer != null)
+                {
+                    PhotonNetwork.NetworkingClient.LoadBalancingPeer.DisconnectTimeout = 45000;
+                }
+
                 PhotonNetwork.LoadLevel("Play");
                 PhotonNetwork.SendAllOutgoingCommands(); // send it now
             }

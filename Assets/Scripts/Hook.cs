@@ -55,7 +55,11 @@ public class Hook : MonoBehaviourPunCallbacks
         {
             fishermanController = FishermanController.Instance;
         }
+
+        if (fishermanController != null && fishermanController.fishermanController_Mirror != null)
+        {
             fishermanController.fishermanController_Mirror.hook = this;
+        }
 
         if (GS.Instance.isLan)
         {
@@ -74,10 +78,22 @@ public class Hook : MonoBehaviourPunCallbacks
         lineRenderer.startColor = Color.white;
         lineRenderer.endColor = Color.white;
         lineRenderer.sortingOrder = 20; // Ensure the line is drawn above water and other sprites
+
+        foreach (SpriteRenderer spriteRenderer in GetComponentsInChildren<SpriteRenderer>(true))
+        {
+            spriteRenderer.enabled = true;
+            Color color = spriteRenderer.color;
+            spriteRenderer.color = new Color(color.r, color.g, color.b, 1f);
+            spriteRenderer.sortingOrder = Mathf.Max(spriteRenderer.sortingOrder, 20);
+        }
     }
 
     void Update()
     {
+        if (fishermanController == null && FishermanController.Instance != null)
+        {
+            fishermanController = FishermanController.Instance;
+        }
 
         if (rodTip == null && fishermanController != null)
         {
@@ -283,6 +299,19 @@ public class Hook : MonoBehaviourPunCallbacks
             fishermanController.OnFishGoatAnimation(false);
             fishermanController.OnCryingAnimation(false);
             fishermanController.OnFightAnimation(false);
+
+            // Ensure fisherman is fully visible after hook returns (fixes only-hook-visible bug)
+            SpriteRenderer[] fishermanRenderers = fishermanController.GetComponentsInChildren<SpriteRenderer>(true);
+            for (int i = 0; i < fishermanRenderers.Length; i++)
+            {
+                SpriteRenderer sr = fishermanRenderers[i];
+                if (sr != null)
+                {
+                    sr.enabled = true;
+                    Color c = sr.color;
+                    sr.color = new Color(c.r, c.g, c.b, 1f);
+                }
+            }
 
             if (wormParent.childCount != 0)
             {

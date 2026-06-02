@@ -128,4 +128,32 @@ public class FishermanController_Mirror : NetworkBehaviour
             NetworkServer.Spawn(hook.gameObject, connectionToClient); // 🔹 gives authority to caller client
         }
     }
+
+    [ClientRpc]
+    public void RpcEnsureVisibility()
+    {
+        if (FishermanController != null)
+        {
+            FishermanController.EnsureFishermanRenderersVisible();
+            FishermanController.EnsureRodChildVisible();
+        }
+    }
+
+    [ClientRpc]
+    public void RpcSetAnimatorBool(string parameterName, bool value)
+    {
+        if (FishermanController != null && FishermanController.animator != null)
+        {
+            FishermanController.animator.SetBool(parameterName, value);
+        }
+    }
+
+    [ClientRpc]
+    public void RpcSetAnimatorTrigger(string parameterName)
+    {
+        if (FishermanController != null && FishermanController.animator != null)
+        {
+            FishermanController.animator.SetTrigger(parameterName);
+        }
+    }
 }

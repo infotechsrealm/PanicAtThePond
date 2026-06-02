@@ -9,8 +9,34 @@ public class FishermanChildAnimatorSync : MonoBehaviour
 {
     [Header("References")]
     public Animator rootAnimator;
-    private List<Animator> childAnimators = new List<Animator>();
-    private int lastStateHash = 0;
+
+    [Header("Playback")]
+    [SerializeField, Range(0.1f, 2f)] private float playbackSpeed = 1f;
+
+    [Header("Oar Alignment")]
+    [SerializeField] private Vector3 leftFacingOarHandOffset = new Vector3(-0.055f, 0.075f, 0f);
+    [SerializeField] private Vector3 rightFacingOarHandOffset = new Vector3(0.055f, 0.075f, 0f);
+
+    private readonly List<Animator> childAnimators = new List<Animator>();
+    private readonly Dictionary<Animator, HashSet<int>> animatorParameterCache = new Dictionary<Animator, HashSet<int>>();
+    private Transform oarTransform;
+    private Vector3 oarBaseLocalPosition;
+
+    private static readonly int[] LeftFacingOarStates =
+    {
+        Animator.StringToHash("Move Forward"),
+        Animator.StringToHash("Move Backwards"),
+        Animator.StringToHash("Oar To Left Pole"),
+        Animator.StringToHash("Left Pole To Oar")
+    };
+
+    private static readonly int[] RightFacingOarStates =
+    {
+        Animator.StringToHash("Move Reverse Forward"),
+        Animator.StringToHash("Move Reverse Backwards"),
+        Animator.StringToHash("Oar To Right Pole"),
+        Animator.StringToHash("Right Pole To Oar")
+    };
 
     private void Start()
     {
@@ -64,6 +90,8 @@ public class FishermanChildAnimatorSync : MonoBehaviour
 
         // 5. Register child animators
         FindChildAnimators();
+        CacheOarTransform();
+        ApplyPlaybackSpeed();
     }
 
     private void ConfigureChildControllersAtRuntime()
@@ -138,50 +166,150 @@ public class FishermanChildAnimatorSync : MonoBehaviour
     private void LateUpdate()
     {
         if (rootAnimator == null || childAnimators.Count == 0)
+        {
             return;
+        }
 
-        // Get the current state of the first layer of the root animator
+        ApplyPlaybackSpeed();
         AnimatorStateInfo rootState = rootAnimator.GetCurrentAnimatorStateInfo(0);
-        int currentStateHash = rootState.shortNameHash;
+        ApplyOarHandAlignment(rootState.shortNameHash);
+    }
 
-        // If the state changed on the root, immediately transition all active child animators
-        if (currentStateHash != lastStateHash)
+    private void ApplyPlaybackSpeed()
+    {
+        float speed = Mathf.Max(0.1f, playbackSpeed);
+
+        if (rootAnimator != null)
         {
-            lastStateHash = currentStateHash;
-            for (int i = 0; i < childAnimators.Count; i++)
+            rootAnimator.speed = speed;
+        }
+
+        for (int i = 0; i < childAnimators.Count; i++)
+        {
+            Animator child = childAnimators[i];
+            if (child != null)
             {
-                Animator child = childAnimators[i];
-                if (child != null && child.isActiveAndEnabled && child.runtimeAnimatorController != null)
+                child.speed = speed;
+            }
+        }
+    }
+
+    public void ApplyBool(string parameterName, bool value)
+    {
+        for (int i = 0; i < childAnimators.Count; i++)
+        {
+            Animator child = childAnimators[i];
+            if (child == null || child == rootAnimator || !child.isActiveAndEnabled)
+            {
+                continue;
+            }
+
+            if (HasParameter(child, parameterName, AnimatorControllerParameterType.Bool))
+            {
+                child.SetBool(parameterName, value);
+            }
+        }
+    }
+
+    public void ApplyTrigger(string parameterName)
+    {
+        for (int i = 0; i < childAnimators.Count; i++)
+        {
+            Animator child = childAnimators[i];
+            if (child == null || child == rootAnimator || !child.isActiveAndEnabled)
+            {
+                continue;
+            }
+
+            if (HasParameter(child, parameterName, AnimatorControllerParameterType.Trigger))
+            {
+                child.SetTrigger(parameterName);
+            }
+        }
+    }
+
+    private bool HasParameter(Animator animator, string parameterName, AnimatorControllerParameterType type)
+    {
+        if (animator == null || string.IsNullOrEmpty(parameterName))
+        {
+            return false;
+        }
+
+        if (!animatorParameterCache.TryGetValue(animator, out HashSet<int> hashes))
+        {
+            hashes = new HashSet<int>();
+            AnimatorControllerParameter[] parameters = animator.parameters;
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                AnimatorControllerParameter p = parameters[i];
+                hashes.Add(ComposeParameterKey(p.nameHash, p.type));
+            }
+
+            animatorParameterCache[animator] = hashes;
+        }
+
+        return hashes.Contains(ComposeParameterKey(Animator.StringToHash(parameterName), type));
+    }
+
+    private static int ComposeParameterKey(int nameHash, AnimatorControllerParameterType type)
+    {
+        return (nameHash * 31) ^ (int)type;
+    }
+
+    private void CacheOarTransform()
+    {
+        oarTransform = transform.Find("oar");
+        if (oarTransform == null)
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                Transform child = transform.GetChild(i);
+                if (string.Equals(child.name, "oar", System.StringComparison.OrdinalIgnoreCase))
                 {
-                    child.Play(currentStateHash, 0, 0f);
+                    oarTransform = child;
+                    break;
                 }
             }
         }
-        else
+
+        if (oarTransform != null)
         {
-            // Sync playback time to align sprite animation frames precisely
-            float rootTime = rootState.normalizedTime;
-            for (int i = 0; i < childAnimators.Count; i++)
+            oarBaseLocalPosition = oarTransform.localPosition;
+        }
+    }
+
+    private void ApplyOarHandAlignment(int rootShortNameHash)
+    {
+        if (oarTransform == null)
+        {
+            return;
+        }
+
+        if (ContainsState(LeftFacingOarStates, rootShortNameHash))
+        {
+            oarTransform.localPosition = oarBaseLocalPosition + leftFacingOarHandOffset;
+            return;
+        }
+
+        if (ContainsState(RightFacingOarStates, rootShortNameHash))
+        {
+            oarTransform.localPosition = oarBaseLocalPosition + rightFacingOarHandOffset;
+            return;
+        }
+
+        oarTransform.localPosition = oarBaseLocalPosition;
+    }
+
+    private static bool ContainsState(int[] stateHashes, int stateHash)
+    {
+        for (int i = 0; i < stateHashes.Length; i++)
+        {
+            if (stateHashes[i] == stateHash)
             {
-                Animator child = childAnimators[i];
-                if (child != null && child.isActiveAndEnabled && child.runtimeAnimatorController != null)
-                {
-                    AnimatorStateInfo childState = child.GetCurrentAnimatorStateInfo(0);
-                    if (childState.shortNameHash == currentStateHash)
-                    {
-                        // Snap if they drift apart (e.g. on state entry or framerate fluctuations)
-                        if (Mathf.Abs(childState.normalizedTime - rootTime) > 0.02f)
-                        {
-                            child.Play(currentStateHash, 0, rootTime);
-                        }
-                    }
-                    else
-                    {
-                        // If for some reason the state didn't transition, force it now
-                        child.Play(currentStateHash, 0, rootTime);
-                    }
-                }
+                return true;
             }
         }
+
+        return false;
     }
 }

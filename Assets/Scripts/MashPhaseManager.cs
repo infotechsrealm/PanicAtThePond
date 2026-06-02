@@ -1,4 +1,4 @@
-﻿using Photon.Pun;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -50,10 +50,17 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsMasterClient)
         {
-            FishermanController.Instance.OnFightAnimation(true);
+            if (FishermanController.Instance != null)
+            {
+                FishermanController.Instance.OnFightAnimation(true);
+            }
+
             WormSpawner.Instance.canSpawn = false;
             JunkSpawner.Instance.canSpawn = false;
-            FishermanController.Instance.isCanCast = false;
+            if (FishermanController.Instance != null)
+            {
+                FishermanController.Instance.isCanCast = false;
+            }
         }
     }
 
@@ -78,12 +85,19 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
 
             mashText.text = "MASH SPACE BAR!";
 
-            if (PhotonNetwork.IsMasterClient)
+            if (PhotonNetwork.IsMasterClient || GS.Instance.isLan)
             {
-                FishermanController.Instance.OnFightAnimation(true);
+                if (FishermanController.Instance != null)
+                {
+                    FishermanController.Instance.OnFightAnimation(true);
+                }
+
                 WormSpawner.Instance.canSpawn = false;
                 JunkSpawner.Instance.canSpawn = false;
-                FishermanController.Instance.isCanCast = false;
+                if (FishermanController.Instance != null)
+                {
+                    FishermanController.Instance.isCanCast = false;
+                }
             }
         }
     }
@@ -143,7 +157,12 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient || GameManager.Instance.myFish.isFisherMan)
         {
          
-            FishermanController.Instance.isCanCast = false;
+            if (FishermanController.Instance != null)
+            {
+                FishermanController.Instance.isCanCast = false;
+                FishermanController.Instance.OnFightAnimation(true);
+            }
+
             if (GS.Instance.isLan)
             {
                 GameManager.Instance.myFish.fishController_Mirror.CallMashPhase(mashTimes);
@@ -153,6 +172,11 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
         {
             if (GS.Instance.isLan)
             {
+                // Even from non-fisherman side in LAN, notify fisherman to fight
+                if (FishermanController.Instance != null)
+                {
+                    FishermanController.Instance.OnFightAnimation(true);
+                }
                 GameManager.Instance.myFish.fishController_Mirror.CallMashPhase(mashTimes);
             }
             else
@@ -300,6 +324,11 @@ public class MashPhaseManager : MonoBehaviourPunCallbacks
         }
         else
         {
+            if (PhotonNetwork.IsMasterClient && fishermanController != null)
+            {
+                fishermanController.OnFightAnimation(false);
+            }
+
             if (GameManager.Instance.myFish)
             {
                 string myName = "Player";

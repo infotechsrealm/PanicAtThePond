@@ -105,6 +105,8 @@ MonoBehaviour:
   - SyncRodTipRPC
   - RpcSetFishermanCosmetics
   - RpcSetFishHat
+  - RpcSetAnimatorBool
+  - RpcSetAnimatorTrigger
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

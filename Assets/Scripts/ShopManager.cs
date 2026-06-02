@@ -1211,6 +1211,23 @@ public class ShopManager : MonoBehaviour
 
     private void SelectCosmeticItem(List<Button> buttons, Button selectedButton, bool isFishermanCosmetic)
     {
+        if (selectedButton == null)
+        {
+            return;
+        }
+
+        // Use hierarchy-based routing so fish hats can never be written into fisherman selection (and vice versa).
+        bool belongsToFishCosmetics = IsButtonInFishCosmetics(selectedButton);
+        bool belongsToFishermanCosmetics = IsButtonInFishermanCosmetics(selectedButton);
+        if (belongsToFishCosmetics && !belongsToFishermanCosmetics)
+        {
+            isFishermanCosmetic = false;
+        }
+        else if (belongsToFishermanCosmetics)
+        {
+            isFishermanCosmetic = true;
+        }
+
         ApplyItemOpacity(buttons, selectedButton);
 
         if (!isFishermanCosmetic && IsClearFishCosmeticButton(selectedButton))
@@ -1264,6 +1281,36 @@ public class ShopManager : MonoBehaviour
             ApplySelectedFishermanHatToDisplay(selectedSprite);
             RefreshBottomRightPreview();
         }
+    }
+
+    private bool IsButtonInFishCosmetics(Button button)
+    {
+        if (button == null || FishCosmeticItemsRoot == null)
+        {
+            return false;
+        }
+
+        return button.transform.IsChildOf(FishCosmeticItemsRoot);
+    }
+
+    private bool IsButtonInFishermanCosmetics(Button button)
+    {
+        if (button == null)
+        {
+            return false;
+        }
+
+        if (FishermanHatObject != null && button.transform.IsChildOf(FishermanHatObject.transform))
+        {
+            return true;
+        }
+
+        if (FishermanHairObject != null && button.transform.IsChildOf(FishermanHairObject.transform))
+        {
+            return true;
+        }
+
+        return FishermanCosmeticItemsRoot != null && button.transform.IsChildOf(FishermanCosmeticItemsRoot);
     }
 
     private void ApplySavedFishHatToDisplay()

@@ -1,4 +1,4 @@
-﻿using Mirror;
+using Mirror;
 using UnityEngine;
 
 public class Hook_Mirror : NetworkBehaviour
@@ -25,6 +25,13 @@ public class Hook_Mirror : NetworkBehaviour
         
     }
 
-   
-
+    [ClientRpc]
+    public void RpcSetJunkRod(Vector3 currentRod)
+    {
+        if (hook != null)
+        {
+            hook.transform.position = currentRod;
+            hook.transform.localScale = Vector3.one;
+        }
+    }
 }

@@ -92,6 +92,17 @@ public class GS : MonoBehaviour
         }
 
         scoreSystemSettings.FillBlankValuesWithDefaults();
+
+        // Ensure the game runs in background so focus loss does not freeze it and trigger a timeout
+        Application.runInBackground = true;
+
+        // Configure Photon connection settings to be more robust during scene loads and focus loss
+        PhotonNetwork.KeepAliveInBackground = 300f; // 5 minutes background keep-alive
+
+        if (PhotonNetwork.NetworkingClient != null && PhotonNetwork.NetworkingClient.LoadBalancingPeer != null)
+        {
+            PhotonNetwork.NetworkingClient.LoadBalancingPeer.DisconnectTimeout = 45000; // 45 seconds timeout
+        }
     }
 
     private void OnEnable()
@@ -106,6 +117,11 @@ public class GS : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (PhotonNetwork.NetworkingClient != null && PhotonNetwork.NetworkingClient.LoadBalancingPeer != null)
+        {
+            PhotonNetwork.NetworkingClient.LoadBalancingPeer.DisconnectTimeout = 45000;
+        }
+
         if (scene.name == "Dash")
         {
             ResetGameState();

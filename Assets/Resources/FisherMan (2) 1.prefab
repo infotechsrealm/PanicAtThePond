@@ -1239,7 +1239,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7439150992768059143}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1316,6 +1316,14 @@ MonoBehaviour:
   minX: -8
   maxX: 8
   animator: {fileID: 4838424730581603071}
+  fightingLeftParam: isFighting_l
+  fightingRightParam: isFighting_r
+  fishingLeftParam: fishing_l
+  fishingRightParam: fishing_r
+  idleLeftParam: idel_l
+  idleRightParam: idel_r
+  castingLeftTrigger: casting_l
+  castingRightTrigger: casting_r
   cricketChirping: {fileID: 2245942469895154654}
   fisherManSounds: {fileID: 3852269008812851591}
   boatMoveSound: {fileID: 5746258346127662886}
@@ -1385,7 +1393,73 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters: []
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 0
+    Name: idel_l
+  - Type: 4
+    SynchronizeType: 0
+    Name: idel_r
+  - Type: 4
+    SynchronizeType: 0
+    Name: fishing_l
+  - Type: 4
+    SynchronizeType: 0
+    Name: fishing_r
+  - Type: 9
+    SynchronizeType: 0
+    Name: casting_l
+  - Type: 9
+    SynchronizeType: 0
+    Name: casting_r
+  - Type: 4
+    SynchronizeType: 0
+    Name: moveBackward_l
+  - Type: 4
+    SynchronizeType: 0
+    Name: moveForward_l
+  - Type: 4
+    SynchronizeType: 0
+    Name: moveReverceBackward_r
+  - Type: 4
+    SynchronizeType: 0
+    Name: moveReverceForward_r
+  - Type: 9
+    SynchronizeType: 0
+    Name: leftOurToPole_l
+  - Type: 9
+    SynchronizeType: 0
+    Name: rightOurToPole_r
+  - Type: 4
+    SynchronizeType: 0
+    Name: fishGotFacing_l
+  - Type: 4
+    SynchronizeType: 0
+    Name: fishGotFacing_r
+  - Type: 4
+    SynchronizeType: 0
+    Name: isFighting_l
+  - Type: 4
+    SynchronizeType: 0
+    Name: isFighting_r
+  - Type: 4
+    SynchronizeType: 0
+    Name: isCrying_r
+  - Type: 4
+    SynchronizeType: 0
+    Name: isCrying_l
+  - Type: 4
+    SynchronizeType: 0
+    Name: isWin_r
+  - Type: 4
+    SynchronizeType: 0
+    Name: isWin_l
+  - Type: 9
+    SynchronizeType: 0
+    Name: isReeling_r
+  - Type: 9
+    SynchronizeType: 0
+    Name: isReeling_l
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
@@ -1519,6 +1593,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishermanChildAnimatorSync
   rootAnimator: {fileID: 4838424730581603071}
+  playbackSpeed: 0.75
+  leftFacingOarHandOffset: {x: -0.055, y: 0.075, z: 0}
+  rightFacingOarHandOffset: {x: 0.055, y: 0.075, z: 0}
 --- !u!95 &4838424730581603071
 Animator:
   serializedVersion: 7

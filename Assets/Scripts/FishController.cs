@@ -445,6 +445,12 @@ public class FishController : MonoBehaviourPunCallbacks
                 animator.SetBool("isMove", false);
                 catchadeFish = true;
                 canMove = false;
+                if (FishermanController.Instance != null)
+                {
+                    FishermanController.Instance.OnFightAnimation(true);
+                    FishermanController.Instance.EnsureFishermanRenderersVisible();
+                    FishermanController.Instance.EnsureRodChildVisible();
+                }
                 MiniGameManager.Instance.StartMiniGame();
 
             }

@@ -188,9 +188,9 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             string hatName = selectedFishermanHat != null ? selectedFishermanHat.name.ToLowerInvariant() : "";
             RuntimeAnimatorController newController = null;
             
-            bool isPreBaked = IsHatPreBaked(hatName);
+            bool isPreBaked = false;
 
-            if (isPreBaked)
+            if (IsHatPreBaked(hatName))
             {
                 if (hatName.Contains("yellow") || hatName.Contains("fishing_hat") || hatName.Contains("default")) 
                     newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan Yellow Hat");
@@ -210,15 +210,13 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                     newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Silver Bucket Hat)");
                 else if (hatName.Contains("straw_hat") || hatName.Contains("straw") || hatName.Contains("white hat"))
                     newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Straw Hat)");
+
+                isPreBaked = newController != null;
             }
             
             if (newController == null)
             {
-                // Fallback to clean hair controller (no hat pre-baked)
-                if (hairName.Contains("black"))
-                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Black Hair)");
-                else 
-                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Red Hair)");
+                newController = Resources.Load<RuntimeAnimatorController>("Fisherman created/Cheast anim/Cheast Animator");
             }
 
             Animator rootAnim = fisherman.GetComponent<Animator>();
@@ -269,6 +267,8 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                     hatSR.sortingOrder = rootRenderer.sortingOrder + 10;
                 }
 
+                CosmeticTransform hatTransform = GetFishermanHatTransform(selectedFishermanHat);
+
                 CosmeticRuntimeApplier applier = hatCosmeticTransform.GetComponent<CosmeticRuntimeApplier>();
                 if (applier == null)
                 {
@@ -277,9 +277,9 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 applier.rootRenderer = rootRenderer;
                 applier.cosmeticRenderer = hatSR;
                 applier.rootAnimator = rootAnim;
-                applier.baseLocalPosition = new Vector3(-0.029f, 0.075f, -0.9f); // Perfect alignment as requested
-                applier.baseLocalRotation = Vector3.zero;
-                applier.baseLocalScale = new Vector3(0.73484f, 0.73484f, 0.73484f);
+                applier.baseLocalPosition = hatTransform.Position;
+                applier.baseLocalRotation = hatTransform.Rotation;
+                applier.baseLocalScale = hatTransform.Scale;
                 applier.followsFishermanAnimation = true;
             }
 
@@ -408,9 +408,9 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             string normalizedHatName = hatSprite != null ? hatSprite.name.ToLowerInvariant() : "";
             RuntimeAnimatorController newController = null;
             
-            bool isPreBaked = IsHatPreBaked(normalizedHatName);
+            bool isPreBaked = false;
 
-            if (isPreBaked)
+            if (IsHatPreBaked(normalizedHatName))
             {
                 if (normalizedHatName.Contains("yellow") || normalizedHatName.Contains("fishing_hat") || normalizedHatName.Contains("default")) 
                     newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan Yellow Hat");
@@ -430,14 +430,13 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                     newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Silver Bucket Hat)");
                 else if (normalizedHatName.Contains("straw_hat") || normalizedHatName.Contains("straw") || normalizedHatName.Contains("white hat"))
                     newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Straw Hat)");
+
+                isPreBaked = newController != null;
             }
             
             if (newController == null)
             {
-                if (normalizedHairName.Contains("black"))
-                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Black Hair)");
-                else 
-                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Red Hair)");
+                newController = Resources.Load<RuntimeAnimatorController>("Fisherman created/Cheast anim/Cheast Animator");
             }
 
             Animator rootAnim = fisherman.GetComponent<Animator>();
@@ -488,6 +487,8 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                     hatSR.sortingOrder = rootRenderer.sortingOrder + 10;
                 }
 
+                CosmeticTransform hatTransform = GetFishermanHatTransform(hatSprite);
+
                 CosmeticRuntimeApplier applier = hatCosmeticTransform.GetComponent<CosmeticRuntimeApplier>();
                 if (applier == null)
                 {
@@ -496,9 +497,9 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 applier.rootRenderer = rootRenderer;
                 applier.cosmeticRenderer = hatSR;
                 applier.rootAnimator = rootAnim;
-                applier.baseLocalPosition = new Vector3(-0.029f, 0.075f, -0.9f); // Perfect alignment as requested
-                applier.baseLocalRotation = Vector3.zero;
-                applier.baseLocalScale = new Vector3(0.73484f, 0.73484f, 0.73484f);
+                applier.baseLocalPosition = hatTransform.Position;
+                applier.baseLocalRotation = hatTransform.Rotation;
+                applier.baseLocalScale = hatTransform.Scale;
                 applier.followsFishermanAnimation = true;
             }
 
@@ -851,33 +852,37 @@ public class CosmeticRuntimeApplier : MonoBehaviour
     private static CosmeticTransform GetFishermanHatTransform(Sprite sprite)
     {
         string name = NormalizeSpriteName(sprite);
+        Vector3 defaultPosition = new Vector3(-0.029f, 0.075f, -0.9f);
+        Vector3 defaultRotation = Vector3.zero;
+        Vector3 defaultScale = new Vector3(0.73484f, 0.73484f, 0.73484f);
+
         switch (name)
         {
             case "fishermanhatbluecap":
                 return new CosmeticTransform(
-                    new Vector3(-0.005f, 0.67f, 0f),
-                    new Vector3(0f, -160f, -1.767f),
-                    new Vector3(5.137857f, 4.707734f, 3.9f));
+                    new Vector3(-0.021f, 0.083f, -0.9f),
+                    defaultRotation,
+                    new Vector3(0.73f, 0.73f, 0.73f));
             case "fishermanhatredcap":
                 return new CosmeticTransform(
-                    new Vector3(0.04f, 0.7f, -0.01f),
-                    new Vector3(0f, -160f, 2.5f),
-                    new Vector3(4.668904f, 4.27908f, 4.27908f));
+                    new Vector3(-0.018f, 0.081f, -0.9f),
+                    defaultRotation,
+                    new Vector3(0.72f, 0.72f, 0.72f));
             case "fishermanhatchefhat":
                 return new CosmeticTransform(
-                    new Vector3(0f, 0.78f, 0f),
-                    new Vector3(0f, -160f, 20.4f),
-                    Vector3.one * 6.25f);
+                    new Vector3(-0.025f, 0.102f, -0.9f),
+                    defaultRotation,
+                    new Vector3(0.82f, 0.82f, 0.82f));
             case "fishermanhatsodahat":
                 return new CosmeticTransform(
-                    new Vector3(-0.005f, 0.73f, 0f),
-                    new Vector3(0f, -160f, 2.5f),
-                    Vector3.one * 4f);
+                    new Vector3(-0.027f, 0.088f, -0.9f),
+                    defaultRotation,
+                    new Vector3(0.76f, 0.76f, 0.76f));
             default:
                 return new CosmeticTransform(
-                    new Vector3(-0.005f, 0.77f, 0f),
-                    new Vector3(0f, -160f, 2.5f),
-                    Vector3.one * 3.9f);
+                    defaultPosition,
+                    defaultRotation,
+                    defaultScale);
         }
     }
 
@@ -1377,6 +1382,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         string b = nameB.ToLowerInvariant();
         
         if (a == b) return true;
+        if (AreFishermanHatSelectionsMatching(a, b)) return true;
         
         // Remove spaces, underscores, dashes, numbers and suffixes
         string cleanA = a.Replace(" ", "").Replace("_", "").Replace("-", "").Replace("hat", "").Replace("cosmetic", "");
@@ -1402,6 +1408,64 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         if (a.Contains("red") && a.Contains("hair") && b.Contains("red") && b.Contains("hair")) return true;
         
         return false;
+    }
+
+    private static bool AreFishermanHatSelectionsMatching(string nameA, string nameB)
+    {
+        string keyA = GetFishermanHatSelectionKey(nameA);
+        string keyB = GetFishermanHatSelectionKey(nameB);
+        return !string.IsNullOrEmpty(keyA) && keyA == keyB;
+    }
+
+    private static string GetFishermanHatSelectionKey(string spriteName)
+    {
+        string name = NormalizeSpriteName(spriteName);
+        if (string.IsNullOrEmpty(name))
+        {
+            return string.Empty;
+        }
+
+        if (name.Contains("turtle"))
+        {
+            return "turtle";
+        }
+
+        if (name.Contains("fishhat") || name.Contains("frog") || name.Contains("griin"))
+        {
+            return "frog";
+        }
+
+        if (name.Contains("ranger") || name.Contains("green"))
+        {
+            return "green";
+        }
+
+        if (name.Contains("bluecap"))
+        {
+            return "bluecap";
+        }
+
+        if (name.Contains("redcap") || name.Contains("redhat"))
+        {
+            return "red";
+        }
+
+        if (name.Contains("chef") || name.Contains("white") || name.Contains("soda"))
+        {
+            return "white";
+        }
+
+        if (name.Contains("headphone"))
+        {
+            return "headphone";
+        }
+
+        if (name.Contains("default") || name.Contains("fishing"))
+        {
+            return "yellow";
+        }
+
+        return string.Empty;
     }
 
     public static bool IsHatPreBaked(string hatName)

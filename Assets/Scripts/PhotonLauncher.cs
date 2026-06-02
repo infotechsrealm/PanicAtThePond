@@ -1,4 +1,4 @@
-﻿using Photon.Pun;
+using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
@@ -52,6 +52,11 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         GS.Instance.GeneratePreloder(DashManager.Instance.prefabPanret.transform);
+
+        if (PhotonNetwork.NetworkingClient != null && PhotonNetwork.NetworkingClient.LoadBalancingPeer != null)
+        {
+            PhotonNetwork.NetworkingClient.LoadBalancingPeer.DisconnectTimeout = 45000;
+        }
 
         PhotonNetwork.JoinLobby(); // Optional: auto join lobby
     }
