@@ -22,25 +22,35 @@ public class FishermanChildAnimatorSync : MonoBehaviour
     private Transform oarTransform;
     private Vector3 oarBaseLocalPosition;
 
-    private static readonly int[] LeftFacingOarStates =
+    // State names for oar hand alignment
+    private static readonly string[] LeftFacingOarStateNames = new string[]
     {
-        Animator.StringToHash("Move Forward"),
-        Animator.StringToHash("Move Backwards"),
-        Animator.StringToHash("Oar To Left Pole"),
-        Animator.StringToHash("Left Pole To Oar")
+        "Move Forward", "Move Backwards", "Oar To Left Pole", "Left Pole To Oar"
     };
 
-    private static readonly int[] RightFacingOarStates =
+    private static readonly string[] RightFacingOarStateNames = new string[]
     {
-        Animator.StringToHash("Move Reverse Forward"),
-        Animator.StringToHash("Move Reverse Backwards"),
-        Animator.StringToHash("Oar To Right Pole"),
-        Animator.StringToHash("Right Pole To Oar")
+        "Move Reverse Forward", "Move Reverse Backwards", "Oar To Right Pole", "Right Pole To Oar"
     };
+
+    // Pre-compute state hashes for fast comparison
+    private static readonly int[] LeftFacingOarStateHashes;
+    private static readonly int[] RightFacingOarStateHashes;
+
+    static FishermanChildAnimatorSync()
+    {
+        LeftFacingOarStateHashes = new int[LeftFacingOarStateNames.Length];
+        for (int i = 0; i < LeftFacingOarStateNames.Length; i++)
+            LeftFacingOarStateHashes[i] = Animator.StringToHash(LeftFacingOarStateNames[i]);
+
+        RightFacingOarStateHashes = new int[RightFacingOarStateNames.Length];
+        for (int i = 0; i < RightFacingOarStateNames.Length; i++)
+            RightFacingOarStateHashes[i] = Animator.StringToHash(RightFacingOarStateNames[i]);
+    }
 
     private void Start()
     {
-        // 1. Ensure root animator is assigned or fallback to chest
+        // 1. Ensure root animator is assigned
         if (rootAnimator == null)
         {
             rootAnimator = GetComponent<Animator>();
@@ -48,16 +58,13 @@ public class FishermanChildAnimatorSync : MonoBehaviour
 
         if (rootAnimator == null)
         {
-            // Find "chest" child Animator to act as root/driver animator
             Transform chestTransform = transform.Find("chest");
             if (chestTransform != null)
             {
                 rootAnimator = chestTransform.GetComponent<Animator>();
-                Debug.Log("[FishermanChildAnimatorSync] Found and assigned child 'chest' as rootAnimator.");
             }
         }
 
-        // 2. Ensure rootAnimator has the driver controller assigned
         if (rootAnimator == null)
         {
             rootAnimator = gameObject.AddComponent<Animator>();
@@ -69,29 +76,82 @@ public class FishermanChildAnimatorSync : MonoBehaviour
             if (controller != null)
             {
                 rootAnimator.runtimeAnimatorController = controller;
-                Debug.Log("[FishermanChildAnimatorSync] Assigned Cheast Animator controller to root Animator at runtime.");
-            }
-            else
-            {
-                Debug.LogWarning("[FishermanChildAnimatorSync] Failed to load Cheast Animator at runtime.");
             }
         }
 
-        // 3. Keep FishermanController.animator field in sync with our rootAnimator
+        // 2. Sync with FishermanController
         var controllerScript = GetComponent<FishermanController>();
         if (controllerScript != null && controllerScript.animator == null)
         {
             controllerScript.animator = rootAnimator;
-            Debug.Log("[FishermanChildAnimatorSync] Assigned root Animator to FishermanController at runtime.");
         }
 
-        // 4. Configure other modular child animators dynamically at runtime
+        // 3. Configure child animators at runtime
         ConfigureChildControllersAtRuntime();
 
-        // 5. Register child animators
+        // 4. Register child animators
         FindChildAnimators();
         CacheOarTransform();
+
+        // 5. Sync initial state
+        ForceInitialStateSync();
+
         ApplyPlaybackSpeed();
+
+        // Log all child animator states for debugging
+        Debug.Log($"[FishermanChildAnimatorSync] Initialized with {childAnimators.Count} child animators.");
+        Debug.Log($"[FishermanChildAnimatorSync] Root animator: {(rootAnimator != null ? rootAnimator.gameObject.name : "NULL")}, controller: {(rootAnimator?.runtimeAnimatorController?.name ?? "NULL")}");
+
+        // Log each child's controller info
+        for (int i = 0; i < childAnimators.Count; i++)
+        {
+            var child = childAnimators[i];
+            if (child != null)
+            {
+                Debug.Log($"[FishermanChildAnimatorSync] Child {i}: {child.gameObject.name}, controller: {(child.runtimeAnimatorController?.name ?? "NULL")}, state: {child.GetCurrentAnimatorStateInfo(0).shortNameHash}");
+            }
+        }
+    }
+
+    /// <summary>
+    /// Forces all child animators to match the root's initial state.
+    /// Uses name-based lookup to handle different state hashes across controllers.
+    /// </summary>
+    private void ForceInitialStateSync()
+    {
+        if (rootAnimator == null || childAnimators.Count == 0)
+            return;
+
+        rootAnimator.Update(0f);
+        AnimatorStateInfo rootState = rootAnimator.GetCurrentAnimatorStateInfo(0);
+
+        // Get root's current state name
+        int rootStateHash = rootState.shortNameHash;
+        if (rootStateHash == 0)
+        {
+            // Use default state - try to find "Idel Left"
+            rootStateHash = Animator.StringToHash("Idel Left");
+        }
+
+        // Play on root first to ensure it's in a valid state
+        if (rootState.shortNameHash == 0)
+        {
+            rootAnimator.Play(rootStateHash, 0, 0f);
+            rootAnimator.Update(0f);
+            rootState = rootAnimator.GetCurrentAnimatorStateInfo(0);
+        }
+
+        // Now sync all children using the SAME state name hash computation
+        foreach (Animator child in childAnimators)
+        {
+            if (child == null || !child.isActiveAndEnabled)
+                continue;
+
+            child.Play(rootStateHash, 0, 0f);
+            child.Update(0f);
+        }
+
+        Debug.Log($"[FishermanChildAnimatorSync] Initial sync to state hash: {rootStateHash}");
     }
 
     private void ConfigureChildControllersAtRuntime()
@@ -109,7 +169,6 @@ public class FishermanChildAnimatorSync : MonoBehaviour
         Transform child = transform.Find(childName);
         if (child == null)
         {
-            // Case-insensitive search
             for (int i = 0; i < transform.childCount; i++)
             {
                 var t = transform.GetChild(i);
@@ -135,20 +194,11 @@ public class FishermanChildAnimatorSync : MonoBehaviour
                 if (controller != null)
                 {
                     anim.runtimeAnimatorController = controller;
-                    Debug.Log($"[FishermanChildAnimatorSync] Runtime assigned '{resourcePath}' to '{child.name}'.");
-                }
-                else
-                {
-                    Debug.LogWarning($"[FishermanChildAnimatorSync] Failed to load runtime controller at '{resourcePath}'.");
                 }
             }
         }
     }
 
-    /// <summary>
-    /// Finds and registers all Animator components on child GameObjects.
-    /// Excludes the root Animator itself.
-    /// </summary>
     public void FindChildAnimators()
     {
         childAnimators.Clear();
@@ -160,19 +210,35 @@ public class FishermanChildAnimatorSync : MonoBehaviour
                 childAnimators.Add(a);
             }
         }
-        Debug.Log($"[FishermanChildAnimatorSync] Found {childAnimators.Count} child animators.");
     }
 
     private void LateUpdate()
     {
         if (rootAnimator == null || childAnimators.Count == 0)
-        {
             return;
-        }
 
         ApplyPlaybackSpeed();
+
+        // Sync child animators with root
+        SyncChildStates();
+
+        // Apply oar hand alignment
         AnimatorStateInfo rootState = rootAnimator.GetCurrentAnimatorStateInfo(0);
         ApplyOarHandAlignment(rootState.shortNameHash);
+    }
+
+    /// <summary>
+    /// NOTE: Force state synchronization is DISABLED because different controllers
+    /// generate DIFFERENT hash values for the same state name.
+    ///
+    /// Instead, all animation sync happens via the parameter system (ApplyBool/ApplyTrigger).
+    /// When FishermanController sets a parameter, it sets it on ALL animators (root + children)
+    /// so they all transition together based on their shared transition rules.
+    /// </summary>
+    private void SyncChildStates()
+    {
+        // DO NOT force sync states here - it doesn't work across different animator controllers
+        // The ApplyBool/ApplyTrigger methods already sync all animators via shared parameters
     }
 
     private void ApplyPlaybackSpeed()
@@ -180,60 +246,72 @@ public class FishermanChildAnimatorSync : MonoBehaviour
         float speed = Mathf.Max(0.1f, playbackSpeed);
 
         if (rootAnimator != null)
-        {
             rootAnimator.speed = speed;
-        }
 
         for (int i = 0; i < childAnimators.Count; i++)
         {
             Animator child = childAnimators[i];
             if (child != null)
-            {
                 child.speed = speed;
-            }
         }
     }
 
+    /// <summary>
+    /// Applies a boolean parameter to all child animators that have this parameter.
+    /// Called by FishermanController when setting animation states.
+    /// </summary>
     public void ApplyBool(string parameterName, bool value)
     {
+        if (string.IsNullOrEmpty(parameterName))
+            return;
+
+        int paramHash = Animator.StringToHash(parameterName);
+
+        // Apply to all child animators
         for (int i = 0; i < childAnimators.Count; i++)
         {
             Animator child = childAnimators[i];
             if (child == null || child == rootAnimator || !child.isActiveAndEnabled)
-            {
                 continue;
-            }
 
-            if (HasParameter(child, parameterName, AnimatorControllerParameterType.Bool))
+            // Check if animator has this parameter
+            if (HasParameter(child, paramHash, AnimatorControllerParameterType.Bool))
             {
                 child.SetBool(parameterName, value);
             }
         }
     }
 
+    /// <summary>
+    /// Applies a trigger parameter to all child animators that have this parameter.
+    /// Called by FishermanController when triggering animation transitions.
+    /// </summary>
     public void ApplyTrigger(string parameterName)
     {
+        if (string.IsNullOrEmpty(parameterName))
+            return;
+
+        int paramHash = Animator.StringToHash(parameterName);
+
+        // Apply to all child animators
         for (int i = 0; i < childAnimators.Count; i++)
         {
             Animator child = childAnimators[i];
             if (child == null || child == rootAnimator || !child.isActiveAndEnabled)
-            {
                 continue;
-            }
 
-            if (HasParameter(child, parameterName, AnimatorControllerParameterType.Trigger))
+            // Check if animator has this parameter
+            if (HasParameter(child, paramHash, AnimatorControllerParameterType.Trigger))
             {
                 child.SetTrigger(parameterName);
             }
         }
     }
 
-    private bool HasParameter(Animator animator, string parameterName, AnimatorControllerParameterType type)
+    private bool HasParameter(Animator animator, int paramHash, AnimatorControllerParameterType type)
     {
-        if (animator == null || string.IsNullOrEmpty(parameterName))
-        {
+        if (animator == null)
             return false;
-        }
 
         if (!animatorParameterCache.TryGetValue(animator, out HashSet<int> hashes))
         {
@@ -242,18 +320,18 @@ public class FishermanChildAnimatorSync : MonoBehaviour
             for (int i = 0; i < parameters.Length; i++)
             {
                 AnimatorControllerParameter p = parameters[i];
-                hashes.Add(ComposeParameterKey(p.nameHash, p.type));
+                hashes.Add(Animator.StringToHash(p.name));
             }
-
             animatorParameterCache[animator] = hashes;
         }
 
-        return hashes.Contains(ComposeParameterKey(Animator.StringToHash(parameterName), type));
-    }
-
-    private static int ComposeParameterKey(int nameHash, AnimatorControllerParameterType type)
-    {
-        return (nameHash * 31) ^ (int)type;
+        // Check by name hash (we need to find param by name, not by hash)
+        foreach (var p in animator.parameters)
+        {
+            if (p.type == type && Animator.StringToHash(p.name) == paramHash)
+                return true;
+        }
+        return false;
     }
 
     private void CacheOarTransform()
@@ -273,31 +351,26 @@ public class FishermanChildAnimatorSync : MonoBehaviour
         }
 
         if (oarTransform != null)
-        {
             oarBaseLocalPosition = oarTransform.localPosition;
-        }
     }
 
     private void ApplyOarHandAlignment(int rootShortNameHash)
     {
         if (oarTransform == null)
-        {
             return;
-        }
 
-        if (ContainsState(LeftFacingOarStates, rootShortNameHash))
+        if (ContainsState(LeftFacingOarStateHashes, rootShortNameHash))
         {
             oarTransform.localPosition = oarBaseLocalPosition + leftFacingOarHandOffset;
-            return;
         }
-
-        if (ContainsState(RightFacingOarStates, rootShortNameHash))
+        else if (ContainsState(RightFacingOarStateHashes, rootShortNameHash))
         {
             oarTransform.localPosition = oarBaseLocalPosition + rightFacingOarHandOffset;
-            return;
         }
-
-        oarTransform.localPosition = oarBaseLocalPosition;
+        else
+        {
+            oarTransform.localPosition = oarBaseLocalPosition;
+        }
     }
 
     private static bool ContainsState(int[] stateHashes, int stateHash)
@@ -305,11 +378,30 @@ public class FishermanChildAnimatorSync : MonoBehaviour
         for (int i = 0; i < stateHashes.Length; i++)
         {
             if (stateHashes[i] == stateHash)
-            {
                 return true;
-            }
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Debug method to log current animation states of all animators.
+    /// </summary>
+    public void DebugLogStates()
+    {
+        if (rootAnimator != null)
+        {
+            AnimatorStateInfo rootState = rootAnimator.GetCurrentAnimatorStateInfo(0);
+            Debug.Log($"[Sync Debug] Root state: {rootState.shortNameHash}, layer: {rootAnimator.GetLayerName(0)}");
         }
 
-        return false;
+        for (int i = 0; i < childAnimators.Count; i++)
+        {
+            Animator child = childAnimators[i];
+            if (child != null)
+            {
+                AnimatorStateInfo childState = child.GetCurrentAnimatorStateInfo(0);
+                Debug.Log($"[Sync Debug] Child {i} state: {childState.shortNameHash}, layer: {child.GetLayerName(0)}");
+            }
+        }
     }
 }
