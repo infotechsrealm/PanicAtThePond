@@ -583,21 +583,41 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             cachedShopSprites = Resources.LoadAll<Sprite>(ShopSpritesResourcePath);
         }
 
-        // Try to find a non-preview match first
+        // Pass 1: Exact match, non-preview
         for (int i = 0; i < cachedShopSprites.Length; i++)
         {
             Sprite sprite = cachedShopSprites[i];
-            if (sprite != null && !IsPreviewSprite(sprite.name) && AreSpritesMatching(sprite.name, spriteName))
+            if (sprite != null && !IsPreviewSprite(sprite.name) && AreSpritesMatching(sprite.name, spriteName, true))
             {
                 return sprite;
             }
         }
 
-        // Fallback
+        // Pass 2: Exact match, fallback
         for (int i = 0; i < cachedShopSprites.Length; i++)
         {
             Sprite sprite = cachedShopSprites[i];
-            if (sprite != null && AreSpritesMatching(sprite.name, spriteName))
+            if (sprite != null && AreSpritesMatching(sprite.name, spriteName, true))
+            {
+                return sprite;
+            }
+        }
+
+        // Pass 3: Loose match, non-preview
+        for (int i = 0; i < cachedShopSprites.Length; i++)
+        {
+            Sprite sprite = cachedShopSprites[i];
+            if (sprite != null && !IsPreviewSprite(sprite.name) && AreSpritesMatching(sprite.name, spriteName, false))
+            {
+                return sprite;
+            }
+        }
+
+        // Pass 4: Loose match, fallback
+        for (int i = 0; i < cachedShopSprites.Length; i++)
+        {
+            Sprite sprite = cachedShopSprites[i];
+            if (sprite != null && AreSpritesMatching(sprite.name, spriteName, false))
             {
                 return sprite;
             }
@@ -756,9 +776,9 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
                 {
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.081f, 0.808f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, -4.52f);
-                    transform.localScale = new Vector3(3.829786f, 3.821941f, 3.9f);
+                    transform.localPosition = new Vector3(0.119f, 0.768f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, -5.89f);
+                    transform.localScale = new Vector3(3.808891f, 3.635097f, 3.9f);
                     cosmeticRenderer.flipX = true;
                     return;
                 }
@@ -774,9 +794,9 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 else if (state.Contains("move forward") || state.Contains("moveforward"))
                 {
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.0607f, 0.808f + bob, -0.008f);
-                    transform.localEulerAngles = Vector3.zero;
-                    transform.localScale = new Vector3(3.924813f, 3.635097f, 3.9f);
+                    transform.localPosition = new Vector3(-0.085f, 0.8f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
+                    transform.localScale = new Vector3(3.88478f, 3.635097f, 3.9f);
                     cosmeticRenderer.flipX = false;
                     return;
                 }
@@ -784,6 +804,162 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 if (state.Contains("move"))
                 {
                     bobOffset.y -= 0.03f;
+                }
+            }
+            else if (cosmeticRenderer != null && cosmeticRenderer.sprite != null && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("turtle"))
+            {
+                if (state.Contains("move reverse backwards") || state.Contains("movereversebackwards"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(0.0125f, 0.785f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, -160f, 2.5f);
+                    transform.localScale = new Vector3(3.9f, 3.9f, 3.9f);
+                    cosmeticRenderer.flipX = true;
+                    return;
+                }
+                else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(0.0125f, 0.785f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, -160f, 2.5f);
+                    transform.localScale = new Vector3(3.9f, 3.9f, 3.9f);
+                    cosmeticRenderer.flipX = false;
+                    return;
+                }
+                else if (state.Contains("move backwards") || state.Contains("movebackwards"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(0.0125f, 0.785f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, -160f, 2.5f);
+                    transform.localScale = new Vector3(3.9f, 3.9f, 3.9f);
+                    cosmeticRenderer.flipX = false;
+                    return;
+                }
+                else if (state.Contains("move forward") || state.Contains("moveforward"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(0.0125f, 0.785f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
+                    transform.localScale = new Vector3(3.9f, 3.9f, 3.9f);
+                    cosmeticRenderer.flipX = false;
+                    return;
+                }
+            }
+            else if (cosmeticRenderer != null && cosmeticRenderer.sprite != null && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("blue") && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("cap"))
+            {
+                if (state.Contains("move reverse backwards") || state.Contains("movereversebackwards"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(-0.034f, 0.67f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 0.36f);
+                    transform.localScale = new Vector3(4.565172f, 4.707734f, 3.9f);
+                    cosmeticRenderer.flipX = false;
+                    return;
+                }
+                else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(0.0588f, 0.6626f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, -5.12f);
+                    transform.localScale = new Vector3(4.565172f, 4.707734f, 3.9f);
+                    cosmeticRenderer.flipX = true;
+                    return;
+                }
+                else if (state.Contains("move backwards") || state.Contains("movebackwards"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(0.025f, 0.67f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 0.36f);
+                    transform.localScale = new Vector3(4.565172f, 4.707734f, 3.9f);
+                    cosmeticRenderer.flipX = true;
+                    return;
+                }
+                else if (state.Contains("move forward") || state.Contains("moveforward"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(-0.0642f, 0.6625f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 1.58f);
+                    transform.localScale = new Vector3(4.565172f, 4.707734f, 3.9f);
+                    cosmeticRenderer.flipX = false;
+                    return;
+                }
+            }
+            else if (cosmeticRenderer != null && cosmeticRenderer.sprite != null && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("red") && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("cap"))
+            {
+                if (state.Contains("move reverse backwards") || state.Contains("movereversebackwards"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(-0.006f, 0.68f + bob, -0.01f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
+                    transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
+                    cosmeticRenderer.flipX = false;
+                    return;
+                }
+                else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(-0.035f, 0.684f + bob, -0.01f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
+                    transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
+                    cosmeticRenderer.flipX = true;
+                    return;
+                }
+                else if (state.Contains("move backwards") || state.Contains("movebackwards"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(-0.006f, 0.68f + bob, -0.01f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
+                    transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
+                    cosmeticRenderer.flipX = true;
+                    return;
+                }
+                else if (state.Contains("move forward") || state.Contains("moveforward"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(-0.04f, 0.655f + bob, -0.01f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
+                    transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
+                    cosmeticRenderer.flipX = false;
+                    return;
+                }
+            }
+            else if (cosmeticRenderer != null && cosmeticRenderer.sprite != null && (cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("chef") || cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("soda")))
+            {
+                if (state.Contains("move reverse backwards") || state.Contains("movereversebackwards"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(-0.01f, 0.75f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 20.4f);
+                    transform.localScale = new Vector3(4.647937f, 4.647937f, 4.647937f);
+                    cosmeticRenderer.flipX = false;
+                    return;
+                }
+                else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(-0.0275f, 0.785f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 160f, 20.4f);
+                    transform.localScale = new Vector3(4.647937f, 4.647937f, 4.647937f);
+                    cosmeticRenderer.flipX = false;
+                    return;
+                }
+                else if (state.Contains("move backwards") || state.Contains("movebackwards"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(-0.0275f, 0.785f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 160f, 20.4f);
+                    transform.localScale = new Vector3(4.647937f, 4.647937f, 4.647937f);
+                    cosmeticRenderer.flipX = false;
+                    return;
+                }
+                else if (state.Contains("move forward") || state.Contains("moveforward"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(-0.01f, 0.75f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 20.4f);
+                    transform.localScale = new Vector3(4.647937f, 4.647937f, 4.647937f);
+                    cosmeticRenderer.flipX = false;
+                    return;
                 }
             }
 
@@ -913,22 +1089,27 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 return new CosmeticTransform(
                     new Vector3(-0.005f, 0.67f, 0f),
                     new Vector3(0f, -160f, -1.767f),
-                    new Vector3(5.137857f, 4.707734f, 3.9f));
+                    new Vector3(4.565172f, 4.707734f, 3.9f));
             case "fishermanhatredcap":
                 return new CosmeticTransform(
                     new Vector3(0.04f, 0.7f, -0.01f),
                     new Vector3(0f, -160f, 2.5f),
-                    new Vector3(4.668904f, 4.27908f, 4.27908f));
+                    new Vector3(4.538098f, 4.007359f, 4.27908f));
             case "fishermanhatchefhat":
                 return new CosmeticTransform(
-                    new Vector3(0f, 0.78f, 0f),
-                    new Vector3(0f, -160f, 20.4f),
-                    Vector3.one * 6.25f);
+                    new Vector3(-0.01f, 0.75f, 0f),
+                    new Vector3(0f, 0f, 20.4f),
+                    new Vector3(4.647937f, 4.647937f, 4.647937f));
             case "fishermanhatsodahat":
                 return new CosmeticTransform(
                     new Vector3(-0.005f, 0.73f, 0f),
                     new Vector3(0f, -160f, 2.5f),
                     Vector3.one * 4f);
+            case "turtlehat":
+                return new CosmeticTransform(
+                    new Vector3(0.0125f, 0.785f, 0f),
+                    new Vector3(0f, -160f, 2.5f),
+                    new Vector3(3.9f, 3.9f, 3.9f));
             case "fishermanhatrangerhat":
                 return new CosmeticTransform(
                     new Vector3(-0.0444f, 0.8293f, 0f),
@@ -1128,21 +1309,41 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             cachedShopSprites = Resources.LoadAll<Sprite>(ShopSpritesResourcePath);
         }
 
-        // Try to find a non-preview match first
+        // Pass 1: Exact match, non-preview
         for (int i = 0; i < cachedShopSprites.Length; i++)
         {
             Sprite sprite = cachedShopSprites[i];
-            if (sprite != null && !IsPreviewSprite(sprite.name) && AreSpritesMatching(sprite.name, selectedSpriteName))
+            if (sprite != null && !IsPreviewSprite(sprite.name) && AreSpritesMatching(sprite.name, selectedSpriteName, true))
             {
                 return sprite;
             }
         }
 
-        // Fallback
+        // Pass 2: Exact match, fallback
         for (int i = 0; i < cachedShopSprites.Length; i++)
         {
             Sprite sprite = cachedShopSprites[i];
-            if (sprite != null && AreSpritesMatching(sprite.name, selectedSpriteName))
+            if (sprite != null && AreSpritesMatching(sprite.name, selectedSpriteName, true))
+            {
+                return sprite;
+            }
+        }
+
+        // Pass 3: Loose match, non-preview
+        for (int i = 0; i < cachedShopSprites.Length; i++)
+        {
+            Sprite sprite = cachedShopSprites[i];
+            if (sprite != null && !IsPreviewSprite(sprite.name) && AreSpritesMatching(sprite.name, selectedSpriteName, false))
+            {
+                return sprite;
+            }
+        }
+
+        // Pass 4: Loose match, fallback
+        for (int i = 0; i < cachedShopSprites.Length; i++)
+        {
+            Sprite sprite = cachedShopSprites[i];
+            if (sprite != null && AreSpritesMatching(sprite.name, selectedSpriteName, false))
             {
                 return sprite;
             }
@@ -1193,6 +1394,15 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         if (rootAnimator == null)
         {
             return string.Empty;
+        }
+
+        if (rootAnimator.IsInTransition(0))
+        {
+            AnimatorClipInfo[] nextClips = rootAnimator.GetNextAnimatorClipInfo(0);
+            if (nextClips != null && nextClips.Length > 0 && nextClips[0].clip != null)
+            {
+                return nextClips[0].clip.name;
+            }
         }
 
         AnimatorClipInfo[] clips = rootAnimator.GetCurrentAnimatorClipInfo(0);
@@ -1430,7 +1640,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private static bool AreSpritesMatching(string nameA, string nameB)
+    private static bool AreSpritesMatching(string nameA, string nameB, bool exactOnly = false)
     {
         if (string.IsNullOrEmpty(nameA) || string.IsNullOrEmpty(nameB)) return false;
         
@@ -1447,7 +1657,13 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         if (cleanB.EndsWith("0")) cleanB = cleanB.Substring(0, cleanB.Length - 1);
         
         if (cleanA == cleanB) return true;
-        if (cleanA.Contains(cleanB) || cleanB.Contains(cleanA)) return true;
+        
+        if (exactOnly) return false;
+
+        if (!string.IsNullOrEmpty(cleanA) && !string.IsNullOrEmpty(cleanB))
+        {
+            if (cleanA.Contains(cleanB) || cleanB.Contains(cleanA)) return true;
+        }
         
         // Special case for turtle and other keywords
         if (a.Contains("turtle") && b.Contains("turtle")) return true;
