@@ -448,8 +448,8 @@ public class FishController : MonoBehaviourPunCallbacks
                 if (FishermanController.Instance != null)
                 {
                     FishermanController.Instance.OnFightAnimation(true);
-                    FishermanController.Instance.EnsureFishermanRenderersVisible();
-                    FishermanController.Instance.EnsureRodChildVisible();
+                   // FishermanController.Instance.EnsureFishermanRenderersVisible();
+                  //  FishermanController.Instance.EnsureRodChildVisible();
                 }
                 MiniGameManager.Instance.StartMiniGame();
 
