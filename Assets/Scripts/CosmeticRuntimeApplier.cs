@@ -923,7 +923,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                     return;
                 }
             }
-            else if (cosmeticRenderer != null && cosmeticRenderer.sprite != null && (cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("chef") || cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("soda")))
+            else if (cosmeticRenderer != null && cosmeticRenderer.sprite != null && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("chef"))
             {
                 if (state.Contains("move reverse backwards") || state.Contains("movereversebackwards"))
                 {
@@ -959,6 +959,100 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                     transform.localEulerAngles = new Vector3(0f, 0f, 20.4f);
                     transform.localScale = new Vector3(4.647937f, 4.647937f, 4.647937f);
                     cosmeticRenderer.flipX = false;
+                    return;
+                }
+            }
+            else if (cosmeticRenderer != null && cosmeticRenderer.sprite != null && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("soda"))
+            {
+                if (state.Contains("move reverse backwards") || state.Contains("movereversebackwards"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(-0.0455f, 0.7612f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 10.1f);
+                    transform.localScale = new Vector3(3.643995f, 4f, 4f);
+                    cosmeticRenderer.flipX = false;
+                    return;
+                }
+                else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(0.09f, 0.74f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, -7.29f);
+                    transform.localScale = new Vector3(3.643995f, 4f, 4f);
+                    cosmeticRenderer.flipX = true;
+                    return;
+                }
+                else if (state.Contains("move backwards") || state.Contains("movebackwards"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(0.0115f, 0.7655f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 0.85f);
+                    transform.localScale = new Vector3(3.822506f, 4f, 4f);
+                    cosmeticRenderer.flipX = true;
+                    return;
+                }
+                else if (state.Contains("move forward") || state.Contains("moveforward"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(-0.0225f, 0.73f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
+                    transform.localScale = new Vector3(4f, 4f, 4f);
+                    cosmeticRenderer.flipX = false;
+                    return;
+                }
+                else if (state.Contains("idle right") || state.Contains("idleright") || state.Contains("idel right") || state.Contains("idelright") || ((state == "idle" || state == "idel" || state.Contains("cast") || state.Contains("fishing")) && !isLeft))
+                {
+                    transform.localPosition = new Vector3(-0.005f, 0.765f, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, -3.88f);
+                    transform.localScale = new Vector3(4f, 4f, 4f);
+                    cosmeticRenderer.flipX = true;
+                    return;
+                }
+            }
+            else if (cosmeticRenderer != null && cosmeticRenderer.sprite != null && (cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("fish") || cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("frog")))
+            {
+                if (state.Contains("move reverse backwards") || state.Contains("movereversebackwards"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(-0.0461f, 0.698f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 8.6f);
+                    transform.localScale = new Vector3(3.672022f, 3.79665f, 3.9f);
+                    cosmeticRenderer.flipX = false;
+                    return;
+                }
+                else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(0.036f, 0.705f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, -8.79f);
+                    transform.localScale = new Vector3(3.672022f, 3.79665f, 3.9f);
+                    cosmeticRenderer.flipX = true;
+                    return;
+                }
+                else if (state.Contains("move backwards") || state.Contains("movebackwards"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(-0.0461f, 0.698f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, -5.58f);
+                    transform.localScale = new Vector3(3.672022f, 3.79665f, 3.9f);
+                    cosmeticRenderer.flipX = true;
+                    return;
+                }
+                else if (state.Contains("move forward") || state.Contains("moveforward"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(-0.0461f, 0.698f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 8.86f);
+                    transform.localScale = new Vector3(3.672022f, 3.79665f, 3.9f);
+                    cosmeticRenderer.flipX = false;
+                    return;
+                }
+                else if (state.Contains("idle right") || state.Contains("idleright") || state.Contains("idel right") || state.Contains("idelright") || ((state == "idle" || state == "idel" || state.Contains("cast") || state.Contains("fishing")) && !isLeft))
+                {
+                    transform.localPosition = new Vector3(0.01f, 0.729f, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, -9.42f);
+                    transform.localScale = new Vector3(3.621509f, 3.79665f, 3.9f);
+                    cosmeticRenderer.flipX = true;
                     return;
                 }
             }
@@ -1102,9 +1196,9 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                     new Vector3(4.647937f, 4.647937f, 4.647937f));
             case "fishermanhatsodahat":
                 return new CosmeticTransform(
-                    new Vector3(-0.005f, 0.73f, 0f),
-                    new Vector3(0f, -160f, 2.5f),
-                    Vector3.one * 4f);
+                    new Vector3(-0.0225f, 0.73f, 0f),
+                    new Vector3(0f, 0f, 2.5f),
+                    new Vector3(4f, 4f, 4f));
             case "turtlehat":
                 return new CosmeticTransform(
                     new Vector3(0.0125f, 0.785f, 0f),
@@ -1115,6 +1209,11 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                     new Vector3(-0.0444f, 0.8293f, 0f),
                     new Vector3(0f, 0f, 2.5f),
                     new Vector3(3.924813f, 3.635097f, 3.9f));
+            case "fishermanhatfishhat":
+                return new CosmeticTransform(
+                    new Vector3(-0.0416f, 0.6991f, 0f),
+                    new Vector3(0f, 0f, 2.5f),
+                    new Vector3(3.621509f, 3.79665f, 3.9f));
             default:
                 return new CosmeticTransform(
                     new Vector3(-0.005f, 0.77f, 0f),
