@@ -3109,10 +3109,10 @@ public class ShopManager : MonoBehaviour
     {
         EnsureShopPreviewRootActive();
 
-        if (TryCycleFishermanHatPreviewSprites(direction))
-        {
-            return;
-        }
+        // if (TryCycleFishermanHatPreviewSprites(direction))
+        // {
+        //     return;
+        // }
 
         List<Button> activeButtons = GetActiveCosmeticButtons(true);
         if (activeButtons.Count == 0)

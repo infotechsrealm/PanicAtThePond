@@ -929,6 +929,25 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                     cosmeticRenderer.flipX = false;
                     return;
                 }
+                else if (state.Contains("win"))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    if (isLeft)
+                    {
+                        transform.localPosition = new Vector3(-0.065f, 0.701f + bob, -0.01f);
+                        transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
+                        transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
+                        cosmeticRenderer.flipX = false;
+                    }
+                    else
+                    {
+                        transform.localPosition = new Vector3(0.05f, 0.69f + bob, -0.01f);
+                        transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
+                        transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
+                        cosmeticRenderer.flipX = true;
+                    }
+                    return;
+                }
                 else if (state.Contains("idle right") || state.Contains("idleright") || state.Contains("idel right") || state.Contains("idelright") || ((state == "idle" || state == "idel") && !isLeft))
                 {
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
