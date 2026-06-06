@@ -876,6 +876,12 @@ public class LocalPlayManager : MonoBehaviour
         string hatName = nextSprite != null ? GetHatNameFromCompositeSpriteName(nextSprite.name) : "";
         Sprite hatSprite = string.IsNullOrEmpty(hatName) ? null : CosmeticRuntimeApplier.GetSpriteByName(hatName);
         CosmeticRuntimeApplier.SelectFishHat(hatSprite);
+
+        ShopManager shop = FindShopManager();
+        if (shop != null)
+        {
+            shop.ForceUpdateHatIconPreview(hatSprite);
+        }
     }
 
     private static string NormalizeSpriteName(string spriteName)

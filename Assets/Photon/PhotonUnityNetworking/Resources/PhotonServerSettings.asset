@@ -107,6 +107,9 @@ MonoBehaviour:
   - RpcSetFishHat
   - RpcSetAnimatorBool
   - RpcSetAnimatorTrigger
+  - RpcResetTrigger
+  - RpcSetBool
+  - RpcSetTrigger
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

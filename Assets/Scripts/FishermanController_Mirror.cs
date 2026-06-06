@@ -128,4 +128,58 @@ public class FishermanController_Mirror : NetworkBehaviour
             NetworkServer.Spawn(hook.gameObject, connectionToClient); // 🔹 gives authority to caller client
         }
     }
+
+    public void CallSetTrigger_Mirror(string triggerName)
+    {
+        if (isLocalPlayer) CmdSetTrigger_Mirror(triggerName);
+    }
+
+    [Command]
+    private void CmdSetTrigger_Mirror(string triggerName)
+    {
+        RpcSetTrigger_Mirror(triggerName);
+    }
+
+    [ClientRpc]
+    private void RpcSetTrigger_Mirror(string triggerName)
+    {
+        Animator animator = GetComponent<Animator>();
+        if (animator != null) animator.SetTrigger(triggerName);
+    }
+
+    public void CallResetTrigger_Mirror(string triggerName)
+    {
+        if (isLocalPlayer) CmdResetTrigger_Mirror(triggerName);
+    }
+
+    [Command]
+    private void CmdResetTrigger_Mirror(string triggerName)
+    {
+        RpcResetTrigger_Mirror(triggerName);
+    }
+
+    [ClientRpc]
+    private void RpcResetTrigger_Mirror(string triggerName)
+    {
+        Animator animator = GetComponent<Animator>();
+        if (animator != null) animator.ResetTrigger(triggerName);
+    }
+
+    public void CallSetBool_Mirror(string boolName, bool value)
+    {
+        if (isLocalPlayer) CmdSetBool_Mirror(boolName, value);
+    }
+
+    [Command]
+    private void CmdSetBool_Mirror(string boolName, bool value)
+    {
+        RpcSetBool_Mirror(boolName, value);
+    }
+
+    [ClientRpc]
+    private void RpcSetBool_Mirror(string boolName, bool value)
+    {
+        Animator animator = GetComponent<Animator>();
+        if (animator != null) animator.SetBool(boolName, value);
+    }
 }

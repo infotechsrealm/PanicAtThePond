@@ -72,6 +72,7 @@ public class Hook : MonoBehaviourPunCallbacks
         lineRenderer.positionCount = 2;
         lineRenderer.startWidth = 0.05f;
         lineRenderer.endWidth = 0.05f;
+        lineRenderer.useWorldSpace = true;
         
         // Setup material and color once in Start
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
@@ -428,7 +429,28 @@ public class Hook : MonoBehaviourPunCallbacks
     {
         if (rod == null) return Vector3.zero;
 
-        return rod.position;
+        Vector3 tipPos = rod.position;
+
+        if (fishermanController != null)
+        {
+            bool isFisherman = false;
+            if (GameManager.Instance != null) isFisherman = GameManager.Instance.isFisherMan;
+            
+            if (rod == fishermanController.rightRod)
+            {
+                float hOffset = isFisherman ? horizontalOffset : rightRodHorizontalOffsetFish;
+                tipPos.x += hOffset;
+            }
+            else if (rod == fishermanController.leftRod)
+            {
+                float hOffset = isFisherman ? -horizontalOffset : -leftRodHorizontalOffsetFish;
+                float vOffset = isFisherman ? leftRodVerticalOffsetFisherman : leftRodVerticalOffset;
+                tipPos.x += hOffset;
+                tipPos.y += vOffset;
+            }
+        }
+
+        return tipPos;
     }
 
     private Vector3 GetHookLineEndPosition()

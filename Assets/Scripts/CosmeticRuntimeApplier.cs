@@ -719,7 +719,14 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         transform.localEulerAngles = targetRot;
         transform.localScale = baseLocalScale;
         
-        cosmeticRenderer.flipX = rootRenderer.flipX;
+        if (cosmeticRenderer.sprite != null && cosmeticRenderer.sprite.name.ToLowerInvariant() == "beret")
+        {
+            cosmeticRenderer.flipX = true;
+        }
+        else
+        {
+            cosmeticRenderer.flipX = rootRenderer.flipX;
+        }
         cosmeticRenderer.flipY = rootRenderer.flipY;
     }
 
@@ -898,7 +905,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
                 {
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.035f, 0.684f + bob, -0.01f);
+                    transform.localPosition = new Vector3(0.05f, 0.69f + bob, -0.01f);
                     transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
                     transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
                     cosmeticRenderer.flipX = true;
@@ -916,7 +923,34 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 else if (state.Contains("move forward") || state.Contains("moveforward"))
                 {
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.04f, 0.655f + bob, -0.01f);
+                    transform.localPosition = new Vector3(-0.065f, 0.701f + bob, -0.01f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
+                    transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
+                    cosmeticRenderer.flipX = false;
+                    return;
+                }
+                else if (state.Contains("idle right") || state.Contains("idleright") || state.Contains("idel right") || state.Contains("idelright") || ((state == "idle" || state == "idel") && !isLeft))
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(0.05f, 0.69f + bob, -0.01f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
+                    transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
+                    cosmeticRenderer.flipX = true;
+                    return;
+                }
+                else if ((state.Contains("cast") || state.Contains("fishing")) && !isLeft)
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(0.021f, 0.677f + bob, -0.01f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
+                    transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
+                    cosmeticRenderer.flipX = true;
+                    return;
+                }
+                else if ((state.Contains("cast") || state.Contains("fishing")) && isLeft)
+                {
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(-0.04f, 0.67f + bob, -0.01f);
                     transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
                     transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
                     cosmeticRenderer.flipX = false;
@@ -967,7 +1001,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 if (state.Contains("move reverse backwards") || state.Contains("movereversebackwards"))
                 {
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.0455f, 0.7612f + bob, 0f);
+                    transform.localPosition = new Vector3(-0.0455f, 0.7262f + bob, 0f);
                     transform.localEulerAngles = new Vector3(0f, 0f, 10.1f);
                     transform.localScale = new Vector3(3.643995f, 4f, 4f);
                     cosmeticRenderer.flipX = false;
@@ -976,7 +1010,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
                 {
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.09f, 0.74f + bob, 0f);
+                    transform.localPosition = new Vector3(0.09f, 0.705f + bob, 0f);
                     transform.localEulerAngles = new Vector3(0f, 0f, -7.29f);
                     transform.localScale = new Vector3(3.643995f, 4f, 4f);
                     cosmeticRenderer.flipX = true;
@@ -985,7 +1019,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 else if (state.Contains("move backwards") || state.Contains("movebackwards"))
                 {
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.0115f, 0.7655f + bob, 0f);
+                    transform.localPosition = new Vector3(0.0115f, 0.7305f + bob, 0f);
                     transform.localEulerAngles = new Vector3(0f, 0f, 0.85f);
                     transform.localScale = new Vector3(3.822506f, 4f, 4f);
                     cosmeticRenderer.flipX = true;
@@ -1002,7 +1036,8 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 }
                 else if (state.Contains("idle right") || state.Contains("idleright") || state.Contains("idel right") || state.Contains("idelright") || ((state == "idle" || state == "idel" || state.Contains("cast") || state.Contains("fishing")) && !isLeft))
                 {
-                    transform.localPosition = new Vector3(-0.005f, 0.765f, 0f);
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(-0.005f, 0.73f + bob, 0f);
                     transform.localEulerAngles = new Vector3(0f, 0f, -3.88f);
                     transform.localScale = new Vector3(4f, 4f, 4f);
                     cosmeticRenderer.flipX = true;
@@ -1041,18 +1076,19 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 else if (state.Contains("move forward") || state.Contains("moveforward"))
                 {
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.0461f, 0.698f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 8.86f);
-                    transform.localScale = new Vector3(3.672022f, 3.79665f, 3.9f);
+                    transform.localPosition = new Vector3(-0.0591f, 0.6991f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
+                    transform.localScale = new Vector3(3.621509f, 3.79665f, 3.9f);
                     cosmeticRenderer.flipX = false;
                     return;
                 }
                 else if (state.Contains("idle right") || state.Contains("idleright") || state.Contains("idel right") || state.Contains("idelright") || ((state == "idle" || state == "idel" || state.Contains("cast") || state.Contains("fishing")) && !isLeft))
                 {
-                    transform.localPosition = new Vector3(0.01f, 0.729f, 0f);
+                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+                    transform.localPosition = new Vector3(0.01f, 0.694f + bob, 0f);
                     transform.localEulerAngles = new Vector3(0f, 0f, -9.42f);
                     transform.localScale = new Vector3(3.621509f, 3.79665f, 3.9f);
-                    cosmeticRenderer.flipX = true;
+                    cosmeticRenderer.flipX = false;
                     return;
                 }
             }
@@ -1062,7 +1098,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 ? new Vector3(baseLocalRotation.x, 0f, baseLocalRotation.z)
                 : baseLocalRotation;
             transform.localScale = baseLocalScale;
-            cosmeticRenderer.flipX = false;
+            cosmeticRenderer.flipX = !isLeft;
         }
         else
         {
@@ -1095,34 +1131,34 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         {
             case "fishermanhatdefaultfishinghat":
                 return new CosmeticTransform(
-                    new Vector3(-0.005f, 0.27f, -0.01f),
-                    new Vector3(0f, 0f, -6f),
+                    new Vector3(-0.123f, 0.233f, -0.01f),
+                    new Vector3(0f, 0f, 3.55f),
                     new Vector3(2.05f, 1.95f, 2.05f));
             case "hat":
                 return new CosmeticTransform(
-                    new Vector3(0.02f, 0.26f, -0.01f),
-                    new Vector3(0f, 168f, -18f),
+                    new Vector3(-0.08f, 0.249f, -0.025f),
+                    new Vector3(0f, 0f, -18f),
                     Vector3.one * 2.15f);
             case "hat2":
                 return new CosmeticTransform(
-                    new Vector3(-0.055f, 0.285f, -0.01f),
-                    new Vector3(0f, 0f, 5f),
-                    new Vector3(2.15f, 1.95f, 2.15f));
+                    new Vector3(-0.0748f, 0.375f, -0.01f),
+                    new Vector3(0f, 0f, 0f),
+                    new Vector3(2.526296f, 2.378349f, 2.15f));
             case "beret":
                 return new CosmeticTransform(
-                    new Vector3(-0.045f, 0.285f, -0.01f),
-                    new Vector3(0f, 0f, -8f),
-                    new Vector3(2.1f, 1.95f, 2.1f));
+                    new Vector3(-0.155f, 0.262f, -0.01f),
+                    new Vector3(0f, 0f, 16.16f),
+                    new Vector3(3.04668f, 2.82906f, 3.04668f));
             case "cap":
                 return new CosmeticTransform(
-                    new Vector3(-0.055f, 0.255f, -0.01f),
-                    new Vector3(0f, 0f, -15f),
-                    Vector3.one * 2.2f);
+                    new Vector3(-0.187f, 0.232f, -0.01f),
+                    new Vector3(0f, 0f, -0.47f),
+                    new Vector3(3.19176f, 3.19176f, 3.19176f));
             case "paperboat":
                 return new CosmeticTransform(
-                    new Vector3(-0.01f, 0.29f, -0.01f),
-                    new Vector3(0f, 0f, -15f),
-                    Vector3.one * 1.9f);
+                    new Vector3(-0.1229999f, 0.303f, -0.01f),
+                    new Vector3(0f, 0f, -5.059f),
+                    new Vector3(2.45423f, 2.45423f, 2.45423f));
             default:
                 return new CosmeticTransform(
                     new Vector3(0f, 0.27f, -0.01f),
@@ -1138,34 +1174,34 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         {
             case "fishermanhatdefaultfishinghat":
                 return new CosmeticTransform(
-                    new Vector3(-0.027f, 0.12f, -0.01f),
-                    new Vector3(0f, 0f, 2.321f),
-                    new Vector3(1.221683f, 1.201655f, 1.602207f));
+                    new Vector3(-0.127f, 0.098f, -0.01f),
+                    new Vector3(0f, 0f, 15.92f),
+                    new Vector3(0.88957f, 1.03656f, 1.602207f));
             case "hat":
                 return new CosmeticTransform(
-                    new Vector3(0.002f, 0.135f, -0.01f),
-                    new Vector3(0f, 168f, -21.54f),
-                    Vector3.one * 1.339713f);
+                    new Vector3(-0.07f, 0.12f, -0.01f),
+                    new Vector3(0f, 0f, -12.618f),
+                    new Vector3(1.031834f, 1.031834f, 1.031834f));
             case "hat2":
                 return new CosmeticTransform(
-                    new Vector3(-0.08999f, 0.164f, -0.01f),
-                    new Vector3(0f, 0f, 6.591f),
-                    new Vector3(1.255108f, 1.145286f, 1.255108f));
+                    new Vector3(-0.08699f, 0.149f, -0.01f),
+                    new Vector3(0f, 0f, 0f),
+                    new Vector3(1.133074f, 0.9941231f, 1.133074f));
             case "beret":
                 return new CosmeticTransform(
-                    new Vector3(-0.064f, 0.15f, -0.01f),
-                    new Vector3(0f, 0f, -8f),
+                    new Vector3(-0.126f, 0.112f, -0.01f),
+                    new Vector3(0f, 0f, 21.98f),
                     new Vector3(1.25f, 1.14f, 1.25f));
             case "cap":
                 return new CosmeticTransform(
-                    new Vector3(-0.03f, 0.116f, -0.01f),
-                    new Vector3(0f, 0f, -15f),
-                    Vector3.one * 1.435158f);
+                    new Vector3(-0.124f, 0.095f, -0.01f),
+                    new Vector3(0f, 0f, -7.89f),
+                    new Vector3(1.213104f, 1.213104f, 1.213104f));
             case "paperboat":
                 return new CosmeticTransform(
-                    new Vector3(0f, 0.15f, -0.01f),
-                    new Vector3(0f, 0f, -15f),
-                    Vector3.one * 1.3f);
+                    new Vector3(-0.135f, 0.125f, -0.01f),
+                    new Vector3(0f, 0f, 0f),
+                    new Vector3(1.116154f, 1.116154f, 1.116154f));
             default:
                 return new CosmeticTransform(
                     new Vector3(0f, 0.15f, -0.01f),
@@ -1355,11 +1391,11 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         switch (frameIndex)
         {
             case 1:
-                return new Vector3(0f, 0.018f, 0f);
+                return new Vector3(0f, 0.009f, 0f);
             case 2:
-                return new Vector3(0.006f, 0.026f, 0f);
+                return new Vector3(0.003f, 0.013f, 0f);
             case 3:
-                return new Vector3(0f, 0.01f, 0f);
+                return new Vector3(0f, 0.005f, 0f);
             default:
                 return Vector3.zero;
         }
@@ -1384,7 +1420,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             selectedFishermanHair = LoadSelectedSprite(SelectedFishermanHairPrefKey);
         }
 
-        if (selectedFishermanHair == null && selectedFishermanHat == null)
+        if (selectedFishermanHat == null)
         {
             selectedFishermanHat = LoadSelectedSprite(SelectedFishermanHatPrefKey);
         }
@@ -1539,7 +1575,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
         if (foundDigit)
         {
-            return Mathf.Clamp(trailingNumber - 1, 0, 3);
+            return trailingNumber % 4;
         }
 
         return 0;

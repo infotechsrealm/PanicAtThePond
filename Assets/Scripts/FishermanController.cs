@@ -376,23 +376,23 @@ public class FishermanController : MonoBehaviourPunCallbacks
                 currentRod = null;
 
                 // Reset fishing triggers (always do this once)
-                animator.ResetTrigger("leftOurToPole_l");
-                animator.ResetTrigger("rightOurToPole_r");
+                ResetTriggerSync("leftOurToPole_l");
+                ResetTriggerSync("rightOurToPole_r");
 
                 if (isLeft)
                 {
                     // Cancel fishing
-                    animator.SetBool("fishing_l", false);
+                    SetBoolSync("fishing_l", false);
 
                     // Movement (mutually exclusive)
-                    animator.SetBool("moveForward_l", moveInput < 0);
-                    animator.SetBool("moveBackward_l", moveInput > 0);
+                    SetBoolSync("moveForward_l", moveInput < 0);
+                    SetBoolSync("moveBackward_l", moveInput > 0);
                 }
                 else if (isRight)
                 {
-                    animator.SetBool("fishing_r", false);
-                    animator.SetBool("moveReverceForward_r", moveInput > 0);
-                    animator.SetBool("moveReverceBackward_r", moveInput < 0);
+                    SetBoolSync("fishing_r", false);
+                    SetBoolSync("moveReverceForward_r", moveInput > 0);
+                    SetBoolSync("moveReverceBackward_r", moveInput < 0);
                 }
             }
             else
@@ -406,13 +406,13 @@ public class FishermanController : MonoBehaviourPunCallbacks
                 // No movement → reset all movement states
                 if (isLeft)
                 {
-                    animator.SetBool("moveForward_l", false);
-                    animator.SetBool("moveBackward_l", false);
+                    SetBoolSync("moveForward_l", false);
+                    SetBoolSync("moveBackward_l", false);
                 }
                 else if (isRight)
                 {
-                    animator.SetBool("moveReverceForward_r", false);
-                    animator.SetBool("moveReverceBackward_r", false);
+                    SetBoolSync("moveReverceForward_r", false);
+                    SetBoolSync("moveReverceBackward_r", false);
                 }
             }
         }
@@ -475,11 +475,11 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
             if (currentRod != leftRod)
             {
-                animator.SetBool("idel_r", false);
-                animator.SetBool("idel_l", true);
-                animator.SetBool("fishing_l", true);
-                animator.SetBool("fishing_r", false);
-                animator.SetTrigger("leftOurToPole_l");
+                SetBoolSync("idel_r", false);
+                SetBoolSync("idel_l", true);
+                SetBoolSync("fishing_l", true);
+                SetBoolSync("fishing_r", false);
+                SetTriggerSync("leftOurToPole_l");
                 SelectRoad(leftRod);
             }
         }
@@ -491,11 +491,11 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
             if (currentRod != rightRod)
             {
-                animator.SetBool("idel_l", false);
-                animator.SetBool("idel_r", true);
-                animator.SetBool("fishing_l", false);
-                animator.SetBool("fishing_r", true);
-                animator.SetTrigger("rightOurToPole_r");
+                SetBoolSync("idel_l", false);
+                SetBoolSync("idel_r", true);
+                SetBoolSync("fishing_l", false);
+                SetBoolSync("fishing_r", true);
+                SetTriggerSync("rightOurToPole_r");
                 SelectRoad(rightRod);
             }
         }
@@ -575,11 +575,11 @@ public class FishermanController : MonoBehaviourPunCallbacks
 
         if (currentRod == leftRod)
         {
-            animator.SetTrigger("casting_l");
+            SetTriggerSync("casting_l");
         }
         else
         {
-            animator.SetTrigger("casting_r");
+            SetTriggerSync("casting_r");
         }
 
         yield return new WaitForSeconds(0.5f);
@@ -591,6 +591,10 @@ public class FishermanController : MonoBehaviourPunCallbacks
         if (GS.Instance.isLan)
         {
             hook = fishermanController_Mirror.hook;
+            if (hook.hook_Mirror != null)
+            {
+                hook.hook_Mirror.RpcSetJunkRod(currentRod.position);
+            }
             hook.TryToSetJunkRod(currentRod.position);
             float castDistance = castingMeter.value * maxCastDistance;
             fishermanController_Mirror.hook.LaunchDownWithDistance(castDistance, currentRod);
@@ -733,6 +737,64 @@ public class FishermanController : MonoBehaviourPunCallbacks
         photonView.RPC(nameof(SetOldMaster), RpcTarget.All);
     }
 
+
+    public void SetTriggerSync(string triggerName)
+    {
+        if (animator != null) animator.SetTrigger(triggerName);
+        if (GS.Instance.isLan)
+        {
+            if (fishermanController_Mirror != null) fishermanController_Mirror.CallSetTrigger_Mirror(triggerName);
+        }
+        else
+        {
+            if (PhotonNetwork.InRoom) photonView.RPC(nameof(RpcSetTrigger), RpcTarget.Others, triggerName);
+        }
+    }
+
+    [PunRPC]
+    public void RpcSetTrigger(string triggerName)
+    {
+        if (animator != null) animator.SetTrigger(triggerName);
+    }
+
+    public void ResetTriggerSync(string triggerName)
+    {
+        if (animator != null) animator.ResetTrigger(triggerName);
+        if (GS.Instance.isLan)
+        {
+            if (fishermanController_Mirror != null) fishermanController_Mirror.CallResetTrigger_Mirror(triggerName);
+        }
+        else
+        {
+            if (PhotonNetwork.InRoom) photonView.RPC(nameof(RpcResetTrigger), RpcTarget.Others, triggerName);
+        }
+    }
+
+    [PunRPC]
+    public void RpcResetTrigger(string triggerName)
+    {
+        if (animator != null) animator.ResetTrigger(triggerName);
+    }
+
+    public void SetBoolSync(string boolName, bool value)
+    {
+        if (animator != null) animator.SetBool(boolName, value);
+        if (GS.Instance.isLan)
+        {
+            if (fishermanController_Mirror != null) fishermanController_Mirror.CallSetBool_Mirror(boolName, value);
+        }
+        else
+        {
+            if (PhotonNetwork.InRoom) photonView.RPC(nameof(RpcSetBool), RpcTarget.Others, boolName, value);
+        }
+    }
+
+    [PunRPC]
+    public void RpcSetBool(string boolName, bool value)
+    {
+        if (animator != null) animator.SetBool(boolName, value);
+    }
+
     [PunRPC]
     public void SetOldMaster()
     {
@@ -789,23 +851,23 @@ public class FishermanController : MonoBehaviourPunCallbacks
         if (isRight)
         {
             Debug.Log("OnFishGoatAnimation called =" + res);
-            animator.SetBool("fishGotFacing_r", res);
+            SetBoolSync("fishGotFacing_r", res);
         }
         else if (isLeft)
         {
             Debug.Log("OnFishGoatAnimation called =" + res);
-            animator.SetBool("fishGotFacing_l", res);
+            SetBoolSync("fishGotFacing_l", res);
         }
     }
     public void OnCryingAnimation(bool res)
     {
         if (isRight)
         {
-            animator.SetBool("isCrying_r", res);
+            SetBoolSync("isCrying_r", res);
         }
         else if (isLeft)
         {
-            animator.SetBool("isCrying_l", res);
+            SetBoolSync("isCrying_l", res);
         }
     }
 
@@ -815,18 +877,26 @@ public class FishermanController : MonoBehaviourPunCallbacks
         isCanCast = false;
         isCasting = false;
 
-        animator.SetBool("isCrying_r", false);
-        animator.SetBool("isCrying_l", false);
-        animator.SetBool("isFighting_r", false);
-        animator.SetBool("isFighting_l", false);
+        SetBoolSync("isCrying_r", false);
+        SetBoolSync("isCrying_l", false);
+        SetBoolSync("isFighting_r", false);
+        SetBoolSync("isFighting_l", false);
+        SetBoolSync("fishing_r", false);
+        SetBoolSync("fishing_l", false);
+        SetBoolSync("idel_r", false);
+        SetBoolSync("idel_l", false);
+        SetBoolSync("moveForward_l", false);
+        SetBoolSync("moveBackward_l", false);
+        SetBoolSync("moveReverceForward_r", false);
+        SetBoolSync("moveReverceBackward_r", false);
 
         if (isRight)
         {
-            animator.SetBool("isWin_r", true);
+            SetBoolSync("isWin_r", true);
         }
         else
         {
-            animator.SetBool("isWin_l", true);
+            SetBoolSync("isWin_l", true);
         }
     }
 
@@ -835,11 +905,11 @@ public class FishermanController : MonoBehaviourPunCallbacks
         Debug.Log("OnFightAnimation called =" + res);
         if (isRight)
         {
-            animator.SetBool("isFighting_r", res);
+            SetBoolSync("isFighting_r", res);
         }
         else if (isLeft)
         {
-            animator.SetBool("isFighting_l", res);
+            SetBoolSync("isFighting_l", res);
         }
     }
 
@@ -853,11 +923,11 @@ public class FishermanController : MonoBehaviourPunCallbacks
     {
         if (isRight)
         {
-            animator.SetTrigger("isReeling_r");
+            SetTriggerSync("isReeling_r");
         }
         else if (isLeft)
         {
-            animator.SetTrigger("isReeling_l");
+            SetTriggerSync("isReeling_l");
         }
     }
 
