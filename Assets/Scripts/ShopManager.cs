@@ -101,6 +101,36 @@ public class ShopManager : MonoBehaviour
     public List<CosmeticPreviewRule> FishPreviewRules = new List<CosmeticPreviewRule>();
     public List<CosmeticPreviewRule> FishermanPreviewRules = new List<CosmeticPreviewRule>();
 
+    [Serializable]
+    public class HatIconOverride
+    {
+        public string HatNameSubstring;
+        public Vector2 AnchoredPosition;
+        public Vector2 SizeDelta;
+    }
+
+    [Header("Hat Icon Preview (Bottom Right)")]
+    public Vector2 DefaultHatIconAnchoredPosition = new Vector2(415f, -203f);
+    public Vector2 DefaultHatIconSize = new Vector2(64f, 64f);
+    public Vector3 HatIconScaleNormal = new Vector3(3f, 3f, 1f);
+    public Vector3 HatIconScaleTurtle = new Vector3(1f, 1f, 1f);
+    public Vector2 VoyageDiagramAnchoredPosition = new Vector2(375f, -130f);
+    public Vector2 VoyageDiagramSize = new Vector2(1345f, 566f);
+    public Vector3 VoyageDiagramScale = new Vector3(0.06170371f, 0.06170371f, 0.06170371f);
+
+    [Header("Dynamic Hat Overrides")]
+    public List<HatIconOverride> DynamicHatOverrides = new List<HatIconOverride>()
+    {
+        new HatIconOverride { HatNameSubstring = "paper", AnchoredPosition = new Vector2(355f, -125f), SizeDelta = new Vector2(20f, 14f) },
+        new HatIconOverride { HatNameSubstring = "beret", AnchoredPosition = new Vector2(361.7f, -129.6f), SizeDelta = new Vector2(18f, 13f) },
+        new HatIconOverride { HatNameSubstring = "hat2", AnchoredPosition = new Vector2(368.3f, -128.2f), SizeDelta = new Vector2(21f, 16f) },
+        new HatIconOverride { HatNameSubstring = "hat", AnchoredPosition = new Vector2(372.5f, -128.7f), SizeDelta = new Vector2(24f, 25f) },
+        new HatIconOverride { HatNameSubstring = "cap", AnchoredPosition = new Vector2(332.4f, -122.2f), SizeDelta = new Vector2(18f, 13f) },
+        new HatIconOverride { HatNameSubstring = "fishing", AnchoredPosition = new Vector2(410f, -200f), SizeDelta = new Vector2(64f, 64f) },
+        new HatIconOverride { HatNameSubstring = "red hair", AnchoredPosition = new Vector2(446.6f, -239.6f), SizeDelta = new Vector2(64f, 64f) },
+        new HatIconOverride { HatNameSubstring = "black hair", AnchoredPosition = new Vector2(425.2f, -244.9f), SizeDelta = new Vector2(64f, 64f) }
+    };
+
     [Header("Sal-t Shop")]
     public Button SaltShopButton;
     public GameObject SaltShopPanel;
@@ -193,6 +223,7 @@ public class ShopManager : MonoBehaviour
         SetActiveIfNotNull(SaltShopPanel, false);
         StartCoroutine(FetchCoinsForShop());
         LoadDiagramPreviewSprite();
+        RefreshBottomRightPreview();
     }
 
     private void OnDestroy()
@@ -807,23 +838,25 @@ public class ShopManager : MonoBehaviour
 
     private void ShowFishVoyageDiagramPreview()
     {
-        if (DiagramPreviewImage != null)
+        Image previewImage = GetBottomRightPreviewImage();
+        if (previewImage != null)
         {
             // Always reload — hat mode may have swapped this image to a hat icon sprite.
             LoadDiagramPreviewSprite();
 
-            DiagramPreviewImage.enabled = true;
-            DiagramPreviewImage.gameObject.SetActive(true);
-            DiagramPreviewImage.transform.SetAsLastSibling();
-            DiagramPreviewImage.transform.localScale = new Vector3(0.06170371f, 0.06170371f, 0.06170371f);
-            RectTransform rt = DiagramPreviewImage.GetComponent<RectTransform>();
+            previewImage.enabled = true;
+            previewImage.gameObject.SetActive(true);
+            previewImage.transform.SetAsLastSibling();
+            previewImage.transform.localScale = VoyageDiagramScale;
+            RectTransform rt = previewImage.GetComponent<RectTransform>();
             if (rt != null)
             {
-                rt.anchoredPosition = new Vector2(120.7f, -2f);
+                rt.anchoredPosition = VoyageDiagramAnchoredPosition;
+                rt.sizeDelta = VoyageDiagramSize;
             }
         }
 
-        if (HatDisplayObject != null && HatDisplayObject != DiagramPreviewImage?.gameObject)
+        if (HatDisplayObject != null && HatDisplayObject != previewImage?.gameObject)
         {
             HatDisplayObject.SetActive(true);
         }
@@ -831,12 +864,18 @@ public class ShopManager : MonoBehaviour
 
     private void HideFishVoyageDiagramPreview()
     {
-        if (DiagramPreviewImage != null)
+        Image previewImage = GetBottomRightPreviewImage();
+        if (previewImage != null)
         {
-            DiagramPreviewImage.sprite = null;
-            DiagramPreviewImage.enabled = true;
-            DiagramPreviewImage.gameObject.SetActive(true);
+            previewImage.sprite = null;
+            previewImage.enabled = false;
+            previewImage.gameObject.SetActive(false);
         }
+    }
+
+    private Image GetBottomRightPreviewImage()
+    {
+        return DiagramPreviewImage;
     }
 
     private bool IsHatIconPreviewMode()
@@ -873,7 +912,8 @@ public class ShopManager : MonoBehaviour
 
     private void ShowCurrentHatIconPreview()
     {
-        if (DiagramPreviewImage == null)
+        Image previewImage = GetBottomRightPreviewImage();
+        if (previewImage == null)
         {
             return;
         }
@@ -896,18 +936,13 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
-        DiagramPreviewImage.sprite = hatIcon;
-        DiagramPreviewImage.SetNativeSize();
-        DiagramPreviewImage.preserveAspect = true;
-        DiagramPreviewImage.enabled = true;
-        DiagramPreviewImage.gameObject.SetActive(true);
-        DiagramPreviewImage.transform.SetAsLastSibling();
+        previewImage.sprite = hatIcon;
+        previewImage.preserveAspect = true;
+        previewImage.enabled = true;
+        previewImage.gameObject.SetActive(true);
+        previewImage.transform.SetAsLastSibling();
 
-        RectTransform rt = DiagramPreviewImage.GetComponent<RectTransform>();
-        if (rt != null)
-        {
-            rt.anchoredPosition = new Vector2(108.1f, -2.1f);
-        }
+        ApplyHatIconOverride(previewImage, hatIcon);
 
         if (HatDisplayObject != null)
         {
@@ -922,36 +957,32 @@ public class ShopManager : MonoBehaviour
 
         if (hatIcon.name.ToLowerInvariant().Contains("turtle"))
         {
-            DiagramPreviewImage.transform.localScale = Vector3.one;
+            previewImage.transform.localScale = HatIconScaleTurtle;
         }
         else
         {
-            DiagramPreviewImage.transform.localScale = new Vector3(3f, 3f, 1f);
+            previewImage.transform.localScale = HatIconScaleNormal;
         }
     }
 
     public void ForceUpdateHatIconPreview(Sprite hatIcon)
     {
-        if (DiagramPreviewImage == null) return;
-        
+        Image previewImage = GetBottomRightPreviewImage();
+        if (previewImage == null) return;
+
         if (hatIcon == null)
         {
             HideBottomRightPreview();
             return;
         }
 
-        DiagramPreviewImage.sprite = hatIcon;
-        DiagramPreviewImage.SetNativeSize();
-        DiagramPreviewImage.preserveAspect = true;
-        DiagramPreviewImage.enabled = true;
-        DiagramPreviewImage.gameObject.SetActive(true);
-        DiagramPreviewImage.transform.SetAsLastSibling();
+        previewImage.sprite = hatIcon;
+        previewImage.preserveAspect = true;
+        previewImage.enabled = true;
+        previewImage.gameObject.SetActive(true);
+        previewImage.transform.SetAsLastSibling();
 
-        RectTransform rt = DiagramPreviewImage.GetComponent<RectTransform>();
-        if (rt != null)
-        {
-            rt.anchoredPosition = new Vector2(108.1f, -2.1f);
-        }
+        ApplyHatIconOverride(previewImage, hatIcon);
 
         if (HatDisplayObject != null)
         {
@@ -965,17 +996,63 @@ public class ShopManager : MonoBehaviour
 
         if (hatIcon.name.ToLowerInvariant().Contains("turtle"))
         {
-            DiagramPreviewImage.transform.localScale = Vector3.one;
+            previewImage.transform.localScale = HatIconScaleTurtle;
         }
         else
         {
-            DiagramPreviewImage.transform.localScale = new Vector3(3f, 3f, 1f);
+            previewImage.transform.localScale = HatIconScaleNormal;
         }
     }
 
     private void HideBottomRightPreview()
     {
         HideFishVoyageDiagramPreview();
+    }
+
+    private void ApplyHatIconOverride(Image previewImage, Sprite hatIcon)
+    {
+        if (previewImage == null || hatIcon == null) return;
+        Vector2 targetPos = DefaultHatIconAnchoredPosition;
+        Vector2 targetSize = DefaultHatIconSize;
+
+        string name = hatIcon.name.ToLowerInvariant();
+        bool found = false;
+        
+        if (DynamicHatOverrides != null)
+        {
+            for (int i = 0; i < DynamicHatOverrides.Count; i++)
+            {
+                var over = DynamicHatOverrides[i];
+                if (!string.IsNullOrEmpty(over.HatNameSubstring) && name == over.HatNameSubstring.ToLowerInvariant())
+                {
+                    targetPos = over.AnchoredPosition;
+                    targetSize = over.SizeDelta;
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                for (int i = 0; i < DynamicHatOverrides.Count; i++)
+                {
+                    var over = DynamicHatOverrides[i];
+                    if (!string.IsNullOrEmpty(over.HatNameSubstring) && name.Contains(over.HatNameSubstring.ToLowerInvariant()))
+                    {
+                        targetPos = over.AnchoredPosition;
+                        targetSize = over.SizeDelta;
+                        break;
+                    }
+                }
+            }
+        }
+
+        previewImage.rectTransform.sizeDelta = targetSize;
+        RectTransform rt = previewImage.GetComponent<RectTransform>();
+        if (rt != null)
+        {
+            rt.anchoredPosition = targetPos;
+        }
     }
 
     private void LoadDiagramPreviewSprite()
@@ -1724,6 +1801,15 @@ public class ShopManager : MonoBehaviour
 
         if (isHairSelection)
         {
+            if (selectedSprite != null && (selectedSprite.name.ToLowerInvariant().Contains("black") || selectedSprite.name.ToLowerInvariant().Contains("winning")))
+            {
+                if (!ApplyFishermanBlackHairPreview(fishermanImage))
+                {
+                    RestoreDisplayBaseSprite(fishermanImage);
+                }
+                return;
+            }
+
             if (!TryApplyCompositePreviewSprite(fishermanImage, selectedSprite, 0, true))
             {
                 if (selectedSprite != null && selectedSprite.name.ToLowerInvariant().Contains("red"))
@@ -1732,11 +1818,38 @@ public class ShopManager : MonoBehaviour
                 }
                 else
                 {
-                    // Fallback for black hair or other missing preview sprites
+                    // Fallback for missing preview sprites
                     RestoreDisplayBaseSprite(fishermanImage);
                 }
             }
 
+            return;
+        }
+
+        if (selectedSprite != null && (selectedSprite.name.ToLowerInvariant().Contains("black") || selectedSprite.name.ToLowerInvariant().Contains("winning")))
+        {
+            if (!ApplyFishermanBlackHairPreview(fishermanImage))
+            {
+                RestoreDisplayBaseSprite(fishermanImage);
+            }
+            return;
+        }
+
+        if (selectedSprite != null && selectedSprite.name.ToLowerInvariant().Contains("red"))
+        {
+            if (!ApplyFishermanRedHairPreview(fishermanImage))
+            {
+                RestoreDisplayBaseSprite(fishermanImage);
+            }
+            return;
+        }
+
+        if (selectedSprite != null && GetFishermanCosmeticHatKey(selectedSprite.name).Contains("yellow"))
+        {
+            if (!ApplyFishermanYellowHatPreview(fishermanImage))
+            {
+                RestoreDisplayBaseSprite(fishermanImage);
+            }
             return;
         }
 
@@ -1745,10 +1858,6 @@ public class ShopManager : MonoBehaviour
         {
             fishermanImage.sprite = previewSprite;
             fishermanImage.preserveAspect = true;
-        }
-        else if (GetFishermanCosmeticHatKey(selectedSprite.name) == "yellow")
-        {
-            RestoreDisplayBaseSprite(fishermanImage);
         }
         else
         {
@@ -1777,15 +1886,15 @@ public class ShopManager : MonoBehaviour
             return false;
         }
 
-        Sprite redHairSprite = GetPreviewSpriteByName("image-removebg-preview");
+        // Direct load from the exact sprite path to avoid normalization issues
+        Sprite redHairSprite = Resources.Load<Sprite>("ShopUI/Fisherman Preview/Fisherman Red hair");
         if (redHairSprite == null)
         {
-            redHairSprite = GetPreviewSpriteByName("Fisherman Red hair");
+            redHairSprite = Resources.Load<Sprite>("ShopUI/Fisherman Preview/image-removebg-preview");
         }
-
         if (redHairSprite == null)
         {
-            redHairSprite = GetPreviewSpriteByName("fisherman_red_hair");
+            redHairSprite = Resources.Load<Sprite>("ShopUI/Fisherman Preview/fisherman_red_hair");
         }
 
         if (redHairSprite == null)
@@ -1796,6 +1905,40 @@ public class ShopManager : MonoBehaviour
         fishermanImage.sprite = redHairSprite;
         fishermanImage.preserveAspect = true;
         return true;
+    }
+
+    private bool ApplyFishermanBlackHairPreview(Image fishermanImage)
+    {
+        if (fishermanImage == null) return false;
+
+        // Direct load from the exact sprite path to avoid normalization issues
+        Sprite blackHairSprite = Resources.Load<Sprite>("ShopUI/Fisherman Preview/Fisherman Black hair");
+        if (blackHairSprite == null)
+        {
+            blackHairSprite = Resources.Load<Sprite>("ShopUI/Fisherman Preview/Winning 1_0");
+        }
+
+        if (blackHairSprite != null)
+        {
+            fishermanImage.sprite = blackHairSprite;
+            fishermanImage.preserveAspect = true;
+            return true;
+        }
+        return false;
+    }
+
+    private bool ApplyFishermanYellowHatPreview(Image fishermanImage)
+    {
+        if (fishermanImage == null) return false;
+        // Direct load from the exact sprite path to avoid normalization issues
+        Sprite yellowHatSprite = Resources.Load<Sprite>("ShopUI/Fisherman Preview/Fisherman Yellow hat");
+        if (yellowHatSprite != null)
+        {
+            fishermanImage.sprite = yellowHatSprite;
+            fishermanImage.preserveAspect = true;
+            return true;
+        }
+        return false;
     }
 
     private void BuildPreviewMapsIfNeeded()

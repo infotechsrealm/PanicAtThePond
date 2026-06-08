@@ -15432,7 +15432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &682271408
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35123,7 +35123,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5665962802388256181, guid: bdd2aad3b3161e04da9ef36064c1ea7f, type: 3}
+  m_Sprite: {fileID: 5665962802388256181, guid: cff61de494c7b834592211b1a8fceb98, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -39075,7 +39075,7 @@ MonoBehaviour:
   HatDropdownArrow: {fileID: 2141564153}
   HatDropdownText: {fileID: 993127179}
   HatDropdownTMPText: {fileID: 1543286826}
-  DiagramPreviewImage: {fileID: 0}
+  DiagramPreviewImage: {fileID: 44519574}
   ShopPreviewRoot: {fileID: 2066827977}
   FishDisplayObject: {fileID: 1498720489}
   FishDisplayObjects:
@@ -39105,6 +39105,38 @@ MonoBehaviour:
     PreviewSpriteName: Fisherman griin hat
   - CosmeticName: cosmeteic headphone
     PreviewSpriteName: Fishermna headphone hat
+  DefaultHatIconAnchoredPosition: {x: 415, y: -203}
+  DefaultHatIconSize: {x: 64, y: 64}
+  HatIconScaleNormal: {x: 3, y: 3, z: 1}
+  HatIconScaleTurtle: {x: 1, y: 1, z: 1}
+  VoyageDiagramAnchoredPosition: {x: 375, y: -130}
+  VoyageDiagramSize: {x: 1345, y: 566}
+  VoyageDiagramScale: {x: 0.06170371, y: 0.06170371, z: 0.06170371}
+  DynamicHatOverrides:
+  - HatNameSubstring: paper
+    AnchoredPosition: {x: 355, y: -125}
+    SizeDelta: {x: 20, y: 14}
+  - HatNameSubstring: beret
+    AnchoredPosition: {x: 361.7, y: -129.6}
+    SizeDelta: {x: 18, y: 13}
+  - HatNameSubstring: hat2
+    AnchoredPosition: {x: 368.3, y: -128.2}
+    SizeDelta: {x: 21, y: 16}
+  - HatNameSubstring: hat
+    AnchoredPosition: {x: 372.5, y: -128.7}
+    SizeDelta: {x: 24, y: 25}
+  - HatNameSubstring: cap
+    AnchoredPosition: {x: 332.4, y: -122.2}
+    SizeDelta: {x: 18, y: 13}
+  - HatNameSubstring: fishing
+    AnchoredPosition: {x: 410, y: -200}
+    SizeDelta: {x: 64, y: 64}
+  - HatNameSubstring: red hair
+    AnchoredPosition: {x: 446.6, y: -239.6}
+    SizeDelta: {x: 64, y: 64}
+  - HatNameSubstring: black hair
+    AnchoredPosition: {x: 425.2, y: -244.9}
+    SizeDelta: {x: 64, y: 64}
   SaltShopButton: {fileID: 103248581}
   SaltShopPanel: {fileID: 569712921}
   SaltShopBackButton: {fileID: 710938683}

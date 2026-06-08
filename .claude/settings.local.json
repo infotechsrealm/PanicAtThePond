@@ -16,7 +16,10 @@
       "Bash(cp \"C:/Users/rishi/.claude/projects/e--PanicAtThePond/314c49ab-dfb1-458c-a4e8-333600f07d5e/tool-results/webfetch-1779698602692-108cvk.png\" \"e:/PanicAtThePond/query/build_view.png\")",
       "Bash(Get-ChildItem \"E:\\\\PanicAtThePond\\\\Assets\\\\UI\\\\Game UI\\\\Fish preview\" -ErrorAction SilentlyContinue)",
       "Bash(Select-Object Name, Length)",
-      "Bash(curl -s -o \"e:\\\\PanicAtThePond\\\\ref_debug.png\" \"https://minimax-algeng-chat-tts-us.oss-us-east-1.aliyuncs.com/ccv2%2F2026-05-30%2FMiniMax-M2.7%2F1985441370147393974%2F6896cd2f0542c29e3847d3004a0ce17b7ba92120a85ba6a8cce1137245c9120f..png?Expires=1780210054&OSSAccessKeyId=LTAI5tCpJNKCf5EkQHSuL9xg&Signature=srfYyZ3%2FGS6ajWnWfU%2BOwtdFAGA%3D\")"
+      "Bash(curl -s -o \"e:\\\\PanicAtThePond\\\\ref_debug.png\" \"https://minimax-algeng-chat-tts-us.oss-us-east-1.aliyuncs.com/ccv2%2F2026-05-30%2FMiniMax-M2.7%2F1985441370147393974%2F6896cd2f0542c29e3847d3004a0ce17b7ba92120a85ba6a8cce1137245c9120f..png?Expires=1780210054&OSSAccessKeyId=LTAI5tCpJNKCf5EkQHSuL9xg&Signature=srfYyZ3%2FGS6ajWnWfU%2BOwtdFAGA%3D\")",
+      "Bash(Get-ChildItem \"e:\\\\PanicAtThePond\\\\Assets\\\\Resources\\\\ShopUI\\\\Fish preview\" -Name)",
+      "Bash(powershell -Command \"Get-ChildItem 'e:\\\\PanicAtThePond\\\\Assets\\\\Resources\\\\ShopUI\\\\Fish preview' -Name\")",
+      "Bash(powershell -Command \"Get-ChildItem 'e:\\\\PanicAtThePond\\\\Assets\\\\Resources\\\\ShopUI\\\\Fisherman Preview' -Name\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\rishi\\.claude\\projects\\e--PanicAtThePond\\314c49ab-dfb1-458c-a4e8-333600f07d5e\\tool-results"
