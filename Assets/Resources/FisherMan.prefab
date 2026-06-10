@@ -843,6 +843,7 @@ MonoBehaviour:
   hookPrefab: {fileID: 8745433059096344888, guid: 7425abcbde3b9664da206dab5c02a51a, type: 3}
   syncedHatName: 
   syncedHairName: 
+  syncedIsLeft: 1
 --- !u!114 &4194336463065775334
 MonoBehaviour:
   m_ObjectHideFlags: 0

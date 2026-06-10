@@ -20,10 +20,22 @@ public class FishermanController_Mirror : NetworkBehaviour
     [SyncVar(hook = nameof(OnCosmeticsChanged))]
     public string syncedHairName = "";
 
+    [SyncVar(hook = nameof(OnDirectionChanged))]
+    public bool syncedIsLeft = true;
+
     public void OnCosmeticsChanged(string oldVal, string newVal)
     {
         if (FishermanController != null)
             CosmeticRuntimeApplier.ApplyFishermanCosmeticsByName(FishermanController.gameObject, syncedHatName, syncedHairName);
+    }
+
+    public void OnDirectionChanged(bool oldVal, bool newVal)
+    {
+        if (FishermanController != null)
+        {
+            FishermanController.isLeft = newVal;
+            FishermanController.isRight = !newVal;
+        }
     }
 
     [Command]
@@ -31,6 +43,12 @@ public class FishermanController_Mirror : NetworkBehaviour
     {
         syncedHatName = hatName;
         syncedHairName = hairName;
+    }
+
+    [Command]
+    public void CmdSetDirection(bool isLeft)
+    {
+        syncedIsLeft = isLeft;
     }
 
     private void Start()

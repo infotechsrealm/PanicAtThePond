@@ -13,10 +13,7 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
     public static CoustomeRoomManager Instance;
 
     public CreateJoinManager createJoinManager;
-
-
     
-
     public RoomTableManager roomManager;
     public Button startButton;
     public bool destroyRoom = false;

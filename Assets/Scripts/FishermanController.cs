@@ -86,7 +86,11 @@ public class FishermanController : MonoBehaviourPunCallbacks
             {
                 string hat = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHatPrefKey, string.Empty);
                 string hair = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHairPrefKey, string.Empty);
-                if (fishermanController_Mirror != null) fishermanController_Mirror.CmdSetCosmetics(hat, hair);
+                if (fishermanController_Mirror != null)
+                {
+                    fishermanController_Mirror.CmdSetCosmetics(hat, hair);
+                    fishermanController_Mirror.CmdSetDirection(isLeft);
+                }
             }
         }
         else
@@ -96,6 +100,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
                 string hat = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHatPrefKey, string.Empty);
                 string hair = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHairPrefKey, string.Empty);
                 photonView.RPC(nameof(RpcSetFishermanCosmetics), RpcTarget.AllBuffered, hat, hair);
+                photonView.RPC(nameof(RpcSetDirection), RpcTarget.Others, isLeft);
             }
         }
 
@@ -472,6 +477,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             //Don't Change Line 
             isLeft = true;
             isRight = false;
+            SyncDirectionState();
 
             if (currentRod != leftRod)
             {
@@ -488,6 +494,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             //Don't Change Line 
             isLeft = false;
             isRight = true;
+            SyncDirectionState();
 
             if (currentRod != rightRod)
             {
@@ -793,6 +800,31 @@ public class FishermanController : MonoBehaviourPunCallbacks
     public void RpcSetBool(string boolName, bool value)
     {
         if (animator != null) animator.SetBool(boolName, value);
+    }
+
+    /// <summary>
+    /// Syncs the fisherman's facing direction (isLeft/isRight) to all remote clients
+    /// so that hat cosmetics display on the correct side.
+    /// </summary>
+    public void SyncDirectionState()
+    {
+        if (GS.Instance.isLan)
+        {
+            if (fishermanController_Mirror != null)
+                fishermanController_Mirror.CmdSetDirection(isLeft);
+        }
+        else
+        {
+            if (PhotonNetwork.InRoom)
+                photonView.RPC(nameof(RpcSetDirection), RpcTarget.Others, isLeft);
+        }
+    }
+
+    [PunRPC]
+    public void RpcSetDirection(bool syncedIsLeft)
+    {
+        isLeft = syncedIsLeft;
+        isRight = !syncedIsLeft;
     }
 
     [PunRPC]
