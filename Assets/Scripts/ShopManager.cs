@@ -114,25 +114,25 @@ public class ShopManager : MonoBehaviour
     }
 
     [Header("Hat Icon Preview (Bottom Right)")]
-    public Vector2 DefaultHatIconAnchoredPosition = new Vector2(415f, -203f);
+    public Vector2 DefaultHatIconAnchoredPosition = new Vector2(-110f, 70f);
     public Vector2 DefaultHatIconSize = new Vector2(64f, 64f);
     public Vector3 HatIconScaleNormal = new Vector3(3f, 3f, 1f);
     public Vector3 HatIconScaleTurtle = new Vector3(1f, 1f, 1f);
-    public Vector2 VoyageDiagramAnchoredPosition = new Vector2(375f, -130f);
+    public Vector2 VoyageDiagramAnchoredPosition = new Vector2(-110f, 70f);
     public Vector2 VoyageDiagramSize = new Vector2(1345f, 566f);
     public Vector3 VoyageDiagramScale = new Vector3(0.06170371f, 0.06170371f, 0.06170371f);
 
     [Header("Dynamic Hat Overrides")]
     public List<HatIconOverride> DynamicHatOverrides = new List<HatIconOverride>()
     {
-        new HatIconOverride { HatNameSubstring = "paper", AnchoredPosition = new Vector2(355f, -125f), SizeDelta = new Vector2(20f, 14f) },
-        new HatIconOverride { HatNameSubstring = "beret", AnchoredPosition = new Vector2(361.7f, -129.6f), SizeDelta = new Vector2(18f, 13f) },
-        new HatIconOverride { HatNameSubstring = "hat2", AnchoredPosition = new Vector2(368.3f, -128.2f), SizeDelta = new Vector2(21f, 16f) },
-        new HatIconOverride { HatNameSubstring = "hat", AnchoredPosition = new Vector2(372.5f, -128.7f), SizeDelta = new Vector2(24f, 25f) },
-        new HatIconOverride { HatNameSubstring = "cap", AnchoredPosition = new Vector2(332.4f, -122.2f), SizeDelta = new Vector2(18f, 13f) },
-        new HatIconOverride { HatNameSubstring = "fishing", AnchoredPosition = new Vector2(410f, -200f), SizeDelta = new Vector2(64f, 64f) },
-        new HatIconOverride { HatNameSubstring = "red hair", AnchoredPosition = new Vector2(446.6f, -239.6f), SizeDelta = new Vector2(64f, 64f) },
-        new HatIconOverride { HatNameSubstring = "black hair", AnchoredPosition = new Vector2(425.2f, -244.9f), SizeDelta = new Vector2(64f, 64f) }
+        new HatIconOverride { HatNameSubstring = "paper", AnchoredPosition = new Vector2(-110f, 70f), SizeDelta = new Vector2(20f, 14f) },
+        new HatIconOverride { HatNameSubstring = "beret", AnchoredPosition = new Vector2(-110f, 70f), SizeDelta = new Vector2(18f, 13f) },
+        new HatIconOverride { HatNameSubstring = "hat2", AnchoredPosition = new Vector2(-110f, 70f), SizeDelta = new Vector2(21f, 16f) },
+        new HatIconOverride { HatNameSubstring = "hat", AnchoredPosition = new Vector2(-110f, 70f), SizeDelta = new Vector2(24f, 25f) },
+        new HatIconOverride { HatNameSubstring = "cap", AnchoredPosition = new Vector2(-110f, 70f), SizeDelta = new Vector2(18f, 13f) },
+        new HatIconOverride { HatNameSubstring = "fishing", AnchoredPosition = new Vector2(-110f, 70f), SizeDelta = new Vector2(64f, 64f) },
+        new HatIconOverride { HatNameSubstring = "red hair", AnchoredPosition = new Vector2(-110f, 70f), SizeDelta = new Vector2(64f, 64f) },
+        new HatIconOverride { HatNameSubstring = "black hair", AnchoredPosition = new Vector2(-110f, 70f), SizeDelta = new Vector2(64f, 64f) }
     };
 
     [Header("Sal-t Shop")]
@@ -883,6 +883,7 @@ public class ShopManager : MonoBehaviour
             RectTransform rt = previewImage.GetComponent<RectTransform>();
             if (rt != null)
             {
+                ConfigureBottomRightPreviewRect(rt);
                 rt.anchoredPosition = VoyageDiagramAnchoredPosition;
                 rt.sizeDelta = VoyageDiagramSize;
             }
@@ -1059,7 +1060,6 @@ public class ShopManager : MonoBehaviour
                 var over = DynamicHatOverrides[i];
                 if (!string.IsNullOrEmpty(over.HatNameSubstring) && name == over.HatNameSubstring.ToLowerInvariant())
                 {
-                    targetPos = over.AnchoredPosition;
                     targetSize = over.SizeDelta;
                     found = true;
                     break;
@@ -1073,7 +1073,6 @@ public class ShopManager : MonoBehaviour
                     var over = DynamicHatOverrides[i];
                     if (!string.IsNullOrEmpty(over.HatNameSubstring) && name.Contains(over.HatNameSubstring.ToLowerInvariant()))
                     {
-                        targetPos = over.AnchoredPosition;
                         targetSize = over.SizeDelta;
                         break;
                     }
@@ -1085,8 +1084,27 @@ public class ShopManager : MonoBehaviour
         RectTransform rt = previewImage.GetComponent<RectTransform>();
         if (rt != null)
         {
+            ConfigureBottomRightPreviewRect(rt);
             rt.anchoredPosition = targetPos;
         }
+    }
+
+    private void ConfigureBottomRightPreviewRect(RectTransform rt)
+    {
+        if (rt == null)
+        {
+            return;
+        }
+
+        if (ShopPreviewRoot != null && rt.parent != ShopPreviewRoot.transform)
+        {
+            rt.SetParent(ShopPreviewRoot.transform, false);
+        }
+
+        Vector2 bottomRight = new Vector2(1f, 0f);
+        rt.anchorMin = bottomRight;
+        rt.anchorMax = bottomRight;
+        rt.pivot = bottomRight;
     }
 
     private void LoadDiagramPreviewSprite()

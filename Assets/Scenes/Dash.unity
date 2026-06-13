@@ -1202,7 +1202,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 228, y: -148}
+  m_AnchoredPosition: {x: 228, y: -120.8}
   m_SizeDelta: {x: 156.73, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &44519574
@@ -3950,7 +3950,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -19.100006, y: -22.300003}
+  m_AnchoredPosition: {x: -34.42, y: -22.300003}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &140310234
@@ -15494,7 +15494,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -181.6054, y: 74.200005}
+  m_AnchoredPosition: {x: -160.09999, y: 74.200005}
   m_SizeDelta: {x: 47.941, y: 34.761}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &676875544
@@ -37329,8 +37329,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -61.081, y: 8.872395}
-  m_SizeDelta: {x: 50, y: 46.23}
+  m_AnchoredPosition: {x: -61.403, y: 8.872395}
+  m_SizeDelta: {x: 49.127, y: 46.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1601837145
 MonoBehaviour:
@@ -39135,7 +39135,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -181.6054, y: 33.90001}
+  m_AnchoredPosition: {x: -160.1, y: 33.90001}
   m_SizeDelta: {x: 47.941, y: 34.761}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1678625485
@@ -39348,37 +39348,37 @@ MonoBehaviour:
     PreviewSpriteName: Fisherman griin hat
   - CosmeticName: cosmeteic headphone
     PreviewSpriteName: Fishermna headphone hat
-  DefaultHatIconAnchoredPosition: {x: 415, y: -203}
+  DefaultHatIconAnchoredPosition: {x: -110, y: 70}
   DefaultHatIconSize: {x: 64, y: 64}
   HatIconScaleNormal: {x: 3, y: 3, z: 1}
   HatIconScaleTurtle: {x: 1, y: 1, z: 1}
-  VoyageDiagramAnchoredPosition: {x: 375, y: -130}
+  VoyageDiagramAnchoredPosition: {x: -110, y: 70}
   VoyageDiagramSize: {x: 1345, y: 566}
   VoyageDiagramScale: {x: 0.06170371, y: 0.06170371, z: 0.06170371}
   DynamicHatOverrides:
   - HatNameSubstring: paper
-    AnchoredPosition: {x: 355, y: -125}
+    AnchoredPosition: {x: -110, y: 70}
     SizeDelta: {x: 20, y: 14}
   - HatNameSubstring: beret
-    AnchoredPosition: {x: 361.7, y: -129.6}
+    AnchoredPosition: {x: -110, y: 70}
     SizeDelta: {x: 18, y: 13}
   - HatNameSubstring: hat2
-    AnchoredPosition: {x: 368.3, y: -128.2}
+    AnchoredPosition: {x: -110, y: 70}
     SizeDelta: {x: 21, y: 16}
   - HatNameSubstring: hat
-    AnchoredPosition: {x: 372.5, y: -128.7}
+    AnchoredPosition: {x: -110, y: 70}
     SizeDelta: {x: 24, y: 25}
   - HatNameSubstring: cap
-    AnchoredPosition: {x: 332.4, y: -122.2}
+    AnchoredPosition: {x: -110, y: 70}
     SizeDelta: {x: 18, y: 13}
   - HatNameSubstring: fishing
-    AnchoredPosition: {x: 410, y: -200}
+    AnchoredPosition: {x: -110, y: 70}
     SizeDelta: {x: 64, y: 64}
   - HatNameSubstring: red hair
-    AnchoredPosition: {x: 446.6, y: -239.6}
+    AnchoredPosition: {x: -110, y: 70}
     SizeDelta: {x: 64, y: 64}
   - HatNameSubstring: black hair
-    AnchoredPosition: {x: 425.2, y: -244.9}
+    AnchoredPosition: {x: -110, y: 70}
     SizeDelta: {x: 64, y: 64}
   SaltShopButton: {fileID: 103248581}
   SaltShopPanel: {fileID: 569712921}
@@ -42460,8 +42460,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -61.081, y: 8.872395}
-  m_SizeDelta: {x: 50, y: 46.23}
+  m_AnchoredPosition: {x: -61.51, y: 8.8724}
+  m_SizeDelta: {x: 48.836, y: 46.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1827234145
 MonoBehaviour:
@@ -47701,7 +47701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2002247167
 RectTransform:
   m_ObjectHideFlags: 0
