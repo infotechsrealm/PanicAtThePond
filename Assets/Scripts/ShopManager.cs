@@ -85,6 +85,7 @@ public class ShopManager : MonoBehaviour
     public Text HatDropdownText;
     public TMP_Text HatDropdownTMPText;
     public Image DiagramPreviewImage; // Shows "daigram preview.png" in bottom right when Fish Species selected
+    public Sprite FishSpeciesMapIcon; // Shown in bottom-right Hat Icon when "Fish Species" is selected (Fish-Map-Icon.png)
 
     [Header("Display Preview")]
     public GameObject ShopPreviewRoot;
@@ -98,6 +99,9 @@ public class ShopManager : MonoBehaviour
     public bool UseDynamicHatPreviewSprites = true;
     public string FishPreviewAssetFolder = "Assets/UI/Game UI/Fish preview";
     public string FishermanPreviewAssetFolder = "Assets/UI/Game UI/Fishermna Preview";
+    [Header("Fisherman Hair-Coloured Preview Folders (Resources)")]
+    public string FishermanRedHairPreviewFolder = "ShopUI/Fisherman Preview";
+    public string FishermanBlackHairPreviewFolder = "ShopUI/Fisherman Preview/Black Hair Hats Preview";
     public List<CosmeticPreviewRule> FishPreviewRules = new List<CosmeticPreviewRule>();
     public List<CosmeticPreviewRule> FishermanPreviewRules = new List<CosmeticPreviewRule>();
 
@@ -157,6 +161,11 @@ public class ShopManager : MonoBehaviour
     private readonly Dictionary<string, Sprite> previewSpritesByName = new Dictionary<string, Sprite>();
     private List<Sprite> orderedFishermanHatPreviewSprites;
     private bool previewMapsBuilt;
+    private const string FishermanPreviewHairModePrefKey = "FishermanPreviewHairMode";
+    private const string FishermanHairModeRed = "red";
+    private const string FishermanHairModeBlack = "black";
+    private List<Sprite> redHairHatPreviewSprites;
+    private List<Sprite> blackHairHatPreviewSprites;
     private const string FishHatPreviewChildName = "Applied Fish Hat Cosmetic Preview";
     private const string FishDisplayModeHat = "Hat";
     private const string FishDisplayModeSpecies = "Fish Species";
@@ -165,7 +174,7 @@ public class ShopManager : MonoBehaviour
     private const string FishermanHeadphonePreviewResourcePath = "ShopUI/Fisherman Preview/Fishermna headphone hat";
     private static readonly Color SelectedCellOutlineColor = new Color(0.12f, 0.55f, 1f, 1f);
     private static readonly Vector2 SelectedCellOutlineDistance = new Vector2(3f, -3f);
-    private string selectedFishDisplayMode = FishDisplayModeHat;
+    private string selectedFishDisplayMode = FishDisplayModeSpecies;
     private string selectedFishermanDisplayMode = FishermanDisplayModeHat;
     private LocalPlayManager shopLocalPlayManager;
     private bool useLegacyHatDropdownLabel;
@@ -573,8 +582,7 @@ public class ShopManager : MonoBehaviour
             SetActiveIfNotNull(FishCosmeticPanel, false);
         }
 
-        ApplySavedFishermanDisplayModeSprite();
-        RefreshBottomRightPreview();
+        ShowCurrentFishermanPreview();
     }
 
     private void ApplySavedFishermanDisplayModeSprite()
@@ -841,8 +849,17 @@ public class ShopManager : MonoBehaviour
         Image previewImage = GetBottomRightPreviewImage();
         if (previewImage != null)
         {
-            // Always reload — hat mode may have swapped this image to a hat icon sprite.
-            LoadDiagramPreviewSprite();
+            // Fish Species mode shows the Fish-Map-Icon in the bottom-right Hat Icon (Req 5).
+            if (FishSpeciesMapIcon != null)
+            {
+                previewImage.sprite = FishSpeciesMapIcon;
+                previewImage.preserveAspect = true;
+            }
+            else
+            {
+                // Always reload — hat mode may have swapped this image to a hat icon sprite.
+                LoadDiagramPreviewSprite();
+            }
 
             previewImage.enabled = true;
             previewImage.gameObject.SetActive(true);
@@ -1397,6 +1414,19 @@ public class ShopManager : MonoBehaviour
             isFishermanCosmetic = true;
         }
 
+        // Keep the active-display flags in sync so the arrow cycling routes to the right character
+        // and never falls through to the LocalPlayManager fish-hat fallback (Reqs 1, 2, 4).
+        if (isFishermanCosmetic)
+        {
+            isFishermanSelected = true;
+            isFishSelected = false;
+        }
+        else
+        {
+            isFishSelected = true;
+            isFishermanSelected = false;
+        }
+
         ApplyItemOpacity(buttons, selectedButton);
 
         if (!isFishermanCosmetic && IsClearFishCosmeticButton(selectedButton))
@@ -1439,15 +1469,18 @@ public class ShopManager : MonoBehaviour
             selectedFishermanDisplayMode = FishermanDisplayModeHair;
             SetDisplayControlLabel(selectedFishermanDisplayMode);
             CosmeticRuntimeApplier.SelectFishermanHair(selectedSprite);
-            ApplySelectedFishermanHatToDisplay(selectedSprite);
-            RefreshBottomRightPreview();
+
+            // Switch the cycling preview set by hair colour, then show its first preview (Reqs 1 & 2).
+            SetFishermanPreviewHairMode(
+                selectedSprite.name.ToLowerInvariant().Contains("black") ? FishermanHairModeBlack : FishermanHairModeRed);
+            ShowFirstFishermanHairPreview();
         }
         else
         {
             selectedFishermanDisplayMode = FishermanDisplayModeHat;
             SetDisplayControlLabel(selectedFishermanDisplayMode);
             CosmeticRuntimeApplier.SelectFishermanHat(selectedSprite);
-            ApplySelectedFishermanHatToDisplay(selectedSprite);
+            ApplySelectedFishermanHatToDisplayForHairMode(selectedSprite);
             RefreshBottomRightPreview();
         }
     }
@@ -3035,6 +3068,31 @@ public class ShopManager : MonoBehaviour
 
         LocalPlayManager playManager = localPlay != null ? localPlay : shopLocalPlayManager;
 
+        // Route by the active selection flag first so fisherman cycling never falls through
+        // to the LocalPlayManager fish-hat fallback (Req 4).
+        if (isFishermanSelected)
+        {
+            EnsureShopPreviewRootActive();
+            SetActiveIfNotNull(FishermanDisplayObject, true);
+            CycleFishermanPreview(direction);
+            return true;
+        }
+
+        if (isFishSelected)
+        {
+            if (IsFishSpeciesModeSelected())
+            {
+                CycleFishSpecies(direction, playManager);
+            }
+            else
+            {
+                CycleFishHat(direction, playManager);
+            }
+
+            return true;
+        }
+
+        // Fallback to visibility-based detection when neither flag is set.
         if (IsFishDisplayVisible() && IsFishSpeciesModeSelected())
         {
             CycleFishSpecies(direction, playManager);
@@ -3047,15 +3105,11 @@ public class ShopManager : MonoBehaviour
             return true;
         }
 
-        if (IsFishermanDisplayVisible() && IsFishermanHatModeSelected())
+        // Direct visibility check (not gated on isFishermanSelected) so a visible fisherman
+        // preview always cycles fisherman hats rather than falling through to fish cycling.
+        if (FishermanDisplayObject != null && FishermanDisplayObject.activeInHierarchy)
         {
-            CycleFishermanHat(direction);
-            return true;
-        }
-
-        if (IsFishermanDisplayVisible())
-        {
-            CycleFishermanHair(direction);
+            CycleFishermanPreview(direction);
             return true;
         }
 
@@ -3248,41 +3302,390 @@ public class ShopManager : MonoBehaviour
         localPlay.ApplyFishSelectionFromShop(fishIndex);
     }
 
+    // Both fisherman cycling entry points cycle the hair-coloured hat preview set
+    // (red hair -> "Fisherman Preview" folder, black hair -> "Black Hair Hats Preview" folder).
     public void CycleFishermanHat(int direction)
     {
-        EnsureShopPreviewRootActive();
-
-        // if (TryCycleFishermanHatPreviewSprites(direction))
-        // {
-        //     return;
-        // }
-
-        List<Button> activeButtons = GetActiveCosmeticButtons(true);
-        if (activeButtons.Count == 0)
-        {
-            return;
-        }
-
-        int currentIndex = GetSelectedButtonIndex(activeButtons, true);
-        int nextIndex = (currentIndex + direction + activeButtons.Count) % activeButtons.Count;
-
-        Button targetButton = activeButtons[nextIndex];
-        SelectCosmeticItem(fishermanCosmeticItemButtons, targetButton, true);
+        CycleFishermanPreview(direction);
     }
 
     public void CycleFishermanHair(int direction)
     {
-        List<Button> activeButtons = GetActiveCosmeticButtons(true);
-        if (activeButtons.Count == 0)
+        CycleFishermanPreview(direction);
+    }
+
+    // ---- Fisherman hair-coloured hat preview cycling (Reqs 1-4, 6) ----
+
+    private void CycleFishermanPreview(int direction)
+    {
+        EnsureShopPreviewRootActive();
+        SetActiveIfNotNull(FishermanDisplayObject, true);
+
+        List<Sprite> previews = GetActiveFishermanHairHatPreviews();
+        if (previews.Count == 0)
         {
             return;
         }
 
-        int currentIndex = GetSelectedButtonIndex(activeButtons, true);
-        int nextIndex = (currentIndex + direction + activeButtons.Count) % activeButtons.Count;
+        int currentIndex = GetCurrentFishermanPreviewIndex(previews);
+        int nextIndex;
+        if (currentIndex < 0)
+        {
+            nextIndex = direction >= 0 ? 0 : previews.Count - 1;
+        }
+        else
+        {
+            nextIndex = (currentIndex + direction + previews.Count) % previews.Count;
+        }
 
-        Button targetButton = activeButtons[nextIndex];
-        SelectCosmeticItem(fishermanCosmeticItemButtons, targetButton, true);
+        Sprite preview = previews[nextIndex];
+        ShowFishermanPreviewSprite(preview);
+        ApplyFishermanCosmeticFromPreview(preview);
+    }
+
+    private int GetCurrentFishermanPreviewIndex(List<Sprite> previews)
+    {
+        if (FishermanDisplayObject == null || previews == null)
+        {
+            return -1;
+        }
+
+        Image image = FishermanDisplayObject.GetComponent<Image>();
+        if (image == null || image.sprite == null)
+        {
+            return -1;
+        }
+
+        string currentKey = NormalizeSpriteName(image.sprite);
+        for (int i = 0; i < previews.Count; i++)
+        {
+            if (NormalizeSpriteName(previews[i]) == currentKey)
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    private void ShowFishermanPreviewSprite(Sprite preview)
+    {
+        if (preview == null || FishermanDisplayObject == null)
+        {
+            return;
+        }
+
+        SetActiveIfNotNull(FishermanDisplayObject, true);
+        Image image = FishermanDisplayObject.GetComponent<Image>();
+        if (image != null)
+        {
+            CacheDisplayBaseSprite(image);
+            image.sprite = preview;
+            image.preserveAspect = true;
+        }
+    }
+
+    // Maps the currently displayed preview back to its hat cosmetic icon, persists the
+    // selection and refreshes the bottom-right Hat Icon (Req 6).
+    private void ApplyFishermanCosmeticFromPreview(Sprite preview)
+    {
+        if (preview == null)
+        {
+            return;
+        }
+
+        Sprite cosmeticSprite = ResolveFishermanHatCosmeticFromPreview(preview);
+        CosmeticRuntimeApplier.SelectFishermanHat(cosmeticSprite);
+        selectedFishermanDisplayMode = FishermanDisplayModeHat;
+
+        ForceUpdateHatIconPreview(cosmeticSprite);
+
+        List<Button> hatButtons = GetFishermanHatCosmeticButtons();
+        Button matching = FindCosmeticButtonForSprite(hatButtons, cosmeticSprite);
+        if (matching != null)
+        {
+            ApplyItemOpacity(hatButtons, matching);
+        }
+    }
+
+    private List<Sprite> GetActiveFishermanHairHatPreviews()
+    {
+        return IsBlackHairModeSelected() ? GetBlackHairHatPreviews() : GetRedHairHatPreviews();
+    }
+
+    private bool IsBlackHairModeSelected()
+    {
+        return GetFishermanPreviewHairMode() == FishermanHairModeBlack;
+    }
+
+    private string GetFishermanPreviewHairMode()
+    {
+        // A currently selected hair cosmetic wins; otherwise fall back to the persisted mode.
+        Sprite hair = CosmeticRuntimeApplier.GetSelectedFishermanHair();
+        if (hair != null)
+        {
+            return hair.name.ToLowerInvariant().Contains("black") ? FishermanHairModeBlack : FishermanHairModeRed;
+        }
+
+        return PlayerPrefs.GetString(FishermanPreviewHairModePrefKey, FishermanHairModeRed) == FishermanHairModeBlack
+            ? FishermanHairModeBlack
+            : FishermanHairModeRed;
+    }
+
+    private void SetFishermanPreviewHairMode(string mode)
+    {
+        string normalized = mode == FishermanHairModeBlack ? FishermanHairModeBlack : FishermanHairModeRed;
+        PlayerPrefs.SetString(FishermanPreviewHairModePrefKey, normalized);
+        PlayerPrefs.Save();
+    }
+
+    private List<Sprite> GetRedHairHatPreviews()
+    {
+        if (redHairHatPreviewSprites != null)
+        {
+            return redHairHatPreviewSprites;
+        }
+
+        redHairHatPreviewSprites = new List<Sprite>();
+        Sprite[] loaded = Resources.LoadAll<Sprite>(FishermanRedHairPreviewFolder);
+        if (loaded != null)
+        {
+            for (int i = 0; i < loaded.Length; i++)
+            {
+                Sprite sprite = loaded[i];
+                // Resources.LoadAll is recursive: exclude the black-hair subfolder + the root black-hair preview.
+                if (sprite == null || sprite.name.ToLowerInvariant().Contains("black"))
+                {
+                    continue;
+                }
+
+                redHairHatPreviewSprites.Add(sprite);
+            }
+        }
+
+        redHairHatPreviewSprites.Sort((a, b) => string.Compare(a.name, b.name, StringComparison.OrdinalIgnoreCase));
+        return redHairHatPreviewSprites;
+    }
+
+    private List<Sprite> GetBlackHairHatPreviews()
+    {
+        if (blackHairHatPreviewSprites != null)
+        {
+            return blackHairHatPreviewSprites;
+        }
+
+        blackHairHatPreviewSprites = new List<Sprite>();
+        Sprite[] loaded = Resources.LoadAll<Sprite>(FishermanBlackHairPreviewFolder);
+        if (loaded != null)
+        {
+            for (int i = 0; i < loaded.Length; i++)
+            {
+                if (loaded[i] != null)
+                {
+                    blackHairHatPreviewSprites.Add(loaded[i]);
+                }
+            }
+        }
+
+        blackHairHatPreviewSprites.Sort((a, b) => string.Compare(a.name, b.name, StringComparison.OrdinalIgnoreCase));
+        return blackHairHatPreviewSprites;
+    }
+
+    private List<Button> GetFishermanHatCosmeticButtons()
+    {
+        List<Button> result = new List<Button>();
+        for (int i = 0; i < fishermanCosmeticItemButtons.Count; i++)
+        {
+            Button btn = fishermanCosmeticItemButtons[i];
+            if (btn == null)
+            {
+                continue;
+            }
+
+            if (FishermanHatObject != null)
+            {
+                if (!btn.transform.IsChildOf(FishermanHatObject.transform))
+                {
+                    continue;
+                }
+            }
+            else if (!IsButtonInFishermanCosmetics(btn))
+            {
+                continue;
+            }
+
+            if (IsClearFishermanCosmeticButton(btn) || GetButtonSprite(btn) != null)
+            {
+                result.Add(btn);
+            }
+        }
+
+        result.Sort((a, b) => GetHierarchySortKey(a.transform).CompareTo(GetHierarchySortKey(b.transform)));
+        return result;
+    }
+
+    private Sprite ResolveFishermanHatCosmeticFromPreview(Sprite preview)
+    {
+        if (preview == null)
+        {
+            return null;
+        }
+
+        string previewKey = GetUnifiedFishermanHatKey(preview.name);
+        if (string.IsNullOrEmpty(previewKey))
+        {
+            return null; // hair-only / no-hat preview
+        }
+
+        List<Button> hatButtons = GetFishermanHatCosmeticButtons();
+        for (int i = 0; i < hatButtons.Count; i++)
+        {
+            Sprite cosmetic = GetButtonSprite(hatButtons[i]);
+            if (cosmetic != null && GetUnifiedFishermanHatKey(cosmetic.name) == previewKey)
+            {
+                return cosmetic;
+            }
+        }
+
+        return null;
+    }
+
+    private Sprite ResolveFishermanPreviewForCosmetic(Sprite cosmetic)
+    {
+        if (cosmetic == null)
+        {
+            return null;
+        }
+
+        string cosmeticKey = GetUnifiedFishermanHatKey(cosmetic.name);
+        if (string.IsNullOrEmpty(cosmeticKey))
+        {
+            return null;
+        }
+
+        List<Sprite> previews = GetActiveFishermanHairHatPreviews();
+        for (int i = 0; i < previews.Count; i++)
+        {
+            if (GetUnifiedFishermanHatKey(previews[i].name) == cosmeticKey)
+            {
+                return previews[i];
+            }
+        }
+
+        return null;
+    }
+
+    // Shows the preview for a freshly selected fisherman hat cosmetic, respecting the current hair colour.
+    private void ApplySelectedFishermanHatToDisplayForHairMode(Sprite cosmetic)
+    {
+        Sprite preview = ResolveFishermanPreviewForCosmetic(cosmetic);
+        if (preview != null)
+        {
+            ShowFishermanPreviewSprite(preview);
+            return;
+        }
+
+        ApplySelectedFishermanHatToDisplay(cosmetic);
+    }
+
+    // Shows the first preview of the active hair-coloured set (used right after picking a hair colour),
+    // and syncs the bottom-right Hat Icon to that preview's hat. Cycling (next/prev) then walks the set.
+    private void ShowFirstFishermanHairPreview()
+    {
+        List<Sprite> previews = GetActiveFishermanHairHatPreviews();
+        if (previews.Count > 0)
+        {
+            Sprite preview = previews[0];
+            ShowFishermanPreviewSprite(preview);
+            ApplyFishermanCosmeticFromPreview(preview);
+            return;
+        }
+
+        RefreshBottomRightPreview();
+    }
+
+    // Shows whatever fisherman preview matches the saved selection / current hair colour (shop entry).
+    private void ShowCurrentFishermanPreview()
+    {
+        Sprite selectedHat = CosmeticRuntimeApplier.GetSelectedFishermanHat();
+        if (selectedHat != null)
+        {
+            Sprite preview = ResolveFishermanPreviewForCosmetic(selectedHat);
+            if (preview != null)
+            {
+                ShowFishermanPreviewSprite(preview);
+                RefreshBottomRightPreview();
+                return;
+            }
+        }
+
+        Sprite basePreview = GetFishermanBaseHairPreview();
+        if (basePreview != null)
+        {
+            ShowFishermanPreviewSprite(basePreview);
+        }
+
+        RefreshBottomRightPreview();
+    }
+
+    private Sprite GetFishermanBaseHairPreview()
+    {
+        List<Sprite> previews = GetActiveFishermanHairHatPreviews();
+        if (previews.Count == 0)
+        {
+            return null;
+        }
+
+        if (!IsBlackHairModeSelected())
+        {
+            // Red hair has a dedicated "no hat" preview ("Fisherman Red hair").
+            for (int i = 0; i < previews.Count; i++)
+            {
+                string name = previews[i].name.ToLowerInvariant();
+                if (string.IsNullOrEmpty(GetUnifiedFishermanHatKey(name)) && name.Contains("hair"))
+                {
+                    return previews[i];
+                }
+            }
+        }
+
+        return previews[0];
+    }
+
+    // Canonical hat-type key shared by hat cosmetics, red-hair previews and black-hair previews.
+    // The cosmetic *sprite* file names are the source of truth (e.g. "FisherMan_Hat_-Soda_Hat",
+    // "FisherMan_Hat_-Fish_Hat", "FisherMan_Hat_-Chef_Hat"), NOT the grid GameObject labels.
+    //   Default/Fishing -> yellow   TurtleHat -> turtle      Ranger_Hat   -> ranger (red:"Green hat",  black:"Ranger hat")
+    //   Blue_Cap -> bluecap         Red_Cap -> redcap        Fish_Hat     -> fish   (red:"griin hat",  black:"green frog")
+    //   Chef_Hat -> chef            Soda_Hat -> soda         (red:"white hat"/black:"white soda")  (red/black:"headphone"/"headfon")
+    private static string GetUnifiedFishermanHatKey(string rawName)
+    {
+        if (string.IsNullOrEmpty(rawName))
+        {
+            return string.Empty;
+        }
+
+        // Strip the character/prefix words first so "fisherman" never trips the "fish" hat check, etc.
+        string n = rawName.ToLowerInvariant()
+            .Replace("fishermna", " ")
+            .Replace("fisherman", " ")
+            .Replace("fishaerman", " ")
+            .Replace("cosmeteic", " ")
+            .Replace("black hair", " ")
+            .Replace("blackhair", " ")
+            .Replace("_", " ")
+            .Replace("-", " ");
+
+        if (n.Contains("turtle")) return "turtle";
+        if (n.Contains("chef") || n.Contains("white")) return "chef";                 // white/chef bucket hat
+        if (n.Contains("headphone") || n.Contains("headfon")) return "soda";          // "Soda_Hat" sprite == headphones
+        if (n.Contains("soda")) return "soda";
+        if (n.Contains("blu")) return "bluecap";                                      // "blue cap" / "Blu cap"
+        if (n.Contains("yellow") || n.Contains("default") || n.Contains("fishing") || n.Contains("winning")) return "yellow";
+        if (n.Contains("frog") || n.Contains("griin") || n.Contains("fish")) return "fish"; // green frog / fish hat
+        if (n.Contains("ranger") || n.Contains("green")) return "ranger";             // green bucket / ranger hat
+        if (n.Contains("red") && !n.Contains("hair")) return "redcap";                // "red cap" / "red hat"
+        return string.Empty;
     }
 
     private List<Sprite> GetOrderedFishermanHatPreviewSprites()

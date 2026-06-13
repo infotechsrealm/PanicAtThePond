@@ -35,7 +35,7 @@ public class LocalPlayManager : MonoBehaviour
         FishHats,
         FishSpecies
     }
-    private CyclingMode currentCyclingMode = CyclingMode.FishHats;
+    private CyclingMode currentCyclingMode = CyclingMode.FishSpecies;
 
     public const string SelectedFishPrefKey = "SelectedFish";
     public const string TroutUnlockedPrefKey = "FishUnlocked_Trout";

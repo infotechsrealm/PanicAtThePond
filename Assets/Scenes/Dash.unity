@@ -39076,6 +39076,7 @@ MonoBehaviour:
   HatDropdownText: {fileID: 993127179}
   HatDropdownTMPText: {fileID: 1543286826}
   DiagramPreviewImage: {fileID: 44519574}
+  FishSpeciesMapIcon: {fileID: 3211382949777427911, guid: a21a0344a6f3f6c449dfda2c763010b5, type: 3}
   ShopPreviewRoot: {fileID: 2066827977}
   FishDisplayObject: {fileID: 1498720489}
   FishDisplayObjects:
@@ -39087,6 +39088,8 @@ MonoBehaviour:
   UseDynamicHatPreviewSprites: 1
   FishPreviewAssetFolder: Assets/UI/Game UI/Fish preview
   FishermanPreviewAssetFolder: ShopUI/Fisherman Preview
+  FishermanRedHairPreviewFolder: ShopUI/Fisherman Preview
+  FishermanBlackHairPreviewFolder: ShopUI/Fisherman Preview/Black Hair Hats Preview
   FishPreviewRules: []
   FishermanPreviewRules:
   - CosmeticName: cosmeteic yellow
@@ -41955,7 +41958,7 @@ GameObject:
   - component: {fileID: 1812482361}
   - component: {fileID: 1812482360}
   m_Layer: 5
-  m_Name: FisherMan yellow hat
+  m_Name: FisherMan cycling hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
