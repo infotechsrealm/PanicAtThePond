@@ -728,7 +728,6 @@ public class CosmeticRuntimeApplier : MonoBehaviour
     {
         string clipName = GetCurrentClipName();
         string state = string.IsNullOrEmpty(clipName) ? string.Empty : clipName.ToLowerInvariant();
-        int frameIndex = GetCurrentSpriteFrameIndex();
         Vector3 targetPos = baseLocalPosition;
         Vector3 targetRot = baseLocalRotation;
 
@@ -741,7 +740,10 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         }
         else
         {
-            targetPos += GetFishHeadBobOffset(frameIndex);
+            // Gentle up/down bob synced to the fish's swim frames. The peak (frame 0) is exactly the
+            // touching base position and every other frame only dips the hat DOWN toward the body, so
+            // the hat bobs with the fish yet can never open a gap above the (vertically stable) head.
+            targetPos += GetFishHatBobOffset(GetCurrentSpriteFrameIndex());
         }
 
         transform.localPosition = targetPos;
@@ -1526,16 +1528,19 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             .Replace(" ", string.Empty);
     }
 
-    private static Vector3 GetFishHeadBobOffset(int frameIndex)
+    // Vertical bob for the fish hat. Frame 0 sits exactly on the head (touching); the other frames
+    // dip the hat slightly DOWN into the body. Because the peak is the touching position and the hat
+    // only ever moves down from there, it bobs up/down with the fish yet never opens a gap above the head.
+    private static Vector3 GetFishHatBobOffset(int frameIndex)
     {
         switch (frameIndex)
         {
             case 1:
-                return new Vector3(0f, 0.009f, 0f);
+                return new Vector3(0f, -0.008f, 0f);
             case 2:
-                return new Vector3(0.003f, 0.013f, 0f);
+                return new Vector3(0f, -0.013f, 0f);
             case 3:
-                return new Vector3(0f, 0.005f, 0f);
+                return new Vector3(0f, -0.007f, 0f);
             default:
                 return Vector3.zero;
         }

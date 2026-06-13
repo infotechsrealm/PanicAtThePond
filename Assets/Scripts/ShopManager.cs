@@ -582,7 +582,15 @@ public class ShopManager : MonoBehaviour
             SetActiveIfNotNull(FishCosmeticPanel, false);
         }
 
-        ShowCurrentFishermanPreview();
+        if (IsFishermanHatModeSelected())
+        {
+            ShowCurrentFishermanPreview();
+        }
+        else
+        {
+            // Hair mode: show the current hair colour (full-body preview + hair icon bottom-right).
+            ShowFishermanHairColorPreview(IsBlackHairModeSelected());
+        }
     }
 
     private void ApplySavedFishermanDisplayModeSprite()
@@ -806,7 +814,14 @@ public class ShopManager : MonoBehaviour
         CloseHatDropdown();
         SetHatDropdownLabel(FishermanDisplayModeHair);
         SetDisplayControlLabel(FishermanDisplayModeHair);
-        ApplySelectedFishermanDisplayMode();
+        SetActiveIfNotNull(FishVoyageDiagram, false);
+        SetActiveIfNotNull(FishermanHairObject, true);
+        SetActiveIfNotNull(FishermanHatObject, false);
+        SetActiveIfNotNull(FishermanCosmeticPanel, true);
+        SetActiveIfNotNull(FishCosmeticPanel, false);
+        SetActiveIfNotNull(HatDisplayObject, true);
+        // The Hair option always starts on red hair; the next arrow then cycles to black (Req 1).
+        ShowFishermanHairColorPreview(false);
     }
 
     public void SelectHatHairOption()
@@ -972,14 +987,23 @@ public class ShopManager : MonoBehaviour
         }
 
 
-        if (hatIcon.name.ToLowerInvariant().Contains("turtle"))
+        previewImage.transform.localScale = GetHatIconScale(hatIcon);
+    }
+
+    private Vector3 GetHatIconScale(Sprite hatIcon)
+    {
+        string n = hatIcon != null ? hatIcon.name.ToLowerInvariant() : string.Empty;
+        if (n.Contains("turtle"))
         {
-            previewImage.transform.localScale = HatIconScaleTurtle;
+            return HatIconScaleTurtle;
         }
-        else
+
+        if (n.Contains("hair"))
         {
-            previewImage.transform.localScale = HatIconScaleNormal;
+            return Vector3.one; // hair tuft icon: shown near native size, not the 3x hat scale
         }
+
+        return HatIconScaleNormal;
     }
 
     public void ForceUpdateHatIconPreview(Sprite hatIcon)
@@ -1011,14 +1035,7 @@ public class ShopManager : MonoBehaviour
             }
         }
 
-        if (hatIcon.name.ToLowerInvariant().Contains("turtle"))
-        {
-            previewImage.transform.localScale = HatIconScaleTurtle;
-        }
-        else
-        {
-            previewImage.transform.localScale = HatIconScaleNormal;
-        }
+        previewImage.transform.localScale = GetHatIconScale(hatIcon);
     }
 
     private void HideBottomRightPreview()
@@ -1468,12 +1485,8 @@ public class ShopManager : MonoBehaviour
         {
             selectedFishermanDisplayMode = FishermanDisplayModeHair;
             SetDisplayControlLabel(selectedFishermanDisplayMode);
-            CosmeticRuntimeApplier.SelectFishermanHair(selectedSprite);
-
-            // Switch the cycling preview set by hair colour, then show its first preview (Reqs 1 & 2).
-            SetFishermanPreviewHairMode(
-                selectedSprite.name.ToLowerInvariant().Contains("black") ? FishermanHairModeBlack : FishermanHairModeRed);
-            ShowFirstFishermanHairPreview();
+            // Show the chosen hair colour (full-body preview + hair icon) and persist it for hat cycling.
+            ShowFishermanHairColorPreview(selectedSprite.name.ToLowerInvariant().Contains("black"));
         }
         else
         {
@@ -3074,7 +3087,14 @@ public class ShopManager : MonoBehaviour
         {
             EnsureShopPreviewRootActive();
             SetActiveIfNotNull(FishermanDisplayObject, true);
-            CycleFishermanPreview(direction);
+            if (selectedFishermanDisplayMode == FishermanDisplayModeHair)
+            {
+                CycleFishermanHairColor(direction);
+            }
+            else
+            {
+                CycleFishermanPreview(direction);
+            }
             return true;
         }
 
@@ -3106,10 +3126,17 @@ public class ShopManager : MonoBehaviour
         }
 
         // Direct visibility check (not gated on isFishermanSelected) so a visible fisherman
-        // preview always cycles fisherman hats rather than falling through to fish cycling.
+        // preview always cycles fisherman content rather than falling through to fish cycling.
         if (FishermanDisplayObject != null && FishermanDisplayObject.activeInHierarchy)
         {
-            CycleFishermanPreview(direction);
+            if (selectedFishermanDisplayMode == FishermanDisplayModeHair)
+            {
+                CycleFishermanHairColor(direction);
+            }
+            else
+            {
+                CycleFishermanPreview(direction);
+            }
             return true;
         }
 
@@ -3588,20 +3615,53 @@ public class ShopManager : MonoBehaviour
         ApplySelectedFishermanHatToDisplay(cosmetic);
     }
 
-    // Shows the first preview of the active hair-coloured set (used right after picking a hair colour),
-    // and syncs the bottom-right Hat Icon to that preview's hat. Cycling (next/prev) then walks the set.
-    private void ShowFirstFishermanHairPreview()
+    // ---- Hair-colour cycling (Hair dropdown option): red <-> black ----
+
+    // Next/prev in Hair mode toggles between the two hair colours (Reqs 1 & 2).
+    private void CycleFishermanHairColor(int direction)
     {
-        List<Sprite> previews = GetActiveFishermanHairHatPreviews();
-        if (previews.Count > 0)
+        EnsureShopPreviewRootActive();
+        SetActiveIfNotNull(FishermanDisplayObject, true);
+        ShowFishermanHairColorPreview(!IsBlackHairModeSelected());
+    }
+
+    // Shows a hair colour: full-body hair preview on the cycling image + hair tuft icon bottom-right,
+    // and persists the colour so the Hat option later cycles the matching preview folder.
+    private void ShowFishermanHairColorPreview(bool black)
+    {
+        selectedFishermanDisplayMode = FishermanDisplayModeHair;
+        SetActiveIfNotNull(FishermanDisplayObject, true);
+
+        // Persisted colour drives which hat-preview folder the Hat option cycles (Reqs 2 & 3).
+        SetFishermanPreviewHairMode(black ? FishermanHairModeBlack : FishermanHairModeRed);
+
+        Sprite hairSprite = GetFishermanHairCosmeticSprite(black);
+        CosmeticRuntimeApplier.SelectFishermanHair(hairSprite);
+
+        Image image = FishermanDisplayObject != null ? FishermanDisplayObject.GetComponent<Image>() : null;
+        if (image != null)
         {
-            Sprite preview = previews[0];
-            ShowFishermanPreviewSprite(preview);
-            ApplyFishermanCosmeticFromPreview(preview);
-            return;
+            CacheDisplayBaseSprite(image);
+            bool shown = black ? ApplyFishermanBlackHairPreview(image) : ApplyFishermanRedHairPreview(image);
+            if (!shown)
+            {
+                RestoreDisplayBaseSprite(image);
+            }
         }
 
-        RefreshBottomRightPreview();
+        if (hairSprite != null)
+        {
+            ForceUpdateHatIconPreview(hairSprite);
+        }
+        else
+        {
+            RefreshBottomRightPreview();
+        }
+    }
+
+    private Sprite GetFishermanHairCosmeticSprite(bool black)
+    {
+        return Resources.Load<Sprite>(black ? "ShopUI/Black_Hair" : "ShopUI/Red_Hair");
     }
 
     // Shows whatever fisherman preview matches the saved selection / current hair colour (shop entry).
@@ -3623,6 +3683,9 @@ public class ShopManager : MonoBehaviour
         if (basePreview != null)
         {
             ShowFishermanPreviewSprite(basePreview);
+            // Sync the bottom-right Hat Icon to the shown preview's hat (null hat -> hidden).
+            ApplyFishermanCosmeticFromPreview(basePreview);
+            return;
         }
 
         RefreshBottomRightPreview();
