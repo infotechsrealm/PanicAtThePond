@@ -1603,6 +1603,27 @@ public class ShopManager : MonoBehaviour
         ClearFishHatFromDisplayObject(FishDisplayObject);
     }
 
+    // Loads the bare species preview for a fish display slot (0 = bass, 1 = trout)
+    // and assigns it to the Image. Returns false if the sprite could not be loaded.
+    private bool ApplyBareFishSpeciesSprite(Image fishImage, int fishDisplayIndex)
+    {
+        if (fishImage == null)
+        {
+            return false;
+        }
+
+        string spriteName = fishDisplayIndex >= 1 ? "trout" : "bass";
+        Sprite speciesSprite = Resources.Load<Sprite>("ShopUI/Fish preview/" + spriteName);
+        if (speciesSprite == null)
+        {
+            return false;
+        }
+
+        fishImage.sprite = speciesSprite;
+        fishImage.preserveAspect = true;
+        return true;
+    }
+
     private void ClearFishHatFromDisplayObject(GameObject fishDisplay)
     {
         if (fishDisplay == null)
@@ -1623,7 +1644,11 @@ public class ShopManager : MonoBehaviour
         }
 
         Image fishImage = fishDisplay.GetComponent<Image>();
-        RestoreDisplayBaseSprite(fishImage);
+        // "None" should show the bare species: bass for Fish 1 (index 0), trout for Fish 2 (index 1).
+        if (!ApplyBareFishSpeciesSprite(fishImage, GetFishDisplayIndex(fishDisplay)))
+        {
+            RestoreDisplayBaseSprite(fishImage);
+        }
 
         Transform previewTransform = fishRect.Find(FishHatPreviewChildName);
         if (previewTransform == null)
@@ -1975,8 +2000,13 @@ public class ShopManager : MonoBehaviour
     {
         if (fishermanImage == null) return false;
 
-        // Direct load from the exact sprite path to avoid normalization issues
-        Sprite blackHairSprite = Resources.Load<Sprite>("ShopUI/Fisherman Preview/Fisherman Black hair");
+        // Direct load from the exact sprite path to avoid normalization issues.
+        // The bare "no hat" black-hair preview lives in the Black Hair Hats Preview subfolder.
+        Sprite blackHairSprite = Resources.Load<Sprite>("ShopUI/Fisherman Preview/Black Hair Hats Preview/black hair");
+        if (blackHairSprite == null)
+        {
+            blackHairSprite = Resources.Load<Sprite>("ShopUI/Fisherman Preview/Fisherman Black hair");
+        }
         if (blackHairSprite == null)
         {
             blackHairSprite = Resources.Load<Sprite>("ShopUI/Fisherman Preview/Winning 1_0");

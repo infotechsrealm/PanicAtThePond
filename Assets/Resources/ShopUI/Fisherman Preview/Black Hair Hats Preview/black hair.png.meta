@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1ca8c0bc73d41ea439c8a61a8288b3a2
+guid: f8a13ccf5972b8d4f802e2871d13e2a9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1414224116634721962
-    second: trout yellow hat_0
+      213: -4454917726129415417
+    second: black hair_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: trout yellow hat_0
+      name: black hair_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 12
-        width: 105
-        height: 67
+        x: 107
+        y: 119
+        width: 95
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aae9dc8575550a310800000000000000
-      internalID: 1414224116634721962
+      spriteID: 70b17766ee3fc22c0800000000000000
+      internalID: -4454917726129415417
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      trout yellow hat_0: 1414224116634721962
+      black hair_0: -4454917726129415417
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

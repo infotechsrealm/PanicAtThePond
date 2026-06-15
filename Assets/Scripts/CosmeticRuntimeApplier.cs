@@ -1273,7 +1273,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         {
             case "fishermanhatdefaultfishinghat":
                 return new CosmeticTransform(
-                    new Vector3(-0.123f, 0.233f, -0.01f),
+                    new Vector3(-0.123f, 0.225f, -0.01f),
                     new Vector3(0f, 0f, 3.55f),
                     new Vector3(2.05f, 1.95f, 2.05f));
             case "hat":
@@ -1536,11 +1536,11 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         switch (frameIndex)
         {
             case 1:
-                return new Vector3(0f, -0.008f, 0f);
+                return new Vector3(0f, -0.025f, 0f);
             case 2:
-                return new Vector3(0f, -0.013f, 0f);
+                return new Vector3(0f, -0.045f, 0f);
             case 3:
-                return new Vector3(0f, -0.007f, 0f);
+                return new Vector3(0f, -0.02f, 0f);
             default:
                 return Vector3.zero;
         }
