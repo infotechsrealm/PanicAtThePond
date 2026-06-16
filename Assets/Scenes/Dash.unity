@@ -13760,7 +13760,7 @@ RectTransform:
   m_GameObject: {fileID: 569712921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.89393, y: 0.89393, z: 0.89393}
+  m_LocalScale: {x: 1.7962724, y: 1.8973664, z: 1.8973664}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 710938682}
@@ -13768,7 +13768,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0023479, y: -0.00072956}
+  m_AnchoredPosition: {x: 35.6, y: 7.3}
   m_SizeDelta: {x: 1265.3, y: 564.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &569712923
@@ -16464,7 +16464,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 97.900024, y: 48.49}
+  m_AnchoredPosition: {x: 82.20001, y: 48.49}
   m_SizeDelta: {x: 91.20001, y: 44.97}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &710938683
@@ -21457,7 +21457,7 @@ RectTransform:
   m_GameObject: {fileID: 930360021}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9956526, y: 0.9476766, z: 0.9476766}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 880513965}
@@ -21473,8 +21473,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 80}
+  m_AnchoredPosition: {x: -9.699951, y: 0}
+  m_SizeDelta: {x: 33.21, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &930360023
 MonoBehaviour:
@@ -39349,7 +39349,8 @@ MonoBehaviour:
     PreviewSpriteName: Fishermna headphone hat
   DefaultHatIconAnchoredPosition: {x: -244, y: 154}
   DefaultHatIconSize: {x: 96, y: 96}
-  HatIconScaleNormal: {x: 3, y: 3, z: 1}
+  HatIconScaleNormal: {x: 1.6, y: 1.6, z: 1}
+  HatIconScaleFisherman: {x: 3, y: 3, z: 1}
   HatIconScaleTurtle: {x: 1, y: 1, z: 1}
   VoyageDiagramAnchoredPosition: {x: -244, y: 154}
   VoyageDiagramSize: {x: 1345, y: 566}
@@ -78631,9 +78632,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4645936375332474168}
         m_TargetAssemblyTypeName: CreaditsManager, Assembly-CSharp
-        m_MethodName: BackButton
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -80027,6 +80028,7 @@ MonoBehaviour:
   backButton: {fileID: 3291479408424407643}
   fishButton: {fileID: 2614550990189274476}
   fishermanButton: {fileID: 1592637811054846815}
+  BaackFishermanControleui: {fileID: 8550538492873699615}
   fishControlUI: {fileID: 6664175490595527698}
   FishermanControlUI: {fileID: 762033807887360304}
 --- !u!114 &9031167088212252514

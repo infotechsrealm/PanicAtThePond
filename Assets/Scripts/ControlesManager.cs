@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ControlesManager : MonoBehaviour
 {
 
-    public Button backButton,fishButton,fishermanButton;
+    public Button backButton,fishButton,fishermanButton, BaackFishermanControleui;
     public GameObject fishControlUI, FishermanControlUI;
 
     private void Start()
@@ -13,6 +13,7 @@ public class ControlesManager : MonoBehaviour
         backButton.onClick.AddListener(OnBackPressed);
         fishButton.onClick.AddListener(onFishControlPressed);
         fishermanButton.onClick.AddListener(onFishermanControlPressed);
+        BaackFishermanControleui.onClick.AddListener(OnBackPressedFishermanControlUI);
 
     }
 
@@ -26,6 +27,11 @@ public class ControlesManager : MonoBehaviour
     {
         BackManager.instance.UnregisterScreen();
         gameObject.SetActive(false);
+    }
+
+    public  void OnBackPressedFishermanControlUI()
+    {
+        FishermanControlUI.SetActive(false);
     }
 
     private void onFishControlPressed()

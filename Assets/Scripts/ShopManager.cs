@@ -116,7 +116,10 @@ public class ShopManager : MonoBehaviour
     [Header("Hat Icon Preview (Bottom Right)")]
     public Vector2 DefaultHatIconAnchoredPosition = new Vector2(-244f, 154f);
     public Vector2 DefaultHatIconSize = new Vector2(96f, 96f);
-    public Vector3 HatIconScaleNormal = new Vector3(3f, 3f, 1f);
+    // Fish hat icon: medium-small so the bottom-right preview isn't oversized.
+    public Vector3 HatIconScaleNormal = new Vector3(1.6f, 1.6f, 1f);
+    // Fisherman hats keep their original size; only their position is being pinned.
+    public Vector3 HatIconScaleFisherman = new Vector3(3f, 3f, 1f);
     public Vector3 HatIconScaleTurtle = new Vector3(1f, 1f, 1f);
     public Vector2 VoyageDiagramAnchoredPosition = new Vector2(-244f, 154f);
     public Vector2 VoyageDiagramSize = new Vector2(1345f, 566f);
@@ -210,7 +213,7 @@ public class ShopManager : MonoBehaviour
         // Scene wiring: HairOptionButton = "hat Button Fisherman", HatHairOptionButton = "Hair Button Fisherman."
         AddButtonListener(HairOptionButton, SelectHatHairOption);
         AddButtonListener(HatHairOptionButton, SelectHairOption);
-        AddButtonListener(FishFaceButton, FishShopUI);
+        AddButtonListener(FishFaceButton, SelectFishHatCategory);
         AddButtonListener(FishermanFaceButton, SelectFishermanHairCategory);
         AddButtonListener(FishermanHatButton, SelectFishermanHatCategory);
         AddButtonListener(SaltShopButton, OpenSaltShop);
@@ -256,7 +259,7 @@ public class ShopManager : MonoBehaviour
         RemoveButtonListener(FishSpeciesOptionButton, SelectFishSpeciesOption);
         RemoveButtonListener(HairOptionButton, SelectHatHairOption);
         RemoveButtonListener(HatHairOptionButton, SelectHairOption);
-        RemoveButtonListener(FishFaceButton, FishShopUI);
+        RemoveButtonListener(FishFaceButton, SelectFishHatCategory);
         RemoveButtonListener(FishermanFaceButton, SelectFishermanHairCategory);
         RemoveButtonListener(FishermanHatButton, SelectFishermanHatCategory);
         RemoveButtonListener(SaltShopButton, OpenSaltShop);
@@ -435,6 +438,8 @@ public class ShopManager : MonoBehaviour
 
     public void SelectFishermanHairCategory()
     {
+        isFishermanSelected = true;
+        isFishSelected = false;
         selectedFishermanDisplayMode = FishermanDisplayModeHair;
         SetActiveIfNotNull(FishermanHairObject, true);
         SetActiveIfNotNull(FishermanHatObject, false);
@@ -446,6 +451,8 @@ public class ShopManager : MonoBehaviour
 
     public void SelectFishermanHatCategory()
     {
+        isFishermanSelected = true;
+        isFishSelected = false;
         selectedFishermanDisplayMode = FishermanDisplayModeHat;
         SetActiveIfNotNull(FishermanHatObject, true);
         SetActiveIfNotNull(FishermanHairObject, false);
@@ -453,6 +460,17 @@ public class ShopManager : MonoBehaviour
         SetActiveIfNotNull(FishCosmeticPanel, false);
         CloseHatDropdown();
         ApplySelectedFishermanDisplayMode();
+    }
+
+    public void SelectFishHatCategory()
+    {
+        isFishSelected = true;
+        isFishermanSelected = false;
+        selectedFishDisplayMode = FishDisplayModeHat;
+        SetActiveIfNotNull(FishCosmeticPanel, true);
+        SetActiveIfNotNull(FishermanCosmeticPanel, false);
+        CloseHatDropdown();
+        ApplySelectedFishDisplayMode();
     }
 
     public void HideFishFishermanDisplay()
@@ -994,14 +1012,24 @@ public class ShopManager : MonoBehaviour
     private Vector3 GetHatIconScale(Sprite hatIcon)
     {
         string n = hatIcon != null ? hatIcon.name.ToLowerInvariant() : string.Empty;
-        if (n.Contains("turtle"))
+        if (n.Contains("turtle") || n.Contains("ranger") || n.Contains("renger"))
         {
             return HatIconScaleTurtle;
         }
 
         if (n.Contains("hair"))
         {
-            return Vector3.one; // hair tuft icon: shown near native size, not the 3x hat scale
+            if (n.Contains("red"))
+            {
+                return new Vector3(2f, 2f, 2f);
+            }
+            return Vector3.one; // hair tuft icon: shown near native size
+        }
+
+        // Fisherman hats keep their original scale; only fish hats are shrunk to medium-small.
+        if (isFishermanSelected && IsFishermanHatModeSelected())
+        {
+            return HatIconScaleFisherman;
         }
 
         return HatIconScaleNormal;
@@ -1047,46 +1075,97 @@ public class ShopManager : MonoBehaviour
     private void ApplyHatIconOverride(Image previewImage, Sprite hatIcon)
     {
         if (previewImage == null || hatIcon == null) return;
-        Vector2 targetPos = DefaultHatIconAnchoredPosition;
-        Vector2 targetSize = DefaultHatIconSize;
+
+        RectTransform rt = previewImage.GetComponent<RectTransform>();
+        if (rt == null) return;
 
         string name = hatIcon.name.ToLowerInvariant();
-        bool found = false;
-        
-        if (DynamicHatOverrides != null)
-        {
-            for (int i = 0; i < DynamicHatOverrides.Count; i++)
-            {
-                var over = DynamicHatOverrides[i];
-                if (!string.IsNullOrEmpty(over.HatNameSubstring) && name == over.HatNameSubstring.ToLowerInvariant())
-                {
-                    targetSize = over.SizeDelta;
-                    found = true;
-                    break;
-                }
-            }
 
-            if (!found)
-            {
-                for (int i = 0; i < DynamicHatOverrides.Count; i++)
-                {
-                    var over = DynamicHatOverrides[i];
-                    if (!string.IsNullOrEmpty(over.HatNameSubstring) && name.Contains(over.HatNameSubstring.ToLowerInvariant()))
-                    {
-                        targetSize = over.SizeDelta;
-                        break;
-                    }
-                }
-            }
+        if (ShopPreviewRoot != null && rt.parent != ShopPreviewRoot.transform)
+        {
+            rt.SetParent(ShopPreviewRoot.transform, false);
         }
 
-        previewImage.rectTransform.sizeDelta = targetSize;
-        RectTransform rt = previewImage.GetComponent<RectTransform>();
-        if (rt != null)
+        if (!isFishermanSelected)
         {
-            ConfigureBottomRightPreviewRect(rt);
-            rt.anchoredPosition = targetPos;
+            // Fish Hat Cosmetic (1st reference)
+            rt.anchorMin = new Vector2(1f, 0f);
+            rt.anchorMax = new Vector2(1f, 0f);
+            rt.pivot = new Vector2(1f, 0f);
+            rt.anchoredPosition = new Vector2(-244f, 154f);
+            rt.sizeDelta = new Vector2(100f, 566f);
         }
+        else
+        {
+            if (name.Contains("hair"))
+            {
+                if (name.Contains("red"))
+                {
+                    // Red hair (1st reference image)
+                    rt.anchorMin = new Vector2(1f, 0f);
+                    rt.anchorMax = new Vector2(1f, 0f);
+                    rt.pivot = new Vector2(1f, 0f);
+                    rt.anchoredPosition = new Vector2(-145f, -90f);
+                    rt.sizeDelta = new Vector2(200f, 200f);
+                }
+                else
+                {
+                    // Black hair (2nd reference image)
+                    rt.anchorMin = new Vector2(1f, 0f);
+                    rt.anchorMax = new Vector2(1f, 0f);
+                    rt.pivot = new Vector2(1f, 0f);
+                    rt.anchoredPosition = new Vector2(-85f, -170f);
+                    rt.sizeDelta = new Vector2(500f, 500f);
+                }
+            }
+            else if (name.Contains("turtle") || name.Contains("ranger") || name.Contains("renger"))
+            {
+                // Fisherman Turtle/Ranger Hat Cosmetic (3rd reference)
+                rt.anchorMin = new Vector2(1f, 0f);
+                rt.anchorMax = new Vector2(1f, 0f);
+                rt.pivot = new Vector2(1f, 0f);
+                rt.anchoredPosition = new Vector2(-244f, 154f);
+                
+                if (name.Contains("turtle"))
+                {
+                    rt.sizeDelta = new Vector2(96f, 54f);
+                }
+                else
+                {
+                    rt.sizeDelta = new Vector2(96f, 96f);
+                }
+            }
+            else
+            {
+                // Fisherman Hat Cosmetic (2nd reference)
+                rt.anchorMin = new Vector2(1f, 0f);
+                rt.anchorMax = new Vector2(1f, 0f);
+                rt.pivot = new Vector2(1f, 0f);
+                rt.anchoredPosition = new Vector2(-117.2f, 22.2f);
+                rt.sizeDelta = new Vector2(150f, 154.6f);
+            }
+        }
+    }
+
+    private Vector2 FitSizeToSpriteAspect(Sprite sprite, Vector2 maxBox)
+    {
+        if (sprite == null || sprite.rect.height <= 0f || sprite.rect.width <= 0f)
+        {
+            return maxBox;
+        }
+
+        float aspect = sprite.rect.width / sprite.rect.height;
+
+        // Fit the sprite inside maxBox while preserving its aspect ratio.
+        float height = maxBox.y;
+        float width = height * aspect;
+        if (width > maxBox.x)
+        {
+            width = maxBox.x;
+            height = width / aspect;
+        }
+
+        return new Vector2(width, height);
     }
 
     private void ConfigureBottomRightPreviewRect(RectTransform rt)
