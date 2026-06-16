@@ -33,7 +33,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
     private static readonly Vector2 BassSpeedLabelOffset = new Vector2(-140f, 0f);
     private static readonly Vector2 DepletionLabelPosition = new Vector2(163f, -270f);
     private static readonly Vector2 DepletionLabelSize = new Vector2(180f, 56f);
-    private static readonly Vector2 ScoreResetButtonPosition = new Vector2(290f, 190f);
+    private static readonly Vector2 ScoreResetButtonPosition = new Vector2(-185f, -30f);
 
     public PlayerTableManager playerTableManager;
     public Button backButton, controlsButton, hintButton, pauseButton, ScoreSystem, BackScore;
@@ -438,16 +438,18 @@ public class HostLobby : MonoBehaviourPunCallbacks
         TextMeshProUGUI title = ScoreUI.GetComponentsInChildren<TextMeshProUGUI>(true)
             .FirstOrDefault(text => NormalizeInputName(text.text).Equals("score system", System.StringComparison.OrdinalIgnoreCase));
 
-        Transform parent = title != null ? title.transform.parent : ScoreUI.transform;
+        Transform parent = ScoreUI.transform;
         GameObject resetObject = new GameObject("ScoreSystem_ResetButton", typeof(RectTransform), typeof(Image), typeof(Button));
         resetObject.transform.SetParent(parent, false);
 
         RectTransform resetRect = resetObject.GetComponent<RectTransform>();
-        resetRect.anchorMin = new Vector2(0.5f, 0.5f);
-        resetRect.anchorMax = new Vector2(0.5f, 0.5f);
+        resetRect.anchorMin = new Vector2(1f, 1f);
+        resetRect.anchorMax = new Vector2(1f, 1f);
+        resetRect.pivot = new Vector2(1f, 1f);
         resetRect.sizeDelta = new Vector2(72.5f, 20.7f);
         resetRect.anchoredPosition = ScoreResetButtonPosition;
         resetRect.localScale = Vector3.one * 1.9f;
+        resetRect.SetAsLastSibling();
 
         Image resetImage = resetObject.GetComponent<Image>();
         resetImage.color = new Color(0.05f, 0.45f, 0.55f, 0.85f);
