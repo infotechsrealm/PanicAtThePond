@@ -36,6 +36,52 @@ public class LegacyTextSharpener : MonoBehaviour
 
             EnsureOverlay(text);
         }
+
+        EnsureDropdownWatchers();
+    }
+
+    // Sharpen every Legacy Text under a subtree (used for runtime-spawned UI such
+    // as an open Dropdown List, whose option items don't exist at scene-load time).
+    public static void SharpenSubtree(Transform root)
+    {
+        if (root == null)
+        {
+            return;
+        }
+
+        CacheFontAsset();
+
+        Text[] texts = root.GetComponentsInChildren<Text>(true);
+        for (int i = 0; i < texts.Length; i++)
+        {
+            Text text = texts[i];
+            if (text == null || !text.gameObject.activeInHierarchy)
+            {
+                continue;
+            }
+
+            EnsureOverlay(text);
+        }
+    }
+
+    // Dropdowns build their option list at runtime, so attach a tiny watcher to each
+    // one that sharpens the "Dropdown List" items the moment the list opens.
+    private static void EnsureDropdownWatchers()
+    {
+        Dropdown[] dropdowns = Resources.FindObjectsOfTypeAll<Dropdown>();
+        for (int i = 0; i < dropdowns.Length; i++)
+        {
+            Dropdown dropdown = dropdowns[i];
+            if (dropdown == null || !IsLoadedSceneObject(dropdown.gameObject))
+            {
+                continue;
+            }
+
+            if (dropdown.GetComponent<DropdownListSharpener>() == null)
+            {
+                dropdown.gameObject.AddComponent<DropdownListSharpener>();
+            }
+        }
     }
 
     private static bool IsLoadedSceneObject(GameObject target)
@@ -197,5 +243,32 @@ public class LegacyTextSharpener : MonoBehaviour
             default:
                 return FontStyles.Normal;
         }
+    }
+}
+
+// Sits on each Dropdown and sharpens the runtime-created "Dropdown List" option
+// items as soon as the list opens (their labels don't exist until then).
+public class DropdownListSharpener : MonoBehaviour
+{
+    private const string ListName = "Dropdown List";
+
+    private Transform sharpenedList;
+
+    private void Update()
+    {
+        Transform list = transform.Find(ListName);
+        if (list == null)
+        {
+            sharpenedList = null;
+            return;
+        }
+
+        if (sharpenedList == list)
+        {
+            return;
+        }
+
+        sharpenedList = list;
+        LegacyTextSharpener.SharpenSubtree(list);
     }
 }

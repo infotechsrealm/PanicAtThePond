@@ -66,6 +66,8 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
             Text[] texts = row.GetComponentsInChildren<Text>();
             texts[0].text = player.NickName;
 
+            LegacyTextSharpener.SharpenSubtree(row.transform);
+
             /* if (texts.Length >= 3)
              {
                  texts[0].text = (i + 1).ToString();   // Sequential number
@@ -136,6 +138,8 @@ public class PlayerTableManager : MonoBehaviourPunCallbacks
 
             Text[] texts = row.GetComponentsInChildren<Text>();
             texts[0].text = player;
+
+            LegacyTextSharpener.SharpenSubtree(row.transform);
           /*  if (texts.Length >= 3)
             {
                 texts[0].text = (i + 1).ToString();   // Sequential number
