@@ -10,6 +10,7 @@ public class ControlesManager : MonoBehaviour
 
     private void Start()
     {
+        LegacyTextSharpener.EnsureSceneTextIsSharp();
         backButton.onClick.AddListener(OnBackPressed);
         fishButton.onClick.AddListener(onFishControlPressed);
         fishermanButton.onClick.AddListener(onFishermanControlPressed);
@@ -20,6 +21,7 @@ public class ControlesManager : MonoBehaviour
     private void OnEnable()
     {
         BackManager.instance.RegisterScreen(backButton);
+        LegacyTextSharpener.EnsureSceneTextIsSharp();
 
     }
 

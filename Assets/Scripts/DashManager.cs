@@ -16,10 +16,12 @@ public class DashManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        LegacyTextSharpener.EnsureSceneTextIsSharp();
     }
 
     private void Start()
     {
+        LegacyTextSharpener.EnsureSceneTextIsSharp();
         GS.Instance.SetMusicVolume();
         GS.Instance.BGMusic.Play();
 
@@ -50,36 +52,42 @@ public class DashManager : MonoBehaviour
                 {
                     BackManager.instance.RegisterScreen(createAndJoinButtonsBackButton);
                     createAndJoinButtons.SetActive(true);
+                    LegacyTextSharpener.EnsureSceneTextIsSharp();
                     break;
                 }
 
             case "LocalPlay":
                 {
                     localPlayerUI.SetActive(true);
+                    LegacyTextSharpener.EnsureSceneTextIsSharp();
                     break;
                 }
 
             case "Settings":
                 {
                     settingUI.SetActive(true);
+                    LegacyTextSharpener.EnsureSceneTextIsSharp();
                     break;
                 }
 
             case "Credits":
                 {
                     craditsUI.SetActive(true);
+                    LegacyTextSharpener.EnsureSceneTextIsSharp();
                     break;
                 }
 
             case "Quit":
                 {
                     quitUI.SetActive(true);
+                    LegacyTextSharpener.EnsureSceneTextIsSharp();
                     break;
                 }  
                 
             case "hints":
                 {
                     hintsUI.SetActive(true);
+                    LegacyTextSharpener.EnsureSceneTextIsSharp();
                     break;
                 }   
         }

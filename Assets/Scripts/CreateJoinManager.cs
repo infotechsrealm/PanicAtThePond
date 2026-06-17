@@ -31,6 +31,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
     private void Awake()
     {
         Instance = this;
+        LegacyTextSharpener.EnsureSceneTextIsSharp();
     }
 
 
@@ -48,7 +49,7 @@ public class CreateJoinManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-
+        LegacyTextSharpener.EnsureSceneTextIsSharp();
     }
     public void OnClickAction(string action)
     {
