@@ -24,6 +24,10 @@ public class DashManager : MonoBehaviour
         LegacyTextSharpener.EnsureSceneTextIsSharp();
         GS.Instance.SetMusicVolume();
         GS.Instance.BGMusic.Play();
+        if (settingUI != null)
+        {
+            settingUI.SetActive(false);
+        }
 
         StartCoroutine(FetchCoinsWhenReady());
     }
@@ -65,8 +69,7 @@ public class DashManager : MonoBehaviour
 
             case "Settings":
                 {
-                    settingUI.SetActive(true);
-                    LegacyTextSharpener.EnsureSceneTextIsSharp();
+                    OpenSettings();
                     break;
                 }
 
@@ -103,5 +106,33 @@ public class DashManager : MonoBehaviour
     public void LocalPLayBack()
     {
         localPlayerUI.SetActive(false);
+    }
+
+    public void OpenSettings()
+    {
+        if (settingUI == null)
+        {
+            SettingsMenu settingsMenu = FindFirstObjectByType<SettingsMenu>(FindObjectsInactive.Include);
+            if (settingsMenu != null)
+            {
+                settingUI = settingsMenu.gameObject;
+            }
+        }
+
+        if (settingUI == null)
+        {
+            Debug.LogWarning("DashManager.OpenSettings called, but settingUI is not assigned.");
+            return;
+        }
+
+        RectTransform rectTransform = settingUI.transform as RectTransform;
+        if (rectTransform != null)
+        {
+            rectTransform.localPosition = new Vector3(rectTransform.localPosition.x, rectTransform.localPosition.y, 0f);
+            rectTransform.SetAsLastSibling();
+        }
+
+        settingUI.SetActive(true);
+        LegacyTextSharpener.EnsureSceneTextIsSharp();
     }
 }

@@ -12,8 +12,38 @@ public class BackManager : MonoBehaviour
     [SerializeField]
     public Stack<Button> backStack = new Stack<Button>();
 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    private static void InitializeOnSceneLoad()
+    {
+        EnsureInstance();
+    }
+
+    public static BackManager EnsureInstance()
+    {
+        if (instance != null)
+        {
+            return instance;
+        }
+
+        BackManager existing = FindFirstObjectByType<BackManager>(FindObjectsInactive.Include);
+        if (existing != null)
+        {
+            instance = existing;
+            return instance;
+        }
+
+        GameObject managerObject = new GameObject(nameof(BackManager));
+        return managerObject.AddComponent<BackManager>();
+    }
+
     void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         instance = this;
     }
 
@@ -38,6 +68,12 @@ public class BackManager : MonoBehaviour
     // -------- Add a back button to stack -----------
     public void RegisterScreen(Button backButton)
     {
+        if (backButton == null)
+        {
+            Debug.LogWarning("BackManager.RegisterScreen called with a missing back button.");
+            return;
+        }
+
         backStack.Push(backButton);
         backList.Add(backButton);
     }

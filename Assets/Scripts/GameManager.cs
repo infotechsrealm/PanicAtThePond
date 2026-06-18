@@ -271,7 +271,6 @@ public class GameManager : MonoBehaviourPunCallbacks
                     Vector3 spawnPos = new Vector3(x, y, 0);
                     GameObject fish = Instantiate(selectedFishPrefab, spawnPos, Quaternion.identity);
                     ApplySelectedFishTransform(fish);
-                    CosmeticRuntimeApplier.ApplyToFish(fish);
                     fishes.Add(fish);
                     NetworkServer.AddPlayerForConnection(conn, fish);
                 }
@@ -285,7 +284,6 @@ public class GameManager : MonoBehaviourPunCallbacks
             Vector3 spawnPos = new Vector3(x, y, 0);
             GameObject fish = PhotonNetwork.Instantiate(selectedFishPrefab.name, spawnPos, Quaternion.identity);
             ApplySelectedFishTransform(fish);
-            CosmeticRuntimeApplier.ApplyToFish(fish);
             fishes.Add(fish);
             Debug.Log("Fish Spawned: " + fishes.Count);
         }

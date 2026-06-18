@@ -121,7 +121,7 @@ public class ShopManager : MonoBehaviour
     // Fisherman hats keep their original size; only their position is being pinned.
     public Vector3 HatIconScaleFisherman = new Vector3(3f, 3f, 1f);
     public Vector3 HatIconScaleTurtle = new Vector3(1f, 1f, 1f);
-    public Vector2 VoyageDiagramAnchoredPosition = new Vector2(-244f, 154f);
+    public Vector2 VoyageDiagramAnchoredPosition = new Vector2(-200f, 190f);
     public Vector2 VoyageDiagramSize = new Vector2(1345f, 566f);
     public Vector3 VoyageDiagramScale = new Vector3(0.1738731f, 0.1738731f, 0.1738731f);
 
@@ -181,6 +181,7 @@ public class ShopManager : MonoBehaviour
     private string selectedFishermanDisplayMode = FishermanDisplayModeHat;
     private LocalPlayManager shopLocalPlayManager;
     private bool useLegacyHatDropdownLabel;
+    private bool isEnteringShop = false;
 
     private void Awake()
     {
@@ -499,8 +500,17 @@ public class ShopManager : MonoBehaviour
 
     private void OpenShopItemPanel()
     {
+        isEnteringShop = true;
         SetActiveIfNotNull(ShopItemPanel, true);
         EnsureShopPreviewRootActive();
+
+        // Always show Fish 1 (bass) when entering the shop
+        PlayerPrefs.SetInt(LocalPlayManager.SelectedFishPrefKey, 0);
+        PlayerPrefs.Save();
+
+        selectedFishDisplayMode = FishDisplayModeSpecies;
+        SelectFishDisplay();
+
         StartCoroutine(ClearFishHatAfterDelay());
     }
 
@@ -511,6 +521,31 @@ public class ShopManager : MonoBehaviour
         {
             shopLocalPlayManager.RestoreOriginalFishSprites();
         }
+
+        ClearFishHatFromDisplay();
+
+        // Force Fish 1's Image component to exactly "ShopUI/Fish preview/bass"
+        // This must be done AFTER RestoreOriginalFishSprites so it doesn't get overwritten
+        ResolveFishDisplayObjects();
+        if (FishDisplayObjects != null && FishDisplayObjects.Length > 0)
+        {
+            GameObject fish1Object = FishDisplayObjects[0];
+            if (fish1Object != null)
+            {
+                UnityEngine.UI.Image img = fish1Object.GetComponent<UnityEngine.UI.Image>();
+                if (img != null)
+                {
+                    Sprite bassSprite = Resources.Load<Sprite>("ShopUI/Fish preview/bass");
+                    if (bassSprite != null)
+                    {
+                        img.sprite = bassSprite;
+                        // Cache it immediately so displayBaseSprites has bass.png for clearing in future
+                        CacheDisplayBaseSprite(img);
+                    }
+                }
+            }
+        }
+        isEnteringShop = false;
     }
 
     private void EnsureShopPreviewRootActive()
@@ -528,6 +563,13 @@ public class ShopManager : MonoBehaviour
         if (ShopPreviewRoot != null && shopLocalPlayManager == null)
         {
             shopLocalPlayManager = ShopPreviewRoot.GetComponent<LocalPlayManager>();
+        }
+
+        // Mark the shop-preview instance so its Fish 1 always shows plain "bass" (never a saved
+        // fish-hat composite) whenever the Shop object is enabled from any shop button.
+        if (shopLocalPlayManager != null)
+        {
+            shopLocalPlayManager.IsShopPreview = true;
         }
 
         if (FishermanDisplayObject == null && ShopPreviewRoot != null)
@@ -554,11 +596,24 @@ public class ShopManager : MonoBehaviour
 
     private void SetDisplayMode(string label, bool showFish, bool showFisherman, bool showHat)
     {
-        SetFishDisplayVisible(showFish);
-        SetActiveIfNotNull(FishermanDisplayObject, showFisherman);
+        SetFishDisplayVisible(showFish && !showFisherman);
+        if (showFisherman)
+        {
+            ShowFishermanDisplayOnly();
+        }
+        else
+        {
+            SetActiveIfNotNull(FishermanDisplayObject, false);
+        }
         SetActiveIfNotNull(HatDisplayObject, true);
         SetDropdownLabel(label);
         CloseFishFishermanDropdown();
+    }
+
+    private void ShowFishermanDisplayOnly()
+    {
+        SetFishDisplayVisible(false);
+        SetActiveIfNotNull(FishermanDisplayObject, true);
     }
 
     private void ApplySelectedFishDisplayMode()
@@ -569,7 +624,6 @@ public class ShopManager : MonoBehaviour
 
         if (showSpecies)
         {
-            ClearFishHatFromDisplay();
             RefreshSelectedFishDisplay();
             ShowFishVoyageDiagramPreview();
             return;
@@ -659,7 +713,17 @@ public class ShopManager : MonoBehaviour
             int selectedFish = Mathf.Clamp(PlayerPrefs.GetInt(LocalPlayManager.SelectedFishPrefKey, 0), 0, FishDisplayObjects.Length - 1);
             for (int i = 0; i < FishDisplayObjects.Length; i++)
             {
-                SetActiveIfNotNull(FishDisplayObjects[i], i == selectedFish);
+                bool isSelected = i == selectedFish;
+                SetActiveIfNotNull(FishDisplayObjects[i], isSelected);
+                if (isSelected)
+                {
+                    // The user requested to keep the hat visible while browsing Fish Species.
+                    // Instead of clearing the hat, we reapply the saved hat (unless we are just entering the shop).
+                    if (!isEnteringShop)
+                    {
+                        ApplySavedFishHatToDisplay();
+                    }
+                }
             }
         }
     }
@@ -902,7 +966,7 @@ public class ShopManager : MonoBehaviour
             if (rt != null)
             {
                 ConfigureBottomRightPreviewRect(rt);
-                rt.anchoredPosition = VoyageDiagramAnchoredPosition;
+                rt.anchoredPosition = new Vector2(-200f, 190f);
                 rt.sizeDelta = VoyageDiagramSize;
             }
         }
@@ -1012,6 +1076,12 @@ public class ShopManager : MonoBehaviour
     private Vector3 GetHatIconScale(Sprite hatIcon)
     {
         string n = hatIcon != null ? hatIcon.name.ToLowerInvariant() : string.Empty;
+        
+        if (n.Contains("fish-map-icon") || n.Contains("map-icon") || n.Contains("fish map icon"))
+        {
+            return VoyageDiagramScale;
+        }
+        
         if (n.Contains("turtle") || n.Contains("ranger") || n.Contains("renger"))
         {
             return HatIconScaleTurtle;
@@ -1086,13 +1156,23 @@ public class ShopManager : MonoBehaviour
             rt.SetParent(ShopPreviewRoot.transform, false);
         }
 
+        if (name.Contains("fish-map-icon") || name.Contains("map-icon") || name.Contains("fish map icon"))
+        {
+            rt.anchorMin = new Vector2(1f, 0f);
+            rt.anchorMax = new Vector2(1f, 0f);
+            rt.pivot = new Vector2(1f, 0f);
+            rt.anchoredPosition = new Vector2(-200f, 190f);
+            rt.sizeDelta = VoyageDiagramSize;
+            return;
+        }
+
         if (!isFishermanSelected)
         {
             // Fish Hat Cosmetic (1st reference)
             rt.anchorMin = new Vector2(1f, 0f);
             rt.anchorMax = new Vector2(1f, 0f);
             rt.pivot = new Vector2(1f, 0f);
-            rt.anchoredPosition = new Vector2(-244f, 154f);
+            rt.anchoredPosition = new Vector2(-200f, 190f);
             rt.sizeDelta = new Vector2(100f, 566f);
         }
         else
@@ -1118,31 +1198,77 @@ public class ShopManager : MonoBehaviour
                     rt.sizeDelta = new Vector2(500f, 500f);
                 }
             }
-            else if (name.Contains("turtle") || name.Contains("ranger") || name.Contains("renger"))
+            else if (name.Contains("turtle"))
             {
-                // Fisherman Turtle/Ranger Hat Cosmetic (3rd reference)
+                // Fisherman Turtle hat
                 rt.anchorMin = new Vector2(1f, 0f);
                 rt.anchorMax = new Vector2(1f, 0f);
                 rt.pivot = new Vector2(1f, 0f);
-                rt.anchoredPosition = new Vector2(-244f, 154f);
-                
-                if (name.Contains("turtle"))
-                {
-                    rt.sizeDelta = new Vector2(96f, 54f);
-                }
-                else
-                {
-                    rt.sizeDelta = new Vector2(96f, 96f);
-                }
+                rt.anchoredPosition = new Vector2(-200f, 170f);
+                rt.sizeDelta = new Vector2(599f, 103f);
+            }
+            else if (name.Contains("ranger") || name.Contains("renger"))
+            {
+                // Fisherman Green Ranger hat
+                rt.anchorMin = new Vector2(1f, 0f);
+                rt.anchorMax = new Vector2(1f, 0f);
+                rt.pivot = new Vector2(1f, 0f);
+                rt.anchoredPosition = new Vector2(-190f, 175f);
+                rt.sizeDelta = new Vector2(172.2f, 96f);
+            }
+            else if (name.Contains("earmuff") || name.Contains("headfon"))
+            {
+                // Fisherman Headfon hat
+                rt.anchorMin = new Vector2(1f, 0f);
+                rt.anchorMax = new Vector2(1f, 0f);
+                rt.pivot = new Vector2(1f, 0f);
+                rt.anchoredPosition = new Vector2(105f, 65f);
+                rt.sizeDelta = new Vector2(150f, 125f);
+            }
+            else if (name.Contains("chef"))
+            {
+                // Fisherman White Chef hat
+                rt.anchorMin = new Vector2(1f, 0f);
+                rt.anchorMax = new Vector2(1f, 0f);
+                rt.pivot = new Vector2(1f, 0f);
+                rt.anchoredPosition = new Vector2(-70f, 0f);
+                rt.sizeDelta = new Vector2(150f, 154.6f);
+            }
+            else if (name.Contains("red") && name.Contains("cap"))
+            {
+                // Fisherman Red Cap
+                rt.anchorMin = new Vector2(1f, 0f);
+                rt.anchorMax = new Vector2(1f, 0f);
+                rt.pivot = new Vector2(1f, 0f);
+                rt.anchoredPosition = new Vector2(-115f, 22f);
+                rt.sizeDelta = new Vector2(125f, 155f);
+            }
+            else if (name.Contains("cap") && !name.Contains("red"))
+            {
+                // Fisherman Blue Cap
+                rt.anchorMin = new Vector2(1f, 0f);
+                rt.anchorMax = new Vector2(1f, 0f);
+                rt.pivot = new Vector2(1f, 0f);
+                rt.anchoredPosition = new Vector2(-105f, 15f);
+                rt.sizeDelta = new Vector2(135f, 155f);
+            }
+            else if (name.Contains("fish_hat") || (name.Contains("fish") && !name.Contains("fishing")))
+            {
+                // Fisherman Green Frog Hat
+                rt.anchorMin = new Vector2(1f, 0f);
+                rt.anchorMax = new Vector2(1f, 0f);
+                rt.pivot = new Vector2(1f, 0f);
+                rt.anchoredPosition = new Vector2(-105f, 40f);
+                rt.sizeDelta = new Vector2(125f, 155f);
             }
             else
             {
-                // Fisherman Hat Cosmetic (2nd reference)
+                // Yellow fishing hat (default)
                 rt.anchorMin = new Vector2(1f, 0f);
                 rt.anchorMax = new Vector2(1f, 0f);
                 rt.pivot = new Vector2(1f, 0f);
-                rt.anchoredPosition = new Vector2(-117.2f, 22.2f);
-                rt.sizeDelta = new Vector2(150f, 154.6f);
+                rt.anchoredPosition = new Vector2(-100f, 22f);
+                rt.sizeDelta = new Vector2(130f, 155f);
             }
         }
     }
@@ -1682,27 +1808,6 @@ public class ShopManager : MonoBehaviour
         ClearFishHatFromDisplayObject(FishDisplayObject);
     }
 
-    // Loads the bare species preview for a fish display slot (0 = bass, 1 = trout)
-    // and assigns it to the Image. Returns false if the sprite could not be loaded.
-    private bool ApplyBareFishSpeciesSprite(Image fishImage, int fishDisplayIndex)
-    {
-        if (fishImage == null)
-        {
-            return false;
-        }
-
-        string spriteName = fishDisplayIndex >= 1 ? "trout" : "bass";
-        Sprite speciesSprite = Resources.Load<Sprite>("ShopUI/Fish preview/" + spriteName);
-        if (speciesSprite == null)
-        {
-            return false;
-        }
-
-        fishImage.sprite = speciesSprite;
-        fishImage.preserveAspect = true;
-        return true;
-    }
-
     private void ClearFishHatFromDisplayObject(GameObject fishDisplay)
     {
         if (fishDisplay == null)
@@ -1717,16 +1822,15 @@ public class ShopManager : MonoBehaviour
         }
 
         RectTransform fishRect = fishDisplay.GetComponent<RectTransform>();
+        UnityEngine.UI.Image fishImage = fishDisplay.GetComponent<UnityEngine.UI.Image>();
+        if (fishImage != null)
+        {
+            RestoreDisplayBaseSprite(fishImage);
+        }
+
         if (fishRect == null)
         {
             return;
-        }
-
-        Image fishImage = fishDisplay.GetComponent<Image>();
-        // "None" should show the bare species: bass for Fish 1 (index 0), trout for Fish 2 (index 1).
-        if (!ApplyBareFishSpeciesSprite(fishImage, GetFishDisplayIndex(fishDisplay)))
-        {
-            RestoreDisplayBaseSprite(fishImage);
         }
 
         Transform previewTransform = fishRect.Find(FishHatPreviewChildName);
@@ -3213,7 +3317,7 @@ public class ShopManager : MonoBehaviour
         if (isFishermanSelected)
         {
             EnsureShopPreviewRootActive();
-            SetActiveIfNotNull(FishermanDisplayObject, true);
+            ShowFishermanDisplayOnly();
             if (selectedFishermanDisplayMode == FishermanDisplayModeHair)
             {
                 CycleFishermanHairColor(direction);
@@ -3473,7 +3577,7 @@ public class ShopManager : MonoBehaviour
     private void CycleFishermanPreview(int direction)
     {
         EnsureShopPreviewRootActive();
-        SetActiveIfNotNull(FishermanDisplayObject, true);
+        ShowFishermanDisplayOnly();
 
         List<Sprite> previews = GetActiveFishermanHairHatPreviews();
         if (previews.Count == 0)
@@ -3529,7 +3633,7 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
-        SetActiveIfNotNull(FishermanDisplayObject, true);
+        ShowFishermanDisplayOnly();
         Image image = FishermanDisplayObject.GetComponent<Image>();
         if (image != null)
         {
@@ -3748,7 +3852,7 @@ public class ShopManager : MonoBehaviour
     private void CycleFishermanHairColor(int direction)
     {
         EnsureShopPreviewRootActive();
-        SetActiveIfNotNull(FishermanDisplayObject, true);
+        ShowFishermanDisplayOnly();
         ShowFishermanHairColorPreview(!IsBlackHairModeSelected());
     }
 
@@ -3757,7 +3861,7 @@ public class ShopManager : MonoBehaviour
     private void ShowFishermanHairColorPreview(bool black)
     {
         selectedFishermanDisplayMode = FishermanDisplayModeHair;
-        SetActiveIfNotNull(FishermanDisplayObject, true);
+        ShowFishermanDisplayOnly();
 
         // Persisted colour drives which hat-preview folder the Hat option cycles (Reqs 2 & 3).
         SetFishermanPreviewHairMode(black ? FishermanHairModeBlack : FishermanHairModeRed);

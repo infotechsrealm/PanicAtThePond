@@ -7,20 +7,30 @@ public class FishermanControlManager : MonoBehaviour
 
     private void Start()
     {
-        backButton.onClick.AddListener(OnBackPressed);
-
+        if (backButton != null)
+        {
+            backButton.onClick.RemoveListener(BackButton);
+            backButton.onClick.AddListener(BackButton);
+        }
     }
 
     private void OnEnable()
     {
-        BackManager.instance.RegisterScreen(backButton);
-
+        BackManager.EnsureInstance().RegisterScreen(backButton);
     }
 
-    private void OnBackPressed()
+    public void BackButton()
     {
-        BackManager.instance.UnregisterScreen();
+        if (!gameObject.activeSelf)
+        {
+            return;
+        }
+
+        if (BackManager.instance != null)
+        {
+            BackManager.instance.UnregisterScreen();
+        }
+
         gameObject.SetActive(false);
     }
 }
-

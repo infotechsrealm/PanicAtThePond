@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538633f435f48eb4093c0d6f910ede81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
+  speed: 300
   leftPoint: {fileID: 754942526365300179}
   rightPoint: {fileID: 8673216052723154617}
   rect: {fileID: 4227705015086095249}

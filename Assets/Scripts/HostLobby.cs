@@ -79,7 +79,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
     public override void OnEnable()
     {
         base.OnEnable();
-        BackManager.instance.RegisterScreen(pauseButton);
+        BackManager.EnsureInstance().RegisterScreen(pauseButton);
         playerTableManager.UpdatePlayerTable();
         RefreshScoreSystemUIFromState();
     }
@@ -109,12 +109,34 @@ public class HostLobby : MonoBehaviourPunCallbacks
 
     private void Pause()
     {
-        pauseUI.SetActive(true);
+        if (DashManager.Instance != null)
+        {
+            if (DashManager.Instance.settingUI != null && DashManager.Instance.settingUI.activeSelf)
+            {
+                SettingsMenu settings = DashManager.Instance.settingUI.GetComponent<SettingsMenu>();
+                if (settings != null && settings.backButton != null)
+                {
+                    settings.backButton.onClick.Invoke();
+                }
+                else
+                {
+                    DashManager.Instance.settingUI.SetActive(false);
+                }
+            }
+            else
+            {
+                DashManager.Instance.OpenSettings();
+            }
+        }
+        else if (pauseUI != null)
+        {
+            pauseUI.SetActive(!pauseUI.activeSelf);
+        }
     }
 
     public void Close()
     {
-        BackManager.instance.UnregisterScreen();
+        BackManager.EnsureInstance().UnregisterScreen();
         ResetScoreSystemAfterLeavingLobby();
 
         if (PhotonNetwork.InRoom)

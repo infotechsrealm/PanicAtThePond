@@ -4,7 +4,7 @@ using UnityEngine;
 public class Preloader : MonoBehaviour
 {
     [Header("Rotation Settings")]
-    public float speed = 200f; // Rotation speed in degrees per second
+    public float speed = 200f;
     public RectTransform leftPoint;
     public RectTransform rightPoint;
 
@@ -15,17 +15,27 @@ public class Preloader : MonoBehaviour
     private void Awake()
     {
         Instence = this;
+
+        if (rect != null)
+        {
+            rect.localScale = Vector3.one;
+        }
     }
 
     void Update()
     {
+        if (rect == null || leftPoint == null || rightPoint == null)
+        {
+            return;
+        }
+
         if (movingRight)
         {
             rect.anchoredPosition += Vector2.right * speed * Time.deltaTime;
             if (rect.anchoredPosition.x >= rightPoint.anchoredPosition.x)
             {
                 movingRight = false;
-                rect.localScale = new Vector3(1, 1, 1); // flip fish
+                rect.localScale = Vector3.one;
             }
         }
         else
@@ -34,7 +44,7 @@ public class Preloader : MonoBehaviour
             if (rect.anchoredPosition.x <= leftPoint.anchoredPosition.x)
             {
                 movingRight = true;
-                rect.localScale = new Vector3(-1, 1, 1); // face right
+                rect.localScale = new Vector3(-1f, 1f, 1f);
             }
         }
     }

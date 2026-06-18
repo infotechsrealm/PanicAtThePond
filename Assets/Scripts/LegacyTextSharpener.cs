@@ -13,6 +13,7 @@ public class LegacyTextSharpener : MonoBehaviour
     private Text sourceText;
     private TextMeshProUGUI overlayText;
     private float visibleAlpha = 1f;
+    private bool forceBold;
 
     public static void EnsureSceneTextIsSharp()
     {
@@ -42,7 +43,7 @@ public class LegacyTextSharpener : MonoBehaviour
 
     // Sharpen every Legacy Text under a subtree (used for runtime-spawned UI such
     // as an open Dropdown List, whose option items don't exist at scene-load time).
-    public static void SharpenSubtree(Transform root)
+    public static void SharpenSubtree(Transform root, bool forceBold = false)
     {
         if (root == null)
         {
@@ -60,7 +61,7 @@ public class LegacyTextSharpener : MonoBehaviour
                 continue;
             }
 
-            EnsureOverlay(text);
+            EnsureOverlay(text, forceBold);
         }
     }
 
@@ -136,11 +137,12 @@ public class LegacyTextSharpener : MonoBehaviour
             "' is not loaded yet; using TMP default for now.");
     }
 
-    private static void EnsureOverlay(Text source)
+    private static void EnsureOverlay(Text source, bool forceBold = false)
     {
         LegacyTextSharpener existing = source.GetComponentInChildren<LegacyTextSharpener>(true);
         if (existing != null && existing.sourceText == source)
         {
+            existing.forceBold = existing.forceBold || forceBold;
             existing.SyncNow();
             return;
         }
@@ -160,6 +162,7 @@ public class LegacyTextSharpener : MonoBehaviour
         LegacyTextSharpener sharpener = overlayObject.GetComponent<LegacyTextSharpener>();
         sharpener.sourceText = source;
         sharpener.overlayText = overlayObject.GetComponent<TextMeshProUGUI>();
+        sharpener.forceBold = forceBold;
         sharpener.SyncNow();
     }
 
@@ -192,7 +195,8 @@ public class LegacyTextSharpener : MonoBehaviour
         overlayText.fontSizeMin = sourceText.resizeTextMinSize;
         overlayText.fontSizeMax = sourceText.resizeTextMaxSize;
         overlayText.alignment = GetAlignment(sourceText.alignment);
-        overlayText.fontStyle = GetFontStyle(sourceText.fontStyle);
+        FontStyles fontStyle = GetFontStyle(sourceText.fontStyle);
+        overlayText.fontStyle = forceBold ? fontStyle | FontStyles.Bold : fontStyle;
         overlayText.textWrappingMode = sourceText.horizontalOverflow == HorizontalWrapMode.Wrap
             ? TextWrappingModes.Normal
             : TextWrappingModes.NoWrap;
@@ -269,6 +273,7 @@ public class DropdownListSharpener : MonoBehaviour
         }
 
         sharpenedList = list;
-        LegacyTextSharpener.SharpenSubtree(list);
+        bool forceBold = GetComponentInParent<HostLobby>(true) != null;
+        LegacyTextSharpener.SharpenSubtree(list, forceBold);
     }
 }

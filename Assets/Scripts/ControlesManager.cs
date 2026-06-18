@@ -33,6 +33,18 @@ public class ControlesManager : MonoBehaviour
 
     public  void OnBackPressedFishermanControlUI()
     {
+        if (FishermanControlUI == null)
+        {
+            return;
+        }
+
+        FishermanControlManager fishermanControlManager = FishermanControlUI.GetComponent<FishermanControlManager>();
+        if (fishermanControlManager != null)
+        {
+            fishermanControlManager.BackButton();
+            return;
+        }
+
         FishermanControlUI.SetActive(false);
     }
 

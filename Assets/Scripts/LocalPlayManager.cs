@@ -15,6 +15,14 @@ public class LocalPlayManager : MonoBehaviour
     public GameObject FishermanDisplayObject;
     public GameObject fishermanYellowHat;
 
+    // Set by ShopManager on the shop-preview instance. Marks this LocalPlayManager as the shop preview.
+    [HideInInspector] public bool IsShopPreview;
+
+    // One-shot flag: true only for the FIRST ShowSelectedFish after the shop opens (set in OnEnable),
+    // so Fish 1 (bass) shows the plain "bass" sprite on entry. Consumed on first render, so later
+    // re-renders (species cycling / Hat<->Fish Species toggle) show the saved hat composite like trout.
+    private bool pendingShopEntryPlainBass;
+
     [Header("Fish Voyage Diagram")]
     public Color lockedDiagramFishColor = new Color(0.14150941f, 0.13950692f, 0.13950692f, 1f);
     public Color unlockedDiagramFishColor = Color.white;
@@ -187,6 +195,9 @@ public class LocalPlayManager : MonoBehaviour
             Next_Fish = GetFirstUnlockedFishIndex();
         }
 
+        // Each fresh shop open re-enables this object, firing OnEnable. Arm the one-shot so the
+        // first render shows plain bass; cycling/toggle (which do NOT re-fire OnEnable) keep the hat.
+        pendingShopEntryPlainBass = true;
         ShowSelectedFish();
         KeepArrowButtonsOnScreen();
     }
@@ -311,6 +322,7 @@ public class LocalPlayManager : MonoBehaviour
         RefreshFishUnlocks();
         bool troutUnlocked = IsFishUnlocked(1);
         RefreshFishVoyageDiagram(troutUnlocked);
+        HideFishermanDisplay();
 
         if (!IsFishUnlocked(Next_Fish))
         {
@@ -326,7 +338,19 @@ public class LocalPlayManager : MonoBehaviour
                     Fish_Sprite[i].SetActive(i == Next_Fish);
                     if (i == Next_Fish)
                     {
-                        Sprite compSprite = GetCompositeSpriteForSelectedHat(i);
+                        Sprite compSprite;
+                        // In the shop preview, Fish 1 (bass) shows the plain "bass" sprite ONLY on the
+                        // first render after the shop opens (one-shot armed in OnEnable). After the user
+                        // starts interacting (cycling species / toggling Hat<->Fish Species), bass shows
+                        // the saved fish-hat composite, symmetric with trout (i==1).
+                        if (IsShopPreview && i == 0 && pendingShopEntryPlainBass)
+                        {
+                            compSprite = Resources.Load<Sprite>("ShopUI/Fish preview/bass");
+                        }
+                        else
+                        {
+                            compSprite = GetCompositeSpriteForSelectedHat(i);
+                        }
                         SetPreviewFishSprite(Fish_Sprite[i], compSprite);
                     }
                     else
@@ -340,6 +364,10 @@ public class LocalPlayManager : MonoBehaviour
                 }
             }
         }
+
+        // Consume the one-shot: only the first render after OnEnable forces plain bass. Subsequent
+        // renders within the same shop session (no new OnEnable) let bass use the hat composite.
+        pendingShopEntryPlainBass = false;
 
 
         if (BuyFishInfoText != null)
@@ -404,6 +432,8 @@ public class LocalPlayManager : MonoBehaviour
 
     private void HideFishermanDisplay()
     {
+        ResolveDisplayObjects();
+
         if (FishermanDisplayObject != null)
         {
             FishermanDisplayObject.SetActive(false);
@@ -419,10 +449,26 @@ public class LocalPlayManager : MonoBehaviour
     {
         if (FishermanDisplayObject == null)
         {
-            Transform fisherman = FindChildByName(transform, "FisherMan");
+            Transform fisherman = FindChildByName(transform, "FisherMan cycling hat");
+            if (fisherman == null)
+            {
+                fisherman = FindChildByName(transform, "Fisherman cycling hat");
+            }
+            if (fisherman == null)
+            {
+                fisherman = FindChildByName(transform, "FisherMan");
+            }
             if (fisherman == null)
             {
                 fisherman = FindChildByName(transform, "Fisherman");
+            }
+            if (fisherman == null)
+            {
+                fisherman = FindChildByName(transform, "Fisherman Display");
+            }
+            if (fisherman == null)
+            {
+                fisherman = FindChildByName(transform, "FishermanDisplay");
             }
 
             FishermanDisplayObject = fisherman != null ? fisherman.gameObject : null;

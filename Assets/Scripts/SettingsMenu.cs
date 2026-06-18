@@ -61,7 +61,7 @@ public class SettingsMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        BackManager.instance.RegisterScreen(backButton);
+        BackManager.EnsureInstance().RegisterScreen(backButton);
     }
 
     private void OnMusicVolumeChanged(float value)
@@ -92,7 +92,7 @@ public class SettingsMenu : MonoBehaviour
 
     private void OnBackPressed()
     {
-        BackManager.instance.UnregisterScreen();
+        BackManager.EnsureInstance().UnregisterScreen();
 
         gameObject.SetActive(false);
         if (GS.Instance.isLan)

@@ -4,6 +4,11 @@ using UnityEngine.UI;
 
 public class HintsManager : MonoBehaviour
 {
+    private const float MediumTextScale = 1.35f;
+    private const float MediumTextPulseScale = 0.88f;
+    private const float PulseDownDuration = 0.75f;
+    private const float PulseUpDuration = 0.5f;
+
     public Button backButton;
 
     public Transform scaledObject, scaledObject2,goldfish;
@@ -16,6 +21,10 @@ public class HintsManager : MonoBehaviour
 
     void Start()
     {
+        ApplyMediumScale(scaledObject);
+        ApplyMediumScale(scaledObject2);
+        ApplyMediumScale(fadeCanvasGroup != null ? fadeCanvasGroup.transform : null);
+
         ScaledAnimation(scaledObject);
         ScaledAnimation(scaledObject2);
         FadeAnimation(fadeCanvasGroup);
@@ -28,31 +37,48 @@ public class HintsManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        BackManager.instance.RegisterScreen(backButton);
+        BackManager.EnsureInstance().RegisterScreen(backButton);
     }
     private void OnBackPressed()
     {
-        BackManager.instance.UnregisterScreen();
+        BackManager.EnsureInstance().UnregisterScreen();
         gameObject.SetActive(false);
     }
+
+    private void ApplyMediumScale(Transform target)
+    {
+        if (target == null)
+        {
+            return;
+        }
+
+        target.localScale = Vector3.one * MediumTextScale;
+    }
+
     public void ScaledAnimation(Transform transform)
     {
-        transform.localScale = Vector3.one;
+        if (transform == null)
+        {
+            return;
+        }
 
         Sequence seq = DOTween.Sequence();
+        Vector3 baseScale = transform.localScale;
 
-        // 1 → 0.75 in 0.75s
-        seq.Append(transform.DOScale(0.75f, 0.75f).SetEase(Ease.OutQuad));
+        seq.Append(transform.DOScale(baseScale * MediumTextPulseScale, PulseDownDuration).SetEase(Ease.OutQuad));
 
-        // 0.75 → 1 in 0.5s
-        seq.Append(transform.DOScale(1f, 0.5f).SetEase(Ease.OutQuad));
+        seq.Append(transform.DOScale(baseScale, PulseUpDuration).SetEase(Ease.OutQuad));
 
-        // Loop forever
         seq.SetLoops(-1, LoopType.Restart);
     }
 
     public void FadeAnimation(CanvasGroup cg)
     {
+        if (cg == null)
+        {
+            return;
+        }
+
         cg.alpha = 1f;
 
         Sequence seq = DOTween.Sequence();
@@ -69,6 +95,11 @@ public class HintsManager : MonoBehaviour
 
     public void MoveLoop(Transform obj)
     {
+        if (obj == null)
+        {
+            return;
+        }
+
         // Starting position = X = 600
         obj.localPosition = new Vector3(700f, obj.localPosition.y, obj.localPosition.z);
 
@@ -89,6 +120,11 @@ public class HintsManager : MonoBehaviour
 
     void AnimateFish()
     {
+        if (fish == null)
+        {
+            return;
+        }
+
         Sequence s = DOTween.Sequence();
 
         s.Append(fish.DORotate(new Vector3(0, 0, 5), 0.15f).SetEase(Ease.InOutSine));
@@ -101,6 +137,11 @@ public class HintsManager : MonoBehaviour
 
     void AnimateText()
     {
+        if (text == null)
+        {
+            return;
+        }
+
         Sequence s = DOTween.Sequence();
 
         s.Append(text.DORotate(new Vector3(0, 0, 7.5f), 0.25f).SetEase(Ease.InOutSine));
@@ -113,6 +154,11 @@ public class HintsManager : MonoBehaviour
 
     void AnimateFloat(Transform target)
     {
+        if (target == null)
+        {
+            return;
+        }
+
         Vector3 center = target.position;
 
         // Radius of the circle
