@@ -394,9 +394,6 @@ public class CosmeticRuntimeApplier : MonoBehaviour
     {
         if (fisherman == null) return;
 
-        RemoveCosmetic(fisherman, FishermanHairChildName);
-        RemoveCosmetic(fisherman, FishermanHatChildName);
-
         Sprite hatSprite = GetSpriteByName(hatName);
         Sprite hairSprite = GetSpriteByName(hairName);
 
@@ -406,6 +403,10 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
         if (headTransform != null)
         {
+            // For modular, clean up non-modular cosmetic children
+            RemoveCosmetic(fisherman, FishermanHairChildName);
+            RemoveCosmetic(fisherman, FishermanHatChildName);
+
             // Destroy obsolete modular animation components at runtime to prevent logs/warnings and conflicts
             MonoBehaviour[] scripts = fisherman.GetComponents<MonoBehaviour>();
             foreach (MonoBehaviour script in scripts)
@@ -587,6 +588,13 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             RemoveCosmetic(fisherman, FishermanHairChildName);
             CosmeticTransform hatTransform = GetFishermanHatTransform(hatSprite);
             CreateOrUpdateCosmetic(fisherman, FishermanHatChildName, hatSprite, hatTransform.Position, hatTransform.Rotation, hatTransform.Scale, 3, true);
+            return;
+        }
+
+        if (hairSprite == null && hatSprite == null)
+        {
+            RemoveCosmetic(fisherman, FishermanHairChildName);
+            RemoveCosmetic(fisherman, FishermanHatChildName);
         }
     }
 
@@ -865,36 +873,36 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 if (state.Contains("move reverse backwards") || state.Contains("movereversebackwards"))
                 {
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.0125f, 0.785f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, -160f, 2.5f);
-                    transform.localScale = new Vector3(3.9f, 3.9f, 3.9f);
-                    cosmeticRenderer.flipX = true;
+                    transform.localPosition = new Vector3(-0.025f, 0.774f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, -1.171f);
+                    transform.localScale = new Vector3(3.515221f, 3.302793f, 3.9f);
+                    cosmeticRenderer.flipX = false;
                     return;
                 }
                 else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
                 {
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.0125f, 0.785f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, -160f, 2.5f);
-                    transform.localScale = new Vector3(3.9f, 3.9f, 3.9f);
-                    cosmeticRenderer.flipX = false;
+                    transform.localPosition = new Vector3(0.0403f, 0.7728f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, -1.171f);
+                    transform.localScale = new Vector3(3.515221f, 3.302793f, 3.9f);
+                    cosmeticRenderer.flipX = true;
                     return;
                 }
                 else if (state.Contains("move backwards") || state.Contains("movebackwards"))
                 {
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.0125f, 0.785f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, -160f, 2.5f);
-                    transform.localScale = new Vector3(3.9f, 3.9f, 3.9f);
-                    cosmeticRenderer.flipX = false;
+                    transform.localPosition = new Vector3(-0.025f, 0.774f + bob, 0f);
+                    transform.localEulerAngles = new Vector3(0f, 0f, -1.171f);
+                    transform.localScale = new Vector3(3.515221f, 3.302793f, 3.9f);
+                    cosmeticRenderer.flipX = true;
                     return;
                 }
                 else if (state.Contains("move forward") || state.Contains("moveforward"))
                 {
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.0125f, 0.785f + bob, 0f);
+                    transform.localPosition = new Vector3(-0.038f, 0.771f + bob, 0f);
                     transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
-                    transform.localScale = new Vector3(3.9f, 3.9f, 3.9f);
+                    transform.localScale = new Vector3(3.451032f, 3.302793f, 3.9f);
                     cosmeticRenderer.flipX = false;
                     return;
                 }
@@ -2001,5 +2009,101 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public static void ApplyFishSpeciesByIndex(GameObject fish, int fishIndex)
+    {
+        string prefabName = LocalPlayManager.GetFishPrefabNameForSelection(fishIndex);
+        ApplyFishSpeciesByName(fish, prefabName);
+    }
+
+    public static void ApplyFishSpeciesByName(GameObject fish, string prefabName)
+    {
+        if (fish == null || string.IsNullOrEmpty(prefabName))
+        {
+            return;
+        }
+
+        GameObject speciesPrefab = Resources.Load<GameObject>(prefabName);
+        if (speciesPrefab == null)
+        {
+            return;
+        }
+
+        SpriteRenderer targetRenderer = fish.GetComponent<SpriteRenderer>();
+        SpriteRenderer prefabRenderer = speciesPrefab.GetComponent<SpriteRenderer>();
+        if (targetRenderer != null && prefabRenderer != null)
+        {
+            targetRenderer.sprite = prefabRenderer.sprite;
+            targetRenderer.size = prefabRenderer.size;
+        }
+
+        Animator targetAnimator = fish.GetComponent<Animator>();
+        Animator prefabAnimator = speciesPrefab.GetComponent<Animator>();
+        if (targetAnimator != null && prefabAnimator != null)
+        {
+            targetAnimator.runtimeAnimatorController = prefabAnimator.runtimeAnimatorController;
+        }
+
+        int selectedFish = prefabName == LocalPlayManager.TroutFishPrefabName ? 1 : 0;
+        fish.transform.localScale = Vector3.one * LocalPlayManager.GetFishScaleForSelection(selectedFish);
+
+        FishController fishController = fish.GetComponent<FishController>();
+        if (fishController != null)
+        {
+            fishController.RefreshOriginalScaleFromTransform();
+        }
+    }
+
+    public static RuntimeAnimatorController GetPreBakedFishermanHatController(string name)
+    {
+        if (string.IsNullOrEmpty(name)) return null;
+        string controllerPath = string.Empty;
+
+        if (name.Contains("yellow") || name.Contains("fishing_hat") || name.Contains("default"))
+            controllerPath = "FishermanControllers/FisherMan Yellow Hat";
+        else if (name.Contains("backwards_cap") || name.Contains("backwards"))
+            controllerPath = "FishermanControllers/FisherMan (Backwards Cap)";
+        else if (name.Contains("blue_cap") || name.Contains("blue cap"))
+            controllerPath = "FishermanControllers/FisherMan (Blue Cap)";
+        else if (name.Contains("frog") || name.Contains("griin"))
+            controllerPath = "FishermanControllers/FisherMan (Frog Hat)";
+        else if (name.Contains("green_bucket_hat") || (name.Contains("green") && !name.Contains("pointed") && !name.Contains("griin")))
+            controllerPath = "FishermanControllers/FisherMan (Green Bucket Hat)";
+        else if (name.Contains("green_pointed_hat"))
+            controllerPath = "FishermanControllers/FisherMan (Green Pointed Hat)";
+        else if (name.Contains("headphones") || name.Contains("headphone"))
+            controllerPath = "FishermanControllers/FisherMan (Headphones)";
+        else if (name.Contains("silver_bucket_hat") || name.Contains("silver"))
+            controllerPath = "FishermanControllers/FisherMan (Silver Bucket Hat)";
+        else if (name.Contains("straw_hat") || name.Contains("straw") || name.Contains("white hat"))
+            controllerPath = "FishermanControllers/FisherMan (Straw Hat)";
+
+        return string.IsNullOrEmpty(controllerPath)
+            ? null
+            : Resources.Load<RuntimeAnimatorController>(controllerPath);
+    }
+
+    public static string GetSelectedFishermanHatName()
+    {
+        EnsureSelectionsLoaded();
+        return selectedFishermanHat != null ? selectedFishermanHat.name : string.Empty;
+    }
+
+    public static string GetSelectedFishermanHairName()
+    {
+        EnsureSelectionsLoaded();
+        return selectedFishermanHair != null ? selectedFishermanHair.name : string.Empty;
+    }
+
+    public static string GetSelectedFishHatName()
+    {
+        EnsureSelectionsLoaded();
+        return selectedFishHat != null ? selectedFishHat.name : string.Empty;
+    }
+
+    private static CosmeticTransform GetPreBakedFishermanHatTransform(Sprite sprite)
+    {
+        return new CosmeticTransform(new Vector3(-0.029f, 0.075f, -0.9f), Vector3.zero, new Vector3(0.73484f, 0.73484f, 0.73484f));
     }
 }

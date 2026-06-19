@@ -75,13 +75,24 @@ public class FishController : MonoBehaviourPunCallbacks, IPunInstantiateMagicCal
     }
     void Start()
     {
+        int selectedFishSpecies = LocalPlayManager.GetSelectedFishIndex();
+        bool isLocalFish = GS.Instance.isLan
+            ? mirrorIdentity != null && mirrorIdentity.isLocalPlayer
+            : photonView.IsMine;
+
+        if (isLocalFish)
+        {
+            CosmeticRuntimeApplier.ApplyFishSpeciesByIndex(gameObject, selectedFishSpecies);
+        }
+
         ApplyConfiguredFishSpeed();
 
         if (GS.Instance.isLan)
         {
             if (mirrorIdentity != null && mirrorIdentity.isLocalPlayer)
             {
-                string myHat = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishHatPrefKey, string.Empty);
+                if (fishController_Mirror != null) fishController_Mirror.CmdSetFishSpecies(selectedFishSpecies);
+                string myHat = CosmeticRuntimeApplier.GetSelectedFishHatName();
                 CosmeticRuntimeApplier.ApplyFishHatByName(gameObject, myHat);
                 if (fishController_Mirror != null) fishController_Mirror.CmdSetHat(myHat);
 
@@ -94,7 +105,7 @@ public class FishController : MonoBehaviourPunCallbacks, IPunInstantiateMagicCal
         {
             if (photonView.IsMine)
             {
-                string myHat = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishHatPrefKey, string.Empty);
+                string myHat = CosmeticRuntimeApplier.GetSelectedFishHatName();
                 CosmeticRuntimeApplier.ApplyFishHatByName(gameObject, myHat);
                 photonView.RPC(nameof(RpcSetFishHat), RpcTarget.AllBuffered, myHat);
 
@@ -120,6 +131,11 @@ public class FishController : MonoBehaviourPunCallbacks, IPunInstantiateMagicCal
         }
 
         string hatName = data[0] as string;
+        if (data.Length > 1 && data[1] is int speciesIndex)
+        {
+            CosmeticRuntimeApplier.ApplyFishSpeciesByIndex(gameObject, speciesIndex);
+        }
+
         CosmeticRuntimeApplier.ApplyFishHatByName(gameObject, hatName);
     }
 

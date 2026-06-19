@@ -518,6 +518,7 @@ public class ShopManager : MonoBehaviour
 
         // Always show Fish 1 (bass) when entering the shop
         PlayerPrefs.SetInt(LocalPlayManager.SelectedFishPrefKey, 0);
+        LocalPlayManager.SetRuntimeSelectedFishIndex(0);
         PlayerPrefs.Save();
 
         selectedFishDisplayMode = FishDisplayModeSpecies;
@@ -543,6 +544,7 @@ public class ShopManager : MonoBehaviour
     {
         ResolveFishDisplayObjects();
         PlayerPrefs.SetInt(LocalPlayManager.SelectedFishPrefKey, 0);
+        LocalPlayManager.SetRuntimeSelectedFishIndex(0);
         PlayerPrefs.Save();
         if (shopLocalPlayManager != null)
         {
@@ -735,7 +737,7 @@ public class ShopManager : MonoBehaviour
         ResolveFishDisplayObjects();
         if (FishDisplayObjects != null && FishDisplayObjects.Length > 0)
         {
-            int selectedFish = Mathf.Clamp(PlayerPrefs.GetInt(LocalPlayManager.SelectedFishPrefKey, 0), 0, FishDisplayObjects.Length - 1);
+            int selectedFish = Mathf.Clamp(LocalPlayManager.GetSelectedFishIndex(), 0, FishDisplayObjects.Length - 1);
             for (int i = 0; i < FishDisplayObjects.Length; i++)
             {
                 bool isSelected = i == selectedFish;
@@ -815,7 +817,7 @@ public class ShopManager : MonoBehaviour
 
         if (FishDisplayObjects != null && FishDisplayObjects.Length > 0)
         {
-            int selectedFish = PlayerPrefs.GetInt(LocalPlayManager.SelectedFishPrefKey, 0);
+            int selectedFish = LocalPlayManager.GetSelectedFishIndex();
             for (int i = 0; i < FishDisplayObjects.Length; i++)
             {
                 SetActiveIfNotNull(FishDisplayObjects[i], visible && (i == selectedFish));
@@ -3604,7 +3606,7 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
-        int currentFish = Mathf.Clamp(PlayerPrefs.GetInt(LocalPlayManager.SelectedFishPrefKey, 0), 0, FishDisplayObjects.Length - 1);
+        int currentFish = Mathf.Clamp(LocalPlayManager.GetSelectedFishIndex(), 0, FishDisplayObjects.Length - 1);
         int fishCount = FishDisplayObjects.Length;
         for (int step = 0; step < fishCount; step++)
         {
@@ -3618,6 +3620,7 @@ public class ShopManager : MonoBehaviour
 
                 currentFish = candidate;
                 PlayerPrefs.SetInt(LocalPlayManager.SelectedFishPrefKey, currentFish);
+                LocalPlayManager.SetRuntimeSelectedFishIndex(currentFish);
                 PlayerPrefs.Save();
                 SyncLocalPlayFishSelection(currentFish, localPlay);
                 RefreshSelectedFishDisplay();

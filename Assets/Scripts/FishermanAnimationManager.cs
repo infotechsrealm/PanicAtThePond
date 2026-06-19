@@ -120,7 +120,7 @@ public class FishermanAnimationManager : MonoBehaviour
         }
 
         // If we are using a pre-baked hat, do not run modular animations!
-        string hatName = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHatPrefKey, "").ToLowerInvariant();
+        string hatName = CosmeticRuntimeApplier.GetSelectedFishermanHatName().ToLowerInvariant();
         if (CosmeticRuntimeApplier.IsHatPreBaked(hatName))
         {
             enabled = false;
@@ -278,7 +278,7 @@ public class FishermanAnimationManager : MonoBehaviour
 
     private Sprite[] LoadHeadSprites()
     {
-        string hairName = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHairPrefKey, "");
+        string hairName = CosmeticRuntimeApplier.GetSelectedFishermanHairName();
         string sheetPrefix = "FishermansAnimations-Head_Sheet";
         if (hairName.ToLowerInvariant().Contains("black"))
         {

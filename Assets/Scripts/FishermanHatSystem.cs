@@ -100,11 +100,11 @@ public class FishermanHatSystem : MonoBehaviour
     }
 
     /// <summary>
-    /// Load and apply the saved cosmetic from PlayerPrefs
+    /// Load and apply the local player's saved cosmetic
     /// </summary>
     private void ApplySavedCosmetic()
     {
-        string savedHat = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHatPrefKey, "");
+        string savedHat = CosmeticRuntimeApplier.GetSelectedFishermanHatName();
 
         if (!string.IsNullOrEmpty(savedHat))
         {

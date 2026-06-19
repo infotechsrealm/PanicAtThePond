@@ -84,8 +84,8 @@ public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMag
         {
             if (GameManager.Instance.isFisherMan)
             {
-                string hat = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHatPrefKey, string.Empty);
-                string hair = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHairPrefKey, string.Empty);
+                string hat = CosmeticRuntimeApplier.GetSelectedFishermanHatName();
+                string hair = CosmeticRuntimeApplier.GetSelectedFishermanHairName();
                 CosmeticRuntimeApplier.ApplyFishermanCosmeticsByName(gameObject, hat, hair);
                 if (fishermanController_Mirror != null)
                 {
@@ -98,8 +98,8 @@ public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMag
         {
             if (GameManager.Instance.isFisherMan && photonView.IsMine)
             {
-                string hat = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHatPrefKey, string.Empty);
-                string hair = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHairPrefKey, string.Empty);
+                string hat = CosmeticRuntimeApplier.GetSelectedFishermanHatName();
+                string hair = CosmeticRuntimeApplier.GetSelectedFishermanHairName();
                 CosmeticRuntimeApplier.ApplyFishermanCosmeticsByName(gameObject, hat, hair);
                 photonView.RPC(nameof(RpcSetFishermanCosmetics), RpcTarget.AllBuffered, hat, hair);
                 photonView.RPC(nameof(RpcSetDirection), RpcTarget.Others, isLeft);

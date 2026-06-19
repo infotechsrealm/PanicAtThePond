@@ -284,7 +284,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             Vector3 spawnPos = new Vector3(x, y, 0);
             object[] fishSpawnData =
             {
-                PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishHatPrefKey, string.Empty)
+                CosmeticRuntimeApplier.GetSelectedFishHatName(),
+                LocalPlayManager.GetSelectedFishIndex()
             };
             GameObject fish = PhotonNetwork.Instantiate(selectedFishPrefab.name, spawnPos, Quaternion.identity, 0, fishSpawnData);
             ApplySelectedFishTransform(fish);
@@ -373,15 +374,17 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         if (GS.Instance.isLan)
         {
-            myFish.GetComponent<FishController_Mirror>().RequestSpawnFisherman();
+            myFish.GetComponent<FishController_Mirror>().RequestSpawnFisherman(
+                CosmeticRuntimeApplier.GetSelectedFishermanHatName(),
+                CosmeticRuntimeApplier.GetSelectedFishermanHairName());
         }
         else
         {
             photonView.RPC(nameof(FisherManSpawned), RpcTarget.All, true);
             object[] fishermanSpawnData =
             {
-                PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHatPrefKey, string.Empty),
-                PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHairPrefKey, string.Empty)
+                CosmeticRuntimeApplier.GetSelectedFishermanHatName(),
+                CosmeticRuntimeApplier.GetSelectedFishermanHairName()
             };
             GameObject fisherman = PhotonNetwork.Instantiate(fishermanPrefab.name, new Vector3(0f, 1.95f, 0f), Quaternion.identity, 0, fishermanSpawnData);
             FisherMan_Hungerbar.SetActive(false);

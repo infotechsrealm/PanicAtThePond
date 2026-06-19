@@ -24,6 +24,8 @@ public class LocalPlayManager : MonoBehaviour
 
     private int Next_Fish;
     private Sprite[] originalFishSprites;
+    private static bool hasRuntimeSelectedFish;
+    private static int runtimeSelectedFishIndex;
 
     [Header("Hat Dropdown UI")]
     public Button HatButton;
@@ -72,7 +74,7 @@ public class LocalPlayManager : MonoBehaviour
 
     private void Start()
     {
-        Next_Fish = Mathf.Clamp(PlayerPrefs.GetInt(SelectedFishPrefKey, 0), 0, FishPrefabNames.Length - 1);
+        Next_Fish = GetSelectedFishIndex();
         RefreshFishUnlocks();
         if (!IsFishUnlocked(Next_Fish))
         {
@@ -381,6 +383,7 @@ public class LocalPlayManager : MonoBehaviour
 
         PlayerPrefs.SetInt(SelectedFishPrefKey, Next_Fish);
         PlayerPrefs.SetString(SelectedFishPrefabPrefKey, GetFishPrefabNameForSelection(Next_Fish));
+        SetRuntimeSelectedFishIndex(Next_Fish);
         PlayerPrefs.Save();
     }
 
@@ -590,28 +593,35 @@ public class LocalPlayManager : MonoBehaviour
 
     public static string GetSelectedFishPrefabName()
     {
-        RefreshFishUnlocks();
-
-        int selectedFish = Mathf.Clamp(PlayerPrefs.GetInt(SelectedFishPrefKey, 0), 0, FishPrefabNames.Length - 1);
-        if (!IsFishUnlocked(selectedFish))
-        {
-            selectedFish = 0;
-        }
-
-        return GetFishPrefabNameForSelection(selectedFish);
+        return GetFishPrefabNameForSelection(GetSelectedFishIndex());
     }
 
     public static float GetSelectedFishScale()
     {
+        return GetFishScaleForSelection(GetSelectedFishIndex());
+    }
+
+    public static int GetSelectedFishIndex()
+    {
         RefreshFishUnlocks();
 
-        int selectedFish = Mathf.Clamp(PlayerPrefs.GetInt(SelectedFishPrefKey, 0), 0, FishPrefabScales.Length - 1);
+        int selectedFish = hasRuntimeSelectedFish
+            ? runtimeSelectedFishIndex
+            : PlayerPrefs.GetInt(SelectedFishPrefKey, 0);
+
+        selectedFish = Mathf.Clamp(selectedFish, 0, FishPrefabNames.Length - 1);
         if (!IsFishUnlocked(selectedFish))
         {
             selectedFish = 0;
         }
 
-        return GetFishScaleForSelection(selectedFish);
+        return selectedFish;
+    }
+
+    public static void SetRuntimeSelectedFishIndex(int selectedFish)
+    {
+        runtimeSelectedFishIndex = Mathf.Clamp(selectedFish, 0, FishPrefabNames.Length - 1);
+        hasRuntimeSelectedFish = true;
     }
 
     public static string GetFishPrefabNameForSelection(int selectedFish)

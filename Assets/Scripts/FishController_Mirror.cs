@@ -20,8 +20,25 @@ public class FishController_Mirror : NetworkBehaviour
     [SyncVar(hook = nameof(OnHatChanged))]
     public string syncedHatName = "";
 
+    [SyncVar(hook = nameof(OnFishSpeciesChanged))]
+    public int syncedFishSpeciesIndex = 0;
+
+    public void OnFishSpeciesChanged(int oldFishSpecies, int newFishSpecies)
+    {
+        ApplySyncedFishSpecies();
+        ApplySyncedHat();
+    }
+
     public void OnHatChanged(string oldHat, string newHat)
     {
+        ApplySyncedHat();
+    }
+
+    [Command]
+    public void CmdSetFishSpecies(int fishSpeciesIndex)
+    {
+        syncedFishSpeciesIndex = fishSpeciesIndex;
+        ApplySyncedFishSpecies();
         ApplySyncedHat();
     }
 
@@ -35,7 +52,16 @@ public class FishController_Mirror : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
+        ApplySyncedFishSpecies();
         ApplySyncedHat();
+    }
+
+    private void ApplySyncedFishSpecies()
+    {
+        if (fishController != null)
+        {
+            CosmeticRuntimeApplier.ApplyFishSpeciesByIndex(fishController.gameObject, syncedFishSpeciesIndex);
+        }
     }
 
     private void ApplySyncedHat()
@@ -168,19 +194,25 @@ public class FishController_Mirror : NetworkBehaviour
     //generate FisherMan
     public GameObject fishermanPrefab;
 
-    public void RequestSpawnFisherman()
+    public void RequestSpawnFisherman(string hatName = "", string hairName = "")
     {
         if (isLocalPlayer)
         {
-            CmdSpawnFishermanOnServer();
+            CmdSpawnFishermanOnServer(hatName, hairName);
         }
     }
 
     [Command]
-    void CmdSpawnFishermanOnServer()
+    void CmdSpawnFishermanOnServer(string hatName, string hairName)
     {
         Vector3 spawnPos = new Vector3(0f, 1.95f, 0f);
         GameObject fisherman = Instantiate(fishermanPrefab, spawnPos, Quaternion.identity);
+        FishermanController_Mirror fishermanMirror = fisherman.GetComponent<FishermanController_Mirror>();
+        if (fishermanMirror != null)
+        {
+            fishermanMirror.syncedHatName = hatName ?? string.Empty;
+            fishermanMirror.syncedHairName = hairName ?? string.Empty;
+        }
         NetworkServer.Spawn(fisherman, connectionToClient); // 🔹 gives authority to caller client
         SpawnWorm(GameManager.Instance.fishermanWorms);
     }
