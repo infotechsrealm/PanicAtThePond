@@ -183,6 +183,10 @@ public class LocalPlayManager : MonoBehaviour
             BackManager.instance.RegisterScreen(backButton);
         }
 
+        // Fresh shop open: the fish preview starts PLAIN. The equipped hat is only previewed in
+        // Fish Species mode once the user engages a hat this visit (opens Hat mode / picks a hat).
+        ShopManager.ResetFishHatPreviewSession();
+
         RefreshFishUnlocks();
         ResolveDisplayObjects();
         if (!IsFishUnlocked(Next_Fish))

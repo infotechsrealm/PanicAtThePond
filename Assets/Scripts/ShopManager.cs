@@ -183,6 +183,17 @@ public class ShopManager : MonoBehaviour
     private bool useLegacyHatDropdownLabel;
     private bool isEnteringShop = false;
 
+    // True once the user has engaged fish hats in the current shop visit (opened Hat mode or picked a
+    // hat). While true, the Fish Species preview keeps showing the equipped hat — preserved across
+    // Hat<->Fish Species switches and species arrow-cycling. Reset to false on every fresh shop open
+    // (see LocalPlayManager.OnEnable) so the fish starts PLAIN until the user actually engages a hat.
+    private static bool fishHatPreviewActiveThisSession;
+
+    public static void ResetFishHatPreviewSession()
+    {
+        fishHatPreviewActiveThisSession = false;
+    }
+
     private void Awake()
     {
         ResolvePanelReferences();
@@ -465,6 +476,7 @@ public class ShopManager : MonoBehaviour
 
     public void SelectFishHatCategory()
     {
+        fishHatPreviewActiveThisSession = true;
         isFishSelected = true;
         isFishermanSelected = false;
         selectedFishDisplayMode = FishDisplayModeHat;
@@ -743,9 +755,19 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
-        // Fish Species mode always shows the PLAIN species sprite (bass / trout) with no hat. Fish
-        // hats (orange hat, cap, ...) are previewed only in Hat mode (fish-hat cycling), so we ignore
-        // any saved hat here and strip the hat overlay a previous hat preview may have left behind.
+        // Once the user has engaged a fish hat this shop visit, the species preview keeps showing the
+        // equipped hat (preserved across Hat<->Fish Species switches and species cycling). Until then
+        // — i.e. right after a fresh shop open — the fish shows its PLAIN species sprite.
+        Sprite equippedHat = fishHatPreviewActiveThisSession
+            ? CosmeticRuntimeApplier.GetSelectedFishHat()
+            : null;
+
+        if (equippedHat != null)
+        {
+            ApplySelectedFishHatToDisplayObject(fishDisplay, equippedHat);
+            return;
+        }
+
         string plainSpeciesPath = fishDisplayIndex == 1
             ? "ShopUI/Fish preview/trout"
             : "ShopUI/Fish preview/bass";
@@ -893,6 +915,7 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
+        fishHatPreviewActiveThisSession = true;
         selectedFishDisplayMode = FishDisplayModeHat;
         CloseHatDropdown();
         SetHatDropdownLabel(FishDisplayModeHat);
@@ -1702,6 +1725,7 @@ public class ShopManager : MonoBehaviour
 
         if (!isFishermanCosmetic && IsClearFishCosmeticButton(selectedButton))
         {
+            fishHatPreviewActiveThisSession = true;
             CosmeticRuntimeApplier.SelectFishHat(null);
             ClearFishHatFromDisplay();
             RefreshBottomRightPreview();
@@ -1726,6 +1750,7 @@ public class ShopManager : MonoBehaviour
 
         if (!isFishermanCosmetic)
         {
+            fishHatPreviewActiveThisSession = true;
             selectedFishDisplayMode = FishDisplayModeHat;
             SetDisplayControlLabel(selectedFishDisplayMode);
             SetActiveIfNotNull(FishVoyageDiagram, false);
