@@ -579,8 +579,8 @@ MonoBehaviour:
   meterSpeed: 2
   maxCastDistance: 10
   catchadFish: 0
-  minX: -8
-  maxX: 8
+  minX: -7
+  maxX: 7
   animator: {fileID: 1111108491823568780}
   cricketChirping: {fileID: 5340932703438789082}
   fisherManSounds: {fileID: 6771685574637076512}

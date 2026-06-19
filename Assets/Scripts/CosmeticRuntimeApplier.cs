@@ -27,6 +27,34 @@ public class CosmeticRuntimeApplier : MonoBehaviour
     private bool usesAnimatedFishermanHeadReplacement;
     private Sprite[] animatedFishermanHeadSprites;
 
+    private static readonly int[,] HeadCenterYGrid = new int[24, 4]
+    {
+        { 19, 19, 20, 20 }, // 0: castingleft
+        { 20, 19, 19, 20 }, // 1: castingright
+        { 20, 19, 19, 20 }, // 2: cryleft
+        { 20, 19, 19, 20 }, // 3: cryright
+        { 20, 19, 20, 21 }, // 4: fightingleft
+        { 20, 20, 20, 20 }, // 5: fightingright
+        { 20, 20, 19, 19 }, // 6: fishgotofffacingleft
+        { 20, 19, 20, 21 }, // 7: fishgotofffacingright
+        { 20, 19, 19, 20 }, // 8: fishingleft
+        { 20, 19, 20, 21 }, // 9: fishingright
+        { 20, 19, 21, 21 }, // 10: idleleft
+        { 21, 20, 21, 21 }, // 11: idleright
+        { 19, 19, 20, 20 }, // 12: leftpoletooar
+        { 20, 19, 19, 20 }, // 13: movebackwards
+        { 20, 19, 19, 20 }, // 14: moveforward
+        { 20, 19, 19, 20 }, // 15: movereversebackwards
+        { 20, 19, 20, 21 }, // 16: movereverseforward
+        { 20, 20, 19, 20 }, // 17: oartoleftpole
+        { 20, 20, 19, 19 }, // 18: oartorightpole
+        { 20, 19, 20, 21 }, // 19: reelingleft
+        { 20, 19, 19, 20 }, // 20: reelingright
+        { 20, 19, 20, 21 }, // 21: righttoleftpole
+        { 20, 19, 21, 21 }, // 22: winningleft
+        { 21, 20, 21, 21 }  // 23: winningright
+    };
+
     private struct CosmeticTransform
     {
         public readonly Vector3 Position;
@@ -875,7 +903,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
                     transform.localPosition = new Vector3(-0.025f, 0.774f + bob, 0f);
                     transform.localEulerAngles = new Vector3(0f, 0f, -1.171f);
-                    transform.localScale = new Vector3(3.515221f, 3.302793f, 3.9f);
+                    transform.localScale = new Vector3(3.451032f, 3.451032f, 3.9f);
                     cosmeticRenderer.flipX = false;
                     return;
                 }
@@ -884,7 +912,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
                     transform.localPosition = new Vector3(0.0403f, 0.7728f + bob, 0f);
                     transform.localEulerAngles = new Vector3(0f, 0f, -1.171f);
-                    transform.localScale = new Vector3(3.515221f, 3.302793f, 3.9f);
+                    transform.localScale = new Vector3(3.451032f, 3.451032f, 3.9f);
                     cosmeticRenderer.flipX = true;
                     return;
                 }
@@ -893,7 +921,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
                     transform.localPosition = new Vector3(-0.025f, 0.774f + bob, 0f);
                     transform.localEulerAngles = new Vector3(0f, 0f, -1.171f);
-                    transform.localScale = new Vector3(3.515221f, 3.302793f, 3.9f);
+                    transform.localScale = new Vector3(3.451032f, 3.451032f, 3.9f);
                     cosmeticRenderer.flipX = true;
                     return;
                 }
@@ -902,7 +930,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
                     transform.localPosition = new Vector3(-0.038f, 0.771f + bob, 0f);
                     transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
-                    transform.localScale = new Vector3(3.451032f, 3.302793f, 3.9f);
+                    transform.localScale = new Vector3(3.451032f, 3.451032f, 3.9f);
                     cosmeticRenderer.flipX = false;
                     return;
                 }
@@ -1405,7 +1433,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 return new CosmeticTransform(
                     new Vector3(0.0125f, 0.785f, 0f),
                     new Vector3(0f, -160f, 2.5f),
-                    new Vector3(3.9f, 3.9f, 3.9f));
+                    new Vector3(3.451032f, 3.451032f, 3.9f));
             case "fishermanhatrangerhat":
                 return new CosmeticTransform(
                     new Vector3(-0.0444f, 0.8293f, 0f),
@@ -1887,7 +1915,10 @@ public class CosmeticRuntimeApplier : MonoBehaviour
     private static Vector3 GetFishermanHeadOffset(string clipName, int frameIndex)
     {
         string state = string.IsNullOrEmpty(clipName) ? string.Empty : clipName.ToLowerInvariant();
-        float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
+        int row = GetAnimatedFishermanHeadRow(state);
+        int cy = HeadCenterYGrid[row, Mathf.Clamp(frameIndex, 0, 3)];
+        int cy0 = HeadCenterYGrid[row, 0];
+        float bob = (cy0 - cy) * 0.01f;
 
         if (state.Contains("left"))
         {
