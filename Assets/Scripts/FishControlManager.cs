@@ -5,6 +5,9 @@ public class FishControlManager : MonoBehaviour
 {
     public Button backButton;
 
+    [HideInInspector]
+    public GameObject controlsPanel;
+
     private void Start()
     {
         backButton.onClick.AddListener(OnBackPressed);
@@ -21,5 +24,9 @@ public class FishControlManager : MonoBehaviour
     {
         BackManager.instance.UnregisterScreen();
         gameObject.SetActive(false);
+        if (controlsPanel != null)
+        {
+            controlsPanel.SetActive(true);
+        }
     }
 }

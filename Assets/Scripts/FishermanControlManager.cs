@@ -5,6 +5,9 @@ public class FishermanControlManager : MonoBehaviour
 {
     public Button backButton;
 
+    [HideInInspector]
+    public GameObject controlsPanel;
+
     private void Start()
     {
         if (backButton != null)
@@ -32,5 +35,9 @@ public class FishermanControlManager : MonoBehaviour
         }
 
         gameObject.SetActive(false);
+        if (controlsPanel != null)
+        {
+            controlsPanel.SetActive(true);
+        }
     }
 }

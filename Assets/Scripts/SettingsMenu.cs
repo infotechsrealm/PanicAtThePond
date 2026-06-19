@@ -119,11 +119,31 @@ public class SettingsMenu : MonoBehaviour
 
     private void onControlPressed()
     {
-        controlsUI.SetActive(true);
+        if (controlsUI != null)
+        {
+            controlsUI.SetActive(true);
+            ControlesManager controlesManager = controlsUI.GetComponent<ControlesManager>();
+            if (controlesManager != null)
+            {
+                controlesManager.settingsPanel = gameObject;
+            }
+            BringToFrontWithinCanvas(controlsUI.transform);
+            gameObject.SetActive(false);
+        }
     }
     private void onAchivementsPressed()
     {
-        achivementsUI.SetActive(true);
+        if (achivementsUI != null)
+        {
+            achivementsUI.SetActive(true);
+            AchivementsManager achivementsManager = achivementsUI.GetComponent<AchivementsManager>();
+            if (achivementsManager != null)
+            {
+                achivementsManager.settingsPanel = gameObject;
+            }
+            BringToFrontWithinCanvas(achivementsUI.transform);
+            gameObject.SetActive(false);
+        }
     }
 
     public void ChangeMode()
@@ -203,6 +223,34 @@ public class SettingsMenu : MonoBehaviour
 
     public void Quit()
     {
-        quitUI.SetActive(true);
+        ShowPanelInFront(quitUI);
+    }
+
+    private void ShowPanelInFront(GameObject panel)
+    {
+        if (panel == null)
+        {
+            return;
+        }
+
+        panel.SetActive(true);
+        BringToFrontWithinCanvas(panel.transform);
+    }
+
+    private void BringToFrontWithinCanvas(Transform target)
+    {
+        Transform current = target;
+        while (current != null)
+        {
+            current.SetAsLastSibling();
+
+            Transform parent = current.parent;
+            if (parent == null || parent.GetComponent<Canvas>() != null)
+            {
+                break;
+            }
+
+            current = parent;
+        }
     }
 }

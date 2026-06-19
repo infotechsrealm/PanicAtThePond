@@ -5,7 +5,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class FishController : MonoBehaviourPunCallbacks 
+public class FishController : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallback
 {
     public static FishController Instance;  
     private const string StarvationGameOverMessage = "You all Starve!";
@@ -82,6 +82,7 @@ public class FishController : MonoBehaviourPunCallbacks
             if (mirrorIdentity != null && mirrorIdentity.isLocalPlayer)
             {
                 string myHat = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishHatPrefKey, string.Empty);
+                CosmeticRuntimeApplier.ApplyFishHatByName(gameObject, myHat);
                 if (fishController_Mirror != null) fishController_Mirror.CmdSetHat(myHat);
 
                 fishController_Mirror.SetVissiblity_Mirror();
@@ -94,6 +95,7 @@ public class FishController : MonoBehaviourPunCallbacks
             if (photonView.IsMine)
             {
                 string myHat = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishHatPrefKey, string.Empty);
+                CosmeticRuntimeApplier.ApplyFishHatByName(gameObject, myHat);
                 photonView.RPC(nameof(RpcSetFishHat), RpcTarget.AllBuffered, myHat);
 
                 GameManager.Instance.myFish = this;
@@ -106,6 +108,18 @@ public class FishController : MonoBehaviourPunCallbacks
     [PunRPC]
     public void RpcSetFishHat(string hatName)
     {
+        CosmeticRuntimeApplier.ApplyFishHatByName(gameObject, hatName);
+    }
+
+    public void OnPhotonInstantiate(PhotonMessageInfo info)
+    {
+        object[] data = info.photonView != null ? info.photonView.InstantiationData : null;
+        if (data == null || data.Length == 0)
+        {
+            return;
+        }
+
+        string hatName = data[0] as string;
         CosmeticRuntimeApplier.ApplyFishHatByName(gameObject, hatName);
     }
 

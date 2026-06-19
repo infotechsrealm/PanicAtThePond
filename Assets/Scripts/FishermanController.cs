@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class FishermanController : MonoBehaviourPunCallbacks
+public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallback
 {
 
     public static FishermanController Instance;
@@ -86,6 +86,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             {
                 string hat = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHatPrefKey, string.Empty);
                 string hair = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHairPrefKey, string.Empty);
+                CosmeticRuntimeApplier.ApplyFishermanCosmeticsByName(gameObject, hat, hair);
                 if (fishermanController_Mirror != null)
                 {
                     fishermanController_Mirror.CmdSetCosmetics(hat, hair);
@@ -99,6 +100,7 @@ public class FishermanController : MonoBehaviourPunCallbacks
             {
                 string hat = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHatPrefKey, string.Empty);
                 string hair = PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHairPrefKey, string.Empty);
+                CosmeticRuntimeApplier.ApplyFishermanCosmeticsByName(gameObject, hat, hair);
                 photonView.RPC(nameof(RpcSetFishermanCosmetics), RpcTarget.AllBuffered, hat, hair);
                 photonView.RPC(nameof(RpcSetDirection), RpcTarget.Others, isLeft);
             }
@@ -948,6 +950,19 @@ public class FishermanController : MonoBehaviourPunCallbacks
     [PunRPC]
     public void RpcSetFishermanCosmetics(string hatName, string hairName)
     {
+        CosmeticRuntimeApplier.ApplyFishermanCosmeticsByName(gameObject, hatName, hairName);
+    }
+
+    public void OnPhotonInstantiate(PhotonMessageInfo info)
+    {
+        object[] data = info.photonView != null ? info.photonView.InstantiationData : null;
+        if (data == null || data.Length == 0)
+        {
+            return;
+        }
+
+        string hatName = data[0] as string;
+        string hairName = data.Length > 1 ? data[1] as string : string.Empty;
         CosmeticRuntimeApplier.ApplyFishermanCosmeticsByName(gameObject, hatName, hairName);
     }
 

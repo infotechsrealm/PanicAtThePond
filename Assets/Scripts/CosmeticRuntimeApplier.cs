@@ -394,6 +394,9 @@ public class CosmeticRuntimeApplier : MonoBehaviour
     {
         if (fisherman == null) return;
 
+        RemoveCosmetic(fisherman, FishermanHairChildName);
+        RemoveCosmetic(fisherman, FishermanHatChildName);
+
         Sprite hatSprite = GetSpriteByName(hatName);
         Sprite hairSprite = GetSpriteByName(hairName);
 
@@ -589,10 +592,23 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
     public static void ApplyFishHatByName(GameObject fish, string spriteName)
     {
-        if (fish == null || string.IsNullOrEmpty(spriteName)) return;
+        if (fish == null)
+        {
+            return;
+        }
+
+        if (string.IsNullOrEmpty(spriteName))
+        {
+            RemoveFishHat(fish);
+            return;
+        }
 
         Sprite hatSprite = GetSpriteByName(spriteName);
-        if (hatSprite == null) return;
+        if (hatSprite == null)
+        {
+            RemoveFishHat(fish);
+            return;
+        }
 
         CosmeticTransform cosmeticTransform = GetFishHatTransform(fish, hatSprite);
         CreateOrUpdateCosmetic(fish, FishHatChildName, hatSprite, cosmeticTransform.Position, cosmeticTransform.Rotation, cosmeticTransform.Scale, 2, false);

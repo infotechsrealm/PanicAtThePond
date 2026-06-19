@@ -5,6 +5,9 @@ public class AchivementsManager : MonoBehaviour
 {
     public Button backButton;
 
+    [HideInInspector]
+    public GameObject settingsPanel;
+
     private void Start()
     {
         backButton.onClick.AddListener(OnBackPressed);
@@ -21,5 +24,9 @@ public class AchivementsManager : MonoBehaviour
     {
         BackManager.instance.UnregisterScreen();
         gameObject.SetActive(false);
+        if (settingsPanel != null)
+        {
+            settingsPanel.SetActive(true);
+        }
     }
 }

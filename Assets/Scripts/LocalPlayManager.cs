@@ -18,11 +18,6 @@ public class LocalPlayManager : MonoBehaviour
     // Set by ShopManager on the shop-preview instance. Marks this LocalPlayManager as the shop preview.
     [HideInInspector] public bool IsShopPreview;
 
-    // One-shot flag: true only for the FIRST ShowSelectedFish after the shop opens (set in OnEnable),
-    // so Fish 1 (bass) shows the plain "bass" sprite on entry. Consumed on first render, so later
-    // re-renders (species cycling / Hat<->Fish Species toggle) show the saved hat composite like trout.
-    private bool pendingShopEntryPlainBass;
-
     [Header("Fish Voyage Diagram")]
     public Color lockedDiagramFishColor = new Color(0.14150941f, 0.13950692f, 0.13950692f, 1f);
     public Color unlockedDiagramFishColor = Color.white;
@@ -195,9 +190,6 @@ public class LocalPlayManager : MonoBehaviour
             Next_Fish = GetFirstUnlockedFishIndex();
         }
 
-        // Each fresh shop open re-enables this object, firing OnEnable. Arm the one-shot so the
-        // first render shows plain bass; cycling/toggle (which do NOT re-fire OnEnable) keep the hat.
-        pendingShopEntryPlainBass = true;
         ShowSelectedFish();
         KeepArrowButtonsOnScreen();
     }
@@ -329,6 +321,7 @@ public class LocalPlayManager : MonoBehaviour
             Next_Fish = GetFirstUnlockedFishIndex();
         }
 
+        CacheOriginalSprites();
         if (Fish_Sprite != null)
         {
             for (int i = 0; i < Fish_Sprite.Length; i++)
@@ -336,39 +329,17 @@ public class LocalPlayManager : MonoBehaviour
                 if (Fish_Sprite[i] != null)
                 {
                     Fish_Sprite[i].SetActive(i == Next_Fish);
-                    if (i == Next_Fish)
+
+                    // Fish Species mode always shows each species' PLAIN preview (bass / trout). Fish
+                    // hats are previewed only in Hat mode (fish-hat cycling), so no hat composite is
+                    // applied here — not on shop entry and not when cycling species.
+                    if (originalFishSprites != null && i < originalFishSprites.Length)
                     {
-                        Sprite compSprite;
-                        // In the shop preview, Fish 1 (bass) shows the plain "bass" sprite ONLY on the
-                        // first render after the shop opens (one-shot armed in OnEnable). After the user
-                        // starts interacting (cycling species / toggling Hat<->Fish Species), bass shows
-                        // the saved fish-hat composite, symmetric with trout (i==1).
-                        if (IsShopPreview && i == 0 && pendingShopEntryPlainBass)
-                        {
-                            compSprite = Resources.Load<Sprite>("ShopUI/Fish preview/bass");
-                        }
-                        else
-                        {
-                            compSprite = GetCompositeSpriteForSelectedHat(i);
-                        }
-                        SetPreviewFishSprite(Fish_Sprite[i], compSprite);
-                    }
-                    else
-                    {
-                        CacheOriginalSprites();
-                        if (originalFishSprites != null && i < originalFishSprites.Length)
-                        {
-                            SetPreviewFishSprite(Fish_Sprite[i], originalFishSprites[i]);
-                        }
+                        SetPreviewFishSprite(Fish_Sprite[i], originalFishSprites[i]);
                     }
                 }
             }
         }
-
-        // Consume the one-shot: only the first render after OnEnable forces plain bass. Subsequent
-        // renders within the same shop session (no new OnEnable) let bass use the hat composite.
-        pendingShopEntryPlainBass = false;
-
 
         if (BuyFishInfoText != null)
         {
@@ -738,6 +709,28 @@ public class LocalPlayManager : MonoBehaviour
                 }
             }
         }
+
+        // Bass (index 0) and trout (index 1) must always fall back to their PLAIN species preview
+        // ("bass" / "trout"), never to whatever hatted composite the scene assigns to the Fish 1 /
+        // Fish 2 Images ("Fish orange hat" / "Trout Cap hat"). Caching those as the base would make
+        // the un-hatted species render a hat on shop entry or when cycling to it. The hat composites
+        // stay available in "ShopUI/Fish preview", so they appear only while cycling fish hats.
+        OverridePlainSpeciesBase(0, "ShopUI/Fish preview/bass");
+        OverridePlainSpeciesBase(1, "ShopUI/Fish preview/trout");
+    }
+
+    private void OverridePlainSpeciesBase(int index, string resourcePath)
+    {
+        if (originalFishSprites == null || index < 0 || index >= originalFishSprites.Length)
+        {
+            return;
+        }
+
+        Sprite plain = Resources.Load<Sprite>(resourcePath);
+        if (plain != null)
+        {
+            originalFishSprites[index] = plain;
+        }
     }
 
     private void SetPreviewFishSprite(GameObject fishDisplay, Sprite sprite)
@@ -814,40 +807,6 @@ public class LocalPlayManager : MonoBehaviour
         }
         
         return list;
-    }
-
-    private Sprite GetCompositeSpriteForSelectedHat(int fishIndex)
-    {
-        Sprite currentHat = CosmeticRuntimeApplier.GetSelectedFishHat();
-        if (currentHat == null)
-        {
-            CacheOriginalSprites();
-            if (originalFishSprites != null && fishIndex >= 0 && fishIndex < originalFishSprites.Length)
-            {
-                return originalFishSprites[fishIndex];
-            }
-            return null;
-        }
-
-        string hatNorm = NormalizeSpriteName(currentHat.name);
-        List<Sprite> compositeList = GetCompositePreviewSprites(fishIndex);
-        foreach (Sprite compSprite in compositeList)
-        {
-            if (compSprite == null) continue;
-
-            string hatName = GetHatNameFromCompositeSpriteName(compSprite.name);
-            if (!string.IsNullOrEmpty(hatName) && NormalizeSpriteName(hatName) == hatNorm)
-            {
-                return compSprite;
-            }
-        }
-
-        CacheOriginalSprites();
-        if (originalFishSprites != null && fishIndex >= 0 && fishIndex < originalFishSprites.Length)
-        {
-            return originalFishSprites[fishIndex];
-        }
-        return null;
     }
 
     private string GetHatNameFromCompositeSpriteName(string compositeName)

@@ -22,14 +22,28 @@ public class FishController_Mirror : NetworkBehaviour
 
     public void OnHatChanged(string oldHat, string newHat)
     {
-        if (fishController != null)
-            CosmeticRuntimeApplier.ApplyFishHatByName(fishController.gameObject, newHat);
+        ApplySyncedHat();
     }
 
     [Command]
     public void CmdSetHat(string hatName)
     {
         syncedHatName = hatName;
+        ApplySyncedHat();
+    }
+
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        ApplySyncedHat();
+    }
+
+    private void ApplySyncedHat()
+    {
+        if (fishController != null)
+        {
+            CosmeticRuntimeApplier.ApplyFishHatByName(fishController.gameObject, syncedHatName);
+        }
     }
 
     private void Awake()
@@ -167,7 +181,6 @@ public class FishController_Mirror : NetworkBehaviour
     {
         Vector3 spawnPos = new Vector3(0f, 1.95f, 0f);
         GameObject fisherman = Instantiate(fishermanPrefab, spawnPos, Quaternion.identity);
-        CosmeticRuntimeApplier.ApplyToFisherman(fisherman);
         NetworkServer.Spawn(fisherman, connectionToClient); // 🔹 gives authority to caller client
         SpawnWorm(GameManager.Instance.fishermanWorms);
     }

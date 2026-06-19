@@ -67,7 +67,7 @@ public class InGameMenu : MonoBehaviourPunCallbacks
         }
         else
         {
-            if (GameManager.Instance.myFish != null)
+            if (GameManager.Instance != null && GameManager.Instance.myFish != null)
             {
                 GameManager.Instance.myFish.CallGamePauseRPC(true);
             }

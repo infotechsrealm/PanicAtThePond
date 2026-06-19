@@ -510,6 +510,7 @@ public class ShopManager : MonoBehaviour
 
         selectedFishDisplayMode = FishDisplayModeSpecies;
         SelectFishDisplay();
+        ForceShopEntryBassPreview();
 
         StartCoroutine(ClearFishHatAfterDelay());
     }
@@ -522,30 +523,42 @@ public class ShopManager : MonoBehaviour
             shopLocalPlayManager.RestoreOriginalFishSprites();
         }
 
-        ClearFishHatFromDisplay();
+        ForceShopEntryBassPreview();
+        isEnteringShop = false;
+    }
 
-        // Force Fish 1's Image component to exactly "ShopUI/Fish preview/bass"
-        // This must be done AFTER RestoreOriginalFishSprites so it doesn't get overwritten
+    private void ForceShopEntryBassPreview()
+    {
         ResolveFishDisplayObjects();
+        PlayerPrefs.SetInt(LocalPlayManager.SelectedFishPrefKey, 0);
+        PlayerPrefs.Save();
+        if (shopLocalPlayManager != null)
+        {
+            shopLocalPlayManager.ApplyFishSelectionFromShop(0);
+        }
+
         if (FishDisplayObjects != null && FishDisplayObjects.Length > 0)
         {
-            GameObject fish1Object = FishDisplayObjects[0];
-            if (fish1Object != null)
+            for (int i = 0; i < FishDisplayObjects.Length; i++)
             {
-                UnityEngine.UI.Image img = fish1Object.GetComponent<UnityEngine.UI.Image>();
-                if (img != null)
-                {
-                    Sprite bassSprite = Resources.Load<Sprite>("ShopUI/Fish preview/bass");
-                    if (bassSprite != null)
-                    {
-                        img.sprite = bassSprite;
-                        // Cache it immediately so displayBaseSprites has bass.png for clearing in future
-                        CacheDisplayBaseSprite(img);
-                    }
-                }
+                SetActiveIfNotNull(FishDisplayObjects[i], i == 0);
+                ClearFishHatFromDisplayObject(FishDisplayObjects[i]);
             }
         }
-        isEnteringShop = false;
+        else
+        {
+            ClearFishHatFromDisplayObject(FishDisplayObject);
+        }
+
+        // Force Fish 1's Image component to exactly "ShopUI/Fish preview/bass"
+        if (FishDisplayObjects != null && FishDisplayObjects.Length > 0)
+        {
+            TrySetFishDisplaySprite(FishDisplayObjects[0], "ShopUI/Fish preview/bass");
+        }
+        else
+        {
+            TrySetFishDisplaySprite(FishDisplayObject, "ShopUI/Fish preview/bass");
+        }
     }
 
     private void EnsureShopPreviewRootActive()
@@ -565,8 +578,8 @@ public class ShopManager : MonoBehaviour
             shopLocalPlayManager = ShopPreviewRoot.GetComponent<LocalPlayManager>();
         }
 
-        // Mark the shop-preview instance so its Fish 1 always shows plain "bass" (never a saved
-        // fish-hat composite) whenever the Shop object is enabled from any shop button.
+        // Mark the shop-preview instance so Fish 1 starts plain on shop entry; later refreshes
+        // can show the saved fish-hat composite while browsing Fish Species.
         if (shopLocalPlayManager != null)
         {
             shopLocalPlayManager.IsShopPreview = true;
@@ -717,15 +730,33 @@ public class ShopManager : MonoBehaviour
                 SetActiveIfNotNull(FishDisplayObjects[i], isSelected);
                 if (isSelected)
                 {
-                    // The user requested to keep the hat visible while browsing Fish Species.
-                    // Instead of clearing the hat, we reapply the saved hat (unless we are just entering the shop).
-                    if (!isEnteringShop)
-                    {
-                        ApplySavedFishHatToDisplay();
-                    }
+                    ApplyFishSpeciesPreview(FishDisplayObjects[i], i);
                 }
             }
         }
+    }
+
+    private void ApplyFishSpeciesPreview(GameObject fishDisplay, int fishDisplayIndex)
+    {
+        if (fishDisplay == null)
+        {
+            return;
+        }
+
+        // Fish Species mode always shows the PLAIN species sprite (bass / trout) with no hat. Fish
+        // hats (orange hat, cap, ...) are previewed only in Hat mode (fish-hat cycling), so we ignore
+        // any saved hat here and strip the hat overlay a previous hat preview may have left behind.
+        string plainSpeciesPath = fishDisplayIndex == 1
+            ? "ShopUI/Fish preview/trout"
+            : "ShopUI/Fish preview/bass";
+
+        if (TrySetFishDisplaySprite(fishDisplay, plainSpeciesPath))
+        {
+            ClearFishHatPreviewChild(fishDisplay.GetComponent<RectTransform>());
+            return;
+        }
+
+        ClearFishHatFromDisplayObject(fishDisplay);
     }
 
     private bool IsFishHatModeSelected()
@@ -2743,6 +2774,43 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    private void SetDisplayBaseSprite(Image image, Sprite sprite)
+    {
+        if (image == null || sprite == null)
+        {
+            return;
+        }
+
+        displayBaseSprites[image] = sprite;
+    }
+
+    private bool TrySetFishDisplaySprite(GameObject fishDisplay, string resourcePath)
+    {
+        Sprite sprite = Resources.Load<Sprite>(resourcePath);
+        if (fishDisplay == null || sprite == null)
+        {
+            return false;
+        }
+
+        SpriteRenderer spriteRenderer = fishDisplay.GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = sprite;
+            return true;
+        }
+
+        Image image = fishDisplay.GetComponent<Image>();
+        if (image == null)
+        {
+            return false;
+        }
+
+        image.sprite = sprite;
+        image.preserveAspect = true;
+        SetDisplayBaseSprite(image, sprite);
+        return true;
+    }
+
     private void RestoreDisplayBaseSprite(Image image)
     {
         if (image == null)
@@ -3526,8 +3594,8 @@ public class ShopManager : MonoBehaviour
                 currentFish = candidate;
                 PlayerPrefs.SetInt(LocalPlayManager.SelectedFishPrefKey, currentFish);
                 PlayerPrefs.Save();
-                RefreshSelectedFishDisplay();
                 SyncLocalPlayFishSelection(currentFish, localPlay);
+                RefreshSelectedFishDisplay();
                 return;
             }
 

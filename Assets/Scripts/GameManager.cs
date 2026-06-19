@@ -282,7 +282,11 @@ public class GameManager : MonoBehaviourPunCallbacks
             float x = Random.Range(minBounds.x, maxBounds.x);
             float y = Random.Range(minBounds.y, maxBounds.y);
             Vector3 spawnPos = new Vector3(x, y, 0);
-            GameObject fish = PhotonNetwork.Instantiate(selectedFishPrefab.name, spawnPos, Quaternion.identity);
+            object[] fishSpawnData =
+            {
+                PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishHatPrefKey, string.Empty)
+            };
+            GameObject fish = PhotonNetwork.Instantiate(selectedFishPrefab.name, spawnPos, Quaternion.identity, 0, fishSpawnData);
             ApplySelectedFishTransform(fish);
             fishes.Add(fish);
             Debug.Log("Fish Spawned: " + fishes.Count);
@@ -374,8 +378,12 @@ public class GameManager : MonoBehaviourPunCallbacks
         else
         {
             photonView.RPC(nameof(FisherManSpawned), RpcTarget.All, true);
-            GameObject fisherman = PhotonNetwork.Instantiate(fishermanPrefab.name, new Vector3(0f, 1.95f, 0f), Quaternion.identity);
-            CosmeticRuntimeApplier.ApplyToFisherman(fisherman);
+            object[] fishermanSpawnData =
+            {
+                PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHatPrefKey, string.Empty),
+                PlayerPrefs.GetString(CosmeticRuntimeApplier.SelectedFishermanHairPrefKey, string.Empty)
+            };
+            GameObject fisherman = PhotonNetwork.Instantiate(fishermanPrefab.name, new Vector3(0f, 1.95f, 0f), Quaternion.identity, 0, fishermanSpawnData);
             FisherMan_Hungerbar.SetActive(false);
         }
     }

@@ -25,8 +25,7 @@ public class FishermanController_Mirror : NetworkBehaviour
 
     public void OnCosmeticsChanged(string oldVal, string newVal)
     {
-        if (FishermanController != null)
-            CosmeticRuntimeApplier.ApplyFishermanCosmeticsByName(FishermanController.gameObject, syncedHatName, syncedHairName);
+        ApplySyncedCosmetics();
     }
 
     public void OnDirectionChanged(bool oldVal, bool newVal)
@@ -43,12 +42,28 @@ public class FishermanController_Mirror : NetworkBehaviour
     {
         syncedHatName = hatName;
         syncedHairName = hairName;
+        ApplySyncedCosmetics();
     }
 
     [Command]
     public void CmdSetDirection(bool isLeft)
     {
         syncedIsLeft = isLeft;
+    }
+
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        ApplySyncedCosmetics();
+        OnDirectionChanged(syncedIsLeft, syncedIsLeft);
+    }
+
+    private void ApplySyncedCosmetics()
+    {
+        if (FishermanController != null)
+        {
+            CosmeticRuntimeApplier.ApplyFishermanCosmeticsByName(FishermanController.gameObject, syncedHatName, syncedHairName);
+        }
     }
 
     private void Start()
