@@ -58,6 +58,19 @@ public class CustomNetworkManager : NetworkManager
     private void Awake()
     {
         Instence = this;
+
+        // Automatically register Fish and Fisherman prefabs in LAN Network
+        GameObject fishPrefab = Resources.Load<GameObject>("Fish");
+        if (fishPrefab != null && !spawnPrefabs.Contains(fishPrefab))
+        {
+            spawnPrefabs.Add(fishPrefab);
+        }
+
+        GameObject fishermanPrefab = Resources.Load<GameObject>("Fisherman");
+        if (fishermanPrefab != null && !spawnPrefabs.Contains(fishermanPrefab))
+        {
+            spawnPrefabs.Add(fishermanPrefab);
+        }
     }
 
     public override void OnStartServer()

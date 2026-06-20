@@ -8640,7 +8640,8 @@ MonoBehaviour:
   preloderUI: {fileID: 1081083725}
   coverBG: {fileID: 412694757}
   myFish: {fileID: 0}
-  allFishes: []
+  allFishes:
+  - {fileID: 0}
   messageText: {fileID: 8690754849316405257}
   sky: {fileID: 707444311}
   water: {fileID: 2063048542}

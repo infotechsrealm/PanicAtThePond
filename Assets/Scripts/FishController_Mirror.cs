@@ -46,30 +46,62 @@ public class FishController_Mirror : NetworkBehaviour
     public void CmdSetHat(string hatName)
     {
         syncedHatName = hatName;
+        // Apply on server so all clients see it when SyncVar hooks fire
         ApplySyncedHat();
+        ApplySyncedFishSpecies();
     }
 
     public override void OnStartClient()
     {
         base.OnStartClient();
+        StartCoroutine(ApplySyncedCosmeticsWhenReady());
+    }
+
+    public override void OnStartLocalPlayer()
+    {
+        base.OnStartLocalPlayer();
+        
+        int selectedFishSpecies = LocalPlayManager.GetSelectedFishIndex();
+        CmdSetFishSpecies(selectedFishSpecies);
+
+        string myHat = CosmeticRuntimeApplier.GetSelectedFishHatName();
+        CmdSetHat(myHat);
+
+        CosmeticRuntimeApplier.ApplyFishSpeciesByIndex(gameObject, selectedFishSpecies);
+        CosmeticRuntimeApplier.ApplyFishHatByName(gameObject, myHat);
+    }
+
+    private System.Collections.IEnumerator ApplySyncedCosmeticsWhenReady()
+    {
+        float elapsed = 0f;
+        const float timeout = 3f;
+
+        while (elapsed < timeout)
+        {
+            ApplySyncedFishSpecies();
+            ApplySyncedHat();
+
+            if (!string.IsNullOrEmpty(syncedHatName))
+            {
+                yield break;
+            }
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
         ApplySyncedFishSpecies();
         ApplySyncedHat();
     }
 
     private void ApplySyncedFishSpecies()
     {
-        if (fishController != null)
-        {
-            CosmeticRuntimeApplier.ApplyFishSpeciesByIndex(fishController.gameObject, syncedFishSpeciesIndex);
-        }
+        CosmeticRuntimeApplier.ApplyFishSpeciesByIndex(gameObject, syncedFishSpeciesIndex);
     }
 
     private void ApplySyncedHat()
     {
-        if (fishController != null)
-        {
-            CosmeticRuntimeApplier.ApplyFishHatByName(fishController.gameObject, syncedHatName);
-        }
+        CosmeticRuntimeApplier.ApplyFishHatByName(gameObject, syncedHatName);
     }
 
     private void Awake()
@@ -83,6 +115,19 @@ public class FishController_Mirror : NetworkBehaviour
         Debug.Log("isLocalPlayer: " + isLocalPlayer);
         Debug.Log("connectionToClient: " + connectionToClient);
         MarkMeDead(false);
+
+        // Apply fish hat and species cosmetics locally (mimics Photon's OnPhotonInstantiate logic)
+        CosmeticRuntimeApplier.ApplyFishHatByName(gameObject, CosmeticRuntimeApplier.GetSelectedFishHatName());
+        CosmeticRuntimeApplier.ApplyFishSpeciesByIndex(gameObject, LocalPlayManager.GetSelectedFishIndex());
+
+        // Sync hat and species to server so all clients receive it via SyncVar
+        if (isLocalPlayer)
+        {
+            string hatName = CosmeticRuntimeApplier.GetSelectedFishHatName();
+            int speciesIndex = LocalPlayManager.GetSelectedFishIndex();
+            CmdSetHat(hatName);
+            CmdSetFishSpecies(speciesIndex);
+        }
     }
 
     public void CallAddScore_Mirror(string playerName, int amount)
@@ -190,6 +235,30 @@ public class FishController_Mirror : NetworkBehaviour
         NetworkServer.Destroy(target);
     }
 
+    public void CallHideFish_Mirror()
+    {
+        if (isLocalPlayer || isOwned)
+        {
+            CmdHideFish_Mirror();
+        }
+    }
+
+    [Command]
+    private void CmdHideFish_Mirror()
+    {
+        RpcHideFish_Mirror();
+    }
+
+    [ClientRpc]
+    private void RpcHideFish_Mirror()
+    {
+        transform.localScale = Vector3.zero;
+        if (GetComponent<FishController>() != null)
+        {
+            GetComponent<FishController>().isFisherMan = true;
+        }
+    }
+
 
     //generate FisherMan
     public GameObject fishermanPrefab;
@@ -205,15 +274,29 @@ public class FishController_Mirror : NetworkBehaviour
     [Command]
     void CmdSpawnFishermanOnServer(string hatName, string hairName)
     {
+        // fishermanPrefab is sometimes null at runtime due to recompile/domain-reload losing
+        // the Inspector reference. Defensively fall back to Resources.Load so the Command
+        // still succeeds and the catcher isn't left stuck on the Loading overlay.
+        GameObject prefab = fishermanPrefab;
+        if (prefab == null)
+        {
+            prefab = Resources.Load<GameObject>("FisherMan");
+            if (prefab == null)
+            {
+                prefab = Resources.Load<GameObject>("FisherMan (2) 1");
+            }
+            Debug.LogWarning($"[FishController_Mirror] fishermanPrefab reference was null — fell back to Resources.Load. Prefab used: {(prefab != null ? prefab.name : "NULL")}");
+        }
+
         Vector3 spawnPos = new Vector3(0f, 1.95f, 0f);
-        GameObject fisherman = Instantiate(fishermanPrefab, spawnPos, Quaternion.identity);
+        GameObject fisherman = Instantiate(prefab, spawnPos, Quaternion.identity);
         FishermanController_Mirror fishermanMirror = fisherman.GetComponent<FishermanController_Mirror>();
         if (fishermanMirror != null)
         {
             fishermanMirror.syncedHatName = hatName ?? string.Empty;
             fishermanMirror.syncedHairName = hairName ?? string.Empty;
         }
-        NetworkServer.Spawn(fisherman, connectionToClient); // 🔹 gives authority to caller client
+        NetworkServer.ReplacePlayerForConnection(connectionToClient, fisherman, true); // 🔹 makes it local player and gives authority
         SpawnWorm(GameManager.Instance.fishermanWorms);
     }
 
@@ -339,58 +422,54 @@ public class FishController_Mirror : NetworkBehaviour
     {
         if (isServer)
         {
+            // Defensively fall back to Resources.Load if the Inspector reference was lost at runtime.
+            GameObject prefab = wormPrefab;
+            if (prefab == null)
+            {
+                prefab = Resources.Load<GameObject>("Worm");
+                Debug.LogWarning("[FishController_Mirror] wormPrefab was null -- fell back to Resources.Load. Result: " + (prefab != null ? prefab.name : "NULL"));
+            }
+
             for (int i = 0; i < length; i++)
             {
-                GameObject worm = Instantiate(wormPrefab, new Vector3(0f, 10f, 0f), Quaternion.identity);
-                NetworkServer.Spawn(worm, connectionToClient); // 🔹 gives authority to caller client
+                GameObject worm = Instantiate(prefab, new Vector3(0f, 10f, 0f), Quaternion.identity);
+                NetworkServer.Spawn(worm, connectionToClient);
             }
         }
     }
 
-    //set worm in Hook
-    public GameObject SetWormInJunk(NetworkIdentity hookIdentity)
+    public GameObject SetWormInJunk(NetworkIdentity wormIdentity)
     {
-        if (hookIdentity != null && allHookWorms.Count > 0)
+        if (wormIdentity == null) return null;
+
+        if (isServer)
         {
-            NetworkIdentity n = allHookWorms[0].GetComponent<NetworkIdentity>();
+            GameObject worm = wormIdentity.gameObject;
 
-            CmdSetWormInJunk(hookIdentity.netId, n.netId);
-
-            GameObject worm = allHookWorms[0].gameObject;
-
-            allHookWorms.RemoveAt(0);  // safly remove
-            return worm;
-        }
-
-        return null;
-    }
-
-
-    [Command]
-    void CmdSetWormInJunk(uint hookNetId, uint wormNetId)
-    {
-        RPCSetWormInJunk(hookNetId, wormNetId);
-    }
-
-    [ClientRpc]
-    void RPCSetWormInJunk(uint junkNetId, uint wormNetId)
-    {
-        if (NetworkClient.spawned.TryGetValue(junkNetId, out NetworkIdentity junkIdentity))
-        {
-            Hook hook = junkIdentity.gameObject.GetComponent<Hook>();
-            hook.hasWorm = true;
-
-            if (NetworkClient.spawned.TryGetValue(wormNetId, out NetworkIdentity WormIdentity))
+            // Find the local player's hook's worm parent
+            if (FishermanController_Mirror.Instance != null &&
+                FishermanController_Mirror.Instance.hook != null &&
+                FishermanController_Mirror.Instance.hook.wormParent != null)
             {
-                Transform worm = WormIdentity.transform;
-                worm.SetParent(hook.wormParent, false);
-                worm.localScale = Vector3.one;
-                worm.localPosition = Vector3.zero;
+                worm.transform.SetParent(FishermanController_Mirror.Instance.hook.wormParent, false);
+                worm.transform.localPosition = Vector3.zero;
+                worm.transform.localScale = Vector3.one;
+            }
+            else
+            {
+                Debug.LogWarning("[FishController_Mirror] SetWormInJunk: could not find worm parent");
+            }
+
+            // Add to tracking list
+            WormManager wm = worm.GetComponent<WormManager>();
+            if (wm != null && !allHookWorms.Contains(wm))
+            {
+                allHookWorms.Add(wm);
             }
         }
-    }
 
-    //
+        return wormIdentity.gameObject;
+    }
     public void EnableWormCollider(NetworkIdentity NetId)
     {
         if (NetId != null)

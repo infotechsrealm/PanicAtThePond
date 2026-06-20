@@ -179,16 +179,27 @@ public class Hook : MonoBehaviourPunCallbacks
         }
     }
 
-    // Launch hook with variable distance
     public void LaunchDownWithDistance(float distance, Transform _rodip)
     {
         rodTip = _rodip;
-        
+
+        // Snap the hook's X to the actual rod tip X so the line drops perfectly straight down
+        Vector3 alignedPos = transform.position;
+        alignedPos.x = GetRodTipPosition(rodTip).x;
+        transform.position = alignedPos;
+
         // Sync which rod was used to all clients
         if (fishermanController != null && photonView != null && PhotonNetwork.IsConnected)
         {
             bool isLeft = (_rodip == fishermanController.leftRod);
             photonView.RPC(nameof(SyncRodTipRPC), RpcTarget.AllBuffered, isLeft);
+        }
+
+        // LAN: sync rod tip to all clients via Mirror so LineRenderer draws correctly
+        if (GS.Instance.isLan && hook_Mirror != null)
+        {
+            NetworkIdentity rodIdentity = _rodip != null ? _rodip.GetComponent<NetworkIdentity>() : null;
+            hook_Mirror.CmdSetRodTip(rodIdentity);
         }
 
         distance = Mathf.Clamp(distance, minDistance, maxDistance);
@@ -455,7 +466,10 @@ public class Hook : MonoBehaviourPunCallbacks
 
     private Vector3 GetHookLineEndPosition()
     {
-        return transform.position;
+        Vector3 hookPos = transform.position;
+        // Adding a slight offset to perfectly touch the hook endpoint, as seen in the prefab.
+        hookPos.y += 0.15f; 
+        return hookPos;
     }
 
     private void DrawFishingLine(Vector3 rodLineStart, Vector3 hookPosition)

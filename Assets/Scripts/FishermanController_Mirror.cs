@@ -25,6 +25,8 @@ public class FishermanController_Mirror : NetworkBehaviour
 
     public void OnCosmeticsChanged(string oldVal, string newVal)
     {
+        // SyncVar changed on a client (e.g. the catcher's CmdSetCosmetics reached the server and
+        // replicated). Re-apply so remote players see the correct hat/hair on this fisherman.
         ApplySyncedCosmetics();
     }
 
@@ -54,8 +56,38 @@ public class FishermanController_Mirror : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
-        ApplySyncedCosmetics();
+        // The FishermanController / its Animator may not be ready on the exact frame this object
+        // spawns, and the initial SyncVar payload can arrive a frame after OnStartClient. Retry for a
+        // short window so REMOTE players reliably see the synced hat/hair (fixes hats missing on
+        // other players' screens in LAN).
+        StartCoroutine(ApplySyncedCosmeticsWhenReady());
         OnDirectionChanged(syncedIsLeft, syncedIsLeft);
+    }
+
+    private System.Collections.IEnumerator ApplySyncedCosmeticsWhenReady()
+    {
+        float elapsed = 0f;
+        const float timeout = 3f;
+
+        while (elapsed < timeout)
+        {
+            if (FishermanController != null)
+            {
+                ApplySyncedCosmetics();
+
+                // Once we actually have a cosmetic name to show, we're done. Until then keep polling
+                // in case the SyncVar payload lands a frame later.
+                if (!string.IsNullOrEmpty(syncedHatName) || !string.IsNullOrEmpty(syncedHairName))
+                {
+                    yield break;
+                }
+            }
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        ApplySyncedCosmetics();
     }
 
     private void ApplySyncedCosmetics()
@@ -142,26 +174,34 @@ public class FishermanController_Mirror : NetworkBehaviour
     }
    
     //generat hook
+   
     public void SpawnHook()
     {
-        Debug.Log("=== FishermanController_Mirror CALLED ===");
+        Debug.Log("=== FishermanController_Mirror SpawnHook called ===");
         Debug.Log("isServer: " + isServer);
         Debug.Log("isClient: " + isClient);
         Debug.Log("isLocalPlayer: " + isLocalPlayer);
-   
+
         if (isServer)
         {
-            if (hookPrefab == null)
+            // Defensively fall back to Resources.Load if the Inspector reference was lost at runtime.
+            Hook prefab = hookPrefab;
+            if (prefab == null)
             {
-                Debug.LogError("Hook Prefab not assigned!");
+                prefab = Resources.Load<Hook>("hookPrefab");
+                Debug.LogWarning("[FishermanController_Mirror] hookPrefab was null -- fell back to Resources.Load. Result: " + (prefab != null ? prefab.name : "NULL"));
+            }
+
+            if (prefab == null)
+            {
+                Debug.LogError("[FishermanController_Mirror] Could not resolve hook prefab -- aborting hook spawn.");
                 return;
             }
 
-            hook = Instantiate(hookPrefab, transform.position, Quaternion.identity);
-            NetworkServer.Spawn(hook.gameObject, connectionToClient); // 🔹 gives authority to caller client
+            hook = Instantiate(prefab, transform.position, Quaternion.identity);
+            NetworkServer.Spawn(hook.gameObject, connectionToClient);
         }
     }
-
     public void CallSetTrigger_Mirror(string triggerName)
     {
         if (isLocalPlayer) CmdSetTrigger_Mirror(triggerName);

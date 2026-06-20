@@ -268,13 +268,19 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 else if (hatName.Contains("straw_hat") || hatName.Contains("straw") || hatName.Contains("white hat"))
                     newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Straw Hat)");
             }
-            
+
+            // A hat may be flagged pre-baked but its baked controller asset may be missing from
+            // Resources (only "Yellow Hat", "Black Hair", "Red Hair" actually ship). In that case fall
+            // back to MODULAR rendering (clean body controller + child hat sprite) so the hat STILL
+            // shows instead of silently disappearing.
+            bool renderHatAsModular = !isPreBaked || newController == null;
+
             if (newController == null)
             {
                 // Fallback to clean hair controller (no hat pre-baked)
                 if (hairName.Contains("black"))
                     newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Black Hair)");
-                else 
+                else
                     newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Red Hair)");
             }
 
@@ -287,12 +293,13 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 }
             }
 
-            // Enable root renderer only if pre-baked; otherwise disable to animate child parts
-            rootRenderer.enabled = isPreBaked;
+            // Enable root renderer only when the hat is truly baked into the body; otherwise disable
+            // it so the modular child parts (incl. the hat sprite) drive the visuals.
+            rootRenderer.enabled = !renderHatAsModular;
 
             // Find or setup the child hat cosmetic object
             Transform hatCosmeticTransform = headTransform.Find("hat Cosmetic");
-            bool enableHatCosmetic = selectedFishermanHat != null && !isPreBaked;
+            bool enableHatCosmetic = selectedFishermanHat != null && renderHatAsModular;
 
             // Ensure the child head and hat Cosmetic GameObjects are kept active/enabled!
             headTransform.gameObject.SetActive(true);
@@ -301,19 +308,19 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 hatCosmeticTransform.gameObject.SetActive(true);
             }
 
-            // If we are pre-baked, disable child modular renderers; if modular, enable them!
+            // If the hat is baked into the body, disable child modular renderers; if modular, enable them!
             SpriteRenderer[] allRenderers = fisherman.GetComponentsInChildren<SpriteRenderer>(true);
             foreach (SpriteRenderer sr in allRenderers)
             {
                 if (sr.gameObject == fisherman) continue;
-                
+
                 if (hatCosmeticTransform != null && sr.gameObject == hatCosmeticTransform.gameObject)
                 {
                     sr.enabled = enableHatCosmetic;
                     continue;
                 }
-                
-                sr.enabled = !isPreBaked;
+
+                sr.enabled = renderHatAsModular;
             }
 
             // If we have a custom non-prebaked hat, assign its sprite and setup bobbing
@@ -492,12 +499,18 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 else if (normalizedHatName.Contains("straw_hat") || normalizedHatName.Contains("straw") || normalizedHatName.Contains("white hat"))
                     newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Straw Hat)");
             }
-            
+
+            // A hat may be flagged pre-baked but its baked controller asset may be missing from
+            // Resources (only "Yellow Hat", "Black Hair", "Red Hair" actually ship). In that case fall
+            // back to MODULAR rendering (clean body controller + child hat sprite) so the hat STILL
+            // shows instead of silently disappearing.
+            bool renderHatAsModular = !isPreBaked || newController == null;
+
             if (newController == null)
             {
                 if (normalizedHairName.Contains("black"))
                     newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Black Hair)");
-                else 
+                else
                     newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Red Hair)");
             }
 
@@ -510,12 +523,13 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 }
             }
 
-            // Enable root renderer only if pre-baked; otherwise disable to animate child parts
-            rootRenderer.enabled = isPreBaked;
+            // Enable root renderer only when the hat is truly baked into the body; otherwise disable
+            // it so the modular child parts (incl. the hat sprite) drive the visuals.
+            rootRenderer.enabled = !renderHatAsModular;
 
             // Find or setup the child hat cosmetic object
             Transform hatCosmeticTransform = headTransform.Find("hat Cosmetic");
-            bool enableHatCosmetic = hatSprite != null && !isPreBaked;
+            bool enableHatCosmetic = hatSprite != null && renderHatAsModular;
 
             // Ensure the child head and hat Cosmetic GameObjects are kept active/enabled!
             headTransform.gameObject.SetActive(true);
@@ -524,19 +538,19 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 hatCosmeticTransform.gameObject.SetActive(true);
             }
 
-            // If we are pre-baked, disable child modular renderers; if modular, enable them!
+            // If the hat is baked into the body, disable child modular renderers; if modular, enable them!
             SpriteRenderer[] allRenderers = fisherman.GetComponentsInChildren<SpriteRenderer>(true);
             foreach (SpriteRenderer sr in allRenderers)
             {
                 if (sr.gameObject == fisherman) continue;
-                
+
                 if (hatCosmeticTransform != null && sr.gameObject == hatCosmeticTransform.gameObject)
                 {
                     sr.enabled = enableHatCosmetic;
                     continue;
                 }
-                
-                sr.enabled = !isPreBaked;
+
+                sr.enabled = renderHatAsModular;
             }
 
             // If we have a custom non-prebaked hat, assign its sprite and setup bobbing

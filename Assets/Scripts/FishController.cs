@@ -91,11 +91,6 @@ public class FishController : MonoBehaviourPunCallbacks, IPunInstantiateMagicCal
         {
             if (mirrorIdentity != null && mirrorIdentity.isLocalPlayer)
             {
-                if (fishController_Mirror != null) fishController_Mirror.CmdSetFishSpecies(selectedFishSpecies);
-                string myHat = CosmeticRuntimeApplier.GetSelectedFishHatName();
-                CosmeticRuntimeApplier.ApplyFishHatByName(gameObject, myHat);
-                if (fishController_Mirror != null) fishController_Mirror.CmdSetHat(myHat);
-
                 fishController_Mirror.SetVissiblity_Mirror();
                 GameManager.Instance.myFish = this;
                 fishController_Mirror.CallAddScore_Mirror(GS.Instance.nickName, 0);
@@ -607,7 +602,7 @@ public class FishController : MonoBehaviourPunCallbacks, IPunInstantiateMagicCal
         {
             Debug.Log("GenerateFisherMan");
             fishController_Mirror.Destroy_Mirror(other);
-            transform.localScale =Vector3.zero;
+            fishController_Mirror.CallHideFish_Mirror();
             isFisherMan = true;
             GameManager.Instance.LoadSpawnFisherman();
         }

@@ -360,6 +360,32 @@ public class GameManager : MonoBehaviourPunCallbacks
         ResetFishHungerForRoleTransition();
         LoadPreloderOnOff(true);
         Invoke(nameof(SpawnFisherman), 0f);
+
+        if (GS.Instance != null && GS.Instance.isLan)
+        {
+            // LAN safety net: the Loading overlay (preloderUI) is normally hidden by
+            // FishermanController.Start() once the networked fisherman replicates back to this
+            // (catching) client. If that spawn/Start is delayed or aborts on the catcher, the player
+            // would otherwise be stuck on the Loading overlay forever (it covers the whole screen, so
+            // even a correctly-spawned fisherman looks like "nothing appeared"). Guarantee it hides.
+            StopCoroutine(nameof(HideFishermanPreloaderWhenReady));
+            StartCoroutine(HideFishermanPreloaderWhenReady());
+        }
+    }
+
+    private IEnumerator HideFishermanPreloaderWhenReady()
+    {
+        const float timeout = 8f;
+        float elapsed = 0f;
+
+        while (elapsed < timeout && !fisherManIsSpawned && FishermanController.Instance == null)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Whether the fisherman arrived or we hit the timeout, never leave the catcher stuck on Loading.
+        PreloderOnOff(false);
     }
 
     public void ResetFishHungerForRoleTransition()

@@ -22,7 +22,7 @@ public class Hook_Mirror : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     [ClientRpc]
@@ -32,6 +32,22 @@ public class Hook_Mirror : NetworkBehaviour
         {
             hook.transform.position = currentRod;
             hook.transform.localScale = Vector3.one;
+        }
+    }
+
+    // Mirror RPC to sync the rod tip to all clients so the LineRenderer draws correctly
+    [Command]
+    public void CmdSetRodTip(NetworkIdentity rodIdentity)
+    {
+        RpcSetRodTip(rodIdentity);
+    }
+
+    [ClientRpc]
+    public void RpcSetRodTip(NetworkIdentity rodIdentity)
+    {
+        if (hook != null)
+        {
+            hook.rodTip = rodIdentity != null ? rodIdentity.transform : null;
         }
     }
 }

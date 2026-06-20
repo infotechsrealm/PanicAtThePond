@@ -84,13 +84,23 @@ public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMag
         {
             if (GameManager.Instance.isFisherMan)
             {
-                string hat = CosmeticRuntimeApplier.GetSelectedFishermanHatName();
-                string hair = CosmeticRuntimeApplier.GetSelectedFishermanHairName();
-                CosmeticRuntimeApplier.ApplyFishermanCosmeticsByName(gameObject, hat, hair);
-                if (fishermanController_Mirror != null)
+                // Guard the cosmetic + command calls: a Mirror authority warning or a transient
+                // null here must never abort Start(), otherwise the catcher would skip the rest of
+                // the fisherman setup (and the preloader-hide / fisherManIsSpawned flag) and hang.
+                try
                 {
-                    fishermanController_Mirror.CmdSetCosmetics(hat, hair);
-                    fishermanController_Mirror.CmdSetDirection(isLeft);
+                    string hat = CosmeticRuntimeApplier.GetSelectedFishermanHatName();
+                    string hair = CosmeticRuntimeApplier.GetSelectedFishermanHairName();
+                    CosmeticRuntimeApplier.ApplyFishermanCosmeticsByName(gameObject, hat, hair);
+                    if (fishermanController_Mirror != null)
+                    {
+                        fishermanController_Mirror.CmdSetCosmetics(hat, hair);
+                        fishermanController_Mirror.CmdSetDirection(isLeft);
+                    }
+                }
+                catch (System.Exception e)
+                {
+                    Debug.LogWarning($"[FishermanController] LAN cosmetic setup failed (continuing): {e.Message}");
                 }
             }
         }
