@@ -60,9 +60,15 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     internal bool isRestoringHost = false; // Flag to track if we are waiting for host authority back
 
+    [Header("Random Backgrounds")]
+    public Image mainBGImage;
+    public Sprite[] possibleBGSprites;
+    public Sprite[] possibleWaterSprites;
+
     private void Awake()
     {
         Instance = this;
+        AssignRandomBackground();
 
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
@@ -120,6 +126,29 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         Debug.Log("========================================");
         // ==========================================
+    }
+
+    private void AssignRandomBackground()
+    {
+        if (possibleBGSprites != null && possibleBGSprites.Length > 0 && 
+            possibleWaterSprites != null && possibleWaterSprites.Length == possibleBGSprites.Length)
+        {
+            int randomIndex = Random.Range(0, possibleBGSprites.Length);
+            
+            if (mainBGImage != null && possibleBGSprites[randomIndex] != null)
+            {
+                mainBGImage.sprite = possibleBGSprites[randomIndex];
+            }
+            
+            if (water != null)
+            {
+                Image waterImg = water.GetComponent<Image>();
+                if (waterImg != null && possibleWaterSprites[randomIndex] != null)
+                {
+                    waterImg.sprite = possibleWaterSprites[randomIndex];
+                }
+            }
+        }
     }
 
     void Start()

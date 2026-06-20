@@ -8645,6 +8645,15 @@ MonoBehaviour:
   messageText: {fileID: 8690754849316405257}
   sky: {fileID: 707444311}
   water: {fileID: 2063048542}
+  mainBGImage: {fileID: 1834361647}
+  possibleBGSprites:
+  - {fileID: 21300000, guid: d3b97b184b3f7c4499c5c892d6586c24, type: 3}
+  - {fileID: 21300000, guid: b8104cc5a378116459b3ea31d67c0e84, type: 3}
+  - {fileID: 2917249146457337290, guid: 42118fd81307ed04a98e9c45f0eece2c, type: 3}
+  possibleWaterSprites:
+  - {fileID: 21300000, guid: d788124b102bc6a4aa5fcb71ba394c6c, type: 3}
+  - {fileID: 21300000, guid: 21a4e4c0761018b4cb6ade33ec44b794, type: 3}
+  - {fileID: 21300000, guid: 62cf8444bc919344bb9390712befb11d, type: 3}
 --- !u!4 &821744897
 Transform:
   m_ObjectHideFlags: 0
@@ -16432,7 +16441,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b8104cc5a378116459b3ea31d67c0e84, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d3b97b184b3f7c4499c5c892d6586c24, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17684,7 +17693,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 21a4e4c0761018b4cb6ade33ec44b794, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d788124b102bc6a4aa5fcb71ba394c6c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
