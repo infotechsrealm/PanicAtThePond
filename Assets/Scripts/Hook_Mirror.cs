@@ -50,4 +50,30 @@ public class Hook_Mirror : NetworkBehaviour
             hook.rodTip = rodIdentity != null ? rodIdentity.transform : null;
         }
     }
+
+    [Command]
+    public void CmdSpawnAndAttachWorm()
+    {
+        if (hook != null && hook.wormPrefab != null && hook.wormParent != null)
+        {
+            GameObject wormInst = Instantiate(hook.wormPrefab, hook.wormParent.position, Quaternion.identity);
+            NetworkServer.Spawn(wormInst, connectionToClient);
+            RpcAttachWorm(wormInst.GetComponent<NetworkIdentity>());
+        }
+    }
+
+    [ClientRpc]
+    public void RpcAttachWorm(NetworkIdentity wormIdentity)
+    {
+        if (hook != null && wormIdentity != null)
+        {
+            hook.wormInstance = wormIdentity.gameObject;
+            Transform worm = hook.wormInstance.transform;
+            worm.SetParent(hook.wormParent, false);
+            worm.localPosition = Vector3.zero;
+            worm.localScale = Vector3.one;
+            hook.hasWorm = true;
+            WormSpawner.Instance.activeWorms.Add(hook.wormInstance);
+        }
+    }
 }

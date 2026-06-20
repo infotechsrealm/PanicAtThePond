@@ -148,10 +148,9 @@ public class Hook : MonoBehaviourPunCallbacks
         {
             if (GS.Instance.isLan)
             {
-                GameManager gm = GameManager.Instance;
-                if (gm != null)
+                if (hook_Mirror != null)
                 {
-                    wormInstance =  GameManager.Instance.myFish.fishController_Mirror.SetWormInJunk(GetComponent<NetworkIdentity>());
+                    hook_Mirror.CmdSpawnAndAttachWorm();
                 }
             }
             else

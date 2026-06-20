@@ -915,7 +915,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 if (state.Contains("move reverse backwards") || state.Contains("movereversebackwards"))
                 {
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.025f, 0.774f + bob, 0f);
+                    transform.localPosition = new Vector3(0.0625f, 0.795f + bob, 0f);
                     transform.localEulerAngles = new Vector3(0f, 0f, -1.171f);
                     transform.localScale = new Vector3(3.451032f, 3.451032f, 3.9f);
                     cosmeticRenderer.flipX = false;
@@ -924,7 +924,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
                 {
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.0403f, 0.7728f + bob, 0f);
+                    transform.localPosition = new Vector3(-0.008f, 0.789f + bob, 0f);
                     transform.localEulerAngles = new Vector3(0f, 0f, -1.171f);
                     transform.localScale = new Vector3(3.451032f, 3.451032f, 3.9f);
                     cosmeticRenderer.flipX = true;
@@ -933,7 +933,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 else if (state.Contains("move backwards") || state.Contains("movebackwards"))
                 {
                     float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.025f, 0.774f + bob, 0f);
+                    transform.localPosition = new Vector3(-0.008f, 0.789f + bob, 0f);
                     transform.localEulerAngles = new Vector3(0f, 0f, -1.171f);
                     transform.localScale = new Vector3(3.451032f, 3.451032f, 3.9f);
                     cosmeticRenderer.flipX = true;
@@ -945,9 +945,16 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                     transform.localPosition = new Vector3(-0.038f, 0.771f + bob, 0f);
                     transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
                     transform.localScale = new Vector3(3.451032f, 3.451032f, 3.9f);
-                    cosmeticRenderer.flipX = false;
+                    cosmeticRenderer.flipX = false; // Left side animation, so false
                     return;
                 }
+                
+                // Compulsorily enforce flipX = true for right side, and flipX = false for left side for all other states
+                Vector3 offset = GetFishermanHeadOffset(state, frameIndex);
+                transform.localPosition = baseLocalPosition + offset;
+                transform.localScale = baseLocalScale;
+                cosmeticRenderer.flipX = !isLeft;
+                return;
             }
             else if (cosmeticRenderer != null && cosmeticRenderer.sprite != null && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("blue") && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("cap"))
             {

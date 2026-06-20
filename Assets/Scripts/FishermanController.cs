@@ -601,7 +601,52 @@ public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMag
             SetTriggerSync("casting_r");
         }
 
-        yield return new WaitForSeconds(0.5f);
+        float timeout = 2.0f;
+        bool hasStartedCasting = false;
+
+        // First, wait until the casting animation actually starts
+        while (timeout > 0f)
+        {
+            var clips = animator.GetCurrentAnimatorClipInfo(0);
+            for (int i = 0; i < clips.Length; i++)
+            {
+                if (clips[i].clip.name.ToLowerInvariant().Contains("cast"))
+                {
+                    hasStartedCasting = true;
+                    break;
+                }
+            }
+            if (hasStartedCasting) break;
+
+            timeout -= Time.deltaTime;
+            yield return null;
+        }
+
+        // Next, wait until the casting animation fully finishes and the fishing state begins
+        while (timeout > 0f && hasStartedCasting)
+        {
+            var clips = animator.GetCurrentAnimatorClipInfo(0);
+            bool isCasting = false;
+            bool isFishing = false;
+
+            for (int i = 0; i < clips.Length; i++)
+            {
+                string clipName = clips[i].clip.name.ToLowerInvariant();
+                if (clipName.Contains("cast")) isCasting = true;
+                if (clipName.Contains("fishing")) isFishing = true;
+            }
+
+            if (isFishing && !isCasting)
+            {
+                break;
+            }
+
+            timeout -= Time.deltaTime;
+            yield return null;
+        }
+        
+        // Extra tiny delay to ensure the line spawn looks perfect with the rod's resting position
+        yield return new WaitForSeconds(0.1f);
 
         Hook hook;
         hook = null;
