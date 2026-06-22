@@ -263,16 +263,16 @@ public class FishController_Mirror : NetworkBehaviour
     //generate FisherMan
     public GameObject fishermanPrefab;
 
-    public void RequestSpawnFisherman(string hatName = "", string hairName = "")
+    public void RequestSpawnFisherman(string hatName = "", string hairName = "", bool useFishingBackground = false, bool useLargeFishingBackground = false)
     {
         if (isLocalPlayer)
         {
-            CmdSpawnFishermanOnServer(hatName, hairName);
+            CmdSpawnFishermanOnServer(hatName, hairName, useFishingBackground, useLargeFishingBackground);
         }
     }
 
     [Command]
-    void CmdSpawnFishermanOnServer(string hatName, string hairName)
+    void CmdSpawnFishermanOnServer(string hatName, string hairName, bool useFishingBackground, bool useLargeFishingBackground)
     {
         // fishermanPrefab is sometimes null at runtime due to recompile/domain-reload losing
         // the Inspector reference. Defensively fall back to Resources.Load so the Command
@@ -288,8 +288,9 @@ public class FishController_Mirror : NetworkBehaviour
             Debug.LogWarning($"[FishController_Mirror] fishermanPrefab reference was null — fell back to Resources.Load. Prefab used: {(prefab != null ? prefab.name : "NULL")}");
         }
 
-        Vector3 spawnPos = new Vector3(0f, 1.95f, 0f);
+        Vector3 spawnPos = GameManager.GetFishermanSpawnPosition(useFishingBackground, useLargeFishingBackground);
         GameObject fisherman = Instantiate(prefab, spawnPos, Quaternion.identity);
+        GameManager.ApplyFishermanMapTransform(fisherman, useFishingBackground, useLargeFishingBackground);
         FishermanController_Mirror fishermanMirror = fisherman.GetComponent<FishermanController_Mirror>();
         if (fishermanMirror != null)
         {

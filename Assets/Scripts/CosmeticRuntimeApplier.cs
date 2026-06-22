@@ -948,12 +948,31 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                     cosmeticRenderer.flipX = false; // Left side animation, so false
                     return;
                 }
-                
-                // Compulsorily enforce flipX = true for right side, and flipX = false for left side for all other states
+                else if (state.Contains("idle left") || state.Contains("idleleft") || 
+                         state.Contains("winning left") || state.Contains("winningleft") ||
+                         state.Contains("fishing left") || state.Contains("fishingleft"))
+                {
+                    Vector3 turtleOffset = GetFishermanHeadOffset(state, frameIndex);
+                    transform.localPosition = baseLocalPosition + turtleOffset;
+                    transform.localScale = baseLocalScale;
+                    cosmeticRenderer.flipX = false;
+                    return;
+                }
+                else if (state.Contains("idle right") || state.Contains("idleright") ||
+                         state.Contains("idel right") || state.Contains("idelright") ||
+                         state.Contains("fishing right") || state.Contains("fishingright"))
+                {
+                    Vector3 turtleOffset = GetFishermanHeadOffset(state, frameIndex);
+                    transform.localPosition = baseLocalPosition + turtleOffset;
+                    transform.localScale = baseLocalScale;
+                    cosmeticRenderer.flipX = true;
+                    return;
+                }
+                // Enforce flipX = false for all other unlisted states
                 Vector3 offset = GetFishermanHeadOffset(state, frameIndex);
                 transform.localPosition = baseLocalPosition + offset;
                 transform.localScale = baseLocalScale;
-                cosmeticRenderer.flipX = !isLeft;
+                cosmeticRenderer.flipX = false;
                 return;
             }
             else if (cosmeticRenderer != null && cosmeticRenderer.sprite != null && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("blue") && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("cap"))

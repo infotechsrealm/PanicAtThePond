@@ -70,6 +70,30 @@ public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMag
     {
         if (Instance == null)
             Instance = this;
+
+        if (GameManager.Instance != null)
+        {
+            if (GameManager.Instance.isBG2Active)
+            {
+                transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+                transform.position = new Vector3(transform.position.x, 1.28f, transform.position.z);
+                maxX = 6f;
+            }
+            else if (GameManager.Instance.IsLargeFishingBackgroundActive())
+            {
+                transform.localScale = new Vector3(1f, 1f, 1f);
+                transform.position = new Vector3(transform.position.x, 1.7f, transform.position.z);
+            }
+            else if (GameManager.Instance.IsFishingBackgroundActive())
+            {
+                transform.localScale = new Vector3(1f, 1f, 1f);
+                transform.position = new Vector3(transform.position.x, 1.6f, transform.position.z);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1f, 1f, 1f);
+            }
+        }
     }
 
     void Start()

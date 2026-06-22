@@ -33,7 +33,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
     private static readonly Vector2 BassSpeedLabelOffset = new Vector2(-140f, 0f);
     private static readonly Vector2 DepletionLabelPosition = new Vector2(163f, -270f);
     private static readonly Vector2 DepletionLabelSize = new Vector2(180f, 56f);
-    private static readonly Vector2 ScoreResetButtonPosition = new Vector2(-185f, -30f);
+    private static readonly Vector2 ScoreResetButtonPosition = new Vector2(-190f, -105f);
 
     public PlayerTableManager playerTableManager;
     public Button backButton, controlsButton, hintButton, pauseButton, ScoreSystem, BackScore;
@@ -468,9 +468,9 @@ public class HostLobby : MonoBehaviourPunCallbacks
         resetRect.anchorMin = new Vector2(1f, 1f);
         resetRect.anchorMax = new Vector2(1f, 1f);
         resetRect.pivot = new Vector2(1f, 1f);
-        resetRect.sizeDelta = new Vector2(72.5f, 20.7f);
+        resetRect.sizeDelta = new Vector2(70f, 20f);
         resetRect.anchoredPosition = ScoreResetButtonPosition;
-        resetRect.localScale = Vector3.one * 1.9f;
+        resetRect.localScale = Vector3.one * 4f;
         resetRect.SetAsLastSibling();
 
         Image resetImage = resetObject.GetComponent<Image>();

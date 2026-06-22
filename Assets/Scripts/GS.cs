@@ -115,6 +115,8 @@ public class GS : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    public int playAgainCount = 0;
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (PhotonNetwork.NetworkingClient != null && PhotonNetwork.NetworkingClient.LoadBalancingPeer != null)
@@ -137,6 +139,7 @@ public class GS : MonoBehaviour
         }
         else if (scene.name == "Play")
         {
+            playAgainCount++;
             LoadScoreSystemSettingsFromPhotonRoomProperties();
         }
     }

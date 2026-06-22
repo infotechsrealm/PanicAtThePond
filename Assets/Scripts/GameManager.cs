@@ -64,6 +64,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     public Image mainBGImage;
     public Sprite[] possibleBGSprites;
     public Sprite[] possibleWaterSprites;
+    private Sprite selectedBGSprite;
+    private const string FishingBackgroundSpriteName = "background-fishing";
+    private const string LargeFishingBackgroundSpriteName = "background-fishing-largemap";
+    private static readonly Vector3 DefaultFishermanSpawnPosition = new Vector3(0f, 1.95f, 0f);
+    private static readonly Vector3 FishingBackgroundFishermanSpawnPosition = new Vector3(0f, 1.3f, 0f);
+    private static readonly Vector3 LargeFishingBackgroundFishermanSpawnPosition = new Vector3(0f, 1.7f, 0f);
+    private static readonly Vector3 FishingBackgroundFishermanScale = Vector3.one;
 
     private void Awake()
     {
@@ -128,16 +135,44 @@ public class GameManager : MonoBehaviourPunCallbacks
         // ==========================================
     }
 
+    public bool isBG2Active = false;
+
     private void AssignRandomBackground()
     {
         if (possibleBGSprites != null && possibleBGSprites.Length > 0 && 
             possibleWaterSprites != null && possibleWaterSprites.Length == possibleBGSprites.Length)
         {
+            // Use playAgainCount as a synchronized seed so both players get the exact same random map
+            int seed = 0;
+            if (GS.Instance != null)
+            {
+                seed = GS.Instance.playAgainCount * 1000;
+                if (!GS.Instance.isLan && PhotonNetwork.InRoom && PhotonNetwork.CurrentRoom != null)
+                    seed += PhotonNetwork.CurrentRoom.Name.GetHashCode();
+            }
+            if (seed != 0) Random.InitState(seed);
+
             int randomIndex = Random.Range(0, possibleBGSprites.Length);
+            
+            // Revert back to unseeded random for other game elements
+            Random.InitState((int)System.DateTime.Now.Ticks);
             
             if (mainBGImage != null && possibleBGSprites[randomIndex] != null)
             {
-                mainBGImage.sprite = possibleBGSprites[randomIndex];
+                selectedBGSprite = possibleBGSprites[randomIndex];
+                mainBGImage.sprite = selectedBGSprite;
+                
+                // Turn clouds on ONLY if the selected map is BG_2
+                isBG2Active = selectedBGSprite.name.Contains("BG_2");
+                
+                Scene activeScene = SceneManager.GetActiveScene();
+                foreach (GameObject go in activeScene.GetRootGameObjects())
+                {
+                    if (go.name == "clouds_1_5" || go.name == "clouds_1_0")
+                    {
+                        go.SetActive(isBG2Active);
+                    }
+                }
             }
             
             if (water != null)
@@ -149,6 +184,38 @@ public class GameManager : MonoBehaviourPunCallbacks
                 }
             }
         }
+    }
+
+    public bool IsFishingBackgroundActive()
+    {
+        Sprite currentBGSprite = selectedBGSprite != null ? selectedBGSprite : (mainBGImage != null ? mainBGImage.sprite : null);
+        return currentBGSprite != null && currentBGSprite.name.ToLowerInvariant().Contains(FishingBackgroundSpriteName);
+    }
+
+    public bool IsLargeFishingBackgroundActive()
+    {
+        Sprite currentBGSprite = selectedBGSprite != null ? selectedBGSprite : (mainBGImage != null ? mainBGImage.sprite : null);
+        return currentBGSprite != null && currentBGSprite.name.ToLowerInvariant().Contains(LargeFishingBackgroundSpriteName);
+    }
+
+    public static Vector3 GetFishermanSpawnPosition(bool useFishingBackground, bool useLargeFishingBackground)
+    {
+        if (useLargeFishingBackground)
+        {
+            return LargeFishingBackgroundFishermanSpawnPosition;
+        }
+
+        return useFishingBackground ? FishingBackgroundFishermanSpawnPosition : DefaultFishermanSpawnPosition;
+    }
+
+    public static void ApplyFishermanMapTransform(GameObject fisherman, bool useFishingBackground, bool useLargeFishingBackground)
+    {
+        if (fisherman == null || (!useFishingBackground && !useLargeFishingBackground))
+        {
+            return;
+        }
+
+        fisherman.transform.localScale = FishingBackgroundFishermanScale;
     }
 
     void Start()
@@ -431,7 +498,9 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             myFish.GetComponent<FishController_Mirror>().RequestSpawnFisherman(
                 CosmeticRuntimeApplier.GetSelectedFishermanHatName(),
-                CosmeticRuntimeApplier.GetSelectedFishermanHairName());
+                CosmeticRuntimeApplier.GetSelectedFishermanHairName(),
+                IsFishingBackgroundActive(),
+                IsLargeFishingBackgroundActive());
         }
         else
         {
@@ -441,7 +510,10 @@ public class GameManager : MonoBehaviourPunCallbacks
                 CosmeticRuntimeApplier.GetSelectedFishermanHatName(),
                 CosmeticRuntimeApplier.GetSelectedFishermanHairName()
             };
-            GameObject fisherman = PhotonNetwork.Instantiate(fishermanPrefab.name, new Vector3(0f, 1.95f, 0f), Quaternion.identity, 0, fishermanSpawnData);
+            bool useFishingBackground = IsFishingBackgroundActive();
+            bool useLargeFishingBackground = IsLargeFishingBackgroundActive();
+            GameObject fisherman = PhotonNetwork.Instantiate(fishermanPrefab.name, GetFishermanSpawnPosition(useFishingBackground, useLargeFishingBackground), Quaternion.identity, 0, fishermanSpawnData);
+            ApplyFishermanMapTransform(fisherman, useFishingBackground, useLargeFishingBackground);
             FisherMan_Hungerbar.SetActive(false);
         }
     }
