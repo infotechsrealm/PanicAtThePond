@@ -117,4 +117,16 @@ public class ShopCosmeticSelector : MonoBehaviour
             Debug.Log($"[ShopCosmeticSelector] Changed element image of '{element.elementObject.name}' to '{newSprite.name}'");
         }
     }
+
+    /// <summary>
+    /// Resets the current selection, reverting the currently selected element to the unselected sprite.
+    /// </summary>
+    public void ResetSelection()
+    {
+        if (currentlySelectedElement != null)
+        {
+            UpdateImageSource(currentlySelectedElement, unselectedSprite);
+            currentlySelectedElement = null;
+        }
+    }
 }

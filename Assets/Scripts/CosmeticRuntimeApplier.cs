@@ -801,7 +801,24 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
         if (isDead)
         {
-            targetPos = new Vector3(-0.05f, -0.29f, -0.01f);
+            if (transform.parent != null && IsTroutFish(transform.parent.gameObject))
+            {
+                string hatName = cosmeticRenderer != null && cosmeticRenderer.sprite != null ? NormalizeSpriteName(cosmeticRenderer.sprite) : "";
+                switch (hatName)
+                {
+                    case "beret": targetPos = new Vector3(-0.05f, -0.111f, -0.01f); break;
+                    case "hat": targetPos = new Vector3(-0.05f, -0.133f, -0.01f); break;
+                    case "hat2": targetPos = new Vector3(-0.05f, -0.16f, -0.01f); break;
+                    case "cap": targetPos = new Vector3(-0.05f, -0.10f, -0.01f); break;
+                    case "paperboat": targetPos = new Vector3(-0.05f, -0.135f, -0.01f); break;
+                    case "fishermanhatdefaultfishinghat": targetPos = new Vector3(-0.05f, -0.10f, -0.01f); break;
+                    default: targetPos = new Vector3(-0.05f, -0.11f, -0.01f); break;
+                }
+            }
+            else
+            {
+                targetPos = new Vector3(-0.05f, -0.29f, -0.01f);
+            }
             targetRot = new Vector3(180f, 0f, 0f);
         }
         else

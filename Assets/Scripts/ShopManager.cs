@@ -459,6 +459,7 @@ public class ShopManager : MonoBehaviour
         SetActiveIfNotNull(FishCosmeticPanel, false);
         CloseHatDropdown();
         ApplySelectedFishermanDisplayMode();
+        ResetAllCosmeticSelections();
     }
 
     public void SelectFishermanHatCategory()
@@ -472,6 +473,7 @@ public class ShopManager : MonoBehaviour
         SetActiveIfNotNull(FishCosmeticPanel, false);
         CloseHatDropdown();
         ApplySelectedFishermanDisplayMode();
+        ResetAllCosmeticSelections();
     }
 
     public void SelectFishHatCategory()
@@ -484,11 +486,21 @@ public class ShopManager : MonoBehaviour
         SetActiveIfNotNull(FishermanCosmeticPanel, false);
         CloseHatDropdown();
         ApplySelectedFishDisplayMode();
+        ResetAllCosmeticSelections();
     }
 
     public void HideFishFishermanDisplay()
     {
         SetDisplayMode(string.Empty, false, false, false);
+    }
+
+    private void ResetAllCosmeticSelections()
+    {
+        ShopCosmeticSelector[] selectors = FindObjectsOfType<ShopCosmeticSelector>(true);
+        foreach (var selector in selectors)
+        {
+            selector.ResetSelection();
+        }
     }
 
     public void OpenSaltShop()
