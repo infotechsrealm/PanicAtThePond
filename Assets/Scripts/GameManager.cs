@@ -64,9 +64,15 @@ public class GameManager : MonoBehaviourPunCallbacks
     public Image mainBGImage;
     public Sprite[] possibleBGSprites;
     public Sprite[] possibleWaterSprites;
+    [Tooltip("Animated GIF background (BG. 2.gif). Played only when the BG_2 map (possibleBGSprites[0]) is selected.")]
+    public AnimatedBackground bg2AnimatedBackground;
     private Sprite selectedBGSprite;
     private const string FishingBackgroundSpriteName = "background-fishing";
     private const string LargeFishingBackgroundSpriteName = "background-fishing-largemap";
+    // Per-map vertical position of the fisherman-side water overlay (RectTransform "Top" field).
+    // The LargeMap waterline sits much lower than BG_2's, so the Top edge differs per map.
+    private const float Bg2WaterTop = 15.49511f;
+    private const float LargeMapWaterTop = 1.999999f;
     private static readonly Vector3 DefaultFishermanSpawnPosition = new Vector3(0f, 1.95f, 0f);
     private static readonly Vector3 FishingBackgroundFishermanSpawnPosition = new Vector3(0f, 1.3f, 0f);
     private static readonly Vector3 LargeFishingBackgroundFishermanSpawnPosition = new Vector3(0f, 1.7f, 0f);
@@ -76,6 +82,12 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         Instance = this;
         AssignRandomBackground();
+
+        // The water overlay is fisherman-only: it must never be visible to fish-side players.
+        // It starts hidden for everyone and is only turned on for the local fisherman by
+        // FishermanController.ApplyVisibilityMode (via SetWaterVisible).
+        if (water != null)
+            water.SetActive(false);
 
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
@@ -137,40 +149,38 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public bool isBG2Active = false;
 
+
     private void AssignRandomBackground()
     {
-        if (possibleBGSprites != null && possibleBGSprites.Length > 0 && 
+        if (possibleBGSprites != null && possibleBGSprites.Length > 0 &&
             possibleWaterSprites != null && possibleWaterSprites.Length == possibleBGSprites.Length)
         {
-            // Use playAgainCount as a synchronized seed so both players get the exact same random map
-            int seed = 0;
-            if (GS.Instance != null)
-            {
-                seed = GS.Instance.playAgainCount * 1000;
-                if (!GS.Instance.isLan && PhotonNetwork.InRoom && PhotonNetwork.CurrentRoom != null)
-                    seed += PhotonNetwork.CurrentRoom.Name.GetHashCode();
-            }
-            if (seed != 0) Random.InitState(seed);
+            int randomIndex = ResolveSynchronizedBackgroundIndex(possibleBGSprites.Length);
 
-            int randomIndex = Random.Range(0, possibleBGSprites.Length);
-            
-            // Revert back to unseeded random for other game elements
-            Random.InitState((int)System.DateTime.Now.Ticks);
-            
             if (mainBGImage != null && possibleBGSprites[randomIndex] != null)
             {
                 selectedBGSprite = possibleBGSprites[randomIndex];
                 mainBGImage.sprite = selectedBGSprite;
-                
-                // Turn clouds on ONLY if the selected map is BG_2
+
                 isBG2Active = selectedBGSprite.name.Contains("BG_2");
-                
+
+                // BG_2 (possibleBGSprites[0]) uses the animated GIF background (BG. 2.gif).
+                // Enable the frame animation only for that map; otherwise leave the static sprite.
+                if (bg2AnimatedBackground != null)
+                {
+                    bg2AnimatedBackground.targetImage = mainBGImage;
+                    bg2AnimatedBackground.enabled = isBG2Active;
+                }
+
+                // Clouds (clouds_1_5 / clouds_1_0): always hidden. On BG_2 the animated GIF already
+                // contains its own sky/clouds (so the overlay objects are redundant and the user
+                // wants them off), and the LargeMap reference has no clouds either.
                 Scene activeScene = SceneManager.GetActiveScene();
                 foreach (GameObject go in activeScene.GetRootGameObjects())
                 {
                     if (go.name == "clouds_1_5" || go.name == "clouds_1_0")
                     {
-                        go.SetActive(isBG2Active);
+                        go.SetActive(false);
                     }
                 }
             }
@@ -182,7 +192,87 @@ public class GameManager : MonoBehaviourPunCallbacks
                 {
                     waterImg.sprite = possibleWaterSprites[randomIndex];
                 }
+
+                // Position the water overlay per map. The LargeMap (possibleBGSprites[1]) needs the
+                // RectTransform "Top" at ~2 to match the inspector reference; BG_2 keeps its taller
+                // Top. Only the Top edge changes (offsetMax.y = -Top); Left/Right/Bottom are kept.
+                RectTransform waterRect = water.GetComponent<RectTransform>();
+                if (waterRect != null)
+                {
+                    float waterTop = isBG2Active ? Bg2WaterTop : LargeMapWaterTop;
+                    Vector2 waterOffsetMax = waterRect.offsetMax;
+                    waterRect.offsetMax = new Vector2(waterOffsetMax.x, -waterTop);
+                }
             }
+        }
+    }
+
+    /// <summary>
+    /// Picks which entry of possibleBGSprites/possibleWaterSprites this match should use.
+    /// Offline (e.g. pressing Play directly in the Editor) it is a genuine per-session random
+    /// pick so the map actually changes. In a networked match every client must land on the
+    /// SAME index, so it is derived from values that are identical on all clients for the
+    /// current match instead of an unsynchronized Random call.
+    /// </summary>
+    private int ResolveSynchronizedBackgroundIndex(int count)
+    {
+        if (count <= 1)
+        {
+            return 0;
+        }
+
+        bool inPhotonRoom = GS.Instance != null && !GS.Instance.isLan
+            && PhotonNetwork.InRoom && PhotonNetwork.CurrentRoom != null;
+        bool inMirrorSession = GS.Instance != null && GS.Instance.isLan
+            && (NetworkServer.active || NetworkClient.active);
+
+        // Not networked: there is no other client to stay in sync with, so just roll a fresh
+        // random map. Unity seeds its RNG from system entropy each play session, so this varies
+        // every time you press Play in the Editor (the old code stayed stuck on index 0).
+        if (!inPhotonRoom && !inMirrorSession)
+        {
+            return Random.Range(0, count);
+        }
+
+        // Networked: derive the index deterministically from data that is the same on every
+        // client for this match. playAgainCount is incremented once per Play-scene load on all
+        // clients, so it matches across the lobby; mixing in a process-stable hash of the Photon
+        // room name makes different rooms pick different sequences while both players in the same
+        // room still agree. This needs no extra RPC/handshake, so there is no Awake-time race.
+        int matchNumber = GS.Instance != null ? GS.Instance.playAgainCount : 0;
+        int seed = matchNumber * 7919 + 104729;
+        if (inPhotonRoom)
+        {
+            seed = seed * 31 + StableStringHash(PhotonNetwork.CurrentRoom.Name);
+        }
+
+        Random.State previousState = Random.state;
+        Random.InitState(seed);
+        int index = Random.Range(0, count);
+        Random.state = previousState; // leave the global RNG untouched for all other systems
+        return index;
+    }
+
+    /// <summary>
+    /// Deterministic FNV-1a string hash. Unlike string.GetHashCode() this returns the same
+    /// value in every process/platform, so both players hash the room name to the same number.
+    /// </summary>
+    private static int StableStringHash(string value)
+    {
+        if (string.IsNullOrEmpty(value))
+        {
+            return 0;
+        }
+
+        unchecked
+        {
+            uint hash = 2166136261u;
+            for (int i = 0; i < value.Length; i++)
+            {
+                hash ^= value[i];
+                hash *= 16777619u;
+            }
+            return (int)hash;
         }
     }
 
@@ -200,6 +290,11 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public static Vector3 GetFishermanSpawnPosition(bool useFishingBackground, bool useLargeFishingBackground)
     {
+        if (GameManager.Instance != null && GameManager.Instance.isBG2Active)
+        {
+            return new Vector3(0f, 1.6f, 0f);
+        }
+
         if (useLargeFishingBackground)
         {
             return LargeFishingBackgroundFishermanSpawnPosition;
@@ -210,12 +305,12 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public static void ApplyFishermanMapTransform(GameObject fisherman, bool useFishingBackground, bool useLargeFishingBackground)
     {
-        if (fisherman == null || (!useFishingBackground && !useLargeFishingBackground))
+        if (fisherman == null)
         {
             return;
         }
 
-        fisherman.transform.localScale = FishingBackgroundFishermanScale;
+        fisherman.transform.localScale = Vector3.one;
     }
 
     void Start()

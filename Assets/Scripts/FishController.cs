@@ -87,6 +87,14 @@ public class FishController : MonoBehaviourPunCallbacks, IPunInstantiateMagicCal
 
         ApplyConfiguredFishSpeed();
 
+        // BG_2 map (possibleBGSprites[0]) has a lower waterline than the other maps, so cap the
+        // fish's vertical ceiling at -0.4 (prefab default is 0) to keep them below the surface.
+        // Only this background gets the override; every other map keeps its serialized maxBounds.
+        if (GameManager.Instance != null && GameManager.Instance.isBG2Active)
+        {
+            maxBounds = new Vector2(maxBounds.x, -0.4f);
+        }
+
         if (GS.Instance.isLan)
         {
             if (mirrorIdentity != null && mirrorIdentity.isLocalPlayer)

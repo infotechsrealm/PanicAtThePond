@@ -8806,13 +8806,12 @@ MonoBehaviour:
   water: {fileID: 2063048542}
   mainBGImage: {fileID: 1834361647}
   possibleBGSprites:
-  - {fileID: 21300000, guid: d3b97b184b3f7c4499c5c892d6586c24, type: 3}
-  - {fileID: 21300000, guid: b8104cc5a378116459b3ea31d67c0e84, type: 3}
   - {fileID: 2917249146457337290, guid: 42118fd81307ed04a98e9c45f0eece2c, type: 3}
+  - {fileID: 21300000, guid: b8104cc5a378116459b3ea31d67c0e84, type: 3}
   possibleWaterSprites:
-  - {fileID: 21300000, guid: d788124b102bc6a4aa5fcb71ba394c6c, type: 3}
-  - {fileID: 21300000, guid: 21a4e4c0761018b4cb6ade33ec44b794, type: 3}
   - {fileID: 21300000, guid: 62cf8444bc919344bb9390712befb11d, type: 3}
+  - {fileID: 21300000, guid: 21a4e4c0761018b4cb6ade33ec44b794, type: 3}
+  bg2AnimatedBackground: {fileID: 1834361649}
   isBG2Active: 0
 --- !u!4 &821744897
 Transform:
@@ -16674,6 +16673,7 @@ GameObject:
   - component: {fileID: 1834361643}
   - component: {fileID: 1834361648}
   - component: {fileID: 1834361647}
+  - component: {fileID: 1834361649}
   m_Layer: 5
   m_Name: BG
   m_TagString: Untagged
@@ -16801,6 +16801,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834361642}
   m_CullTransparentMesh: 1
+--- !u!114 &1834361649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834361642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa0d72ae94e92bd449975d74d03f5ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimatedBackground
+  targetImage: {fileID: 1834361647}
+  frames:
+  - {fileID: -2594081016450913638, guid: 7a4dee2b9aa78f04d8f90d33e06890b1, type: 3}
+  - {fileID: 5119715563131460787, guid: 116c9cc27532b8a479b48cc14465ec81, type: 3}
+  - {fileID: 5936351408800278155, guid: 4e5ab85568fb3a54ea823a494ef69359, type: 3}
+  - {fileID: -6580548956669363862, guid: 379ec0652abaa5142ac1bf86fb554bc8, type: 3}
+  - {fileID: 7450947384784969411, guid: d4f9c9d4e6ea6fc499623750fcd5a2a5, type: 3}
+  - {fileID: 4227289079846606804, guid: c3d4fe5fc00ea304f81f0994223d892d, type: 3}
+  - {fileID: -4627294407429122786, guid: 2cfde4ac71a77764880e963ce7794791, type: 3}
+  - {fileID: -4774726343317289778, guid: e4f1ea2ca6fed2f49b80e83d9e944e93, type: 3}
+  framesPerSecond: 10
+  loop: 1
+  useUnscaledTime: 1
 --- !u!1 &1840671069
 GameObject:
   m_ObjectHideFlags: 0
@@ -17064,7 +17089,7 @@ MonoBehaviour:
   goldFish: {fileID: 1502157577693095812, guid: 93e14ea75ca6f264c810f2d3536adbf6, type: 3}
   spawnInterval: 3
   xRange: 8
-  yRange: 4
+  yRange: 10
   canSpawn: 1
 --- !u!4 &1887113705
 Transform:
@@ -17995,7 +18020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2063048543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18012,8 +18037,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.536}
-  m_AnchoredPosition: {x: 0, y: -0.5}
-  m_SizeDelta: {x: 0, y: -1}
+  m_AnchoredPosition: {x: 0, y: -7.7475586}
+  m_SizeDelta: {x: 0, y: -15.4951}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2063048544
 MonoBehaviour:
@@ -18035,7 +18060,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d788124b102bc6a4aa5fcb71ba394c6c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 62cf8444bc919344bb9390712befb11d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -75,8 +75,8 @@ public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMag
         {
             if (GameManager.Instance.isBG2Active)
             {
-                transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
-                transform.position = new Vector3(transform.position.x, 1.28f, transform.position.z);
+                transform.localScale = new Vector3(1f, 1f, 1f);
+                transform.position = new Vector3(transform.position.x, 1.6f, transform.position.z);
                 maxX = 6f;
             }
             else if (GameManager.Instance.IsLargeFishingBackgroundActive())
@@ -228,10 +228,8 @@ public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMag
             return;
         }
 
-        if (gameManager.water != null)
-        {
-            gameManager.water.SetActive(false);
-        }
+        // Water overlay is fisherman-only; SetWaterVisible keeps it off for every fish-side client.
+        SetWaterVisible(gameManager, false);
 
         if (gameManager.sky != null)
         {
@@ -244,8 +242,7 @@ public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMag
             if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan )
             {
                 // Enable background 3
-                if (gameManager.water != null)
-                    gameManager.water.SetActive(false);
+                SetWaterVisible(gameManager, false);
             }
             else
             {
@@ -261,8 +258,7 @@ public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMag
             if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan)
             {
                 // Enable background 3
-                if (gameManager.water != null)
-                    gameManager.water.SetActive(true);
+                SetWaterVisible(gameManager, true);
             }
             else
             {
@@ -275,13 +271,12 @@ public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMag
         //Fish can see the fisherman, but he can’t see them.
         if (GS.Instance.MurkyWaters)
         {
-            
+
 
             if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan)
             {
                 // Enable background 3
-                if (gameManager.water != null)
-                    gameManager.water.SetActive(true);
+                SetWaterVisible(gameManager, true);
             }
             else
             {
@@ -297,8 +292,7 @@ public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMag
             if (PhotonNetwork.IsMasterClient || GameManager.Instance.isFisherMan)
             {
                 // Enable background 3
-                if (gameManager.water != null)
-                    gameManager.water.SetActive(false);
+                SetWaterVisible(gameManager, false);
             }
             else
             {
@@ -307,6 +301,20 @@ public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMag
                     gameManager.sky.SetActive(true);
             }
         }
+    }
+
+    /// <summary>
+    /// Toggles the shared water overlay, but guarantees it can only ever be turned ON for the
+    /// player who is the fisherman. On every fish-side client the overlay stays hidden no matter
+    /// what the active water visibility mode requests. Passing active=false always hides it.
+    /// </summary>
+    private void SetWaterVisible(GameManager gameManager, bool active)
+    {
+        if (gameManager == null || gameManager.water == null)
+            return;
+
+        bool isLocalFisherman = GameManager.Instance != null && GameManager.Instance.isFisherMan;
+        gameManager.water.SetActive(active && isLocalFisherman);
     }
 
     IEnumerator PlayCricketRandomly()

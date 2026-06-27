@@ -42,19 +42,19 @@ public class HoverTooltipManager : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "Dash")
             {
-                rt.anchoredPosition = new Vector2(90f, -290f);
-                rt.sizeDelta = new Vector2(400f, 130f);
+                rt.anchoredPosition = new Vector2(90f, -284.52f);
+                rt.sizeDelta = new Vector2(400f, 175.44f);
                 rt.localScale = new Vector3(1.593115f, 1.593115f, 1f);
             }
             else
             {
-                rt.anchoredPosition = new Vector2(58.6f, -140f);
-                rt.sizeDelta = new Vector2(458f, 215f);
+                rt.anchoredPosition = new Vector2(85f, -135f);
+                rt.sizeDelta = new Vector2(530f, 240f);
                 rt.localScale = new Vector3(0.7f, 0.7f, 0.43939f);
             }
             
-            tooltipText.text = "Game Terms\nGamemode The type of game you choose to play (e.g., Quick Cast,\nDeep Sea Fishing, Survival).\nMatch A full play session of a selected gamemode, made up of\nmultiple rounds. The match ends when the number of rounds have\nfully been played through.\nRound A single segment of gameplay within a match. Players\ncompete in those rounds";
-            tooltipText.fontStyle = FontStyle.Bold;
+            tooltipText.text = "<b>Game Terms (Info Text)</b>\n\n<b>Gamemode</b>\nThe type of game you choose to play (e.g., Quick Cast, Deep Sea Fishing, Survival).\n\n<b>Match</b>\nA full play session of a selected gamemode, made up of multiple rounds. The match ends when the number of rounds have fully been played through.\n\n<b>Round</b>\nA single segment of gameplay within a match. Players compete in those rounds.";
+            tooltipText.fontStyle = FontStyle.Normal;
         }
         else
         {
@@ -85,19 +85,19 @@ public class HoverTooltipManager : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "Dash")
             {
-                rt.anchoredPosition = new Vector2(90f, -290f);
-                rt.sizeDelta = new Vector2(400f, 130f);
+                rt.anchoredPosition = new Vector2(90f, -284.52f);
+                rt.sizeDelta = new Vector2(400f, 175.44f);
                 rt.localScale = new Vector3(1.593115f, 1.593115f, 1f);
             }
             else
             {
-                rt.anchoredPosition = new Vector2(58.6f, -140f);
-                rt.sizeDelta = new Vector2(458f, 215f);
+                rt.anchoredPosition = new Vector2(85f, -135f);
+                rt.sizeDelta = new Vector2(530f, 240f);
                 rt.localScale = new Vector3(0.7f, 0.7f, 0.43939f);
             }
             
-            tooltipText.text = "Game Terms\nGamemode The type of game you choose to play (e.g., Quick Cast,\nDeep Sea Fishing, Survival).\nMatch A full play session of a selected gamemode, made up of\nmultiple rounds. The match ends when the number of rounds have\nfully been played through.\nRound A single segment of gameplay within a match. Players\ncompete in those rounds";
-            tooltipText.fontStyle = FontStyle.Bold;
+            tooltipText.text = "<b>Game Terms (Info Text)</b>\n\n<b>Gamemode</b>\nThe type of game you choose to play (e.g., Quick Cast, Deep Sea Fishing, Survival).\n\n<b>Match</b>\nA full play session of a selected gamemode, made up of multiple rounds. The match ends when the number of rounds have fully been played through.\n\n<b>Round</b>\nA single segment of gameplay within a match. Players compete in those rounds.";
+            tooltipText.fontStyle = FontStyle.Normal;
         }
         else
         {
