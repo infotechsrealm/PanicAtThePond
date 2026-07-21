@@ -449,7 +449,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     void SpawnPlayer()
     {
         Debug.Log("GS.Instance.isLan = > " + GS.Instance.isLan);
-        GameObject selectedFishPrefab = ResolveSelectedFishPrefab();
 
         if (GS.Instance.isLan)
         {
@@ -460,8 +459,12 @@ public class GameManager : MonoBehaviourPunCallbacks
                     float x = Random.Range(minBounds.x, maxBounds.x);
                     float y = Random.Range(minBounds.y, maxBounds.y);
                     Vector3 spawnPos = new Vector3(x, y, 0);
-                    GameObject fish = Instantiate(selectedFishPrefab, spawnPos, Quaternion.identity);
-                    ApplySelectedFishTransform(fish);
+                    // Per-player cosmetics (PDF 1.1.8): never spawn the HOST's selected fish
+                    // prefab/scale for other players. Every connection gets the registered base
+                    // Fish prefab; each owning client then pushes its own species/hat via
+                    // FishController_Mirror.CmdSetFishSpecies / CmdSetHat (OnStartLocalPlayer),
+                    // which re-skins and re-scales that fish for everyone.
+                    GameObject fish = Instantiate(fishPrefab, spawnPos, Quaternion.identity);
                     fishes.Add(fish);
                     NetworkServer.AddPlayerForConnection(conn, fish);
                 }
@@ -469,7 +472,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            // Spawn Fish
+            // Photon: each client instantiates its OWN fish, so resolving the locally selected
+            // prefab here is per-player already.
+            GameObject selectedFishPrefab = ResolveSelectedFishPrefab();
+
             float x = Random.Range(minBounds.x, maxBounds.x);
             float y = Random.Range(minBounds.y, maxBounds.y);
             Vector3 spawnPos = new Vector3(x, y, 0);

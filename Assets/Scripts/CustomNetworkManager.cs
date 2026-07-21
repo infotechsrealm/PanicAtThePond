@@ -45,6 +45,12 @@ public struct ScoreSystemConfigMessage : NetworkMessage
     public string wormSpawnRate;
 }
 
+public struct SaltShopStateMessage : NetworkMessage
+{
+    // Resolved SaltShopState as JSON. Sent by the host so clients never compute the shop locally.
+    public string stateJson;
+}
+
 public class CustomNetworkManager : NetworkManager
 {
     private Dictionary<int, string> playerNames = new Dictionary<int, string>();
@@ -95,6 +101,12 @@ public class CustomNetworkManager : NetworkManager
             NetworkClient.RegisterHandler<GameModeMessage>(OnReceiveGameMode_Client);
             NetworkClient.RegisterHandler<ScoreSystemConfigMessage>(OnReceiveScoreSystemSettings_Client);
         }
+        NetworkClient.RegisterHandler<SaltShopStateMessage>(OnReceiveSaltShopState_Client);
+    }
+
+    private void OnReceiveSaltShopState_Client(SaltShopStateMessage msg)
+    {
+        SaltShopClientState.ApplyServerState(msg.stateJson);
     }
 
     // ----------- CLIENT RECEIVE -----------
@@ -202,6 +214,14 @@ public class CustomNetworkManager : NetworkManager
             GameModeMessage modeMsg = new GameModeMessage { gameMode = GS.Instance.currentGameMode };
             conn.Send(modeMsg);
             conn.Send(CreateScoreSystemConfigMessage(GS.Instance.scoreSystemSettings));
+
+            // Server-authoritative Sal-T shop: the host resolves the rotation from
+            // shop_config.json and pushes it; the client displays exactly this payload.
+            SaltShopState shopState = SaltShopService.ResolveCurrentShop();
+            if (shopState != null)
+            {
+                conn.Send(new SaltShopStateMessage { stateJson = shopState.ToJson() });
+            }
         }
     }
 
@@ -413,6 +433,9 @@ public class CustomNetworkManager : NetworkManager
         base.OnClientDisconnect();
 
         Debug.Log("🚨 Host disconnected or connection lost.");
+
+        // Drop the session's shop payload so a stale host rotation can't linger after leaving.
+        SaltShopClientState.ClearServerState();
 
         if (LANDiscoveryMenu.Instance != null)
         {

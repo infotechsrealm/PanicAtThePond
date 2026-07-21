@@ -102,6 +102,59 @@ public class PlayFabManager : MonoBehaviour
         });
     }
 
+    public void SubtractCurrency(int amount, Action<int> onSuccess = null, Action<string> onFailure = null)
+    {
+        if (!IsLoggedIn)
+        {
+            Debug.LogWarning("SubtractCurrency called before login finished.");
+            onFailure?.Invoke("Not logged in");
+            return;
+        }
+
+        var request = new SubtractUserVirtualCurrencyRequest
+        {
+            VirtualCurrency = "WC",
+            Amount = amount
+        };
+
+        PlayFabClientAPI.SubtractUserVirtualCurrency(request, result =>
+        {
+            Debug.Log($"Spent {amount} Worm Coins. New balance: {result.Balance}");
+            onSuccess?.Invoke(result.Balance);
+        }, error =>
+        {
+            Debug.LogError("Error spending Worm Coins: " + error.GenerateErrorReport());
+            onFailure?.Invoke(error.ErrorMessage);
+        });
+    }
+
+    public void GetUserData(Action<Dictionary<string, string>> onSuccess)
+    {
+        if (!IsLoggedIn)
+        {
+            Debug.LogWarning("GetUserData called before login finished.");
+            onSuccess?.Invoke(null);
+            return;
+        }
+
+        PlayFabClientAPI.GetUserData(new GetUserDataRequest(), result =>
+        {
+            var data = new Dictionary<string, string>();
+            if (result.Data != null)
+            {
+                foreach (var pair in result.Data)
+                {
+                    data[pair.Key] = pair.Value.Value;
+                }
+            }
+            onSuccess?.Invoke(data);
+        }, error =>
+        {
+            Debug.LogError("Error fetching PlayFab user data: " + error.GenerateErrorReport());
+            onSuccess?.Invoke(null);
+        });
+    }
+
     public void GetCurrency(Action<int> onSuccess)
     {
         if (!IsLoggedIn)

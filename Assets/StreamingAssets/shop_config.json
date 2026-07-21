@@ -1,0 +1,126 @@
+{
+  "configVersion": 1,
+  "currency": "WC",
+  "rotationSlots": 3,
+  "rotationIntervalHours": 24,
+  "rotationSeedSalt": 7741,
+  "hats": [
+    {
+      "id": "FisherMan_Hat_-Blue_Cap",
+      "displayName": "Blue Cap",
+      "category": "fisherman_hat",
+      "price": 200,
+      "iconResource": "ShopUI/FisherMan_Hat_-Blue_Cap",
+      "inRotation": true,
+      "unlockedByDefault": false
+    },
+    {
+      "id": "FisherMan_Hat_-Red_Cap",
+      "displayName": "Red Cap",
+      "category": "fisherman_hat",
+      "price": 200,
+      "iconResource": "ShopUI/FisherMan_Hat_-Red_Cap",
+      "inRotation": true,
+      "unlockedByDefault": false
+    },
+    {
+      "id": "FisherMan_Hat_-Chef_Hat",
+      "displayName": "Chef Hat",
+      "category": "fisherman_hat",
+      "price": 500,
+      "iconResource": "ShopUI/FisherMan_Hat_-Chef_Hat",
+      "inRotation": true,
+      "unlockedByDefault": false
+    },
+    {
+      "id": "FisherMan_Hat_-Ranger_Hat",
+      "displayName": "Ranger Hat",
+      "category": "fisherman_hat",
+      "price": 500,
+      "iconResource": "ShopUI/FisherMan_Hat_-Ranger_Hat",
+      "inRotation": true,
+      "unlockedByDefault": false
+    },
+    {
+      "id": "FisherMan_Hat_-Soda_Hat",
+      "displayName": "Soda Hat",
+      "category": "fisherman_hat",
+      "price": 1000,
+      "iconResource": "ShopUI/FisherMan_Hat_-Soda_Hat",
+      "inRotation": true,
+      "unlockedByDefault": false
+    },
+    {
+      "id": "FisherMan_Hat_-Fish_Hat",
+      "displayName": "Fish Hat",
+      "category": "fisherman_hat",
+      "price": 1000,
+      "iconResource": "ShopUI/FisherMan_Hat_-Fish_Hat",
+      "inRotation": true,
+      "unlockedByDefault": false
+    },
+    {
+      "id": "TurtleHat",
+      "displayName": "Turtle Hat",
+      "category": "fisherman_hat",
+      "price": 1000,
+      "iconResource": "ShopUI/TurtleHat",
+      "inRotation": true,
+      "unlockedByDefault": false
+    },
+    {
+      "id": "FisherMan_Hat_-Default_-_Fishing_Hat",
+      "displayName": "Fishing Hat",
+      "category": "fisherman_hat",
+      "price": 0,
+      "iconResource": "ShopUI/FisherMan_Hat_-Default_-_Fishing_Hat",
+      "inRotation": false,
+      "unlockedByDefault": true
+    },
+    {
+      "id": "paper_boat",
+      "displayName": "Paper Boat Hat",
+      "category": "fish_hat",
+      "price": 200,
+      "iconResource": "ShopUI/paper_boat",
+      "inRotation": true,
+      "unlockedByDefault": false
+    },
+    {
+      "id": "cap",
+      "displayName": "Cap",
+      "category": "fish_hat",
+      "price": 200,
+      "iconResource": "ShopUI/cap",
+      "inRotation": true,
+      "unlockedByDefault": false
+    },
+    {
+      "id": "hat",
+      "displayName": "Orange Hat",
+      "category": "fish_hat",
+      "price": 500,
+      "iconResource": "ShopUI/hat",
+      "inRotation": true,
+      "unlockedByDefault": false
+    },
+    {
+      "id": "hat2",
+      "displayName": "Top Hat",
+      "category": "fish_hat",
+      "price": 500,
+      "iconResource": "ShopUI/hat2",
+      "inRotation": true,
+      "unlockedByDefault": false
+    },
+    {
+      "id": "beret",
+      "displayName": "Beret",
+      "category": "fish_hat",
+      "price": 1000,
+      "iconResource": "ShopUI/beret",
+      "inRotation": true,
+      "unlockedByDefault": false
+    }
+  ]
+}

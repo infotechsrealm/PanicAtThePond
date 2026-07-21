@@ -97,7 +97,7 @@ Read the /unity-initial-setup skill for detailed installation instructions.
           "type": "string"
         },
         "instanceId": {
-          "type": "integer"
+          "$ref": "#/$defs/UnityEngine.EntityId"
         },
         "name": {
           "type": "string"
@@ -106,6 +106,10 @@ Read the /unity-initial-setup skill for detailed installation instructions.
       "required": [
         "instanceId"
       ]
+    },
+    "UnityEngine.EntityId": {
+      "type": "string",
+      "pattern": "^[0-9]+$"
     },
     "System.Collections.Generic.List(System.String)": {
       "type": "array",

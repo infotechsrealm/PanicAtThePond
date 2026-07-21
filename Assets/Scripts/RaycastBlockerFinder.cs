@@ -57,7 +57,7 @@ public class RaycastBlockerFinder : MonoBehaviour
             Debug.Log($"INPUT FIELD: {inputField.name}");
             Debug.Log($"  World Pos: {inputRect.position}");
             Debug.Log($"  Size: {inputRect.rect.size}");
-            Debug.Log($"  Raycast Target: {(inputGraphic != null ? inputGraphic.raycastTarget : "N/A")}");
+            Debug.Log($"  Raycast Target: {(inputGraphic != null ? inputGraphic.raycastTarget.ToString() : "N/A")}");
             
             // Check what's in front of it
             List<Graphic> blockingGraphics = new List<Graphic>();

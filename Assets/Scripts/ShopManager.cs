@@ -180,6 +180,7 @@ public class ShopManager : MonoBehaviour
     private string selectedFishDisplayMode = FishDisplayModeSpecies;
     private string selectedFishermanDisplayMode = FishermanDisplayModeHat;
     private LocalPlayManager shopLocalPlayManager;
+    private SaltShopUI saltShopUI;
     private bool useLegacyHatDropdownLabel;
     private bool isEnteringShop = false;
 
@@ -229,6 +230,8 @@ public class ShopManager : MonoBehaviour
         AddButtonListener(FishermanFaceButton, SelectFishermanHairCategory);
         AddButtonListener(FishermanHatButton, SelectFishermanHatCategory);
         AddButtonListener(SaltShopButton, OpenSaltShop);
+        // Despite the field name, this is wired to "CloseButton (Legacy)" in the Dash scene, so it
+        // keeps its close behaviour. The PDF's Back / Close signs are built by SaltShopUI.
         AddButtonListener(SaltShopBackButton, CloseSaltShop);
 
         RegisterCosmeticItemButtons();
@@ -248,10 +251,100 @@ public class ShopManager : MonoBehaviour
         StartCoroutine(FetchCoinsForShop());
         LoadDiagramPreviewSprite();
         RefreshBottomRightPreview();
+        ApplySaltShopSignSprite();
+        UpdateCosmeticLockOverlays();
+        CosmeticUnlocks.OnUnlocksChanged += UpdateCosmeticLockOverlays;
+    }
+
+    /// <summary>
+    /// PDF 1.1.8: the customization screen's shop button now uses the pixel "sal-T shop" sign.
+    /// The sprite lives in Resources/ShopUI/SaltShop; if it is missing the old art stays.
+    /// </summary>
+    private void ApplySaltShopSignSprite()
+    {
+        if (SaltShopButton == null)
+        {
+            return;
+        }
+
+        Sprite signSprite = Resources.Load<Sprite>("ShopUI/SaltShop/salt_shop_sign");
+        Image buttonImage = SaltShopButton.image != null
+            ? SaltShopButton.image
+            : SaltShopButton.GetComponent<Image>();
+        if (signSprite != null && buttonImage != null)
+        {
+            buttonImage.sprite = signSprite;
+            buttonImage.preserveAspect = true;
+        }
+    }
+
+    /// <summary>
+    /// PDF 1.1.8 "new skull": overlays the skull padlock on every customization hat cell whose
+    /// hat is priced in shop_config.json and not yet unlocked. Locked hats cannot be equipped.
+    /// </summary>
+    private void UpdateCosmeticLockOverlays()
+    {
+        UpdateCosmeticLockOverlays(fishCosmeticItemButtons);
+        UpdateCosmeticLockOverlays(fishermanCosmeticItemButtons);
+    }
+
+    private void UpdateCosmeticLockOverlays(List<Button> buttons)
+    {
+        if (buttons == null)
+        {
+            return;
+        }
+
+        Sprite lockSprite = Resources.Load<Sprite>("ShopUI/SaltShop/lock");
+        for (int i = 0; i < buttons.Count; i++)
+        {
+            Button button = buttons[i];
+            if (button == null)
+            {
+                continue;
+            }
+
+            Sprite sprite = GetButtonSprite(button);
+            bool locked = sprite != null && IsHatLockedInShop(sprite.name);
+
+            Transform existing = button.transform.Find("Locked Hat Skull");
+            if (locked && existing == null && lockSprite != null)
+            {
+                GameObject overlayGo = new GameObject("Locked Hat Skull", typeof(RectTransform));
+                RectTransform overlayRect = (RectTransform)overlayGo.transform;
+                overlayRect.SetParent(button.transform, false);
+                overlayRect.anchorMin = new Vector2(0.5f, 0.5f);
+                overlayRect.anchorMax = new Vector2(0.5f, 0.5f);
+                overlayRect.anchoredPosition = Vector2.zero;
+                overlayRect.sizeDelta = new Vector2(42f, 58f);
+                Image overlayImage = overlayGo.AddComponent<Image>();
+                overlayImage.sprite = lockSprite;
+                overlayImage.preserveAspect = true;
+                overlayImage.raycastTarget = false;
+                overlayRect.SetAsLastSibling();
+            }
+            else if (!locked && existing != null)
+            {
+                Destroy(existing.gameObject);
+            }
+        }
+    }
+
+    private static bool IsHatLockedInShop(string hatId)
+    {
+        ShopConfig config = ShopConfig.Load();
+        if (config == null)
+        {
+            return false; // without a config nothing is treated as purchasable/locked
+        }
+
+        ShopConfig.HatEntry entry = config.FindHat(hatId);
+        return entry != null && !entry.unlockedByDefault && !CosmeticUnlocks.IsUnlocked(hatId);
     }
 
     private void OnDestroy()
     {
+        CosmeticUnlocks.OnUnlocksChanged -= UpdateCosmeticLockOverlays;
         RemoveButtonListener(HatButton, HatShopUI);
         RemoveButtonListener(RoadButton, RoadShopUI);
         RemoveButtonListener(BackHatButton, BackHatPanelUI);
@@ -514,8 +607,40 @@ public class ShopManager : MonoBehaviour
         SetActiveIfNotNull(FishermanHatObject, false);
         CloseFishFishermanDropdown();
         PlaySaltShopGif();
+        OpenSaltShopStoreFront();
     }
 
+    /// <summary>
+    /// Attaches/refreshes the JSON-driven store front (rotation items, prices, buy popup) on top
+    /// of the Sal-T shop background. Content comes from SaltShopClientState (server payload).
+    /// </summary>
+    private void OpenSaltShopStoreFront()
+    {
+        if (SaltShopPanel == null)
+        {
+            return;
+        }
+
+        if (saltShopUI == null)
+        {
+            saltShopUI = SaltShopPanel.GetComponent<SaltShopUI>();
+            if (saltShopUI == null)
+            {
+                saltShopUI = SaltShopPanel.AddComponent<SaltShopUI>();
+            }
+        }
+
+        saltShopUI.Open(this);
+    }
+
+    /// <summary>PDF 1.1.8: the Back sign returns to the last page (the customization screen).</summary>
+    public void BackFromSaltShop()
+    {
+        SetActiveIfNotNull(SaltShopPanel, false);
+        SetActiveIfNotNull(FishFishermanCosmeticPanel, true);
+    }
+
+    /// <summary>PDF 1.1.8: the Close sign returns all the way to the lobby.</summary>
     public void CloseSaltShop()
     {
         SetActiveIfNotNull(SaltShopPanel, false);
@@ -1707,6 +1832,14 @@ public class ShopManager : MonoBehaviour
     {
         if (selectedButton == null)
         {
+            return;
+        }
+
+        // Hats still locked in the Sal-T shop can't be equipped — the cell shows the skull padlock.
+        Sprite candidateSprite = GetButtonSprite(selectedButton);
+        if (candidateSprite != null && IsHatLockedInShop(candidateSprite.name))
+        {
+            Debug.Log($"[ShopManager] '{candidateSprite.name}' is locked — buy it in the Sal-T shop first.");
             return;
         }
 
