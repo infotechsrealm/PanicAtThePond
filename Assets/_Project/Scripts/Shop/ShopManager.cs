@@ -155,6 +155,22 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject SaltShopPanel;
     public Button SaltShopBackButton;
 
+    /// <summary>Name of the runtime-created padlock overlay on locked cosmetic cells.</summary>
+    private const string LockedHatSkullName = "Locked Hat Skull";
+
+    /// <summary>Fallback aspect for the padlock sprite (lock.png is 185x280) if it reports no height.</summary>
+    private const float DefaultLockSpriteAspect = 0.66f;
+
+    /// <summary>Scales below this are treated as degenerate to avoid divide-by-zero sizing.</summary>
+    private const float MinimumUsableScale = 0.0001f;
+
+    [Header("Locked Cosmetic Overlay")]
+    [Tooltip("On-screen height of the 'Locked Hat Skull' padlock, in canvas units. Applied " +
+             "identically in the Fish and Fisherman cosmetic panels, independent of each cell's " +
+             "own rect and scale. The uniform cosmetic slot box is ~163 canvas units tall, so 114 " +
+             "is the ~70% the overlay was originally meant to occupy.")]
+    [SerializeField] private float lockedSkullCanvasHeight = 114f;
+
     [Header("Animated Shop GIF")]
     public bool autoAnimateFishingshopGif = true;
     [SerializeField] private Image SaltShopAnimatedImage;
@@ -379,32 +395,100 @@ public class ShopManager : MonoBehaviour
             Sprite sprite = GetButtonSprite(button);
             bool locked = sprite != null && IsHatLockedInShop(sprite.name);
 
-            Transform existing = button.transform.Find("Locked Hat Skull");
-            if (locked && existing == null && lockSprite != null)
+            Transform existing = button.transform.Find(LockedHatSkullName);
+            if (locked)
             {
-                GameObject overlayGo = new GameObject("Locked Hat Skull", typeof(RectTransform));
-                RectTransform overlayRect = (RectTransform)overlayGo.transform;
-                overlayRect.SetParent(button.transform, false);
-                overlayRect.anchorMin = new Vector2(0.5f, 0.5f);
-                overlayRect.anchorMax = new Vector2(0.5f, 0.5f);
-                overlayRect.anchoredPosition = Vector2.zero;
-                // Size to the skull's own aspect (lock.png is 185x280) at ~70% of the cell height,
-                // so preserveAspect doesn't letterbox it into a smaller graphic than configured.
-                RectTransform cellRect = (RectTransform)button.transform;
-                float skullHeight = Mathf.Max(24f, cellRect.rect.height * 0.7f);
-                float skullAspect = lockSprite.rect.height > 0f ? lockSprite.rect.width / lockSprite.rect.height : 0.66f;
-                overlayRect.sizeDelta = new Vector2(skullHeight * skullAspect, skullHeight);
-                Image overlayImage = overlayGo.AddComponent<Image>();
-                overlayImage.sprite = lockSprite;
-                overlayImage.preserveAspect = true;
-                overlayImage.raycastTarget = false;
-                overlayRect.SetAsLastSibling();
+                if (existing == null && lockSprite != null)
+                {
+                    GameObject overlayGo = new GameObject(LockedHatSkullName, typeof(RectTransform));
+                    RectTransform newRect = (RectTransform)overlayGo.transform;
+                    newRect.SetParent(button.transform, false);
+                    newRect.anchorMin = new Vector2(0.5f, 0.5f);
+                    newRect.anchorMax = new Vector2(0.5f, 0.5f);
+                    newRect.anchoredPosition = Vector2.zero;
+                    newRect.localScale = Vector3.one;
+                    Image overlayImage = overlayGo.AddComponent<Image>();
+                    overlayImage.sprite = lockSprite;
+                    overlayImage.preserveAspect = true;
+                    overlayImage.raycastTarget = false;
+                    newRect.SetAsLastSibling();
+                    existing = newRect;
+                }
+
+                // Re-applied every refresh, not just on creation: overlays spawned before this ran
+                // would otherwise keep whatever size they were first given.
+                ApplyLockedSkullSize(existing as RectTransform, lockSprite);
             }
-            else if (!locked && existing != null)
+            else if (existing != null)
             {
                 Destroy(existing.gameObject);
             }
         }
+    }
+
+    /// <summary>
+    /// Sizes the locked-hat skull so it renders at the same on-screen height in every cosmetic
+    /// cell, in both the Fish and Fisherman panels.
+    ///
+    /// <para>This has to divide out the parent cell's scale. The cosmetic cells are hand-authored
+    /// and carry wildly different — and <b>non-uniform</b> — local scales (roughly 0.47x to 2.5x,
+    /// with x != y). The previous implementation sized the overlay from the cell's own rect, so it
+    /// inherited that scale: skulls rendered anywhere from ~56 to ~172 canvas units tall and were
+    /// stretched differently in each cell. Compensating per-axis fixes both the size and the
+    /// distortion.</para>
+    /// </summary>
+    /// <param name="overlayRect">The skull overlay's RectTransform. Ignored when null.</param>
+    /// <param name="lockSprite">The padlock sprite, used for its aspect ratio. Ignored when null.</param>
+    private void ApplyLockedSkullSize(RectTransform overlayRect, Sprite lockSprite)
+    {
+        if (overlayRect == null || lockSprite == null)
+        {
+            return;
+        }
+
+        Transform parent = overlayRect.parent;
+        if (parent == null)
+        {
+            return;
+        }
+
+        Canvas canvas = overlayRect.GetComponentInParent<Canvas>();
+        Transform canvasTransform = canvas != null ? canvas.rootCanvas.transform : null;
+        Vector3 canvasScale = canvasTransform != null ? canvasTransform.lossyScale : Vector3.one;
+        Vector3 parentScale = parent.lossyScale;
+
+        // Cancel any rotation the cell carries. 'cosmeteic Orange hat' sits at -32.58 degrees while
+        // every other cell is 0, which tilted only that cell's padlock. Matching the canvas's world
+        // rotation keeps the skull upright no matter how the cell beneath it is oriented.
+        overlayRect.rotation = canvasTransform != null ? canvasTransform.rotation : Quaternion.identity;
+
+        // The cell's scale expressed in canvas units. Dividing by it makes the rendered size depend
+        // only on lockedSkullCanvasHeight, never on the cell.
+        float ratioX = SafeScaleRatio(parentScale.x, canvasScale.x);
+        float ratioY = SafeScaleRatio(parentScale.y, canvasScale.y);
+
+        float aspect = lockSprite.rect.height > 0f
+            ? lockSprite.rect.width / lockSprite.rect.height
+            : DefaultLockSpriteAspect;
+
+        float height = Mathf.Max(1f, lockedSkullCanvasHeight);
+        overlayRect.localScale = Vector3.one;
+        overlayRect.sizeDelta = new Vector2(height * aspect / ratioX, height / ratioY);
+    }
+
+    /// <summary>
+    /// Returns <paramref name="scale"/> relative to <paramref name="reference"/>, guarding against
+    /// the degenerate zero/near-zero scales that would otherwise produce an infinite sizeDelta.
+    /// </summary>
+    private static float SafeScaleRatio(float scale, float reference)
+    {
+        if (Mathf.Abs(reference) < MinimumUsableScale)
+        {
+            return 1f;
+        }
+
+        float ratio = scale / reference;
+        return Mathf.Abs(ratio) < MinimumUsableScale ? 1f : ratio;
     }
 
     private static bool IsHatLockedInShop(string hatId)
