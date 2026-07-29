@@ -277,7 +277,7 @@ public class Hook : MonoBehaviourPunCallbacks
         if (!isReturning && PhotonNetwork.IsMasterClient || !isReturning && GameManager.Instance.isFisherMan)
         {
             GS.Instance.SetSFXVolume(hookBack);
-            hookBack.Play();
+            AudioManager.PlaySource(hookBack);
             isReturning = true;
             Vector3 target = GetRodTipPosition(rodTip);
 
@@ -415,7 +415,11 @@ public class Hook : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            FishermanController fc = Object.FindFirstObjectByType<FishermanController>();
+            // Use the cached reference (set in Awake/Update) and fall back to the singleton.
+            // Avoids a scene-wide search, and is deterministic where FindFirstObjectByType was not.
+            FishermanController fc = fishermanController != null
+                ? fishermanController
+                : FishermanController.Instance;
             if (fc != null)
             {
                 fc.ClearHookReference(this.gameObject);

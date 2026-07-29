@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 using PanicAtThePond.Managers;
 using PanicAtThePond.Controllers;
@@ -13,6 +14,10 @@ namespace PanicAtThePond.Gameplay
 {
 public class EnvironmentScatterManager : MonoBehaviour
 {
+    /// <summary>Preferred wiring: drag the Environment root in via the Inspector.</summary>
+    [SerializeField] private Transform environmentRoot;
+
+    /// <summary>Fallback used only when <see cref="environmentRoot"/> is not wired.</summary>
     [SerializeField] private string environmentRootName = "Environment";
     [SerializeField] private float horizontalJitter = 0.25f;
     [SerializeField] private float verticalJitter = 0.12f;
@@ -31,16 +36,50 @@ public class EnvironmentScatterManager : MonoBehaviour
         layoutApplied = TryApplyLayout();
     }
 
+    /// <summary>
+    /// Locates the environment root by name without <c>GameObject.Find</c>: scans the active
+    /// scene's root objects, then their children. Only used when the Inspector field is empty.
+    /// </summary>
+    private Transform ResolveEnvironmentRoot()
+    {
+        if (string.IsNullOrEmpty(environmentRootName))
+        {
+            return null;
+        }
+
+        GameObject[] roots = SceneManager.GetActiveScene().GetRootGameObjects();
+        foreach (GameObject rootObject in roots)
+        {
+            if (rootObject.name == environmentRootName)
+            {
+                return rootObject.transform;
+            }
+        }
+
+        foreach (GameObject rootObject in roots)
+        {
+            foreach (Transform child in rootObject.GetComponentsInChildren<Transform>(true))
+            {
+                if (child.name == environmentRootName)
+                {
+                    return child;
+                }
+            }
+        }
+
+        return null;
+    }
+
     private bool TryApplyLayout()
     {
-        GameObject environmentRoot = GameObject.Find(environmentRootName);
-        if (environmentRoot == null)
+        Transform root = environmentRoot != null ? environmentRoot : ResolveEnvironmentRoot();
+        if (root == null)
         {
             return false;
         }
 
         List<Transform> organizedGroups = new List<Transform>();
-        foreach (Transform group in environmentRoot.GetComponentsInChildren<Transform>(true))
+        foreach (Transform group in root.GetComponentsInChildren<Transform>(true))
         {
             List<Transform> plants = GetDirectPlantChildren(group);
             if (plants.Count >= 2)

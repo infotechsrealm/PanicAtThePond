@@ -1,0 +1,29 @@
+{
+    "name": "PanicAtThePond",
+    "rootNamespace": "PanicAtThePond",
+    "references": [
+        "Mirror",
+        "Mirror.Components",
+        "Mirror.Authenticators",
+        "Mirror.Transports",
+        "PhotonUnityNetworking",
+        "PhotonRealtime",
+        "PhotonChat",
+        "PhotonUnityNetworking.Utilities",
+        "PlayFab",
+        "com.rlabrecque.steamworks.net",
+        "Unity.TextMeshPro",
+        "Unity.InputSystem",
+        "UnityEngine.UI",
+        "DOTween.Modules"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

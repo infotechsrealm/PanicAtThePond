@@ -3,7 +3,6 @@ using Photon.Pun;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static Unity.Burst.Intrinsics.X86.Avx;
 
 using PanicAtThePond.Managers;
 using PanicAtThePond.Gameplay;
@@ -317,7 +316,9 @@ public class FishController_Mirror : NetworkBehaviour
             fishermanMirror.syncedHatName = hatName ?? string.Empty;
             fishermanMirror.syncedHairName = hairName ?? string.Empty;
         }
-        NetworkServer.ReplacePlayerForConnection(connectionToClient, fisherman, true); // 🔹 makes it local player and gives authority
+        // KeepAuthority is the exact equivalent of the old `keepAuthority: true` overload
+        // (see Mirror NetworkServer.cs:1149). Makes it local player and gives authority.
+        NetworkServer.ReplacePlayerForConnection(connectionToClient, fisherman, ReplacePlayerOptions.KeepAuthority);
         SpawnWorm(GameManager.Instance.fishermanWorms);
     }
 

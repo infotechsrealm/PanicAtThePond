@@ -29,7 +29,7 @@ public class JunkManager : MonoBehaviourPunCallbacks
         if(!PhotonNetwork.IsMasterClient || !GS.Instance.IsMirrorMasterClient)
         {
             GS.Instance.SetSFXVolume(audioSource);
-            audioSource.Play();
+            AudioManager.PlaySource(audioSource);
         }
     }
 

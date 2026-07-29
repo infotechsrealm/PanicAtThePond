@@ -8,8 +8,9 @@ using PanicAtThePond.UI;
 using PanicAtThePond.Shop;
 using PanicAtThePond.Data;
 using PanicAtThePond.Utilities;
+using PanicAtThePond.Managers;
 
-namespace PanicAtThePond.Managers
+namespace PanicAtThePond.Dash.Managers
 {
 public class SteamIntegration : MonoBehaviour
 {

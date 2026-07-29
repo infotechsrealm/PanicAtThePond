@@ -16,33 +16,61 @@
 
 ## 0. Project Structure (ruleset compliance)
 
-Migrated 2026-07-29 to the mandated `Assets/_Project/` layout
-(spec: `C:\Users\mitul\.claude\unity-project-rules.md`, loaded globally via `~/.claude/CLAUDE.md`).
+Migrated 2026-07-29 to the mandated `Assets/_Project/` layout. Spec:
+`D:\Unity_ai_Project_Structure_prompt.md` **v3.0** (Unity 6.5), which supersedes the earlier v2.0.
+
+**Scope note:** UI Toolkit (spec §3) is **explicitly waived by the user** — this project has extensive
+existing uGUI and keeps it. Every other section of the spec has been applied or has a documented
+reason it cannot be. See `restructure_report.md` for the full migration record.
+
+### Scene partitioning (spec §1.3)
+
+Scripts are split into a **shared tier** (parent folders) and **scene tiers** (`Dash/`, `Play/`,
+`Splash/`). Ownership was computed from scene→prefab GUID closure plus a transitive code-reference
+pass. **70 of 101 scripts are genuinely shared**; only 11 are scene-exclusive, and all 11 are leaves
+with no inbound references.
+
+### Assemblies (spec §1.6)
+
+`PanicAtThePond` (shared) · `PanicAtThePond.Dash` / `.Play` / `.Splash` (scene tiers, `autoReferenced:
+false`) · `PanicAtThePond.Editor` (Editor-only). Scene assemblies reference the shared assembly and
+never each other. `DOTween.Modules.asmdef` was added to the vendor DOTween `Modules/` folder because
+its uGUI shortcuts ship as source.
 
 ```
 Assets/
 ├── _Project/
 │   ├── Scripts/
-│   │   ├── Managers/      (18)  GameManager, GS, DashManager, ScoreManager, PlayFabManager,
+│   │   ├── PanicAtThePond.asmdef      ← shared-tier assembly
+│   │   ├── Managers/      (21)  GameManager, GS, DashManager, ScoreManager, PlayFabManager,
 │   │   │                        CoinManager, HungerSystem, MashPhaseManager, MiniGameManager,
 │   │   │                        BackManager, RegionManager, HoverTooltipManager, InGameMenu,
-│   │   │                        SteamIntegration, CustomNetworkManager, CoustomeRoomManager,
-│   │   │                        PhotonLauncher, LANDiscoveryMenu
+│   │   │                        CustomNetworkManager, CoustomeRoomManager, PhotonLauncher,
+│   │   │                        LANDiscoveryMenu, AudioManager, UIManager, PoolManager,
+│   │   │                        InputManager
 │   │   ├── Controllers/   (13)  Fish/Fisherman controllers + _Mirror twins, GoldenFishAI,
 │   │   │                        all Fisherman animation scripts
-│   │   ├── Gameplay/      (14)  Hook, Worm/Junk spawners + managers + _Mirror twins,
-│   │   │                        EnvironmentScatterManager, SmoothTransformSync, GameScaler,
-│   │   │                        DestroyAfterAnim
-│   │   ├── UI/            (33)  menus, panels, lobby screens, tables, dropdowns, Preloader,
-│   │   │                        SplashManager, GameOver, SettingsMenu
+│   │   ├── Gameplay/      (13)  Hook, Worm/Junk spawners + managers + _Mirror twins,
+│   │   │                        EnvironmentScatterManager, SmoothTransformSync, DestroyAfterAnim
+│   │   ├── UI/            (27)  menus, panels, lobby screens, tables, dropdowns, Preloader,
+│   │   │                        GameOver, SettingsMenu
 │   │   ├── Shop/          (10)  ShopManager, CosmeticRuntimeApplier, LocalPlayManager,
 │   │   │                        ShopCosmeticSelector + the 6 SaltShop/* files
-│   │   ├── Data/           (1)  ScoreSystemSettings  +  PlayerControls.inputactions
-│   │   ├── Utilities/      (6)  LegacyTextSharpener, AutoBlockRaycastOnInputClick,
-│   │   │                        RaycastBlockerFinder, SceneObjectImageSaver,
-│   │   │                        FishermanSpriteLoader, ResetStatsAchievements
-│   │   ├── Editor/         (1)  FixUIEditor
-│   │   ├── Events/  Interfaces/  Enums/   (empty, .gitkeep — reserved by the ruleset)
+│   │   ├── Data/           (2)  ScoreSystemSettings, PlayerControls.cs (generated)
+│   │   │                        + PlayerControls.inputactions
+│   │   ├── Utilities/      (3)  LegacyTextSharpener, FishermanSpriteLoader,
+│   │   │                        ResetStatsAchievements
+│   │   ├── Dash/           (8)  PanicAtThePond.Dash.asmdef
+│   │   │                        UI/ ButPanelManager, CreaditsManager, HintsManager,
+│   │   │                            PauseManager, RoomFilterManager
+│   │   │                        Utilities/ AutoBlockRaycastOnInputClick, RaycastBlockerFinder
+│   │   │                        Managers/ SteamIntegration
+│   │   ├── Play/           (1)  PanicAtThePond.Play.asmdef · Gameplay/ GameScaler
+│   │   ├── Splash/         (2)  PanicAtThePond.Splash.asmdef
+│   │   │                        UI/ SplashManager · Utilities/ SceneObjectImageSaver
+│   │   ├── Editor/         (1)  FixUIEditor + PanicAtThePond.Editor.asmdef
+│   │   ├── Interfaces/     (1)  IPoolable
+│   │   ├── Events/  Enums/       (empty, .gitkeep — reserved by the ruleset)
 │   ├── Art/          Animations/, Fonts/
 │   ├── Audio/        Panic at the Pond SFX/
 │   ├── Prefabs/      Prefebs/  ← original misspelling preserved deliberately
@@ -543,6 +571,32 @@ Sync paths:
 
 Fullscreen toggle uses `ExclusiveFullScreen` at the current resolution, windowed uses 1280×720.
 
+### Input System status (spec §5)
+
+The project runs with **Active Input Handling = Both**, and input currently exists on two paths:
+
+1. **Legacy (authoritative today).** 15 `Input.GetAxis` / `GetKeyDown` / `GetMouseButtonDown` call
+   sites, plus direct `Keyboard.current` reads in `FishermanController`, `MashPhaseManager` and
+   `MiniGameManager`. This is what actually drives the game.
+2. **New (built, live, not yet authoritative).** `Scripts/Data/PlayerControls.inputactions` now
+   describes the real control scheme in two maps — `Gameplay` (`Move`, `Cast`, `Reel`, `DropJunk`,
+   `Mash`) and `Global` (`Back`, `ToggleFullscreen`, `ToggleRoomFilter`). `Generate C# Class` is on,
+   producing `PlayerControls.cs` in `PanicAtThePond.Data`. `InputManager` wraps it and publishes
+   typed C# events; it lives at the root of the Splash scene and persists via `DontDestroyOnLoad`.
+
+`Cast` is a `OneModifier` composite over `X`+`V`, which matches the code exactly: `performed` when
+both are held, `canceled` when either is released. Rod selection needs no separate action — it is the
+`Move` Y axis.
+
+**To complete the migration:** playtest with two live clients, then set
+`InputManager._isAuthoritative = true` and delete the legacy reads. The two paths were kept in
+parallel deliberately, because multiplayer match flow cannot be verified without two clients and a
+silent input regression would only appear in a real match.
+
+> The existing `Player` and `UI` maps in the asset were left byte-identical on purpose:
+> `FishermanController.cs:408` holds a live `InputActionReference` into the `Gameplay/Move` action,
+> and rewriting the asset would have nulled it silently.
+
 ---
 
 ## 11. Asset Inventory
@@ -563,6 +617,47 @@ Fullscreen toggle uses `ExclusiveFullScreen` at the current resolution, windowed
 **`Assets/UI/`** — `Acheivements`, `Dash UI`, `Game UI`, `ShopUI`, `UI`
 
 **`Assets/Panic at the Pond SFX/`** — `Fisherman`, `LakeAmbience`, `Water SFX`, `enviroment`, `Used Sounds`, plus a bubble WAV
+
+---
+
+## 11b. Scene Hierarchy (spec §2)
+
+All three scenes carry the six mandated root separators:
+
+```
+--- MANAGERS ---
+--- SYSTEMS ---      Main Camera, EventSystem
+--- UI ---           the scene's root Canvas
+--- ENVIRONMENT ---
+--- GAMEPLAY ---
+--- DEBUG ---
+```
+
+| Scene | MANAGERS | ENVIRONMENT | GAMEPLAY | DEBUG | pinned to root |
+|---|---|---|---|---|---|
+| Splash | — | — | — | — | `GS`, `InputManager` |
+| Dash | Steam Integration, LAN discovery | — | — | RoomFilterManager | `RegionManager`, `Reporter` |
+| Play | Managers (GameManager, InGameMenu, ScoreManager), BackManager | Environment, WaterObject, clouds ×2, BG ×2 | WormSpawner, JunkSpawner, JunkGeneratePoint | — | — |
+
+> ### ⚠ `DontDestroyOnLoad` objects must stay at scene root
+>
+> Unity's `DontDestroyOnLoad` **only works on root GameObjects**. Any object whose script calls it
+> cannot be placed under a `--- SECTION ---` separator — doing so either kills the object on scene
+> change or drags the whole separator (and everything under it) across scenes.
+>
+> Currently root-pinned for this reason: `GS`, `InputManager` (Splash), `RegionManager`, `Reporter`
+> (Dash). Scripts that call it: `GS`, `InputManager`, `AudioManager`, `UIManager`, `PoolManager`,
+> `PlayFabManager`, `RegionManager`, `SaltShopPhotonSync`, and third-party `Reporter`.
+>
+> **This was learned the hard way:** placing `Reporter` under `--- DEBUG ---` produced four
+> `NullReferenceException`s per frame from `Reporter.Update()`. The proper fix is a
+> `Persistent.unity` scene (spec §13), which this project does not yet have.
+>
+> `CustomNetworkManager` under `GS` is a safe exception — Mirror force-parents itself to root before
+> its own DDOL call (`NetworkManager.cs:696`).
+
+Because `Reporter` must stay at root, `--- DEBUG ---` does not currently hold everything
+development-only, so the spec's "strip DEBUG in release builds" step is still outstanding.
 
 ---
 
@@ -682,3 +777,40 @@ serialized data changed either.
 
 With a scene open and not in playmode, these two are the only errors that should appear. Anything
 else is new.
+
+---
+
+## 14. Session 2 changes (2026-07-29) — spec v3.0 pass
+
+Full detail lives in `restructure_report.md` (§ "Session 2"). Summary of what changed in the project:
+
+| Area | Change |
+|---|---|
+| Deprecated APIs (§20) | 17 call sites modernised + 3 dead `using` directives removed. **0 obsolete-API warnings left in `_Project`.** |
+| Scene partitioning (§1.3) | 11 scene-exclusive scripts moved into `Scripts/Dash/`, `Scripts/Play/`, `Scripts/Splash/` with matching namespaces. 70 of 101 scripts proven genuinely shared. |
+| Assemblies (§1.6) | 5 asmdefs added. `Assembly-CSharp.dll` 629 KB → 116 KB. Required moving vendor `SteamManager.cs` into the Steamworks `Runtime/` folder and adding `DOTween.Modules.asmdef`. |
+| Input System (§5) | Actions asset extended with 8 real actions; C# wrapper generated; `InputManager` rewritten around it and added to Splash. Legacy `Input.*` reads retained as the authoritative path pending a 2-client playtest. |
+| Scene hierarchy (§2) | Six root separators in all 3 scenes; 22 objects reparented. `DontDestroyOnLoad` objects pinned to root (see §11b). |
+| Audio (§6) | 9 real call sites routed through new `AudioManager.PlaySource` / `StopSource`. Behaviour byte-identical. |
+| Domain reload (§7) | `InputManager` statics reset via `[RuntimeInitializeOnLoadMethod]`. Note the project currently has `m_EnterPlayModeOptions: 0`, i.e. domain reload is still **enabled**. |
+
+**Verified:** 0 compile errors · 0 missing script references across **3,853 components** in all three
+scenes · 11/11 moved-script GUIDs still resolving · all 8 new input actions binding correctly ·
+9 active Dash buttons fired with 0 throws · `Resources.Load` and StreamingAssets intact · game runs
+Splash → Dash with only the two known Steam-not-running errors.
+
+**Not verified (and not verifiable in one session):** multiplayer match flow, which needs two live
+clients plus Steam + PlayFab + Photon.
+
+### Corrections to earlier documentation
+
+Two claims in the previous report were wrong and are corrected here:
+
+1. `PlayerControls.inputactions` did **not** contain only Unity's default template. It already had a
+   `Gameplay` map with a live `Move` action that `FishermanController.cs:408` reads.
+2. The "12 direct `.Play()` audio call sites" figure counted an **Animator** call
+   (`ShopManager.cs:1868`) and two calls inside `AudioManager` itself. There are 9 real ones.
+
+Also note the user's spec (`D:\Unity_ai_Project_Structure_prompt.md` §20) is itself stale on one
+point: it recommends `FindObjectsByType(..., FindObjectsSortMode.None)`, but Unity 6.5 marks
+`FindObjectsSortMode` obsolete. Use `FindObjectsByType<T>()` / `FindObjectsByType<T>(FindObjectsInactive)`.

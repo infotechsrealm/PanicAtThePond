@@ -26,6 +26,7 @@ namespace PanicAtThePond.Managers
         [SerializeField] private AudioSource _musicSource;
 
         private readonly List<AudioSource> _sfxVoices = new List<AudioSource>();
+
         private int _nextVoiceIndex;
         private float _masterVolume = DEFAULT_VOLUME;
         private float _musicVolume = DEFAULT_VOLUME;
@@ -86,6 +87,48 @@ namespace PanicAtThePond.Managers
                 voice.loop = false;
                 voice.playOnAwake = false;
                 _sfxVoices.Add(voice);
+            }
+        }
+
+        /// <summary>
+        /// Plays an <c>AudioSource</c> that is configured in the Inspector (loop, spatial blend,
+        /// pitch, clip) while still routing its level through the central SFX volume.
+        ///
+        /// <para>Gameplay scripts call this instead of <c>source.Play()</c> so the manager stays the
+        /// single audio authority, without losing the per-source settings that a one-shot
+        /// <see cref="PlaySfx"/> would discard. Sustained and looping sources (boat movement, cricket
+        /// chirping) require this path — <see cref="PlaySfx"/> hands out a pooled voice that the
+        /// caller cannot later stop.</para>
+        ///
+        /// <para>Static and null-safe on purpose: if no AudioManager is present in the scene the
+        /// source is still played directly, so audio can never go silent because of wiring.</para>
+        ///
+        /// <para><b>Volume is deliberately not touched here.</b> Every current call site already calls
+        /// <c>GS.Instance.SetSFXVolume(source)</c> immediately before playing, which writes
+        /// <c>source.volume</c> from the same <c>SFXVolume</c> PlayerPref this manager reads. Scaling
+        /// again here would apply the setting twice. Folding <c>GS</c>'s volume handling into this
+        /// manager is the follow-up step; until then <c>GS</c> owns volume and this owns routing.</para>
+        /// </summary>
+        /// <param name="source">The Inspector-configured source to play. Ignored when null.</param>
+        public static void PlaySource(AudioSource source)
+        {
+            if (source == null)
+            {
+                return;
+            }
+
+            source.Play();
+        }
+
+        /// <summary>
+        /// Stops a source previously started with <see cref="PlaySource"/>. Static and null-safe.
+        /// </summary>
+        /// <param name="source">The source to stop. Ignored when null.</param>
+        public static void StopSource(AudioSource source)
+        {
+            if (source != null)
+            {
+                source.Stop();
             }
         }
 

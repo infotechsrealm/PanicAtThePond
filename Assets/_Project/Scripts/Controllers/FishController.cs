@@ -254,7 +254,7 @@ public class FishController : MonoBehaviourPunCallbacks, IPunInstantiateMagicCal
             if (!audioSourceForFishMove.isPlaying)
             {
                 GS.Instance.SetSFXVolume(audioSourceForFishMove);
-                audioSourceForFishMove.Play();
+                AudioManager.PlaySource(audioSourceForFishMove);
             }
 
             if (!animator.GetBool("isMove"))
@@ -520,7 +520,7 @@ public class FishController : MonoBehaviourPunCallbacks, IPunInstantiateMagicCal
                 PlaySFX(fishEatWarmSound);
                 GameManager.Instance.goldWormEatByFish = true;
                 GS.Instance.SetSFXVolume(audioSource);
-                audioSource.Play();
+                AudioManager.PlaySource(audioSource);
                 other.gameObject.transform.localScale = Vector3.zero;
                 other.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
                 StartCoroutine(GenerateFisherMan(other.gameObject));
@@ -834,7 +834,7 @@ public class FishController : MonoBehaviourPunCallbacks, IPunInstantiateMagicCal
     {
         audioSource.clip = playClip;
         GS.Instance.SetSFXVolume(audioSource);
-        audioSource.Play();
+        AudioManager.PlaySource(audioSource);
     }
 
     //When Game is paused Fish movement is stoped and Fad it.

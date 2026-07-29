@@ -6,8 +6,9 @@ using PanicAtThePond.Gameplay;
 using PanicAtThePond.Shop;
 using PanicAtThePond.Data;
 using PanicAtThePond.Utilities;
+using PanicAtThePond.UI;
 
-namespace PanicAtThePond.UI
+namespace PanicAtThePond.Dash.UI
 {
 public class BuyPanelManager : MonoBehaviour
 {

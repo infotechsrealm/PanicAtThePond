@@ -1,0 +1,23 @@
+{
+    "name": "PanicAtThePond.Editor",
+    "rootNamespace": "PanicAtThePond.Editor",
+    "references": [
+        "PanicAtThePond",
+        "PanicAtThePond.Dash",
+        "PanicAtThePond.Play",
+        "PanicAtThePond.Splash",
+        "Unity.TextMeshPro",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

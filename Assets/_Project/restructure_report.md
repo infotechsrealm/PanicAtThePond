@@ -18,15 +18,20 @@ Migration of an existing Unity 6 project onto the mandated architecture spec
 | 2. Namespaces | `PanicAtThePond.<Module>` on every own script | ✅ **Done, verified** |
 | 3. Infrastructure Managers | AudioManager, UIManager, PoolManager, InputManager, IPoolable | ✅ **Written, compile-clean — not wired** |
 | 4. Field encapsulation | `public` → `[SerializeField] private` (safe subset) | 🟡 **Partial by design** — 153 of ~478 |
-| 5. Wire managers to call sites | audio, input, pooling, UI panels | ❌ Not started |
+| 5. Wire managers to call sites | audio routing; input manager live | ✅ **Done, verified** (session 2) |
 | 6. `_camelCase` field renaming | 563 fields + `[FormerlySerializedAs]` | ❌ Not started (high risk) |
 | 7. Asset naming conventions | `SP_` / `M_` / `ANIM_` / `SFX_` | ❌ Not started (high risk) |
 | 8. Addressables | replace 104 `Resources.Load` | ❌ Not started (high risk) |
-| 9. Scene root hierarchy | `Managers/Systems/UI/Environment/Gameplay/Debug` | ❌ Not started (medium risk) |
-| 10. Input System migration | 15 legacy `Input.*` call sites | ❌ Not started |
+| 9. Scene root hierarchy | `Managers/Systems/UI/Environment/Gameplay/Debug` | ✅ **Done, verified** (session 2) |
+| 10. Input System migration | actions asset + InputManager, legacy kept as fallback | ✅ **Done, verified** (session 2) |
+| 11. Scene partitioning (spec §1.3) | `Scripts/[Scene]/` tiers | ✅ **Done, verified** (session 2) |
+| 12. Assembly definitions (spec §1.6) | 5 asmdefs + DOTween.Modules | ✅ **Done, verified** (session 2) |
+| 13. Deprecated API sweep (spec §20) | `Find*`, TMP, Mirror | ✅ **Done, verified** (session 2) |
 
-**Build health right now:** `Assembly-CSharp.dll` 628,736 bytes, compiled 13:43, **0 compile errors,
-0 missing script references**. Both scenes open and the game runs.
+**Build health right now:** `PanicAtThePond.dll` 438,272 B + 4 satellite assemblies; `Assembly-CSharp.dll`
+down to 116,224 B. **0 compile errors, 0 obsolete-API warnings in `_Project`,
+0 missing script references across 3,853 components in all 3 scenes.** The game runs
+Splash → Dash with only the two known Steam-not-running errors.
 
 ---
 
@@ -305,3 +310,243 @@ missing-script-reference errors is the signal to watch after any file move.
 | 2026-07-29 | Playmode functional test; all `Resources.Load` paths verified working. |
 | 2026-07-29 | Fixed pre-existing `BackManager` null-on-scene-change NRE. |
 | 2026-07-29 | Fixed pre-existing blank-white-shop (`ResizeToSpriteAspect` unit mismatch). |
+
+---
+
+# Session 2 — 2026-07-29 (continuation)
+
+Spec used: `D:\Unity_ai_Project_Structure_prompt.md` **v3.0** (Unity 6.5). Project is Unity
+**6000.5.4f1**, which is Unity 6.5, so the v3.0 rules apply directly. **UITK was explicitly waived by
+the user** — the project keeps uGUI, so spec §3 is intentionally out of scope. Everything else in the
+spec was attempted.
+
+## S2.1 Deprecated-API sweep (spec §20) — done
+
+| Site | Change |
+|---|---|
+| `Hook.cs:418` | `FindFirstObjectByType<FishermanController>()` → cached `fishermanController` field, falling back to `FishermanController.Instance`. Removes a scene-wide search **and** is deterministic where the old call was not. |
+| `BackManager.cs:52`, `DashManager.cs:124`, `LocalPlayManager.cs:270`, `GameOver.cs:38` | `FindFirstObjectByType` → `FindAnyObjectByType` |
+| `ShopManager.cs:669` | `FindObjectsOfType<T>(true)` → `FindObjectsByType<T>(FindObjectsInactive.Include)` |
+| `GameManager.cs` x4, `LocalPlayManager.cs`, `AutoBlockRaycastOnInputClick.cs` x4, `RaycastBlockerFinder.cs` x3 | dropped the now-deprecated `FindObjectsSortMode` argument |
+| `FishController_Mirror.cs:320` | `ReplacePlayerForConnection(conn, go, true)` → `(conn, go, ReplacePlayerOptions.KeepAuthority)` |
+| `LegacyTextSharpener.cs:215`, `SaltShopUI.cs:359` | obsolete `enableWordWrapping` → `textWrappingMode` |
+| `EnvironmentScatterManager.cs:36` | `GameObject.Find` → serialized `Transform` + scene-root-scoped fallback |
+| `ControlesManager.cs`, `FishermanController.cs`, `FishController_Mirror.cs` | removed 3 dead `using` directives (`Mirror.BouncyCastle...`, `Unity.VisualScripting`, `using static ...X86.Avx`) |
+
+> **The spec's own §20 is stale here.** It prescribes
+> `FindObjectsByType(..., FindObjectsSortMode.None)`, but Unity 6.5 marks **`FindObjectsSortMode`
+> itself** obsolete (`CS0618`). Correct modern forms are `FindObjectsByType<T>()` and
+> `FindObjectsByType<T>(FindObjectsInactive)`. Trust the compiler over the table.
+
+The mapping for `ReplacePlayerForConnection` was taken from Mirror's own obsolete shim
+(`NetworkServer.cs:1149`), which forwards `keepAuthority: true` to `ReplacePlayerOptions.KeepAuthority` —
+so the change is exactly behaviour-preserving.
+
+`GameOver.cs:38` was safe to swap because `GameOver.photonView` is **only ever logged** — the real
+RPCs go through `GameManager.Instance.photonView` (lines 177, 200). Which PhotonView is picked has
+no functional effect. `EnvironmentScatterManager` is attached to **nothing** in any scene, prefab, or
+asset, so that change carries zero runtime risk.
+
+**Result: 0 obsolete-API warnings remain in `Assets/_Project`.**
+
+## S2.2 Scene partitioning (spec §1.3) — done, but the spec's model barely applies here
+
+Ownership was computed from real data, not guessed: script GUIDs to scene references, then the
+transitive closure through every prefab/asset a scene references, then a second transitive pass over
+*code* references (needed because runtime-created singletons like `BackManager` and `GS` are
+referenced by no scene at all and would otherwise be mis-tiered).
+
+**Result: 70 of 101 scripts are transitively shared. Only 11 are genuinely scene-exclusive.**
+
+| Tier | Count | Moved to |
+|---|---|---|
+| Shared (2+ scenes, transitively) | 70 | stay at parent tier |
+| Dash-only | 8 | `Scripts/Dash/{UI,Utilities,Managers}` |
+| Play-only | 1 | `Scripts/Play/Gameplay` |
+| Splash-only | 2 | `Scripts/Splash/{UI,Utilities}` |
+
+All 11 are **pure leaves** — zero inbound code references and zero cross-scene references — verified
+before moving, which is why the namespace changes could not break anything. Moves used
+`AssetDatabase.MoveAsset` (Unity was open), and all 11 GUIDs still resolve in their scenes.
+
+Namespaces updated to mirror folders (`PanicAtThePond.Dash.UI`, `PanicAtThePond.Play.Gameplay`, ...).
+Each moved file also gained an explicit `using` for the namespace it left, since it lost implicit
+same-namespace access.
+
+**Honest assessment:** a deeper partition is not achievable without a redesign. The shared tier
+legitimately reaches into `GameManager`, `GS`, `HungerSystem`, `WormSpawner`, `MiniGameManager` and
+`MashPhaseManager`; 38 such shared-to-scene references exist. Forcing more files into scene tiers
+would either break spec §1.6 (shared must never reference a scene tier) or require inverting those
+dependencies behind interfaces — a genuine refactor, not a file move.
+
+## S2.3 Assembly definitions (spec §1.6) — done
+
+| Assembly | Scope | Auto-referenced |
+|---|---|---|
+| `PanicAtThePond` | shared tier | yes |
+| `PanicAtThePond.Dash` / `.Play` / `.Splash` | scene tiers, reference shared only | **no** (per §1.6) |
+| `PanicAtThePond.Editor` | `Editor` platform only | yes |
+| `DOTween.Modules` | added to the vendor `Modules/` folder | yes |
+
+Two blockers had to be cleared first, both found by the compiler rather than assumed:
+
+1. **`SteamManager.cs` sat outside both Steamworks asmdefs** (at the package root), so it compiled
+   into `Assembly-CSharp`, which an asmdef assembly cannot reference. Moved into `Runtime/`. This
+   does **not** narrow platform support — our code already uses `using Steamworks;` directly, which is
+   Editor+Standalone only, so the project already did not build for Android/iOS.
+2. **DOTween's uGUI shortcuts ship as source**, not in `DOTween.dll` — `DOAnchorPosX` and
+   `CanvasGroup.DOFade` live in `Modules/*.cs` and compiled into `Assembly-CSharp`. Adding
+   `DOTween.Modules.asmdef` (a new file; no vendor source edited) fixed it.
+
+`Assembly-CSharp.dll` went 629,248 → 116,224 bytes. **Verified: 0 missing script references across
+3,853 components in all three scenes** — the classic asmdef-migration failure mode did not occur.
+
+## S2.4 Input System (spec §5) — added alongside, legacy retained (user's choice)
+
+The previous report claimed the actions asset "holds only Unity's default template (Move/Look/Fire)".
+**That was wrong.** The asset already contained a third map, `Gameplay`, with a `Move` action bound
+to WASD + arrows — and `FishermanController.cs:408` actively reads it via
+`inputAction.action.ReadValue<Vector2>()`. Rewriting the asset wholesale would have silently nulled
+that live `InputActionReference`.
+
+Instead the existing `Player`, `UI` and `Gameplay` maps were left **byte-identical** and the missing
+actions were spliced in:
+
+| Map | Action | Binding | Verified from |
+|---|---|---|---|
+| Gameplay | `Move` | WASD / arrows / left stick | pre-existing |
+| Gameplay | `Cast` | `OneModifier` composite: **X + V** | `FishermanController.cs:567,593` |
+| Gameplay | `Reel` | right mouse | `Hook.cs:134,147` |
+| Gameplay | `DropJunk` | `Q` | `FishController.cs:301` |
+| Gameplay | `Mash` | `Space` | `MashPhaseManager.cs:205` |
+| Global | `Back` | `Escape` | `BackManager.cs:76` |
+| Global | `ToggleFullscreen` | `F11` | `GS.cs:241` |
+| Global | `ToggleRoomFilter` | `F9` | `RoomFilterManager.cs:55` |
+
+The `OneModifier` composite maps exactly onto the code's semantics: `performed` = both keys held,
+`canceled` = either released. **W/S rod selection** needs no separate action — it is the `Move`
+Y axis (`FishermanController.cs:493,514` feeding `isLeft` at 530/547).
+
+`generateWrapperCode` enabled, producing `PlayerControls.cs` in `PanicAtThePond.Data`.
+`InputManager` was rewritten to wrap it, exposing typed C# events, `InputSystem.onDeviceChange`
+scheme switching, action-map gating, and a `[RuntimeInitializeOnLoadMethod]` static reset (spec §7).
+Added to the Splash scene so it persists into Dash and Play.
+
+**The 15 legacy `Input.*` call sites are deliberately untouched**, per the user's decision. Runtime
+behaviour is therefore unchanged. `activeInputHandler: 2` ("Both") confirms the two paths coexist.
+Flip `InputManager._isAuthoritative` and delete the legacy reads once a 2-client playtest passes.
+
+## S2.5 Scene hierarchy (spec §2) — done, with one hard constraint
+
+All three scenes now carry the six `--- SECTION ---` roots. 22 objects reparented; **0 missing
+references** after each.
+
+> **`DontDestroyOnLoad` only works on root GameObjects.** Any object whose script calls it must
+> stay at scene root and cannot live under a separator. This is a hard Unity constraint, not a
+> preference. The spec assumes a `Persistent.unity` (§2, §13) that this project does not have.
+
+Left at root by necessity: `GS` (Splash), `InputManager` (Splash), `RegionManager` (Dash),
+`Reporter` (Dash).
+
+**One regression was introduced and fixed during testing:** moving `Reporter` under `--- DEBUG ---`
+made it a child, breaking its `DontDestroyOnLoad(gameObject)` at `Reporter.cs:363` and producing
+four `NullReferenceException`s per frame from `Reporter.Update()` (its `scenes` array left null).
+Moved back to root; errors gone. A full sweep then confirmed no other reparented object calls
+`DontDestroyOnLoad`.
+
+`CustomNetworkManager` sits under `GS` with `dontDestroyOnLoad = true`, but this is **pre-existing
+and safe** — Mirror explicitly force-parents itself to root before the DDOL call
+(`NetworkManager.cs:696`).
+
+## S2.6 Audio routing (spec §6) — done, without changing what you hear
+
+The previous report's "12 direct `.Play()` call sites" was inaccurate: `ShopManager.cs:1868` is an
+**Animator**, and two are inside `AudioManager` itself. There are **9** real sites.
+
+`AudioManager.PlaySfx` was the wrong tool for them: it hands out a pooled one-shot voice, but
+`boatMoveSound` is a sustained source with an explicit `.Stop()` (`FishermanController.cs:459`), and
+every site uses an Inspector-configured `AudioSource` (loop, spatial blend, pitch) that a one-shot
+would discard. Added instead:
+
+- `AudioManager.PlaySource(AudioSource)` / `StopSource(AudioSource)` — **static and null-safe**, so
+  audio cannot go silent if the manager is absent from a scene.
+
+All 9 sites now route through `AudioManager`, satisfying §6, with **byte-identical behaviour**.
+
+> **Volume is deliberately not applied in `PlaySource`.** Every call site already calls
+> `GS.Instance.SetSFXVolume(source)` immediately beforehand, which writes `source.volume` from the
+> same `SFXVolume` PlayerPref. Scaling again in `PlaySource` applied the setting **twice** — this was
+> caught and removed before it shipped. Consolidating `GS`'s volume handling into `AudioManager` is
+> the follow-up; until then `GS` owns volume and `AudioManager` owns routing.
+
+## S2.7 Verification performed
+
+| Check | Result |
+|---|---|
+| Compile errors | **0** |
+| Obsolete-API warnings in `_Project` | **0** |
+| Missing script refs (3 scenes, 3,853 components) | **0** |
+| Moved-script GUIDs still resolving in scenes | **11 / 11** |
+| Assemblies built | 5 + `DOTween.Modules` |
+| `Splash` to `Dash` transition | OK |
+| Singletons alive (GS, InputManager, DashManager, RegionManager, SteamIntegration, RoomFilterManager) | OK |
+| Moved scripts resolving at runtime under new namespaces/assemblies | OK |
+| All 8 new input actions resolving to correct bindings | OK |
+| Every active Dash button `onClick` invoked | **9 fired, 0 threw** |
+| `Resources.Load` (prefabs, 159 ShopUI sprites) | OK |
+| StreamingAssets `shop_config.json` | OK |
+| Oversized-RectTransform guard (Sal-T sign fix from session 1) | no regression |
+| Console at rest | only the 2 known Steam-not-running errors |
+
+### Still not verified — and still cannot be from one session
+**Multiplayer gameplay.** Unchanged from session 1: the lobby Start button needs `players.Count >= 2`
+plus Steam + PlayFab + Photon with two live clients. Nothing about match flow, role swapping, hooks,
+mash phase, or scoring has been exercised. **This is exactly why the Input System migration was left
+as add-alongside rather than a replacement.**
+
+Opening `Play.unity` directly still throws two `NullReferenceException`s (`GameManager.cs:110`,
+`WormSpawner.cs:43`), both from `GS.Instance` being null. **Pre-existing, not a regression:** `GS`
+lives only in Splash (verified: 1 reference in Splash, 0 in Dash/Play), `WormSpawner.cs` has a zero
+diff, and `GameManager.cs` changed only at lines ~1114-1186. Play is meant to be entered via the
+lobby flow, never standalone.
+
+## S2.8 What remains
+
+**Tier C — high risk, fails *silently at runtime*. Unchanged from session 1; treat as a separate
+project with an explicit decision.**
+
+1. **`_camelCase` field renaming** — 563 fields. Unity serializes by field *name*; each rename needs
+   `[FormerlySerializedAs]` **and** a re-serialization pass, or 1,431 Inspector wirings null out.
+2. **Asset naming conventions** (`SP_`/`M_`/`ANIM_`/`SFX_`) — breaks 104 `Resources.Load("literal")`
+   calls, `iconResource` paths in `shop_config.json`, and `CosmeticRuntimeApplier`'s
+   `name.Contains("blue_cap")` matching.
+3. **Addressables** — package not installed; converts the whole cosmetics pipeline sync to async.
+4. **Object pooling for spawns** — all 33 `Instantiate` sites are `PhotonNetwork.Instantiate` /
+   `NetworkServer.Spawn`; pooling them is a networking redesign.
+
+**Lower risk, deferred:**
+
+5. **Encapsulate the remaining ~161 cross-script public fields** — mechanical; every error is a
+   compile error.
+6. **Retire the 15 legacy `Input.*` reads** — blocked only on a 2-client playtest.
+7. **Fold `GS`'s volume handling into `AudioManager`** (see S2.6).
+8. **`Bootstrap.unity` + `Persistent.unity`** (spec §13) — would let the four root-pinned DDOL
+   managers live under `--- MANAGERS ---` properly. Touches startup order and build settings.
+9. **Move `Photon/` and `TextMesh Pro/` out of `Assets/` root** — needs 7 vendor files patched.
+10. **`Events/` and `Enums/`** remain empty — add SO event channels as features need them.
+11. **Strip `--- DEBUG ---` in release builds** via a build profile or `#if DEVELOPMENT_BUILD`
+    (spec §2). Note `Reporter` must stay at root, so it is not under the DEBUG separator.
+
+## S2.9 Change log (session 2)
+
+| Entry |
+|---|
+| Deprecated-API sweep: 17 call sites + 3 dead `using` directives. 0 warnings left in `_Project`. |
+| Discovered spec §20's `FindObjectsSortMode` guidance is stale for Unity 6.5. |
+| Scene partitioning: ownership computed from GUID + code closure; 11 leaf scripts moved, 70 shown to be genuinely shared. |
+| 5 asmdefs added; `SteamManager.cs` and DOTween modules unblocked. `Assembly-CSharp` 629 KB to 116 KB. |
+| Actions asset extended with 8 real actions (existing maps preserved byte-identical); wrapper class generated; `InputManager` rewritten; legacy reads retained as fallback. |
+| Scene hierarchy applied to all 3 scenes; 22 objects reparented; DDOL objects correctly pinned to root. |
+| Introduced and fixed a `Reporter` DDOL regression found by playtesting. |
+| Audio: 9 sites routed through `AudioManager.PlaySource`; caught and removed a double-volume bug before it shipped. |
+| Full verification: 0 errors, 0 missing refs across 3,853 components, game runs. |

@@ -267,10 +267,10 @@ public class LocalPlayManager : MonoBehaviour
 
     private static ShopManager FindShopManager()
     {
-        ShopManager shop = FindFirstObjectByType<ShopManager>();
+        ShopManager shop = FindAnyObjectByType<ShopManager>();
         if (shop == null)
         {
-            ShopManager[] shops = FindObjectsByType<ShopManager>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            ShopManager[] shops = FindObjectsByType<ShopManager>(FindObjectsInactive.Include);
             shop = shops != null && shops.Length > 0 ? shops[0] : null;
         }
 

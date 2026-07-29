@@ -212,7 +212,8 @@ public class LegacyTextSharpener : MonoBehaviour
         overlayText.overflowMode = sourceText.verticalOverflow == VerticalWrapMode.Overflow
             ? TextOverflowModes.Overflow
             : TextOverflowModes.Truncate;
-        overlayText.enableWordWrapping = sourceText.horizontalOverflow == HorizontalWrapMode.Wrap;
+        // (wrapping is already set via textWrappingMode above; the obsolete
+        //  enableWordWrapping assignment that used to sit here was a duplicate)
         overlayText.extraPadding = true;
 
         sourceText.color = new Color(sourceColor.r, sourceColor.g, sourceColor.b, 0f);

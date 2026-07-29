@@ -8,8 +8,9 @@ using PanicAtThePond.Gameplay;
 using PanicAtThePond.UI;
 using PanicAtThePond.Shop;
 using PanicAtThePond.Data;
+using PanicAtThePond.Utilities;
 
-namespace PanicAtThePond.Utilities
+namespace PanicAtThePond.Splash.Utilities
 {
 public class SceneObjectImageSaver : MonoBehaviour
 {

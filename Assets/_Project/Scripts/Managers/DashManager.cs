@@ -121,7 +121,7 @@ public class DashManager : MonoBehaviour
     {
         if (settingUI == null)
         {
-            SettingsMenu settingsMenu = FindFirstObjectByType<SettingsMenu>(FindObjectsInactive.Include);
+            SettingsMenu settingsMenu = FindAnyObjectByType<SettingsMenu>(FindObjectsInactive.Include);
             if (settingsMenu != null)
             {
                 settingUI = settingsMenu.gameObject;

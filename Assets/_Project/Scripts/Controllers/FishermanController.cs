@@ -2,7 +2,6 @@ using Mirror;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -336,7 +335,7 @@ public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMag
             // Play the sound
             GS.Instance.SetSFXVolume(cricketChirping);
 
-            cricketChirping.Play();
+            AudioManager.PlaySource(cricketChirping);
 
             // Random duration to play the sound (2–5 seconds)
             float playDuration = Random.Range(2f, 5f);
@@ -424,7 +423,7 @@ public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMag
                 if (!boatMoveSound.isPlaying)
                 {
                     GS.Instance.SetSFXVolume(boatMoveSound);
-                    boatMoveSound.Play();
+                    AudioManager.PlaySource(boatMoveSound);
                 }
 
                 isMoving = true;
@@ -457,7 +456,7 @@ public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMag
             {
                 if (boatMoveSound.isPlaying)
                 {
-                    boatMoveSound.Stop();
+                    AudioManager.StopSource(boatMoveSound);
                     PlaySFX(stopBoat);
                 }
 
@@ -1078,7 +1077,7 @@ public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMag
     {
         fisherManSounds.clip = playClip;
         GS.Instance.SetSFXVolume(fisherManSounds);
-        fisherManSounds.Play();
+        AudioManager.PlaySource(fisherManSounds);
     }
 
   

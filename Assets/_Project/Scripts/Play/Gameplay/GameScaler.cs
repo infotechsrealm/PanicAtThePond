@@ -6,8 +6,9 @@ using PanicAtThePond.UI;
 using PanicAtThePond.Shop;
 using PanicAtThePond.Data;
 using PanicAtThePond.Utilities;
+using PanicAtThePond.Gameplay;
 
-namespace PanicAtThePond.Gameplay
+namespace PanicAtThePond.Play.Gameplay
 {
 [RequireComponent(typeof(SpriteRenderer))]
 public class GameScaler : MonoBehaviour

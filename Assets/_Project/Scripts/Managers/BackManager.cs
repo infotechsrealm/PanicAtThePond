@@ -49,7 +49,7 @@ public class BackManager : MonoBehaviour
             return instance;
         }
 
-        BackManager existing = FindFirstObjectByType<BackManager>(FindObjectsInactive.Include);
+        BackManager existing = FindAnyObjectByType<BackManager>(FindObjectsInactive.Include);
         if (existing != null)
         {
             instance = existing;

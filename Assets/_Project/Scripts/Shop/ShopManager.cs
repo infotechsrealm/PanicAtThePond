@@ -666,7 +666,8 @@ public class ShopManager : MonoBehaviour
 
     private void ResetAllCosmeticSelections()
     {
-        ShopCosmeticSelector[] selectors = FindObjectsOfType<ShopCosmeticSelector>(true);
+        ShopCosmeticSelector[] selectors = FindObjectsByType<ShopCosmeticSelector>(
+            FindObjectsInactive.Include);
         foreach (var selector in selectors)
         {
             selector.ResetSelection();

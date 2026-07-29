@@ -2,61 +2,82 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+using PanicAtThePond.Data;
+
 namespace PanicAtThePond.Managers
 {
     /// <summary>
     /// The only script that is allowed to read raw input. Everything else subscribes to the typed
     /// events below.
     ///
-    /// The actions modelled here mirror the controls the game actually uses today:
-    /// horizontal/vertical movement, rod selection, hold X+V to charge a cast, release to cast,
-    /// right mouse to reel in, space to mash, escape to go back.
+    /// Backed by the generated <see cref="PlayerControls"/> wrapper over
+    /// <c>Assets/_Project/Scripts/Data/PlayerControls.inputactions</c>. The actions mirror the
+    /// controls the game actually uses: WASD/arrow movement (Y also drives rod selection), hold
+    /// X+V to charge a cast and release to fire, right mouse to reel in, Space to mash, Q to drop
+    /// carried junk, Escape to go back, plus the F9/F11 debug toggles.
     ///
-    /// The project's <c>PlayerControls.inputactions</c> asset still contains only Unity's default
-    /// template actions (Move/Look/Fire) and has <c>generateWrapperCode: 0</c>. Generating a C# wrapper
-    /// from it would produce a class that does not describe this game, so the asset needs authoring to
-    /// match these actions before the ruleset's "generate C# class" step becomes meaningful.
+    /// <para><b>Migration state.</b> This manager is authoritative but not yet the sole reader:
+    /// the legacy <c>Input.*</c> call sites are still live so behaviour is unchanged until they
+    /// are switched over. Flip <see cref="_isAuthoritative"/> on once the new path has been
+    /// playtested with two live clients, then delete the legacy reads.</para>
     /// </summary>
     [DisallowMultipleComponent]
-    public class InputManager : MonoBehaviour
+    public sealed class InputManager : MonoBehaviour
     {
-        private const string HORIZONTAL_AXIS = "Horizontal";
-        private const string VERTICAL_AXIS = "Vertical";
+        [Tooltip("Leave OFF until the new input path has been playtested with two live clients. " +
+                 "While OFF the legacy Input.* call sites remain the source of truth and this " +
+                 "manager only publishes events.")]
+        [SerializeField] private bool _isAuthoritative;
 
         [SerializeField] private bool _keepAliveAcrossScenes = true;
 
+        private PlayerControls _controls;
         private Vector2 _moveInput;
-        private bool _castHeldLastFrame;
 
         /// <summary>Singleton access point. Null until the manager's <c>Awake</c> has run.</summary>
         public static InputManager Instance { get; private set; }
 
-        /// <summary>Current movement input. X drives boat/fish horizontal, Y drives rod selection.</summary>
+        /// <summary>Current movement input. X drives fish/fisherman horizontal, Y drives rod selection.</summary>
         public Vector2 MoveInput => _moveInput;
 
         /// <summary>True while both cast keys (X and V) are held.</summary>
         public bool IsCastHeld { get; private set; }
 
-        /// <summary>Raised every frame the movement vector changes.</summary>
+        /// <summary>True once the legacy <c>Input.*</c> readers have been retired.</summary>
+        public bool IsAuthoritative => _isAuthoritative;
+
+        /// <summary>The control scheme currently driving input, for swapping UI prompt glyphs.</summary>
+        public string ActiveControlScheme { get; private set; } = "Keyboard&Mouse";
+
+        /// <summary>Raised whenever the movement vector changes.</summary>
         public event Action<Vector2> OnMoveChanged;
 
-        /// <summary>Raised on the frame the cast charge begins (X+V pressed).</summary>
+        /// <summary>Raised on the frame the cast charge begins (X+V held).</summary>
         public event Action OnCastStarted;
 
-        /// <summary>Raised on the frame the cast is released.</summary>
+        /// <summary>Raised on the frame the cast is released (either key let go).</summary>
         public event Action OnCastReleased;
 
         /// <summary>Raised on the frame the reel-in input (right mouse) is pressed.</summary>
         public event Action OnReelPressed;
 
-        /// <summary>Raised on each mash press during the mash phase (space).</summary>
+        /// <summary>Raised on each mash press during the mash phase (Space).</summary>
         public event Action OnMashPressed;
 
         /// <summary>Raised on the frame the drop-carried-junk input (Q) is pressed.</summary>
         public event Action OnDropJunkPressed;
 
-        /// <summary>Raised on the frame the back/cancel input (escape) is pressed.</summary>
+        /// <summary>Raised on the frame the back/cancel input (Escape) is pressed.</summary>
         public event Action OnBackPressed;
+
+        /// <summary>Raised on the frame the fullscreen toggle (F11) is pressed.</summary>
+        public event Action OnToggleFullscreenPressed;
+
+        /// <summary>Raised on the frame the room-filter debug toggle (F9) is pressed.</summary>
+        public event Action OnToggleRoomFilterPressed;
+
+        /// <summary>Raised when the active control scheme changes (keyboard ↔ gamepad).</summary>
+        public event Action<string> OnControlSchemeChanged;
 
         private void Awake()
         {
@@ -72,21 +93,58 @@ namespace PanicAtThePond.Managers
             {
                 DontDestroyOnLoad(gameObject);
             }
+
+            _controls = new PlayerControls();
         }
 
-        private void Update()
+        private void OnEnable()
         {
-            Keyboard keyboard = Keyboard.current;
-            Mouse mouse = Mouse.current;
-
-            if (keyboard == null)
+            if (_controls == null)
             {
                 return;
             }
 
-            ReadMovement(keyboard);
-            ReadCast(keyboard);
-            ReadDiscreteActions(keyboard, mouse);
+            _controls.Gameplay.Enable();
+            _controls.Global.Enable();
+
+            _controls.Gameplay.Move.performed += HandleMove;
+            _controls.Gameplay.Move.canceled += HandleMove;
+            _controls.Gameplay.Cast.performed += HandleCastStarted;
+            _controls.Gameplay.Cast.canceled += HandleCastReleased;
+            _controls.Gameplay.Reel.performed += HandleReel;
+            _controls.Gameplay.Mash.performed += HandleMash;
+            _controls.Gameplay.DropJunk.performed += HandleDropJunk;
+
+            _controls.Global.Back.performed += HandleBack;
+            _controls.Global.ToggleFullscreen.performed += HandleToggleFullscreen;
+            _controls.Global.ToggleRoomFilter.performed += HandleToggleRoomFilter;
+
+            InputSystem.onDeviceChange += HandleDeviceChange;
+        }
+
+        private void OnDisable()
+        {
+            if (_controls == null)
+            {
+                return;
+            }
+
+            _controls.Gameplay.Move.performed -= HandleMove;
+            _controls.Gameplay.Move.canceled -= HandleMove;
+            _controls.Gameplay.Cast.performed -= HandleCastStarted;
+            _controls.Gameplay.Cast.canceled -= HandleCastReleased;
+            _controls.Gameplay.Reel.performed -= HandleReel;
+            _controls.Gameplay.Mash.performed -= HandleMash;
+            _controls.Gameplay.DropJunk.performed -= HandleDropJunk;
+
+            _controls.Global.Back.performed -= HandleBack;
+            _controls.Global.ToggleFullscreen.performed -= HandleToggleFullscreen;
+            _controls.Global.ToggleRoomFilter.performed -= HandleToggleRoomFilter;
+
+            InputSystem.onDeviceChange -= HandleDeviceChange;
+
+            _controls.Gameplay.Disable();
+            _controls.Global.Disable();
         }
 
         private void OnDestroy()
@@ -99,62 +157,80 @@ namespace PanicAtThePond.Managers
             Cleanup();
         }
 
-        private void ReadMovement(Keyboard keyboard)
+        /// <summary>Switches the active action map so input is gated by context, not by booleans.</summary>
+        /// <param name="isGameplayActive">True to enable the Gameplay map, false to leave only Global live.</param>
+        public void SetGameplayInputEnabled(bool isGameplayActive)
         {
-            float horizontal = 0f;
-            float vertical = 0f;
-
-            if (keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed) { horizontal -= 1f; }
-            if (keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed) { horizontal += 1f; }
-            if (keyboard.sKey.isPressed || keyboard.downArrowKey.isPressed) { vertical -= 1f; }
-            if (keyboard.wKey.isPressed || keyboard.upArrowKey.isPressed) { vertical += 1f; }
-
-            Vector2 next = new Vector2(horizontal, vertical);
-            if (next != _moveInput)
+            if (_controls == null)
             {
-                _moveInput = next;
-                OnMoveChanged?.Invoke(_moveInput);
+                return;
+            }
+
+            if (isGameplayActive)
+            {
+                _controls.Gameplay.Enable();
+            }
+            else
+            {
+                _controls.Gameplay.Disable();
             }
         }
 
-        private void ReadCast(Keyboard keyboard)
+        private void HandleMove(InputAction.CallbackContext context)
         {
-            bool castHeld = keyboard.xKey.isPressed && keyboard.vKey.isPressed;
-            IsCastHeld = castHeld;
-
-            if (castHeld && !_castHeldLastFrame)
-            {
-                OnCastStarted?.Invoke();
-            }
-            else if (!castHeld && _castHeldLastFrame)
-            {
-                OnCastReleased?.Invoke();
-            }
-
-            _castHeldLastFrame = castHeld;
+            _moveInput = context.ReadValue<Vector2>();
+            OnMoveChanged?.Invoke(_moveInput);
         }
 
-        private void ReadDiscreteActions(Keyboard keyboard, Mouse mouse)
+        private void HandleCastStarted(InputAction.CallbackContext context)
         {
-            if (mouse != null && mouse.rightButton.wasPressedThisFrame)
+            IsCastHeld = true;
+            OnCastStarted?.Invoke();
+        }
+
+        private void HandleCastReleased(InputAction.CallbackContext context)
+        {
+            IsCastHeld = false;
+            OnCastReleased?.Invoke();
+        }
+
+        private void HandleReel(InputAction.CallbackContext context) => OnReelPressed?.Invoke();
+
+        private void HandleMash(InputAction.CallbackContext context) => OnMashPressed?.Invoke();
+
+        private void HandleDropJunk(InputAction.CallbackContext context) => OnDropJunkPressed?.Invoke();
+
+        private void HandleBack(InputAction.CallbackContext context) => OnBackPressed?.Invoke();
+
+        private void HandleToggleFullscreen(InputAction.CallbackContext context) => OnToggleFullscreenPressed?.Invoke();
+
+        private void HandleToggleRoomFilter(InputAction.CallbackContext context) => OnToggleRoomFilterPressed?.Invoke();
+
+        private void HandleDeviceChange(InputDevice device, InputDeviceChange change)
+        {
+            if (change != InputDeviceChange.Added && change != InputDeviceChange.Reconnected)
             {
-                OnReelPressed?.Invoke();
+                return;
             }
 
-            if (keyboard.spaceKey.wasPressedThisFrame)
+            string scheme = device is Gamepad ? "Gamepad" : "Keyboard&Mouse";
+            if (scheme == ActiveControlScheme)
             {
-                OnMashPressed?.Invoke();
+                return;
             }
 
-            if (keyboard.qKey.wasPressedThisFrame)
-            {
-                OnDropJunkPressed?.Invoke();
-            }
+            ActiveControlScheme = scheme;
+            OnControlSchemeChanged?.Invoke(scheme);
+        }
 
-            if (keyboard.escapeKey.wasPressedThisFrame)
-            {
-                OnBackPressed?.Invoke();
-            }
+        /// <summary>
+        /// Clears the static instance before a new play session. Required because the project may run
+        /// with Domain Reload disabled, which would otherwise carry a destroyed instance across runs.
+        /// </summary>
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetStatics()
+        {
+            Instance = null;
         }
 
         private void Cleanup()
@@ -166,6 +242,12 @@ namespace PanicAtThePond.Managers
             OnMashPressed = null;
             OnDropJunkPressed = null;
             OnBackPressed = null;
+            OnToggleFullscreenPressed = null;
+            OnToggleRoomFilterPressed = null;
+            OnControlSchemeChanged = null;
+
+            _controls?.Dispose();
+            _controls = null;
         }
     }
 }

@@ -10,8 +10,9 @@ using PanicAtThePond.Gameplay;
 using PanicAtThePond.UI;
 using PanicAtThePond.Shop;
 using PanicAtThePond.Data;
+using PanicAtThePond.Utilities;
 
-namespace PanicAtThePond.Utilities
+namespace PanicAtThePond.Dash.Utilities
 {
 public class AutoBlockRaycastOnInputClick : MonoBehaviour
 {
@@ -29,8 +30,8 @@ public class AutoBlockRaycastOnInputClick : MonoBehaviour
     void Start()
     {
         // Cache all graphics in scene
-        allGraphics = FindObjectsByType<Graphic>(FindObjectsSortMode.None);
-        allCanvasGroups = FindObjectsByType<CanvasGroup>(FindObjectsSortMode.None);
+        allGraphics = FindObjectsByType<Graphic>();
+        allCanvasGroups = FindObjectsByType<CanvasGroup>();
         
         // Store original states
         foreach (Graphic g in allGraphics)
@@ -307,8 +308,8 @@ public class AutoBlockRaycastOnInputClick : MonoBehaviour
     // Auto-populate input field arrays
     public void AutoPopulateInputFields()
     {
-        tmpInputFields = FindObjectsByType<TMP_InputField>(FindObjectsSortMode.None);
-        standardInputFields = FindObjectsByType<InputField>(FindObjectsSortMode.None);
+        tmpInputFields = FindObjectsByType<TMP_InputField>();
+        standardInputFields = FindObjectsByType<InputField>();
         
         Debug.Log($"Auto-populated {tmpInputFields.Length} TMP_InputFields and {standardInputFields.Length} standard InputFields");
         

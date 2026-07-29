@@ -1111,7 +1111,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             // When PhotonNetwork.LoadLevel is called, it will automatically clean up all networked objects
             // But we'll try to clean up what we can to avoid errors
             
-            FishController[] allFish = UnityEngine.Object.FindObjectsByType<FishController>(FindObjectsSortMode.None);
+            FishController[] allFish = UnityEngine.Object.FindObjectsByType<FishController>();
             int destroyedCount = 0;
             foreach (FishController fish in allFish)
             {
@@ -1135,7 +1135,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
             Debug.Log($"✅ Destroyed {destroyedCount} fish objects (scene load will clean up the rest)");
 
-            WormManager[] allWorms = UnityEngine.Object.FindObjectsByType<WormManager>(FindObjectsSortMode.None);
+            WormManager[] allWorms = UnityEngine.Object.FindObjectsByType<WormManager>();
             int destroyedWorms = 0;
             foreach (WormManager worm in allWorms)
             {
@@ -1159,7 +1159,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
             Debug.Log($"✅ Destroyed {destroyedWorms} worm objects (scene load will clean up the rest)");
 
-            JunkManager[] allJunk = UnityEngine.Object.FindObjectsByType<JunkManager>(FindObjectsSortMode.None);
+            JunkManager[] allJunk = UnityEngine.Object.FindObjectsByType<JunkManager>();
             int destroyedJunk = 0;
             foreach (JunkManager junk in allJunk)
             {
@@ -1183,7 +1183,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
             Debug.Log($"✅ Destroyed {destroyedJunk} junk objects (scene load will clean up the rest)");
 
-            FishermanController[] allFishermen = UnityEngine.Object.FindObjectsByType<FishermanController>(FindObjectsSortMode.None);
+            FishermanController[] allFishermen = UnityEngine.Object.FindObjectsByType<FishermanController>();
             int destroyedFishermen = 0;
             foreach (FishermanController fisherman in allFishermen)
             {

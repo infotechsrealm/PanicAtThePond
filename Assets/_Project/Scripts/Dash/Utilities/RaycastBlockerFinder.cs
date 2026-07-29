@@ -8,8 +8,9 @@ using PanicAtThePond.Gameplay;
 using PanicAtThePond.UI;
 using PanicAtThePond.Shop;
 using PanicAtThePond.Data;
+using PanicAtThePond.Utilities;
 
-namespace PanicAtThePond.Utilities
+namespace PanicAtThePond.Dash.Utilities
 {
 public class RaycastBlockerFinder : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class RaycastBlockerFinder : MonoBehaviour
         Debug.Log("\n========== RAYCAST BLOCKER DETECTION ==========\n");
         
         // Find all Graphic components with raycastTarget enabled
-        Graphic[] allGraphics = FindObjectsByType<Graphic>(FindObjectsSortMode.None);
+        Graphic[] allGraphics = FindObjectsByType<Graphic>();
         List<Graphic> raycastTargets = new List<Graphic>();
         
         foreach (Graphic g in allGraphics)
@@ -56,7 +57,7 @@ public class RaycastBlockerFinder : MonoBehaviour
         
         // Find Input Fields and check what's blocking them
         Debug.Log("\n--- INPUT FIELDS AND THEIR BLOCKERS ---\n");
-        InputField[] allInputFields = FindObjectsByType<InputField>(FindObjectsSortMode.None);
+        InputField[] allInputFields = FindObjectsByType<InputField>();
         
         foreach (InputField inputField in allInputFields)
         {
@@ -103,7 +104,7 @@ public class RaycastBlockerFinder : MonoBehaviour
         
         // Panel detection
         Debug.Log("\n--- PANELS WITH RAYCAST TARGET ENABLED ---\n");
-        Image[] allImages = FindObjectsByType<Image>(FindObjectsSortMode.None);
+        Image[] allImages = FindObjectsByType<Image>();
         
         foreach (Image img in allImages)
         {

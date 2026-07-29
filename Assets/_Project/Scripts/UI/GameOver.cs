@@ -35,7 +35,7 @@ public class GameOver : MonoBehaviourPunCallbacks
         // Option 2: If not on this GameObject, find it in the scene
         if (photonView == null)
         {
-            photonView = UnityEngine.Object.FindFirstObjectByType<PhotonView>();
+            photonView = UnityEngine.Object.FindAnyObjectByType<PhotonView>();
         }
 
         // Option 3: If still null, create a new PhotonView

@@ -356,7 +356,7 @@ public class SaltShopUI : MonoBehaviour
         text.fontSize = size;
         text.color = color;
         text.alignment = alignment;
-        text.enableWordWrapping = false;
+        text.textWrappingMode = TextWrappingModes.NoWrap;
         text.overflowMode = TextOverflowModes.Overflow;
         text.raycastTarget = false;
         return text;
