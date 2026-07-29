@@ -1,0 +1,210 @@
+using Mirror;
+using Photon.Pun;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+using PanicAtThePond.Managers;
+using PanicAtThePond.Controllers;
+using PanicAtThePond.UI;
+using PanicAtThePond.Shop;
+using PanicAtThePond.Data;
+using PanicAtThePond.Utilities;
+
+namespace PanicAtThePond.Gameplay
+{
+public class WormSpawner : MonoBehaviourPunCallbacks 
+{
+
+    public GameObject wormPrefab, goldFish;
+    [SerializeField] private float spawnInterval = 3f;
+    public float xRange = 8f;
+    [SerializeField] private float yRange = 4f;
+
+    public bool canSpawn = true;
+
+    public static WormSpawner Instance;
+
+
+    internal List<GameObject> activeWorms = new List<GameObject>(); // track all junks
+    private Coroutine spawnCoroutine;
+
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
+    void Start()
+    {
+        if (GS.Instance.isLan)
+        {
+            if(GS.Instance.IsMirrorMasterClient)
+            {
+                LoadSpawnWorm();
+                Invoke(nameof(SpawnGoldWorm), Random.Range(5, 10));
+
+            }
+        }
+        else
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                LoadSpawnWorm();
+                Invoke(nameof(SpawnGoldWorm), Random.Range(5, 10));
+            }
+        }
+        canSpawn = true;
+    }
+
+    public void LoadSpawnWorm()
+    {
+        if (spawnCoroutine == null)
+        {
+            spawnCoroutine = StartCoroutine(SpawnWorm());
+        }
+    }
+
+    IEnumerator SpawnWorm()
+    {
+        while (true)
+        {
+            if (canSpawn)
+            {
+                for (int i = activeWorms.Count - 1; i >= 0; i--)
+                {
+                    if (activeWorms[i] == null)
+                    {
+                        activeWorms.RemoveAt(i);
+                    }
+                }
+
+                int maxWorms = 5;
+                if (GS.Instance != null && GS.Instance.scoreSystemSettings != null)
+                {
+                    maxWorms = (int)GS.Instance.scoreSystemSettings.GetWormSpawnRate();
+                }
+
+                if (activeWorms.Count < maxWorms)
+                {
+                    float x = Random.Range(-xRange, xRange);
+                    float y = Random.Range(-yRange, 0);
+                    Vector2 pos = new Vector2(x, y);
+
+                    if (GS.Instance.isLan)
+                    {
+                        GameObject worm = Instantiate(wormPrefab, pos, Quaternion.identity);
+                        NetworkServer.Spawn(worm);
+                        activeWorms.Add(worm);
+                    }
+                    else
+                    {
+                        GameObject worm = PhotonNetwork.Instantiate(wormPrefab.name, pos, Quaternion.identity).gameObject;
+                        if (FishermanController.Instance != null)
+                        {
+                            worm.GetComponent<AudioSource>().mute = true;
+                        }
+                        activeWorms.Add(worm);
+                    }
+                }
+            }
+
+            yield return new WaitForSeconds(GetConfiguredSpawnInterval());
+        }
+    }
+
+    private float GetConfiguredSpawnInterval()
+    {
+        if (GS.Instance != null && GS.Instance.scoreSystemSettings != null)
+        {
+            float rate = GS.Instance.scoreSystemSettings.GetWormSpawnRate();
+            if (rate > 0f)
+            {
+                return Mathf.Clamp(25.0f / rate, 0.25f, 60f);
+            }
+        }
+
+        return Mathf.Clamp(spawnInterval, 0.25f, 60f);
+    }
+
+    void SpawnGoldWorm()
+    {
+        int r = Random.Range(0, 2);
+        float x = r == 0 ? -10f : 10f;
+
+        float y = Random.Range(-yRange, 1);
+        Vector2 pos = new Vector2(x, y);
+
+        if (GS.Instance.isLan)
+        {
+            GameObject goldfish = Instantiate(goldFish, pos, Quaternion.identity);
+            NetworkServer.Spawn(goldfish);
+        }
+        else
+        {
+            PhotonNetwork.Instantiate(goldFish.name, pos, Quaternion.identity);
+        }
+    }
+
+    public void StopSpawning()
+    {
+        canSpawn = false;
+    }
+
+    public void DestroyAllWorms()
+    {
+        canSpawn = false;
+
+        if (GS.Instance.isLan)
+        {
+            foreach (GameObject worm in activeWorms)
+            {
+                if (worm != null)
+                {
+                    WormSpawner_Mirror.Instance.DestroyWorm_Mirror(worm);
+                }
+            }
+        }
+        else
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                foreach (GameObject worm in activeWorms)
+                {
+                    if (worm != null)
+                    {
+                        PhotonView pv = worm.GetComponent<PhotonView>();
+                        if (pv != null)
+                        {
+                            PhotonNetwork.Destroy(worm);
+                        }
+                    }
+                }
+
+                activeWorms.Clear();
+                Debug.LogWarning("⚠️ Only MasterClient can destroy worms!");
+            }
+        }
+    }
+    void OnDestroy()
+    {
+        activeWorms.Remove(this.gameObject);
+    }
+
+
+    public void EnableWormDaceAnimation()
+    {
+        for (int i = 0; i < activeWorms.Count; i++)
+        {
+            if (activeWorms[i] != null)
+            {
+                activeWorms[i].GetComponent<WormManager>().OnDanceAnimation();
+            }
+        }
+    }
+}
+
+}

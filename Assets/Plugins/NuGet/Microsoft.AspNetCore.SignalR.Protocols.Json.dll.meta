@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 978830fe77188e84a8fbae402320f030
+guid: 0e2a86b804326c1458449b85ba99399c
 PluginImporter:
   externalObjects: {}
   serializedVersion: 3
@@ -14,9 +14,9 @@ PluginImporter:
     Any:
       enabled: 1
       settings:
-        Exclude Editor: 0
+        Exclude Editor: 1
     Editor:
-      enabled: 1
+      enabled: 0
       settings:
         DefaultValueInitialized: true
     WindowsStoreApps:
