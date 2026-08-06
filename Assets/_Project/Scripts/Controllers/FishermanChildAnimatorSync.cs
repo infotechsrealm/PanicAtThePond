@@ -67,7 +67,7 @@ public class FishermanChildAnimatorSync : MonoBehaviour
 
         if (rootAnimator == null)
         {
-            Transform chestTransform = transform.Find("chest");
+            Transform chestTransform = transform.Find(SceneObjectNames.FishermanChest);
             if (chestTransform != null)
             {
                 rootAnimator = chestTransform.GetComponent<Animator>();
@@ -81,7 +81,7 @@ public class FishermanChildAnimatorSync : MonoBehaviour
 
         if (rootAnimator.runtimeAnimatorController == null)
         {
-            var controller = Resources.Load<RuntimeAnimatorController>("Fisherman created/Cheast anim/Cheast Animator");
+            var controller = Resources.Load<RuntimeAnimatorController>("Fisherman created/Cheast anim/ANIM_CheastAnimator");
             if (controller != null)
             {
                 rootAnimator.runtimeAnimatorController = controller;
@@ -165,7 +165,7 @@ public class FishermanChildAnimatorSync : MonoBehaviour
 
     private void ConfigureChildControllersAtRuntime()
     {
-        ConfigureChildAtRuntime("chest", "Fisherman created/Cheast anim/Cheast Animator");
+        ConfigureChildAtRuntime("chest", "Fisherman created/Cheast anim/ANIM_CheastAnimator");
         ConfigureChildAtRuntime("head", "Fisherman created/Face/Face");
         ConfigureChildAtRuntime("hand", "Fisherman created/hand anim/Hand Aniamator");
         ConfigureChildAtRuntime("oar", "Fisherman created/oar/Oar");
@@ -345,7 +345,7 @@ public class FishermanChildAnimatorSync : MonoBehaviour
 
     private void CacheOarTransform()
     {
-        oarTransform = transform.Find("oar");
+        oarTransform = transform.Find(SceneObjectNames.FishermanOar);
         if (oarTransform == null)
         {
             for (int i = 0; i < transform.childCount; i++)

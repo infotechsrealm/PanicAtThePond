@@ -166,7 +166,7 @@ public class FishermanAnimationManager : MonoBehaviour
         foreach (SpriteRenderer sr in spriteRenderers)
         {
             if (sr == GetComponent<SpriteRenderer>()) continue; // Skip root
-            if (sr.gameObject.name == "hat Cosmetic") continue;  // Skip hat cosmetic (manually overlaid)
+            if (sr.gameObject.name == SceneObjectNames.HatCosmetic) continue;  // Skip hat cosmetic (manually overlaid)
 
             string partName = sr.gameObject.name.ToLowerInvariant();
             Sprite[] partSprites = null;

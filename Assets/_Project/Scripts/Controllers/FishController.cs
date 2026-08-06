@@ -497,7 +497,7 @@ public class FishController : MonoBehaviourPunCallbacks, IPunInstantiateMagicCal
 
             }
 
-            if (other.gameObject.name.Contains("Golden Fish"))
+            if (other.gameObject.name.Contains(SceneObjectNames.GoldenFish))
             {
                 if (photonView.IsMine || mirrorIdentity.isLocalPlayer)
                 {

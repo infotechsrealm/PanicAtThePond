@@ -215,8 +215,8 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         }
 
         // --- NEW MODULAR FISHERMAN LOGIC ---
-        Transform headTransform = fisherman.transform.Find("head"); // Prefab (2) uses lowercase "head"
-        if (headTransform == null) headTransform = fisherman.transform.Find("Head");
+        Transform headTransform = fisherman.transform.Find(SceneObjectNames.FishermanHeadLower); // Prefab (2) uses lowercase "head"
+        if (headTransform == null) headTransform = fisherman.transform.Find(SceneObjectNames.FishermanHeadUpper);
 
         if (headTransform != null)
         {
@@ -259,7 +259,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             if (isPreBaked)
             {
                 if (hatName.Contains("yellow") || hatName.Contains("fishing_hat") || hatName.Contains("default")) 
-                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan Yellow Hat");
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/ANIM_FisherManYellowHat");
                 else if (hatName.Contains("backwards_cap") || hatName.Contains("backwards"))
                     newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Backwards Cap)");
                 else if (hatName.Contains("blue_cap") || hatName.Contains("blue cap"))
@@ -288,9 +288,9 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             {
                 // Fallback to clean hair controller (no hat pre-baked)
                 if (hairName.Contains("black"))
-                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Black Hair)");
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/ANIM_FisherManBlackHair");
                 else
-                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Red Hair)");
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/ANIM_FisherManRedHair");
             }
 
             Animator rootAnim = fisherman.GetComponent<Animator>();
@@ -307,7 +307,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             rootRenderer.enabled = !renderHatAsModular;
 
             // Find or setup the child hat cosmetic object
-            Transform hatCosmeticTransform = headTransform.Find("hat Cosmetic");
+            Transform hatCosmeticTransform = headTransform.Find(SceneObjectNames.HatCosmetic);
             bool enableHatCosmetic = selectedFishermanHat != null && renderHatAsModular;
 
             // Ensure the child head and hat Cosmetic GameObjects are kept active/enabled!
@@ -374,7 +374,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             RuntimeAnimatorController newController = null;
             
             if (hatName.Contains("yellow") || hatName.Contains("fishing_hat")) 
-                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan Yellow hat");
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/ANIM_FisherManYellowHat");
             else if (hatName.Contains("backwards_cap"))
                 newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Backwards Cap)");
             else if (hatName.Contains("blue_cap"))
@@ -392,10 +392,18 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             else if (hatName.Contains("straw_hat"))
                 newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Straw Hat)");
             else if (hairName.Contains("black"))
-                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Black Hair)");
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/ANIM_FisherManBlackHair");
             else if (hairName.Contains("red"))
-                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Red Hair)");
-                
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/ANIM_FisherManRedHair");
+
+            // The catalog is the source of truth when it has an explicit animator for this cosmetic;
+            // the Contains() chain above remains as the fallback for IDs not yet catalogued.
+            RuntimeAnimatorController catalogController = GetCatalogAnimator(hatName, hairName);
+            if (catalogController != null)
+            {
+                newController = catalogController;
+            }
+
             if (newController != null && anim.runtimeAnimatorController != newController)
             {
                 anim.runtimeAnimatorController = newController;
@@ -442,8 +450,8 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         Sprite hairSprite = GetSpriteByName(hairName);
 
         // --- NEW MODULAR FISHERMAN LOGIC ---
-        Transform headTransform = fisherman.transform.Find("head");
-        if (headTransform == null) headTransform = fisherman.transform.Find("Head");
+        Transform headTransform = fisherman.transform.Find(SceneObjectNames.FishermanHeadLower);
+        if (headTransform == null) headTransform = fisherman.transform.Find(SceneObjectNames.FishermanHeadUpper);
 
         if (headTransform != null)
         {
@@ -490,7 +498,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             if (isPreBaked)
             {
                 if (normalizedHatName.Contains("yellow") || normalizedHatName.Contains("fishing_hat") || normalizedHatName.Contains("default")) 
-                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan Yellow Hat");
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/ANIM_FisherManYellowHat");
                 else if (normalizedHatName.Contains("backwards_cap") || normalizedHatName.Contains("backwards"))
                     newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Backwards Cap)");
                 else if (normalizedHatName.Contains("blue_cap") || normalizedHatName.Contains("blue cap"))
@@ -518,9 +526,9 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             if (newController == null)
             {
                 if (normalizedHairName.Contains("black"))
-                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Black Hair)");
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/ANIM_FisherManBlackHair");
                 else
-                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Red Hair)");
+                    newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/ANIM_FisherManRedHair");
             }
 
             Animator rootAnim = fisherman.GetComponent<Animator>();
@@ -537,7 +545,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             rootRenderer.enabled = !renderHatAsModular;
 
             // Find or setup the child hat cosmetic object
-            Transform hatCosmeticTransform = headTransform.Find("hat Cosmetic");
+            Transform hatCosmeticTransform = headTransform.Find(SceneObjectNames.HatCosmetic);
             bool enableHatCosmetic = hatSprite != null && renderHatAsModular;
 
             // Ensure the child head and hat Cosmetic GameObjects are kept active/enabled!
@@ -598,11 +606,11 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             RuntimeAnimatorController newController = null;
             
             if (currentHatName.Contains("yellow") || currentHatName.Contains("fishing_hat"))
-                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan Yellow hat");
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/ANIM_FisherManYellowHat");
             else if (currentHairName.Contains("black"))
-                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Black Hair)");
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/ANIM_FisherManBlackHair");
             else 
-                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/FisherMan (Red Hair)");
+                newController = Resources.Load<RuntimeAnimatorController>("FishermanControllers/ANIM_FisherManRedHair");
                 
             if (newController != null && anim.runtimeAnimatorController != newController)
             {
@@ -678,9 +686,42 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         RemoveCosmetic(fish, FishHatChildName);
     }
 
+    /// <summary>
+    /// Looks up an animator override from the <see cref="CosmeticCatalog"/> for a hat, falling back
+    /// to the hair ID. Returns null when no catalog exists or neither ID is catalogued, which lets
+    /// the caller keep whatever the legacy name-matching chain resolved.
+    /// </summary>
+    /// <param name="hatName">Hat cosmetic ID, may be empty.</param>
+    /// <param name="hairName">Hair cosmetic ID, used when the hat has no catalog animator.</param>
+    private static RuntimeAnimatorController GetCatalogAnimator(string hatName, string hairName)
+    {
+        CosmeticCatalog catalog = CosmeticCatalog.Active;
+        if (catalog == null)
+        {
+            return null;
+        }
+
+        RuntimeAnimatorController controller = catalog.GetAnimator(hatName);
+        return controller != null ? controller : catalog.GetAnimator(hairName);
+    }
+
     public static Sprite GetSpriteByName(string spriteName)
     {
         if (string.IsNullOrEmpty(spriteName)) return null;
+
+        // Catalog first: an explicit Inspector reference, so the artwork can be swapped or renamed
+        // without touching code, shop_config.json, save data or the network payload. Falls through
+        // to the legacy name matching below when the catalog has no entry, so a partially filled
+        // catalog degrades gracefully instead of losing the cosmetic.
+        CosmeticCatalog catalog = CosmeticCatalog.Active;
+        if (catalog != null)
+        {
+            Sprite fromCatalog = catalog.GetIcon(spriteName);
+            if (fromCatalog != null)
+            {
+                return fromCatalog;
+            }
+        }
 
         if (cachedShopSprites == null || cachedShopSprites.Length == 0)
         {
@@ -888,7 +929,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             return;
         }
 
-        if (gameObject.name == FishermanHatChildName || gameObject.name == FishermanHairChildName || gameObject.name == "hat Cosmetic")
+        if (gameObject.name == FishermanHatChildName || gameObject.name == FishermanHairChildName || gameObject.name == SceneObjectNames.HatCosmetic)
         {
             Vector3 bobOffset = GetFishermanHeadBobOffset(state, frameIndex);
             
@@ -2158,7 +2199,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         string controllerPath = string.Empty;
 
         if (name.Contains("yellow") || name.Contains("fishing_hat") || name.Contains("default"))
-            controllerPath = "FishermanControllers/FisherMan Yellow Hat";
+            controllerPath = "FishermanControllers/ANIM_FisherManYellowHat";
         else if (name.Contains("backwards_cap") || name.Contains("backwards"))
             controllerPath = "FishermanControllers/FisherMan (Backwards Cap)";
         else if (name.Contains("blue_cap") || name.Contains("blue cap"))

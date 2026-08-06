@@ -50,7 +50,7 @@ public class FishermanAnimationVerifier : MonoBehaviour
         Debug.Log($"ℹ Found {renderers.Length} sprite renderers");
 
         // Check 4: Head sprite renderer disabled
-        Transform headTransform = transform.Find("head");
+        Transform headTransform = transform.Find(SceneObjectNames.FishermanHeadLower);
         if (headTransform != null)
         {
             SpriteRenderer headRenderer = headTransform.GetComponent<SpriteRenderer>();

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c084c2e22634b4d84cab4858696a4a, type: 3}
+  m_Name: SO_PreviewBoundsCatalog
+  m_EditorClassIdentifier: PanicAtThePond::PanicAtThePond.Shop.PreviewBoundsCatalog
+  _entries:
+  - spriteName: fishaerman white hat
+    contentWidthFraction: 0.514
+    contentHeightFraction: 0.474
+  - spriteName: Fisherman  Turtle hat
+    contentWidthFraction: 0.502
+    contentHeightFraction: 0.456
+  - spriteName: Fisherman blue cap hat
+    contentWidthFraction: 0.532
+    contentHeightFraction: 0.496
+  - spriteName: Fisherman griin hat
+    contentWidthFraction: 0.516
+    contentHeightFraction: 0.494
+  - spriteName: Fisherman Red hair
+    contentWidthFraction: 0.562
+    contentHeightFraction: 0.486
+  - spriteName: Fisherman red hat
+    contentWidthFraction: 0.556
+    contentHeightFraction: 0.506
+  - spriteName: Fisherman Yellow hat
+    contentWidthFraction: 0.586
+    contentHeightFraction: 0.506
+  - spriteName: Fishermna Green hat
+    contentWidthFraction: 0.574
+    contentHeightFraction: 0.542
+  - spriteName: Fishermna headphone hat
+    contentWidthFraction: 0.58
+    contentHeightFraction: 0.544

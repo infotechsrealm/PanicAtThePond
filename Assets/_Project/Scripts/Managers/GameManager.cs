@@ -187,7 +187,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 Scene activeScene = SceneManager.GetActiveScene();
                 foreach (GameObject go in activeScene.GetRootGameObjects())
                 {
-                    if (go.name == "clouds_1_5" || go.name == "clouds_1_0")
+                    if (go.name == SceneObjectNames.CloudLayerFar || go.name == SceneObjectNames.CloudLayerNear)
                     {
                         go.SetActive(false);
                     }

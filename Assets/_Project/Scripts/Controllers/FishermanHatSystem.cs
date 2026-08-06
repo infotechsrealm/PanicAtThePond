@@ -28,7 +28,7 @@ public class FishermanHatSystem : MonoBehaviour
         // Find head transform
         if (headTransform == null)
         {
-            headTransform = transform.Find("head");
+            headTransform = transform.Find(SceneObjectNames.FishermanHeadLower);
             if (headTransform == null)
             {
                 Debug.LogError("❌ Could not find 'head' child object!");

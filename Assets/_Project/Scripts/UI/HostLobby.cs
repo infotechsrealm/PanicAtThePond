@@ -559,7 +559,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
         {
             hungerDepletionRateInput = CreateScoreInput(HungerDepletionRateFieldName, goldenFishBonusInput, HungerDepletionInputOffset, ScoreSystemSettings.DefaultHungerDepletionRate.ToString(), allInputs);
             GameObject depLabelObj = CreateScoreLabel("Depletion\nHunger Rate:", hungerDepletionRateInput, HungerDepletionLabelOffset);
-            if (depLabelObj != null) depLabelObj.name = "Depletion";
+            if (depLabelObj != null) depLabelObj.name = SceneObjectNames.DepletionLabel;
         }
 
         if (troutSpeedInput == null && goldenFishSpeedInput != null)
@@ -690,7 +690,7 @@ public class HostLobby : MonoBehaviourPunCallbacks
         SetRect(troutSpeedInput != null ? troutSpeedInput.transform as RectTransform : null, TroutSpeedInputPosition, TroutSpeedInputSize);
 
         TextMeshProUGUI depletionLabel = ScoreUI != null
-            ? ScoreUI.GetComponentsInChildren<TextMeshProUGUI>(true).FirstOrDefault(label => label.name == "Depletion")
+            ? ScoreUI.GetComponentsInChildren<TextMeshProUGUI>(true).FirstOrDefault(label => label.name == SceneObjectNames.DepletionLabel)
             : null;
         SetRect(depletionLabel != null ? depletionLabel.transform as RectTransform : null, DepletionLabelPosition, DepletionLabelSize);
     }

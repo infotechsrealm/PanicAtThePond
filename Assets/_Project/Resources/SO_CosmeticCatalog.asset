@@ -1,0 +1,1191 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ca4d621926024f83f615e1e7543b7, type: 3}
+  m_Name: SO_CosmeticCatalog
+  m_EditorClassIdentifier: PanicAtThePond::PanicAtThePond.Shop.CosmeticCatalog
+  _entries:
+  - id: Bacground
+    displayName: Bacground
+    category: 5
+    icon: {fileID: 21300000, guid: 946012a8a2da40d2a8fe97ec6d3e5f55, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: bad
+    displayName: bad
+    category: 5
+    icon: {fileID: 21300000, guid: c9d8100d32624f57af69ee9d9dd567d9, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: beret
+    displayName: beret
+    category: 5
+    icon: {fileID: 21300000, guid: ee269e44a7bb4c97a41ade98b0a5a4ef, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Black_Hair
+    displayName: Black Hair
+    category: 5
+    icon: {fileID: 21300000, guid: 6c06bc967fae4ca8b743a8225720a1ec, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: BoxSelected
+    displayName: BoxSelected
+    category: 5
+    icon: {fileID: 21300000, guid: db2f0287972844be80f802b5eb8266d9, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: BoxUnselected
+    displayName: BoxUnselected
+    category: 5
+    icon: {fileID: 21300000, guid: d0e0d79e0f4b47c39183eccd2fe67b31, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: cap
+    displayName: cap
+    category: 5
+    icon: {fileID: 21300000, guid: cb4886793f014c26b992d7cd6d38aba9, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: daigram preview
+    displayName: daigram preview
+    category: 5
+    icon: {fileID: 21300000, guid: b44d4aea9c20a7b4388fc7597af4a71f, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: bass
+    displayName: bass
+    category: 5
+    icon: {fileID: 21300000, guid: e8c94e26bd0c88c409841c1927b3bfd2, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Fish Black hat
+    displayName: Fish Black hat
+    category: 5
+    icon: {fileID: 21300000, guid: 648ec29c3ea3aef439966ddc278ccdd0, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Fish Boat hat
+    displayName: Fish Boat hat
+    category: 5
+    icon: {fileID: 21300000, guid: 0b60eef8524006c48855e03e20d4046b, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Fish Cap Hat
+    displayName: Fish Cap Hat
+    category: 5
+    icon: {fileID: 21300000, guid: 6d7f4cc1c0ef61347afd14c9800e5223, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Fish orange hat
+    displayName: Fish orange hat
+    category: 5
+    icon: {fileID: 21300000, guid: 719f4ad6620c3e340a2c81399d01776b, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: fish polish hat
+    displayName: fish polish hat
+    category: 5
+    icon: {fileID: 21300000, guid: ad64e8431ba552f41bef8e56f5fe1b00, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: fish yellow hat
+    displayName: fish yellow hat
+    category: 5
+    icon: {fileID: 21300000, guid: 49afe16deca5bdf419d4d7b01ffe0a21, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Trout black hat
+    displayName: Trout black hat
+    category: 5
+    icon: {fileID: 21300000, guid: c35721b97d1f4014a8d3728ca44f6703, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Trout Boat hat
+    displayName: Trout Boat hat
+    category: 5
+    icon: {fileID: 21300000, guid: 29e50670631823441903d491716e44cc, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Trout Cap hat
+    displayName: Trout Cap hat
+    category: 5
+    icon: {fileID: 21300000, guid: 9afc5895ea3df8741a5bc0278db9c5a3, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Trout orange hat
+    displayName: Trout orange hat
+    category: 5
+    icon: {fileID: 21300000, guid: d79f0c0feb5308347b5088e1f1525e29, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: trout polish hat
+    displayName: trout polish hat
+    category: 5
+    icon: {fileID: 21300000, guid: 3c7fa39e6dc0a9f418c4e433010739cb, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: trout yellow hat
+    displayName: trout yellow hat
+    category: 5
+    icon: {fileID: 21300000, guid: 1ca8c0bc73d41ea439c8a61a8288b3a2, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: trout
+    displayName: trout
+    category: 5
+    icon: {fileID: 21300000, guid: d2499c0c14a5fb64c8584a00c2452d26, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Black hair Blu cap
+    displayName: Black hair Blu cap
+    category: 5
+    icon: {fileID: 21300000, guid: 2dad9fbc24c60664f877280d851505ec, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: black hair green frog
+    displayName: black hair green frog
+    category: 5
+    icon: {fileID: 21300000, guid: d9bdccb66e28c3e4f93027c08c8d93c3, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: black hair headfon
+    displayName: black hair headfon
+    category: 5
+    icon: {fileID: 21300000, guid: 4d5b9c0f31c9d634b9eebe271ae6d016, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Black Hair Ranger hat
+    displayName: Black Hair Ranger hat
+    category: 5
+    icon: {fileID: 21300000, guid: 781ec790ddfde364392efc4ec51b6b4e, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Black Hair Red Cap
+    displayName: Black Hair Red Cap
+    category: 5
+    icon: {fileID: 21300000, guid: c4ac36ecf35983041ae443f022b9e3e5, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: black hair turtle
+    displayName: black hair turtle
+    category: 5
+    icon: {fileID: 21300000, guid: c332cbd6b489a764c89eab478178a8bb, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: black hair white soda
+    displayName: black hair white soda
+    category: 5
+    icon: {fileID: 21300000, guid: b2302c67b6614e243a6f2440b28cefea, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: black hair yellow hat
+    displayName: black hair yellow hat
+    category: 5
+    icon: {fileID: 21300000, guid: 93029011997a5fd4aa86d5a50378a107, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: black hair
+    displayName: black hair
+    category: 5
+    icon: {fileID: 21300000, guid: f8a13ccf5972b8d4f802e2871d13e2a9, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: fishaerman white hat
+    displayName: fishaerman white hat
+    category: 5
+    icon: {fileID: 21300000, guid: 76b0c25cba704d346b076757d9914bf3, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Fisherman  Turtle hat
+    displayName: Fisherman  Turtle hat
+    category: 5
+    icon: {fileID: 21300000, guid: c25096655dc36b44ca05a5e7a7759983, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Fisherman blue cap hat
+    displayName: Fisherman blue cap hat
+    category: 5
+    icon: {fileID: 21300000, guid: 15c2a47672030764d98d10a5e2f2d4d5, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Fisherman griin hat
+    displayName: Fisherman griin hat
+    category: 5
+    icon: {fileID: 21300000, guid: 83734677b7eeca9418c771ddf2f769ad, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Fisherman Red hair
+    displayName: Fisherman Red hair
+    category: 5
+    icon: {fileID: 21300000, guid: 9207e895dcc0aff499949b20947a921e, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Fisherman red hat
+    displayName: Fisherman red hat
+    category: 5
+    icon: {fileID: 21300000, guid: c1ce62f4f0d71d344bd59db1768d0c85, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Fisherman Yellow hat
+    displayName: Fisherman Yellow hat
+    category: 5
+    icon: {fileID: 21300000, guid: c57615debfdeab04e888a4ad55b7916e, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Fishermna Green hat
+    displayName: Fishermna Green hat
+    category: 5
+    icon: {fileID: 21300000, guid: 814c56d0e889c284a9469f2a0e5b61e7, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Fishermna headphone hat
+    displayName: Fishermna headphone hat
+    category: 5
+    icon: {fileID: 21300000, guid: 75fd858890cfc7848a27865b695432b8, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: FisherMan_Hat_-Blue_Cap
+    displayName: FisherMan Hat  Blue Cap
+    category: 5
+    icon: {fileID: 21300000, guid: 8a58df7f22734af19f4ba5e9e2334745, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: FisherMan_Hat_-Chef_Hat
+    displayName: FisherMan Hat  Chef Hat
+    category: 5
+    icon: {fileID: 21300000, guid: c363a68d16354a94aa6fe085fa0587a6, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: FisherMan_Hat_-Default_-_Fishing_Hat
+    displayName: FisherMan Hat  Default   Fishing Hat
+    category: 5
+    icon: {fileID: 21300000, guid: bdc94c07cbac4e578b5d077ab33194f9, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: FisherMan_Hat_-Fish_Hat
+    displayName: FisherMan Hat  Fish Hat
+    category: 5
+    icon: {fileID: 21300000, guid: e77d989c38b542c5999b38e61add3839, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: FisherMan_Hat_-Ranger_Hat_0
+    displayName: FisherMan Hat  Ranger Hat 0
+    category: 5
+    icon: {fileID: -354653164222158120, guid: b40c1b3e789149218a1172e2c4d200d2, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FisherMan_Hat_-Ranger_Hat
+  - id: FisherMan_Hat_-Red_Cap
+    displayName: FisherMan Hat  Red Cap
+    category: 5
+    icon: {fileID: 21300000, guid: a600dafc892b47ddabf773822a85cbf9, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: FisherMan_Hat_-Soda_Hat
+    displayName: FisherMan Hat  Soda Hat
+    category: 5
+    icon: {fileID: 21300000, guid: 7689f513e1654dc6be082a0d88c2c81a, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: FishermansAnimations-Head-BlackHair-Sheet
+    displayName: FishermansAnimations Head BlackHair Sheet
+    category: 5
+    icon: {fileID: 4413119966191001307, guid: f19b70c10e78fa341a936c9b3c936c8a, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: FishermansAnimations-Head_Sheet_0
+    displayName: FishermansAnimations Head Sheet 0
+    category: 5
+    icon: {fileID: 4062561149672606160, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_1
+    displayName: FishermansAnimations Head Sheet 1
+    category: 5
+    icon: {fileID: 8328062947044967592, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_2
+    displayName: FishermansAnimations Head Sheet 2
+    category: 5
+    icon: {fileID: -7798743755772126621, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_3
+    displayName: FishermansAnimations Head Sheet 3
+    category: 5
+    icon: {fileID: 1158483887778289193, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_4
+    displayName: FishermansAnimations Head Sheet 4
+    category: 5
+    icon: {fileID: -76554015649950483, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_5
+    displayName: FishermansAnimations Head Sheet 5
+    category: 5
+    icon: {fileID: -245685709334408991, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_6
+    displayName: FishermansAnimations Head Sheet 6
+    category: 5
+    icon: {fileID: 7033983733341813266, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_7
+    displayName: FishermansAnimations Head Sheet 7
+    category: 5
+    icon: {fileID: -2663645509935037582, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_8
+    displayName: FishermansAnimations Head Sheet 8
+    category: 5
+    icon: {fileID: -6582911541012142921, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_9
+    displayName: FishermansAnimations Head Sheet 9
+    category: 5
+    icon: {fileID: -6616811674620865624, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_10
+    displayName: FishermansAnimations Head Sheet 10
+    category: 5
+    icon: {fileID: 7715030133539592167, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_11
+    displayName: FishermansAnimations Head Sheet 11
+    category: 5
+    icon: {fileID: -5516698018784873996, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_12
+    displayName: FishermansAnimations Head Sheet 12
+    category: 5
+    icon: {fileID: 8155920775962067085, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_13
+    displayName: FishermansAnimations Head Sheet 13
+    category: 5
+    icon: {fileID: 3930889267138373121, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_14
+    displayName: FishermansAnimations Head Sheet 14
+    category: 5
+    icon: {fileID: 6402938540962142959, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_15
+    displayName: FishermansAnimations Head Sheet 15
+    category: 5
+    icon: {fileID: -226440257939156885, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_16
+    displayName: FishermansAnimations Head Sheet 16
+    category: 5
+    icon: {fileID: -7789955685274852868, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_17
+    displayName: FishermansAnimations Head Sheet 17
+    category: 5
+    icon: {fileID: 2203383700793413231, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_18
+    displayName: FishermansAnimations Head Sheet 18
+    category: 5
+    icon: {fileID: 983200576102399183, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_19
+    displayName: FishermansAnimations Head Sheet 19
+    category: 5
+    icon: {fileID: 4436095641113242444, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_20
+    displayName: FishermansAnimations Head Sheet 20
+    category: 5
+    icon: {fileID: -7670401097569749725, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_21
+    displayName: FishermansAnimations Head Sheet 21
+    category: 5
+    icon: {fileID: 5954771162934247468, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_22
+    displayName: FishermansAnimations Head Sheet 22
+    category: 5
+    icon: {fileID: 9113411577151893726, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_23
+    displayName: FishermansAnimations Head Sheet 23
+    category: 5
+    icon: {fileID: 5437154560785065461, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_24
+    displayName: FishermansAnimations Head Sheet 24
+    category: 5
+    icon: {fileID: -8846087601321268967, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_25
+    displayName: FishermansAnimations Head Sheet 25
+    category: 5
+    icon: {fileID: 8468131232119337751, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_26
+    displayName: FishermansAnimations Head Sheet 26
+    category: 5
+    icon: {fileID: 1102579323132272683, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_27
+    displayName: FishermansAnimations Head Sheet 27
+    category: 5
+    icon: {fileID: 3501022909198482496, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_28
+    displayName: FishermansAnimations Head Sheet 28
+    category: 5
+    icon: {fileID: -5333617066978920545, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_29
+    displayName: FishermansAnimations Head Sheet 29
+    category: 5
+    icon: {fileID: 420709435246210252, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_30
+    displayName: FishermansAnimations Head Sheet 30
+    category: 5
+    icon: {fileID: 2527839676557005309, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_31
+    displayName: FishermansAnimations Head Sheet 31
+    category: 5
+    icon: {fileID: -3338503749485146715, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_32
+    displayName: FishermansAnimations Head Sheet 32
+    category: 5
+    icon: {fileID: -2121835063323809782, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_33
+    displayName: FishermansAnimations Head Sheet 33
+    category: 5
+    icon: {fileID: 6889687332227953384, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_34
+    displayName: FishermansAnimations Head Sheet 34
+    category: 5
+    icon: {fileID: -3560166594009400775, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_35
+    displayName: FishermansAnimations Head Sheet 35
+    category: 5
+    icon: {fileID: -5887521221705213298, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_36
+    displayName: FishermansAnimations Head Sheet 36
+    category: 5
+    icon: {fileID: -1417290385984516917, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_37
+    displayName: FishermansAnimations Head Sheet 37
+    category: 5
+    icon: {fileID: -7937348570666155894, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_38
+    displayName: FishermansAnimations Head Sheet 38
+    category: 5
+    icon: {fileID: -3208405502773742342, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_39
+    displayName: FishermansAnimations Head Sheet 39
+    category: 5
+    icon: {fileID: 897641134235292500, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_40
+    displayName: FishermansAnimations Head Sheet 40
+    category: 5
+    icon: {fileID: -6348665269693105530, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_41
+    displayName: FishermansAnimations Head Sheet 41
+    category: 5
+    icon: {fileID: 888473259313976714, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_42
+    displayName: FishermansAnimations Head Sheet 42
+    category: 5
+    icon: {fileID: 2990370955277178055, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_43
+    displayName: FishermansAnimations Head Sheet 43
+    category: 5
+    icon: {fileID: -5406008063652445918, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_44
+    displayName: FishermansAnimations Head Sheet 44
+    category: 5
+    icon: {fileID: -3140233396521774474, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_45
+    displayName: FishermansAnimations Head Sheet 45
+    category: 5
+    icon: {fileID: -4071353786104046176, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_46
+    displayName: FishermansAnimations Head Sheet 46
+    category: 5
+    icon: {fileID: 1754596365908999561, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_47
+    displayName: FishermansAnimations Head Sheet 47
+    category: 5
+    icon: {fileID: 9165296921433076450, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_48
+    displayName: FishermansAnimations Head Sheet 48
+    category: 5
+    icon: {fileID: -984438991941437791, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_49
+    displayName: FishermansAnimations Head Sheet 49
+    category: 5
+    icon: {fileID: 3527968400012857471, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_50
+    displayName: FishermansAnimations Head Sheet 50
+    category: 5
+    icon: {fileID: 510016619083418200, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_51
+    displayName: FishermansAnimations Head Sheet 51
+    category: 5
+    icon: {fileID: -2887113741729345374, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_52
+    displayName: FishermansAnimations Head Sheet 52
+    category: 5
+    icon: {fileID: -2568477386232460223, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_53
+    displayName: FishermansAnimations Head Sheet 53
+    category: 5
+    icon: {fileID: 1968315795950004546, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_54
+    displayName: FishermansAnimations Head Sheet 54
+    category: 5
+    icon: {fileID: 1107241716453514788, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_55
+    displayName: FishermansAnimations Head Sheet 55
+    category: 5
+    icon: {fileID: 7255881840277204016, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_56
+    displayName: FishermansAnimations Head Sheet 56
+    category: 5
+    icon: {fileID: -1477739789977834720, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_57
+    displayName: FishermansAnimations Head Sheet 57
+    category: 5
+    icon: {fileID: 5455306424857077521, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_58
+    displayName: FishermansAnimations Head Sheet 58
+    category: 5
+    icon: {fileID: 1933823968890789680, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_59
+    displayName: FishermansAnimations Head Sheet 59
+    category: 5
+    icon: {fileID: -8423905820867514353, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_60
+    displayName: FishermansAnimations Head Sheet 60
+    category: 5
+    icon: {fileID: -1807471184897320956, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_61
+    displayName: FishermansAnimations Head Sheet 61
+    category: 5
+    icon: {fileID: -6301434443608675887, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_62
+    displayName: FishermansAnimations Head Sheet 62
+    category: 5
+    icon: {fileID: 4970592159702411952, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_63
+    displayName: FishermansAnimations Head Sheet 63
+    category: 5
+    icon: {fileID: -546166827240969487, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_64
+    displayName: FishermansAnimations Head Sheet 64
+    category: 5
+    icon: {fileID: -6620353664726038444, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_65
+    displayName: FishermansAnimations Head Sheet 65
+    category: 5
+    icon: {fileID: -2513118828816755894, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_66
+    displayName: FishermansAnimations Head Sheet 66
+    category: 5
+    icon: {fileID: 1901027781732564084, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_67
+    displayName: FishermansAnimations Head Sheet 67
+    category: 5
+    icon: {fileID: 7736929245741061967, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_68
+    displayName: FishermansAnimations Head Sheet 68
+    category: 5
+    icon: {fileID: 5200017180735398467, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_69
+    displayName: FishermansAnimations Head Sheet 69
+    category: 5
+    icon: {fileID: -1064159536180359651, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_70
+    displayName: FishermansAnimations Head Sheet 70
+    category: 5
+    icon: {fileID: -494628162631260276, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_71
+    displayName: FishermansAnimations Head Sheet 71
+    category: 5
+    icon: {fileID: -5109379406424046437, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_72
+    displayName: FishermansAnimations Head Sheet 72
+    category: 5
+    icon: {fileID: 4854653690676196009, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_73
+    displayName: FishermansAnimations Head Sheet 73
+    category: 5
+    icon: {fileID: 3642507785137455138, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_74
+    displayName: FishermansAnimations Head Sheet 74
+    category: 5
+    icon: {fileID: 428117315480828902, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_75
+    displayName: FishermansAnimations Head Sheet 75
+    category: 5
+    icon: {fileID: -3588852931737538501, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_76
+    displayName: FishermansAnimations Head Sheet 76
+    category: 5
+    icon: {fileID: -4691240233977468262, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_77
+    displayName: FishermansAnimations Head Sheet 77
+    category: 5
+    icon: {fileID: -3491515807759027568, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_78
+    displayName: FishermansAnimations Head Sheet 78
+    category: 5
+    icon: {fileID: 3813418536969595056, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_79
+    displayName: FishermansAnimations Head Sheet 79
+    category: 5
+    icon: {fileID: -5317885390603282182, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_80
+    displayName: FishermansAnimations Head Sheet 80
+    category: 5
+    icon: {fileID: 4204142097225210612, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_81
+    displayName: FishermansAnimations Head Sheet 81
+    category: 5
+    icon: {fileID: -6793870552328800809, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_82
+    displayName: FishermansAnimations Head Sheet 82
+    category: 5
+    icon: {fileID: 4308525905308498446, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_83
+    displayName: FishermansAnimations Head Sheet 83
+    category: 5
+    icon: {fileID: 8721840055440274198, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_84
+    displayName: FishermansAnimations Head Sheet 84
+    category: 5
+    icon: {fileID: -582124611464069640, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_85
+    displayName: FishermansAnimations Head Sheet 85
+    category: 5
+    icon: {fileID: 7865341512302429450, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_86
+    displayName: FishermansAnimations Head Sheet 86
+    category: 5
+    icon: {fileID: -1719035950016875475, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_87
+    displayName: FishermansAnimations Head Sheet 87
+    category: 5
+    icon: {fileID: 1237752107126965537, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_88
+    displayName: FishermansAnimations Head Sheet 88
+    category: 5
+    icon: {fileID: -4444765467715821099, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_89
+    displayName: FishermansAnimations Head Sheet 89
+    category: 5
+    icon: {fileID: -6544782027189873776, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_90
+    displayName: FishermansAnimations Head Sheet 90
+    category: 5
+    icon: {fileID: 3724117021133736360, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_91
+    displayName: FishermansAnimations Head Sheet 91
+    category: 5
+    icon: {fileID: -2626745089094508463, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_92
+    displayName: FishermansAnimations Head Sheet 92
+    category: 5
+    icon: {fileID: -6399247189645088866, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_93
+    displayName: FishermansAnimations Head Sheet 93
+    category: 5
+    icon: {fileID: -165481147200433298, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_94
+    displayName: FishermansAnimations Head Sheet 94
+    category: 5
+    icon: {fileID: -7691875402396562046, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: FishermansAnimations-Head_Sheet_95
+    displayName: FishermansAnimations Head Sheet 95
+    category: 5
+    icon: {fileID: 307256863254931579, guid: fd4dceb2fbde4826a6897f5a0f089739, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - FishermansAnimations-Head_Sheet
+  - id: Fishingshop1
+    displayName: Fishingshop1
+    category: 5
+    icon: {fileID: 21300000, guid: 1872fef4b3624768ac1c12ff03f54891, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Fishingshop2
+    displayName: Fishingshop2
+    category: 5
+    icon: {fileID: 21300000, guid: 12ef1be4085f46459dcd1567180da90c, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: hat
+    displayName: hat
+    category: 5
+    icon: {fileID: 21300000, guid: 6b8f02244be54db79cfa61b2eb54761c, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: hat2
+    displayName: hat2
+    category: 5
+    icon: {fileID: 21300000, guid: a5e5ab53a83042dea96d9dc7444da2f5, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: paper_boat
+    displayName: paper boat
+    category: 5
+    icon: {fileID: 21300000, guid: e3642d5360744f1690eaf63833963776, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: Red_Hair
+    displayName: Red Hair
+    category: 5
+    icon: {fileID: 21300000, guid: ab94d910730349a4963726c0be6243f0, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: sal-t shop icon
+    displayName: sal t shop icon
+    category: 5
+    icon: {fileID: 21300000, guid: afe10aa83c4147f0b4ca593beab35b38, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: back_sign
+    displayName: back sign
+    category: 5
+    icon: {fileID: 21300000, guid: 0658c5b60fc3b52a279b2e404dc9a369, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: close_sign
+    displayName: close sign
+    category: 5
+    icon: {fileID: 21300000, guid: ed4fd0ea03e82f42eaf13cb7b5a41606, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: coin
+    displayName: coin
+    category: 5
+    icon: {fileID: 21300000, guid: 05a63d9b11a21f6968feac5f074b7cb9, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: lock
+    displayName: lock
+    category: 5
+    icon: {fileID: 21300000, guid: 7182daf7cabfa7ee68f11997733ad1fb, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: picture_frame_1
+    displayName: picture frame 1
+    category: 5
+    icon: {fileID: 21300000, guid: 2cfd82fcfe9103c0348b333c0bb15929, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - picture_frame
+  - id: picture_frame_2
+    displayName: picture frame 2
+    category: 5
+    icon: {fileID: 21300000, guid: 4814b8f26205fadd14613799161c80df, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - picture_frame
+  - id: salt_shop_sign
+    displayName: salt shop sign
+    category: 5
+    icon: {fileID: 21300000, guid: 63ac588fafb84eabdc559605fc83e623, type: 3}
+    animator: {fileID: 0}
+    aliases: []
+  - id: TurtleHat_0
+    displayName: TurtleHat 0
+    category: 5
+    icon: {fileID: 5665962802388256181, guid: cff61de494c7b834592211b1a8fceb98, type: 3}
+    animator: {fileID: 0}
+    aliases:
+    - TurtleHat
+  - id: FisherMan Yellow Hat
+    displayName: FisherMan Yellow Hat
+    category: 2
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: 2e3c280dd60e040439c50e363f7174b3, type: 2}
+    aliases: []
+  - id: FisherMan (Red Hair)
+    displayName: FisherMan (Red Hair)
+    category: 2
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: f85b5f2552d3d3d45a3bf3abf824c968, type: 2}
+    aliases: []
+  - id: bass_blue_cap_0
+    displayName: bass blue cap 0
+    category: 4
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: c5ca1e414f7d8cd4abea14358e9a9c57, type: 2}
+    aliases:
+    - bass_blue_cap
+  - id: bass_captain_hat_0
+    displayName: bass captain hat 0
+    category: 4
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: ae8f4d6ddf19d0848b83d46ed7b3e7fa, type: 2}
+    aliases:
+    - bass_captain_hat
+  - id: bass_no_hat_0
+    displayName: bass no hat 0
+    category: 4
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: c7a8efab5b91bac468255c186c8d6959, type: 2}
+    aliases:
+    - bass_no_hat
+  - id: bass_orange_hat_0
+    displayName: bass orange hat 0
+    category: 4
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: 078f9ef6d8676704a96686013ad75503, type: 2}
+    aliases:
+    - bass_orange_hat
+  - id: bass_paper_boat_hat_0
+    displayName: bass paper boat hat 0
+    category: 4
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: bca5ecb2a9d68484bbc19bba32f4ea6b, type: 2}
+    aliases:
+    - bass_paper_boat_hat
+  - id: bass_straw_hat_0
+    displayName: bass straw hat 0
+    category: 4
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: 7790246dbb41a4046a104db13c357198, type: 2}
+    aliases:
+    - bass_straw_hat
+  - id: bass_top_hat_0
+    displayName: bass top hat 0
+    category: 4
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: 6fdf2f1fea239c84f9b84ae3d8fad0de, type: 2}
+    aliases:
+    - bass_top_hat
+  - id: Fish 1 Default
+    displayName: Fish 1 Default
+    category: 4
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: eb7e418d2c3f36c4eab49946f45bfc29, type: 2}
+    aliases: []
+  - id: Fish 2 Default
+    displayName: Fish 2 Default
+    category: 4
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: 45edf2d773df9724eb5fa12bb8d5448f, type: 2}
+    aliases: []
+  - id: trout_blue_cap_0
+    displayName: trout blue cap 0
+    category: 4
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: 634fab77fd2c042478e6a7a37d8aaaac, type: 2}
+    aliases:
+    - trout_blue_cap
+  - id: trout_captain_hat_0
+    displayName: trout captain hat 0
+    category: 4
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: 1e1bf7c661590bb4dbd0a38bb428200c, type: 2}
+    aliases:
+    - trout_captain_hat
+  - id: trout_no_hat_0
+    displayName: trout no hat 0
+    category: 4
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: ded74b4c322cd63448e849a24c945e9e, type: 2}
+    aliases:
+    - trout_no_hat
+  - id: trout_orange_hat_0
+    displayName: trout orange hat 0
+    category: 4
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: e76ab0f57cf7e214a9c6f0c16f63cff9, type: 2}
+    aliases:
+    - trout_orange_hat
+  - id: trout_paper_boat_hat_0
+    displayName: trout paper boat hat 0
+    category: 4
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: adec1c4e7ce54e04ab2f0f31d4425e12, type: 2}
+    aliases:
+    - trout_paper_boat_hat
+  - id: trout_straw_hat_0
+    displayName: trout straw hat 0
+    category: 4
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: cb71fdba2d0067849872be23c306f0bf, type: 2}
+    aliases:
+    - trout_straw_hat
+  - id: trout_top_hat_0
+    displayName: trout top hat 0
+    category: 4
+    icon: {fileID: 0}
+    animator: {fileID: 9100000, guid: 4ea30fae85c0a9c4697d812eb159b4cf, type: 2}
+    aliases:
+    - trout_top_hat

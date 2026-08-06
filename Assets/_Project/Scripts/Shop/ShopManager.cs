@@ -156,7 +156,7 @@ public class ShopManager : MonoBehaviour
     public Button SaltShopBackButton;
 
     /// <summary>Name of the runtime-created padlock overlay on locked cosmetic cells.</summary>
-    private const string LockedHatSkullName = "Locked Hat Skull";
+    private const string LockedHatSkullName = PanicAtThePond.Data.SceneObjectNames.LockedHatSkull;
 
     /// <summary>Fallback aspect for the padlock sprite (lock.png is 185x280) if it reports no height.</summary>
     private const float DefaultLockSpriteAspect = 0.66f;

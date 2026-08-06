@@ -168,8 +168,8 @@ public class ScoreManager : MonoBehaviourPunCallbacks
                 // Set name / score labels
                 foreach (TextMeshProUGUI t in wrapper.GetComponentsInChildren<TextMeshProUGUI>(true))
                 {
-                    if (t.gameObject.name.Contains("Name"))  t.text = slotNames[i];
-                    if (t.gameObject.name.Contains("Score")) t.text = "0";
+                    if (t.gameObject.name.Contains(SceneObjectNames.ScoreRowNameLabel))  t.text = slotNames[i];
+                    if (t.gameObject.name.Contains(SceneObjectNames.ScoreRowScoreLabel)) t.text = "0";
                 }
 
                 wrapper.SetActive(true);
@@ -211,7 +211,7 @@ public class ScoreManager : MonoBehaviourPunCallbacks
                 int shownScore = Mathf.RoundToInt(Mathf.Lerp(0, targetScore[i], tEased));
                 foreach (TextMeshProUGUI tx in wrapper.GetComponentsInChildren<TextMeshProUGUI>(true))
                 {
-                    if (tx.gameObject.name.Contains("Score")) tx.text = shownScore.ToString();
+                    if (tx.gameObject.name.Contains(SceneObjectNames.ScoreRowScoreLabel)) tx.text = shownScore.ToString();
                 }
             }
 
@@ -238,7 +238,7 @@ public class ScoreManager : MonoBehaviourPunCallbacks
 
             foreach (TextMeshProUGUI tx in wrapper.GetComponentsInChildren<TextMeshProUGUI>(true))
             {
-                if (tx.gameObject.name.Contains("Score")) tx.text = targetScore[i].ToString();
+                if (tx.gameObject.name.Contains(SceneObjectNames.ScoreRowScoreLabel)) tx.text = targetScore[i].ToString();
             }
         }
 

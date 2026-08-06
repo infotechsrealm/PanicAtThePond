@@ -23,10 +23,10 @@ public class FishermanDirectionFlipper : MonoBehaviour
             fishermanController = GetComponentInParent<FishermanController>();
         }
 
-        headTransform = transform.Find("Head");
+        headTransform = transform.Find(SceneObjectNames.FishermanHeadUpper);
         if (headTransform == null)
         {
-            headTransform = transform.Find("head");
+            headTransform = transform.Find(SceneObjectNames.FishermanHeadLower);
         }
         
         if (headTransform != null)
