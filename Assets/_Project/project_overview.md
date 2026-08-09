@@ -1806,3 +1806,135 @@ EditMode **71/71**, PlayMode **3/3**.
 **Do not hand-edit `HeadAnchor.localPosition` in the prefab** — *Rebuild Head Anchors* overwrites it.
 To move one hat, edit `GetFishermanHatTransform` / `GetFishHatTransform`; to move every hat together,
 change `CrownLocalY` in `HeadAnchorBuilder` and re-run the menu item.
+
+## 27. Hat findings from 2026-08-09 — diagnosed, then reverted
+
+Everything in this section was implemented and then **reverted** by the user back to `632ce062`. The
+code is gone; the measurements and the diagnoses are not, and every bug listed here is still live in
+the tree. Recorded so the next attempt starts from evidence instead of repeating the investigation.
+
+### 27.1 The head finder reports the fishing rod
+
+`MinHeadRunPixels = 6` was chosen because "the rod and line are only a pixel or two wide". Measured
+from the art, **the rod is exactly 6 px**, so on casting frames the finder returns the rod:
+
+```
+CastingLeft1   ≥6px → row 3,  cx 57, w 6      real head → row 11, cx 30.5, w 11
+CastingLeft3   ≥6px → row 4,  cx 18, w 6      real head → row 12, cx 29.5, w 11
+```
+
+Raising the threshold does not fix it: `CastingLeft3` has an 18 px arm-and-rod run *above* the head
+and `CastingLeft2` an 11 px rod run — the head's own width — at x=58. Width alone and position alone
+are both ambiguous; together they are decisive. The fisherman's head is **11 px wide at x≈30.5,
+row 11–12** in every frame, so calibrating on the rest sprite and requiring later frames to match in
+both width and position works for him.
+
+Consequence: `HeadCrownTable`'s casting entries and the casting anchors are keyed off the rod. The
+handoff's §2.3 claim that `AC_CastingLeft`'s head moves "+6 px" was this artefact (row 3→9), never a
+measurement of the head.
+
+### 27.2 The audit never drove the animations it named
+
+Every failure line in §26 read `AC_CastingLeft/IdleLeft2` — every clip reporting *IdleLeft* sprites.
+`animator.Play(clip.name)` takes a **state** name ("Idel Right"), not a clip name ("AC_IdelRight"),
+and silently ignores unknown names, so all 26 clips re-measured the same four idle sprites.
+"102 frames checked" was four sprites. `AnimationClip.SampleAnimation` at each real keyframe time
+avoids the state machine entirely. The PlayMode suite had the same defect —
+`Animator.GotoState: State could not be found` in the console.
+
+### 27.3 The head moves horizontally
+
+1 px in `AC_IdelLeft`, 2 px in `AC_MoveForward`, **4 px in `AC_FightingLeft`** — 0.16 units at
+25 PPU. Y-only anchoring cannot cover it. No flip handling is needed when adding X: right-facing
+clips use their own artwork (`IdleRight1`) and nothing animates `m_FlipX`.
+
+### 27.4 Deleting the placement code also deleted the mirroring
+
+The fisherman never mirrors through `flipX` — his body renderer's `flipX` is permanently false. Hats
+were oriented from `FishermanController.isLeft` in two ways at once:
+
+```csharp
+transform.localEulerAngles = isLeft ? new Vector3(x, 0f, z) : baseLocalRotation;
+cosmeticRenderer.flipX = !isLeft;
+```
+
+The red cap, turtle hat and default fishing hat carry **`y = -160°`** in their authored rotation —
+that Y rotation *is* their mirror. §26 replaced both with `flipX = rootRenderer.flipX`, leaving those
+three permanently mirrored and the rest never mirrored. Restoring it needs only one direction flag
+shared by all hats, not a per-hat table.
+
+### 27.5 Fish cosmetics never stuck
+
+`IsPreviewSprite` matched names starting with `"fisherman "`, `"fishermna "`, `"fishaerman "` or
+containing `"preview"`. Every fisherman preview matches one; **no fish preview matches any** — they
+are "Fish Cap Hat", "Trout Boat hat", "fish polish hat". So:
+
+```
+select 'Fish Cap Hat' -> stored 'Fish Cap Hat' -> rendered 'Fish Cap Hat'
+```
+
+The fish wore a picture of a fish wearing a hat, which reads as both "the selection didn't stick" and
+"I never see the hat". Identifying previews by their Resources folder rather than by spelling fixes
+it.
+
+### 27.6 Species swapping breaks anchor units
+
+`ApplyFishSpeciesByName` swaps sprite and controller onto the **same** GameObject, but the bass is
+**50 PPU** and the trout **100 PPU**, so anchor values in sprite-local units halve:
+
+```
+bass anchor rest y = 0.3300 → hat at 0.2320
+after swap          0.1500 → hat at 0.0520     (0.18 units / ~9 px lower)
+```
+
+Separately, `IsTroutFish` read the GameObject *name*, which is stale after a swap — a bass then wears
+trout offsets, ~12 px out. The rendered sprite is the reliable signal.
+
+### 27.7 A fish has no head to find
+
+Unlike the fisherman's distinct 11 px band, a fish is a smooth taper (`row1 w=6 → row2 w=10 →
+row3 w=12`). When it tilts, the top row is already wider than the reference and nothing matches, so
+the scan walks down the body:
+
+```
+AC_Fish1Idel   Idle1: row=1   Idle2: row=2   Idle3: row=32   Idle4: row=1
+```
+
+Row 32 of a 35 px sprite — the anchor drops 0.62 units onto the belly and snaps back every cycle,
+which is the "fish hat animating a lot in Y" report. Bounding how far the head may sit from its
+reference row stops the catastrophe, but **four fisherman frames (`AC_CastingRight`,
+`AC_ReelingRight`) and the dead-fish frames were still ~12 px out** when the work was reverted.
+Silhouette scanning is reliable for a distinct head band and fragile without one.
+
+### 27.8 Coverage gaps found
+
+- The audit only ever instantiated `Resources/Fish`; **`Fish 2` (the trout) is also selectable** and
+  has its own hat placement (`GetTroutFishHatTransform`) and dead pose.
+- The default fishing hat is pre-baked into `ANIM_FisherManYellowHat` and correctly has no hat child,
+  so it cannot be audited the same way as the other seven.
+- Tracking tests compare frame-to-frame *movement*, so a constant offset is invisible to them. A hat
+  20 px above the head passed every frame.
+
+### 27.9 The verification lesson
+
+Four suites in a row were green while the build was visibly wrong, each because the test derived its
+expectation from the same source the code used. See §26.1 for the `A == A` case, §27.2 for the
+animation that never played, and §27.7 for the anchor compared against the function that baked it.
+**Before trusting a green suite here, break the thing it checks and confirm it goes red.** The one
+check that proved genuinely independent was bounding frame-to-frame anchor movement, which needs no
+reference measurement at all.
+
+### 27.10 Untracked leftovers
+
+The revert restored tracked files only. Still on disk and now orphaned:
+`Scripts/Editor/HeadMeasurement.cs` (referenced by nothing),
+`Scripts/Tests/EditMode/FishCosmeticSelectionTests.cs` (asserts the §27.5 fix, so it now fails), and
+`Backup/CosmeticRuntimeApplier.pre-anchor.cs.bak` (the pre-anchor file — worth keeping).
+
+### 27.11 Not investigated
+
+Rooms not appearing over the internet. Nothing changed between `632ce062` and the revert touched a
+scene or any networking file — only five `.cs` files, the anchor values, the `.anim` curves and
+`SO_HeadCrownTable`. Internet rooms go through Photon (`CoustomeRoomManager`); LAN uses Mirror and
+was working in the logs. To isolate it, test the room list at `96a5fc99` — the commit before this
+work — rather than assuming either way.

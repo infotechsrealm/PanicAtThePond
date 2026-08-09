@@ -152,7 +152,17 @@
       "PowerShell($p = \"C:\\\\Users\\\\mitul\\\\.claude\\\\projects\\\\D--PanicAtThePond\\\\a5041691-7a3f-4f2c-bf69-45852ccec835\\\\tool-results\\\\mcp-ai-game-developer-console-get-logs-1786254964148.txt\"; $j = Get-Content $p -Raw | ConvertFrom-Json; $j.result | Where-Object { $_.Message -match \"CosmeticRuntimeApplier.cs|error CS\" } | Select-Object -First 12 | ForEach-Object { $_.Message.Split\\(\"`n\"\\)[0] })",
       "mcp__ai-game-developer__console-clear-logs",
       "PowerShell($p=\"D:\\\\PanicAtThePond\\\\Assets\\\\_Project\\\\Scripts\\\\Shop\\\\CosmeticRuntimeApplier.cs\"; $l=Get-Content $p; $keep=@\\(\\); $keep+=$l[0..1300]; $keep+=$l[1325..\\($l.Length-1\\)]; Set-Content -Path $p -Value $keep -Encoding utf8; \"Removed orphaned GetFishHatBobOffset; new length: $\\($keep.Length\\)\")",
-      "PowerShell($p=\"D:\\\\PanicAtThePond\\\\Assets\\\\_Project\\\\Scripts\\\\Tests\\\\EditMode\\\\CosmeticFrameIndexTests.cs\"; $l=Get-Content $p; $keep=@\\(\\); $keep+=$l[0..211]; $keep+=@\\(\"        // The fish hat's per-frame bob was deleted with GetFishHatBobOffset: the fish's HeadAnchor\",\"        // is keyed inside its swim clips, so there is no offset table left to unit-test. The\",\" // replacement coverage is HatTracksHeadTests, which audits every fish hat on every frame.\"\\); $keep+=$l[254..\\($l.Length-1\\)]; Set-Content -Path $p -Value $keep -Encoding utf8; \"new length: $\\($keep.Length\\)\")"
+      "PowerShell($p=\"D:\\\\PanicAtThePond\\\\Assets\\\\_Project\\\\Scripts\\\\Tests\\\\EditMode\\\\CosmeticFrameIndexTests.cs\"; $l=Get-Content $p; $keep=@\\(\\); $keep+=$l[0..211]; $keep+=@\\(\"        // The fish hat's per-frame bob was deleted with GetFishHatBobOffset: the fish's HeadAnchor\",\"        // is keyed inside its swim clips, so there is no offset table left to unit-test. The\",\" // replacement coverage is HatTracksHeadTests, which audits every fish hat on every frame.\"\\); $keep+=$l[254..\\($l.Length-1\\)]; Set-Content -Path $p -Value $keep -Encoding utf8; \"new length: $\\($keep.Length\\)\")",
+      "Bash(awk 'BEGIN{RS=\"--- !u!\"} /guid: bb5aab22101afd249b320183c6a1a0e2|guid: 0621426e8c19fe2409cbc9582ab133d7|guid: c691765623d3e3140b15bb4d2c70a4ea|guid: 759a7f4ae92f4d142a59ff1359160b29/ {print \"=========== BLOCK\"; print substr\\($0,1,2200\\)}' Assets/_Project/Scenes/Dash.unity)",
+      "Bash(git ls-tree *)",
+      "Bash(grep -E \"companyName|productName\" ProjectSettings/ProjectSettings.asset | head -5; ls ~/AppData/LocalLow/ 2>/dev/null | head -20)",
+      "Bash(awk 'NR>13950' Logs/Editor.log)",
+      "Bash(awk '/public bool PingMinimumOfRegions/,/^        }$/' Assets/Photon/PhotonRealtime/Code/RegionHandler.cs)",
+      "Bash(awk '/string prevBestRegionCode = values\\\\[0\\\\]/,/^        }$/' Assets/Photon/PhotonRealtime/Code/RegionHandler.cs)",
+      "Bash(awk '/public interface ILobbyCallbacks/,/^    }/' Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs)",
+      "Bash(awk '/public interface IConnectionCallbacks/,/^    }/' Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs)",
+      "Bash(awk '/public interface IMatchmakingCallbacks/,/^    }/' Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs)",
+      "Bash(awk '/public class EnterRoomParams/,/^    }/' Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs)"
     ],
     "additionalDirectories": [
       "C:\\Users\\rishi\\.claude\\projects\\e--PanicAtThePond\\314c49ab-dfb1-458c-a4e8-333600f07d5e\\tool-results"

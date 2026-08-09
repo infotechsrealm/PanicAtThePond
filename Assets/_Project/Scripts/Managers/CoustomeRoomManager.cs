@@ -711,9 +711,12 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
+        Debug.Log($"[RoomList] OnRoomListUpdate on region '{PhotonNetwork.CloudRegion}' - received {roomList.Count} entries, InLobby: {PhotonNetwork.InLobby}");
+
         // Update local dictionary of alive rooms
         foreach (RoomInfo room in roomList)
         {
+            Debug.Log($"[RoomList]   entry: '{room.Name}' players {room.PlayerCount}/{room.MaxPlayers} IsOpen:{room.IsOpen} IsVisible:{room.IsVisible} RemovedFromList:{room.RemovedFromList}");
             if (room.RemovedFromList)
             {
                 aliveRooms.Remove(room.Name); // Remove closed rooms
@@ -723,6 +726,8 @@ public class CoustomeRoomManager : MonoBehaviourPunCallbacks
                 aliveRooms[room.Name] = room; // Add or update alive rooms
             }
         }
+
+        Debug.Log($"[RoomList] aliveRooms now holds {aliveRooms.Count} room(s). RoomTableManager.instance null? {RoomTableManager.instance == null}");
 
         if (RoomTableManager.instance != null)
         {

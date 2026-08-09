@@ -313,3 +313,31 @@ need it, and the one-clip-many-curves structure is exactly what the layered art 
 
 **The strongest signal of success is that the code gets smaller.** Roughly 2,200 lines of placement
 logic should collapse to "parent the hat to the anchor."
+
+---
+
+## 10. Corrections from 2026-08-09 (work reverted; read before trusting §2, §6 or §9)
+
+This document was written before the anchor was built. Two of its claims are now known to be wrong,
+and one to be incomplete. The implementing work was reverted to `632ce062`, so nothing here is fixed
+in code — see `Assets/_Project/project_overview.md` §26–§27 for the full record.
+
+**§6 is wrong.** `HatTracksHeadTests` was described as "the verification that does work". It could
+not fail: the runtime positioned the hat from `HeadCrownTable` and the test computed the expected
+head movement from the same table, so the base row cancels and it asserted `A == A`. It reported
+"0 px worst mismatch" on a build with a hat 20 px above the head. It also rounded errors to whole
+pixels, and stepped the animator with `animator.Play(clip.name)` — a *state* name is required, so 26
+clips all re-measured the same four idle sprites.
+
+**§2.3's measurement is wrong.** "`AC_CastingLeft` real head Δ = 0, +6, +1, 0" is the fishing rod,
+not the head. The rod is exactly 6 px wide, so the `≥ 6 px` rule in §2.3's own trap note reports the
+rod on casting frames. The real head is 11 px wide at x≈30.5, row 11–12, in every frame.
+
+**§4.1 is incomplete.** Deleting the placement branches also deletes the *mirroring*: the fisherman
+never flips via `flipX`, and three hats carry `y = -160°` in their authored rotation as their mirror.
+The branches also held per-state rotation the hats disagree on by up to 21°, so a single anchor
+rotation curve cannot reproduce them — that data was per-hat styling, not head lean.
+
+**§9's checklist should add:** X keying (the head moves up to 4 px horizontally), both fish species
+(`Fish 2` is selectable and has its own placement), and an absolute-placement check — tracking tests
+compare movement only, so a constant offset is invisible to them.

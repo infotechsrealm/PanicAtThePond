@@ -45,7 +45,7 @@ public class RoomTableManager : MonoBehaviourPunCallbacks
 
     public void UpdateRoomTableUI()
     {
-        Debug.Log("UpdateRoomTableUI Called");
+        Debug.Log($"UpdateRoomTableUI Called - {CoustomeRoomManager.Instance.aliveRooms.Count} room(s) to draw into '{roomTablePanel.name}' (panel active: {roomTablePanel.gameObject.activeInHierarchy})");
 
         // Clear old UI rows
         foreach (Transform child in roomTablePanel)
