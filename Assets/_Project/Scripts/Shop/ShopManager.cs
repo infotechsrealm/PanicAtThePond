@@ -149,8 +149,10 @@ public class ShopManager : MonoBehaviour
 
     [Header("Sal-t Shop")]
     [Tooltip("Width of the 'sal-T shop' sign as a fraction of the screen width. 0 keeps the authored width. " +
-             "0.22 matches the PDF 1.1.8 customization-screen mockup.")]
-    [SerializeField] private float SaltShopSignScreenWidth = 0.22f;
+             "0.15 fits the sign inside the tank frame with the client's single-line sign art. " +
+             "It was 0.22 for the old 720x260 sign; the replacement art is a tighter 69x23 crop, and at " +
+             "0.22 it overhung the right edge of the tank.")]
+    [SerializeField] private float SaltShopSignScreenWidth = 0.15f;
     public Button SaltShopButton;
     [SerializeField] private GameObject SaltShopPanel;
     public Button SaltShopBackButton;
@@ -2146,7 +2148,14 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
-        // Use hierarchy-based routing so fish hats can never be written into fisherman selection (and vice versa).
+        // Use hierarchy-based routing so fish hats can never be written into fisherman selection (and
+        // vice versa).
+        //
+        // When a button matches NEITHER root this used to fall through and keep whatever
+        // isFishermanCosmetic held from the previous click. That stale flag is how a fisherman hat
+        // ended up saved as the fish hat (SelectedFishHatCosmetic = FisherMan_Hat_-Default_-_Fishing_Hat
+        // in a real save), leaving the fish with no hat at all. Fall back to the sprite's own
+        // category instead of guessing from history.
         bool belongsToFishCosmetics = IsButtonInFishCosmetics(selectedButton);
         bool belongsToFishermanCosmetics = IsButtonInFishermanCosmetics(selectedButton);
         if (belongsToFishCosmetics && !belongsToFishermanCosmetics)
@@ -2156,6 +2165,21 @@ public class ShopManager : MonoBehaviour
         else if (belongsToFishermanCosmetics)
         {
             isFishermanCosmetic = true;
+        }
+        else if (candidateSprite != null)
+        {
+            isFishermanCosmetic = IsFishermanCategoryCosmetic(candidateSprite.name);
+            Debug.LogWarning("[ShopManager] Cosmetic button '" + selectedButton.name
+                + "' is under neither the fish nor the fisherman cosmetics root; routed '"
+                + candidateSprite.name + "' by category as "
+                + (isFishermanCosmetic ? "FISHERMAN" : "FISH") + ". Check the scene hierarchy.");
+        }
+        else
+        {
+            Debug.LogWarning("[ShopManager] Cosmetic button '" + selectedButton.name
+                + "' has no sprite and is under neither cosmetics root — ignoring the click rather "
+                + "than writing it to whichever slot was used last.");
+            return;
         }
 
         // Keep the active-display flags in sync so the arrow cycling routes to the right character
@@ -2225,6 +2249,34 @@ public class ShopManager : MonoBehaviour
             ApplySelectedFishermanHatToDisplayForHairMode(selectedSprite);
             RefreshBottomRightPreview();
         }
+    }
+
+    /// <summary>
+    /// Category of a cosmetic by id, from <c>shop_config.json</c>. Used as the routing fallback when
+    /// a button sits outside both cosmetics roots, so a click is never filed by stale state.
+    /// </summary>
+    private static bool IsFishermanCategoryCosmetic(string spriteName)
+    {
+        if (string.IsNullOrEmpty(spriteName))
+        {
+            return false;
+        }
+
+        ShopConfig config = ShopConfig.Load();
+        if (config != null && config.hats != null)
+        {
+            for (int i = 0; i < config.hats.Count; i++)
+            {
+                ShopConfig.HatEntry entry = config.hats[i];
+                if (entry != null && NormalizeSpriteName(entry.id) == NormalizeSpriteName(spriteName))
+                {
+                    return entry.category == "fisherman_hat";
+                }
+            }
+        }
+
+        string normalized = NormalizeSpriteName(spriteName);
+        return normalized.StartsWith("fisherman") || normalized.Contains("turtlehat");
     }
 
     private bool IsButtonInFishCosmetics(Button button)

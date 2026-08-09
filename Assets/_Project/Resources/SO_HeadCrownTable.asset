@@ -1,0 +1,313 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d156442e8dea4429d943b008313019, type: 3}
+  m_Name: SO_HeadCrownTable
+  m_EditorClassIdentifier: PanicAtThePond::PanicAtThePond.Data.HeadCrownTable
+  entries:
+  - spriteName: IdleLeft1
+    crownRow: 12
+  - spriteName: IdleLeft2
+    crownRow: 11
+  - spriteName: IdleLeft3
+    crownRow: 11
+  - spriteName: IdleLeft4
+    crownRow: 12
+  - spriteName: FishingLeft1
+    crownRow: 12
+  - spriteName: FishingLeft2
+    crownRow: 11
+  - spriteName: FishingLeft3
+    crownRow: 11
+  - spriteName: FishingLeft4
+    crownRow: 12
+  - spriteName: FishingRight1
+    crownRow: 12
+  - spriteName: FishingRight2
+    crownRow: 11
+  - spriteName: FishingRight3
+    crownRow: 11
+  - spriteName: FishingRight4
+    crownRow: 12
+  - spriteName: CastingLeft1
+    crownRow: 3
+  - spriteName: CastingLeft2
+    crownRow: 9
+  - spriteName: CastingLeft3
+    crownRow: 4
+  - spriteName: CastingLeft4
+    crownRow: 3
+  - spriteName: CastingRight1
+    crownRow: 3
+  - spriteName: CastingRight2
+    crownRow: 9
+  - spriteName: CastingRight3
+    crownRow: 4
+  - spriteName: CastingRight4
+    crownRow: 3
+  - spriteName: MoveBackwards1
+    crownRow: 12
+  - spriteName: MoveBackwards2
+    crownRow: 11
+  - spriteName: MoveBackwards3
+    crownRow: 12
+  - spriteName: MoveBackwards4
+    crownRow: 13
+  - spriteName: MoveForward1
+    crownRow: 12
+  - spriteName: MoveForward2
+    crownRow: 11
+  - spriteName: MoveForward3
+    crownRow: 11
+  - spriteName: MoveForward4
+    crownRow: 12
+  - spriteName: MoveReverseBackwards1
+    crownRow: 12
+  - spriteName: MoveReverseBackwards2
+    crownRow: 11
+  - spriteName: MoveReverseBackwards3
+    crownRow: 12
+  - spriteName: MoveReverseBackwards4
+    crownRow: 13
+  - spriteName: IdleRight1
+    crownRow: 12
+  - spriteName: IdleRight2
+    crownRow: 11
+  - spriteName: IdleRight3
+    crownRow: 11
+  - spriteName: IdleRight4
+    crownRow: 12
+  - spriteName: RightToLeftPole1
+    crownRow: 12
+  - spriteName: RightToLeftPole2
+    crownRow: 11
+  - spriteName: RightToLeftPole3
+    crownRow: 11
+  - spriteName: RightToLeftPole4
+    crownRow: 12
+  - spriteName: LeftToRightPole1
+    crownRow: 12
+  - spriteName: LeftToRightPole2
+    crownRow: 11
+  - spriteName: LeftToRightPole3
+    crownRow: 11
+  - spriteName: LeftToRightPole4
+    crownRow: 12
+  - spriteName: OarToLeftPole1
+    crownRow: 12
+  - spriteName: OarToLeftPole2
+    crownRow: 11
+  - spriteName: OarToLeftPole3
+    crownRow: 11
+  - spriteName: OarToLeftPole4
+    crownRow: 12
+  - spriteName: RightPoleToOarFacingRight1
+    crownRow: 12
+  - spriteName: RightPoleToOarFacingRight2
+    crownRow: 11
+  - spriteName: RightPoleToOarFacingRight3
+    crownRow: 11
+  - spriteName: RightPoleToOarFacingRight4
+    crownRow: 12
+  - spriteName: FishGotOffFacingLeft1
+    crownRow: 12
+  - spriteName: FishGotOffFacingLeft2
+    crownRow: 11
+  - spriteName: FishGotOffFacingLeft3
+    crownRow: 12
+  - spriteName: FishGotOffFacingLeft4
+    crownRow: 13
+  - spriteName: CryRight1
+    crownRow: 12
+  - spriteName: CryRight2
+    crownRow: 11
+  - spriteName: CryRight3
+    crownRow: 12
+  - spriteName: CryRight4
+    crownRow: 13
+  - spriteName: FightingLeft1
+    crownRow: 12
+  - spriteName: FightingLeft2
+    crownRow: 12
+  - spriteName: FightingLeft3
+    crownRow: 12
+  - spriteName: FightingLeft4
+    crownRow: 12
+  - spriteName: FightingRight1
+    crownRow: 12
+  - spriteName: FightingRight2
+    crownRow: 12
+  - spriteName: FightingRight3
+    crownRow: 11
+  - spriteName: FightingRight4
+    crownRow: 12
+  - spriteName: CryLeft1
+    crownRow: 12
+  - spriteName: CryLeft2
+    crownRow: 11
+  - spriteName: CryLeft3
+    crownRow: 12
+  - spriteName: CryLeft4
+    crownRow: 12
+  - spriteName: Winning1
+    crownRow: 12
+  - spriteName: Winning2
+    crownRow: 11
+  - spriteName: Winning3
+    crownRow: 12
+  - spriteName: Winning4
+    crownRow: 13
+  - spriteName: WinningRight1
+    crownRow: 12
+  - spriteName: WinningRight2
+    crownRow: 11
+  - spriteName: WinningRight3
+    crownRow: 12
+  - spriteName: WinningRight4
+    crownRow: 13
+  - spriteName: LeftPoleToOar1
+    crownRow: 12
+  - spriteName: LeftPoleToOar2
+    crownRow: 11
+  - spriteName: LeftPoleToOar3
+    crownRow: 11
+  - spriteName: LeftPoleToOar4
+    crownRow: 12
+  - spriteName: MoveReverseForward1
+    crownRow: 12
+  - spriteName: MoveReverseForward2
+    crownRow: 11
+  - spriteName: MoveReverseForward3
+    crownRow: 11
+  - spriteName: MoveReverseForward4
+    crownRow: 12
+  - spriteName: ReelingLeft1
+    crownRow: 3
+  - spriteName: ReelingLeft2
+    crownRow: 4
+  - spriteName: ReelingLeft3
+    crownRow: 9
+  - spriteName: ReelingLeft4
+    crownRow: 3
+  - spriteName: ReelingRight1
+    crownRow: 3
+  - spriteName: ReelingRight2
+    crownRow: 4
+  - spriteName: ReelingRight3
+    crownRow: 9
+  - spriteName: ReelingRight4
+    crownRow: 3
+  - spriteName: Idle1
+    crownRow: 1
+  - spriteName: Idle2
+    crownRow: 2
+  - spriteName: Idle3
+    crownRow: 2
+  - spriteName: Idle4
+    crownRow: 1
+  - spriteName: Deadt1
+    crownRow: 2
+  - spriteName: Deadt2
+    crownRow: 7
+  - spriteName: Deadt3
+    crownRow: 8
+  - spriteName: Deadt4
+    crownRow: 8
+  - spriteName: Deadt5
+    crownRow: 2
+  - spriteName: Deadt6
+    crownRow: 2
+  - spriteName: Eat1
+    crownRow: 1
+  - spriteName: Eat2
+    crownRow: 2
+  - spriteName: Eat3
+    crownRow: 2
+  - spriteName: Eat4
+    crownRow: 1
+  - spriteName: Fight1
+    crownRow: 1
+  - spriteName: Fight2
+    crownRow: 2
+  - spriteName: Fight3
+    crownRow: 2
+  - spriteName: Fight4
+    crownRow: 1
+  - spriteName: Joyful1
+    crownRow: 1
+  - spriteName: Joyful2
+    crownRow: 2
+  - spriteName: Joyful3
+    crownRow: 1
+  - spriteName: Joyful4
+    crownRow: 2
+  - spriteName: Move1
+    crownRow: 1
+  - spriteName: Move2
+    crownRow: 2
+  - spriteName: Move3
+    crownRow: 2
+  - spriteName: Move4
+    crownRow: 1
+  - spriteName: Trout-Sheet_0
+    crownRow: 1
+  - spriteName: Trout-Sheet_1
+    crownRow: 1
+  - spriteName: Trout-Sheet_2
+    crownRow: 2
+  - spriteName: Trout-Sheet_3
+    crownRow: 2
+  - spriteName: Trout-Sheet_20
+    crownRow: 2
+  - spriteName: Trout-Sheet_21
+    crownRow: 1
+  - spriteName: Trout-Sheet_22
+    crownRow: 3
+  - spriteName: Trout-Sheet_23
+    crownRow: 2
+  - spriteName: Trout-Sheet_24
+    crownRow: 2
+  - spriteName: Trout-Sheet_25
+    crownRow: 2
+  - spriteName: Trout-Sheet_16
+    crownRow: 2
+  - spriteName: Trout-Sheet_17
+    crownRow: 2
+  - spriteName: Trout-Sheet_18
+    crownRow: 3
+  - spriteName: Trout-Sheet_19
+    crownRow: 2
+  - spriteName: Trout-Sheet_12
+    crownRow: 2
+  - spriteName: Trout-Sheet_13
+    crownRow: 2
+  - spriteName: Trout-Sheet_14
+    crownRow: 3
+  - spriteName: Trout-Sheet_15
+    crownRow: 2
+  - spriteName: Trout-Sheet_5
+    crownRow: 2
+  - spriteName: Trout-Sheet_6
+    crownRow: 3
+  - spriteName: Trout-Sheet_7
+    crownRow: 2
+  - spriteName: Trout-Sheet_8
+    crownRow: 2
+  - spriteName: Dead1_0
+    crownRow: 2
+  - spriteName: Dead2_0
+    crownRow: 1
+  - spriteName: Dead3_0
+    crownRow: 3
+  - spriteName: Dead4_0
+    crownRow: 2
+  - spriteName: Dead5_0
+    crownRow: 2

@@ -39,16 +39,35 @@ public class SaltShopUI : MonoBehaviour
     private const string CloseSignSpriteResource = "ShopUI/SaltShop/close_sign";
     private const string Frame1SpriteResource = "ShopUI/SaltShop/picture_frame_1";
     private const string Frame2SpriteResource = "ShopUI/SaltShop/picture_frame_2";
+    private const string ShelfSpriteResource = "ShopUI/SaltShop/shelf";
+
+    /// <summary>Name of the container the dynamic shelf items are generated into.</summary>
+    private const string ItemsRootName = "SaltShop Items";
 
     /// <summary>Reference resolution of the scene's CanvasScaler; also the PDF mockup's resolution.</summary>
     private static readonly Vector2 ReferenceResolution = new Vector2(1920f, 1080f);
+
+    [Header("Scene-authored overlay")]
+    [Tooltip("Assign a 'SaltShop Overlay' that lives in the scene and the shop uses it AS-IS — every " +
+             "sign, frame and popup becomes a normal GameObject you can select, move and resize in " +
+             "the Hierarchy, and the numeric fields below stop being used for layout.\n\n" +
+             "Use the component's context menu (the vertical dots on the component header) → " +
+             "'Bake Overlay Into Scene' to generate it once, then edit it by hand.\n\n" +
+             "Leave empty to fall back to the old behaviour, where the overlay is generated at " +
+             "runtime from the fields below and does not exist in the scene.")]
+    [SerializeField] private RectTransform authoredOverlay;
 
     [Header("Signs (screen-normalized anchor, size in 1920x1080 units)")]
     [Tooltip("Sits directly under the 'sal-T shop' sign painted into the background art.")]
     public Vector2 BackSignAnchor = new Vector2(0.072f, 0.636f);
     [SerializeField] private Vector2 CloseSignAnchor = new Vector2(0.208f, 0.636f);
-    [Tooltip("Height of the hanging sign sprites; width follows each sprite's own aspect ratio.")]
-    public float SignHeight = 150f;
+    [Tooltip("Reference units drawn per SOURCE PIXEL of sign art. Every sign shares this one number, " +
+             "so a new sign of any size lands at the same visual scale as the existing ones with no " +
+             "extra tuning — that is the point of scaling by pixel rather than by height. " +
+             "The client's signs are 23 px tall, so 2.4 draws them ~55 units tall. " +
+             "Replaces the old fixed SignHeight of 150, which forced every sign to the same HEIGHT " +
+             "regardless of its art and rendered 'back' at 248x150 — far larger than the reference.")]
+    public float SignPixelScale = 2.4f;
 
     [Header("Picture frames (PDF: 'Add in the 2 picture frames')")]
     public Vector2 PictureFrame1Anchor = new Vector2(0.615f, 0.845f);
@@ -59,6 +78,18 @@ public class SaltShopUI : MonoBehaviour
     public Vector2 CoinIconAnchor = new Vector2(0.862f, 0.938f);
     [SerializeField] private Vector2 CoinAmountAnchor = new Vector2(0.928f, 0.938f);
     public float CoinIconSize = 64f;
+
+    [Header("Shelf backdrop (client art, 256x128) — drawn behind every other overlay element")]
+    [Tooltip("Centre of the shelf art. Only meaningful when ShelfHeight > 0.")]
+    public Vector2 ShelfAnchor = new Vector2(0.745f, 0.275f);
+    [Tooltip("On-screen height of the shelf art in 1920x1080 units; width follows the sprite's own " +
+             "2:1 aspect. DEFAULTS TO 0 (hidden) on purpose — the supplied art is not a bare shelf: " +
+             "its left ~40% is landscape (sky/mountain/water), and at 256x128 it is exactly 1/3 the " +
+             "size of the existing shop background Fishingshop2 (768x384) with the same 2:1 aspect, " +
+             "so it reads as a background plate rather than an overlay. Set a height (e.g. 432) to " +
+             "use it as an overlay behind the hats, or see project_overview.md 15.4 before wiring it " +
+             "as the shop background.")]
+    public float ShelfHeight = 0f;
 
     [Header("Shelf slots — anchor is the CENTRE OF THE HAT on the shelf")]
     // Two hats on the middle shelf, one on the lower shelf, matching the mockup's arrangement and
@@ -98,6 +129,7 @@ public class SaltShopUI : MonoBehaviour
     private SaltShopState.ShopItem pendingPurchase;
     private bool purchaseInFlight;
     private bool built;
+    private bool overlayRebuildQueued;
 
     public void Open(ShopManager owner)
     {
@@ -130,10 +162,93 @@ public class SaltShopUI : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (overlayRoot != null)
+        // Never destroy a scene-authored overlay — it belongs to the scene, not to this component.
+        if (overlayRoot != null && overlayRoot != authoredOverlay)
         {
             Destroy(overlayRoot.gameObject);
         }
+    }
+
+    // ---------- live tuning ----------
+
+    /// <summary>
+    /// Tears the overlay down and rebuilds it from the current Inspector values.
+    /// </summary>
+    /// <remarks>
+    /// The shop front is generated at runtime, so its GameObjects ("SaltShop Overlay", "Back Sign",
+    /// "Close Sign", …) do not exist in the scene and cannot be dragged in the editor. Every size and
+    /// position is instead an Inspector field on THIS component — <see cref="SignPixelScale"/>,
+    /// <see cref="BackSignAnchor"/>, <see cref="SlotAnchors"/> and so on. Changing any of them while
+    /// the shop is open rebuilds immediately, so tuning is still a live loop; you just adjust numbers
+    /// here rather than dragging rects.
+    /// </remarks>
+    [ContextMenu("Rebuild Shop Overlay")]
+    public void RebuildOverlay()
+    {
+        // A scene-authored overlay is the designer's, so re-bind to it rather than regenerating.
+        if (authoredOverlay != null)
+        {
+            overlayRoot = authoredOverlay;
+            built = true;
+            AdoptAuthoredOverlay();
+            SetOverlayVisible(isActiveAndEnabled);
+            Refresh();
+            RefreshCoinBalance();
+            return;
+        }
+
+        if (overlayRoot != null)
+        {
+            if (Application.isPlaying)
+            {
+                Destroy(overlayRoot.gameObject);
+            }
+            else
+            {
+                DestroyImmediate(overlayRoot.gameObject);
+            }
+        }
+
+        overlayRoot = null;
+        itemsRoot = null;
+        buyPopup = null;
+        buyPriceText = null;
+        buyStatusText = null;
+        coinBalanceText = null;
+        built = false;
+
+        BuildOnce();
+        if (!built)
+        {
+            return;
+        }
+
+        SetOverlayVisible(isActiveAndEnabled);
+        Refresh();
+        RefreshCoinBalance();
+    }
+
+    private void OnValidate()
+    {
+        // Only meaningful while the shop is on screen AND the layout is still driven by these
+        // fields. With a scene-authored overlay the fields no longer control anything, so there is
+        // nothing to rebuild. The rebuild is deferred because OnValidate must not destroy objects
+        // on the spot.
+        if (!Application.isPlaying || !built || !isActiveAndEnabled || authoredOverlay != null)
+        {
+            return;
+        }
+        overlayRebuildQueued = true;
+    }
+
+    private void Update()
+    {
+        if (!overlayRebuildQueued)
+        {
+            return;
+        }
+        overlayRebuildQueued = false;
+        RebuildOverlay();
     }
 
     private void SetOverlayVisible(bool visible)
@@ -170,17 +285,165 @@ public class SaltShopUI : MonoBehaviour
 
         built = true;
 
+        // A scene-authored overlay wins: use the designer's GameObjects exactly as they are and only
+        // re-attach the code-side wiring (click handlers, text refs, the dynamic item container).
+        // Button listeners are added in code and are not serialized, so they must be re-bound here.
+        if (authoredOverlay != null)
+        {
+            overlayRoot = authoredOverlay;
+            AdoptAuthoredOverlay();
+            return;
+        }
+
         // Built under the canvas (NOT under the scaled/offset background panel) so that a
         // screen-normalized anchor of 0.86 really is 86% across the screen.
         overlayRoot = CreateStretched("SaltShop Overlay", canvasRect);
         overlayRoot.localScale = Vector3.one;
 
+        // Built first so it ends up first in sibling order — uGUI draws siblings in order, so the
+        // shelf sits behind the frames, signs and the cosmetics standing on it.
+        BuildShelf();
         BuildPictureFrames();
         BuildSigns();
         BuildCoinBalance();
-        itemsRoot = CreateStretched("SaltShop Items", overlayRoot);
+        itemsRoot = CreateStretched(ItemsRootName, overlayRoot);
         BuildBuyPopup();
     }
+
+    // ---------- scene-authored overlay ----------
+
+    /// <summary>
+    /// Re-binds the code side to an overlay that already exists in the scene: caches the text and
+    /// popup references, re-attaches the button click handlers, and makes sure there is a container
+    /// for the dynamically-generated shelf items.
+    /// </summary>
+    /// <remarks>
+    /// Nothing here moves or resizes anything — the authored layout is left exactly as the designer
+    /// built it. Objects are matched by name, so keep the names below when editing the hierarchy.
+    /// </remarks>
+    private void AdoptAuthoredOverlay()
+    {
+        itemsRoot = FindDescendant(overlayRoot, ItemsRootName)
+                    ?? CreateStretched(ItemsRootName, overlayRoot);
+
+        coinBalanceText = FindTextOn(overlayRoot, "Coin Amount");
+
+        BindButton(overlayRoot, "Back Sign", OnBackSign);
+        BindButton(overlayRoot, "Close Sign", OnCloseSign);
+
+        RectTransform popup = FindDescendant(overlayRoot, "Buy Popup");
+        if (popup != null)
+        {
+            buyPopup = popup.gameObject;
+            buyPriceText = FindTextOn(popup, "Price");
+            buyStatusText = FindTextOn(popup, "Status");
+            BindButton(popup, "Yes Button", OnConfirmPurchase);
+            BindButton(popup, "No Button", HideBuyPopup);
+            buyPopup.SetActive(false);
+        }
+        else
+        {
+            Debug.LogWarning("[SaltShopUI] Authored overlay has no 'Buy Popup' child — purchases " +
+                             "cannot be confirmed. Re-bake the overlay or add it by hand.");
+        }
+    }
+
+    private static RectTransform FindDescendant(RectTransform root, string name)
+    {
+        if (root == null)
+        {
+            return null;
+        }
+        foreach (RectTransform t in root.GetComponentsInChildren<RectTransform>(true))
+        {
+            if (t != root && t.name == name)
+            {
+                return t;
+            }
+        }
+        return null;
+    }
+
+    private static TextMeshProUGUI FindTextOn(RectTransform root, string childName)
+    {
+        RectTransform child = FindDescendant(root, childName);
+        return child != null ? child.GetComponent<TextMeshProUGUI>() : null;
+    }
+
+    private void BindButton(RectTransform root, string childName, UnityEngine.Events.UnityAction onClick)
+    {
+        RectTransform child = FindDescendant(root, childName);
+        if (child == null)
+        {
+            Debug.LogWarning("[SaltShopUI] Authored overlay has no '" + childName + "' child — that " +
+                             "control will do nothing.");
+            return;
+        }
+
+        Button button = child.GetComponent<Button>();
+        if (button == null)
+        {
+            button = child.gameObject.AddComponent<Button>();
+            button.targetGraphic = child.GetComponent<Image>();
+        }
+
+        // Listeners added from code are runtime-only, so a baked overlay always arrives with none.
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(onClick);
+    }
+
+#if UNITY_EDITOR
+    /// <summary>
+    /// Generates the overlay as real scene objects under the canvas and assigns it to
+    /// <see cref="authoredOverlay"/>, so it can be edited by hand from then on.
+    /// </summary>
+    [ContextMenu("Bake Overlay Into Scene")]
+    public void BakeOverlayIntoScene()
+    {
+        if (Application.isPlaying)
+        {
+            Debug.LogWarning("[SaltShopUI] Exit Play Mode before baking the overlay.");
+            return;
+        }
+
+        if (authoredOverlay != null)
+        {
+            DestroyImmediate(authoredOverlay.gameObject);
+            authoredOverlay = null;
+        }
+
+        overlayRoot = null;
+        itemsRoot = null;
+        buyPopup = null;
+        buyPriceText = null;
+        buyStatusText = null;
+        coinBalanceText = null;
+        built = false;
+
+        BuildOnce();
+
+        if (!built || overlayRoot == null)
+        {
+            Debug.LogError("[SaltShopUI] Bake failed — no Canvas above this object?");
+            return;
+        }
+
+        authoredOverlay = overlayRoot;
+
+        // Left inactive on purpose: it now lives in the scene permanently, and the shop switches it
+        // on via SetOverlayVisible when it opens. Leaving it active would draw the shop front over
+        // the Dash menu before the player has opened the shop.
+        overlayRoot.gameObject.SetActive(false);
+
+        UnityEditor.EditorUtility.SetDirty(this);
+        UnityEditor.EditorUtility.SetDirty(overlayRoot.gameObject);
+        UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(gameObject.scene);
+
+        Debug.Log("[SaltShopUI] Baked '" + overlayRoot.name + "' into "
+            + gameObject.scene.name + " with " + overlayRoot.childCount
+            + " children. Edit them in the Hierarchy; save the scene to keep the changes.");
+    }
+#endif
 
     private RectTransform CreateStretched(string name, RectTransform parent)
     {
@@ -225,6 +488,24 @@ public class SaltShopUI : MonoBehaviour
             aspect = sprite.rect.width / sprite.rect.height;
         }
         return new Vector2(height * aspect, height);
+    }
+
+    /// <summary>
+    /// Box that draws <paramref name="sprite"/> at a fixed number of reference units per SOURCE PIXEL,
+    /// so every sprite sized this way shares one visual scale regardless of its own dimensions.
+    /// </summary>
+    /// <remarks>
+    /// Sizing by a fixed HEIGHT forces a 19 px-tall sign and a 23 px-tall sign to render the same
+    /// height, which silently rescales the pixel art and makes a set of signs look mismatched. Sizing
+    /// by pixel scale keeps them in proportion to each other and means new sign art needs no tuning.
+    /// </remarks>
+    private static Vector2 SizeForSpriteAtPixelScale(Sprite sprite, float unitsPerPixel, Vector2 fallbackPixelSize)
+    {
+        float scale = Mathf.Max(0.01f, unitsPerPixel);
+        Vector2 pixels = sprite != null && sprite.rect.width > 0f && sprite.rect.height > 0f
+            ? new Vector2(sprite.rect.width, sprite.rect.height)
+            : fallbackPixelSize;
+        return pixels * scale;
     }
 
     /// <summary>
@@ -362,6 +643,28 @@ public class SaltShopUI : MonoBehaviour
         return text;
     }
 
+    /// <summary>
+    /// Draws the shelf unit the rotating cosmetics stand on. Like the picture frames, it is optional —
+    /// it only appears when the art is present in Resources/ShopUI/SaltShop.
+    /// </summary>
+    private void BuildShelf()
+    {
+        if (ShelfHeight <= 0f)
+        {
+            return;
+        }
+
+        Sprite sprite = Resources.Load<Sprite>(ShelfSpriteResource);
+        if (sprite == null)
+        {
+            return;
+        }
+
+        Vector2 size = SizeForSprite(sprite, ShelfHeight, 2f);
+        RectTransform rect = CreateAnchored("Shelf", overlayRoot, ClampAnchor(ShelfAnchor, size), size);
+        AddImage(rect, sprite, Color.white).raycastTarget = false;
+    }
+
     private void BuildPictureFrames()
     {
         // PDF: "Add in the 2 picture frames" on the wall above the top shelf. They only appear when
@@ -395,7 +698,7 @@ public class SaltShopUI : MonoBehaviour
 
     private void CreateSignButton(string name, Vector2 anchor, Sprite sprite, string fallbackLabel, UnityEngine.Events.UnityAction onClick)
     {
-        Vector2 size = SizeForSprite(sprite, SignHeight, 320f / 210f);
+        Vector2 size = SizeForSpriteAtPixelScale(sprite, SignPixelScale, new Vector2(38f, 23f));
         RectTransform rect = CreateAnchored(name, overlayRoot, ClampAnchor(anchor, size), size);
         Image image = AddImage(rect, sprite, new Color(0.45f, 0.27f, 0.13f, 0.95f));
         image.raycastTarget = true;

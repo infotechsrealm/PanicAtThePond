@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 using PanicAtThePond.Managers;
 using PanicAtThePond.Controllers;
@@ -19,7 +19,32 @@ public class CosmeticRuntimeApplier : MonoBehaviour
     private const string FishermanHatChildName = "Applied Fisherman Hat Cosmetic";
     private const string FishermanHairChildName = "Applied Fisherman Hair Cosmetic";
     private const string ShopSpritesResourcePath = "ShopUI";
+
+    /// <summary>Child transform on each character whose position the AnimationClips key to the head.</summary>
+    private const string HeadAnchorName = "HeadAnchor";
     private const string FishermanAnimatedHeadSheetName = "FishermansAnimations-Head_Sheet";
+
+    /// <summary>Columns per row in the 4x24 fisherman sheets; also the width of every cosmetic bob table.</summary>
+    private const int FrameColumnCount = 4;
+
+    /// <summary>Fallback units-per-pixel used only when the body sprite cannot be read (100 PPU).</summary>
+    private const float DefaultUnitsPerPixel = 0.01f;
+
+    /// <summary>
+    /// World units that one pixel of the body sprite occupies, read from the sprite the cosmetic is
+    /// riding on.
+    /// </summary>
+    /// <remarks>
+    /// The bob tables are measured in SOURCE PIXELS, so converting them to a local offset needs the
+    /// body's own pixels-per-unit. This used to be hard-coded to 0.01, which is only correct at
+    /// 100 PPU â€” the fisherman ships at 25 PPU and the fish at 50, so their hats moved a quarter and
+    /// a half as far as the head respectively. Reading it from the sprite also means the value stays
+    /// correct after the project migrates everything to 100 PPU.
+    /// </remarks>
+    private float UnitsPerPixel =>
+        rootRenderer != null && rootRenderer.sprite != null && rootRenderer.sprite.pixelsPerUnit > 0f
+            ? 1f / rootRenderer.sprite.pixelsPerUnit
+            : DefaultUnitsPerPixel;
 
     private static Sprite selectedFishHat;
     private static Sprite selectedFishermanHat;
@@ -29,6 +54,16 @@ public class CosmeticRuntimeApplier : MonoBehaviour
     private SpriteRenderer rootRenderer;
     private SpriteRenderer cosmeticRenderer;
     private Animator rootAnimator;
+
+    /// <summary>
+    /// The head anchor this cosmetic is parented to, or null on a character with no anchor.
+    /// </summary>
+    /// <remarks>
+    /// Non-null means the animation itself positions this cosmetic and <c>LateUpdate</c> must not
+    /// touch its local position. Null keeps the legacy reconstruction path alive for anything that
+    /// has not been rebuilt.
+    /// </remarks>
+    private Transform headAnchor;
     private Vector3 baseLocalPosition;
     private Vector3 baseLocalRotation;
     private Vector3 baseLocalScale;
@@ -78,6 +113,52 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// True when <paramref name="spriteName"/> is a fisherman-category cosmetic.
+    /// </summary>
+    /// <remarks>
+    /// Prefers <c>shop_config.json</c>'s category so renaming art cannot break the check, and falls
+    /// back to the naming convention when the id is not catalogued (previews, legacy sprites).
+    /// </remarks>
+    private static bool IsFishermanCategorySprite(string spriteName)
+    {
+        if (string.IsNullOrEmpty(spriteName))
+        {
+            return false;
+        }
+
+        // EXACT id match only. Loose matching is wrong here: it treats the fish hat "cap" as the
+        // fisherman hat "FisherMan_Hat_-Blue_Cap" (one name is a substring of the other once the
+        // separators are stripped), which would reject a perfectly valid fish hat.
+        string normalized = NormalizeSpriteName(spriteName);
+
+        ShopConfig config = ShopConfig.Load();
+        if (config != null && config.hats != null)
+        {
+            for (int i = 0; i < config.hats.Count; i++)
+            {
+                ShopConfig.HatEntry entry = config.hats[i];
+                if (entry != null && NormalizeSpriteName(entry.id) == normalized)
+                {
+                    return entry.category == "fisherman_hat";
+                }
+            }
+        }
+
+        return normalized.StartsWith("fisherman") || normalized.Contains("turtlehat");
+    }
+
+    /// <summary>
+    /// Stores the player's fish hat choice. A fisherman-category sprite is rejected outright.
+    /// </summary>
+    /// <remarks>
+    /// The two slots used to be able to cross-contaminate: <c>ShopManager</c> routes a cosmetic click
+    /// by hierarchy, and when a button matched neither the fish nor the fisherman root the routing
+    /// flag kept its previous value, letting a fisherman hat be written here. That produced
+    /// <c>SelectedFishHatCosmetic = FisherMan_Hat_-Default_-_Fishing_Hat</c> in a real save, and a
+    /// fisherman hat cannot resolve to a valid fish cosmetic â€” so the fish rendered no hat at all.
+    /// Guarding at the setter makes the mistake impossible however the caller was routed.
+    /// </remarks>
     public static void SelectFishHat(Sprite sprite)
     {
         if (sprite != null && IsPreviewSprite(sprite.name))
@@ -88,6 +169,14 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                 sprite = cleanSprite;
             }
         }
+
+        if (sprite != null && IsFishermanCategorySprite(sprite.name))
+        {
+            Debug.LogWarning("[CosmeticRuntimeApplier] Refused to store fisherman hat '" + sprite.name
+                + "' as the FISH hat. Keeping the previous fish hat.");
+            return;
+        }
+
         selectedFishHat = sprite;
         SaveSelectedSpriteName(SelectedFishHatPrefKey, sprite);
     }
@@ -106,7 +195,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
     /// <summary>
     /// Extracts the hat sprite name from a composite preview sprite name.
-    /// e.g. "Fish_Hat_Boat_Fish1" → "paper_boat"
+    /// e.g. "Fish_Hat_Boat_Fish1" â†’ "paper_boat"
     /// </summary>
     private static string GetFishHatNameFromCompositePreview(string compositeName)
     {
@@ -772,14 +861,31 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
     private static void CreateOrUpdateCosmetic(GameObject owner, string childName, Sprite sprite, Vector3 localPosition, Vector3 localEulerAngles, Vector3 localScale, int sortingOffset, bool followsFishermanAnimation)
     {
-        Transform cosmetic = FindDirectChild(owner.transform, childName);
+        // Hats ride the head anchor, which the clips key on the same timeline as the body sprite, so
+        // no code has to work out where the head is. Hair is the animated head sheet itself â€” it
+        // composites against the root frame, so putting it under the anchor would apply the head's
+        // motion to it twice.
+        Transform anchor = childName != FishermanHairChildName ? FindHeadAnchor(owner) : null;
+        Transform parent = anchor != null ? anchor : owner.transform;
+
+        Transform cosmetic = FindCosmetic(owner, childName);
         if (cosmetic == null)
         {
             cosmetic = new GameObject(childName).transform;
-            cosmetic.SetParent(owner.transform, false);
         }
 
-        cosmetic.localPosition = localPosition;
+        if (cosmetic.parent != parent)
+        {
+            cosmetic.SetParent(parent, false);
+        }
+
+        // The caller authors placement relative to the character root, as it always has. Under the
+        // anchor that becomes a one-time sit offset: subtracting the anchor's current position keeps
+        // the hat exactly where it was authored on this frame, and the anchor supplies every frame
+        // after it.
+        cosmetic.localPosition = anchor != null
+            ? localPosition - anchor.localPosition
+            : localPosition;
         cosmetic.localEulerAngles = localEulerAngles;
         cosmetic.localScale = localScale;
 
@@ -809,7 +915,9 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         applier.rootRenderer = ownerRenderer;
         applier.cosmeticRenderer = renderer;
         applier.rootAnimator = owner.GetComponent<Animator>();
-        applier.baseLocalPosition = localPosition;
+
+        applier.headAnchor = anchor;
+        applier.baseLocalPosition = cosmetic.localPosition;
         applier.baseLocalRotation = localEulerAngles;
         applier.baseLocalScale = localScale;
         applier.followsFishermanAnimation = followsFishermanAnimation;
@@ -824,591 +932,95 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             return;
         }
 
-        if (followsFishermanAnimation)
-        {
-            cosmeticRenderer.flipY = rootRenderer.flipY;
-            ApplyFishermanAnimationOffset();
-        }
-        else if (gameObject.name == FishHatChildName)
-        {
-            ApplyFishAnimationOffset();
-        }
-        else
-        {
-            cosmeticRenderer.flipX = rootRenderer.flipX;
-            cosmeticRenderer.flipY = rootRenderer.flipY;
-        }
-    }
-
-    private void ApplyFishAnimationOffset()
-    {
-        string clipName = GetCurrentClipName();
-        string state = string.IsNullOrEmpty(clipName) ? string.Empty : clipName.ToLowerInvariant();
-        Vector3 targetPos = baseLocalPosition;
-        Vector3 targetRot = baseLocalRotation;
-
-        bool isDead = state.Contains("dead") || (rootAnimator != null && rootAnimator.GetBool("isDead"));
-
-        if (isDead)
-        {
-            if (transform.parent != null && IsTroutFish(transform.parent.gameObject))
-            {
-                string hatName = cosmeticRenderer != null && cosmeticRenderer.sprite != null ? NormalizeSpriteName(cosmeticRenderer.sprite) : "";
-                switch (hatName)
-                {
-                    case "beret": targetPos = new Vector3(-0.05f, -0.111f, -0.01f); break;
-                    case "hat": targetPos = new Vector3(-0.05f, -0.133f, -0.01f); break;
-                    case "hat2": targetPos = new Vector3(-0.05f, -0.16f, -0.01f); break;
-                    case "cap": targetPos = new Vector3(-0.05f, -0.10f, -0.01f); break;
-                    case "paperboat": targetPos = new Vector3(-0.05f, -0.135f, -0.01f); break;
-                    case "fishermanhatdefaultfishinghat": targetPos = new Vector3(-0.05f, -0.10f, -0.01f); break;
-                    default: targetPos = new Vector3(-0.05f, -0.11f, -0.01f); break;
-                }
-            }
-            else
-            {
-                targetPos = new Vector3(-0.05f, -0.29f, -0.01f);
-            }
-            targetRot = new Vector3(180f, 0f, 0f);
-        }
-        else
-        {
-            // Gentle up/down bob synced to the fish's swim frames. The peak (frame 0) is exactly the
-            // touching base position and every other frame only dips the hat DOWN toward the body, so
-            // the hat bobs with the fish yet can never open a gap above the (vertically stable) head.
-            targetPos += GetFishHatBobOffset(GetCurrentSpriteFrameIndex());
-        }
-
-        transform.localPosition = targetPos;
-        transform.localEulerAngles = targetRot;
-        transform.localScale = baseLocalScale;
-        
-        if (cosmeticRenderer.sprite != null && cosmeticRenderer.sprite.name.ToLowerInvariant() == "beret")
-        {
-            cosmeticRenderer.flipX = true;
-        }
-        else
-        {
-            cosmeticRenderer.flipX = rootRenderer.flipX;
-        }
-        cosmeticRenderer.flipY = rootRenderer.flipY;
-    }
-
-    private void ApplyFishermanAnimationOffset()
-    {
-        FishermanAnimationManager animManager = GetComponentInParent<FishermanAnimationManager>();
-        string state = "";
-        int frameIndex = 0;
-
-        if (animManager != null)
-        {
-            state = (animManager.CurrentAnimationName ?? "").ToLowerInvariant();
-            frameIndex = animManager.CurrentFrameIndex;
-        }
-        else
-        {
-            string clipName = GetCurrentClipName();
-            state = string.IsNullOrEmpty(clipName) ? string.Empty : clipName.ToLowerInvariant();
-            frameIndex = GetCurrentSpriteFrameIndex();
-        }
-
-        bool isLeft = true;
-        FishermanController fc = GetComponentInParent<FishermanController>();
-        if (fc != null)
-        {
-            isLeft = fc.isLeft;
-        }
-        else
-        {
-            isLeft = state.Contains("left") || state == "move forward" || state == "move backwards" || (rootRenderer != null && rootRenderer.flipX && !state.Contains("right") && !state.Contains("reverse"));
-        }
-
+        // Hair is not a hat: it swaps in a slice of the animated head sheet rather than sitting on
+        // top of the head, so it keeps its own path.
         if (usesAnimatedFishermanHeadReplacement)
         {
-            ApplyAnimatedFishermanHeadReplacement(state);
+            string clipName = GetCurrentClipName();
+            ApplyAnimatedFishermanHeadReplacement(
+                string.IsNullOrEmpty(clipName) ? string.Empty : clipName.ToLowerInvariant());
             return;
         }
 
-        if (gameObject.name == FishermanHatChildName || gameObject.name == FishermanHairChildName || gameObject.name == SceneObjectNames.HatCosmetic)
+        // Everything else needs no positioning code at all: the anchor and the body sprite are keyed
+        // on one timeline and sampled by the same evaluator in the same frame, so they cannot drift.
+        // What is left here is mirroring and the dead-fish pose, neither of which is head tracking.
+        if (headAnchor != null && gameObject.name == FishHatChildName)
         {
-            Vector3 bobOffset = GetFishermanHeadBobOffset(state, frameIndex);
-            
-            if (cosmeticRenderer != null && cosmeticRenderer.sprite != null && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("ranger"))
-            {
-                if (state.Contains("move reverse backwards") || state.Contains("movereversebackwards"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.0105f, 0.7946f + bob, 0f);
-                    transform.localEulerAngles = Vector3.zero;
-                    transform.localScale = new Vector3(3.83101f, 3.635097f, 3.9f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.119f, 0.768f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, -5.89f);
-                    transform.localScale = new Vector3(3.808891f, 3.635097f, 3.9f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if (state.Contains("move backwards") || state.Contains("movebackwards"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.011f, 0.808f + bob, -0.008f);
-                    transform.localEulerAngles = Vector3.zero;
-                    transform.localScale = new Vector3(3.924813f, 3.635097f, 3.9f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if (state.Contains("move forward") || state.Contains("moveforward"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.085f, 0.8f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
-                    transform.localScale = new Vector3(3.88478f, 3.635097f, 3.9f);
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-                
-                if (state.Contains("move"))
-                {
-                    bobOffset.y -= 0.03f;
-                }
-            }
-            else if (cosmeticRenderer != null && cosmeticRenderer.sprite != null && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("turtle"))
-            {
-                if (state.Contains("move reverse backwards") || state.Contains("movereversebackwards"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.0625f, 0.795f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, -1.171f);
-                    transform.localScale = new Vector3(3.451032f, 3.451032f, 3.9f);
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-                else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.008f, 0.789f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, -1.171f);
-                    transform.localScale = new Vector3(3.451032f, 3.451032f, 3.9f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if (state.Contains("move backwards") || state.Contains("movebackwards"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.008f, 0.789f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, -1.171f);
-                    transform.localScale = new Vector3(3.451032f, 3.451032f, 3.9f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if (state.Contains("move forward") || state.Contains("moveforward"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.038f, 0.771f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
-                    transform.localScale = new Vector3(3.451032f, 3.451032f, 3.9f);
-                    cosmeticRenderer.flipX = false; // Left side animation, so false
-                    return;
-                }
-                else if (state.Contains("idle left") || state.Contains("idleleft") || 
-                         state.Contains("winning left") || state.Contains("winningleft") ||
-                         state.Contains("fishing left") || state.Contains("fishingleft"))
-                {
-                    Vector3 turtleOffset = GetFishermanHeadOffset(state, frameIndex);
-                    transform.localPosition = baseLocalPosition + turtleOffset;
-                    transform.localScale = baseLocalScale;
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-                else if (state.Contains("idle right") || state.Contains("idleright") ||
-                         state.Contains("idel right") || state.Contains("idelright") ||
-                         state.Contains("fishing right") || state.Contains("fishingright"))
-                {
-                    Vector3 turtleOffset = GetFishermanHeadOffset(state, frameIndex);
-                    transform.localPosition = baseLocalPosition + turtleOffset;
-                    transform.localScale = baseLocalScale;
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                // Enforce flipX = false for all other unlisted states
-                Vector3 offset = GetFishermanHeadOffset(state, frameIndex);
-                transform.localPosition = baseLocalPosition + offset;
-                transform.localScale = baseLocalScale;
-                cosmeticRenderer.flipX = false;
-                return;
-            }
-            else if (cosmeticRenderer != null && cosmeticRenderer.sprite != null && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("blue") && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("cap"))
-            {
-                if (state.Contains("move reverse backwards") || state.Contains("movereversebackwards"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.034f, 0.67f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 0.36f);
-                    transform.localScale = new Vector3(4.565172f, 4.707734f, 3.9f);
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-                else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.0588f, 0.6626f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, -5.12f);
-                    transform.localScale = new Vector3(4.565172f, 4.707734f, 3.9f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if (state.Contains("move backwards") || state.Contains("movebackwards"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.025f, 0.67f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 0.36f);
-                    transform.localScale = new Vector3(4.565172f, 4.707734f, 3.9f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if (state.Contains("move forward") || state.Contains("moveforward"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.0642f, 0.6625f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 1.58f);
-                    transform.localScale = new Vector3(4.565172f, 4.707734f, 3.9f);
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-            }
-            else if (cosmeticRenderer != null && cosmeticRenderer.sprite != null && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("red") && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("cap"))
-            {
-                if (state.Contains("move reverse backwards") || state.Contains("movereversebackwards"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.006f, 0.68f + bob, -0.01f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
-                    transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-                else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.05f, 0.69f + bob, -0.01f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
-                    transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if (state.Contains("move backwards") || state.Contains("movebackwards"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.006f, 0.68f + bob, -0.01f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
-                    transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if (state.Contains("move forward") || state.Contains("moveforward"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.065f, 0.701f + bob, -0.01f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
-                    transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-                else if (state.Contains("win"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    if (isLeft)
-                    {
-                        transform.localPosition = new Vector3(-0.065f, 0.701f + bob, -0.01f);
-                        transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
-                        transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
-                        cosmeticRenderer.flipX = false;
-                    }
-                    else
-                    {
-                        transform.localPosition = new Vector3(0.05f, 0.69f + bob, -0.01f);
-                        transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
-                        transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
-                        cosmeticRenderer.flipX = true;
-                    }
-                    return;
-                }
-                else if (state.Contains("idle left") || state.Contains("idleleft") || state.Contains("idel left") || state.Contains("idelleft") || ((state == "idle" || state == "idel") && isLeft))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.042f, 0.697f + bob, -0.01f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
-                    transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-                else if (state.Contains("idle right") || state.Contains("idleright") || state.Contains("idel right") || state.Contains("idelright") || ((state == "idle" || state == "idel") && !isLeft))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.05f, 0.69f + bob, -0.01f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
-                    transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if ((state.Contains("cast") || state.Contains("fishing")) && !isLeft)
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.021f, 0.677f + bob, -0.01f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
-                    transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if ((state.Contains("cast") || state.Contains("fishing")) && isLeft)
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.04f, 0.67f + bob, -0.01f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
-                    transform.localScale = new Vector3(4.538098f, 4.007359f, 4.27908f);
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-            }
-            else if (cosmeticRenderer != null && cosmeticRenderer.sprite != null && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("chef"))
-            {
-                if (state.Contains("left to right pole") || state.Contains("lefttorightpole") || state.Contains("righttoleftpole") || state.Contains("right to left pole") || state.Contains("pole"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.0075f, 0.765f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, -25f);
-                    transform.localScale = new Vector3(4.647937f, 4.647937f, 4.647937f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if (state.Contains("move reverse backwards") || state.Contains("movereversebackwards"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.0075f, 0.765f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 20f);
-                    transform.localScale = new Vector3(4.647937f, 4.647937f, 4.647937f);
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-                else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.042f, 0.744f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, -25f);
-                    transform.localScale = new Vector3(4.75298f, 4.647937f, 4.647937f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if (state.Contains("move backwards") || state.Contains("movebackwards"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.0275f, 0.765f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 160f, isLeft ? 20f : 0f);
-                    transform.localScale = new Vector3(4.647937f, 4.647937f, 4.647937f);
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-                else if (state.Contains("move forward") || state.Contains("moveforward"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.055f, 0.739f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, isLeft ? 20f : 0f);
-                    transform.localScale = new Vector3(4.75298f, 4.647937f, 4.647937f);
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-                else if ((state.Contains("cast") || state.Contains("fishing") || state.Contains("fish") || state.Contains("fight") || state.Contains("reel")) && !isLeft)
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.0075f, 0.73f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, -25f);
-                    transform.localScale = new Vector3(4.647937f, 4.647937f, 4.647937f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if (state.Contains("win"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    if (isLeft)
-                    {
-                        transform.localPosition = new Vector3(-0.0275f, 0.73f + bob, 0f);
-                        transform.localEulerAngles = new Vector3(0f, 0f, 20f);
-                        transform.localScale = new Vector3(4.647937f, 4.647937f, 4.647937f);
-                        cosmeticRenderer.flipX = false;
-                    }
-                    else
-                    {
-                        transform.localPosition = new Vector3(0.0075f, 0.765f + bob, 0f);
-                        transform.localEulerAngles = new Vector3(0f, 0f, -25f);
-                        transform.localScale = new Vector3(4.647937f, 4.647937f, 4.647937f);
-                        cosmeticRenderer.flipX = true;
-                    }
-                    return;
-                }
-                else if (state.Contains("idle right") || state.Contains("idleright") || state.Contains("idel right") || state.Contains("idelright") || ((state == "idle" || state == "idel") && !isLeft))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.0075f, 0.765f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, -25f);
-                    transform.localScale = new Vector3(4.647937f, 4.647937f, 4.647937f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if (isLeft)
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.0275f, 0.73f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 20f);
-                    transform.localScale = new Vector3(4.647937f, 4.647937f, 4.647937f);
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-            }
-            else if (cosmeticRenderer != null && cosmeticRenderer.sprite != null && cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("soda"))
-            {
-                if (state.Contains("move reverse backwards") || state.Contains("movereversebackwards"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.0455f, 0.7262f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 10.1f);
-                    transform.localScale = new Vector3(3.643995f, 4f, 4f);
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-                else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.09f, 0.705f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, -7.29f);
-                    transform.localScale = new Vector3(3.643995f, 4f, 4f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if (state.Contains("move backwards") || state.Contains("movebackwards"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.0115f, 0.7305f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 0.85f);
-                    transform.localScale = new Vector3(3.822506f, 4f, 4f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if (state.Contains("move forward") || state.Contains("moveforward"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.0225f, 0.73f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
-                    transform.localScale = new Vector3(4f, 4f, 4f);
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-                else if (state.Contains("win"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    if (isLeft)
-                    {
-                        transform.localPosition = new Vector3(-0.0225f, 0.73f + bob, 0f);
-                        transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
-                        transform.localScale = new Vector3(4f, 4f, 4f);
-                        cosmeticRenderer.flipX = false;
-                    }
-                    else
-                    {
-                        transform.localPosition = new Vector3(-0.005f, 0.73f + bob, 0f);
-                        transform.localEulerAngles = new Vector3(0f, 0f, -25f);
-                        transform.localScale = new Vector3(4f, 4f, 4f);
-                        cosmeticRenderer.flipX = true;
-                    }
-                    return;
-                }
-                else if (state.Contains("idle right") || state.Contains("idleright") || state.Contains("idel right") || state.Contains("idelright") || ((state == "idle" || state == "idel" || state.Contains("cast") || state.Contains("fishing")) && !isLeft))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.005f, 0.73f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, -3.88f);
-                    transform.localScale = new Vector3(4f, 4f, 4f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-            }
-            else if (cosmeticRenderer != null && cosmeticRenderer.sprite != null && (cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("fish") || cosmeticRenderer.sprite.name.ToLowerInvariant().Contains("frog")))
-            {
-                if (state.Contains("move reverse backwards") || state.Contains("movereversebackwards"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.0461f, 0.698f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 8.6f);
-                    transform.localScale = new Vector3(3.672022f, 3.79665f, 3.9f);
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-                else if (state.Contains("move reverse forward") || state.Contains("movereverseforward"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.036f, 0.705f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, -8.79f);
-                    transform.localScale = new Vector3(3.672022f, 3.79665f, 3.9f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if (state.Contains("move backwards") || state.Contains("movebackwards"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.0461f, 0.698f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, -5.58f);
-                    transform.localScale = new Vector3(3.672022f, 3.79665f, 3.9f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-                else if (state.Contains("move forward") || state.Contains("moveforward"))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(-0.0591f, 0.6991f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 2.5f);
-                    transform.localScale = new Vector3(3.621509f, 3.79665f, 3.9f);
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-                else if (state.Contains("idle left") || state.Contains("idleleft") || state.Contains("idel left") || state.Contains("idelleft") || ((state == "idle" || state == "idel" || state.Contains("cast") || state.Contains("fishing")) && isLeft))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.01f, 0.729f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, 1.81f);
-                    transform.localScale = new Vector3(3.621509f, 3.79665f, 3.9f);
-                    cosmeticRenderer.flipX = false;
-                    return;
-                }
-                else if (state.Contains("idle right") || state.Contains("idleright") || state.Contains("idel right") || state.Contains("idelright") || ((state == "idle" || state == "idel" || state.Contains("cast") || state.Contains("fishing")) && !isLeft))
-                {
-                    float bob = frameIndex == 1 || frameIndex == 2 ? 0.035f : 0f;
-                    transform.localPosition = new Vector3(0.01f, 0.729f + bob, 0f);
-                    transform.localEulerAngles = new Vector3(0f, 0f, -7f);
-                    transform.localScale = new Vector3(3.621509f, 3.79665f, 3.9f);
-                    cosmeticRenderer.flipX = true;
-                    return;
-                }
-            }
+            ApplyFishDeadPose();
+        }
 
-            transform.localPosition = baseLocalPosition + bobOffset;
-            transform.localEulerAngles = isLeft
-                ? new Vector3(baseLocalRotation.x, 0f, baseLocalRotation.z)
-                : baseLocalRotation;
+        ApplyMirroring();
+    }
+
+    /// <summary>Mirrors the cosmetic with the body it rides on.</summary>
+    /// <remarks>
+    /// The beret is drawn facing the other way, so it mirrors against the body rather than with it.
+    /// That is a property of the artwork, not of the animation, which is why it survives the move to
+    /// the anchor.
+    /// </remarks>
+    private void ApplyMirroring()
+    {
+        bool isBeret = cosmeticRenderer.sprite != null
+            && cosmeticRenderer.sprite.name.ToLowerInvariant() == "beret";
+
+        cosmeticRenderer.flipX = isBeret || rootRenderer.flipX;
+        cosmeticRenderer.flipY = rootRenderer.flipY;
+    }
+
+    /// <summary>
+    /// Drops the hat onto the upturned belly when the fish dies, and restores the sit offset when it
+    /// is alive.
+    /// </summary>
+    /// <remarks>
+    /// This is a pose change, not head tracking: a dead fish is upside down, so the crown measurement
+    /// the anchor is keyed from finds the belly rather than the head and cannot be used. The offsets
+    /// are expressed relative to the character root and converted into the anchor's space, so they
+    /// stay put whatever frame the anchor is on.
+    /// </remarks>
+    private void ApplyFishDeadPose()
+    {
+        string clipName = GetCurrentClipName();
+        bool isDead = (!string.IsNullOrEmpty(clipName) && clipName.ToLowerInvariant().Contains("dead"))
+            || (rootAnimator != null && rootAnimator.GetBool("isDead"));
+
+        if (!isDead)
+        {
+            transform.localPosition = baseLocalPosition;
+            transform.localEulerAngles = baseLocalRotation;
             transform.localScale = baseLocalScale;
-            cosmeticRenderer.flipX = !isLeft;
+            return;
+        }
+
+        Vector3 rootRelative;
+        if (transform.parent != null && transform.parent.parent != null
+            && IsTroutFish(transform.parent.parent.gameObject))
+        {
+            string hatName = cosmeticRenderer != null && cosmeticRenderer.sprite != null
+                ? NormalizeSpriteName(cosmeticRenderer.sprite)
+                : string.Empty;
+
+            switch (hatName)
+            {
+                case "beret": rootRelative = new Vector3(-0.05f, -0.111f, -0.01f); break;
+                case "hat": rootRelative = new Vector3(-0.05f, -0.133f, -0.01f); break;
+                case "hat2": rootRelative = new Vector3(-0.05f, -0.16f, -0.01f); break;
+                case "cap": rootRelative = new Vector3(-0.05f, -0.10f, -0.01f); break;
+                case "paperboat": rootRelative = new Vector3(-0.05f, -0.135f, -0.01f); break;
+                case "fishermanhatdefaultfishinghat": rootRelative = new Vector3(-0.05f, -0.10f, -0.01f); break;
+                default: rootRelative = new Vector3(-0.05f, -0.11f, -0.01f); break;
+            }
         }
         else
         {
-            Vector3 offset = GetFishermanHeadOffset(state, frameIndex);
-            transform.localPosition = baseLocalPosition + offset;
-            transform.localScale = baseLocalScale;
-            cosmeticRenderer.flipX = rootRenderer.flipX;
+            rootRelative = new Vector3(-0.05f, -0.29f, -0.01f);
         }
+
+        transform.localPosition = rootRelative - headAnchor.localPosition;
+        transform.localEulerAngles = new Vector3(180f, 0f, 0f);
+        transform.localScale = baseLocalScale;
     }
+
 
     private static CosmeticTransform GetFishHatTransform(GameObject fish, Sprite sprite)
     {
@@ -1596,7 +1208,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         }
 
         // Apply bobbing offset and preserve local scale (including sign for flipX)
-        transform.localPosition = baseLocalPosition + GetFishermanHeadBobOffset(state, frameIndex);
+        transform.localPosition = baseLocalPosition + GetFishermanHeadBobOffset(state, frameIndex, UnitsPerPixel);
         float currentSignX = Mathf.Sign(transform.localScale.x);
         transform.localScale = new Vector3(currentSignX * Mathf.Abs(baseLocalScale.x), baseLocalScale.y, baseLocalScale.z);
         transform.localEulerAngles = Vector3.zero;
@@ -1687,27 +1299,10 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             .Replace(" ", string.Empty);
     }
 
-    // Vertical bob for the fish hat. Frame 0 sits exactly on the head (touching); the other frames
-    // dip the hat slightly DOWN into the body. Because the peak is the touching position and the hat
-    // only ever moves down from there, it bobs up/down with the fish yet never opens a gap above the head.
-    private static Vector3 GetFishHatBobOffset(int frameIndex)
-    {
-        switch (frameIndex)
-        {
-            case 1:
-                return new Vector3(0f, -0.025f, 0f);
-            case 2:
-                return new Vector3(0f, -0.045f, 0f);
-            case 3:
-                return new Vector3(0f, -0.02f, 0f);
-            default:
-                return Vector3.zero;
-        }
-    }
 
-    private static Vector3 GetFishermanHeadBobOffset(string clipName, int frameIndex)
+    private static Vector3 GetFishermanHeadBobOffset(string clipName, int frameIndex, float unitsPerPixel)
     {
-        Vector3 offset = GetFishermanHeadOffset(clipName, frameIndex);
+        Vector3 offset = GetFishermanHeadOffset(clipName, frameIndex, unitsPerPixel);
         offset.x *= 0.35f;
         return offset;
     }
@@ -1717,6 +1312,18 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         if (selectedFishHat == null)
         {
             selectedFishHat = LoadSelectedSprite(SelectedFishHatPrefKey);
+
+            // Self-heal saves written before the setter was guarded: a fisherman hat parked in the
+            // fish slot can never resolve to a valid fish cosmetic, so the fish would silently
+            // render bare. Drop it rather than carrying a value that can only fail.
+            if (selectedFishHat != null && IsFishermanCategorySprite(selectedFishHat.name))
+            {
+                Debug.LogWarning("[CosmeticRuntimeApplier] Stored fish hat '" + selectedFishHat.name
+                    + "' is a fisherman cosmetic â€” clearing it. Pick a fish hat again in the shop.");
+                selectedFishHat = null;
+                PlayerPrefs.DeleteKey(SelectedFishHatPrefKey);
+                PlayerPrefs.Save();
+            }
         }
 
         if (selectedFishermanHair == null)
@@ -1812,7 +1419,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
     private static void RemoveCosmetic(GameObject owner, string childName)
     {
-        Transform cosmetic = owner != null ? FindDirectChild(owner.transform, childName) : null;
+        Transform cosmetic = FindCosmetic(owner, childName);
         if (cosmetic == null)
         {
             return;
@@ -1848,6 +1455,21 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         return clips != null && clips.Length > 0 && clips[0].clip != null ? clips[0].clip.name : string.Empty;
     }
 
+    /// <summary>
+    /// Returns the 0-based column (0â€“3) of the animation frame the body renderer is currently showing.
+    /// This is the index every cosmetic bob table is keyed by.
+    /// </summary>
+    /// <remarks>
+    /// Two sprite-naming conventions coexist in this project and they do NOT share a base:
+    /// <list type="bullet">
+    /// <item>Animation frames are <b>1-based</b> and append the number directly to the state name â€”
+    /// <c>IdleLeft1</c>â€¦<c>IdleLeft4</c>, <c>Idle1</c>â€¦<c>Idle4</c>. Column = (n - 1) % 4.</item>
+    /// <item>Raw sprite-sheet slices are <b>0-based</b> and separate the number with an underscore â€”
+    /// <c>FishermansAnimations-GreenBody_Sheet_4</c>. Column = n % 4.</item>
+    /// </list>
+    /// Reading the 1-based names as 0-based shifted every lookup one frame late and wrapped the final
+    /// frame back onto the first, so the hat bobbed against the head instead of with it.
+    /// </remarks>
     private int GetCurrentSpriteFrameIndex()
     {
         if (rootRenderer == null || rootRenderer.sprite == null)
@@ -1856,33 +1478,43 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         }
 
         string spriteName = rootRenderer.sprite.name;
-        if (spriteName.EndsWith("_0"))
-        {
-            spriteName = spriteName.Substring(0, spriteName.Length - 2);
-        }
-        int trailingNumber = 0;
-        int multiplier = 1;
-        bool foundDigit = false;
 
-        for (int i = spriteName.Length - 1; i >= 0; i--)
+        // Walk back over the trailing digits in place â€” this runs every LateUpdate, so no Substring.
+        int digitStart = spriteName.Length;
+        while (digitStart > 0)
         {
-            char c = spriteName[i];
+            char c = spriteName[digitStart - 1];
             if (c < '0' || c > '9')
             {
                 break;
             }
-
-            foundDigit = true;
-            trailingNumber += (c - '0') * multiplier;
-            multiplier *= 10;
+            digitStart--;
         }
 
-        if (foundDigit)
+        if (digitStart == spriteName.Length)
         {
-            return trailingNumber % 4;
+            return 0;
         }
 
-        return 0;
+        int frameNumber = 0;
+        for (int i = digitStart; i < spriteName.Length; i++)
+        {
+            frameNumber = frameNumber * 10 + (spriteName[i] - '0');
+        }
+
+        // An underscore before the digits marks a 0-based sheet slice; anything else is a 1-based frame.
+        bool isSheetSliceIndex = digitStart > 0 && spriteName[digitStart - 1] == '_';
+        if (!isSheetSliceIndex)
+        {
+            frameNumber--;
+        }
+
+        if (frameNumber < 0)
+        {
+            return 0;
+        }
+
+        return frameNumber % FrameColumnCount;
     }
 
     private static bool IsAnimatedFishermanHeadSelection(Sprite sprite)
@@ -2019,13 +1651,17 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         }
     }
 
-    private static Vector3 GetFishermanHeadOffset(string clipName, int frameIndex)
+    private static Vector3 GetFishermanHeadOffset(string clipName, int frameIndex, float unitsPerPixel)
     {
         string state = string.IsNullOrEmpty(clipName) ? string.Empty : clipName.ToLowerInvariant();
         int row = GetAnimatedFishermanHeadRow(state);
         int cy = HeadCenterYGrid[row, Mathf.Clamp(frameIndex, 0, 3)];
         int cy0 = HeadCenterYGrid[row, 0];
-        float bob = (cy0 - cy) * 0.01f;
+
+        // HeadCenterYGrid is measured in SOURCE PIXELS, so the conversion must use the body sprite's
+        // own pixels-per-unit. Hard-coding 0.01 here made the hat travel 4x too little on the 25 PPU
+        // fisherman â€” right direction, wrong distance, which still reads as "out of sync".
+        float bob = (cy0 - cy) * unitsPerPixel;
 
         if (state.Contains("left"))
         {
@@ -2048,6 +1684,36 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         }
 
         return new Vector3(0f, bob, 0f);
+    }
+
+    /// <summary>
+    /// The character's <c>HeadAnchor</c>, or null on a character that has not been rebuilt yet.
+    /// </summary>
+    /// <remarks>
+    /// The anchor's local position is keyed inside the same AnimationClips that swap the body sprite,
+    /// so a cosmetic parented to it is positioned by the animation evaluator rather than by code.
+    /// Regenerate with <c>Panic At The Pond â–¸ Rebuild Head Anchors</c>.
+    /// </remarks>
+    private static Transform FindHeadAnchor(GameObject owner)
+    {
+        return owner != null ? FindDirectChild(owner.transform, HeadAnchorName) : null;
+    }
+
+    /// <summary>
+    /// Finds an applied cosmetic whether it hangs off the head anchor or, on a character with no
+    /// anchor, directly off the root. Checking both also migrates saves and open scenes that still
+    /// have the cosmetic parented the old way.
+    /// </summary>
+    private static Transform FindCosmetic(GameObject owner, string childName)
+    {
+        if (owner == null)
+        {
+            return null;
+        }
+
+        Transform anchor = FindHeadAnchor(owner);
+        Transform onAnchor = anchor != null ? FindDirectChild(anchor, childName) : null;
+        return onAnchor != null ? onAnchor : FindDirectChild(owner.transform, childName);
     }
 
     private static Transform FindDirectChild(Transform root, string childName)

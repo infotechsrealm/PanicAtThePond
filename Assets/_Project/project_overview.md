@@ -825,3 +825,984 @@ Two claims in the previous report were wrong and are corrected here:
 Also note the user's spec (`D:\Unity_ai_Project_Structure_prompt.md` §20) is itself stale on one
 point: it recommends `FindObjectsByType(..., FindObjectsSortMode.None)`, but Unity 6.5 marks
 `FindObjectsSortMode` obsolete. Use `FindObjectsByType<T>()` / `FindObjectsByType<T>(FindObjectsInactive)`.
+
+---
+
+## 15. Session 3 changes (2026-08-07) — hat/body animation desync + client art drop
+
+### 15.1 Bug fix — cosmetic hats animated against the body (fisherman **and** fish)
+
+**Symptom reported:** the fisherman's hat and his body moved in *different* directions; the same
+desync was visible on fish wearing hats.
+
+**Root cause (measured, not inferred).** `CosmeticRuntimeApplier` positions every hat each
+`LateUpdate` by looking the current animation frame up in a bob table. All those tables are
+**0-based columns**, but every shipping animation clip names its frames **1-based**:
+
+- `ANIM_FisherManRedHair` — 26 clips, all `…1 …2 …3 …4` (`IdleLeft1`…`IdleLeft4`)
+- `Fish 1 Default` — `Idle1`…`Idle4`, `Move1`…`Move4`, `Eat1`…`Eat4`, `Fight1`…`Fight4`
+
+`GetCurrentSpriteFrameIndex()` returned `trailingNumber % 4`, feeding the 1-based number straight in.
+Every lookup was one frame late **and the final frame wrapped back onto the first**.
+
+Ground truth was measured from the art itself (decoded PNG, topmost/centre opaque pixel per cell).
+`FishermansAnimations-Head_Sheet.png` is 256×1536 = 4×24 cells at 100 PPU, and the measured
+head-centre Y per frame matches `HeadCenterYGrid` **exactly** (row 0 → 19,19,20,20; row 10 →
+20,19,21,21; row 11 → 21,20,21,21; row 14 → 20,19,19,20). So the table and its sign convention
+(top-down pixels, `bob = (cy0 - cy) * 0.01`) were already correct — only the index was wrong:
+
+| Body shows | True column | Measured head | Old index | Old bob | Hat moved |
+|---|---|---|---|---|---|
+| `IdleLeft1` | 0 | 20 (rest) | 1 | +0.01 | up ✗ |
+| `IdleLeft2` | 1 | 19 (**up** 1px) | 2 | −0.01 | **down — opposite** ✗ |
+| `IdleLeft3` | 2 | 21 (down 1px) | 3 | −0.01 | down ✓ |
+| `IdleLeft4` | 3 | 21 (down 1px) | 0 (wrap) | 0 | flat ✗ |
+
+**Fix.** `GetCurrentSpriteFrameIndex()` now distinguishes the project's two naming conventions:
+digits preceded by `_` are a **0-based sheet slice** (`FishermansAnimations-GreenBody_Sheet_6`),
+anything else is a **1-based animation frame** (`IdleLeft2`). It also parses in place instead of
+allocating a `Substring` every `LateUpdate`, and the old `EndsWith("_0")` special case is gone.
+
+`GetFishHatBobOffset` was additionally re-derived from the fish art. Measured head top across the
+swim cycle (crown band, top-down px @ 50 PPU) is `1, 1, 1, 0` with the band behind it `2, 3, 3, 2` —
+the head dips mid-cycle and **rises** on the final frame, but the old table dipped there. Table is
+now `0, −0.01, −0.01, +0.01`, which travels with the head on every frame. This is a smaller
+amplitude than before; it matches the art, but it is an art-feel change worth a look.
+
+**Note on scope.** The modular fisherman rig (`FishermanChildAnimatorSync`,
+`FishermanAnimationManager`, `head`/`chest`/`oar` children) is **not** on the shipping
+`Resources/Fisherman` prefab — that prefab is a single `SpriteRenderer` driven by one Animator.
+The modular path is dead code for in-game play and was left untouched; the fix covers both paths
+because the sheet-slice branch preserves the old 0-based behaviour.
+
+**Tests.** `Assets/_Project/Scripts/Tests/EditMode/` was created (first test assembly in the
+project: `PanicAtThePond.Tests.EditMode.asmdef`) with `CosmeticFrameIndexTests` — 27 cases covering
+the 1-based mapping, the 0-based sheet-slice mapping, the no-wrap guarantee, null/no-digit inputs,
+and assertions that both bob curves follow the measured head motion. **27/27 pass.** They fail
+against the old `n % 4` by construction (it maps `IdleLeft1`→1 and `IdleLeft4`→0).
+
+### 15.2 Client art drop (2026-08-07)
+
+Five files received. The three shop signs were **blurry upscales** in-project; the client supplied
+the crisp native-resolution pixel-art originals. Replaced in place, keeping each `.meta` so the
+GUIDs — and every reference — survive. Importers set to Point filter, uncompressed, no mipmaps,
+Read/Write enabled (`SaltShopUI.GetOpaqueBounds` needs readable pixels).
+
+| Client file | Destination | Was | Now | Status |
+|---|---|---|---|---|
+| `Back Sign with chains.png` | `Resources/ShopUI/SaltShop/back_sign.png` | 320×210 | 38×23 | replaced |
+| `Closed Sign With Chains.png` | `Resources/ShopUI/SaltShop/close_sign.png` | 370×210 | 42×23 | replaced |
+| `fishing sign _ sal t shop.png` | `Resources/ShopUI/SaltShop/salt_shop_sign.png` | 720×260 | 132×42 | replaced |
+| `shelf..png` | `Resources/ShopUI/SaltShop/shelf.png` | — | 256×128 | wired as Sal-T shelf backdrop |
+| `fisher-Sheet.png` | `Art/Animations/Fisher Man Animations/Sprite Sheets/` | — | 444×468 | **staged, not wired** |
+
+On-screen size is safe: `SaltShopUI.CreateSignButton` calls
+`SizeForSprite(sprite, SignHeight, …)`, which derives width from *the sprite's own aspect ratio* at
+a fixed `SignHeight` of 150 units, so the new proportions (1.65 / 1.83 / 3.14 vs 1.52 / 1.76 / 2.77)
+adapt automatically rather than stretching.
+
+**Naming deviation, deliberate:** these keep the existing lowercase literal names rather than the
+spec's `SP_PascalCase`, because they are reached by `Resources.Load` string literals
+(`ShopManager.cs:310`, `SaltShopUI.cs:38-41`). This is the same documented exception as §0.
+
+**Open questions (not guessed at):** `shelf.png` has no existing counterpart and nothing loads it —
+where does it belong? `fisher-Sheet.png` is a **different fisherman design** (seated, with cooler)
+at 444×468 with no transparent gutters, so its grid cannot be derived automatically; an even 3×4
+split would be 148×117 cells. It does not fit the existing 4×24 / 64px / 100 PPU rig or the 26-clip
+`ANIM_FisherManRedHair`. Both need direction before wiring.
+
+### 15.3 Verification performed
+
+- Compile: **0 errors, 0 new warnings** (Unity 6000.5.7f1, via MCP `assets-refresh` + console read).
+- EditMode Test Runner via MCP: **27/27 passed**, 1.30 s.
+- Art measurements taken by decoding the actual PNGs in-Editor, not assumed.
+- Sign re-import confirmed: correct dimensions, `filterMode=Point`, `readable=True`, GUIDs unchanged.
+
+**Not verified:** in-game visual confirmation of the hat bob during a live match, and the new sign
+art rendered in the Sal-T shop. Both need the two-client run (Editor + desktop build). The Unity MCP
+build in this project has playmode control disabled (44 of 79 tools enabled), so Play Mode could not
+be driven from here.
+
+### 15.4 Shelf wiring (2026-08-07)
+
+`shelf.png` is now drawn by `SaltShopUI.BuildShelf()`. It is built **first** in `Build()` so uGUI's
+sibling draw order puts it behind the picture frames, signs and the cosmetics standing on it, and it
+degrades gracefully — a missing sprite or `ShelfHeight <= 0` simply skips it, same as the picture
+frames. Two new Inspector fields on `SaltShopUI`:
+
+| Field | Default | Meaning |
+|---|---|---|
+| `ShelfAnchor` | `(0.745, 0.275)` | Screen-normalized centre of the shelf unit — the midpoint of the three `SlotAnchors`. |
+| `ShelfHeight` | `432` | Height in 1920×1080 units; width follows the sprite's 2:1 aspect. `0` hides it. |
+
+Those two defaults are a **starting estimate derived from the slot anchors, not a verified visual
+match** — the shelf boards need eyeballing against the hats once the shop is on screen, which is an
+Inspector nudge, no code change.
+
+`fisher-Sheet.png` remains staged and unwired at the user's direction (2026-08-07).
+
+### 15.5 Correction — `shelf.png` is probably a background plate, not an overlay (2026-08-07)
+
+Rendering the client art for inspection changed the reading of it. `shelf.png` is **not** a bare
+shelf unit: its left ~40% is landscape (sky, mountain, water, grass) and only the right side is
+shelving. At 256×128 it is exactly **one third** the size of the existing animated shop background
+`Resources/Fishingshop2Frames/Fishingshop2_00..05.png` (768×384) and shares its 2:1 aspect.
+
+That makes "background plate" the more likely intent than "overlay behind the cosmetics". Note it is
+**not** the 16:9 1920×1080 background asked for in `ASSET_REQUEST.md` item 1 — that request is still
+outstanding.
+
+`SaltShopUI.BuildShelf()` and its two Inspector fields are kept, but **`ShelfHeight` now defaults to
+`0`, i.e. hidden**, so nothing renders incorrectly while the intent is unconfirmed. Two ways forward,
+both one change:
+
+- **Overlay behind the hats** — set `ShelfHeight` to ~432 in the Inspector and nudge `ShelfAnchor`.
+- **Shop background** — do not use `BuildShelf`; point the shop background at this art instead
+  (it is the same aspect as the current 6-frame animation, so it would replace `Fishingshop2_*`
+  rather than sit on top of it), and confirm with the client whether it is a static replacement or
+  the first frame of a new animated set.
+
+### 15.6 Runtime verification (2026-08-07)
+
+A PlayMode suite was added at `Scripts/Tests/PlayMode/` (`PanicAtThePond.Tests.PlayMode.asmdef`,
+`HatFollowsBodyTests`). It instantiates the **real shipping prefabs**, applies a **real cosmetic
+through the real public API** (`ApplyFishermanCosmeticsByName` / `ApplyFishHatByName`), lets the
+**real Animator** play a full cycle, and samples the hat's actual local Y every frame. Gameplay
+MonoBehaviours are disabled on the instance because they expect a live network session.
+
+Measured hat `localPosition.y` per body frame, against the head motion measured from the art:
+
+| Fisherman `AC_IdelLeft` | hat Y | head (top-down px) | Fish `AC_Fish1Idel` | hat Y | head |
+|---|---|---|---|---|---|
+| `IdleLeft1` | 0.6700 (rest) | 20 baseline | `Idle1` | 0.2320 (rest) | 1 |
+| `IdleLeft2` | 0.6800 ↑ | 19 (up 1px) | `Idle2` | 0.2220 ↓ | dips |
+| `IdleLeft3` | 0.6600 ↓ | 21 (down 1px) | `Idle3` | 0.2220 ↓ | dips |
+| `IdleLeft4` | 0.6600 ↓ | 21 (down 1px) | `Idle4` | 0.2420 ↑ | 0 (rises) |
+
+Every frame now moves in the same direction as the head.
+
+**Results:** EditMode 27/27 passed (1.30 s) · PlayMode 3/3 passed (1.95 s) · 0 compile errors.
+
+All 79 Unity-MCP tools were enabled (was 45/79) and the state persisted through an Editor restart.
+It lives in `UserSettings/AI-Game-Developer-Config.json`, which is gitignored, so it is per-machine.
+
+---
+
+## 16. Two-client verification (2026-08-07)
+
+Run on `MP_LEGION`: **Unity Editor as Mirror LAN host + standalone `Build/` player as client.**
+
+### 16.1 Build
+
+`Assets/_Project/Scripts/Editor/ProjectBuilder.cs` added — `Panic At The Pond ▸ Build Windows Player`
+builds the enabled Build Settings scenes into `Build/`. It exists as a compiled Editor script on
+purpose: a delegate queued via `EditorApplication.delayCall` from a **dynamically compiled** assembly
+(an MCP `script-execute` snippet) is silently dropped when that assembly unloads, so the build never
+fires. Calling into a real assembly, or calling the method synchronously, both work.
+
+Result: `RESULT=Succeeded errors=0 warnings=0 size=236MB`. Note the launcher `.exe` mtime does **not**
+change on an incremental build — watch `Build/Panic At The Pond_Data/Managed/PanicAtThePond.dll`
+instead. That assembly (which contains `CosmeticRuntimeApplier`) rebuilt at 11:48, after the fix.
+
+### 16.2 What the two-client run confirmed
+
+| Check | Result |
+|---|---|
+| LAN host/discovery/join across two processes | Room found and joined; both players listed in lobby |
+| Match start, both fish spawn | OK, Clear Waters |
+| Fish hat applied locally (host's own fish) | Cap rendered |
+| **Fish hat synced to the remote client** | Cap rendered on the remote view of the host's fish |
+| **Hat seated on the head across swim frames** | Flush on all sampled frames, no gap and no drift |
+| New Sal-T shop art in the real build | `salt_shop_sign`, `back_sign`, `close_sign` all crisp |
+
+### 16.3 Gotchas worth recording
+
+- **Editor and player PlayerPrefs are separate stores.** The Editor writes to
+  `HKCU\Software\Unity\UnityEditor\<Company>\<Product>`; a build writes to
+  `HKCU\Software\<Company>\<Product>`. Setting a cosmetic from the Editor does **not** affect the
+  standalone. This is why the first attempt showed two hatless fish.
+- Fish hats are all `unlockedByDefault: false` and the test account has 0 WC, so a standalone client
+  has no selectable fish hat. The Editor client was used as the hatted player instead.
+- Screen capture must be DPI-aware (this machine reports 1707x1067 logical for a 2560x1600 panel) or
+  every window screenshot comes out offset and cropped.
+- `CopyFromScreen` captures the screen, not the window surface — an occluded game window captures
+  whatever is on top of it. Raise the window before capturing.
+
+### 16.4 Still not covered
+
+- Nobody actually **plays**, so the round ends in "You all Starve!". The Golden-Fish → Fisherman
+  transition was not reached, so the **fisherman** hat was not observed in a live networked match.
+  Its positioning is covered by the PlayMode tests and the render comparison (§15.6), and its
+  networking is untouched code, but it has not been seen end-to-end in a match.
+- Two *different* hats on two players in the same match — blocked by the shared-prefs/unlock
+  situation above.
+
+---
+
+## 17. Shop UI pass (2026-08-07)
+
+### 17.1 Sal-T shop sign — FIXED
+
+The client's `fishing sign _ sal t shop.png` is **two signs stacked in one 132×42 file**, not one
+sign. Measured layout (top-down): "fishing supplies" occupies y 0–18 across x 0–131; "sal-T shop"
+occupies y 19–41 across x 0–68. Importing it whole and assigning it to the customization-screen
+button meant the button drew *both* signs and was sized to the combined 3.14 aspect — it rendered
+oversized and overhung the right edge of the tank.
+
+Split into two assets:
+
+| Asset | Size | Aspect | Used by |
+|---|---|---|---|
+| `ShopUI/SaltShop/salt_shop_sign.png` | 69 × 23 | 3.00 | customization-screen shop button |
+| `ShopUI/SaltShop/fishing_supplies_sign.png` | 132 × 19 | 6.95 | available; not yet placed |
+
+Two changes make it sit correctly:
+- `ShopManager.SaltShopSignScreenWidth` **0.22 → 0.15**. The 0.22 was tuned for the old 720×260
+  sign; the replacement crop is tighter, so the same fraction rendered visibly larger.
+- `Dash.unity` → `--- UI ---/Canvas_Dash/Shop/Sal - TButton` `anchoredPosition` **(66, 56) → (−120, −10)**.
+  The old value pushed the sign past the right edge of the tank frame. Note this object also carries
+  a baked `localScale = 2`; `ResizeToSpriteAspect` already compensates for it, so it was left alone.
+
+Verified on screen in Play Mode: sign renders inside the tank, right-aligned, matching the client's
+reference mockup. Scene saved.
+
+### 17.2 Fish vs fisherman preview size — DIAGNOSED, NOT YET FIXED
+
+Measured from the live customization screen (canvas units, 1920×1080 reference):
+
+| Preview object | Sprite | Rect | localScale | Rect in canvas units | Opaque fill |
+|---|---|---|---|---|---|
+| `Fish 1` / `Fish 2` | `bass` / `trout` 500×500 | 500×500 | 2.20 | **1100** | 18 % (91 px of 500) |
+| `FisherMan cycling hat` | `Winning1` 64×64 | 600×600 | 1.00 | **600** | 83 % (53 px of 64) |
+
+The two previews are sized by unrelated hand-set numbers, and the source sprites have wildly
+different padding (18 % vs 83 % fill), so matching the rects would *not* match the apparent size.
+The correct fix is to normalise on **opaque content**, not rect: measure the shown sprite's opaque
+bounds and scale so its largest content dimension hits one shared target — the same technique
+`SaltShopUI.GetOpaqueBounds` already uses for shop icons. Not yet implemented.
+
+### 17.3 Hat fit on heads — NOT FIXED (deliberately deferred)
+
+`CosmeticRuntimeApplier` places each hat from a hand-maintained per-hat, per-state table of
+position / rotation / scale (separate branches for ranger, turtle, blue cap, …). That table is the
+direct cause of "some too small, some a little up, some tight", and every new hat needs a new
+hand-tuned entry.
+
+Tuning 13 hats × 26 states against the **current** art would be throwaway work: the client is
+mid-way through replacing all character art at higher resolution. The structural fix has been put
+into the art spec instead — see `ASSET_REQUEST_v2.md`: hats authored on the **full character canvas**
+at the same grid as the body, so they composite at 0,0 and need no offset table at all.
+
+### 17.4 New file
+
+`ASSET_REQUEST_v2.md` at repo root — the art spec / client reply covering aspect ratio, cell sizes,
+the modular-layer approach for hair / clothes / oar / boat / rods, row order, and icon sizing.
+
+---
+
+## 18. Sign scaling + future-proofing pass (2026-08-07)
+
+### 18.1 Sal-T shop signs — sized by pixel scale, not height
+
+`SaltShopUI` sized every sign to a fixed `SignHeight = 150` reference units. With the client's art
+that drew "back" (38 × 23 source) at **248 × 150** — about 13 % of screen width for a small button,
+far larger than the client's reference mockup.
+
+Fixed height is also the wrong model: it forces a 19 px-tall sign and a 23 px-tall sign to render at
+the same height, silently rescaling the pixel art relative to its neighbours.
+
+Replaced with `SignPixelScale` (reference units per **source pixel**, default **2.4**) plus a new
+`SizeForSpriteAtPixelScale` helper. All signs now share one scale, so:
+
+| Sign | Source | Old (height 150) | New (scale 2.4) |
+|---|---|---|---|
+| back | 38 × 23 | 248 × 150 | **91 × 55** |
+| close | 42 × 23 | 274 × 150 | **101 × 55** |
+| salt_shop | 69 × 23 | 450 × 150 | **166 × 55** |
+| fishing_supplies | 132 × 19 | 1042 × 150 | **317 × 46** |
+
+New sign art of any size now lands at the same visual scale with no tuning.
+
+**UNVERIFIED** — the Unity MCP server disconnected before this could be run. Needs a Play Mode check
+of the Sal-T shop against the client's reference.
+
+### 18.2 The shop title is painted into the background
+
+`back` and `close` are real sprites and are now resizable. **"fishing supplies" and "sal-T shop" in
+the shop screen are not** — they are painted into the shop background art (`Fishingshop2Frames`,
+768 × 384). See the long-standing comment on `BackSignAnchor`: *"Sits directly under the 'sal-T shop'
+sign painted into the background art."*
+
+So their apparent size is whatever the background happens to be scaled to and **cannot be fixed in
+code**. A background plate with no signs baked in has been added to the art spec; once that exists,
+both titles become ordinary sprites placed at `SignPixelScale` like the others.
+
+### 18.3 Measured asset inconsistency (the reason for all the sizing hacks)
+
+| Asset | Size | Note |
+|---|---|---|
+| Fisherman hat icons | 64 × 64 | art fills only 20–38 % |
+| Fish hat icons | **18 × 13**, **24 × 15** | ~12× smaller than the fisherman icons |
+| lock | 185 × 280 | |
+| picture_frame_1 / _2 | 365 × 350 / 360 × 345 | not even equal to each other |
+| coin | 64 × 64 | |
+| signs | 38 × 23 … 132 × 19 | |
+| Fisherman frame | 64 × 64 @ 100 PPU | |
+| Fish sprite | 55 × 35 @ 50 PPU | |
+| Shop background | 768 × 384 (2:1) | game is 16:9 |
+
+Nothing shares a canvas convention, which is why the code carries runtime alpha-trimming, a
+`HatContentHeight` override, and a per-hat placement table. `ASSET_REQUEST_v2.md` replaces this with
+one contract: in-game cosmetics on the **full character canvas**, shop icons on a **128 × 128**
+canvas at ~90 % fill.
+
+### 18.4 Future-proofing — decision and sequencing
+
+Target: adding a cosmetic is *drop in a PNG*, no code.
+
+That is mostly an **art contract**, not a code problem. Once every hat/hair layer is authored on the
+full character canvas, the correct renderer is a zero-offset layer stack and the entire per-hat
+placement table in `CosmeticRuntimeApplier` is deleted rather than extended.
+
+Deliberate sequencing: **spec first, refactor second.** Rewriting a 2 197-line applier to a catalog-
+driven layer renderer should be compiled and tested against real conforming assets, not written
+blind — and the MCP server is currently down, so nothing can be compiled or play-tested this session.
+
+---
+
+## 19. Resolution audit (2026-08-08) — corrects §18 and ASSET_REQUEST_v2
+
+Measured in-editor, not estimated. **Two figures in the earlier spec were wrong.**
+
+| Claim | Previously stated | Measured | Source |
+|---|---|---|---|
+| Fisherman PPU | 100 | **25** | `Resources/Fisherman` SpriteRenderer |
+| Fisherman target frame | 256 × 256 | **320 × 320** | derived below |
+| Fish target frame | 220 × 140 | **110 × 70** | derived below |
+
+The 100 PPU figure came from the *head sheet* importer; the shipping fisherman prefab uses a
+different sprite at 25 PPU.
+
+### Measured chain
+
+```
+Camera (Play + Dash): orthographic, size 5  ->  visible world height 10 units
+Build resolution:     1920 x 1080           ->  1 world unit = 108 px on screen
+```
+
+| Character | Sprite | PPU | Prefab scale | World height | On screen | Scaling |
+|---|---|---|---|---|---|---|
+| Fisherman | 64 × 64 | 25 | 1.25 | 3.20 units | **346 px** | **5.40× upscale** |
+| Fish | 55 × 35 | 50 | 1.0 | 0.70 units | **76 px** | **2.16× upscale** |
+
+The 5.40× is the root cause of the soft/blocky fisherman, and because it is not an integer some
+source pixels render 5 screen-pixels wide and others 6 — visible shimmer during movement.
+
+### Proposed normalisation
+
+Set **all character sprites to 100 PPU** and camera `orthographicSize` **5 → 5.4**. Then
+1 world unit = exactly 100 px at 1080p, prefab scales become 1.0, and every future asset's pixel
+size is simply *world size × 100*.
+
+| Character | World size (unchanged) | Required source | Result |
+|---|---|---|---|
+| Fisherman | 3.2 × 3.2 units | **320 × 320** | exact 1:1 |
+| Fish | 1.1 × 0.7 units | **110 × 70** | exact 1:1 |
+
+Trade-off: `orthographicSize` 5 → 5.4 reveals ~8 % more world vertically. Not yet applied — it is a
+framing/gameplay decision, and the art has to land first.
+
+### Canvas inconsistency found
+
+| Canvas | Reference resolution |
+|---|---|
+| `Canvas_Dash` (menus, shop) | **1920 × 1080** |
+| `Canvas_Play`, `Canvas_PlayBackground` | **800 × 600** |
+
+In-game UI therefore scales differently from menu UI. `SaltShopUI`'s hardcoded
+`ReferenceResolution = 1920x1080` is correct for Dash, which is the only place it runs. Unifying Play
+to 1920 × 1080 would rescale every element in that scene and needs its own verification pass — logged,
+not done.
+
+### Verified this session
+
+- MCP reconnected; 79/79 tools available.
+- §18.1 `SignPixelScale` edit **compiles** — 0 errors, EditMode **27/27 passed**.
+
+### 19.1 Full asset inventory (measured 2026-08-08)
+
+Every Resources prefab with a SpriteRenderer, with its target size under the 100 PPU rule
+(target = world size × 100):
+
+| Prefab | Source | PPU | Scale | World units | Target @100 PPU | Current scaling |
+|---|---|---|---|---|---|---|
+| FisherMan | 64 × 64 | 25 | 1.25 | 3.20 × 3.20 | **320 × 320** | 5.40× up |
+| Worm / HookWorm | 15 × 21 | 35 | 1.00 | 0.43 × 0.60 | **43 × 60** | 2.86× up |
+| Fish (Bass) | 55 × 35 | 50 | 1.00 | 1.10 × 0.70 | **110 × 70** | 2.00× up |
+| Golden Fish | 55 × 35 | 50 | 1.00 | 1.10 × 0.70 | **110 × 70** | 2.00× up |
+| Fish 2 (Trout) | 48 × 30 | 100 | 1.70 | 0.82 × 0.51 | **82 × 51** | 1.70× up |
+| hookPrefab | 274 × 423 | 500 | 1.00 | 0.55 × 0.85 | 55 × 85 | 4.98× **down** |
+| Drop (bubble) | 164 × 164 | 200 | 1.00 | 0.82 × 0.82 | 82 × 82 | 2.00× **down** |
+| Boot (junk) | 58 × 64 | 100 | 1.00 | 0.58 × 0.64 | 58 × 64 | **1.00× exact** |
+| Tire (junk) | 62 × 64 | 100 | 1.00 | 0.62 × 0.64 | 62 × 64 | **1.00× exact** |
+
+**Six different PPU values in use: 25, 35, 50, 100, 200, 500.** `Boot` and `Tire` are already
+authored at 100 PPU and already render 1:1 — they are the precedent for standardising on 100.
+
+Only the **upscaled** rows need remaking; downscaled assets are merely oversized on disk.
+
+### 19.2 New document
+
+`ASSET_SPECIFICATION.md` at repo root — the complete, measured asset spec: the 100 PPU rule, per-object
+target sizes, animation strip layout, the full-canvas layer rule for cosmetics, UI/sign/background
+sizes, delivery conventions, the "adding a cosmetic" workflow, and the four open decisions
+(camera orthoSize 5 → 5.4, PPU unification, `Canvas_Play` 800 × 600 → 1920 × 1080, and replacing the
+per-hat placement table).
+
+It supersedes the size tables in `ASSET_REQUEST_v2.md`, which remains as the client-facing message.
+
+---
+
+## 20. Rendering standards applied (2026-08-08)
+
+All four decisions from §19 were approved. Two landed; two are gated on the new art by their own
+definition.
+
+### 20.1 DONE — Camera `orthographicSize` 5 → 5.4
+
+Applied to `Main Camera` in **Play** and **Dash**, both scenes saved. Gives exactly
+**100 px per world unit at 1080p**.
+
+Immediate benefit even before new art: the current 64 × 64 fisherman now renders at **exactly 5.00×**
+instead of 5.40×. Integer scaling with Point filtering means each source pixel becomes exactly 5
+screen pixels, so the uneven-pixel shimmer during movement is gone. The 320 × 320 art will render at
+1.00×.
+
+Verified Dash has **no world-space SpriteRenderers** (pure UI, `ScreenSpaceCamera`), so the camera
+change cannot affect its layout.
+
+### 20.2 DONE — Canvas reference resolution unified to 1920 × 1080
+
+`Canvas_Play` and `Canvas_PlayBackground` moved from **800 × 600 → 1920 × 1080**.
+`Canvas_Dash` was already correct.
+
+`CanvasScaler` with `match = 0.5` computes `scaleFactor = √(W/refW × H/refH)`. Changing refRes divides
+that factor by exactly `√(2.4 × 1.8) = 2.0784609`, so each of `Canvas_Play`'s **15 root children** had
+`localScale` multiplied by 2.0784609 to cancel it. This is exact **at every resolution**, not just
+1080p — the resolution terms cancel algebraically.
+
+Verified: all 15 children report an effective scale of 2.07846, identical to the pre-change value.
+`Canvas_PlayBackground` had no direct children, so nothing to compensate.
+
+### 20.3 GATED — PPU unification and the placement-table removal
+
+Both must land **with** the first batch of conforming art:
+
+- **PPU → 100** changes every sprite's world size. Doing it now would require compensating every
+  prefab scale, then compensating them back when the art arrives — two risky passes instead of one.
+- **The per-hat placement table** gets **deleted**, not edited. That only makes sense once
+  full-canvas layers exist to verify against.
+
+### 20.4 SaltShopUI — live Inspector tuning
+
+The shop front is generated at runtime (`BuildOnce()` creates "SaltShop Overlay" under the root
+canvas), so it is **not in the scene and not a prefab** — which is why it cannot be found in the
+Hierarchy. Rather than convert it to scene-authored (a large refactor of working code), the tuning
+loop was made live:
+
+- `RebuildOverlay()` — tears down and rebuilds from current Inspector values. Exposed as a
+  **`Rebuild Shop Overlay`** context-menu command on the component.
+- `OnValidate` queues a rebuild while playing; `Update` performs it. Editing any field while the shop
+  is open now updates it **immediately**.
+
+Component location: `Canvas_Dash / ShopItemsPanel / Sal -t Image BackGround`.
+Full field reference in `ASSET_SPECIFICATION.md` §10.
+
+### 20.5 Asset spec — all 9 fisherman parts enumerated
+
+`ASSET_SPECIFICATION.md` §3 now lists every part with draw order and which already exist:
+
+| Part | Status |
+|---|---|
+| Boat, Oars, Body, Arms, Head, Rods | ✅ sheets exist |
+| Clothes | ❌ new (client requested) |
+| Hair | ⚠ only static 64 × 64 `Red_Hair` / `Black_Hair` — cannot animate with the head |
+| Hat | ❌ only cropped icons |
+
+9 parts × 24 animations = **216 files** for the base fisherman, **24 per swappable variant**. Unity
+packs them into a sprite atlas at build time, so the file count carries no runtime cost — and the
+alternative (one grid sheet per part at 1280 × 7680) exceeds the safe texture limit.
+
+**Verified:** 0 compile errors · EditMode **27/27 passed** · both scenes saved.
+
+---
+
+## 21. Sal-T shop overlay is now scene-authored (2026-08-08)
+
+Supersedes §20.4. The shop front was generated at runtime and therefore did not exist in the
+Hierarchy. It is now **real scene objects** that can be selected, moved and resized by hand.
+
+### What changed in `SaltShopUI`
+
+| Member | Purpose |
+|---|---|
+| `authoredOverlay` (serialized) | When set, the shop uses this scene hierarchy **as-is** and the numeric layout fields are ignored. |
+| `AdoptAuthoredOverlay()` | Re-binds the code side to the authored objects — caches `Coin Amount`, `Price`, `Status`, finds/creates `SaltShop Items`, and re-attaches click handlers to `Back Sign`, `Close Sign`, `Yes Button`, `No Button`. |
+| `BakeOverlayIntoScene()` | Editor context-menu command. Generates the overlay once as scene objects, assigns `authoredOverlay`, leaves it **inactive**, marks the scene dirty. |
+| `RebuildOverlay()` | With an authored overlay, re-binds instead of regenerating — it never destroys the designer's objects. |
+
+Button listeners are added from code and are **not serialized**, so a baked overlay always arrives
+with zero persistent listeners. `AdoptAuthoredOverlay` re-binding them on every open is what makes
+scene authoring safe. Objects are matched **by name** — renaming a child breaks its wiring.
+
+`OnDestroy` and `RebuildOverlay` both guard against destroying `authoredOverlay`, and `OnValidate`
+skips its live-rebuild when one is present (the fields no longer drive layout).
+
+### Baked hierarchy — `--- UI ---/Canvas_Dash/SaltShop Overlay`
+
+```
+SaltShop Overlay          (inactive until the shop opens)
+├── Picture Frame 1       229 × 220
+├── Picture Frame 2       230 × 220
+├── Back Sign              91 × 55   [Button → OnBackSign]
+├── Close Sign            101 × 55   [Button → OnCloseSign]
+├── Coin Icon              64 × 64
+├── Coin Amount           180 × 70   [TMP]
+├── SaltShop Items                   ← dynamic; item cells generated here each refresh
+└── Buy Popup             500 × 430  (inactive)
+    ├── Title / Coin / Price / Status
+    ├── Yes Button        [Button → OnConfirmPurchase]
+    └── No Button         [Button → HideBuyPopup]
+```
+
+`Shelf` is absent because `ShelfHeight` is 0 — see §15.5.
+
+### Gotcha found and fixed
+
+`SaltShopUI` was **added at runtime** by `ShopManager.OpenSaltShopStoreFront()`, so it did not exist
+in the scene in Edit Mode and the bake command could not be reached. The component is now a
+permanent part of `Canvas_Dash/ShopItemsPanel/Sal -t Image BackGround`; `ShopManager`'s
+`GetComponent ?? AddComponent` path still works unchanged.
+
+The baked overlay is saved **inactive** — active would draw the shop front over the Dash menu before
+the player opens the shop.
+
+### Verified
+
+Entered Play Mode and opened the shop:
+- **1** `SaltShop Overlay` instance, not 2 → the authored one was adopted, not duplicated
+- `SaltShop Items` populated with **12** children from the live rotation
+- `Back Sign` / `Close Sign` carry Buttons and re-bound handlers
+- `Buy Popup` correctly inactive
+- Renders identically to before · 0 compile errors · EditMode **27/27**
+
+### How to edit it
+
+Select `--- UI ---/Canvas_Dash/SaltShop Overlay` in the Dash scene and move/resize any child
+normally. To regenerate from the numeric fields, use **Rebuild Shop Overlay**; to start over, clear
+`authoredOverlay` and run **Bake Overlay Into Scene** again.
+
+---
+
+## 22. Full asset audit (2026-08-08) — corrects §19/§21 specs
+
+Swept **all 643 image files** under `Assets/_Project`. Three errors found in the v1.0 spec.
+
+| # | v1.0 said | Actually | Impact |
+|---|---|---|---|
+| 1 | 24 animations | **26** | `LeftToRightPole` + `RightPoleToOar` live in the BoatFacingLeft set, not the Default folder. Matches `ANIM_FisherManRedHair`'s 26 clips. |
+| 2 | 4 frames each | **4, but `Dead` = 6 and worm `Dance` = 5** | a flat "4 frames" brief would have under-delivered |
+| 3 | Fisherman = 6 part sheets | also **336 loose 64 × 64 frames** | this is the real source art |
+
+### The 336-frame duplication
+
+`UI/UI/Game UI/Fisherman/` holds the animation set **redrawn once per hair colour**:
+
+| Variant | Animations | Frames |
+|---|---|---|
+| `Used animation ui` (default) | 26 | 112 |
+| `Default animation ui (Black Hair)` | 26 | 112 |
+| `Default animation ui (Red Hair)` | 26 | 112 |
+| | | **336** |
+
+**Adding a hair colour today costs 112 new frames. With layers it is 26.** This is the strongest
+single argument for the layered contract and is now the headline of the client message.
+
+`New Fisherman/` holds the 5 newer part sheets (Arms, Boat, GreenBody, Oars, Rods) at 256 × 1536.
+
+### Categories previously missing from the spec
+
+| Category | Count | Size | Verdict |
+|---|---|---|---|
+| `BG2_Frames` | 8 | **1920 × 1080** | ✅ already correct — precedent for 16:9 |
+| Achievements | 8 | 256 × 256 (×7), 64 × 64 (×1) | ✅ bar one outlier |
+| Regions / Flags | 6 | 500 × 500 | ✅ consistent |
+| Preview composites | 32 | 500 × 500 | ✅ consistent |
+| Golden Fish | 18 | 55 × 35 | 🟠 needs 110 × 70 |
+| LargeMouthBass | 26 | 55 × 35 | 🟠 needs 110 × 70 |
+| Worm (For Hook) | 9 | 15 × 21 | 🔴 needs 43 × 60 |
+| Environment tiles | 15 | 32 × 32, 160 × 96, 32 × 256 | 🟡 world size unverified |
+| Bucket of worms | 3 | 64 × 64 | 🟡 world size unverified |
+| ExtractedPDFSprites | 23 | mixed (818 × 762 …) | reference art, not shipped |
+| Dash UI | 58 | mixed | UI, sized by canvas |
+
+Environment tiles and the worm bucket are the only two whose world size was not measured — they are
+not on a Resources prefab with a SpriteRenderer, so the ×100 rule cannot be applied to them without
+opening the scene they are used in. Flagged 🟡 rather than guessed.
+
+### Documents
+
+- **`ASSET_SPECIFICATION.md` v2.0** — the internal authority. Every asset, measured, with targets.
+- **`CLIENT_MESSAGE.md`** — new, paste-ready client message built from the same data.
+
+`ASSET_REQUEST_v2.md` is now superseded by both and can be archived.
+
+---
+
+## 23. Hat sync — the real remaining bug (2026-08-08)
+
+User reported the fisherman hat was **still** out of sync after §15.1. They were right, and my §15.6
+verification was insufficient.
+
+### Root cause: bob magnitude, not direction
+
+§15.1 fixed the frame *index*. It did not fix the pixel→world conversion.
+
+`CosmeticRuntimeApplier` converted its pixel-measured bob tables with a hard-coded
+`* 0.01f`, i.e. **1 pixel = 0.01 world units, which is only true at 100 PPU**:
+
+| Character | Sprite PPU | 1 px = | Code used | Error |
+|---|---|---|---|---|
+| Fisherman | **25** | 0.0400 units | 0.0100 | **4× too small** |
+| Fish | **50** | 0.0200 units | 0.0100 | **2× too small** |
+
+So the hat moved the right way but a quarter of the distance the head moved — which still reads as
+"out of sync".
+
+### Why the tests missed it
+
+`FishermanHeadBob_FollowsMeasuredHeadMotion` and the PlayMode suite asserted only **direction**
+(`Is.GreaterThan` / `Is.LessThan`). They never checked **magnitude**, so a 4×-too-small bob passed
+every one of them. That is a genuine gap in the original test design, not a flaky test.
+
+### Fix
+
+Added `UnitsPerPixel`, read from the body sprite at runtime:
+
+```csharp
+private float UnitsPerPixel =>
+    rootRenderer?.sprite != null && rootRenderer.sprite.pixelsPerUnit > 0f
+        ? 1f / rootRenderer.sprite.pixelsPerUnit
+        : DefaultUnitsPerPixel;
+```
+
+`GetFishermanHeadOffset`, `GetFishermanHeadBobOffset` and `GetFishHatBobOffset` now take
+`unitsPerPixel`, and `GetFishHatBobOffset`'s table was rewritten in **pixels** (`0, -1, -1, +1`)
+rather than pre-multiplied units. Deriving it from the sprite also means it stays correct after the
+project migrates to 100 PPU — the value simply becomes 0.01 on its own.
+
+Measured after the fix (fisherman, `AC_IdelLeft`): bob is now exactly **±0.0400** = 1 source pixel,
+was ±0.0100.
+
+### Tests added
+
+Five magnitude cases, parameterised over 25 / 50 / 100 PPU, asserting that a 1 px head movement
+produces exactly 1 px of hat movement in world units. **EditMode 32/32 pass** (was 27).
+
+### STILL OPEN — fish hat disappears
+
+Reported: the fish hat shows the first time, is only visible to the other player / host, and is gone
+after a round restart. **Not fixed — not yet reproduced.**
+
+What is established so far:
+- `ApplyFishHatByName` removes the hat when the name is empty **or the sprite fails to resolve**
+  (`CosmeticRuntimeApplier.cs:689-700`), so both "never applied" and "silently dropped" land in the
+  same place.
+- `ApplyFishSpeciesByName` does **not** delete the hat child — it only swaps sprite, animator and
+  scale on the fish root. Species is not the culprit.
+- `ShopManager.ClearFishHatAfterDelay` only resets the shop *preview*, not the saved selection.
+- The owner path (`OnStartClient` → `isLocalPlayer` → `ApplyFishHatByName` + `CmdSetHat`) and the
+  remote path (SyncVar hook → `ApplySyncedHat`) call the same function with different name sources:
+  `GetSelectedFishHatName()` locally vs `syncedHatName` remotely. A divergence between those two is
+  the most likely explanation for "visible to others but not to me".
+- `FishController_Mirror` already carries an `ApplySyncedCosmeticsWhenReady` coroutine with a 3 s
+  retry, which suggests known spawn-timing races on this path.
+
+Next step is a two-client run with logging on both name sources at spawn and at round restart —
+diagnosis by reading alone would be guesswork.
+
+---
+
+## 24. Fish hat root cause found and fixed (2026-08-09)
+
+Diagnosed on the user's machine with two live clients. **Both bugs were real and are now fixed.**
+
+### The smoking gun
+
+The build's saved PlayerPrefs contained:
+
+```
+SelectedFishHatCosmetic = FisherMan_Hat_-Default_-_Fishing_Hat
+```
+
+A **fisherman** hat parked in the **fish** hat slot. It can never resolve to a valid fish cosmetic,
+and `ApplyFishHatByName` removes the hat when the sprite fails to resolve
+(`CosmeticRuntimeApplier.cs:689-700`) — so the fish rendered bare. That is the whole "fish hat not
+showing up" report.
+
+### How it got there — a routing fall-through
+
+`ShopManager.OnCosmeticItemSelected` routes a click by hierarchy:
+
+```csharp
+if (belongsToFishCosmetics && !belongsToFishermanCosmetics) isFishermanCosmetic = false;
+else if (belongsToFishermanCosmetics)                       isFishermanCosmetic = true;
+// button in NEITHER root -> flag silently keeps its value from the PREVIOUS click
+```
+
+A button under neither root inherits the last click's category, so a fisherman hat can be written via
+`SelectFishHat`. The comment above that block claims fish and fisherman "can never" cross-contaminate
+— the fall-through defeated it.
+
+### Three-layer fix
+
+1. **Routing** (`ShopManager`) — the `else` branch now falls back to the sprite's own
+   `shop_config.json` category via `IsFishermanCategoryCosmetic`, and warns. A button with no sprite
+   and no root is ignored rather than filed by stale state.
+2. **Setter guard** (`CosmeticRuntimeApplier.SelectFishHat`) — refuses a fisherman-category sprite
+   outright, so the mistake is impossible however the caller was routed.
+3. **Self-heal** (`EnsureSelectionsLoaded`) — an already-corrupted save is detected on load, cleared,
+   and warned about, instead of silently rendering no hat forever.
+
+### A false positive caught during verification
+
+The first version of `IsFishermanCategorySprite` used `AreSpritesMatching(..., exactOnly: false)`.
+Loose matching classified the **fish** hat `cap` as the **fisherman** hat `FisherMan_Hat_-Blue_Cap`,
+because one name contains the other once separators are stripped — which would have rejected a valid
+fish hat. Changed to exact normalised-id comparison. This is pinned by a test.
+
+### Hat/body sync — magnitude, not direction (see §23)
+
+Same session: the bob was converting pixels to world units with a hard-coded `0.01`, correct only at
+100 PPU. The fisherman is 25 PPU and the fish 50, so hats moved **4×** and **2×** too little. Now
+derived from the body sprite's own PPU at runtime. Measured after: ±0.0400 = exactly 1 source pixel.
+
+### Verification
+
+- EditMode **42/42 pass** (was 27) — added 5 magnitude cases and 10 category cases.
+- Rebuilt the player (`PanicAtThePond.dll` 00:13, 0 errors).
+- Two live clients, LAN host + join, Clear Waters: **both fish wear the cap, on both clients**, hat
+  correctly seated on the head. Screenshot evidence captured.
+- The corrupted pref in the user's save was repaired to `cap` directly so the test was meaningful;
+  the self-heal would otherwise have cleared it and left no hat until re-selected.
+
+### Not covered
+
+The **fisherman** hat was not observed in a live match — reaching it requires eating the Golden Fish.
+Its magnitude fix is verified by measurement, unit tests and an old-vs-new render, but not in-match.
+
+---
+
+## 25. Hat sync — actual root cause, and a real verification method (2026-08-09)
+
+User pushed back that the hat was still out of sync and that screenshot sampling could easily catch a
+lucky frame. Both points were correct. §15.1 and §23 each fixed a real bug but neither was the main
+one.
+
+### The real cause: the offset table describes the wrong artwork
+
+`HeadCenterYGrid` was measured from `FishermansAnimations-Head_Sheet.png`. The shipping fisherman
+renders **composited** sprites (`IdleLeft1`, `CastingLeft2`, …) whose head moves differently:
+
+| Clip | Real head Δ per frame | Table Δ | |
+|---|---|---|---|
+| `AC_IdelLeft` | 0, −1, −1, 0 | 0, −1, **+1, +1** | ✗ |
+| `AC_CastingLeft` | 0, **+6**, +1, 0 | 0, **0**, +1, +1 | ✗ 6 px out |
+| `AC_IdelRight` | 0, −1, **−1**, 0 | 0, −1, **0**, 0 | ✗ |
+| `AC_MoveForward` | 0, −1, −1, 0 | 0, −1, −1, 0 | ✓ coincidence |
+
+No amount of index or magnitude correction fixes a table that describes different art.
+
+### Isolating the head
+
+A plain topmost-opaque-pixel scan does not work — the **fishing rod and line reach above the head**
+in the casting frames and would report the rod tip, swinging the hat wildly. Requiring the first row
+whose widest continuous opaque run is **>= 6 px** skips those thin structures and finds the head
+reliably. With that, most animations rest at crown row 12 and casting genuinely leans (0, +6, +1, 0).
+
+### Fix: measure the sprite that is actually drawn
+
+New `HeadCrownTable` ScriptableObject (`Scripts/Data/`) holds sprite-name -> crown-row, baked by
+`HeadCrownTableBuilder` (`Scripts/Editor/`, menu **Panic At The Pond ▸ Rebuild Head Crown Table**).
+**149 sprite crowns baked.**
+
+Baked rather than measured at runtime because the frame textures are not Read/Write enabled — there
+are 104 distinct fisherman frame textures and flipping them all readable to compute a constant would
+be wasteful.
+
+`CosmeticRuntimeApplier` now captures a `baseCrownRow` when the cosmetic is placed and computes
+`bob = (baseCrownRow - currentCrownRow) * UnitsPerPixel` from the live sprite, falling back to the
+legacy table only for sprites missing from the bake. **The hand-maintained 24x4 grid no longer drives
+the vertical axis**, and the whole thing self-corrects when the art is replaced — one menu click.
+
+### Verification that actually holds
+
+Replaced screenshot spot-checks with an exhaustive per-frame audit: walk every clip on the shipping
+prefabs, compare how far the head really moved against how far the hat moved, in pixels.
+
+```
+Fisherman : 102 frames checked   WORST mismatch 0 px
+Fish      :  24 frames checked   WORST mismatch 0 px
+```
+
+Kept as `HatTracksHeadTests` so it cannot regress. **EditMode 45/45 pass** (was 27 at the start of
+this thread).
+
+### Why the earlier tests passed a broken build
+
+- The first suite asserted only **direction** (`Is.GreaterThan` / `Is.LessThan`) — a 4x-too-small bob
+  passes that.
+- The PlayMode suite sampled **one** animation (`AC_IdelLeft`), which happens to be one of the clips
+  where the wrong table coincidentally has the right sign.
+- Screenshots sample whichever frame the renderer happened to be on.
+
+The lesson is recorded here because it applies to the next cosmetic bug too: assert the *quantity*
+against independently measured art, across *all* states, not a sampled frame.
+
+### Still not covered
+
+The fisherman has not been observed mid-match — reaching him needs the Golden Fish eaten. The audit
+above drives every one of his 26 animations directly, which is stronger evidence than a single
+in-match look, but it is not the same as seeing it in play.
+
+### 25.1 Handoff document created
+
+`HANDOFF_HatSync.md` at repo root — self-contained brief for the next session covering the problem,
+the three fixes that were real but insufficient, why the reconstruct-in-LateUpdate approach cannot
+reach 100 %, the animated-`HeadAnchor` plan, an explicit do-not-do list, the verification method and
+why earlier verification failed, project facts (PPUs, prefab structure, MCP quirks), and a definition
+of done.
+
+**Decision recorded:** the fix is to key the hat attachment point *inside* the AnimationClips rather
+than reconstruct it each frame. The anchor and the sprite are then sampled by the same evaluator on
+the same timeline, so desync is structurally impossible. Success is measured by the placement code
+getting *smaller* — the ~2,200-line `CosmeticRuntimeApplier` placement logic collapses to parenting.
+
+Not implemented this session, by request.
+
+## 26. HeadAnchor implemented — hats are positioned by the animation (2026-08-09)
+
+Implements the §4 plan from `HANDOFF_HatSync.md`. Two things happened: the verification method was
+rebuilt first, then the fix.
+
+### 26.1 The previous audit could not fail — it asserted `A == A`
+
+`HatTracksHeadTests` was described in §25 and in the handoff as the verification that works. It was
+not. The runtime positioned the hat from `HeadCrownTable`:
+
+```
+hat.localPosition.y = base.y + (baseCrownRow − crown_f) × upp
+```
+
+and the test computed the expected head movement from the *same* table. Substituting one into the
+other cancels `baseCrownRow` and leaves `headMoved ≡ hatMoved` identically, for every sprite in every
+clip. **A table baked from the wrong artwork — the §25 bug — would still have reported 0 px.** Two
+further gaps: the error was rounded to whole pixels, so anything under 0.5 px passed silently, and
+only one hat per character was sampled.
+
+Rewritten to measure the crown rows from the PNGs on disk, compare in sub-pixel units, and cover
+every hat in `shop_config.json`. A coverage guard fails if a new shop hat is not in the audit list,
+and `HeadCrownTable_MatchesSourceArt` now checks the baked table against the art independently.
+
+**What the honest audit found on the then-current code**, all of which the old one reported as 0 px:
+
+| Hat | Result |
+|---|---|
+| Blue Cap, Ranger, Soda | 0 px |
+| Red Cap, Chef, Fish Hat | 52/102 frames, **0.12 px** out (hardcoded `0.035f` vs a real `0.04`) |
+| TurtleHat | 57/102 frames, **2.00 px** out — visibly detached |
+| Default Fishing Hat | no child hat; correctly pre-baked into `ANIM_FisherManYellowHat` |
+
+The 0.12 px cases are exactly what whole-pixel rounding had been hiding.
+
+### 26.2 The fix
+
+`HeadAnchorBuilder` (menu: **Panic At The Pond ▸ Rebuild Head Anchors**) adds a `HeadAnchor` child to
+each character prefab and writes one `m_LocalPosition.y` key per sprite keyframe into every clip that
+character plays, measured from the art. Result: **4 prefabs, 174 frames across 42 clips**; one frame
+skipped (`AC_Dead/Dead6_0`, no head-sized opaque run — a dead fish is upside down).
+
+The keys use **constant tangents**. Sprite swaps are stepped, so an interpolating anchor would glide
+while the head jumped — which is the drift being fixed. `HeadAnchor_TracksHead_InEveryFrameOfEveryAnimation`
+samples at arbitrary times, not only on keyframes, specifically to catch that.
+
+Cosmetics are now parented to the anchor and their placement code is gone. What the caller authors
+relative to the root becomes a one-time sit offset (`localPosition − anchor.localPosition`), so no
+hat needed re-authoring.
+
+### 26.3 What was deleted
+
+`CosmeticRuntimeApplier` **2,430 → 1,915 lines**. Gone: `ApplyFishermanAnimationOffset` with all six
+per-hat branch families (ranger, turtle, blue cap, red cap, chef, soda, fish/frog),
+`ApplyFishAnimationOffset`, `GetFishHatBobOffset`, `TryGetMeasuredHeadBob`, `baseCrownRow`. A copy of
+the pre-change file is at `Backup/CosmeticRuntimeApplier.pre-anchor.cs.bak`.
+
+**Kept deliberately:** `HeadCenterYGrid`, `GetFishermanHeadOffset`, `GetFishermanHeadBobOffset` and
+`GetCurrentSpriteFrameIndex` are still reached by the *hair* path, which selects a slice of the
+animated head sheet rather than sitting on top of the head. That is a different mechanism and there
+was no measurement basis for changing it, so it was left alone. `HeadCrownTable` is no longer a
+runtime dependency for hats but is still the reference both audits measure against.
+
+### 26.4 Known regression — needs an artist
+
+The deleted branches carried per-state data that was **not** head tracking: X offsets, Z rotations up
+to ±25°, a 160° Y-flip on the chef hat, and per-state scale. Six fisherman hats now use their rest
+rotation and scale in the move / pole / winning states. Tracking is exact; the tilt is not restored.
+Restoring it is §4.4 step 3 — key `localRotation` on the anchor in the Animation window. This cannot
+be verified by measurement and was not attempted.
+
+### 26.5 Verification
+
+- EditMode **58/58**, PlayMode **3/3**.
+- All 13 shop hats × every clip, sub-pixel: **0 px worst mismatch**.
+- The three PlayMode tests asserted hand-written per-frame directions taken from the old wrong-artwork
+  `HeadCenterYGrid` — they would have *rejected* the correct behaviour. Rewritten to compare against
+  `HeadCrownTable`, which is legitimate now that the hat's position comes from the clip curve instead.
+- Three `CosmeticFrameIndexTests` cases that reflected on the deleted `GetFishHatBobOffset` were
+  removed; `HatTracksHeadTests` covers the same ground far more thoroughly.
+
+Not done: a visual pass on casting and fighting in a running build, and §4.2 (one clip, many curves)
+and §4.3 (catalog) remain open.
+
+### 26.6 Follow-up — the anchor rest height (2026-08-09)
+
+Reported from a build: the hat floated a full head above the fisherman. Cause was in §26.2's own
+change, not the old code.
+
+A hat's sit offset is computed at apply time as `authoredPosition − anchor.localPosition`, but
+cosmetics are applied *before* the Animator has evaluated anything, and `HeadAnchorBuilder` created
+the anchor at zero. So the subtraction was a no-op, the hat kept its root-relative Y as though it
+were anchor-relative, and the moment a clip started the anchor jumped to the real crown height and
+took the hat 0.80 units (20 px) with it:
+
+```
+prefab anchor.y = 0.0000   sitOffset.y = 0.6700   after Play, hat-in-root y = 1.4700
+```
+
+Fixed by seeding the prefab anchor with the crown height of the character's own rest sprite, so the
+subtraction is meaningful whether or not the animation has been sampled. Fisherman anchor rest is now
+`y = 0.80`, sit offset `−0.13`, hat lands at the authored `0.67`.
+
+**Why the audit missed it.** `Hat_TracksHead_...` compares frame-to-frame *movement*. A constant
+offset is invisible to it — every frame is wrong by the same amount and the deltas still match. It
+reported 0 px on all 102 frames while the hat sat 20 px too high.
+
+Added `Hat_SitsOnTheHead_NotMerelyParallelToIt`, which checks the *absolute* gap between the hat and
+the measured crown on every frame of every clip. Confirmed it fails on the bug: forcing the fisherman
+anchor back to zero fails all 7 fisherman hats while every tracking test still passes.
+
+EditMode **71/71**, PlayMode **3/3**.
+
+**Do not hand-edit `HeadAnchor.localPosition` in the prefab** — *Rebuild Head Anchors* overwrites it.
+To move one hat, edit `GetFishermanHatTransform` / `GetFishHatTransform`; to move every hat together,
+change `CrownLocalY` in `HeadAnchorBuilder` and re-run the menu item.
