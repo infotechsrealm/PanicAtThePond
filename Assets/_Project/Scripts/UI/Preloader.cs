@@ -27,6 +27,8 @@ public class Preloader : MonoBehaviour
     [SerializeField] private RectTransform label;
     private Vector2 labelBasePos;
     private Vector3 labelBaseScale = Vector3.one;
+    private float labelBaseAnchorMinX;
+    private float labelBaseAnchorMaxX;
 
     public static Preloader Instence;
     private void Awake()
@@ -46,6 +48,8 @@ public class Preloader : MonoBehaviour
         {
             labelBasePos = label.anchoredPosition;
             labelBaseScale = label.localScale;
+            labelBaseAnchorMinX = label.anchorMin.x;
+            labelBaseAnchorMaxX = label.anchorMax.x;
         }
 
         SetFacing(1f);
@@ -60,9 +64,19 @@ public class Preloader : MonoBehaviour
 
         if (label != null)
         {
-            // Counter the parent's mirror so the text stays readable, and mirror the
-            // offset back so it keeps sitting on the same side of the fish.
+            // Counter the parent's mirror so the text stays readable.
             label.localScale = new Vector3(labelBaseScale.x * sign, labelBaseScale.y, labelBaseScale.z);
+
+            // The label's horizontal placement has to be mirrored back as well, or it swings to the
+            // fish's other side. It can come from either the anchor or the anchored position and the
+            // two disagree between the prefab and the Play scene instance: the prefab centres the
+            // label on 0.5 and offsets it by 195, while the scene override anchors it at 1.8 with a
+            // zero offset. Mirroring the anchor about 0.5 and negating the offset covers both.
+            bool flipped = sign < 0f;
+            float minX = flipped ? 1f - labelBaseAnchorMinX : labelBaseAnchorMinX;
+            float maxX = flipped ? 1f - labelBaseAnchorMaxX : labelBaseAnchorMaxX;
+            label.anchorMin = new Vector2(Mathf.Min(minX, maxX), label.anchorMin.y);
+            label.anchorMax = new Vector2(Mathf.Max(minX, maxX), label.anchorMax.y);
             label.anchoredPosition = new Vector2(labelBasePos.x * sign, labelBasePos.y);
         }
     }

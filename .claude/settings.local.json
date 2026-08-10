@@ -170,7 +170,9 @@
       "Bash(grep -nE \"^\\\\s*\\(public|private|internal|static|///\\)\" Assets/_Project/Scripts/Editor/HeadAnchorBuilder.cs)",
       "Bash(grep -vE \"^\\\\s*[0-9]+:\\\\s*///\")",
       "Bash(grep -aB3 \"HatSyncAudit2:Main\")",
-      "Bash(xargs grep -l \"CosmeticCatalog\")"
+      "Bash(xargs grep -l \"CosmeticCatalog\")",
+      "Bash(awk '/^--- !u!1001 &1081083723/,/^--- !u!\\(1001 &[0-9]+|[0-9]+ &\\)/{print}' Assets/_Project/Scenes/Play.unity)",
+      "Bash(grep -n -A2 \"target: {fileID: 2848158256542180953, guid: 595207e3fbf4e5d479050afed1957ccc\" Assets/_Project/Scenes/Play.unity)"
     ],
     "additionalDirectories": [
       "C:\\Users\\rishi\\.claude\\projects\\e--PanicAtThePond\\314c49ab-dfb1-458c-a4e8-333600f07d5e\\tool-results"

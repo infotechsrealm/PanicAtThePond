@@ -22,6 +22,14 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
     /// <summary>Child transform on each character whose position the AnimationClips key to the head.</summary>
     private const string HeadAnchorName = "HeadAnchor";
+
+    /// <summary>
+    /// Horizontal hand-trim applied to every fisherman hat, in character-local units, positive =
+    /// towards the face. One body pixel is 0.04 at the fisherman's 25 PPU, so this is a one pixel
+    /// nudge. It is mirrored with the hat in <see cref="ApplyMirroring"/>, so it stays correct in
+    /// both facings. Change this single value to re-trim every hat at once.
+    /// </summary>
+    private const float FishermanHatXTrim = 0.04f;
     private const string FishermanAnimatedHeadSheetName = "FishermansAnimations-Head_Sheet";
 
     /// <summary>Columns per row in the 4x24 fisherman sheets; also the width of every cosmetic bob table.</summary>
@@ -995,6 +1003,15 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             }
 
             transform.localEulerAngles = euler;
+
+            // Hand trim on top of the authored placement. It has to mirror with the hat, or
+            // correcting the left-facing pose knocks the right-facing one out by twice as much.
+            if (!Mathf.Approximately(FishermanHatXTrim, 0f))
+            {
+                transform.localPosition = baseLocalPosition
+                    + new Vector3(isLeft ? FishermanHatXTrim : -FishermanHatXTrim, 0f, 0f);
+            }
+
             return;
         }
 
