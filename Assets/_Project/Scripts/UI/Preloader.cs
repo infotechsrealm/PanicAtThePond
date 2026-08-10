@@ -1,5 +1,6 @@
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.UI;
 
 using PanicAtThePond.Managers;
 using PanicAtThePond.Controllers;
@@ -20,14 +21,49 @@ public class Preloader : MonoBehaviour
     private bool movingRight = false;
     public RectTransform rect;
 
+    // The "Loading..." label is a child of rect, so flipping rect to face the travel
+    // direction would mirror the glyphs and swing the label to the fish's other side.
+    // Keep a handle on it so the flip can be undone for the label only.
+    [SerializeField] private RectTransform label;
+    private Vector2 labelBasePos;
+    private Vector3 labelBaseScale = Vector3.one;
+
     public static Preloader Instence;
     private void Awake()
     {
         Instence = this;
 
+        if (label == null && rect != null)
+        {
+            Text text = rect.GetComponentInChildren<Text>(true);
+            if (text != null)
+            {
+                label = text.rectTransform;
+            }
+        }
+
+        if (label != null)
+        {
+            labelBasePos = label.anchoredPosition;
+            labelBaseScale = label.localScale;
+        }
+
+        SetFacing(1f);
+    }
+
+    private void SetFacing(float sign)
+    {
         if (rect != null)
         {
-            rect.localScale = Vector3.one;
+            rect.localScale = new Vector3(sign, 1f, 1f);
+        }
+
+        if (label != null)
+        {
+            // Counter the parent's mirror so the text stays readable, and mirror the
+            // offset back so it keeps sitting on the same side of the fish.
+            label.localScale = new Vector3(labelBaseScale.x * sign, labelBaseScale.y, labelBaseScale.z);
+            label.anchoredPosition = new Vector2(labelBasePos.x * sign, labelBasePos.y);
         }
     }
 
@@ -44,7 +80,7 @@ public class Preloader : MonoBehaviour
             if (rect.anchoredPosition.x >= rightPoint.anchoredPosition.x)
             {
                 movingRight = false;
-                rect.localScale = Vector3.one;
+                SetFacing(1f);
             }
         }
         else
@@ -53,7 +89,7 @@ public class Preloader : MonoBehaviour
             if (rect.anchoredPosition.x <= leftPoint.anchoredPosition.x)
             {
                 movingRight = true;
-                rect.localScale = new Vector3(-1f, 1f, 1f);
+                SetFacing(-1f);
             }
         }
     }

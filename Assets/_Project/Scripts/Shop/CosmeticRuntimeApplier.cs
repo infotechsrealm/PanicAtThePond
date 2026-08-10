@@ -284,14 +284,26 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             return;
         }
 
-        if (anim != null)
+        RuntimeAnimatorController newController = anim != null
+            ? Resources.Load<RuntimeAnimatorController>("FishControllers/" + selectedFishHat.name)
+            : null;
+
+        if (newController != null)
         {
-            RuntimeAnimatorController newController = Resources.Load<RuntimeAnimatorController>("FishControllers/" + selectedFishHat.name);
-            if (newController != null && anim.runtimeAnimatorController != newController)
+            if (anim.runtimeAnimatorController != newController)
             {
                 anim.runtimeAnimatorController = newController;
             }
+
+            return;
         }
+
+        // No pre-baked controller answers to this name. The controllers under FishControllers/ are
+        // species-prefixed ("bass_orange_hat_0", "trout_top_hat_0") while the shop stores a tile or
+        // sprite name, and SO_CosmeticCatalog - which exists to bridge the two - has an empty
+        // animator on every entry. Without this fallback the hat the player bought renders as
+        // nothing at all, because the modular hat was already removed above.
+        ApplyFishHatByName(fish, selectedFishHat.name);
     }
 
     public static void ApplyToFisherman(GameObject fisherman)
@@ -964,8 +976,117 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         bool isBeret = cosmeticRenderer.sprite != null
             && cosmeticRenderer.sprite.name.ToLowerInvariant() == "beret";
 
+        if (rootRenderer.sprite != null
+            && TryGetFishermanFacingLeft(rootRenderer.sprite.name, out bool isLeft))
+        {
+            // The right-facing clips use their own artwork rather than a mirrored copy, so nothing
+            // ever sets the body renderer's flipX. A hat therefore keeps the direction it was drawn
+            // in unless it is mirrored explicitly here.
+            cosmeticRenderer.flipX = isBeret ? isLeft : !isLeft;
+            cosmeticRenderer.flipY = rootRenderer.flipY;
+
+            // The hats carrying a -160 degree yaw are authored for the right-facing pose. That yaw
+            // is a mirror in all but name, so it has to come off when he turns to face left or the
+            // hat stays reversed.
+            Vector3 euler = baseLocalRotation;
+            if (isLeft && Mathf.Abs(Mathf.DeltaAngle(euler.y, -160f)) < 1f)
+            {
+                euler.y = 0f;
+            }
+
+            transform.localEulerAngles = euler;
+            return;
+        }
+
         cosmeticRenderer.flipX = isBeret || rootRenderer.flipX;
         cosmeticRenderer.flipY = rootRenderer.flipY;
+    }
+
+    /// <summary>
+    /// Which way the fisherman's body frame faces, read from the body sprite's name.
+    /// </summary>
+    /// <remarks>
+    /// Most frames say so in their name, but three families do not: the rowing frames
+    /// (<c>MoveForward</c>, <c>MoveBackwards</c>, <c>MoveReverse*</c>) and <c>Winning</c> carry no
+    /// side at all, and the pole/oar transitions contain <i>both</i> words while actually turning
+    /// over the course of the clip. Those entries were measured off the artwork by matching each
+    /// frame's head against the <c>IdleLeft1</c> and <c>IdleRight1</c> heads, which match
+    /// pixel-exactly, rather than guessed from the names.
+    /// </remarks>
+    private static bool TryGetFishermanFacingLeft(string spriteName, out bool isLeft)
+    {
+        isLeft = true;
+        if (string.IsNullOrEmpty(spriteName))
+        {
+            return false;
+        }
+
+        string name = spriteName.ToLowerInvariant();
+
+        // Names containing both sides, or neither, resolved from the measured artwork.
+        if (name.StartsWith("lefttorightpole"))
+        {
+            isLeft = EndsWithFrameBelow(name, 3);   // turns to the right half way through
+            return true;
+        }
+        if (name.StartsWith("righttoleftpole"))
+        {
+            isLeft = !EndsWithFrameBelow(name, 3);  // turns to the left half way through
+            return true;
+        }
+        if (name.StartsWith("oartoleftpole") || name.StartsWith("leftpoletooar"))
+        {
+            isLeft = true;
+            return true;
+        }
+        if (name.StartsWith("rightpoletooar") || name.StartsWith("oartorightpole"))
+        {
+            isLeft = false;
+            return true;
+        }
+        if (name.StartsWith("movereverseforward") || name.StartsWith("movebackwards"))
+        {
+            isLeft = false;
+            return true;
+        }
+        if (name.StartsWith("movereversebackwards") || name.StartsWith("moveforward"))
+        {
+            isLeft = true;
+            return true;
+        }
+        if (name.StartsWith("winning"))
+        {
+            isLeft = !name.Contains("right");
+            return true;
+        }
+
+        // Everything else names its side once and unambiguously.
+        bool saysRight = name.Contains("right");
+        bool saysLeft = name.Contains("left");
+        if (saysRight == saysLeft)
+        {
+            return false;   // unknown - leave the caller on its previous behaviour
+        }
+
+        isLeft = saysLeft;
+        return true;
+    }
+
+    /// <summary>True when the trailing 1-based frame number of <paramref name="name"/> is below
+    /// <paramref name="frame"/>.</summary>
+    private static bool EndsWithFrameBelow(string name, int frame)
+    {
+        for (int i = name.Length - 1; i >= 0; i--)
+        {
+            if (!char.IsDigit(name[i]))
+            {
+                return i + 1 < name.Length
+                    && int.TryParse(name.Substring(i + 1), out int n)
+                    && n < frame;
+            }
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -1805,13 +1926,24 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         string name = spriteName.ToLowerInvariant();
         
         // Fisherman preview sprites have a space after fisherman/fishermna/fishaerman
-        if (name.StartsWith("fisherman ") || 
-            name.StartsWith("fishermna ") || 
-            name.StartsWith("fishaerman ") || 
+        if (name.StartsWith("fisherman ") ||
+            name.StartsWith("fishermna ") ||
+            name.StartsWith("fishaerman ") ||
             name.Contains("preview"))
         {
             return true;
         }
+
+        // The fish and trout shop tiles follow the same convention with their own prefixes
+        // ("Fish Cap Hat", "trout yellow hat"). Without these the preview was stored verbatim, so
+        // the fish wore a 500x500 picture of a fish instead of the hat. The trailing space is what
+        // keeps the worn sprites out: "FisherMan_Hat_-Fish_Hat" and the bare "trout" tile do not
+        // match.
+        if (name.StartsWith("fish ") || name.StartsWith("trout "))
+        {
+            return true;
+        }
+
         return false;
     }
 

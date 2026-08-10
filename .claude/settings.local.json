@@ -162,7 +162,15 @@
       "Bash(awk '/public interface ILobbyCallbacks/,/^    }/' Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs)",
       "Bash(awk '/public interface IConnectionCallbacks/,/^    }/' Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs)",
       "Bash(awk '/public interface IMatchmakingCallbacks/,/^    }/' Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs)",
-      "Bash(awk '/public class EnterRoomParams/,/^    }/' Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs)"
+      "Bash(awk '/public class EnterRoomParams/,/^    }/' Assets/Photon/PhotonRealtime/Code/LoadBalancingClient.cs)",
+      "Bash(awk 'BEGIN{RS=\"--- !u!\"} /538633f435f48eb4093c0d6f910ede81/ {print substr\\($0,1,900\\)}' Assets/_Project/Prefabs/Prefebs/PreloderUI.prefab)",
+      "Bash(awk 'BEGIN{RS=\"--- !u!\"} /^224 &/ {id=\"\"; go=\"\"; split\\($0,L,\"\\\\n\"\\); for\\(i in L\\){ if\\(L[i] ~ /^224 &/\\){ sub\\(/^224 &/,\"\",L[i]\\); id=L[i] } ; if\\(L[i] ~ /m_GameObject:/\\){ go=L[i] } } print \"RectTransform \" id \" -> \" go }' Assets/_Project/Prefabs/Prefebs/PreloderUI.prefab)",
+      "Bash(awk 'BEGIN{RS=\"--- !u!\"} /^224 &4227705015086095249|^224 &2848158256542180953|^224 &1709602995624988312/ {print \"=== \"; print $0}' Assets/_Project/Prefabs/Prefebs/PreloderUI.prefab)",
+      "Bash(awk 'BEGIN{RS=\"--- !u!\"} /538633f435f48eb4093c0d6f910ede81/ {print substr\\($0,1,700\\)}' Assets/_Project/Prefabs/Prefebs/TiePreloderUI.prefab)",
+      "Bash(grep -nE \"^\\\\s*\\(public|private|internal|static|///\\)\" Assets/_Project/Scripts/Editor/HeadAnchorBuilder.cs)",
+      "Bash(grep -vE \"^\\\\s*[0-9]+:\\\\s*///\")",
+      "Bash(grep -aB3 \"HatSyncAudit2:Main\")",
+      "Bash(xargs grep -l \"CosmeticCatalog\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\rishi\\.claude\\projects\\e--PanicAtThePond\\314c49ab-dfb1-458c-a4e8-333600f07d5e\\tool-results"
