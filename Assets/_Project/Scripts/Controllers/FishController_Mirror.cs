@@ -33,12 +33,22 @@ public class FishController_Mirror : NetworkBehaviour
 
     public void OnFishSpeciesChanged(int oldFishSpecies, int newFishSpecies)
     {
+        if (isLocalPlayer)
+        {
+            return;
+        }
+
         ApplySyncedFishSpecies();
         ApplySyncedHat();
     }
 
     public void OnHatChanged(string oldHat, string newHat)
     {
+        if (isLocalPlayer)
+        {
+            return;
+        }
+
         ApplySyncedHat();
     }
 
@@ -86,6 +96,16 @@ public class FishController_Mirror : NetworkBehaviour
 
         while (elapsed < timeout)
         {
+            // The owning client already applied its own selection from local prefs in Start /
+            // OnStartLocalPlayer, and it is the authority on it. Re-applying the replicated value
+            // on top would overwrite that with the SyncVar's DEFAULT during the frames before the
+            // Cmd round-trip lands -- and an empty hat name means "remove the hat". That is why the
+            // owner saw a bare fish while every other player saw the hat correctly.
+            if (isLocalPlayer)
+            {
+                yield break;
+            }
+
             ApplySyncedFishSpecies();
             ApplySyncedHat();
 
@@ -96,6 +116,11 @@ public class FishController_Mirror : NetworkBehaviour
 
             elapsed += Time.deltaTime;
             yield return null;
+        }
+
+        if (isLocalPlayer)
+        {
+            yield break;
         }
 
         ApplySyncedFishSpecies();
@@ -109,6 +134,14 @@ public class FishController_Mirror : NetworkBehaviour
 
     private void ApplySyncedHat()
     {
+        // An empty replicated name is "the owner's choice has not reached us yet", not "no hat".
+        // A fish that has never been given a hat has none to begin with, so skipping here cannot
+        // leave a stale cosmetic behind -- but applying it would delete a correct one.
+        if (string.IsNullOrEmpty(syncedHatName))
+        {
+            return;
+        }
+
         CosmeticRuntimeApplier.ApplyFishHatByName(gameObject, syncedHatName);
     }
 

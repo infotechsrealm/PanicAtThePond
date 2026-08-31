@@ -1,0 +1,3632 @@
+fileFormatVersion: 2
+guid: fde42be39f0f1674f87b028ac6fae281
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2587232710419170688
+    second: Fisherman_Arms_Sheet_0
+  - first:
+      213: -4759333179243516399
+    second: Fisherman_Arms_Sheet_1
+  - first:
+      213: -7015250379188126798
+    second: Fisherman_Arms_Sheet_2
+  - first:
+      213: 2532957380249685297
+    second: Fisherman_Arms_Sheet_3
+  - first:
+      213: -1446961734193297730
+    second: Fisherman_Arms_Sheet_4
+  - first:
+      213: -8410695997583848198
+    second: Fisherman_Arms_Sheet_5
+  - first:
+      213: -3199058010251401596
+    second: Fisherman_Arms_Sheet_6
+  - first:
+      213: 8902774830046373399
+    second: Fisherman_Arms_Sheet_7
+  - first:
+      213: 2279988495412487061
+    second: Fisherman_Arms_Sheet_8
+  - first:
+      213: 2623018714829643954
+    second: Fisherman_Arms_Sheet_9
+  - first:
+      213: -5123764070292872123
+    second: Fisherman_Arms_Sheet_10
+  - first:
+      213: -2239558395569325648
+    second: Fisherman_Arms_Sheet_11
+  - first:
+      213: -1929745515854456476
+    second: Fisherman_Arms_Sheet_12
+  - first:
+      213: 8081103162536582600
+    second: Fisherman_Arms_Sheet_13
+  - first:
+      213: 374567079893882179
+    second: Fisherman_Arms_Sheet_14
+  - first:
+      213: 5428889769264027328
+    second: Fisherman_Arms_Sheet_15
+  - first:
+      213: -6415115158129753224
+    second: Fisherman_Arms_Sheet_16
+  - first:
+      213: 3367741904050077391
+    second: Fisherman_Arms_Sheet_17
+  - first:
+      213: 8137395732725819228
+    second: Fisherman_Arms_Sheet_18
+  - first:
+      213: 4982095994714845821
+    second: Fisherman_Arms_Sheet_19
+  - first:
+      213: -640127330513532865
+    second: Fisherman_Arms_Sheet_20
+  - first:
+      213: -3191346263752028213
+    second: Fisherman_Arms_Sheet_21
+  - first:
+      213: 3928559386064783001
+    second: Fisherman_Arms_Sheet_22
+  - first:
+      213: 8091773932900005819
+    second: Fisherman_Arms_Sheet_23
+  - first:
+      213: -9067207168682624253
+    second: Fisherman_Arms_Sheet_24
+  - first:
+      213: 9159655583721850710
+    second: Fisherman_Arms_Sheet_25
+  - first:
+      213: 8677593433460350926
+    second: Fisherman_Arms_Sheet_26
+  - first:
+      213: -5991162579391057207
+    second: Fisherman_Arms_Sheet_27
+  - first:
+      213: -1389608696569051754
+    second: Fisherman_Arms_Sheet_28
+  - first:
+      213: -8772636483830973502
+    second: Fisherman_Arms_Sheet_29
+  - first:
+      213: 5812294458661592834
+    second: Fisherman_Arms_Sheet_30
+  - first:
+      213: -229662196656750599
+    second: Fisherman_Arms_Sheet_31
+  - first:
+      213: 1689691929661224028
+    second: Fisherman_Arms_Sheet_32
+  - first:
+      213: -4405438974592385513
+    second: Fisherman_Arms_Sheet_33
+  - first:
+      213: 7673331910967936720
+    second: Fisherman_Arms_Sheet_34
+  - first:
+      213: 2134321551556581458
+    second: Fisherman_Arms_Sheet_35
+  - first:
+      213: -1425008268118458953
+    second: Fisherman_Arms_Sheet_36
+  - first:
+      213: -4213482726326186982
+    second: Fisherman_Arms_Sheet_37
+  - first:
+      213: 2437958386101668897
+    second: Fisherman_Arms_Sheet_38
+  - first:
+      213: 4266313740767148532
+    second: Fisherman_Arms_Sheet_39
+  - first:
+      213: -7738647092755211750
+    second: Fisherman_Arms_Sheet_40
+  - first:
+      213: 1261783451823573136
+    second: Fisherman_Arms_Sheet_41
+  - first:
+      213: 2650025072031142412
+    second: Fisherman_Arms_Sheet_42
+  - first:
+      213: 8703336533280705677
+    second: Fisherman_Arms_Sheet_43
+  - first:
+      213: 2316754735555654534
+    second: Fisherman_Arms_Sheet_44
+  - first:
+      213: 4996802187179553401
+    second: Fisherman_Arms_Sheet_45
+  - first:
+      213: 7556992800561051787
+    second: Fisherman_Arms_Sheet_46
+  - first:
+      213: 6710919469052631088
+    second: Fisherman_Arms_Sheet_47
+  - first:
+      213: -7372234764859410364
+    second: Fisherman_Arms_Sheet_48
+  - first:
+      213: -2301376762272775369
+    second: Fisherman_Arms_Sheet_49
+  - first:
+      213: 7500364996852353410
+    second: Fisherman_Arms_Sheet_50
+  - first:
+      213: -962754400367758694
+    second: Fisherman_Arms_Sheet_51
+  - first:
+      213: 5084070001728711955
+    second: Fisherman_Arms_Sheet_52
+  - first:
+      213: 3566628163296188761
+    second: Fisherman_Arms_Sheet_53
+  - first:
+      213: -2174670616344416829
+    second: Fisherman_Arms_Sheet_54
+  - first:
+      213: 815154524778576082
+    second: Fisherman_Arms_Sheet_55
+  - first:
+      213: 852995345801254772
+    second: Fisherman_Arms_Sheet_56
+  - first:
+      213: 6914760756591064901
+    second: Fisherman_Arms_Sheet_57
+  - first:
+      213: -2442911204586996493
+    second: Fisherman_Arms_Sheet_58
+  - first:
+      213: 8870780276182642481
+    second: Fisherman_Arms_Sheet_59
+  - first:
+      213: 7173315688767064402
+    second: Fisherman_Arms_Sheet_60
+  - first:
+      213: -5876870390438213067
+    second: Fisherman_Arms_Sheet_61
+  - first:
+      213: -6979665100227398599
+    second: Fisherman_Arms_Sheet_62
+  - first:
+      213: 7541459740883705546
+    second: Fisherman_Arms_Sheet_63
+  - first:
+      213: 5951214198510196082
+    second: Fisherman_Arms_Sheet_64
+  - first:
+      213: 7604114972684373019
+    second: Fisherman_Arms_Sheet_65
+  - first:
+      213: 4469802821667237544
+    second: Fisherman_Arms_Sheet_66
+  - first:
+      213: 7400380651278596866
+    second: Fisherman_Arms_Sheet_67
+  - first:
+      213: 3603981330310780630
+    second: Fisherman_Arms_Sheet_68
+  - first:
+      213: 3014335282152140104
+    second: Fisherman_Arms_Sheet_69
+  - first:
+      213: 8988349104958574355
+    second: Fisherman_Arms_Sheet_70
+  - first:
+      213: 7221090328620173802
+    second: Fisherman_Arms_Sheet_71
+  - first:
+      213: 9206858124971065652
+    second: Fisherman_Arms_Sheet_72
+  - first:
+      213: -5779736293987293246
+    second: Fisherman_Arms_Sheet_73
+  - first:
+      213: 2667720958896981680
+    second: Fisherman_Arms_Sheet_74
+  - first:
+      213: 651447825367778045
+    second: Fisherman_Arms_Sheet_75
+  - first:
+      213: -749446974387829949
+    second: Fisherman_Arms_Sheet_76
+  - first:
+      213: 4733535222706031980
+    second: Fisherman_Arms_Sheet_77
+  - first:
+      213: 1257423374449158509
+    second: Fisherman_Arms_Sheet_78
+  - first:
+      213: 8595472603713021681
+    second: Fisherman_Arms_Sheet_79
+  - first:
+      213: 7606946489096764797
+    second: Fisherman_Arms_Sheet_80
+  - first:
+      213: 4096952993808427901
+    second: Fisherman_Arms_Sheet_81
+  - first:
+      213: 233767209885175668
+    second: Fisherman_Arms_Sheet_82
+  - first:
+      213: 3126909280241783734
+    second: Fisherman_Arms_Sheet_83
+  - first:
+      213: -2787605092436455887
+    second: Fisherman_Arms_Sheet_84
+  - first:
+      213: -6969267970634224278
+    second: Fisherman_Arms_Sheet_85
+  - first:
+      213: 2757942885906385454
+    second: Fisherman_Arms_Sheet_86
+  - first:
+      213: 2327358390076154300
+    second: Fisherman_Arms_Sheet_87
+  - first:
+      213: 1092053171697679609
+    second: Fisherman_Arms_Sheet_88
+  - first:
+      213: 3948865633331283374
+    second: Fisherman_Arms_Sheet_89
+  - first:
+      213: 1904484843949906294
+    second: Fisherman_Arms_Sheet_90
+  - first:
+      213: 9214341521584074815
+    second: Fisherman_Arms_Sheet_91
+  - first:
+      213: 1653135082485303364
+    second: Fisherman_Arms_Sheet_92
+  - first:
+      213: -2665932797194084148
+    second: Fisherman_Arms_Sheet_93
+  - first:
+      213: 6560879319144795299
+    second: Fisherman_Arms_Sheet_94
+  - first:
+      213: 336962629747027734
+    second: Fisherman_Arms_Sheet_95
+  - first:
+      213: -2883362458049028373
+    second: Fisherman_Arms_Sheet_96
+  - first:
+      213: -7087666267106234051
+    second: Fisherman_Arms_Sheet_97
+  - first:
+      213: 1111991698820760842
+    second: Fisherman_Arms_Sheet_98
+  - first:
+      213: -7036431986947042262
+    second: Fisherman_Arms_Sheet_99
+  - first:
+      213: 6923107970600170688
+    second: Fisherman_Arms_Sheet_100
+  - first:
+      213: 4680460682905196972
+    second: Fisherman_Arms_Sheet_101
+  - first:
+      213: -5092229580061217277
+    second: Fisherman_Arms_Sheet_102
+  - first:
+      213: 8591830877378669292
+    second: Fisherman_Arms_Sheet_103
+  - first:
+      213: 8227117322837566588
+    second: Fisherman_Arms_Sheet_104
+  - first:
+      213: -2446071211407946140
+    second: Fisherman_Arms_Sheet_105
+  - first:
+      213: 2110216768743070492
+    second: Fisherman_Arms_Sheet_106
+  - first:
+      213: -7844694648684357162
+    second: Fisherman_Arms_Sheet_107
+  - first:
+      213: -6030833098442249072
+    second: Fisherman_Arms_Sheet_108
+  - first:
+      213: 5297680646869262320
+    second: Fisherman_Arms_Sheet_109
+  - first:
+      213: -3884991121335156714
+    second: Fisherman_Arms_Sheet_110
+  - first:
+      213: -3395760105283590795
+    second: Fisherman_Arms_Sheet_111
+  - first:
+      213: -325069821686289860
+    second: Fisherman_Arms_Sheet_112
+  - first:
+      213: -1330648780016568481
+    second: Fisherman_Arms_Sheet_113
+  - first:
+      213: 7162774371223596858
+    second: Fisherman_Arms_Sheet_114
+  - first:
+      213: 7123803696210675277
+    second: Fisherman_Arms_Sheet_115
+  - first:
+      213: -6128022419209681541
+    second: Fisherman_Arms_Sheet_116
+  - first:
+      213: 6486969508804613698
+    second: Fisherman_Arms_Sheet_117
+  - first:
+      213: -144100548424072737
+    second: Fisherman_Arms_Sheet_118
+  - first:
+      213: 4925424927412799061
+    second: Fisherman_Arms_Sheet_119
+  - first:
+      213: 2151610501335759818
+    second: Fisherman_Arms_Sheet_120
+  - first:
+      213: 2722210255662438424
+    second: Fisherman_Arms_Sheet_121
+  - first:
+      213: 4667116534375890734
+    second: Fisherman_Arms_Sheet_122
+  - first:
+      213: -2503409892206485048
+    second: Fisherman_Arms_Sheet_123
+  - first:
+      213: 5575609444390865535
+    second: Fisherman_Arms_Sheet_124
+  - first:
+      213: 5943280095559885605
+    second: Fisherman_Arms_Sheet_125
+  - first:
+      213: -2018340420131325748
+    second: Fisherman_Arms_Sheet_126
+  - first:
+      213: -1475662501190967041
+    second: Fisherman_Arms_Sheet_127
+  - first:
+      213: -7454970278278301330
+    second: Fisherman_Arms_Sheet_128
+  - first:
+      213: 8405144008039667473
+    second: Fisherman_Arms_Sheet_129
+  - first:
+      213: 434582657055544384
+    second: Fisherman_Arms_Sheet_130
+  - first:
+      213: -7318613981670313040
+    second: Fisherman_Arms_Sheet_131
+  - first:
+      213: -4599335179477580494
+    second: Fisherman_Arms_Sheet_132
+  - first:
+      213: 6983076858115753399
+    second: Fisherman_Arms_Sheet_133
+  - first:
+      213: 8290020873901635917
+    second: Fisherman_Arms_Sheet_134
+  - first:
+      213: 997996059756623615
+    second: Fisherman_Arms_Sheet_135
+  - first:
+      213: -4022684883107002015
+    second: Fisherman_Arms_Sheet_136
+  - first:
+      213: 4392374469989181587
+    second: Fisherman_Arms_Sheet_137
+  - first:
+      213: -3208752425754098445
+    second: Fisherman_Arms_Sheet_138
+  - first:
+      213: -1478154464823600752
+    second: Fisherman_Arms_Sheet_139
+  - first:
+      213: 2718999135598194786
+    second: Fisherman_Arms_Sheet_140
+  - first:
+      213: -9079550418860501415
+    second: Fisherman_Arms_Sheet_141
+  - first:
+      213: 6512020141012740506
+    second: Fisherman_Arms_Sheet_142
+  - first:
+      213: 6492810229884414534
+    second: Fisherman_Arms_Sheet_143
+  - first:
+      213: 3532143580250353002
+    second: Fisherman_Arms_Sheet_144
+  - first:
+      213: -8662382936885819414
+    second: Fisherman_Arms_Sheet_145
+  - first:
+      213: 7485421272882402577
+    second: Fisherman_Arms_Sheet_146
+  - first:
+      213: -1045821162761618375
+    second: Fisherman_Arms_Sheet_147
+  - first:
+      213: -7787593431508821793
+    second: Fisherman_Arms_Sheet_148
+  - first:
+      213: -2418044387895082689
+    second: Arms_r00_f0
+  - first:
+      213: 7035836317373468095
+    second: Arms_r00_f1
+  - first:
+      213: 2428017707624525727
+    second: Arms_r00_f2
+  - first:
+      213: -693659897061614012
+    second: Arms_r00_f3
+  - first:
+      213: -2173743922584886850
+    second: Arms_r01_f0
+  - first:
+      213: 487585597889289553
+    second: Arms_r01_f1
+  - first:
+      213: 2712712511691856247
+    second: Arms_r01_f2
+  - first:
+      213: 503750747636517807
+    second: Arms_r01_f3
+  - first:
+      213: -5801987685995791671
+    second: Arms_r02_f0
+  - first:
+      213: -4308570114389698798
+    second: Arms_r02_f1
+  - first:
+      213: -1301227374886600693
+    second: Arms_r02_f2
+  - first:
+      213: -1268976476158928599
+    second: Arms_r02_f3
+  - first:
+      213: -6538512252307730209
+    second: Arms_r03_f0
+  - first:
+      213: 484554842960320187
+    second: Arms_r03_f1
+  - first:
+      213: -9049248566337126012
+    second: Arms_r03_f2
+  - first:
+      213: 8437798049504081739
+    second: Arms_r03_f3
+  - first:
+      213: -4375095712631048366
+    second: Arms_r04_f0
+  - first:
+      213: 7606631560509247836
+    second: Arms_r04_f1
+  - first:
+      213: 7224935324814130326
+    second: Arms_r04_f2
+  - first:
+      213: -4723585596291724773
+    second: Arms_r04_f3
+  - first:
+      213: -3174399440770243580
+    second: Arms_r05_f0
+  - first:
+      213: -157014953788064161
+    second: Arms_r05_f1
+  - first:
+      213: -6271269015290942543
+    second: Arms_r05_f2
+  - first:
+      213: -8608415898317933913
+    second: Arms_r05_f3
+  - first:
+      213: -9052256190448412258
+    second: Arms_r06_f0
+  - first:
+      213: -5764266206386171706
+    second: Arms_r06_f1
+  - first:
+      213: 8624986333835579822
+    second: Arms_r06_f2
+  - first:
+      213: 7536804801857937146
+    second: Arms_r06_f3
+  - first:
+      213: -1670078116664650176
+    second: Arms_r07_f0
+  - first:
+      213: 7242056175736156491
+    second: Arms_r07_f1
+  - first:
+      213: 4685754700634718501
+    second: Arms_r07_f2
+  - first:
+      213: -6471854249371340699
+    second: Arms_r07_f3
+  - first:
+      213: 3947555265962845424
+    second: Arms_r08_f0
+  - first:
+      213: 1915703342031305692
+    second: Arms_r08_f1
+  - first:
+      213: -4449331080721633434
+    second: Arms_r08_f2
+  - first:
+      213: -6600441791299262355
+    second: Arms_r08_f3
+  - first:
+      213: 5029433996318075014
+    second: Arms_r09_f0
+  - first:
+      213: -8157872481182630226
+    second: Arms_r09_f1
+  - first:
+      213: -7647572861620596658
+    second: Arms_r09_f2
+  - first:
+      213: 7104488253240619953
+    second: Arms_r09_f3
+  - first:
+      213: -2699405893788489892
+    second: Arms_r10_f0
+  - first:
+      213: 6222116887633699600
+    second: Arms_r10_f1
+  - first:
+      213: -1920425925356180033
+    second: Arms_r10_f2
+  - first:
+      213: -1826747432878832490
+    second: Arms_r10_f3
+  - first:
+      213: 7388018029331505023
+    second: Arms_r11_f0
+  - first:
+      213: -4283000293864444088
+    second: Arms_r11_f1
+  - first:
+      213: -1051996131953998592
+    second: Arms_r11_f2
+  - first:
+      213: -3688169334214631722
+    second: Arms_r11_f3
+  - first:
+      213: -6756432650852929049
+    second: Arms_r12_f0
+  - first:
+      213: 411502477268381115
+    second: Arms_r12_f1
+  - first:
+      213: 3091819833915165270
+    second: Arms_r12_f2
+  - first:
+      213: -2236551618728314677
+    second: Arms_r12_f3
+  - first:
+      213: -793655478266038006
+    second: Arms_r13_f0
+  - first:
+      213: -1809811089061152945
+    second: Arms_r13_f1
+  - first:
+      213: -7925778301363058083
+    second: Arms_r13_f2
+  - first:
+      213: 2087629919565718312
+    second: Arms_r13_f3
+  - first:
+      213: 7493585453406383090
+    second: Arms_r14_f0
+  - first:
+      213: 4726788643012645022
+    second: Arms_r14_f1
+  - first:
+      213: 8340461001832321858
+    second: Arms_r14_f2
+  - first:
+      213: -2078922891407385134
+    second: Arms_r14_f3
+  - first:
+      213: 7432411385261853913
+    second: Arms_r15_f0
+  - first:
+      213: -3721042312813884962
+    second: Arms_r15_f1
+  - first:
+      213: 3464377031535632156
+    second: Arms_r15_f2
+  - first:
+      213: 2818599253854651277
+    second: Arms_r15_f3
+  - first:
+      213: -5760089764279028350
+    second: Arms_r16_f0
+  - first:
+      213: -8675280462027335244
+    second: Arms_r16_f1
+  - first:
+      213: 255267873451683808
+    second: Arms_r16_f2
+  - first:
+      213: -7828360990132785760
+    second: Arms_r16_f3
+  - first:
+      213: -3983902855888606373
+    second: Arms_r17_f0
+  - first:
+      213: -8707588510515750757
+    second: Arms_r17_f1
+  - first:
+      213: -8264718355760792095
+    second: Arms_r17_f2
+  - first:
+      213: 6229007158534564304
+    second: Arms_r17_f3
+  - first:
+      213: 1764288408510763857
+    second: Arms_r18_f0
+  - first:
+      213: -6485514361270726103
+    second: Arms_r18_f1
+  - first:
+      213: -4249650059582216095
+    second: Arms_r18_f2
+  - first:
+      213: 2434388556196726757
+    second: Arms_r18_f3
+  - first:
+      213: -8442739284332365295
+    second: Arms_r19_f0
+  - first:
+      213: 2022514809952956521
+    second: Arms_r19_f1
+  - first:
+      213: 6586383669775836036
+    second: Arms_r19_f2
+  - first:
+      213: 1065358594635021752
+    second: Arms_r19_f3
+  - first:
+      213: -1064420999107583931
+    second: Arms_r20_f0
+  - first:
+      213: 5912992809443924732
+    second: Arms_r20_f1
+  - first:
+      213: 7408758922167483083
+    second: Arms_r20_f2
+  - first:
+      213: 8360510999833178378
+    second: Arms_r20_f3
+  - first:
+      213: -267675203201573135
+    second: Arms_r21_f0
+  - first:
+      213: 6063932786801582686
+    second: Arms_r21_f1
+  - first:
+      213: -1088867187400004294
+    second: Arms_r21_f2
+  - first:
+      213: -2649391608163871290
+    second: Arms_r21_f3
+  - first:
+      213: 9070733673353153656
+    second: Arms_r22_f0
+  - first:
+      213: 3355370628429379666
+    second: Arms_r22_f1
+  - first:
+      213: -2389353931254064739
+    second: Arms_r22_f2
+  - first:
+      213: -4553480669830832879
+    second: Arms_r22_f3
+  - first:
+      213: 5946166395705575998
+    second: Arms_r23_f0
+  - first:
+      213: -7397840348324251900
+    second: Arms_r23_f1
+  - first:
+      213: -5467809974576988730
+    second: Arms_r23_f2
+  - first:
+      213: 4572151221430139102
+    second: Arms_r23_f3
+  - first:
+      213: -5437807492488014931
+    second: Arms_Casting_L_0
+  - first:
+      213: 7956137130390029875
+    second: Arms_Casting_L_1
+  - first:
+      213: -6580044742033037534
+    second: Arms_Casting_L_2
+  - first:
+      213: -4649244316963616951
+    second: Arms_Casting_L_3
+  - first:
+      213: 6171091557608136123
+    second: Arms_Idle_L_0
+  - first:
+      213: -1372869983808162058
+    second: Arms_Idle_L_1
+  - first:
+      213: -7563964813569344602
+    second: Arms_Idle_L_2
+  - first:
+      213: 5949658713662595591
+    second: Arms_Idle_L_3
+  - first:
+      213: 2231258662527769397
+    second: Arms_Fishing_L_0
+  - first:
+      213: -3203482067831896618
+    second: Arms_Fishing_L_1
+  - first:
+      213: -452939510843515240
+    second: Arms_Fishing_L_2
+  - first:
+      213: 560240298541589073
+    second: Arms_Fishing_L_3
+  - first:
+      213: -2534025997159073135
+    second: Arms_MoveForward_L_0
+  - first:
+      213: 7960080092942758634
+    second: Arms_MoveForward_L_1
+  - first:
+      213: 8144208557681076466
+    second: Arms_MoveForward_L_2
+  - first:
+      213: 1054905281370943901
+    second: Arms_MoveForward_L_3
+  - first:
+      213: 1364314574925129360
+    second: Arms_MoveBackward_L_0
+  - first:
+      213: 8121828662894881428
+    second: Arms_MoveBackward_L_1
+  - first:
+      213: -7109466637957072723
+    second: Arms_MoveBackward_L_2
+  - first:
+      213: -7902266105150617273
+    second: Arms_MoveBackward_L_3
+  - first:
+      213: -271131919110070724
+    second: Arms_Fighting_L_0
+  - first:
+      213: 984943014731139357
+    second: Arms_Fighting_L_1
+  - first:
+      213: -3301824575788215810
+    second: Arms_Fighting_L_2
+  - first:
+      213: 956609341910370169
+    second: Arms_Fighting_L_3
+  - first:
+      213: 9150962718054644716
+    second: Arms_Reeling_L_0
+  - first:
+      213: -7532583161827010329
+    second: Arms_Reeling_L_1
+  - first:
+      213: -5917458665658257429
+    second: Arms_Reeling_L_2
+  - first:
+      213: 8173261713835398694
+    second: Arms_Reeling_L_3
+  - first:
+      213: 8610834042596100452
+    second: Arms_Win_L_0
+  - first:
+      213: -8581007762894044759
+    second: Arms_Win_L_1
+  - first:
+      213: -8457839925371958171
+    second: Arms_Win_L_2
+  - first:
+      213: -2317209483266136566
+    second: Arms_Win_L_3
+  - first:
+      213: 3777138760912888419
+    second: Arms_SwappingPoles_L_0
+  - first:
+      213: -4098103634220922417
+    second: Arms_SwappingPoles_L_1
+  - first:
+      213: 3305973724482305586
+    second: Arms_SwappingPoles_L_2
+  - first:
+      213: 3616123946221562188
+    second: Arms_SwappingPoles_L_3
+  - first:
+      213: 251224364833149285
+    second: Arms_Scared_L_0
+  - first:
+      213: -1219796761207688371
+    second: Arms_Scared_L_1
+  - first:
+      213: 934834660607567876
+    second: Arms_Scared_L_2
+  - first:
+      213: -283779388928739663
+    second: Arms_Scared_L_3
+  - first:
+      213: 3027653471956722257
+    second: Arms_GoToCry_L_0
+  - first:
+      213: -8274521554779195741
+    second: Arms_GoToCry_L_1
+  - first:
+      213: -6737497086839763989
+    second: Arms_GoToCry_L_2
+  - first:
+      213: -2067302747631074344
+    second: Arms_GoToCry_L_3
+  - first:
+      213: 4760531102722566668
+    second: Arms_Cry_L_0
+  - first:
+      213: 6107777170776071713
+    second: Arms_Cry_L_1
+  - first:
+      213: -1415616743874316950
+    second: Arms_Cry_L_2
+  - first:
+      213: 681723206489486363
+    second: Arms_Cry_L_3
+  - first:
+      213: -7581920525413150496
+    second: Arms_Casting_R_0
+  - first:
+      213: 1524699272471090904
+    second: Arms_Casting_R_1
+  - first:
+      213: -6911346987225634958
+    second: Arms_Casting_R_2
+  - first:
+      213: 2876459690473376583
+    second: Arms_Casting_R_3
+  - first:
+      213: 713667666078991115
+    second: Arms_Idle_R_0
+  - first:
+      213: -300498183792204354
+    second: Arms_Idle_R_1
+  - first:
+      213: -3137546905255883302
+    second: Arms_Idle_R_2
+  - first:
+      213: 8125506540171582064
+    second: Arms_Idle_R_3
+  - first:
+      213: -5054373721271649233
+    second: Arms_Fishing_R_0
+  - first:
+      213: 6237845296015513252
+    second: Arms_Fishing_R_1
+  - first:
+      213: -8736698929751060653
+    second: Arms_Fishing_R_2
+  - first:
+      213: 7759036468033397168
+    second: Arms_Fishing_R_3
+  - first:
+      213: -1260263546644314249
+    second: Arms_MoveForward_R_0
+  - first:
+      213: -209146577448690635
+    second: Arms_MoveForward_R_1
+  - first:
+      213: 1850496522466416793
+    second: Arms_MoveForward_R_2
+  - first:
+      213: 2037183592431472181
+    second: Arms_MoveForward_R_3
+  - first:
+      213: 5244719353116155647
+    second: Arms_MoveBackward_R_0
+  - first:
+      213: 1641888248711386527
+    second: Arms_MoveBackward_R_1
+  - first:
+      213: -4416690486976027906
+    second: Arms_MoveBackward_R_2
+  - first:
+      213: 338846711363067787
+    second: Arms_MoveBackward_R_3
+  - first:
+      213: -2346146107351972136
+    second: Arms_Fighting_R_0
+  - first:
+      213: -7017804121368052818
+    second: Arms_Fighting_R_1
+  - first:
+      213: -259957517522983998
+    second: Arms_Fighting_R_2
+  - first:
+      213: 9144164430792678897
+    second: Arms_Fighting_R_3
+  - first:
+      213: -6408686485699061065
+    second: Arms_Reeling_R_0
+  - first:
+      213: 1397596156434747383
+    second: Arms_Reeling_R_1
+  - first:
+      213: -4218910932196370160
+    second: Arms_Reeling_R_2
+  - first:
+      213: -8642769187500862923
+    second: Arms_Reeling_R_3
+  - first:
+      213: -3923440159366738798
+    second: Arms_Win_R_0
+  - first:
+      213: 6318255996464774312
+    second: Arms_Win_R_1
+  - first:
+      213: -8364849545123319068
+    second: Arms_Win_R_2
+  - first:
+      213: 6519769228604837358
+    second: Arms_Win_R_3
+  - first:
+      213: -5063006683037746874
+    second: Arms_SwappingPoles_R_0
+  - first:
+      213: -3111417454699810676
+    second: Arms_SwappingPoles_R_1
+  - first:
+      213: 9005663208401455611
+    second: Arms_SwappingPoles_R_2
+  - first:
+      213: 6804745364768989053
+    second: Arms_SwappingPoles_R_3
+  - first:
+      213: 2597802784888666120
+    second: Arms_Scared_R_0
+  - first:
+      213: -7019690466789688753
+    second: Arms_Scared_R_1
+  - first:
+      213: -3707105108029249658
+    second: Arms_Scared_R_2
+  - first:
+      213: -1540269647215571631
+    second: Arms_Scared_R_3
+  - first:
+      213: 6259304012372238692
+    second: Arms_GoToCry_R_0
+  - first:
+      213: 735861317499752944
+    second: Arms_GoToCry_R_1
+  - first:
+      213: 7888267977382211560
+    second: Arms_GoToCry_R_2
+  - first:
+      213: -170473482001324734
+    second: Arms_GoToCry_R_3
+  - first:
+      213: 5882684652301885791
+    second: Arms_Cry_R_0
+  - first:
+      213: 6311016137150295420
+    second: Arms_Cry_R_1
+  - first:
+      213: -7713298077597826645
+    second: Arms_Cry_R_2
+  - first:
+      213: -4780138450497650295
+    second: Arms_Cry_R_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Arms_Casting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da35b4575e60984b0800000000000000
+      internalID: -5437807492488014931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Casting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33681311190e96e60800000000000000
+      internalID: 7956137130390029875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Casting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 227a1f07b2cfea4a0800000000000000
+      internalID: -6580044742033037534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Casting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 947416d2de09a7fb0800000000000000
+      internalID: -4649244316963616951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Idle_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbd15a7631f14a550800000000000000
+      internalID: 6171091557608136123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Idle_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f67154060692fce0800000000000000
+      internalID: -1372869983808162058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Idle_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ab35a1e316670790800000000000000
+      internalID: -7563964813569344602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Idle_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 702aaa2d31f619250800000000000000
+      internalID: 5949658713662595591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Fishing_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53b1bfd8ee507fe10800000000000000
+      internalID: 2231258662527769397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Fishing_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d5cb863802fa83d0800000000000000
+      internalID: -3203482067831896618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Fishing_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89ede672ae5d6b9f0800000000000000
+      internalID: -452939510843515240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Fishing_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1522e6f459f56c700800000000000000
+      internalID: 560240298541589073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_MoveForward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19a7abb08c455dcd0800000000000000
+      internalID: -2534025997159073135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_MoveForward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae2f2839ba2e77e60800000000000000
+      internalID: 7960080092942758634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_MoveForward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f8e649888a060170800000000000000
+      internalID: 8144208557681076466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_MoveForward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d917cc7a3c6c3ae00800000000000000
+      internalID: 1054905281370943901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_MoveBackward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 096ec40a0e40fe210800000000000000
+      internalID: 1364314574925129360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_MoveBackward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a6f6a332886b070800000000000000
+      internalID: 8121828662894881428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_MoveBackward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da8f316a2c9165d90800000000000000
+      internalID: -7109466637957072723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_MoveBackward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74943e968d2855290800000000000000
+      internalID: -7902266105150617273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Fighting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3e9c22c4febc3cf0800000000000000
+      internalID: -271131919110070724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Fighting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d194d0514783bad00800000000000000
+      internalID: 984943014731139357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Fighting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef11d79ca009d22d0800000000000000
+      internalID: -3301824575788215810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Fighting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 977436dc02f864d00800000000000000
+      internalID: 956609341910370169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Reeling_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceb7d72bb10cefe70800000000000000
+      internalID: 9150962718054644716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Reeling_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e8563e0683e67790800000000000000
+      internalID: -7532583161827010329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Reeling_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: befe16412b6f0eda0800000000000000
+      internalID: -5917458665658257429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Reeling_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 626957599324d6170800000000000000
+      internalID: 8173261713835398694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Win_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46908c880f3df7770800000000000000
+      internalID: 8610834042596100452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Win_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a1c4dd57e22ae880800000000000000
+      internalID: -8581007762894044759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Win_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56c86114667bf9a80800000000000000
+      internalID: -8457839925371958171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Win_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0661c7804e97dfd0800000000000000
+      internalID: -2317209483266136566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_SwappingPoles_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 362629fd0b71b6430800000000000000
+      internalID: 3777138760912888419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_SwappingPoles_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc94685157c9027c0800000000000000
+      internalID: -4098103634220922417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_SwappingPoles_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23efa8c269d21ed20800000000000000
+      internalID: 3305973724482305586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_SwappingPoles_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c49e15ee19d0f2230800000000000000
+      internalID: 3616123946221562188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Scared_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5619dc09a378c7300800000000000000
+      internalID: 251224364833149285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Scared_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d433b06fe49621fe0800000000000000
+      internalID: -1219796761207688371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Scared_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 408ac3dbb2339fc00800000000000000
+      internalID: 934834660607567876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Scared_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b633583620df0cf0800000000000000
+      internalID: -283779388928739663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_GoToCry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15265f2aac2640a20800000000000000
+      internalID: 3027653471956722257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_GoToCry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a6b2197c7efa2d80800000000000000
+      internalID: -8274521554779195741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_GoToCry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bebcfa7a81a9f72a0800000000000000
+      internalID: -6737497086839763989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_GoToCry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d3c244aa177f43e0800000000000000
+      internalID: -2067302747631074344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Cry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0a2af7c0ddc01240800000000000000
+      internalID: 4760531102722566668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Cry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12e1957f9fe23c450800000000000000
+      internalID: 6107777170776071713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Cry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a65b64b5218ba5ce0800000000000000
+      internalID: -1415616743874316950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Cry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1432f5f4a7f57900800000000000000
+      internalID: 681723206489486363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Casting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e0918fe37b97c690800000000000000
+      internalID: -7581920525413150496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Casting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d69fecf8e1d82510800000000000000
+      internalID: 1524699272471090904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Casting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27723f27886f510a0800000000000000
+      internalID: -6911346987225634958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Casting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74b456d29dc3be720800000000000000
+      internalID: 2876459690473376583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Idle_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b03025c06f477e900800000000000000
+      internalID: 713667666078991115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Idle_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb56a637e7a64dbf0800000000000000
+      internalID: -300498183792204354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Idle_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: addc81e86b13574d0800000000000000
+      internalID: -3137546905255883302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Idle_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07a5a03c52993c070800000000000000
+      internalID: 8125506540171582064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Fishing_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2cb88531e14bd9b0800000000000000
+      internalID: -5054373721271649233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Fishing_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a698d84f37419650800000000000000
+      internalID: 6237845296015513252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Fishing_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f07a6cc9201c680800000000000000
+      internalID: -8736698929751060653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Fishing_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b1ae6cfe82adab60800000000000000
+      internalID: 7759036468033397168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_MoveForward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77744e24bf4a28ee0800000000000000
+      internalID: -1260263546644314249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_MoveForward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53c9e21cb46f81df0800000000000000
+      internalID: -209146577448690635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_MoveForward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 998d4b768c84ea910800000000000000
+      internalID: 1850496522466416793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_MoveForward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53ec1211fa7854c10800000000000000
+      internalID: 2037183592431472181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_MoveBackward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffeda15c67cf8c840800000000000000
+      internalID: 5244719353116155647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_MoveBackward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f959451c9a829c610800000000000000
+      internalID: 1641888248711386527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_MoveBackward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef262f81763c4b2c0800000000000000
+      internalID: -4416690486976027906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_MoveBackward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8fda18e943d3b400800000000000000
+      internalID: 338846711363067787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Fighting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d6ce18bb80d07fd0800000000000000
+      internalID: -2346146107351972136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Fighting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eabb5926550cb9e90800000000000000
+      internalID: -7017804121368052818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Fighting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c3a95fd302746cf0800000000000000
+      internalID: -259957517522983998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Fighting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fdd8291a1996ee70800000000000000
+      internalID: 9144164430792678897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Reeling_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ba9f0f8895cf07a0800000000000000
+      internalID: -6408686485699061065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Reeling_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ff8ebbac42456310800000000000000
+      internalID: 1397596156434747383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Reeling_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0195c632cda6375c0800000000000000
+      internalID: -4218910932196370160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Reeling_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 532d15f1737be0880800000000000000
+      internalID: -8642769187500862923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Win_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29c817b56f32d89c0800000000000000
+      internalID: -3923440159366738798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Win_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8acb34d6a54fea750800000000000000
+      internalID: 6318255996464774312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Win_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e2365758a51aeb80800000000000000
+      internalID: -8364849545123319068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Win_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eed8388f19fda7a50800000000000000
+      internalID: 6519769228604837358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_SwappingPoles_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6493b1a2f369cb9b0800000000000000
+      internalID: -5063006683037746874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_SwappingPoles_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c80faa85f4602d4d0800000000000000
+      internalID: -3111417454699810676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_SwappingPoles_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf9c29759fa8afc70800000000000000
+      internalID: 9005663208401455611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_SwappingPoles_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7f9a0e2bdf4f6e50800000000000000
+      internalID: 6804745364768989053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Scared_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8083fcd7edf3d0420800000000000000
+      internalID: 2597802784888666120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Scared_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4afdcd56bc059e90800000000000000
+      internalID: -7019690466789688753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Scared_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68761ea9b87bd8cc0800000000000000
+      internalID: -3707105108029249658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Scared_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d4663aaecdf9ae0800000000000000
+      internalID: -1540269647215571631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_GoToCry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 461ef9606d38dd650800000000000000
+      internalID: 6259304012372238692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_GoToCry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f1168138fd463a00800000000000000
+      internalID: 735861317499752944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_GoToCry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8efa4fc7ee1c87d60800000000000000
+      internalID: 7888267977382211560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_GoToCry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 245efa5754b52adf0800000000000000
+      internalID: -170473482001324734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Cry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f51a812068e73a150800000000000000
+      internalID: 5882684652301885791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Cry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7de9925dbb359750800000000000000
+      internalID: 6311016137150295420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Cry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba10416e34cd4f490800000000000000
+      internalID: -7713298077597826645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arms_Cry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 981c6e0d76989adb0800000000000000
+      internalID: -4780138450497650295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Arms_Casting_L_0: -5437807492488014931
+      Arms_Casting_L_1: 7956137130390029875
+      Arms_Casting_L_2: -6580044742033037534
+      Arms_Casting_L_3: -4649244316963616951
+      Arms_Casting_R_0: -7581920525413150496
+      Arms_Casting_R_1: 1524699272471090904
+      Arms_Casting_R_2: -6911346987225634958
+      Arms_Casting_R_3: 2876459690473376583
+      Arms_Cry_L_0: 4760531102722566668
+      Arms_Cry_L_1: 6107777170776071713
+      Arms_Cry_L_2: -1415616743874316950
+      Arms_Cry_L_3: 681723206489486363
+      Arms_Cry_R_0: 5882684652301885791
+      Arms_Cry_R_1: 6311016137150295420
+      Arms_Cry_R_2: -7713298077597826645
+      Arms_Cry_R_3: -4780138450497650295
+      Arms_Fighting_L_0: -271131919110070724
+      Arms_Fighting_L_1: 984943014731139357
+      Arms_Fighting_L_2: -3301824575788215810
+      Arms_Fighting_L_3: 956609341910370169
+      Arms_Fighting_R_0: -2346146107351972136
+      Arms_Fighting_R_1: -7017804121368052818
+      Arms_Fighting_R_2: -259957517522983998
+      Arms_Fighting_R_3: 9144164430792678897
+      Arms_Fishing_L_0: 2231258662527769397
+      Arms_Fishing_L_1: -3203482067831896618
+      Arms_Fishing_L_2: -452939510843515240
+      Arms_Fishing_L_3: 560240298541589073
+      Arms_Fishing_R_0: -5054373721271649233
+      Arms_Fishing_R_1: 6237845296015513252
+      Arms_Fishing_R_2: -8736698929751060653
+      Arms_Fishing_R_3: 7759036468033397168
+      Arms_GoToCry_L_0: 3027653471956722257
+      Arms_GoToCry_L_1: -8274521554779195741
+      Arms_GoToCry_L_2: -6737497086839763989
+      Arms_GoToCry_L_3: -2067302747631074344
+      Arms_GoToCry_R_0: 6259304012372238692
+      Arms_GoToCry_R_1: 735861317499752944
+      Arms_GoToCry_R_2: 7888267977382211560
+      Arms_GoToCry_R_3: -170473482001324734
+      Arms_Idle_L_0: 6171091557608136123
+      Arms_Idle_L_1: -1372869983808162058
+      Arms_Idle_L_2: -7563964813569344602
+      Arms_Idle_L_3: 5949658713662595591
+      Arms_Idle_R_0: 713667666078991115
+      Arms_Idle_R_1: -300498183792204354
+      Arms_Idle_R_2: -3137546905255883302
+      Arms_Idle_R_3: 8125506540171582064
+      Arms_MoveBackward_L_0: 1364314574925129360
+      Arms_MoveBackward_L_1: 8121828662894881428
+      Arms_MoveBackward_L_2: -7109466637957072723
+      Arms_MoveBackward_L_3: -7902266105150617273
+      Arms_MoveBackward_R_0: 5244719353116155647
+      Arms_MoveBackward_R_1: 1641888248711386527
+      Arms_MoveBackward_R_2: -4416690486976027906
+      Arms_MoveBackward_R_3: 338846711363067787
+      Arms_MoveForward_L_0: -2534025997159073135
+      Arms_MoveForward_L_1: 7960080092942758634
+      Arms_MoveForward_L_2: 8144208557681076466
+      Arms_MoveForward_L_3: 1054905281370943901
+      Arms_MoveForward_R_0: -1260263546644314249
+      Arms_MoveForward_R_1: -209146577448690635
+      Arms_MoveForward_R_2: 1850496522466416793
+      Arms_MoveForward_R_3: 2037183592431472181
+      Arms_Reeling_L_0: 9150962718054644716
+      Arms_Reeling_L_1: -7532583161827010329
+      Arms_Reeling_L_2: -5917458665658257429
+      Arms_Reeling_L_3: 8173261713835398694
+      Arms_Reeling_R_0: -6408686485699061065
+      Arms_Reeling_R_1: 1397596156434747383
+      Arms_Reeling_R_2: -4218910932196370160
+      Arms_Reeling_R_3: -8642769187500862923
+      Arms_Scared_L_0: 251224364833149285
+      Arms_Scared_L_1: -1219796761207688371
+      Arms_Scared_L_2: 934834660607567876
+      Arms_Scared_L_3: -283779388928739663
+      Arms_Scared_R_0: 2597802784888666120
+      Arms_Scared_R_1: -7019690466789688753
+      Arms_Scared_R_2: -3707105108029249658
+      Arms_Scared_R_3: -1540269647215571631
+      Arms_SwappingPoles_L_0: 3777138760912888419
+      Arms_SwappingPoles_L_1: -4098103634220922417
+      Arms_SwappingPoles_L_2: 3305973724482305586
+      Arms_SwappingPoles_L_3: 3616123946221562188
+      Arms_SwappingPoles_R_0: -5063006683037746874
+      Arms_SwappingPoles_R_1: -3111417454699810676
+      Arms_SwappingPoles_R_2: 9005663208401455611
+      Arms_SwappingPoles_R_3: 6804745364768989053
+      Arms_Win_L_0: 8610834042596100452
+      Arms_Win_L_1: -8581007762894044759
+      Arms_Win_L_2: -8457839925371958171
+      Arms_Win_L_3: -2317209483266136566
+      Arms_Win_R_0: -3923440159366738798
+      Arms_Win_R_1: 6318255996464774312
+      Arms_Win_R_2: -8364849545123319068
+      Arms_Win_R_3: 6519769228604837358
+      Arms_r00_f0: -2418044387895082689
+      Arms_r00_f1: 7035836317373468095
+      Arms_r00_f2: 2428017707624525727
+      Arms_r00_f3: -693659897061614012
+      Arms_r01_f0: -2173743922584886850
+      Arms_r01_f1: 487585597889289553
+      Arms_r01_f2: 2712712511691856247
+      Arms_r01_f3: 503750747636517807
+      Arms_r02_f0: -5801987685995791671
+      Arms_r02_f1: -4308570114389698798
+      Arms_r02_f2: -1301227374886600693
+      Arms_r02_f3: -1268976476158928599
+      Arms_r03_f0: -6538512252307730209
+      Arms_r03_f1: 484554842960320187
+      Arms_r03_f2: -9049248566337126012
+      Arms_r03_f3: 8437798049504081739
+      Arms_r04_f0: -4375095712631048366
+      Arms_r04_f1: 7606631560509247836
+      Arms_r04_f2: 7224935324814130326
+      Arms_r04_f3: -4723585596291724773
+      Arms_r05_f0: -3174399440770243580
+      Arms_r05_f1: -157014953788064161
+      Arms_r05_f2: -6271269015290942543
+      Arms_r05_f3: -8608415898317933913
+      Arms_r06_f0: -9052256190448412258
+      Arms_r06_f1: -5764266206386171706
+      Arms_r06_f2: 8624986333835579822
+      Arms_r06_f3: 7536804801857937146
+      Arms_r07_f0: -1670078116664650176
+      Arms_r07_f1: 7242056175736156491
+      Arms_r07_f2: 4685754700634718501
+      Arms_r07_f3: -6471854249371340699
+      Arms_r08_f0: 3947555265962845424
+      Arms_r08_f1: 1915703342031305692
+      Arms_r08_f2: -4449331080721633434
+      Arms_r08_f3: -6600441791299262355
+      Arms_r09_f0: 5029433996318075014
+      Arms_r09_f1: -8157872481182630226
+      Arms_r09_f2: -7647572861620596658
+      Arms_r09_f3: 7104488253240619953
+      Arms_r10_f0: -2699405893788489892
+      Arms_r10_f1: 6222116887633699600
+      Arms_r10_f2: -1920425925356180033
+      Arms_r10_f3: -1826747432878832490
+      Arms_r11_f0: 7388018029331505023
+      Arms_r11_f1: -4283000293864444088
+      Arms_r11_f2: -1051996131953998592
+      Arms_r11_f3: -3688169334214631722
+      Arms_r12_f0: -6756432650852929049
+      Arms_r12_f1: 411502477268381115
+      Arms_r12_f2: 3091819833915165270
+      Arms_r12_f3: -2236551618728314677
+      Arms_r13_f0: -793655478266038006
+      Arms_r13_f1: -1809811089061152945
+      Arms_r13_f2: -7925778301363058083
+      Arms_r13_f3: 2087629919565718312
+      Arms_r14_f0: 7493585453406383090
+      Arms_r14_f1: 4726788643012645022
+      Arms_r14_f2: 8340461001832321858
+      Arms_r14_f3: -2078922891407385134
+      Arms_r15_f0: 7432411385261853913
+      Arms_r15_f1: -3721042312813884962
+      Arms_r15_f2: 3464377031535632156
+      Arms_r15_f3: 2818599253854651277
+      Arms_r16_f0: -5760089764279028350
+      Arms_r16_f1: -8675280462027335244
+      Arms_r16_f2: 255267873451683808
+      Arms_r16_f3: -7828360990132785760
+      Arms_r17_f0: -3983902855888606373
+      Arms_r17_f1: -8707588510515750757
+      Arms_r17_f2: -8264718355760792095
+      Arms_r17_f3: 6229007158534564304
+      Arms_r18_f0: 1764288408510763857
+      Arms_r18_f1: -6485514361270726103
+      Arms_r18_f2: -4249650059582216095
+      Arms_r18_f3: 2434388556196726757
+      Arms_r19_f0: -8442739284332365295
+      Arms_r19_f1: 2022514809952956521
+      Arms_r19_f2: 6586383669775836036
+      Arms_r19_f3: 1065358594635021752
+      Arms_r20_f0: -1064420999107583931
+      Arms_r20_f1: 5912992809443924732
+      Arms_r20_f2: 7408758922167483083
+      Arms_r20_f3: 8360510999833178378
+      Arms_r21_f0: -267675203201573135
+      Arms_r21_f1: 6063932786801582686
+      Arms_r21_f2: -1088867187400004294
+      Arms_r21_f3: -2649391608163871290
+      Arms_r22_f0: 9070733673353153656
+      Arms_r22_f1: 3355370628429379666
+      Arms_r22_f2: -2389353931254064739
+      Arms_r22_f3: -4553480669830832879
+      Arms_r23_f0: 5946166395705575998
+      Arms_r23_f1: -7397840348324251900
+      Arms_r23_f2: -5467809974576988730
+      Arms_r23_f3: 4572151221430139102
+      Fisherman_Arms_Sheet_0: -2587232710419170688
+      Fisherman_Arms_Sheet_1: -4759333179243516399
+      Fisherman_Arms_Sheet_10: -5123764070292872123
+      Fisherman_Arms_Sheet_100: 6923107970600170688
+      Fisherman_Arms_Sheet_101: 4680460682905196972
+      Fisherman_Arms_Sheet_102: -5092229580061217277
+      Fisherman_Arms_Sheet_103: 8591830877378669292
+      Fisherman_Arms_Sheet_104: 8227117322837566588
+      Fisherman_Arms_Sheet_105: -2446071211407946140
+      Fisherman_Arms_Sheet_106: 2110216768743070492
+      Fisherman_Arms_Sheet_107: -7844694648684357162
+      Fisherman_Arms_Sheet_108: -6030833098442249072
+      Fisherman_Arms_Sheet_109: 5297680646869262320
+      Fisherman_Arms_Sheet_11: -2239558395569325648
+      Fisherman_Arms_Sheet_110: -3884991121335156714
+      Fisherman_Arms_Sheet_111: -3395760105283590795
+      Fisherman_Arms_Sheet_112: -325069821686289860
+      Fisherman_Arms_Sheet_113: -1330648780016568481
+      Fisherman_Arms_Sheet_114: 7162774371223596858
+      Fisherman_Arms_Sheet_115: 7123803696210675277
+      Fisherman_Arms_Sheet_116: -6128022419209681541
+      Fisherman_Arms_Sheet_117: 6486969508804613698
+      Fisherman_Arms_Sheet_118: -144100548424072737
+      Fisherman_Arms_Sheet_119: 4925424927412799061
+      Fisherman_Arms_Sheet_12: -1929745515854456476
+      Fisherman_Arms_Sheet_120: 2151610501335759818
+      Fisherman_Arms_Sheet_121: 2722210255662438424
+      Fisherman_Arms_Sheet_122: 4667116534375890734
+      Fisherman_Arms_Sheet_123: -2503409892206485048
+      Fisherman_Arms_Sheet_124: 5575609444390865535
+      Fisherman_Arms_Sheet_125: 5943280095559885605
+      Fisherman_Arms_Sheet_126: -2018340420131325748
+      Fisherman_Arms_Sheet_127: -1475662501190967041
+      Fisherman_Arms_Sheet_128: -7454970278278301330
+      Fisherman_Arms_Sheet_129: 8405144008039667473
+      Fisherman_Arms_Sheet_13: 8081103162536582600
+      Fisherman_Arms_Sheet_130: 434582657055544384
+      Fisherman_Arms_Sheet_131: -7318613981670313040
+      Fisherman_Arms_Sheet_132: -4599335179477580494
+      Fisherman_Arms_Sheet_133: 6983076858115753399
+      Fisherman_Arms_Sheet_134: 8290020873901635917
+      Fisherman_Arms_Sheet_135: 997996059756623615
+      Fisherman_Arms_Sheet_136: -4022684883107002015
+      Fisherman_Arms_Sheet_137: 4392374469989181587
+      Fisherman_Arms_Sheet_138: -3208752425754098445
+      Fisherman_Arms_Sheet_139: -1478154464823600752
+      Fisherman_Arms_Sheet_14: 374567079893882179
+      Fisherman_Arms_Sheet_140: 2718999135598194786
+      Fisherman_Arms_Sheet_141: -9079550418860501415
+      Fisherman_Arms_Sheet_142: 6512020141012740506
+      Fisherman_Arms_Sheet_143: 6492810229884414534
+      Fisherman_Arms_Sheet_144: 3532143580250353002
+      Fisherman_Arms_Sheet_145: -8662382936885819414
+      Fisherman_Arms_Sheet_146: 7485421272882402577
+      Fisherman_Arms_Sheet_147: -1045821162761618375
+      Fisherman_Arms_Sheet_148: -7787593431508821793
+      Fisherman_Arms_Sheet_15: 5428889769264027328
+      Fisherman_Arms_Sheet_16: -6415115158129753224
+      Fisherman_Arms_Sheet_17: 3367741904050077391
+      Fisherman_Arms_Sheet_18: 8137395732725819228
+      Fisherman_Arms_Sheet_19: 4982095994714845821
+      Fisherman_Arms_Sheet_2: -7015250379188126798
+      Fisherman_Arms_Sheet_20: -640127330513532865
+      Fisherman_Arms_Sheet_21: -3191346263752028213
+      Fisherman_Arms_Sheet_22: 3928559386064783001
+      Fisherman_Arms_Sheet_23: 8091773932900005819
+      Fisherman_Arms_Sheet_24: -9067207168682624253
+      Fisherman_Arms_Sheet_25: 9159655583721850710
+      Fisherman_Arms_Sheet_26: 8677593433460350926
+      Fisherman_Arms_Sheet_27: -5991162579391057207
+      Fisherman_Arms_Sheet_28: -1389608696569051754
+      Fisherman_Arms_Sheet_29: -8772636483830973502
+      Fisherman_Arms_Sheet_3: 2532957380249685297
+      Fisherman_Arms_Sheet_30: 5812294458661592834
+      Fisherman_Arms_Sheet_31: -229662196656750599
+      Fisherman_Arms_Sheet_32: 1689691929661224028
+      Fisherman_Arms_Sheet_33: -4405438974592385513
+      Fisherman_Arms_Sheet_34: 7673331910967936720
+      Fisherman_Arms_Sheet_35: 2134321551556581458
+      Fisherman_Arms_Sheet_36: -1425008268118458953
+      Fisherman_Arms_Sheet_37: -4213482726326186982
+      Fisherman_Arms_Sheet_38: 2437958386101668897
+      Fisherman_Arms_Sheet_39: 4266313740767148532
+      Fisherman_Arms_Sheet_4: -1446961734193297730
+      Fisherman_Arms_Sheet_40: -7738647092755211750
+      Fisherman_Arms_Sheet_41: 1261783451823573136
+      Fisherman_Arms_Sheet_42: 2650025072031142412
+      Fisherman_Arms_Sheet_43: 8703336533280705677
+      Fisherman_Arms_Sheet_44: 2316754735555654534
+      Fisherman_Arms_Sheet_45: 4996802187179553401
+      Fisherman_Arms_Sheet_46: 7556992800561051787
+      Fisherman_Arms_Sheet_47: 6710919469052631088
+      Fisherman_Arms_Sheet_48: -7372234764859410364
+      Fisherman_Arms_Sheet_49: -2301376762272775369
+      Fisherman_Arms_Sheet_5: -8410695997583848198
+      Fisherman_Arms_Sheet_50: 7500364996852353410
+      Fisherman_Arms_Sheet_51: -962754400367758694
+      Fisherman_Arms_Sheet_52: 5084070001728711955
+      Fisherman_Arms_Sheet_53: 3566628163296188761
+      Fisherman_Arms_Sheet_54: -2174670616344416829
+      Fisherman_Arms_Sheet_55: 815154524778576082
+      Fisherman_Arms_Sheet_56: 852995345801254772
+      Fisherman_Arms_Sheet_57: 6914760756591064901
+      Fisherman_Arms_Sheet_58: -2442911204586996493
+      Fisherman_Arms_Sheet_59: 8870780276182642481
+      Fisherman_Arms_Sheet_6: -3199058010251401596
+      Fisherman_Arms_Sheet_60: 7173315688767064402
+      Fisherman_Arms_Sheet_61: -5876870390438213067
+      Fisherman_Arms_Sheet_62: -6979665100227398599
+      Fisherman_Arms_Sheet_63: 7541459740883705546
+      Fisherman_Arms_Sheet_64: 5951214198510196082
+      Fisherman_Arms_Sheet_65: 7604114972684373019
+      Fisherman_Arms_Sheet_66: 4469802821667237544
+      Fisherman_Arms_Sheet_67: 7400380651278596866
+      Fisherman_Arms_Sheet_68: 3603981330310780630
+      Fisherman_Arms_Sheet_69: 3014335282152140104
+      Fisherman_Arms_Sheet_7: 8902774830046373399
+      Fisherman_Arms_Sheet_70: 8988349104958574355
+      Fisherman_Arms_Sheet_71: 7221090328620173802
+      Fisherman_Arms_Sheet_72: 9206858124971065652
+      Fisherman_Arms_Sheet_73: -5779736293987293246
+      Fisherman_Arms_Sheet_74: 2667720958896981680
+      Fisherman_Arms_Sheet_75: 651447825367778045
+      Fisherman_Arms_Sheet_76: -749446974387829949
+      Fisherman_Arms_Sheet_77: 4733535222706031980
+      Fisherman_Arms_Sheet_78: 1257423374449158509
+      Fisherman_Arms_Sheet_79: 8595472603713021681
+      Fisherman_Arms_Sheet_8: 2279988495412487061
+      Fisherman_Arms_Sheet_80: 7606946489096764797
+      Fisherman_Arms_Sheet_81: 4096952993808427901
+      Fisherman_Arms_Sheet_82: 233767209885175668
+      Fisherman_Arms_Sheet_83: 3126909280241783734
+      Fisherman_Arms_Sheet_84: -2787605092436455887
+      Fisherman_Arms_Sheet_85: -6969267970634224278
+      Fisherman_Arms_Sheet_86: 2757942885906385454
+      Fisherman_Arms_Sheet_87: 2327358390076154300
+      Fisherman_Arms_Sheet_88: 1092053171697679609
+      Fisherman_Arms_Sheet_89: 3948865633331283374
+      Fisherman_Arms_Sheet_9: 2623018714829643954
+      Fisherman_Arms_Sheet_90: 1904484843949906294
+      Fisherman_Arms_Sheet_91: 9214341521584074815
+      Fisherman_Arms_Sheet_92: 1653135082485303364
+      Fisherman_Arms_Sheet_93: -2665932797194084148
+      Fisherman_Arms_Sheet_94: 6560879319144795299
+      Fisherman_Arms_Sheet_95: 336962629747027734
+      Fisherman_Arms_Sheet_96: -2883362458049028373
+      Fisherman_Arms_Sheet_97: -7087666267106234051
+      Fisherman_Arms_Sheet_98: 1111991698820760842
+      Fisherman_Arms_Sheet_99: -7036431986947042262
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

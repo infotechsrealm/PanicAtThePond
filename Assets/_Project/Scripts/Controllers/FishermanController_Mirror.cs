@@ -36,6 +36,13 @@ public class FishermanController_Mirror : NetworkBehaviour
     {
         // SyncVar changed on a client (e.g. the catcher's CmdSetCosmetics reached the server and
         // replicated). Re-apply so remote players see the correct hat/hair on this fisherman.
+        // The owner is skipped: it applied its own selection from local prefs in
+        // FishermanController.Start and is the authority on it (see ApplySyncedCosmetics).
+        if (isLocalPlayer)
+        {
+            return;
+        }
+
         ApplySyncedCosmetics();
     }
 
@@ -80,6 +87,15 @@ public class FishermanController_Mirror : NetworkBehaviour
 
         while (elapsed < timeout)
         {
+            // The owning client applied its own hat/hair from local prefs in
+            // FishermanController.Start. Re-applying the replicated values on top of that would
+            // overwrite them with the SyncVar defaults in the frames before the Cmd round-trip
+            // lands, and an empty name means "remove the cosmetic".
+            if (isLocalPlayer)
+            {
+                yield break;
+            }
+
             if (FishermanController != null)
             {
                 ApplySyncedCosmetics();
@@ -96,15 +112,30 @@ public class FishermanController_Mirror : NetworkBehaviour
             yield return null;
         }
 
+        if (isLocalPlayer)
+        {
+            yield break;
+        }
+
         ApplySyncedCosmetics();
     }
 
     private void ApplySyncedCosmetics()
     {
-        if (FishermanController != null)
+        if (FishermanController == null)
         {
-            CosmeticRuntimeApplier.ApplyFishermanCosmeticsByName(FishermanController.gameObject, syncedHatName, syncedHairName);
+            return;
         }
+
+        // Both names empty means the owner's choice has not reached us yet, not "wear nothing".
+        // A fisherman that was never given cosmetics has none, so skipping cannot leave a stale
+        // one behind -- but applying would delete a cosmetic that is already correct.
+        if (string.IsNullOrEmpty(syncedHatName) && string.IsNullOrEmpty(syncedHairName))
+        {
+            return;
+        }
+
+        CosmeticRuntimeApplier.ApplyFishermanCosmeticsByName(FishermanController.gameObject, syncedHatName, syncedHairName);
     }
 
     private void Start()

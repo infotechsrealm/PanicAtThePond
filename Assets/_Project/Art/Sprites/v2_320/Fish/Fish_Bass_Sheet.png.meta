@@ -1,0 +1,1052 @@
+fileFormatVersion: 2
+guid: 7966d2301f05b4a4b9abe7bc17b0db73
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1690271303267025753
+    second: Fish_Bass_Sheet_0
+  - first:
+      213: 2581095279547741029
+    second: Fish_Bass_Sheet_1
+  - first:
+      213: 3596038272434987409
+    second: Fish_Bass_Sheet_2
+  - first:
+      213: 486900806943008546
+    second: Fish_Bass_Sheet_3
+  - first:
+      213: 5265467562844610627
+    second: Fish_Bass_Sheet_4
+  - first:
+      213: -4392830156053760267
+    second: Fish_Bass_Sheet_5
+  - first:
+      213: -4605819537406842627
+    second: Fish_Bass_Sheet_6
+  - first:
+      213: -6421152649971675739
+    second: Fish_Bass_Sheet_7
+  - first:
+      213: -2850320731168801351
+    second: Fish_Bass_Sheet_8
+  - first:
+      213: -629140245036615917
+    second: Fish_Bass_Sheet_9
+  - first:
+      213: -5616468819795265929
+    second: Fish_Bass_Sheet_10
+  - first:
+      213: -1124960165153382957
+    second: Fish_Bass_Sheet_11
+  - first:
+      213: -905462728804306667
+    second: Fish_Bass_Sheet_12
+  - first:
+      213: -1217134201286743932
+    second: Fish_Bass_Sheet_13
+  - first:
+      213: 3763396399986792652
+    second: Fish_Bass_Sheet_14
+  - first:
+      213: 4152845864195348448
+    second: Fish_Bass_Sheet_15
+  - first:
+      213: -8895413360634012034
+    second: Fish_Bass_Sheet_16
+  - first:
+      213: 75352755501891017
+    second: Fish_Bass_Sheet_17
+  - first:
+      213: 688408338022286723
+    second: Fish_Bass_Sheet_18
+  - first:
+      213: -1884893088249682038
+    second: Fish_Bass_Sheet_19
+  - first:
+      213: 7146142400114175708
+    second: Fish_Bass_Sheet_20
+  - first:
+      213: -6655282775542544534
+    second: Fish_Bass_Sheet_21
+  - first:
+      213: -1842935787345400168
+    second: Fish_Bass_Sheet_22
+  - first:
+      213: 2797819358186605065
+    second: Fish_Bass_Sheet_23
+  - first:
+      213: -7523673876680869887
+    second: Fish_Bass_Sheet_24
+  - first:
+      213: -1322032280193848862
+    second: Bass_r00_f0
+  - first:
+      213: 9134355500703853220
+    second: Bass_r00_f1
+  - first:
+      213: -618738417204531619
+    second: Bass_r00_f2
+  - first:
+      213: -5636210655780319579
+    second: Bass_r00_f3
+  - first:
+      213: -8845277966046138279
+    second: Bass_r00_f4
+  - first:
+      213: 3891450459745938654
+    second: Bass_r01_f0
+  - first:
+      213: 3513261822623975700
+    second: Bass_r01_f1
+  - first:
+      213: 157272293609225767
+    second: Bass_r01_f2
+  - first:
+      213: 230186182714750740
+    second: Bass_r01_f3
+  - first:
+      213: -8598758980716182729
+    second: Bass_r01_f4
+  - first:
+      213: -3535312649884521801
+    second: Bass_r02_f0
+  - first:
+      213: -387008957161232697
+    second: Bass_r02_f1
+  - first:
+      213: 9207059878102133208
+    second: Bass_r02_f2
+  - first:
+      213: 4116246691219922986
+    second: Bass_r02_f3
+  - first:
+      213: 4683911556098122548
+    second: Bass_r02_f4
+  - first:
+      213: 8231636050693100477
+    second: Bass_r03_f0
+  - first:
+      213: 2883698947269037706
+    second: Bass_r03_f1
+  - first:
+      213: -576572289598400403
+    second: Bass_r03_f2
+  - first:
+      213: 1010670454352503192
+    second: Bass_r03_f3
+  - first:
+      213: -7343139661534112005
+    second: Bass_r03_f4
+  - first:
+      213: 5271244794095855473
+    second: Bass_r04_f0
+  - first:
+      213: -4634322286891985037
+    second: Bass_r04_f1
+  - first:
+      213: -5386830379373558742
+    second: Bass_r04_f2
+  - first:
+      213: 8989178135665833799
+    second: Bass_r04_f3
+  - first:
+      213: 4508927610219600307
+    second: Bass_r04_f4
+  - first:
+      213: 2286599952962678050
+    second: Bass_r05_f0
+  - first:
+      213: 7316875860952195557
+    second: Bass_r05_f1
+  - first:
+      213: -8489484108025114905
+    second: Bass_r05_f2
+  - first:
+      213: -5681550221606182
+    second: Bass_r05_f3
+  - first:
+      213: 4598352207944123792
+    second: Bass_r05_f4
+  - first:
+      213: -2710319962919081537
+    second: Bass_Idle_0
+  - first:
+      213: -5975469514880693627
+    second: Bass_Idle_1
+  - first:
+      213: -3455334096048486385
+    second: Bass_Idle_2
+  - first:
+      213: 4123796995413740489
+    second: Bass_Idle_3
+  - first:
+      213: 8290581353789902159
+    second: Bass_Move_0
+  - first:
+      213: 1281420618855814910
+    second: Bass_Move_1
+  - first:
+      213: 305806770047834470
+    second: Bass_Move_2
+  - first:
+      213: 3678414360603858039
+    second: Bass_Move_3
+  - first:
+      213: -508936096949169615
+    second: Bass_Eat_0
+  - first:
+      213: 6232446885378894273
+    second: Bass_Eat_1
+  - first:
+      213: -7679643347453621663
+    second: Bass_Eat_2
+  - first:
+      213: 1952482007329859209
+    second: Bass_Eat_3
+  - first:
+      213: 3076608232212051421
+    second: Bass_Fight_0
+  - first:
+      213: 7159920306588442492
+    second: Bass_Fight_1
+  - first:
+      213: 6943169437310431744
+    second: Bass_Fight_2
+  - first:
+      213: -6663405053713025985
+    second: Bass_Fight_3
+  - first:
+      213: 590557578578266077
+    second: Bass_Joyful_0
+  - first:
+      213: -7970876842533213826
+    second: Bass_Joyful_1
+  - first:
+      213: -6299931542694182192
+    second: Bass_Joyful_2
+  - first:
+      213: -8882021741546257501
+    second: Bass_Joyful_3
+  - first:
+      213: 8933673415604247942
+    second: Bass_Dead_0
+  - first:
+      213: 7441244052852755776
+    second: Bass_Dead_1
+  - first:
+      213: -1663506873469827847
+    second: Bass_Dead_2
+  - first:
+      213: -3619644154634143259
+    second: Bass_Dead_3
+  - first:
+      213: 6777465128424301940
+    second: Bass_Dead_4
+  - first:
+      213: -5399697771550296668
+    second: Bass_Dead_5
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bass_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 700
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb9ee868a52036ad0800000000000000
+      internalID: -2710319962919081537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 700
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58a4c57b22ed21da0800000000000000
+      internalID: -5975469514880693627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 700
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f080cb062ff2c00d0800000000000000
+      internalID: -3455334096048486385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 700
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cb857db48baa3930800000000000000
+      internalID: 4123796995413740489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Move_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 560
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4dcf1ed0df0e0370800000000000000
+      internalID: 8290581353789902159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Move_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 560
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef613ca734588c110800000000000000
+      internalID: 1281420618855814910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Move_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 560
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6695c9a13a17e3400800000000000000
+      internalID: 305806770047834470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Move_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 560
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7741d743f5a5c0330800000000000000
+      internalID: 3678414360603858039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Eat_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13298f7f055efe8f0800000000000000
+      internalID: -508936096949169615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Eat_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 420
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c9af7cdb691e7650800000000000000
+      internalID: 6232446885378894273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Eat_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 420
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16ac551601d6c6590800000000000000
+      internalID: -7679643347453621663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Eat_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 420
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 986ec3d7a0c981b10800000000000000
+      internalID: 1952482007329859209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Fight_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd5ba0af2ee42ba20800000000000000
+      internalID: 3076608232212051421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Fight_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 280
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7f5f4e75952d5360800000000000000
+      internalID: 7159920306588442492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Fight_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 280
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 002bc3611d71b5060800000000000000
+      internalID: 6943169437310431744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Fight_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 280
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3474ea6864d683a0800000000000000
+      internalID: -6663405053713025985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Joyful_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 140
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd782922df4123800800000000000000
+      internalID: 590557578578266077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Joyful_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 140
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e79ab644eb1c16190800000000000000
+      internalID: -7970876842533213826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Joyful_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 140
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d24f60f3a52298a0800000000000000
+      internalID: -6299931542694182192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Joyful_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 140
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a3c6d7f848bcb480800000000000000
+      internalID: -8882021741546257501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Dead_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68d117c83a8cafb70800000000000000
+      internalID: 8933673415604247942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Dead_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04dc6496a0c944760800000000000000
+      internalID: 7441244052852755776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Dead_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f4096def490ae8e0800000000000000
+      internalID: -1663506873469827847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Dead_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e976bda1d074cdc0800000000000000
+      internalID: -3619644154634143259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Dead_4
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 475e35130a46e0e50800000000000000
+      internalID: 6777465128424301940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bass_Dead_5
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a5b6405c7b6015b0800000000000000
+      internalID: -5399697771550296668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Bass_Dead_0: 8933673415604247942
+      Bass_Dead_1: 7441244052852755776
+      Bass_Dead_2: -1663506873469827847
+      Bass_Dead_3: -3619644154634143259
+      Bass_Dead_4: 6777465128424301940
+      Bass_Dead_5: -5399697771550296668
+      Bass_Eat_0: -508936096949169615
+      Bass_Eat_1: 6232446885378894273
+      Bass_Eat_2: -7679643347453621663
+      Bass_Eat_3: 1952482007329859209
+      Bass_Fight_0: 3076608232212051421
+      Bass_Fight_1: 7159920306588442492
+      Bass_Fight_2: 6943169437310431744
+      Bass_Fight_3: -6663405053713025985
+      Bass_Idle_0: -2710319962919081537
+      Bass_Idle_1: -5975469514880693627
+      Bass_Idle_2: -3455334096048486385
+      Bass_Idle_3: 4123796995413740489
+      Bass_Joyful_0: 590557578578266077
+      Bass_Joyful_1: -7970876842533213826
+      Bass_Joyful_2: -6299931542694182192
+      Bass_Joyful_3: -8882021741546257501
+      Bass_Move_0: 8290581353789902159
+      Bass_Move_1: 1281420618855814910
+      Bass_Move_2: 305806770047834470
+      Bass_Move_3: 3678414360603858039
+      Bass_r00_f0: -1322032280193848862
+      Bass_r00_f1: 9134355500703853220
+      Bass_r00_f2: -618738417204531619
+      Bass_r00_f3: -5636210655780319579
+      Bass_r00_f4: -8845277966046138279
+      Bass_r01_f0: 3891450459745938654
+      Bass_r01_f1: 3513261822623975700
+      Bass_r01_f2: 157272293609225767
+      Bass_r01_f3: 230186182714750740
+      Bass_r01_f4: -8598758980716182729
+      Bass_r02_f0: -3535312649884521801
+      Bass_r02_f1: -387008957161232697
+      Bass_r02_f2: 9207059878102133208
+      Bass_r02_f3: 4116246691219922986
+      Bass_r02_f4: 4683911556098122548
+      Bass_r03_f0: 8231636050693100477
+      Bass_r03_f1: 2883698947269037706
+      Bass_r03_f2: -576572289598400403
+      Bass_r03_f3: 1010670454352503192
+      Bass_r03_f4: -7343139661534112005
+      Bass_r04_f0: 5271244794095855473
+      Bass_r04_f1: -4634322286891985037
+      Bass_r04_f2: -5386830379373558742
+      Bass_r04_f3: 8989178135665833799
+      Bass_r04_f4: 4508927610219600307
+      Bass_r05_f0: 2286599952962678050
+      Bass_r05_f1: 7316875860952195557
+      Bass_r05_f2: -8489484108025114905
+      Bass_r05_f3: -5681550221606182
+      Bass_r05_f4: 4598352207944123792
+      Fish_Bass_Sheet_0: -1690271303267025753
+      Fish_Bass_Sheet_1: 2581095279547741029
+      Fish_Bass_Sheet_10: -5616468819795265929
+      Fish_Bass_Sheet_11: -1124960165153382957
+      Fish_Bass_Sheet_12: -905462728804306667
+      Fish_Bass_Sheet_13: -1217134201286743932
+      Fish_Bass_Sheet_14: 3763396399986792652
+      Fish_Bass_Sheet_15: 4152845864195348448
+      Fish_Bass_Sheet_16: -8895413360634012034
+      Fish_Bass_Sheet_17: 75352755501891017
+      Fish_Bass_Sheet_18: 688408338022286723
+      Fish_Bass_Sheet_19: -1884893088249682038
+      Fish_Bass_Sheet_2: 3596038272434987409
+      Fish_Bass_Sheet_20: 7146142400114175708
+      Fish_Bass_Sheet_21: -6655282775542544534
+      Fish_Bass_Sheet_22: -1842935787345400168
+      Fish_Bass_Sheet_23: 2797819358186605065
+      Fish_Bass_Sheet_24: -7523673876680869887
+      Fish_Bass_Sheet_3: 486900806943008546
+      Fish_Bass_Sheet_4: 5265467562844610627
+      Fish_Bass_Sheet_5: -4392830156053760267
+      Fish_Bass_Sheet_6: -4605819537406842627
+      Fish_Bass_Sheet_7: -6421152649971675739
+      Fish_Bass_Sheet_8: -2850320731168801351
+      Fish_Bass_Sheet_9: -629140245036615917
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

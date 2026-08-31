@@ -1,0 +1,3420 @@
+fileFormatVersion: 2
+guid: 7ecb3a799f606fa43bbd41b4f083986c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5022514415920568167
+    second: Fisherman_Head_Sheet_0
+  - first:
+      213: 7715783938834639785
+    second: Fisherman_Head_Sheet_1
+  - first:
+      213: 2666084320548438826
+    second: Fisherman_Head_Sheet_2
+  - first:
+      213: 5091899332874643107
+    second: Fisherman_Head_Sheet_3
+  - first:
+      213: 6823735651687419736
+    second: Fisherman_Head_Sheet_4
+  - first:
+      213: -6374927450823249702
+    second: Fisherman_Head_Sheet_5
+  - first:
+      213: 1141294958221650998
+    second: Fisherman_Head_Sheet_6
+  - first:
+      213: -1842475274946456095
+    second: Fisherman_Head_Sheet_7
+  - first:
+      213: 5367092758036737141
+    second: Fisherman_Head_Sheet_8
+  - first:
+      213: -5007590036930673193
+    second: Fisherman_Head_Sheet_9
+  - first:
+      213: -23737402125491010
+    second: Fisherman_Head_Sheet_10
+  - first:
+      213: 4937401266747718044
+    second: Fisherman_Head_Sheet_11
+  - first:
+      213: -6233018935371305584
+    second: Fisherman_Head_Sheet_12
+  - first:
+      213: -8830232771071977977
+    second: Fisherman_Head_Sheet_13
+  - first:
+      213: 5269865439652325210
+    second: Fisherman_Head_Sheet_14
+  - first:
+      213: 1996436033696733781
+    second: Fisherman_Head_Sheet_15
+  - first:
+      213: -2056240934660545112
+    second: Fisherman_Head_Sheet_16
+  - first:
+      213: 4302508708847763112
+    second: Fisherman_Head_Sheet_17
+  - first:
+      213: -3534301424456243668
+    second: Fisherman_Head_Sheet_18
+  - first:
+      213: 2084383339446581867
+    second: Fisherman_Head_Sheet_19
+  - first:
+      213: -4587874374746385089
+    second: Fisherman_Head_Sheet_20
+  - first:
+      213: 9006584855511037244
+    second: Fisherman_Head_Sheet_21
+  - first:
+      213: -1858968733930946623
+    second: Fisherman_Head_Sheet_22
+  - first:
+      213: 5670886719341458879
+    second: Fisherman_Head_Sheet_23
+  - first:
+      213: -6166072923347687239
+    second: Fisherman_Head_Sheet_24
+  - first:
+      213: 1508459033804644607
+    second: Fisherman_Head_Sheet_25
+  - first:
+      213: 8642947325052470717
+    second: Fisherman_Head_Sheet_26
+  - first:
+      213: -4972019600965207422
+    second: Fisherman_Head_Sheet_27
+  - first:
+      213: -3315326683831138262
+    second: Fisherman_Head_Sheet_28
+  - first:
+      213: 7994527004014519402
+    second: Fisherman_Head_Sheet_29
+  - first:
+      213: -4764374167183547449
+    second: Fisherman_Head_Sheet_30
+  - first:
+      213: -7740627723312229631
+    second: Fisherman_Head_Sheet_31
+  - first:
+      213: -5366885147375724703
+    second: Fisherman_Head_Sheet_32
+  - first:
+      213: 8839946325774259400
+    second: Fisherman_Head_Sheet_33
+  - first:
+      213: 7692968879485825114
+    second: Fisherman_Head_Sheet_34
+  - first:
+      213: 7720981071970981419
+    second: Fisherman_Head_Sheet_35
+  - first:
+      213: -6687790090312479879
+    second: Fisherman_Head_Sheet_36
+  - first:
+      213: -7943342386787771479
+    second: Fisherman_Head_Sheet_37
+  - first:
+      213: 4918034773672026236
+    second: Fisherman_Head_Sheet_38
+  - first:
+      213: 4741071175807262197
+    second: Fisherman_Head_Sheet_39
+  - first:
+      213: -7385620465757806704
+    second: Fisherman_Head_Sheet_40
+  - first:
+      213: -3947355965464282868
+    second: Fisherman_Head_Sheet_41
+  - first:
+      213: -2203051466233956223
+    second: Fisherman_Head_Sheet_42
+  - first:
+      213: 4485627501487479284
+    second: Fisherman_Head_Sheet_43
+  - first:
+      213: -6062278374281148458
+    second: Fisherman_Head_Sheet_44
+  - first:
+      213: -2125686894674644832
+    second: Fisherman_Head_Sheet_45
+  - first:
+      213: 6312137383592325951
+    second: Fisherman_Head_Sheet_46
+  - first:
+      213: 3398714350477717311
+    second: Fisherman_Head_Sheet_47
+  - first:
+      213: 3536168353239146293
+    second: Fisherman_Head_Sheet_48
+  - first:
+      213: -4110567936757581889
+    second: Fisherman_Head_Sheet_49
+  - first:
+      213: -2036658297657866306
+    second: Fisherman_Head_Sheet_50
+  - first:
+      213: 8436234818184164365
+    second: Fisherman_Head_Sheet_51
+  - first:
+      213: 4974692998723228142
+    second: Fisherman_Head_Sheet_52
+  - first:
+      213: 3233265758567702079
+    second: Fisherman_Head_Sheet_53
+  - first:
+      213: -8326960376613952908
+    second: Fisherman_Head_Sheet_54
+  - first:
+      213: 1961684190852706582
+    second: Fisherman_Head_Sheet_55
+  - first:
+      213: 6808321046313509982
+    second: Fisherman_Head_Sheet_56
+  - first:
+      213: -5185940886331960459
+    second: Fisherman_Head_Sheet_57
+  - first:
+      213: -6128490028702620264
+    second: Fisherman_Head_Sheet_58
+  - first:
+      213: 7520066135808544024
+    second: Fisherman_Head_Sheet_59
+  - first:
+      213: 7014804764851458236
+    second: Fisherman_Head_Sheet_60
+  - first:
+      213: 5046128211448578369
+    second: Fisherman_Head_Sheet_61
+  - first:
+      213: 4491432151499784986
+    second: Fisherman_Head_Sheet_62
+  - first:
+      213: -1116087830736835985
+    second: Fisherman_Head_Sheet_63
+  - first:
+      213: 8445595434665761329
+    second: Fisherman_Head_Sheet_64
+  - first:
+      213: -1052068929136305496
+    second: Fisherman_Head_Sheet_65
+  - first:
+      213: 2363988497464850659
+    second: Fisherman_Head_Sheet_66
+  - first:
+      213: 7713888563822734434
+    second: Fisherman_Head_Sheet_67
+  - first:
+      213: -5270708726773053693
+    second: Fisherman_Head_Sheet_68
+  - first:
+      213: -6664355782842306286
+    second: Fisherman_Head_Sheet_69
+  - first:
+      213: -2886712530995747241
+    second: Fisherman_Head_Sheet_70
+  - first:
+      213: 8520404532000562757
+    second: Fisherman_Head_Sheet_71
+  - first:
+      213: -3528582107682311399
+    second: Fisherman_Head_Sheet_72
+  - first:
+      213: 806496804173458449
+    second: Fisherman_Head_Sheet_73
+  - first:
+      213: 4782779270396814711
+    second: Fisherman_Head_Sheet_74
+  - first:
+      213: 4334377102330555716
+    second: Fisherman_Head_Sheet_75
+  - first:
+      213: 4939277258567735262
+    second: Fisherman_Head_Sheet_76
+  - first:
+      213: -1970822767564698143
+    second: Fisherman_Head_Sheet_77
+  - first:
+      213: -3442672941718790719
+    second: Fisherman_Head_Sheet_78
+  - first:
+      213: 8625245709536833995
+    second: Fisherman_Head_Sheet_79
+  - first:
+      213: 1014486022812180227
+    second: Fisherman_Head_Sheet_80
+  - first:
+      213: -4168244722259312462
+    second: Fisherman_Head_Sheet_81
+  - first:
+      213: -824106132804478733
+    second: Fisherman_Head_Sheet_82
+  - first:
+      213: 4888263264746813005
+    second: Fisherman_Head_Sheet_83
+  - first:
+      213: -943351795572919869
+    second: Fisherman_Head_Sheet_84
+  - first:
+      213: 3067174793108372587
+    second: Fisherman_Head_Sheet_85
+  - first:
+      213: 8308355688398174262
+    second: Fisherman_Head_Sheet_86
+  - first:
+      213: 7275917106192698932
+    second: Fisherman_Head_Sheet_87
+  - first:
+      213: 7896479100863840510
+    second: Fisherman_Head_Sheet_88
+  - first:
+      213: 8007900844143228862
+    second: Fisherman_Head_Sheet_89
+  - first:
+      213: 6900956184843888251
+    second: Fisherman_Head_Sheet_90
+  - first:
+      213: -7999719642955588495
+    second: Fisherman_Head_Sheet_91
+  - first:
+      213: 8643822944914834789
+    second: Fisherman_Head_Sheet_92
+  - first:
+      213: 1846803367418700204
+    second: Fisherman_Head_Sheet_93
+  - first:
+      213: -1251654525048096890
+    second: Fisherman_Head_Sheet_94
+  - first:
+      213: 5879186225016609755
+    second: Fisherman_Head_Sheet_95
+  - first:
+      213: -3453293424538557680
+    second: Head_r00_f0
+  - first:
+      213: 1165717752721180060
+    second: Head_r00_f1
+  - first:
+      213: -828026832425717682
+    second: Head_r00_f2
+  - first:
+      213: 1720822544746476952
+    second: Head_r00_f3
+  - first:
+      213: 2289563788528383595
+    second: Head_r01_f0
+  - first:
+      213: 47450776303025864
+    second: Head_r01_f1
+  - first:
+      213: -1995119066240121629
+    second: Head_r01_f2
+  - first:
+      213: -9033474795706637295
+    second: Head_r01_f3
+  - first:
+      213: 1830968625142393021
+    second: Head_r02_f0
+  - first:
+      213: -7563261937490047779
+    second: Head_r02_f1
+  - first:
+      213: 6842005139151546037
+    second: Head_r02_f2
+  - first:
+      213: 5907776920226435720
+    second: Head_r02_f3
+  - first:
+      213: 5568663643436384127
+    second: Head_r03_f0
+  - first:
+      213: 4739881563904787325
+    second: Head_r03_f1
+  - first:
+      213: -7783772805393556906
+    second: Head_r03_f2
+  - first:
+      213: -7531139332854005959
+    second: Head_r03_f3
+  - first:
+      213: 3576396456195102047
+    second: Head_r04_f0
+  - first:
+      213: 1510850565623380849
+    second: Head_r04_f1
+  - first:
+      213: -2933255346062006551
+    second: Head_r04_f2
+  - first:
+      213: 8749076061591245393
+    second: Head_r04_f3
+  - first:
+      213: -8747426324399233163
+    second: Head_r05_f0
+  - first:
+      213: -2643390733802055216
+    second: Head_r05_f1
+  - first:
+      213: -3187316135545516864
+    second: Head_r05_f2
+  - first:
+      213: 4073528401844007133
+    second: Head_r05_f3
+  - first:
+      213: -1127765184441820332
+    second: Head_r06_f0
+  - first:
+      213: 7906480369735986722
+    second: Head_r06_f1
+  - first:
+      213: -7440410335986496083
+    second: Head_r06_f2
+  - first:
+      213: -6569320784077538433
+    second: Head_r06_f3
+  - first:
+      213: -6233168318570544773
+    second: Head_r07_f0
+  - first:
+      213: -8676192188228588675
+    second: Head_r07_f1
+  - first:
+      213: -6233895049019575621
+    second: Head_r07_f2
+  - first:
+      213: 1582363253893770362
+    second: Head_r07_f3
+  - first:
+      213: 8498488045628584929
+    second: Head_r08_f0
+  - first:
+      213: 6069920329712742002
+    second: Head_r08_f1
+  - first:
+      213: -1552855499916936975
+    second: Head_r08_f2
+  - first:
+      213: 1574652667546441713
+    second: Head_r08_f3
+  - first:
+      213: 2607323721144027925
+    second: Head_r09_f0
+  - first:
+      213: 2233717467971279013
+    second: Head_r09_f1
+  - first:
+      213: -6475609928685328583
+    second: Head_r09_f2
+  - first:
+      213: -3411063205781341404
+    second: Head_r09_f3
+  - first:
+      213: 368401306111674467
+    second: Head_r10_f0
+  - first:
+      213: 1035261045071564091
+    second: Head_r10_f1
+  - first:
+      213: 5979746030138020023
+    second: Head_r10_f2
+  - first:
+      213: -4682182077682861818
+    second: Head_r10_f3
+  - first:
+      213: -2266521432251099561
+    second: Head_r11_f0
+  - first:
+      213: 3006504852192448885
+    second: Head_r11_f1
+  - first:
+      213: 1720474982470256906
+    second: Head_r11_f2
+  - first:
+      213: 8100735264193030204
+    second: Head_r11_f3
+  - first:
+      213: -6560003938177414602
+    second: Head_r12_f0
+  - first:
+      213: 2661249749152046734
+    second: Head_r12_f1
+  - first:
+      213: -6868166022949321431
+    second: Head_r12_f2
+  - first:
+      213: 4107407838929019318
+    second: Head_r12_f3
+  - first:
+      213: 7172002984591222900
+    second: Head_r13_f0
+  - first:
+      213: -6933479154121105050
+    second: Head_r13_f1
+  - first:
+      213: -5439298302893421967
+    second: Head_r13_f2
+  - first:
+      213: 7065497974610597666
+    second: Head_r13_f3
+  - first:
+      213: 2734861414757680026
+    second: Head_r14_f0
+  - first:
+      213: -2069566024096078017
+    second: Head_r14_f1
+  - first:
+      213: -4541078376181389362
+    second: Head_r14_f2
+  - first:
+      213: 740746619882477076
+    second: Head_r14_f3
+  - first:
+      213: -6425791471760455819
+    second: Head_r15_f0
+  - first:
+      213: 4036268201179023495
+    second: Head_r15_f1
+  - first:
+      213: 220667050309102094
+    second: Head_r15_f2
+  - first:
+      213: -1191837554924018764
+    second: Head_r15_f3
+  - first:
+      213: -7518683292788789975
+    second: Head_r16_f0
+  - first:
+      213: 2265152938622362512
+    second: Head_r16_f1
+  - first:
+      213: -2738792219787229436
+    second: Head_r16_f2
+  - first:
+      213: -7073370321761876064
+    second: Head_r16_f3
+  - first:
+      213: -381232607551996136
+    second: Head_r17_f0
+  - first:
+      213: 1448753546450850630
+    second: Head_r17_f1
+  - first:
+      213: -4174625973706035825
+    second: Head_r17_f2
+  - first:
+      213: -3363133857892790002
+    second: Head_r17_f3
+  - first:
+      213: -3514203858093909102
+    second: Head_r18_f0
+  - first:
+      213: -3065670660675814487
+    second: Head_r18_f1
+  - first:
+      213: 8234020962195507641
+    second: Head_r18_f2
+  - first:
+      213: 716144878542084991
+    second: Head_r18_f3
+  - first:
+      213: 5871158671440723446
+    second: Head_r19_f0
+  - first:
+      213: 3683120200181646737
+    second: Head_r19_f1
+  - first:
+      213: 5285451068944072127
+    second: Head_r19_f2
+  - first:
+      213: -7399527495904438115
+    second: Head_r19_f3
+  - first:
+      213: 7235508288471290543
+    second: Head_r20_f0
+  - first:
+      213: -779576969537990905
+    second: Head_r20_f1
+  - first:
+      213: 8399020743772065730
+    second: Head_r20_f2
+  - first:
+      213: 559101505893416900
+    second: Head_r20_f3
+  - first:
+      213: -4456163289592494019
+    second: Head_r21_f0
+  - first:
+      213: 1451155177710474314
+    second: Head_r21_f1
+  - first:
+      213: 56528749127752493
+    second: Head_r21_f2
+  - first:
+      213: 7318498795132536564
+    second: Head_r21_f3
+  - first:
+      213: -6417180580034744917
+    second: Head_r22_f0
+  - first:
+      213: 8754724547662319554
+    second: Head_r22_f1
+  - first:
+      213: -3952464559023993038
+    second: Head_r22_f2
+  - first:
+      213: -5164120757188322562
+    second: Head_r22_f3
+  - first:
+      213: 5724633171745730295
+    second: Head_r23_f0
+  - first:
+      213: 3392947738050075586
+    second: Head_r23_f1
+  - first:
+      213: -7469398082003252437
+    second: Head_r23_f2
+  - first:
+      213: -4455390273370658855
+    second: Head_r23_f3
+  - first:
+      213: 3009808762264289863
+    second: Head_Casting_L_0
+  - first:
+      213: 7104872714553678378
+    second: Head_Casting_L_1
+  - first:
+      213: 919836874394965236
+    second: Head_Casting_L_2
+  - first:
+      213: 13451590368514059
+    second: Head_Casting_L_3
+  - first:
+      213: -673145968927173581
+    second: Head_Idle_L_0
+  - first:
+      213: -769758119838930989
+    second: Head_Idle_L_1
+  - first:
+      213: 3726841643715447728
+    second: Head_Idle_L_2
+  - first:
+      213: 1640997923623134765
+    second: Head_Idle_L_3
+  - first:
+      213: 4996796592897806314
+    second: Head_Fishing_L_0
+  - first:
+      213: 1894119210910332865
+    second: Head_Fishing_L_1
+  - first:
+      213: 829270763627972378
+    second: Head_Fishing_L_2
+  - first:
+      213: -5971191595140357187
+    second: Head_Fishing_L_3
+  - first:
+      213: -5424670473530944073
+    second: Head_MoveForward_L_0
+  - first:
+      213: -6186185952151522376
+    second: Head_MoveForward_L_1
+  - first:
+      213: 8695481007496281635
+    second: Head_MoveForward_L_2
+  - first:
+      213: -463290899586749972
+    second: Head_MoveForward_L_3
+  - first:
+      213: -3127190541887987546
+    second: Head_MoveBackward_L_0
+  - first:
+      213: -8215450878810933643
+    second: Head_MoveBackward_L_1
+  - first:
+      213: -9188268115192733506
+    second: Head_MoveBackward_L_2
+  - first:
+      213: -8984924608404038178
+    second: Head_MoveBackward_L_3
+  - first:
+      213: 4128418693371129546
+    second: Head_Fighting_L_0
+  - first:
+      213: 1440200253260686710
+    second: Head_Fighting_L_1
+  - first:
+      213: 2930724202772130936
+    second: Head_Fighting_L_2
+  - first:
+      213: -6830547369379076277
+    second: Head_Fighting_L_3
+  - first:
+      213: -2567233220552928881
+    second: Head_Reeling_L_0
+  - first:
+      213: 5160024302933232426
+    second: Head_Reeling_L_1
+  - first:
+      213: 1591497881753350027
+    second: Head_Reeling_L_2
+  - first:
+      213: 265071891948689237
+    second: Head_Reeling_L_3
+  - first:
+      213: 2169933391803274935
+    second: Head_Win_L_0
+  - first:
+      213: 1633269489579804287
+    second: Head_Win_L_1
+  - first:
+      213: 3829581311037981942
+    second: Head_Win_L_2
+  - first:
+      213: -4980972709284193715
+    second: Head_Win_L_3
+  - first:
+      213: -144870141990506173
+    second: Head_SwappingPoles_L_0
+  - first:
+      213: 650414764107341910
+    second: Head_SwappingPoles_L_1
+  - first:
+      213: 6526714406511148211
+    second: Head_SwappingPoles_L_2
+  - first:
+      213: 5217599352059578424
+    second: Head_SwappingPoles_L_3
+  - first:
+      213: -6305371060661802203
+    second: Head_Scared_L_0
+  - first:
+      213: -2710450109404412667
+    second: Head_Scared_L_1
+  - first:
+      213: -9091730375223085839
+    second: Head_Scared_L_2
+  - first:
+      213: -4059693312026389682
+    second: Head_Scared_L_3
+  - first:
+      213: -8010400126500697985
+    second: Head_GoToCry_L_0
+  - first:
+      213: -4705931900807092417
+    second: Head_GoToCry_L_1
+  - first:
+      213: -5353614702721023006
+    second: Head_GoToCry_L_2
+  - first:
+      213: -7854215575502622486
+    second: Head_GoToCry_L_3
+  - first:
+      213: -903555781987667695
+    second: Head_Cry_L_0
+  - first:
+      213: -6734281749577587171
+    second: Head_Cry_L_1
+  - first:
+      213: 2005920424977345008
+    second: Head_Cry_L_2
+  - first:
+      213: 6047279317057142507
+    second: Head_Cry_L_3
+  - first:
+      213: 7450606644660506775
+    second: Head_Casting_R_0
+  - first:
+      213: -6652004414060245882
+    second: Head_Casting_R_1
+  - first:
+      213: -3134728231684381581
+    second: Head_Casting_R_2
+  - first:
+      213: 3124685822840704359
+    second: Head_Casting_R_3
+  - first:
+      213: 6491678043251264912
+    second: Head_Idle_R_0
+  - first:
+      213: -5970482174956422928
+    second: Head_Idle_R_1
+  - first:
+      213: 7718644886791166592
+    second: Head_Idle_R_2
+  - first:
+      213: -4706785419538280886
+    second: Head_Idle_R_3
+  - first:
+      213: 6882020451393708973
+    second: Head_Fishing_R_0
+  - first:
+      213: 4553445986036015146
+    second: Head_Fishing_R_1
+  - first:
+      213: -7426688614486723725
+    second: Head_Fishing_R_2
+  - first:
+      213: 6602696140744198320
+    second: Head_Fishing_R_3
+  - first:
+      213: -2939676515636351567
+    second: Head_MoveForward_R_0
+  - first:
+      213: 9217914919887539492
+    second: Head_MoveForward_R_1
+  - first:
+      213: -3928187992001309486
+    second: Head_MoveForward_R_2
+  - first:
+      213: 559121104009988992
+    second: Head_MoveForward_R_3
+  - first:
+      213: -8104165963739801232
+    second: Head_MoveBackward_R_0
+  - first:
+      213: -1345189296311899576
+    second: Head_MoveBackward_R_1
+  - first:
+      213: -5396438401824711927
+    second: Head_MoveBackward_R_2
+  - first:
+      213: 2200046079594414734
+    second: Head_MoveBackward_R_3
+  - first:
+      213: -439658225270702122
+    second: Head_Fighting_R_0
+  - first:
+      213: -4190069048812931126
+    second: Head_Fighting_R_1
+  - first:
+      213: -757450061971781024
+    second: Head_Fighting_R_2
+  - first:
+      213: 4853376124735397333
+    second: Head_Fighting_R_3
+  - first:
+      213: -8021943892471157203
+    second: Head_Reeling_R_0
+  - first:
+      213: 231620617838606559
+    second: Head_Reeling_R_1
+  - first:
+      213: 3753978460742377370
+    second: Head_Reeling_R_2
+  - first:
+      213: 6815868859683793370
+    second: Head_Reeling_R_3
+  - first:
+      213: 2221900083929494678
+    second: Head_Win_R_0
+  - first:
+      213: 1616594078651178248
+    second: Head_Win_R_1
+  - first:
+      213: -2105202355842766156
+    second: Head_Win_R_2
+  - first:
+      213: -1867980853884913393
+    second: Head_Win_R_3
+  - first:
+      213: 7024354019220000235
+    second: Head_SwappingPoles_R_0
+  - first:
+      213: 6466862233344845190
+    second: Head_SwappingPoles_R_1
+  - first:
+      213: -4663477424146605530
+    second: Head_SwappingPoles_R_2
+  - first:
+      213: -9046623840528541563
+    second: Head_SwappingPoles_R_3
+  - first:
+      213: -8555058397479765682
+    second: Head_Scared_R_0
+  - first:
+      213: 1519439190977435792
+    second: Head_Scared_R_1
+  - first:
+      213: 7105457010151966746
+    second: Head_Scared_R_2
+  - first:
+      213: -3790377769136953315
+    second: Head_Scared_R_3
+  - first:
+      213: 3724513051576549348
+    second: Head_GoToCry_R_0
+  - first:
+      213: 5122401187305596315
+    second: Head_GoToCry_R_1
+  - first:
+      213: -4791727378347950655
+    second: Head_GoToCry_R_2
+  - first:
+      213: -7816666077100935486
+    second: Head_GoToCry_R_3
+  - first:
+      213: -8910996160545224175
+    second: Head_Cry_R_0
+  - first:
+      213: 3405106092947698028
+    second: Head_Cry_R_1
+  - first:
+      213: -1697010340693863993
+    second: Head_Cry_R_2
+  - first:
+      213: 9185007460667460673
+    second: Head_Cry_R_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Head_Casting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7420f946f1df4c920800000000000000
+      internalID: 3009808762264289863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Casting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2a56553714999260800000000000000
+      internalID: 7104872714553678378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Casting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f41e9583cae3cc00800000000000000
+      internalID: 919836874394965236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Casting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b005491762acf2000800000000000000
+      internalID: 13451590368514059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Idle_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3341c18ce4188a6f0800000000000000
+      internalID: -673145968927173581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Idle_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d7270081154155f0800000000000000
+      internalID: -769758119838930989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Idle_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bbcac3bab668b330800000000000000
+      internalID: 3726841643715447728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Idle_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d26e5bacaeef5c610800000000000000
+      internalID: 1640997923623134765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Fishing_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aef4e8ee600385540800000000000000
+      internalID: 4996796592897806314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Fishing_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c7bd880363494a10800000000000000
+      internalID: 1894119210910332865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Fishing_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1789a8ad59228b00800000000000000
+      internalID: 829270763627972378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Fishing_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db36cd581e0122da0800000000000000
+      internalID: -5971191595140357187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_MoveForward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b553a902f2b7b4b0800000000000000
+      internalID: -5424670473530944073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_MoveForward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b33f7ff6a0462aa0800000000000000
+      internalID: -6186185952151522376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_MoveForward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32eb8fad7ed8ca870800000000000000
+      internalID: 8695481007496281635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_MoveForward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce9e576a16f0299f0800000000000000
+      internalID: -463290899586749972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_MoveBackward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a02ecd45ccf994d0800000000000000
+      internalID: -3127190541887987546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_MoveBackward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 576bdcaf3fadcfd80800000000000000
+      internalID: -8215450878810933643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_MoveBackward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb0a3eca4d6bc7080800000000000000
+      internalID: -9188268115192733506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_MoveBackward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edd596e3ca22f4380800000000000000
+      internalID: -8984924608404038178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Fighting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acee776ade61b4930800000000000000
+      internalID: 4128418693371129546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Fighting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 675e705ff7e9cf310800000000000000
+      internalID: 1440200253260686710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Fighting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87c6fd082260ca820800000000000000
+      internalID: 2930724202772130936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Fighting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b476eaa7b550531a0800000000000000
+      internalID: -6830547369379076277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Reeling_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f815c59dcfa5f5cd0800000000000000
+      internalID: -2567233220552928881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Reeling_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2bc7b8b3c61c9740800000000000000
+      internalID: 5160024302933232426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Reeling_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8fe1be24e2261610800000000000000
+      internalID: 1591497881753350027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Reeling_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 557da873b79bda300800000000000000
+      internalID: 265071891948689237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Win_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b651bc4ce62d1e10800000000000000
+      internalID: 2169933391803274935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Win_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7643e482f98aa610800000000000000
+      internalID: 1633269489579804287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Win_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f4c4e299e7652530800000000000000
+      internalID: 3829581311037981942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Win_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4a533316b700eab0800000000000000
+      internalID: -4980972709284193715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_SwappingPoles_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34178189f515dfdf0800000000000000
+      internalID: -144870141990506173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_SwappingPoles_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 650a94b28ccb60900800000000000000
+      internalID: 650414764107341910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_SwappingPoles_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bc75863c2c839a50800000000000000
+      internalID: 6526714406511148211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_SwappingPoles_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 838c1d777f2a86840800000000000000
+      internalID: 5217599352059578424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Scared_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52ba9387d62de78a0800000000000000
+      internalID: -6305371060661802203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Scared_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 505088f6cfb826ad0800000000000000
+      internalID: -2710450109404412667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Scared_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f4f23fc46fa3d180800000000000000
+      internalID: -9091730375223085839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Scared_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4353af117219a7c0800000000000000
+      internalID: -4059693312026389682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_GoToCry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f788e2f968755d090800000000000000
+      internalID: -8010400126500697985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_GoToCry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f37e63b8edb21beb0800000000000000
+      internalID: -4705931900807092417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_GoToCry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e34104eac324b5b0800000000000000
+      internalID: -5353614702721023006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_GoToCry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae073d82c88300390800000000000000
+      internalID: -7854215575502622486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Cry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 111ffd3bdcce573f0800000000000000
+      internalID: -903555781987667695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Cry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d162803bd660b82a0800000000000000
+      internalID: -6734281749577587171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Cry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f9a97aaff576db10800000000000000
+      internalID: 2005920424977345008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Cry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beef1cebf704ce350800000000000000
+      internalID: 6047279317057142507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Casting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7909720b44fd56760800000000000000
+      internalID: 7450606644660506775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Casting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68ccb9faa355fa3a0800000000000000
+      internalID: -6652004414060245882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Casting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 374601328453f74d0800000000000000
+      internalID: -3134728231684381581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Casting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76d8e19533d1d5b20800000000000000
+      internalID: 3124685822840704359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Idle_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09dc13439c2171a50800000000000000
+      internalID: 6491678043251264912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Idle_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f8bbe74816942da0800000000000000
+      internalID: -5970482174956422928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Idle_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08a929021a22e1b60800000000000000
+      internalID: 7718644886791166592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Idle_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4ece6a39932eaeb0800000000000000
+      internalID: -4706785419538280886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Fishing_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da3ab465329d18f50800000000000000
+      internalID: 6882020451393708973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Fishing_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a20ea95cff6113f30800000000000000
+      internalID: 4553445986036015146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Fishing_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 373b41cad0a1fe890800000000000000
+      internalID: -7426688614486723725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Fishing_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b886ec482d71ab50800000000000000
+      internalID: 6602696140744198320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_MoveForward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bdefeab8cb2437d0800000000000000
+      internalID: -2939676515636351567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_MoveForward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42d8ba1f7cc9cef70800000000000000
+      internalID: 9217914919887539492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_MoveForward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d49ecd65d54c79c0800000000000000
+      internalID: -3928187992001309486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_MoveForward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08b80f68ea562c700800000000000000
+      internalID: 559121104009988992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_MoveBackward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0795a726ef7388f80800000000000000
+      internalID: -8104165963739801232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_MoveBackward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84aebad467de45de0800000000000000
+      internalID: -1345189296311899576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_MoveBackward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90b16f67ddffb15b0800000000000000
+      internalID: -5396438401824711927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_MoveBackward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8247b7c042288e10800000000000000
+      internalID: 2200046079594414734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Fighting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6df392c6c2506e9f0800000000000000
+      internalID: -439658225270702122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Fighting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac775296662e9d5c0800000000000000
+      internalID: -4190069048812931126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Fighting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06a03198e2ffc75f0800000000000000
+      internalID: -757450061971781024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Fighting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dd17340fd7aa5340800000000000000
+      internalID: 4853376124735397333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Reeling_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2e642928845ca090800000000000000
+      internalID: -8021943892471157203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Reeling_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd83de889b1e63300800000000000000
+      internalID: 231620617838606559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Reeling_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9f5407458fc81430800000000000000
+      internalID: 3753978460742377370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Reeling_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad96919ad94d69e50800000000000000
+      internalID: 6815868859683793370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Win_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 694370daa56c5de10800000000000000
+      internalID: 2221900083929494678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Win_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80dd00cdfbb4f6610800000000000000
+      internalID: 1616594078651178248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Win_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ba2da77c91d8c2e0800000000000000
+      internalID: -2105202355842766156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Win_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0975f47f499316e0800000000000000
+      internalID: -1867980853884913393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_SwappingPoles_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bed023c83c48b7160800000000000000
+      internalID: 7024354019220000235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_SwappingPoles_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 685a8e530f8eeb950800000000000000
+      internalID: 6466862233344845190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_SwappingPoles_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62a10bbadfff74fb0800000000000000
+      internalID: -4663477424146605530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_SwappingPoles_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58857b05c8fe37280800000000000000
+      internalID: -9046623840528541563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Scared_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e49fe71d6b3564980800000000000000
+      internalID: -8555058397479765682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Scared_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0985404d4e1261510800000000000000
+      internalID: 1519439190977435792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Scared_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a18cae02187ab9260800000000000000
+      internalID: 7105457010151966746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Scared_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d18ed02508fd56bc0800000000000000
+      internalID: -3790377769136953315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_GoToCry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4efb68813e020b330800000000000000
+      internalID: 3724513051576549348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_GoToCry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b95a36e7dbc661740800000000000000
+      internalID: 5122401187305596315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_GoToCry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cd7e09465d508db0800000000000000
+      internalID: -4791727378347950655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_GoToCry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c67d8a0e9f958390800000000000000
+      internalID: -7816666077100935486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Cry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11a05d75438c55480800000000000000
+      internalID: -8910996160545224175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Cry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c617aa453fd514f20800000000000000
+      internalID: 3405106092947698028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Cry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c117c616120378e0800000000000000
+      internalID: -1697010340693863993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head_Cry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14c85680f93b77f70800000000000000
+      internalID: 9185007460667460673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Fisherman_Head_Sheet_0: -5022514415920568167
+      Fisherman_Head_Sheet_1: 7715783938834639785
+      Fisherman_Head_Sheet_10: -23737402125491010
+      Fisherman_Head_Sheet_11: 4937401266747718044
+      Fisherman_Head_Sheet_12: -6233018935371305584
+      Fisherman_Head_Sheet_13: -8830232771071977977
+      Fisherman_Head_Sheet_14: 5269865439652325210
+      Fisherman_Head_Sheet_15: 1996436033696733781
+      Fisherman_Head_Sheet_16: -2056240934660545112
+      Fisherman_Head_Sheet_17: 4302508708847763112
+      Fisherman_Head_Sheet_18: -3534301424456243668
+      Fisherman_Head_Sheet_19: 2084383339446581867
+      Fisherman_Head_Sheet_2: 2666084320548438826
+      Fisherman_Head_Sheet_20: -4587874374746385089
+      Fisherman_Head_Sheet_21: 9006584855511037244
+      Fisherman_Head_Sheet_22: -1858968733930946623
+      Fisherman_Head_Sheet_23: 5670886719341458879
+      Fisherman_Head_Sheet_24: -6166072923347687239
+      Fisherman_Head_Sheet_25: 1508459033804644607
+      Fisherman_Head_Sheet_26: 8642947325052470717
+      Fisherman_Head_Sheet_27: -4972019600965207422
+      Fisherman_Head_Sheet_28: -3315326683831138262
+      Fisherman_Head_Sheet_29: 7994527004014519402
+      Fisherman_Head_Sheet_3: 5091899332874643107
+      Fisherman_Head_Sheet_30: -4764374167183547449
+      Fisherman_Head_Sheet_31: -7740627723312229631
+      Fisherman_Head_Sheet_32: -5366885147375724703
+      Fisherman_Head_Sheet_33: 8839946325774259400
+      Fisherman_Head_Sheet_34: 7692968879485825114
+      Fisherman_Head_Sheet_35: 7720981071970981419
+      Fisherman_Head_Sheet_36: -6687790090312479879
+      Fisherman_Head_Sheet_37: -7943342386787771479
+      Fisherman_Head_Sheet_38: 4918034773672026236
+      Fisherman_Head_Sheet_39: 4741071175807262197
+      Fisherman_Head_Sheet_4: 6823735651687419736
+      Fisherman_Head_Sheet_40: -7385620465757806704
+      Fisherman_Head_Sheet_41: -3947355965464282868
+      Fisherman_Head_Sheet_42: -2203051466233956223
+      Fisherman_Head_Sheet_43: 4485627501487479284
+      Fisherman_Head_Sheet_44: -6062278374281148458
+      Fisherman_Head_Sheet_45: -2125686894674644832
+      Fisherman_Head_Sheet_46: 6312137383592325951
+      Fisherman_Head_Sheet_47: 3398714350477717311
+      Fisherman_Head_Sheet_48: 3536168353239146293
+      Fisherman_Head_Sheet_49: -4110567936757581889
+      Fisherman_Head_Sheet_5: -6374927450823249702
+      Fisherman_Head_Sheet_50: -2036658297657866306
+      Fisherman_Head_Sheet_51: 8436234818184164365
+      Fisherman_Head_Sheet_52: 4974692998723228142
+      Fisherman_Head_Sheet_53: 3233265758567702079
+      Fisherman_Head_Sheet_54: -8326960376613952908
+      Fisherman_Head_Sheet_55: 1961684190852706582
+      Fisherman_Head_Sheet_56: 6808321046313509982
+      Fisherman_Head_Sheet_57: -5185940886331960459
+      Fisherman_Head_Sheet_58: -6128490028702620264
+      Fisherman_Head_Sheet_59: 7520066135808544024
+      Fisherman_Head_Sheet_6: 1141294958221650998
+      Fisherman_Head_Sheet_60: 7014804764851458236
+      Fisherman_Head_Sheet_61: 5046128211448578369
+      Fisherman_Head_Sheet_62: 4491432151499784986
+      Fisherman_Head_Sheet_63: -1116087830736835985
+      Fisherman_Head_Sheet_64: 8445595434665761329
+      Fisherman_Head_Sheet_65: -1052068929136305496
+      Fisherman_Head_Sheet_66: 2363988497464850659
+      Fisherman_Head_Sheet_67: 7713888563822734434
+      Fisherman_Head_Sheet_68: -5270708726773053693
+      Fisherman_Head_Sheet_69: -6664355782842306286
+      Fisherman_Head_Sheet_7: -1842475274946456095
+      Fisherman_Head_Sheet_70: -2886712530995747241
+      Fisherman_Head_Sheet_71: 8520404532000562757
+      Fisherman_Head_Sheet_72: -3528582107682311399
+      Fisherman_Head_Sheet_73: 806496804173458449
+      Fisherman_Head_Sheet_74: 4782779270396814711
+      Fisherman_Head_Sheet_75: 4334377102330555716
+      Fisherman_Head_Sheet_76: 4939277258567735262
+      Fisherman_Head_Sheet_77: -1970822767564698143
+      Fisherman_Head_Sheet_78: -3442672941718790719
+      Fisherman_Head_Sheet_79: 8625245709536833995
+      Fisherman_Head_Sheet_8: 5367092758036737141
+      Fisherman_Head_Sheet_80: 1014486022812180227
+      Fisherman_Head_Sheet_81: -4168244722259312462
+      Fisherman_Head_Sheet_82: -824106132804478733
+      Fisherman_Head_Sheet_83: 4888263264746813005
+      Fisherman_Head_Sheet_84: -943351795572919869
+      Fisherman_Head_Sheet_85: 3067174793108372587
+      Fisherman_Head_Sheet_86: 8308355688398174262
+      Fisherman_Head_Sheet_87: 7275917106192698932
+      Fisherman_Head_Sheet_88: 7896479100863840510
+      Fisherman_Head_Sheet_89: 8007900844143228862
+      Fisherman_Head_Sheet_9: -5007590036930673193
+      Fisherman_Head_Sheet_90: 6900956184843888251
+      Fisherman_Head_Sheet_91: -7999719642955588495
+      Fisherman_Head_Sheet_92: 8643822944914834789
+      Fisherman_Head_Sheet_93: 1846803367418700204
+      Fisherman_Head_Sheet_94: -1251654525048096890
+      Fisherman_Head_Sheet_95: 5879186225016609755
+      Head_Casting_L_0: 3009808762264289863
+      Head_Casting_L_1: 7104872714553678378
+      Head_Casting_L_2: 919836874394965236
+      Head_Casting_L_3: 13451590368514059
+      Head_Casting_R_0: 7450606644660506775
+      Head_Casting_R_1: -6652004414060245882
+      Head_Casting_R_2: -3134728231684381581
+      Head_Casting_R_3: 3124685822840704359
+      Head_Cry_L_0: -903555781987667695
+      Head_Cry_L_1: -6734281749577587171
+      Head_Cry_L_2: 2005920424977345008
+      Head_Cry_L_3: 6047279317057142507
+      Head_Cry_R_0: -8910996160545224175
+      Head_Cry_R_1: 3405106092947698028
+      Head_Cry_R_2: -1697010340693863993
+      Head_Cry_R_3: 9185007460667460673
+      Head_Fighting_L_0: 4128418693371129546
+      Head_Fighting_L_1: 1440200253260686710
+      Head_Fighting_L_2: 2930724202772130936
+      Head_Fighting_L_3: -6830547369379076277
+      Head_Fighting_R_0: -439658225270702122
+      Head_Fighting_R_1: -4190069048812931126
+      Head_Fighting_R_2: -757450061971781024
+      Head_Fighting_R_3: 4853376124735397333
+      Head_Fishing_L_0: 4996796592897806314
+      Head_Fishing_L_1: 1894119210910332865
+      Head_Fishing_L_2: 829270763627972378
+      Head_Fishing_L_3: -5971191595140357187
+      Head_Fishing_R_0: 6882020451393708973
+      Head_Fishing_R_1: 4553445986036015146
+      Head_Fishing_R_2: -7426688614486723725
+      Head_Fishing_R_3: 6602696140744198320
+      Head_GoToCry_L_0: -8010400126500697985
+      Head_GoToCry_L_1: -4705931900807092417
+      Head_GoToCry_L_2: -5353614702721023006
+      Head_GoToCry_L_3: -7854215575502622486
+      Head_GoToCry_R_0: 3724513051576549348
+      Head_GoToCry_R_1: 5122401187305596315
+      Head_GoToCry_R_2: -4791727378347950655
+      Head_GoToCry_R_3: -7816666077100935486
+      Head_Idle_L_0: -673145968927173581
+      Head_Idle_L_1: -769758119838930989
+      Head_Idle_L_2: 3726841643715447728
+      Head_Idle_L_3: 1640997923623134765
+      Head_Idle_R_0: 6491678043251264912
+      Head_Idle_R_1: -5970482174956422928
+      Head_Idle_R_2: 7718644886791166592
+      Head_Idle_R_3: -4706785419538280886
+      Head_MoveBackward_L_0: -3127190541887987546
+      Head_MoveBackward_L_1: -8215450878810933643
+      Head_MoveBackward_L_2: -9188268115192733506
+      Head_MoveBackward_L_3: -8984924608404038178
+      Head_MoveBackward_R_0: -8104165963739801232
+      Head_MoveBackward_R_1: -1345189296311899576
+      Head_MoveBackward_R_2: -5396438401824711927
+      Head_MoveBackward_R_3: 2200046079594414734
+      Head_MoveForward_L_0: -5424670473530944073
+      Head_MoveForward_L_1: -6186185952151522376
+      Head_MoveForward_L_2: 8695481007496281635
+      Head_MoveForward_L_3: -463290899586749972
+      Head_MoveForward_R_0: -2939676515636351567
+      Head_MoveForward_R_1: 9217914919887539492
+      Head_MoveForward_R_2: -3928187992001309486
+      Head_MoveForward_R_3: 559121104009988992
+      Head_Reeling_L_0: -2567233220552928881
+      Head_Reeling_L_1: 5160024302933232426
+      Head_Reeling_L_2: 1591497881753350027
+      Head_Reeling_L_3: 265071891948689237
+      Head_Reeling_R_0: -8021943892471157203
+      Head_Reeling_R_1: 231620617838606559
+      Head_Reeling_R_2: 3753978460742377370
+      Head_Reeling_R_3: 6815868859683793370
+      Head_Scared_L_0: -6305371060661802203
+      Head_Scared_L_1: -2710450109404412667
+      Head_Scared_L_2: -9091730375223085839
+      Head_Scared_L_3: -4059693312026389682
+      Head_Scared_R_0: -8555058397479765682
+      Head_Scared_R_1: 1519439190977435792
+      Head_Scared_R_2: 7105457010151966746
+      Head_Scared_R_3: -3790377769136953315
+      Head_SwappingPoles_L_0: -144870141990506173
+      Head_SwappingPoles_L_1: 650414764107341910
+      Head_SwappingPoles_L_2: 6526714406511148211
+      Head_SwappingPoles_L_3: 5217599352059578424
+      Head_SwappingPoles_R_0: 7024354019220000235
+      Head_SwappingPoles_R_1: 6466862233344845190
+      Head_SwappingPoles_R_2: -4663477424146605530
+      Head_SwappingPoles_R_3: -9046623840528541563
+      Head_Win_L_0: 2169933391803274935
+      Head_Win_L_1: 1633269489579804287
+      Head_Win_L_2: 3829581311037981942
+      Head_Win_L_3: -4980972709284193715
+      Head_Win_R_0: 2221900083929494678
+      Head_Win_R_1: 1616594078651178248
+      Head_Win_R_2: -2105202355842766156
+      Head_Win_R_3: -1867980853884913393
+      Head_r00_f0: -3453293424538557680
+      Head_r00_f1: 1165717752721180060
+      Head_r00_f2: -828026832425717682
+      Head_r00_f3: 1720822544746476952
+      Head_r01_f0: 2289563788528383595
+      Head_r01_f1: 47450776303025864
+      Head_r01_f2: -1995119066240121629
+      Head_r01_f3: -9033474795706637295
+      Head_r02_f0: 1830968625142393021
+      Head_r02_f1: -7563261937490047779
+      Head_r02_f2: 6842005139151546037
+      Head_r02_f3: 5907776920226435720
+      Head_r03_f0: 5568663643436384127
+      Head_r03_f1: 4739881563904787325
+      Head_r03_f2: -7783772805393556906
+      Head_r03_f3: -7531139332854005959
+      Head_r04_f0: 3576396456195102047
+      Head_r04_f1: 1510850565623380849
+      Head_r04_f2: -2933255346062006551
+      Head_r04_f3: 8749076061591245393
+      Head_r05_f0: -8747426324399233163
+      Head_r05_f1: -2643390733802055216
+      Head_r05_f2: -3187316135545516864
+      Head_r05_f3: 4073528401844007133
+      Head_r06_f0: -1127765184441820332
+      Head_r06_f1: 7906480369735986722
+      Head_r06_f2: -7440410335986496083
+      Head_r06_f3: -6569320784077538433
+      Head_r07_f0: -6233168318570544773
+      Head_r07_f1: -8676192188228588675
+      Head_r07_f2: -6233895049019575621
+      Head_r07_f3: 1582363253893770362
+      Head_r08_f0: 8498488045628584929
+      Head_r08_f1: 6069920329712742002
+      Head_r08_f2: -1552855499916936975
+      Head_r08_f3: 1574652667546441713
+      Head_r09_f0: 2607323721144027925
+      Head_r09_f1: 2233717467971279013
+      Head_r09_f2: -6475609928685328583
+      Head_r09_f3: -3411063205781341404
+      Head_r10_f0: 368401306111674467
+      Head_r10_f1: 1035261045071564091
+      Head_r10_f2: 5979746030138020023
+      Head_r10_f3: -4682182077682861818
+      Head_r11_f0: -2266521432251099561
+      Head_r11_f1: 3006504852192448885
+      Head_r11_f2: 1720474982470256906
+      Head_r11_f3: 8100735264193030204
+      Head_r12_f0: -6560003938177414602
+      Head_r12_f1: 2661249749152046734
+      Head_r12_f2: -6868166022949321431
+      Head_r12_f3: 4107407838929019318
+      Head_r13_f0: 7172002984591222900
+      Head_r13_f1: -6933479154121105050
+      Head_r13_f2: -5439298302893421967
+      Head_r13_f3: 7065497974610597666
+      Head_r14_f0: 2734861414757680026
+      Head_r14_f1: -2069566024096078017
+      Head_r14_f2: -4541078376181389362
+      Head_r14_f3: 740746619882477076
+      Head_r15_f0: -6425791471760455819
+      Head_r15_f1: 4036268201179023495
+      Head_r15_f2: 220667050309102094
+      Head_r15_f3: -1191837554924018764
+      Head_r16_f0: -7518683292788789975
+      Head_r16_f1: 2265152938622362512
+      Head_r16_f2: -2738792219787229436
+      Head_r16_f3: -7073370321761876064
+      Head_r17_f0: -381232607551996136
+      Head_r17_f1: 1448753546450850630
+      Head_r17_f2: -4174625973706035825
+      Head_r17_f3: -3363133857892790002
+      Head_r18_f0: -3514203858093909102
+      Head_r18_f1: -3065670660675814487
+      Head_r18_f2: 8234020962195507641
+      Head_r18_f3: 716144878542084991
+      Head_r19_f0: 5871158671440723446
+      Head_r19_f1: 3683120200181646737
+      Head_r19_f2: 5285451068944072127
+      Head_r19_f3: -7399527495904438115
+      Head_r20_f0: 7235508288471290543
+      Head_r20_f1: -779576969537990905
+      Head_r20_f2: 8399020743772065730
+      Head_r20_f3: 559101505893416900
+      Head_r21_f0: -4456163289592494019
+      Head_r21_f1: 1451155177710474314
+      Head_r21_f2: 56528749127752493
+      Head_r21_f3: 7318498795132536564
+      Head_r22_f0: -6417180580034744917
+      Head_r22_f1: 8754724547662319554
+      Head_r22_f2: -3952464559023993038
+      Head_r22_f3: -5164120757188322562
+      Head_r23_f0: 5724633171745730295
+      Head_r23_f1: 3392947738050075586
+      Head_r23_f2: -7469398082003252437
+      Head_r23_f3: -4455390273370658855
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

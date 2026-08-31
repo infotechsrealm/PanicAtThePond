@@ -16,6 +16,13 @@ public class CosmeticRuntimeApplier : MonoBehaviour
     public const string SelectedFishermanHairPrefKey = "SelectedFishermanHairCosmetic";
 
     private const string FishHatChildName = "Applied Fish Hat Cosmetic";
+
+    // Where the cosmetics sit in the layered fisherman rig. The prefab draws its own layers at
+    // body 1, boat 2, oars 3, arms 4, head 5, hair 6, rods 9 -- 7 and 8 are deliberately left
+    // free so the hair overlay lands just above the hair sheet and the hat just above that, with
+    // the rods still in front of both. These are offsets from the body (root) renderer's order.
+    private const int FishermanHairSortingOffset = 6; // -> order 7, above the hair sheet at 6
+    private const int FishermanHatSortingOffset = 7;  // -> order 8, above the head and the hair
     private const string FishermanHatChildName = "Applied Fisherman Hat Cosmetic";
     private const string FishermanHairChildName = "Applied Fisherman Hair Cosmetic";
     private const string ShopSpritesResourcePath = "ShopUI";
@@ -29,7 +36,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
     /// nudge. It is mirrored with the hat in <see cref="ApplyMirroring"/>, so it stays correct in
     /// both facings. Change this single value to re-trim every hat at once.
     /// </summary>
-    private const float FishermanHatXTrim = 0.04f;
+    private const float FishermanHatXTrim = -0.04f;
     private const string FishermanAnimatedHeadSheetName = "FishermansAnimations-Head_Sheet";
 
     /// <summary>Columns per row in the 4x24 fisherman sheets; also the width of every cosmetic bob table.</summary>
@@ -531,7 +538,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
             RemoveCosmetic(fisherman, FishermanHatChildName);
             CosmeticTransform hairTransform = GetFishermanHairTransform(selectedFishermanHair);
-            CreateOrUpdateCosmetic(fisherman, FishermanHairChildName, selectedFishermanHair, hairTransform.Position, hairTransform.Rotation, hairTransform.Scale, 5, true);
+            CreateOrUpdateCosmetic(fisherman, FishermanHairChildName, selectedFishermanHair, hairTransform.Position, hairTransform.Rotation, hairTransform.Scale, FishermanHairSortingOffset, true);
             return;
         }
 
@@ -547,7 +554,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
             RemoveCosmetic(fisherman, FishermanHairChildName);
             CosmeticTransform hatTransform = GetFishermanHatTransform(selectedFishermanHat);
-            CreateOrUpdateCosmetic(fisherman, FishermanHatChildName, selectedFishermanHat, hatTransform.Position, hatTransform.Rotation, hatTransform.Scale, 3, true);
+            CreateOrUpdateCosmetic(fisherman, FishermanHatChildName, selectedFishermanHat, hatTransform.Position, hatTransform.Rotation, hatTransform.Scale, FishermanHatSortingOffset, true);
         }
     }
 
@@ -739,7 +746,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
             RemoveCosmetic(fisherman, FishermanHatChildName);
             CosmeticTransform hairTransform = GetFishermanHairTransform(hairSprite);
-            CreateOrUpdateCosmetic(fisherman, FishermanHairChildName, hairSprite, hairTransform.Position, hairTransform.Rotation, hairTransform.Scale, 5, true);
+            CreateOrUpdateCosmetic(fisherman, FishermanHairChildName, hairSprite, hairTransform.Position, hairTransform.Rotation, hairTransform.Scale, FishermanHairSortingOffset, true);
             return;
         }
 
@@ -755,7 +762,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
             RemoveCosmetic(fisherman, FishermanHairChildName);
             CosmeticTransform hatTransform = GetFishermanHatTransform(hatSprite);
-            CreateOrUpdateCosmetic(fisherman, FishermanHatChildName, hatSprite, hatTransform.Position, hatTransform.Rotation, hatTransform.Scale, 3, true);
+            CreateOrUpdateCosmetic(fisherman, FishermanHatChildName, hatSprite, hatTransform.Position, hatTransform.Rotation, hatTransform.Scale, FishermanHatSortingOffset, true);
             return;
         }
 
@@ -1039,6 +1046,21 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         }
 
         string name = spriteName.ToLowerInvariant();
+
+        // The v2 sheets name every frame "<Layer>_<Animation>_<L|R>_<frame>", e.g.
+        // "bodygreen_idle_l_0". That states the side outright, so it wins over every rule below --
+        // and without it none of them match, because "idle_l" contains neither "left" nor "right".
+        int lastUnderscore = name.LastIndexOf('_');
+        if (lastUnderscore > 1)
+        {
+            int sideUnderscore = name.LastIndexOf('_', lastUnderscore - 1);
+            if (sideUnderscore >= 0 && lastUnderscore - sideUnderscore == 2)
+            {
+                char side = name[sideUnderscore + 1];
+                if (side == 'l') { isLeft = true; return true; }
+                if (side == 'r') { isLeft = false; return true; }
+            }
+        }
 
         // Names containing both sides, or neither, resolved from the measured artwork.
         if (name.StartsWith("lefttorightpole"))

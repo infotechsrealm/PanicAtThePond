@@ -27,6 +27,9 @@ and the BG2 background frames are already 1920 × 1080. We're standardising on w
 | **Bass** | 55 × 35 | **110 × 70** | blown up 2.0× |
 | **Golden Fish** | 55 × 35 | **110 × 70** | blown up 2.0× |
 | **Trout** | 48 × 30 | **82 × 51** | blown up 1.7× |
+
+*(Fish sizes above are the drawing itself. All fish are drawn inside one shared **200 × 140** canvas
+— see §3.)*
 | Hook, water drop, boot, tire | — | **no change needed** | already correct or oversized |
 
 The fisherman is the urgent one. At 64 × 64 he's being enlarged 5.4× on screen, which is why he
@@ -61,8 +64,8 @@ FightingRight     IdleRight              OarToRightPole
 | | Strip size |
 |---|---|
 | Fisherman (4 frames) | **1280 × 320** |
-| Bass / Golden Fish (4 frames) | **440 × 70** |
-| Bass / Golden Fish — Dead (6 frames) | **660 × 70** |
+| Any fish — bass / golden / trout (4 frames) | **800 × 140** |
+| Any fish — Dead (6 frames) | **1200 × 140** |
 | Worm (4 frames) | **172 × 60** |
 | Worm — Dance (5 frames) | **215 × 60** |
 
@@ -110,7 +113,32 @@ can't animate with the head and why the frames had to be duplicated in the first
 Please **don't bake hats or hair into the body animations**. Separate layers is exactly what makes it
 expandable.
 
-The fish works the same way: **fish hats on the same 110 × 70 canvas as the fish body.**
+The fish works the same way, on a **single shared canvas of 200 × 140** — every species and every
+fish hat, so a new fish or a new hat is a straight file swap.
+
+**200 × 140 is the frame, not the fish.** Each species is drawn at whatever size it should actually
+be inside that frame, with transparency around it. A bigger canvas does not make a fish bigger:
+
+| | |
+|---|---|
+| Fish zone | bottom **200 × 100** — up to roughly double today's bass |
+| Hat headroom | top **40 px** — hats sit above the fish and will clip without it |
+| Bass content | 110 × 70 (unchanged) |
+| Trout content | 82 × 51 (unchanged) |
+| Golden Fish | **TBD** — see note below |
+
+Two rules that matter as much as the size:
+
+- **Never crop to the drawing.** Full canvas every frame, transparent everywhere else.
+- **Same baseline, same horizontal centre** for every species. Consistent size alone isn't enough —
+  if one fish floats high in its frame and another sits low, one hat file can't line up on both.
+
+Strips come out at **800 × 140** for 4-frame animations and **1200 × 140** for the 6-frame Dead ones.
+
+**On the golden fish:** it's currently the *same size as the bass* — identical 55 × 35 source art at
+the same pixel density, no scale-down. The trout is the only genuinely smaller one. So if the golden
+fish is meant to read smaller, just draw it smaller inside the same 200 × 140 frame and tell us
+roughly how much (half a bass? two thirds?).
 
 ## 4. Shop icons — please make these consistent
 

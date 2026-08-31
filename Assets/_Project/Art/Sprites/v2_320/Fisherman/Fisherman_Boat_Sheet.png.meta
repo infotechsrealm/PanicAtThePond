@@ -1,0 +1,3428 @@
+fileFormatVersion: 2
+guid: 2b0f6ba168b8b9942a435acff9a879c2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8490945948344407397
+    second: Fisherman_Boat_Sheet_0
+  - first:
+      213: 5308311152129324479
+    second: Fisherman_Boat_Sheet_1
+  - first:
+      213: 7753273283478910922
+    second: Fisherman_Boat_Sheet_2
+  - first:
+      213: -2722990570708262616
+    second: Fisherman_Boat_Sheet_3
+  - first:
+      213: 2821546130912891666
+    second: Fisherman_Boat_Sheet_4
+  - first:
+      213: -745366564608277786
+    second: Fisherman_Boat_Sheet_5
+  - first:
+      213: 1544903574735206738
+    second: Fisherman_Boat_Sheet_6
+  - first:
+      213: 2469757664538829635
+    second: Fisherman_Boat_Sheet_7
+  - first:
+      213: -5151613628277782392
+    second: Fisherman_Boat_Sheet_8
+  - first:
+      213: 4576092723720558557
+    second: Fisherman_Boat_Sheet_9
+  - first:
+      213: -4039060416845608963
+    second: Fisherman_Boat_Sheet_10
+  - first:
+      213: -5843926941512306524
+    second: Fisherman_Boat_Sheet_11
+  - first:
+      213: 3408351000283991157
+    second: Fisherman_Boat_Sheet_12
+  - first:
+      213: -2010541100353963573
+    second: Fisherman_Boat_Sheet_13
+  - first:
+      213: -3694766871321858619
+    second: Fisherman_Boat_Sheet_14
+  - first:
+      213: -5087978007044471348
+    second: Fisherman_Boat_Sheet_15
+  - first:
+      213: -1655309689498399948
+    second: Fisherman_Boat_Sheet_16
+  - first:
+      213: -8345378103027940400
+    second: Fisherman_Boat_Sheet_17
+  - first:
+      213: -6551692936972676496
+    second: Fisherman_Boat_Sheet_18
+  - first:
+      213: 7640737801160469193
+    second: Fisherman_Boat_Sheet_19
+  - first:
+      213: -5960370103198420747
+    second: Fisherman_Boat_Sheet_20
+  - first:
+      213: 8151133945637387336
+    second: Fisherman_Boat_Sheet_21
+  - first:
+      213: -2776786112760321591
+    second: Fisherman_Boat_Sheet_22
+  - first:
+      213: -5580020660485985878
+    second: Fisherman_Boat_Sheet_23
+  - first:
+      213: 6951765293212420509
+    second: Fisherman_Boat_Sheet_24
+  - first:
+      213: 417809970854686484
+    second: Fisherman_Boat_Sheet_25
+  - first:
+      213: 5589190078557498004
+    second: Fisherman_Boat_Sheet_26
+  - first:
+      213: -8825956928090549691
+    second: Fisherman_Boat_Sheet_27
+  - first:
+      213: -2774305801390080192
+    second: Fisherman_Boat_Sheet_28
+  - first:
+      213: -2280374517320805030
+    second: Fisherman_Boat_Sheet_29
+  - first:
+      213: -2223442445020494465
+    second: Fisherman_Boat_Sheet_30
+  - first:
+      213: -5842072636852338261
+    second: Fisherman_Boat_Sheet_31
+  - first:
+      213: -3110848260792384910
+    second: Fisherman_Boat_Sheet_32
+  - first:
+      213: -7545010978713714830
+    second: Fisherman_Boat_Sheet_33
+  - first:
+      213: -732340963674313692
+    second: Fisherman_Boat_Sheet_34
+  - first:
+      213: 5171844404414669930
+    second: Fisherman_Boat_Sheet_35
+  - first:
+      213: 6457567381784763242
+    second: Fisherman_Boat_Sheet_36
+  - first:
+      213: 1745375602813582912
+    second: Fisherman_Boat_Sheet_37
+  - first:
+      213: -6820025470775472823
+    second: Fisherman_Boat_Sheet_38
+  - first:
+      213: 2659356373911798809
+    second: Fisherman_Boat_Sheet_39
+  - first:
+      213: -6621911594718648799
+    second: Fisherman_Boat_Sheet_40
+  - first:
+      213: 4941353535100672242
+    second: Fisherman_Boat_Sheet_41
+  - first:
+      213: 2549628311805175989
+    second: Fisherman_Boat_Sheet_42
+  - first:
+      213: 2707469500617536960
+    second: Fisherman_Boat_Sheet_43
+  - first:
+      213: -8422262483674399386
+    second: Fisherman_Boat_Sheet_44
+  - first:
+      213: 7332244320454123024
+    second: Fisherman_Boat_Sheet_45
+  - first:
+      213: 3272141925438212046
+    second: Fisherman_Boat_Sheet_46
+  - first:
+      213: 5784138432602222585
+    second: Fisherman_Boat_Sheet_47
+  - first:
+      213: 7891916406519025965
+    second: Fisherman_Boat_Sheet_48
+  - first:
+      213: 73831233660067786
+    second: Fisherman_Boat_Sheet_49
+  - first:
+      213: 6464426130865078113
+    second: Fisherman_Boat_Sheet_50
+  - first:
+      213: -2429267411921694967
+    second: Fisherman_Boat_Sheet_51
+  - first:
+      213: 2283682695987473527
+    second: Fisherman_Boat_Sheet_52
+  - first:
+      213: -5598948391503816817
+    second: Fisherman_Boat_Sheet_53
+  - first:
+      213: 2158149938485176296
+    second: Fisherman_Boat_Sheet_54
+  - first:
+      213: 7223510341934574249
+    second: Fisherman_Boat_Sheet_55
+  - first:
+      213: -5123359471930030138
+    second: Fisherman_Boat_Sheet_56
+  - first:
+      213: -4412885664156222908
+    second: Fisherman_Boat_Sheet_57
+  - first:
+      213: -7076491447129330770
+    second: Fisherman_Boat_Sheet_58
+  - first:
+      213: 4191618358436309317
+    second: Fisherman_Boat_Sheet_59
+  - first:
+      213: -4199001465588539111
+    second: Fisherman_Boat_Sheet_60
+  - first:
+      213: -2540903092267518351
+    second: Fisherman_Boat_Sheet_61
+  - first:
+      213: 920077767406935029
+    second: Fisherman_Boat_Sheet_62
+  - first:
+      213: -4617305917966630026
+    second: Fisherman_Boat_Sheet_63
+  - first:
+      213: 2506690820551749063
+    second: Fisherman_Boat_Sheet_64
+  - first:
+      213: -1679905155813617702
+    second: Fisherman_Boat_Sheet_65
+  - first:
+      213: -4456747976433405975
+    second: Fisherman_Boat_Sheet_66
+  - first:
+      213: 883164891303842586
+    second: Fisherman_Boat_Sheet_67
+  - first:
+      213: 8391959418759452485
+    second: Fisherman_Boat_Sheet_68
+  - first:
+      213: 4934719257420869622
+    second: Fisherman_Boat_Sheet_69
+  - first:
+      213: -619252224934515441
+    second: Fisherman_Boat_Sheet_70
+  - first:
+      213: -8488609667082302142
+    second: Fisherman_Boat_Sheet_71
+  - first:
+      213: -5535302947429296575
+    second: Fisherman_Boat_Sheet_72
+  - first:
+      213: -2673724974434263414
+    second: Fisherman_Boat_Sheet_73
+  - first:
+      213: 6859216402321811572
+    second: Fisherman_Boat_Sheet_74
+  - first:
+      213: -6578010043543242202
+    second: Fisherman_Boat_Sheet_75
+  - first:
+      213: 3961206393771101765
+    second: Fisherman_Boat_Sheet_76
+  - first:
+      213: -9195342691550388761
+    second: Fisherman_Boat_Sheet_77
+  - first:
+      213: 3092156620340278241
+    second: Fisherman_Boat_Sheet_78
+  - first:
+      213: 4434848901388701411
+    second: Fisherman_Boat_Sheet_79
+  - first:
+      213: 3264348029892884487
+    second: Fisherman_Boat_Sheet_80
+  - first:
+      213: -2360688761582814670
+    second: Fisherman_Boat_Sheet_81
+  - first:
+      213: 5484455602373432695
+    second: Fisherman_Boat_Sheet_82
+  - first:
+      213: 3334517916031160890
+    second: Fisherman_Boat_Sheet_83
+  - first:
+      213: -3240108966836745436
+    second: Fisherman_Boat_Sheet_84
+  - first:
+      213: -380180305442946817
+    second: Fisherman_Boat_Sheet_85
+  - first:
+      213: -1778413392785493842
+    second: Fisherman_Boat_Sheet_86
+  - first:
+      213: 4392277782805367109
+    second: Fisherman_Boat_Sheet_87
+  - first:
+      213: 8696526683380628967
+    second: Fisherman_Boat_Sheet_88
+  - first:
+      213: 9028518066761223428
+    second: Fisherman_Boat_Sheet_89
+  - first:
+      213: -544018086426081998
+    second: Fisherman_Boat_Sheet_90
+  - first:
+      213: -3200126184417962639
+    second: Fisherman_Boat_Sheet_91
+  - first:
+      213: -6713393599116995572
+    second: Fisherman_Boat_Sheet_92
+  - first:
+      213: -8541860460255209025
+    second: Fisherman_Boat_Sheet_93
+  - first:
+      213: -7779911184458747550
+    second: Fisherman_Boat_Sheet_94
+  - first:
+      213: 2361350656357641297
+    second: Fisherman_Boat_Sheet_95
+  - first:
+      213: -7630883205570830511
+    second: Fisherman_Boat_Sheet_96
+  - first:
+      213: 8651865235617392801
+    second: Fisherman_Boat_Sheet_97
+  - first:
+      213: -7773291283981596938
+    second: Boat_r00_f0
+  - first:
+      213: -96665842561053207
+    second: Boat_r00_f1
+  - first:
+      213: -6683055899123786551
+    second: Boat_r00_f2
+  - first:
+      213: -3105375863743504219
+    second: Boat_r00_f3
+  - first:
+      213: 6512332512188259512
+    second: Boat_r01_f0
+  - first:
+      213: 7378400638828610246
+    second: Boat_r01_f1
+  - first:
+      213: -7181228994476599244
+    second: Boat_r01_f2
+  - first:
+      213: 3077805875807892352
+    second: Boat_r01_f3
+  - first:
+      213: 5534730974445573264
+    second: Boat_r02_f0
+  - first:
+      213: -7221198864873840711
+    second: Boat_r02_f1
+  - first:
+      213: -6109941473550256695
+    second: Boat_r02_f2
+  - first:
+      213: 1686734387845758344
+    second: Boat_r02_f3
+  - first:
+      213: -9183684626726987759
+    second: Boat_r03_f0
+  - first:
+      213: -7602469860613832788
+    second: Boat_r03_f1
+  - first:
+      213: 7129197104808375028
+    second: Boat_r03_f2
+  - first:
+      213: -6198938014702393176
+    second: Boat_r03_f3
+  - first:
+      213: -4479233732136347031
+    second: Boat_r04_f0
+  - first:
+      213: -2669358356613429223
+    second: Boat_r04_f1
+  - first:
+      213: 5908219287631225205
+    second: Boat_r04_f2
+  - first:
+      213: 3854612791810107608
+    second: Boat_r04_f3
+  - first:
+      213: -3329450256287708976
+    second: Boat_r05_f0
+  - first:
+      213: 2254131388872287569
+    second: Boat_r05_f1
+  - first:
+      213: -3213672165037648550
+    second: Boat_r05_f2
+  - first:
+      213: -124381287913464149
+    second: Boat_r05_f3
+  - first:
+      213: -6723962334988951146
+    second: Boat_r06_f0
+  - first:
+      213: 6007124967472959138
+    second: Boat_r06_f1
+  - first:
+      213: 1230747687961599162
+    second: Boat_r06_f2
+  - first:
+      213: -7392443605518253637
+    second: Boat_r06_f3
+  - first:
+      213: -6121307644373325771
+    second: Boat_r07_f0
+  - first:
+      213: 1331371078150356757
+    second: Boat_r07_f1
+  - first:
+      213: 157005296581761674
+    second: Boat_r07_f2
+  - first:
+      213: -4133516573531246319
+    second: Boat_r07_f3
+  - first:
+      213: -8417046959249478535
+    second: Boat_r08_f0
+  - first:
+      213: -934142489761809079
+    second: Boat_r08_f1
+  - first:
+      213: 7517478670998226397
+    second: Boat_r08_f2
+  - first:
+      213: 3733293109301593882
+    second: Boat_r08_f3
+  - first:
+      213: -2098328511599240162
+    second: Boat_r09_f0
+  - first:
+      213: -4704661837179956132
+    second: Boat_r09_f1
+  - first:
+      213: 1642884400875704003
+    second: Boat_r09_f2
+  - first:
+      213: 3553684461638361948
+    second: Boat_r09_f3
+  - first:
+      213: 7586138590666721204
+    second: Boat_r10_f0
+  - first:
+      213: -2980264444442145589
+    second: Boat_r10_f1
+  - first:
+      213: 1325486785839867433
+    second: Boat_r10_f2
+  - first:
+      213: 1094484191511339870
+    second: Boat_r10_f3
+  - first:
+      213: 4169878673815633796
+    second: Boat_r11_f0
+  - first:
+      213: -3349377247185487659
+    second: Boat_r11_f1
+  - first:
+      213: 3268561963279858630
+    second: Boat_r11_f2
+  - first:
+      213: 2775516863795312707
+    second: Boat_r11_f3
+  - first:
+      213: 2658392195807006096
+    second: Boat_r12_f0
+  - first:
+      213: -7780635953854771836
+    second: Boat_r12_f1
+  - first:
+      213: 6436553118992485207
+    second: Boat_r12_f2
+  - first:
+      213: 3308767908557091940
+    second: Boat_r12_f3
+  - first:
+      213: 6608618897571014458
+    second: Boat_r13_f0
+  - first:
+      213: 6227111597088035622
+    second: Boat_r13_f1
+  - first:
+      213: 2255989459221557595
+    second: Boat_r13_f2
+  - first:
+      213: 3135555535283229685
+    second: Boat_r13_f3
+  - first:
+      213: -3239159211802451317
+    second: Boat_r14_f0
+  - first:
+      213: 210132367536034224
+    second: Boat_r14_f1
+  - first:
+      213: -3750893412063343446
+    second: Boat_r14_f2
+  - first:
+      213: 3005499748160519061
+    second: Boat_r14_f3
+  - first:
+      213: 3802337935664331398
+    second: Boat_r15_f0
+  - first:
+      213: -251730490583966303
+    second: Boat_r15_f1
+  - first:
+      213: -6029841325187179787
+    second: Boat_r15_f2
+  - first:
+      213: 2536533428898688868
+    second: Boat_r15_f3
+  - first:
+      213: 8824667059622819324
+    second: Boat_r16_f0
+  - first:
+      213: -2526208574434905797
+    second: Boat_r16_f1
+  - first:
+      213: 6153788451962160251
+    second: Boat_r16_f2
+  - first:
+      213: -1591292446553944151
+    second: Boat_r16_f3
+  - first:
+      213: 6233013616714793251
+    second: Boat_r17_f0
+  - first:
+      213: -7941775497479589382
+    second: Boat_r17_f1
+  - first:
+      213: -6472669742641129894
+    second: Boat_r17_f2
+  - first:
+      213: -8708739775418187771
+    second: Boat_r17_f3
+  - first:
+      213: 8687276315574018485
+    second: Boat_r18_f0
+  - first:
+      213: -3118368100572356283
+    second: Boat_r18_f1
+  - first:
+      213: 8396977179777448965
+    second: Boat_r18_f2
+  - first:
+      213: 8321530025261789870
+    second: Boat_r18_f3
+  - first:
+      213: 2395194993758464534
+    second: Boat_r19_f0
+  - first:
+      213: 2859500009621608340
+    second: Boat_r19_f1
+  - first:
+      213: 4943258715465394893
+    second: Boat_r19_f2
+  - first:
+      213: 7052589059464529593
+    second: Boat_r19_f3
+  - first:
+      213: -7168244165329042589
+    second: Boat_r20_f0
+  - first:
+      213: 2236176455895827125
+    second: Boat_r20_f1
+  - first:
+      213: 2744425187208425549
+    second: Boat_r20_f2
+  - first:
+      213: -5633964388243208534
+    second: Boat_r20_f3
+  - first:
+      213: -8017344159423497692
+    second: Boat_r21_f0
+  - first:
+      213: 1194388929512964274
+    second: Boat_r21_f1
+  - first:
+      213: 2435779237831904073
+    second: Boat_r21_f2
+  - first:
+      213: 4072513801619322911
+    second: Boat_r21_f3
+  - first:
+      213: 4351044609390087579
+    second: Boat_r22_f0
+  - first:
+      213: -8792428694448847472
+    second: Boat_r22_f1
+  - first:
+      213: 180976700773959453
+    second: Boat_r22_f2
+  - first:
+      213: -4394076496074562734
+    second: Boat_r22_f3
+  - first:
+      213: 6751564597264715577
+    second: Boat_r23_f0
+  - first:
+      213: 4000368988557924712
+    second: Boat_r23_f1
+  - first:
+      213: 607045446335926278
+    second: Boat_r23_f2
+  - first:
+      213: -272980186262153721
+    second: Boat_r23_f3
+  - first:
+      213: -6663609294209822356
+    second: Boat_Casting_L_0
+  - first:
+      213: 1329857124618543692
+    second: Boat_Casting_L_1
+  - first:
+      213: -4277038114214127013
+    second: Boat_Casting_L_2
+  - first:
+      213: 7242510783873344811
+    second: Boat_Casting_L_3
+  - first:
+      213: -461529317394859623
+    second: Boat_Idle_L_0
+  - first:
+      213: -4740295962175065965
+    second: Boat_Idle_L_1
+  - first:
+      213: -5020586984363437249
+    second: Boat_Idle_L_2
+  - first:
+      213: 2216279135923304602
+    second: Boat_Idle_L_3
+  - first:
+      213: 8481633942703213211
+    second: Boat_Fishing_L_0
+  - first:
+      213: 5982062642419560522
+    second: Boat_Fishing_L_1
+  - first:
+      213: -808267083370610957
+    second: Boat_Fishing_L_2
+  - first:
+      213: 4264939443924552049
+    second: Boat_Fishing_L_3
+  - first:
+      213: 5931008381767495800
+    second: Boat_MoveForward_L_0
+  - first:
+      213: -7606083825175970993
+    second: Boat_MoveForward_L_1
+  - first:
+      213: 2289550005697226600
+    second: Boat_MoveForward_L_2
+  - first:
+      213: 2238558881747805052
+    second: Boat_MoveForward_L_3
+  - first:
+      213: 7937374003382096508
+    second: Boat_MoveBackward_L_0
+  - first:
+      213: 754585304805982978
+    second: Boat_MoveBackward_L_1
+  - first:
+      213: 1027235781766169969
+    second: Boat_MoveBackward_L_2
+  - first:
+      213: -8501092094169255042
+    second: Boat_MoveBackward_L_3
+  - first:
+      213: 8834792120198026661
+    second: Boat_Fighting_L_0
+  - first:
+      213: -6432311515709306314
+    second: Boat_Fighting_L_1
+  - first:
+      213: -5262817629648131894
+    second: Boat_Fighting_L_2
+  - first:
+      213: 4201150269969344719
+    second: Boat_Fighting_L_3
+  - first:
+      213: 5885825117464058426
+    second: Boat_Reeling_L_0
+  - first:
+      213: -6676054157447977257
+    second: Boat_Reeling_L_1
+  - first:
+      213: -2505437757448429312
+    second: Boat_Reeling_L_2
+  - first:
+      213: -216792477167258882
+    second: Boat_Reeling_L_3
+  - first:
+      213: 3446381255797755009
+    second: Boat_Win_L_0
+  - first:
+      213: 2746642353852142800
+    second: Boat_Win_L_1
+  - first:
+      213: -377413856733248055
+    second: Boat_Win_L_2
+  - first:
+      213: 2704338952690467017
+    second: Boat_Win_L_3
+  - first:
+      213: 4898303098405577836
+    second: Boat_SwappingPoles_L_0
+  - first:
+      213: 2381597886643981723
+    second: Boat_SwappingPoles_L_1
+  - first:
+      213: 4577033138310674428
+    second: Boat_SwappingPoles_L_2
+  - first:
+      213: -8650867537060693915
+    second: Boat_SwappingPoles_L_3
+  - first:
+      213: 6655133731861995947
+    second: Boat_Scared_L_0
+  - first:
+      213: 633388961938909129
+    second: Boat_Scared_L_1
+  - first:
+      213: -8563532554739465015
+    second: Boat_Scared_L_2
+  - first:
+      213: -7431688168752266426
+    second: Boat_Scared_L_3
+  - first:
+      213: -4893247258413502216
+    second: Boat_GoToCry_L_0
+  - first:
+      213: 672141646042997794
+    second: Boat_GoToCry_L_1
+  - first:
+      213: 6572379729121205118
+    second: Boat_GoToCry_L_2
+  - first:
+      213: 1805665570928894434
+    second: Boat_GoToCry_L_3
+  - first:
+      213: -816312227615688516
+    second: Boat_Cry_L_0
+  - first:
+      213: -4201059266657468327
+    second: Boat_Cry_L_1
+  - first:
+      213: -1910659609659676511
+    second: Boat_Cry_L_2
+  - first:
+      213: 8856928354251038610
+    second: Boat_Cry_L_3
+  - first:
+      213: 2880293365603555116
+    second: Boat_Casting_R_0
+  - first:
+      213: 8559983157168996378
+    second: Boat_Casting_R_1
+  - first:
+      213: -2212202572990288555
+    second: Boat_Casting_R_2
+  - first:
+      213: -5702584431408579255
+    second: Boat_Casting_R_3
+  - first:
+      213: 9012362317700864459
+    second: Boat_Idle_R_0
+  - first:
+      213: -1199377186063017032
+    second: Boat_Idle_R_1
+  - first:
+      213: -6002042448177127382
+    second: Boat_Idle_R_2
+  - first:
+      213: 7647163569879228934
+    second: Boat_Idle_R_3
+  - first:
+      213: 2258482210422817146
+    second: Boat_Fishing_R_0
+  - first:
+      213: 8206731377516202655
+    second: Boat_Fishing_R_1
+  - first:
+      213: 7328164510538668926
+    second: Boat_Fishing_R_2
+  - first:
+      213: 4336342523173736079
+    second: Boat_Fishing_R_3
+  - first:
+      213: -7504628832319047187
+    second: Boat_MoveForward_R_0
+  - first:
+      213: -4209374901108255440
+    second: Boat_MoveForward_R_1
+  - first:
+      213: 6878596507393227779
+    second: Boat_MoveForward_R_2
+  - first:
+      213: 1987083649780753550
+    second: Boat_MoveForward_R_3
+  - first:
+      213: -7131340442819488291
+    second: Boat_MoveBackward_R_0
+  - first:
+      213: -2714561465245438820
+    second: Boat_MoveBackward_R_1
+  - first:
+      213: 8718946071395872388
+    second: Boat_MoveBackward_R_2
+  - first:
+      213: -1341387418752280156
+    second: Boat_MoveBackward_R_3
+  - first:
+      213: 1687495078335636449
+    second: Boat_Fighting_R_0
+  - first:
+      213: 2770657677669353691
+    second: Boat_Fighting_R_1
+  - first:
+      213: -7780849871954720392
+    second: Boat_Fighting_R_2
+  - first:
+      213: 5986235621848862192
+    second: Boat_Fighting_R_3
+  - first:
+      213: 8419268668521154589
+    second: Boat_Reeling_R_0
+  - first:
+      213: -1373826905944769607
+    second: Boat_Reeling_R_1
+  - first:
+      213: -8161163366780156432
+    second: Boat_Reeling_R_2
+  - first:
+      213: -5298645683220521223
+    second: Boat_Reeling_R_3
+  - first:
+      213: -3330026671837715593
+    second: Boat_Win_R_0
+  - first:
+      213: -2798659533432737034
+    second: Boat_Win_R_1
+  - first:
+      213: -5959443398106029113
+    second: Boat_Win_R_2
+  - first:
+      213: -4364819391087647060
+    second: Boat_Win_R_3
+  - first:
+      213: -5303132964454295329
+    second: Boat_SwappingPoles_R_0
+  - first:
+      213: 7733175301430933146
+    second: Boat_SwappingPoles_R_1
+  - first:
+      213: 1489865926879961938
+    second: Boat_SwappingPoles_R_2
+  - first:
+      213: 8909623809202054198
+    second: Boat_SwappingPoles_R_3
+  - first:
+      213: 1043965322450923631
+    second: Boat_Scared_R_0
+  - first:
+      213: 7185442963762125682
+    second: Boat_Scared_R_1
+  - first:
+      213: 3197725546084313207
+    second: Boat_Scared_R_2
+  - first:
+      213: 2016793631338253288
+    second: Boat_Scared_R_3
+  - first:
+      213: -7780105595176287465
+    second: Boat_GoToCry_R_0
+  - first:
+      213: 1897325022343426323
+    second: Boat_GoToCry_R_1
+  - first:
+      213: 8975687800133436085
+    second: Boat_GoToCry_R_2
+  - first:
+      213: -7952413974422801559
+    second: Boat_GoToCry_R_3
+  - first:
+      213: 8225444121309593241
+    second: Boat_Cry_R_0
+  - first:
+      213: 4830574190937373865
+    second: Boat_Cry_R_1
+  - first:
+      213: 756200181304158704
+    second: Boat_Cry_R_2
+  - first:
+      213: -5392573130974172354
+    second: Boat_Cry_R_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boat_Casting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c61d1a8f6aa1683a0800000000000000
+      internalID: -6663609294209822356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Casting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4229ea420a947210800000000000000
+      internalID: 1329857124618543692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Casting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ad57fee78e4a4c0800000000000000
+      internalID: -4277038114214127013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Casting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b25e4ba7f21928460800000000000000
+      internalID: 7242510783873344811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Idle_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9993047f7815899f0800000000000000
+      internalID: -461529317394859623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Idle_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 390365400f5173eb0800000000000000
+      internalID: -4740295962175065965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Idle_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f335119ecba435ab0800000000000000
+      internalID: -5020586984363437249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Idle_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9871dbb12ec1ce10800000000000000
+      internalID: 2216279135923304602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Fishing_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9a88bd1221d4b570800000000000000
+      internalID: 8481633942703213211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Fishing_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a407d89674e840350800000000000000
+      internalID: 5982062642419560522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Fishing_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3febd0cbe5578c4f0800000000000000
+      internalID: -808267083370610957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Fishing_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 179ccafd3db103b30800000000000000
+      internalID: 4264939443924552049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_MoveForward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 870bd1b03bc2f4250800000000000000
+      internalID: 5931008381767495800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_MoveForward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4bba8c4f03c17690800000000000000
+      internalID: -7606083825175970993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_MoveForward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 867a311899d16cf10800000000000000
+      internalID: 2289550005697226600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_MoveForward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c73af5b4175f01f10800000000000000
+      internalID: 2238558881747805052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_MoveBackward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7292012a97372e60800000000000000
+      internalID: 7937374003382096508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_MoveBackward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 203c0b53653d87a00800000000000000
+      internalID: 754585304805982978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_MoveBackward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1754eb04089714e00800000000000000
+      internalID: 1027235781766169969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_MoveBackward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e73f824f7cd060a80800000000000000
+      internalID: -8501092094169255042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Fighting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a5d2d4ef9c7b9a70800000000000000
+      internalID: 8834792120198026661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Fighting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63a0e7d91c6dbb6a0800000000000000
+      internalID: -6432311515709306314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Fighting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac8e82bdf37b6f6b0800000000000000
+      internalID: -5262817629648131894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Fighting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc82f8179eb7d4a30800000000000000
+      internalID: 4201150269969344719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Reeling_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3a548882c6aea150800000000000000
+      internalID: 5885825117464058426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Reeling_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d62b047d14e953a0800000000000000
+      internalID: -6676054157447977257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Reeling_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0016f6c42a5ea3dd0800000000000000
+      internalID: -2505437757448429312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Reeling_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef2f770046ccdfcf0800000000000000
+      internalID: -216792477167258882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Win_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18cc3601e7104df20800000000000000
+      internalID: 3446381255797755009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Win_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d456622ba80e1620800000000000000
+      internalID: 2746642353852142800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Win_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c5ca10d81823caf0800000000000000
+      internalID: -377413856733248055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Win_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c00e5303fdb78520800000000000000
+      internalID: 2704338952690467017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_SwappingPoles_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c64e8a637b44af340800000000000000
+      internalID: 4898303098405577836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_SwappingPoles_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9d4c3fd8a22d0120800000000000000
+      internalID: 2381597886643981723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_SwappingPoles_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf7f23e9363e48f30800000000000000
+      internalID: 4577033138310674428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_SwappingPoles_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 568f98e2fc1f1f780800000000000000
+      internalID: -8650867537060693915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Scared_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba1aa546ed8cb5c50800000000000000
+      internalID: 6655133731861995947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Scared_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c7a501b7ef3ac800800000000000000
+      internalID: 633388961938909129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Scared_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c4c2445388382980800000000000000
+      internalID: -8563532554739465015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Scared_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6434c0c3cf65dd890800000000000000
+      internalID: -7431688168752266426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_GoToCry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f0fb144b81b71cb0800000000000000
+      internalID: -4893247258413502216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_GoToCry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 224a323144de35900800000000000000
+      internalID: 672141646042997794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_GoToCry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7b5f3baa88c53b50800000000000000
+      internalID: 6572379729121205118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_GoToCry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e1ae5a15430f0910800000000000000
+      internalID: 1805665570928894434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Cry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb8b82f9a50eba4f0800000000000000
+      internalID: -816312227615688516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Cry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 950c48aead6d2b5c0800000000000000
+      internalID: -4201059266657468327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Cry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a86c874539fb75e0800000000000000
+      internalID: -1910659609659676511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Cry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29fd73489612aea70800000000000000
+      internalID: 8856928354251038610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Casting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c27d6b93e8bd8f720800000000000000
+      internalID: 2880293365603555116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Casting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a108266245b2bc670800000000000000
+      internalID: 8559983157168996378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Casting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55d65b90b7dac41e0800000000000000
+      internalID: -2212202572990288555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Casting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94df7385ca95cd0b0800000000000000
+      internalID: -5702584431408579255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Idle_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc91da547c7521d70800000000000000
+      internalID: 9012362317700864459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Idle_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bb9109cdc4fa5fe0800000000000000
+      internalID: -1199377186063017032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Idle_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a20269d813674bca0800000000000000
+      internalID: -6002042448177127382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Idle_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 602a5f910ce202a60800000000000000
+      internalID: 7647163569879228934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Fishing_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a718acbba9db75f10800000000000000
+      internalID: 2258482210422817146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Fishing_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9ac7ebe4ba24e170800000000000000
+      internalID: 8206731377516202655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Fishing_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7b184acbced2b560800000000000000
+      internalID: 7328164510538668926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Fishing_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8e0136cc88cd2c30800000000000000
+      internalID: 4336342523173736079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_MoveForward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de9f77696d33ad790800000000000000
+      internalID: -7504628832319047187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_MoveForward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0355ff464db4595c0800000000000000
+      internalID: -4209374901108255440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_MoveForward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30c7a60441fa57f50800000000000000
+      internalID: 6878596507393227779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_MoveForward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e842b2c2d0a839b10800000000000000
+      internalID: 1987083649780753550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_MoveBackward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd51e5596a3680d90800000000000000
+      internalID: -7131340442819488291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_MoveBackward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9ce41fcab0f35ad0800000000000000
+      internalID: -2714561465245438820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_MoveBackward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48ea659c14beff870800000000000000
+      internalID: 8718946071395872388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_MoveBackward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a99717ef3f626de0800000000000000
+      internalID: -1341387418752280156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Fighting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e36a6045df2b6710800000000000000
+      internalID: 1687495078335636449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Fighting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd8c0bf6a7a537620800000000000000
+      internalID: 2770657677669353691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Fighting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 879ce73244ed40490800000000000000
+      internalID: -7780849871954720392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Fighting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fd4716e491631350800000000000000
+      internalID: 5986235621848862192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Reeling_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1887cf2f3047d470800000000000000
+      internalID: 8419268668521154589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Reeling_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bbb94835bf2fece0800000000000000
+      internalID: -1373826905944769607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Reeling_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f543295829bdbe80800000000000000
+      internalID: -8161163366780156432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Reeling_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fedbf413dd6776b0800000000000000
+      internalID: -5298645683220521223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Win_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 773698c926e59c1d0800000000000000
+      internalID: -3330026671837715593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Win_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f23b767bf92929d0800000000000000
+      internalID: -2798659533432737034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Win_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c3e7dccdcdcb4da0800000000000000
+      internalID: -5959443398106029113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Win_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca6eb7db3eb0d63c0800000000000000
+      internalID: -4364819391087647060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_SwappingPoles_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd899018aac7766b0800000000000000
+      internalID: -5303132964454295329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_SwappingPoles_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a967d9be6f1c15b60800000000000000
+      internalID: 7733175301430933146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_SwappingPoles_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25363a6ba211da410800000000000000
+      internalID: 1489865926879961938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_SwappingPoles_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 634e9d536a755ab70800000000000000
+      internalID: 8909623809202054198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Scared_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f60738afde8ec7e00800000000000000
+      internalID: 1043965322450923631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Scared_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27b1fd03e42d7b360800000000000000
+      internalID: 7185442963762125682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Scared_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7782c8f117a906c20800000000000000
+      internalID: 3197725546084313207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Scared_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ebcf2d4f171dfb10800000000000000
+      internalID: 2016793631338253288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_GoToCry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7130d749e23870490800000000000000
+      internalID: -7780105595176287465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_GoToCry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3117d3c2e07a45a10800000000000000
+      internalID: 1897325022343426323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_GoToCry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b2c2cdbf7c009c70800000000000000
+      internalID: 8975687800133436085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_GoToCry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9633dabbf9953a190800000000000000
+      internalID: -7952413974422801559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Cry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99ebb7a19d5a62270800000000000000
+      internalID: 8225444121309593241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Cry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9acfdf712a5a90340800000000000000
+      internalID: 4830574190937373865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Cry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f968b1fe009e7a00800000000000000
+      internalID: 756200181304158704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boat_Cry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3be7f6fe4bb925b0800000000000000
+      internalID: -5392573130974172354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Boat_Casting_L_0: -6663609294209822356
+      Boat_Casting_L_1: 1329857124618543692
+      Boat_Casting_L_2: -4277038114214127013
+      Boat_Casting_L_3: 7242510783873344811
+      Boat_Casting_R_0: 2880293365603555116
+      Boat_Casting_R_1: 8559983157168996378
+      Boat_Casting_R_2: -2212202572990288555
+      Boat_Casting_R_3: -5702584431408579255
+      Boat_Cry_L_0: -816312227615688516
+      Boat_Cry_L_1: -4201059266657468327
+      Boat_Cry_L_2: -1910659609659676511
+      Boat_Cry_L_3: 8856928354251038610
+      Boat_Cry_R_0: 8225444121309593241
+      Boat_Cry_R_1: 4830574190937373865
+      Boat_Cry_R_2: 756200181304158704
+      Boat_Cry_R_3: -5392573130974172354
+      Boat_Fighting_L_0: 8834792120198026661
+      Boat_Fighting_L_1: -6432311515709306314
+      Boat_Fighting_L_2: -5262817629648131894
+      Boat_Fighting_L_3: 4201150269969344719
+      Boat_Fighting_R_0: 1687495078335636449
+      Boat_Fighting_R_1: 2770657677669353691
+      Boat_Fighting_R_2: -7780849871954720392
+      Boat_Fighting_R_3: 5986235621848862192
+      Boat_Fishing_L_0: 8481633942703213211
+      Boat_Fishing_L_1: 5982062642419560522
+      Boat_Fishing_L_2: -808267083370610957
+      Boat_Fishing_L_3: 4264939443924552049
+      Boat_Fishing_R_0: 2258482210422817146
+      Boat_Fishing_R_1: 8206731377516202655
+      Boat_Fishing_R_2: 7328164510538668926
+      Boat_Fishing_R_3: 4336342523173736079
+      Boat_GoToCry_L_0: -4893247258413502216
+      Boat_GoToCry_L_1: 672141646042997794
+      Boat_GoToCry_L_2: 6572379729121205118
+      Boat_GoToCry_L_3: 1805665570928894434
+      Boat_GoToCry_R_0: -7780105595176287465
+      Boat_GoToCry_R_1: 1897325022343426323
+      Boat_GoToCry_R_2: 8975687800133436085
+      Boat_GoToCry_R_3: -7952413974422801559
+      Boat_Idle_L_0: -461529317394859623
+      Boat_Idle_L_1: -4740295962175065965
+      Boat_Idle_L_2: -5020586984363437249
+      Boat_Idle_L_3: 2216279135923304602
+      Boat_Idle_R_0: 9012362317700864459
+      Boat_Idle_R_1: -1199377186063017032
+      Boat_Idle_R_2: -6002042448177127382
+      Boat_Idle_R_3: 7647163569879228934
+      Boat_MoveBackward_L_0: 7937374003382096508
+      Boat_MoveBackward_L_1: 754585304805982978
+      Boat_MoveBackward_L_2: 1027235781766169969
+      Boat_MoveBackward_L_3: -8501092094169255042
+      Boat_MoveBackward_R_0: -7131340442819488291
+      Boat_MoveBackward_R_1: -2714561465245438820
+      Boat_MoveBackward_R_2: 8718946071395872388
+      Boat_MoveBackward_R_3: -1341387418752280156
+      Boat_MoveForward_L_0: 5931008381767495800
+      Boat_MoveForward_L_1: -7606083825175970993
+      Boat_MoveForward_L_2: 2289550005697226600
+      Boat_MoveForward_L_3: 2238558881747805052
+      Boat_MoveForward_R_0: -7504628832319047187
+      Boat_MoveForward_R_1: -4209374901108255440
+      Boat_MoveForward_R_2: 6878596507393227779
+      Boat_MoveForward_R_3: 1987083649780753550
+      Boat_Reeling_L_0: 5885825117464058426
+      Boat_Reeling_L_1: -6676054157447977257
+      Boat_Reeling_L_2: -2505437757448429312
+      Boat_Reeling_L_3: -216792477167258882
+      Boat_Reeling_R_0: 8419268668521154589
+      Boat_Reeling_R_1: -1373826905944769607
+      Boat_Reeling_R_2: -8161163366780156432
+      Boat_Reeling_R_3: -5298645683220521223
+      Boat_Scared_L_0: 6655133731861995947
+      Boat_Scared_L_1: 633388961938909129
+      Boat_Scared_L_2: -8563532554739465015
+      Boat_Scared_L_3: -7431688168752266426
+      Boat_Scared_R_0: 1043965322450923631
+      Boat_Scared_R_1: 7185442963762125682
+      Boat_Scared_R_2: 3197725546084313207
+      Boat_Scared_R_3: 2016793631338253288
+      Boat_SwappingPoles_L_0: 4898303098405577836
+      Boat_SwappingPoles_L_1: 2381597886643981723
+      Boat_SwappingPoles_L_2: 4577033138310674428
+      Boat_SwappingPoles_L_3: -8650867537060693915
+      Boat_SwappingPoles_R_0: -5303132964454295329
+      Boat_SwappingPoles_R_1: 7733175301430933146
+      Boat_SwappingPoles_R_2: 1489865926879961938
+      Boat_SwappingPoles_R_3: 8909623809202054198
+      Boat_Win_L_0: 3446381255797755009
+      Boat_Win_L_1: 2746642353852142800
+      Boat_Win_L_2: -377413856733248055
+      Boat_Win_L_3: 2704338952690467017
+      Boat_Win_R_0: -3330026671837715593
+      Boat_Win_R_1: -2798659533432737034
+      Boat_Win_R_2: -5959443398106029113
+      Boat_Win_R_3: -4364819391087647060
+      Boat_r00_f0: -7773291283981596938
+      Boat_r00_f1: -96665842561053207
+      Boat_r00_f2: -6683055899123786551
+      Boat_r00_f3: -3105375863743504219
+      Boat_r01_f0: 6512332512188259512
+      Boat_r01_f1: 7378400638828610246
+      Boat_r01_f2: -7181228994476599244
+      Boat_r01_f3: 3077805875807892352
+      Boat_r02_f0: 5534730974445573264
+      Boat_r02_f1: -7221198864873840711
+      Boat_r02_f2: -6109941473550256695
+      Boat_r02_f3: 1686734387845758344
+      Boat_r03_f0: -9183684626726987759
+      Boat_r03_f1: -7602469860613832788
+      Boat_r03_f2: 7129197104808375028
+      Boat_r03_f3: -6198938014702393176
+      Boat_r04_f0: -4479233732136347031
+      Boat_r04_f1: -2669358356613429223
+      Boat_r04_f2: 5908219287631225205
+      Boat_r04_f3: 3854612791810107608
+      Boat_r05_f0: -3329450256287708976
+      Boat_r05_f1: 2254131388872287569
+      Boat_r05_f2: -3213672165037648550
+      Boat_r05_f3: -124381287913464149
+      Boat_r06_f0: -6723962334988951146
+      Boat_r06_f1: 6007124967472959138
+      Boat_r06_f2: 1230747687961599162
+      Boat_r06_f3: -7392443605518253637
+      Boat_r07_f0: -6121307644373325771
+      Boat_r07_f1: 1331371078150356757
+      Boat_r07_f2: 157005296581761674
+      Boat_r07_f3: -4133516573531246319
+      Boat_r08_f0: -8417046959249478535
+      Boat_r08_f1: -934142489761809079
+      Boat_r08_f2: 7517478670998226397
+      Boat_r08_f3: 3733293109301593882
+      Boat_r09_f0: -2098328511599240162
+      Boat_r09_f1: -4704661837179956132
+      Boat_r09_f2: 1642884400875704003
+      Boat_r09_f3: 3553684461638361948
+      Boat_r10_f0: 7586138590666721204
+      Boat_r10_f1: -2980264444442145589
+      Boat_r10_f2: 1325486785839867433
+      Boat_r10_f3: 1094484191511339870
+      Boat_r11_f0: 4169878673815633796
+      Boat_r11_f1: -3349377247185487659
+      Boat_r11_f2: 3268561963279858630
+      Boat_r11_f3: 2775516863795312707
+      Boat_r12_f0: 2658392195807006096
+      Boat_r12_f1: -7780635953854771836
+      Boat_r12_f2: 6436553118992485207
+      Boat_r12_f3: 3308767908557091940
+      Boat_r13_f0: 6608618897571014458
+      Boat_r13_f1: 6227111597088035622
+      Boat_r13_f2: 2255989459221557595
+      Boat_r13_f3: 3135555535283229685
+      Boat_r14_f0: -3239159211802451317
+      Boat_r14_f1: 210132367536034224
+      Boat_r14_f2: -3750893412063343446
+      Boat_r14_f3: 3005499748160519061
+      Boat_r15_f0: 3802337935664331398
+      Boat_r15_f1: -251730490583966303
+      Boat_r15_f2: -6029841325187179787
+      Boat_r15_f3: 2536533428898688868
+      Boat_r16_f0: 8824667059622819324
+      Boat_r16_f1: -2526208574434905797
+      Boat_r16_f2: 6153788451962160251
+      Boat_r16_f3: -1591292446553944151
+      Boat_r17_f0: 6233013616714793251
+      Boat_r17_f1: -7941775497479589382
+      Boat_r17_f2: -6472669742641129894
+      Boat_r17_f3: -8708739775418187771
+      Boat_r18_f0: 8687276315574018485
+      Boat_r18_f1: -3118368100572356283
+      Boat_r18_f2: 8396977179777448965
+      Boat_r18_f3: 8321530025261789870
+      Boat_r19_f0: 2395194993758464534
+      Boat_r19_f1: 2859500009621608340
+      Boat_r19_f2: 4943258715465394893
+      Boat_r19_f3: 7052589059464529593
+      Boat_r20_f0: -7168244165329042589
+      Boat_r20_f1: 2236176455895827125
+      Boat_r20_f2: 2744425187208425549
+      Boat_r20_f3: -5633964388243208534
+      Boat_r21_f0: -8017344159423497692
+      Boat_r21_f1: 1194388929512964274
+      Boat_r21_f2: 2435779237831904073
+      Boat_r21_f3: 4072513801619322911
+      Boat_r22_f0: 4351044609390087579
+      Boat_r22_f1: -8792428694448847472
+      Boat_r22_f2: 180976700773959453
+      Boat_r22_f3: -4394076496074562734
+      Boat_r23_f0: 6751564597264715577
+      Boat_r23_f1: 4000368988557924712
+      Boat_r23_f2: 607045446335926278
+      Boat_r23_f3: -272980186262153721
+      Fisherman_Boat_Sheet_0: 8490945948344407397
+      Fisherman_Boat_Sheet_1: 5308311152129324479
+      Fisherman_Boat_Sheet_10: -4039060416845608963
+      Fisherman_Boat_Sheet_11: -5843926941512306524
+      Fisherman_Boat_Sheet_12: 3408351000283991157
+      Fisherman_Boat_Sheet_13: -2010541100353963573
+      Fisherman_Boat_Sheet_14: -3694766871321858619
+      Fisherman_Boat_Sheet_15: -5087978007044471348
+      Fisherman_Boat_Sheet_16: -1655309689498399948
+      Fisherman_Boat_Sheet_17: -8345378103027940400
+      Fisherman_Boat_Sheet_18: -6551692936972676496
+      Fisherman_Boat_Sheet_19: 7640737801160469193
+      Fisherman_Boat_Sheet_2: 7753273283478910922
+      Fisherman_Boat_Sheet_20: -5960370103198420747
+      Fisherman_Boat_Sheet_21: 8151133945637387336
+      Fisherman_Boat_Sheet_22: -2776786112760321591
+      Fisherman_Boat_Sheet_23: -5580020660485985878
+      Fisherman_Boat_Sheet_24: 6951765293212420509
+      Fisherman_Boat_Sheet_25: 417809970854686484
+      Fisherman_Boat_Sheet_26: 5589190078557498004
+      Fisherman_Boat_Sheet_27: -8825956928090549691
+      Fisherman_Boat_Sheet_28: -2774305801390080192
+      Fisherman_Boat_Sheet_29: -2280374517320805030
+      Fisherman_Boat_Sheet_3: -2722990570708262616
+      Fisherman_Boat_Sheet_30: -2223442445020494465
+      Fisherman_Boat_Sheet_31: -5842072636852338261
+      Fisherman_Boat_Sheet_32: -3110848260792384910
+      Fisherman_Boat_Sheet_33: -7545010978713714830
+      Fisherman_Boat_Sheet_34: -732340963674313692
+      Fisherman_Boat_Sheet_35: 5171844404414669930
+      Fisherman_Boat_Sheet_36: 6457567381784763242
+      Fisherman_Boat_Sheet_37: 1745375602813582912
+      Fisherman_Boat_Sheet_38: -6820025470775472823
+      Fisherman_Boat_Sheet_39: 2659356373911798809
+      Fisherman_Boat_Sheet_4: 2821546130912891666
+      Fisherman_Boat_Sheet_40: -6621911594718648799
+      Fisherman_Boat_Sheet_41: 4941353535100672242
+      Fisherman_Boat_Sheet_42: 2549628311805175989
+      Fisherman_Boat_Sheet_43: 2707469500617536960
+      Fisherman_Boat_Sheet_44: -8422262483674399386
+      Fisherman_Boat_Sheet_45: 7332244320454123024
+      Fisherman_Boat_Sheet_46: 3272141925438212046
+      Fisherman_Boat_Sheet_47: 5784138432602222585
+      Fisherman_Boat_Sheet_48: 7891916406519025965
+      Fisherman_Boat_Sheet_49: 73831233660067786
+      Fisherman_Boat_Sheet_5: -745366564608277786
+      Fisherman_Boat_Sheet_50: 6464426130865078113
+      Fisherman_Boat_Sheet_51: -2429267411921694967
+      Fisherman_Boat_Sheet_52: 2283682695987473527
+      Fisherman_Boat_Sheet_53: -5598948391503816817
+      Fisherman_Boat_Sheet_54: 2158149938485176296
+      Fisherman_Boat_Sheet_55: 7223510341934574249
+      Fisherman_Boat_Sheet_56: -5123359471930030138
+      Fisherman_Boat_Sheet_57: -4412885664156222908
+      Fisherman_Boat_Sheet_58: -7076491447129330770
+      Fisherman_Boat_Sheet_59: 4191618358436309317
+      Fisherman_Boat_Sheet_6: 1544903574735206738
+      Fisherman_Boat_Sheet_60: -4199001465588539111
+      Fisherman_Boat_Sheet_61: -2540903092267518351
+      Fisherman_Boat_Sheet_62: 920077767406935029
+      Fisherman_Boat_Sheet_63: -4617305917966630026
+      Fisherman_Boat_Sheet_64: 2506690820551749063
+      Fisherman_Boat_Sheet_65: -1679905155813617702
+      Fisherman_Boat_Sheet_66: -4456747976433405975
+      Fisherman_Boat_Sheet_67: 883164891303842586
+      Fisherman_Boat_Sheet_68: 8391959418759452485
+      Fisherman_Boat_Sheet_69: 4934719257420869622
+      Fisherman_Boat_Sheet_7: 2469757664538829635
+      Fisherman_Boat_Sheet_70: -619252224934515441
+      Fisherman_Boat_Sheet_71: -8488609667082302142
+      Fisherman_Boat_Sheet_72: -5535302947429296575
+      Fisherman_Boat_Sheet_73: -2673724974434263414
+      Fisherman_Boat_Sheet_74: 6859216402321811572
+      Fisherman_Boat_Sheet_75: -6578010043543242202
+      Fisherman_Boat_Sheet_76: 3961206393771101765
+      Fisherman_Boat_Sheet_77: -9195342691550388761
+      Fisherman_Boat_Sheet_78: 3092156620340278241
+      Fisherman_Boat_Sheet_79: 4434848901388701411
+      Fisherman_Boat_Sheet_8: -5151613628277782392
+      Fisherman_Boat_Sheet_80: 3264348029892884487
+      Fisherman_Boat_Sheet_81: -2360688761582814670
+      Fisherman_Boat_Sheet_82: 5484455602373432695
+      Fisherman_Boat_Sheet_83: 3334517916031160890
+      Fisherman_Boat_Sheet_84: -3240108966836745436
+      Fisherman_Boat_Sheet_85: -380180305442946817
+      Fisherman_Boat_Sheet_86: -1778413392785493842
+      Fisherman_Boat_Sheet_87: 4392277782805367109
+      Fisherman_Boat_Sheet_88: 8696526683380628967
+      Fisherman_Boat_Sheet_89: 9028518066761223428
+      Fisherman_Boat_Sheet_9: 4576092723720558557
+      Fisherman_Boat_Sheet_90: -544018086426081998
+      Fisherman_Boat_Sheet_91: -3200126184417962639
+      Fisherman_Boat_Sheet_92: -6713393599116995572
+      Fisherman_Boat_Sheet_93: -8541860460255209025
+      Fisherman_Boat_Sheet_94: -7779911184458747550
+      Fisherman_Boat_Sheet_95: 2361350656357641297
+      Fisherman_Boat_Sheet_96: -7630883205570830511
+      Fisherman_Boat_Sheet_97: 8651865235617392801
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

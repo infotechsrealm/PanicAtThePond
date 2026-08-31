@@ -1,0 +1,3420 @@
+fileFormatVersion: 2
+guid: dc9cab3dba9f94e41bfbf127bb0c2c8b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3800986426145912975
+    second: Fisherman_Oars_Sheet_0
+  - first:
+      213: -3153139116696353223
+    second: Fisherman_Oars_Sheet_1
+  - first:
+      213: 7062598262384874916
+    second: Fisherman_Oars_Sheet_2
+  - first:
+      213: -2567669029942113310
+    second: Fisherman_Oars_Sheet_3
+  - first:
+      213: -7004051619572365492
+    second: Fisherman_Oars_Sheet_4
+  - first:
+      213: 8132256216024869327
+    second: Fisherman_Oars_Sheet_5
+  - first:
+      213: -1487139689544351171
+    second: Fisherman_Oars_Sheet_6
+  - first:
+      213: 3860069636585494913
+    second: Fisherman_Oars_Sheet_7
+  - first:
+      213: 3192259142049845233
+    second: Fisherman_Oars_Sheet_8
+  - first:
+      213: 1984573704961048138
+    second: Fisherman_Oars_Sheet_9
+  - first:
+      213: -1233798329255991598
+    second: Fisherman_Oars_Sheet_10
+  - first:
+      213: 1824204008405131310
+    second: Fisherman_Oars_Sheet_11
+  - first:
+      213: -3322024533860055058
+    second: Fisherman_Oars_Sheet_12
+  - first:
+      213: -5959472985781188603
+    second: Fisherman_Oars_Sheet_13
+  - first:
+      213: 8010316133884149820
+    second: Fisherman_Oars_Sheet_14
+  - first:
+      213: 1446628261973036158
+    second: Fisherman_Oars_Sheet_15
+  - first:
+      213: 1103926670244555727
+    second: Fisherman_Oars_Sheet_16
+  - first:
+      213: 2526645418411066181
+    second: Fisherman_Oars_Sheet_17
+  - first:
+      213: -8669809639420726171
+    second: Fisherman_Oars_Sheet_18
+  - first:
+      213: -7756339756459765098
+    second: Fisherman_Oars_Sheet_19
+  - first:
+      213: -462472893436471315
+    second: Fisherman_Oars_Sheet_20
+  - first:
+      213: -2596819951983544820
+    second: Fisherman_Oars_Sheet_21
+  - first:
+      213: -3979385531176308538
+    second: Fisherman_Oars_Sheet_22
+  - first:
+      213: -2023738700210545854
+    second: Fisherman_Oars_Sheet_23
+  - first:
+      213: 3855753382293198508
+    second: Fisherman_Oars_Sheet_24
+  - first:
+      213: 3173969413616819430
+    second: Fisherman_Oars_Sheet_25
+  - first:
+      213: 4580531669973385973
+    second: Fisherman_Oars_Sheet_26
+  - first:
+      213: 7949809252322203887
+    second: Fisherman_Oars_Sheet_27
+  - first:
+      213: 1267743597214295242
+    second: Fisherman_Oars_Sheet_28
+  - first:
+      213: -1311696474069903323
+    second: Fisherman_Oars_Sheet_29
+  - first:
+      213: 4557602952538495330
+    second: Fisherman_Oars_Sheet_30
+  - first:
+      213: -861460332048301751
+    second: Fisherman_Oars_Sheet_31
+  - first:
+      213: -2245242270623831282
+    second: Fisherman_Oars_Sheet_32
+  - first:
+      213: -4517865859002643851
+    second: Fisherman_Oars_Sheet_33
+  - first:
+      213: -6054218147010910246
+    second: Fisherman_Oars_Sheet_34
+  - first:
+      213: 2171897569016854465
+    second: Fisherman_Oars_Sheet_35
+  - first:
+      213: 523016649837055447
+    second: Fisherman_Oars_Sheet_36
+  - first:
+      213: -903368339157096800
+    second: Fisherman_Oars_Sheet_37
+  - first:
+      213: 611424702720794694
+    second: Fisherman_Oars_Sheet_38
+  - first:
+      213: 6852481850989749466
+    second: Fisherman_Oars_Sheet_39
+  - first:
+      213: -3727178611009894635
+    second: Fisherman_Oars_Sheet_40
+  - first:
+      213: 4323729279350375599
+    second: Fisherman_Oars_Sheet_41
+  - first:
+      213: -8740824744210184275
+    second: Fisherman_Oars_Sheet_42
+  - first:
+      213: -2009733775367087048
+    second: Fisherman_Oars_Sheet_43
+  - first:
+      213: 6569436252739201598
+    second: Fisherman_Oars_Sheet_44
+  - first:
+      213: 7703102399506606260
+    second: Fisherman_Oars_Sheet_45
+  - first:
+      213: 6583264033449924372
+    second: Fisherman_Oars_Sheet_46
+  - first:
+      213: 3089281079498766151
+    second: Fisherman_Oars_Sheet_47
+  - first:
+      213: -2276748627411669835
+    second: Fisherman_Oars_Sheet_48
+  - first:
+      213: -2393157106383602976
+    second: Fisherman_Oars_Sheet_49
+  - first:
+      213: 1785961344194849306
+    second: Fisherman_Oars_Sheet_50
+  - first:
+      213: -3532065322862836948
+    second: Fisherman_Oars_Sheet_51
+  - first:
+      213: 6936772655741514624
+    second: Fisherman_Oars_Sheet_52
+  - first:
+      213: -8068021873756509250
+    second: Fisherman_Oars_Sheet_53
+  - first:
+      213: 4442134453029264988
+    second: Fisherman_Oars_Sheet_54
+  - first:
+      213: 6273295510423649813
+    second: Fisherman_Oars_Sheet_55
+  - first:
+      213: 568528853214112654
+    second: Fisherman_Oars_Sheet_56
+  - first:
+      213: 3651338331944613357
+    second: Fisherman_Oars_Sheet_57
+  - first:
+      213: 6683978063354818792
+    second: Fisherman_Oars_Sheet_58
+  - first:
+      213: 634718253944366068
+    second: Fisherman_Oars_Sheet_59
+  - first:
+      213: 6234965024075077322
+    second: Fisherman_Oars_Sheet_60
+  - first:
+      213: -2736339797563251504
+    second: Fisherman_Oars_Sheet_61
+  - first:
+      213: 7151665677756295458
+    second: Fisherman_Oars_Sheet_62
+  - first:
+      213: 1857927213058586048
+    second: Fisherman_Oars_Sheet_63
+  - first:
+      213: -3116929618411053575
+    second: Fisherman_Oars_Sheet_64
+  - first:
+      213: 5969365282934549498
+    second: Fisherman_Oars_Sheet_65
+  - first:
+      213: 5607979795203054441
+    second: Fisherman_Oars_Sheet_66
+  - first:
+      213: 6417073296928540571
+    second: Fisherman_Oars_Sheet_67
+  - first:
+      213: -4574903273350536379
+    second: Fisherman_Oars_Sheet_68
+  - first:
+      213: 944566085320968126
+    second: Fisherman_Oars_Sheet_69
+  - first:
+      213: 4675184526933840137
+    second: Fisherman_Oars_Sheet_70
+  - first:
+      213: 4616652405492165964
+    second: Fisherman_Oars_Sheet_71
+  - first:
+      213: 8653835877625337857
+    second: Fisherman_Oars_Sheet_72
+  - first:
+      213: -1889111355749209176
+    second: Fisherman_Oars_Sheet_73
+  - first:
+      213: 8626660556422971568
+    second: Fisherman_Oars_Sheet_74
+  - first:
+      213: -7641660732907162892
+    second: Fisherman_Oars_Sheet_75
+  - first:
+      213: -6131736286830761340
+    second: Fisherman_Oars_Sheet_76
+  - first:
+      213: 3197650546962730362
+    second: Fisherman_Oars_Sheet_77
+  - first:
+      213: -7271743192350558803
+    second: Fisherman_Oars_Sheet_78
+  - first:
+      213: 2114027803777717449
+    second: Fisherman_Oars_Sheet_79
+  - first:
+      213: 3210278484069055723
+    second: Fisherman_Oars_Sheet_80
+  - first:
+      213: -7006523225442536802
+    second: Fisherman_Oars_Sheet_81
+  - first:
+      213: 6188463500021975183
+    second: Fisherman_Oars_Sheet_82
+  - first:
+      213: -2685180246036628517
+    second: Fisherman_Oars_Sheet_83
+  - first:
+      213: 285029289051592395
+    second: Fisherman_Oars_Sheet_84
+  - first:
+      213: -6494335677956904592
+    second: Fisherman_Oars_Sheet_85
+  - first:
+      213: -7450972047109976026
+    second: Fisherman_Oars_Sheet_86
+  - first:
+      213: 4890566208617677904
+    second: Fisherman_Oars_Sheet_87
+  - first:
+      213: -5316552431287531515
+    second: Fisherman_Oars_Sheet_88
+  - first:
+      213: -3129627805873429068
+    second: Fisherman_Oars_Sheet_89
+  - first:
+      213: -8107128362713375614
+    second: Fisherman_Oars_Sheet_90
+  - first:
+      213: 3880678763225655272
+    second: Fisherman_Oars_Sheet_91
+  - first:
+      213: 6500733236363748748
+    second: Fisherman_Oars_Sheet_92
+  - first:
+      213: 9088317001628311853
+    second: Fisherman_Oars_Sheet_93
+  - first:
+      213: -7160412591082801847
+    second: Fisherman_Oars_Sheet_94
+  - first:
+      213: 4525938261214307310
+    second: Fisherman_Oars_Sheet_95
+  - first:
+      213: 3631119722575726747
+    second: Oars_r00_f0
+  - first:
+      213: 7615772937270971840
+    second: Oars_r00_f1
+  - first:
+      213: 2227769785342811882
+    second: Oars_r00_f2
+  - first:
+      213: 4178336535518629219
+    second: Oars_r00_f3
+  - first:
+      213: 7616183885913544767
+    second: Oars_r01_f0
+  - first:
+      213: -4993896297796422546
+    second: Oars_r01_f1
+  - first:
+      213: 5041460689334024145
+    second: Oars_r01_f2
+  - first:
+      213: -7431199998890703664
+    second: Oars_r01_f3
+  - first:
+      213: 3187656791013194543
+    second: Oars_r02_f0
+  - first:
+      213: 686556822034419661
+    second: Oars_r02_f1
+  - first:
+      213: 1492540050706971978
+    second: Oars_r02_f2
+  - first:
+      213: -8533491852751489772
+    second: Oars_r02_f3
+  - first:
+      213: 376781478962636567
+    second: Oars_r03_f0
+  - first:
+      213: -8636254494193498778
+    second: Oars_r03_f1
+  - first:
+      213: -7458378455781894490
+    second: Oars_r03_f2
+  - first:
+      213: -4736976433395988560
+    second: Oars_r03_f3
+  - first:
+      213: -3054831923587648388
+    second: Oars_r04_f0
+  - first:
+      213: -6134393447012582312
+    second: Oars_r04_f1
+  - first:
+      213: -8101373973424659967
+    second: Oars_r04_f2
+  - first:
+      213: 4360193826129671672
+    second: Oars_r04_f3
+  - first:
+      213: 7382317185746283053
+    second: Oars_r05_f0
+  - first:
+      213: -1442830808448338450
+    second: Oars_r05_f1
+  - first:
+      213: 1327278772852857857
+    second: Oars_r05_f2
+  - first:
+      213: -5387394330581604953
+    second: Oars_r05_f3
+  - first:
+      213: -6275282532918612620
+    second: Oars_r06_f0
+  - first:
+      213: 2088526842448250584
+    second: Oars_r06_f1
+  - first:
+      213: -4811498584379029364
+    second: Oars_r06_f2
+  - first:
+      213: -1247066557737605710
+    second: Oars_r06_f3
+  - first:
+      213: 3976322362847280344
+    second: Oars_r07_f0
+  - first:
+      213: 8245654069263487609
+    second: Oars_r07_f1
+  - first:
+      213: -1701687661360297763
+    second: Oars_r07_f2
+  - first:
+      213: -952985782848285898
+    second: Oars_r07_f3
+  - first:
+      213: 5117286133422185969
+    second: Oars_r08_f0
+  - first:
+      213: -9166106811038313985
+    second: Oars_r08_f1
+  - first:
+      213: -4774112279579868304
+    second: Oars_r08_f2
+  - first:
+      213: 2181835668604932257
+    second: Oars_r08_f3
+  - first:
+      213: -2260770909913211779
+    second: Oars_r09_f0
+  - first:
+      213: -7583956872151840191
+    second: Oars_r09_f1
+  - first:
+      213: -638210562632706688
+    second: Oars_r09_f2
+  - first:
+      213: -2363834191800086293
+    second: Oars_r09_f3
+  - first:
+      213: -4636229707773766360
+    second: Oars_r10_f0
+  - first:
+      213: -49395212457991026
+    second: Oars_r10_f1
+  - first:
+      213: 7488245125394707774
+    second: Oars_r10_f2
+  - first:
+      213: -3623762839853523928
+    second: Oars_r10_f3
+  - first:
+      213: -2998172751260286670
+    second: Oars_r11_f0
+  - first:
+      213: -3409627289427059569
+    second: Oars_r11_f1
+  - first:
+      213: 6164943626677692892
+    second: Oars_r11_f2
+  - first:
+      213: -1964987546729217546
+    second: Oars_r11_f3
+  - first:
+      213: -877396474311235126
+    second: Oars_r12_f0
+  - first:
+      213: -2080889783846109616
+    second: Oars_r12_f1
+  - first:
+      213: -3082922095935246436
+    second: Oars_r12_f2
+  - first:
+      213: -5218540009271247422
+    second: Oars_r12_f3
+  - first:
+      213: 895533066805039050
+    second: Oars_r13_f0
+  - first:
+      213: -7070487972322748816
+    second: Oars_r13_f1
+  - first:
+      213: 7268681945184321048
+    second: Oars_r13_f2
+  - first:
+      213: 2928857346362002460
+    second: Oars_r13_f3
+  - first:
+      213: -3858927108327465582
+    second: Oars_r14_f0
+  - first:
+      213: -9039294247334037312
+    second: Oars_r14_f1
+  - first:
+      213: 3722288472711582959
+    second: Oars_r14_f2
+  - first:
+      213: -4240510122021725270
+    second: Oars_r14_f3
+  - first:
+      213: 3400869385428950903
+    second: Oars_r15_f0
+  - first:
+      213: 7035627530668758918
+    second: Oars_r15_f1
+  - first:
+      213: 8575924523498975805
+    second: Oars_r15_f2
+  - first:
+      213: 581046694598662409
+    second: Oars_r15_f3
+  - first:
+      213: 7705751050422842433
+    second: Oars_r16_f0
+  - first:
+      213: 307937120726789482
+    second: Oars_r16_f1
+  - first:
+      213: -1036254834598123395
+    second: Oars_r16_f2
+  - first:
+      213: -2876048445003509933
+    second: Oars_r16_f3
+  - first:
+      213: -6718396948465138284
+    second: Oars_r17_f0
+  - first:
+      213: -4489770278419735495
+    second: Oars_r17_f1
+  - first:
+      213: -6806538667840801025
+    second: Oars_r17_f2
+  - first:
+      213: 8533647569465314613
+    second: Oars_r17_f3
+  - first:
+      213: -4216222971275355206
+    second: Oars_r18_f0
+  - first:
+      213: 3041451756930203913
+    second: Oars_r18_f1
+  - first:
+      213: -28681760505158243
+    second: Oars_r18_f2
+  - first:
+      213: 568821592262217142
+    second: Oars_r18_f3
+  - first:
+      213: -1840231448698314594
+    second: Oars_r19_f0
+  - first:
+      213: 2564947714164324408
+    second: Oars_r19_f1
+  - first:
+      213: 5798381833577937580
+    second: Oars_r19_f2
+  - first:
+      213: -665033917889456239
+    second: Oars_r19_f3
+  - first:
+      213: 5622595697462350645
+    second: Oars_r20_f0
+  - first:
+      213: -7407881376580763109
+    second: Oars_r20_f1
+  - first:
+      213: -6056038023829127721
+    second: Oars_r20_f2
+  - first:
+      213: -6154503337489466933
+    second: Oars_r20_f3
+  - first:
+      213: -7819505030469427275
+    second: Oars_r21_f0
+  - first:
+      213: -4699695109352972966
+    second: Oars_r21_f1
+  - first:
+      213: -3448342378556829740
+    second: Oars_r21_f2
+  - first:
+      213: -5527590271876540510
+    second: Oars_r21_f3
+  - first:
+      213: 3558633857253576144
+    second: Oars_r22_f0
+  - first:
+      213: -6927452457268108353
+    second: Oars_r22_f1
+  - first:
+      213: 5600522173138398267
+    second: Oars_r22_f2
+  - first:
+      213: -6691254268685087192
+    second: Oars_r22_f3
+  - first:
+      213: -4242924503031019882
+    second: Oars_r23_f0
+  - first:
+      213: 4061679363989085526
+    second: Oars_r23_f1
+  - first:
+      213: 6490254660724995249
+    second: Oars_r23_f2
+  - first:
+      213: -3760123820732527570
+    second: Oars_r23_f3
+  - first:
+      213: 6891319768565868454
+    second: Oars_Casting_L_0
+  - first:
+      213: -5317275143673369896
+    second: Oars_Casting_L_1
+  - first:
+      213: -2308844447348955350
+    second: Oars_Casting_L_2
+  - first:
+      213: -6743543837597278723
+    second: Oars_Casting_L_3
+  - first:
+      213: -5024850020861017590
+    second: Oars_Idle_L_0
+  - first:
+      213: 7258709048087948258
+    second: Oars_Idle_L_1
+  - first:
+      213: -1227293748287468578
+    second: Oars_Idle_L_2
+  - first:
+      213: -502487199441072829
+    second: Oars_Idle_L_3
+  - first:
+      213: 1052916897983501480
+    second: Oars_Fishing_L_0
+  - first:
+      213: 7333290928029006460
+    second: Oars_Fishing_L_1
+  - first:
+      213: 3170656382363262553
+    second: Oars_Fishing_L_2
+  - first:
+      213: -380099997701815750
+    second: Oars_Fishing_L_3
+  - first:
+      213: -4936311479352579708
+    second: Oars_MoveForward_L_0
+  - first:
+      213: -5264482291539110745
+    second: Oars_MoveForward_L_1
+  - first:
+      213: -6729437758615629027
+    second: Oars_MoveForward_L_2
+  - first:
+      213: -4910647270602715146
+    second: Oars_MoveForward_L_3
+  - first:
+      213: -8008662988463275775
+    second: Oars_MoveBackward_L_0
+  - first:
+      213: 8341150702188392735
+    second: Oars_MoveBackward_L_1
+  - first:
+      213: -1635785982512673998
+    second: Oars_MoveBackward_L_2
+  - first:
+      213: -4916586629625517517
+    second: Oars_MoveBackward_L_3
+  - first:
+      213: 5358185759580506664
+    second: Oars_Fighting_L_0
+  - first:
+      213: -7933891482706862839
+    second: Oars_Fighting_L_1
+  - first:
+      213: -8000887844881621596
+    second: Oars_Fighting_L_2
+  - first:
+      213: 2941762913291291058
+    second: Oars_Fighting_L_3
+  - first:
+      213: 3407719760205028682
+    second: Oars_Reeling_L_0
+  - first:
+      213: 7587877218652577669
+    second: Oars_Reeling_L_1
+  - first:
+      213: -1754636465279749801
+    second: Oars_Reeling_L_2
+  - first:
+      213: -4072196529340417345
+    second: Oars_Reeling_L_3
+  - first:
+      213: -96293131798461592
+    second: Oars_Win_L_0
+  - first:
+      213: 9043580599285144655
+    second: Oars_Win_L_1
+  - first:
+      213: 5521278650749674237
+    second: Oars_Win_L_2
+  - first:
+      213: 1364878278607575110
+    second: Oars_Win_L_3
+  - first:
+      213: -9119374840833755728
+    second: Oars_SwappingPoles_L_0
+  - first:
+      213: 3616875816223508493
+    second: Oars_SwappingPoles_L_1
+  - first:
+      213: 5700193861598568508
+    second: Oars_SwappingPoles_L_2
+  - first:
+      213: -5837256496824146962
+    second: Oars_SwappingPoles_L_3
+  - first:
+      213: -3668717535215629275
+    second: Oars_Scared_L_0
+  - first:
+      213: 3168611169687997370
+    second: Oars_Scared_L_1
+  - first:
+      213: 6840714232628996472
+    second: Oars_Scared_L_2
+  - first:
+      213: -2861677341702586408
+    second: Oars_Scared_L_3
+  - first:
+      213: -2699448449628766622
+    second: Oars_GoToCry_L_0
+  - first:
+      213: -3422057790282882413
+    second: Oars_GoToCry_L_1
+  - first:
+      213: 5658749846599780215
+    second: Oars_GoToCry_L_2
+  - first:
+      213: -932229663440781543
+    second: Oars_GoToCry_L_3
+  - first:
+      213: 6533424141801294958
+    second: Oars_Cry_L_0
+  - first:
+      213: 7596073180403654033
+    second: Oars_Cry_L_1
+  - first:
+      213: -457872555282651859
+    second: Oars_Cry_L_2
+  - first:
+      213: -3233433506982603496
+    second: Oars_Cry_L_3
+  - first:
+      213: -8987326557062602948
+    second: Oars_Casting_R_0
+  - first:
+      213: 8363201363892156045
+    second: Oars_Casting_R_1
+  - first:
+      213: -7167259650455589756
+    second: Oars_Casting_R_2
+  - first:
+      213: 5198886663760816753
+    second: Oars_Casting_R_3
+  - first:
+      213: 3571077010695816842
+    second: Oars_Idle_R_0
+  - first:
+      213: -1236390735241053112
+    second: Oars_Idle_R_1
+  - first:
+      213: -5273829403504665078
+    second: Oars_Idle_R_2
+  - first:
+      213: 7516423736322524574
+    second: Oars_Idle_R_3
+  - first:
+      213: -4800005107700539438
+    second: Oars_Fishing_R_0
+  - first:
+      213: -7965965329035342551
+    second: Oars_Fishing_R_1
+  - first:
+      213: -4882977858565340307
+    second: Oars_Fishing_R_2
+  - first:
+      213: 2182179326313981759
+    second: Oars_Fishing_R_3
+  - first:
+      213: 7728902952336706238
+    second: Oars_MoveForward_R_0
+  - first:
+      213: -8653385004053350154
+    second: Oars_MoveForward_R_1
+  - first:
+      213: -2927582343544127586
+    second: Oars_MoveForward_R_2
+  - first:
+      213: -3798403272109708808
+    second: Oars_MoveForward_R_3
+  - first:
+      213: 8927372371836705192
+    second: Oars_MoveBackward_R_0
+  - first:
+      213: -3358343515194959289
+    second: Oars_MoveBackward_R_1
+  - first:
+      213: -767589385765431851
+    second: Oars_MoveBackward_R_2
+  - first:
+      213: -6387990443863107962
+    second: Oars_MoveBackward_R_3
+  - first:
+      213: 500766373042811846
+    second: Oars_Fighting_R_0
+  - first:
+      213: -6490313265289191032
+    second: Oars_Fighting_R_1
+  - first:
+      213: -3595877108825762864
+    second: Oars_Fighting_R_2
+  - first:
+      213: 8479861396197938000
+    second: Oars_Fighting_R_3
+  - first:
+      213: 2988801095256971436
+    second: Oars_Reeling_R_0
+  - first:
+      213: -2604226546827803367
+    second: Oars_Reeling_R_1
+  - first:
+      213: -977863900927698191
+    second: Oars_Reeling_R_2
+  - first:
+      213: -653678546666903999
+    second: Oars_Reeling_R_3
+  - first:
+      213: -3564319999017491080
+    second: Oars_Win_R_0
+  - first:
+      213: -8079483746004955049
+    second: Oars_Win_R_1
+  - first:
+      213: -3750881330793201268
+    second: Oars_Win_R_2
+  - first:
+      213: 5317436891211077602
+    second: Oars_Win_R_3
+  - first:
+      213: 161591743172334789
+    second: Oars_SwappingPoles_R_0
+  - first:
+      213: 7612729904971670013
+    second: Oars_SwappingPoles_R_1
+  - first:
+      213: -4111565858655520148
+    second: Oars_SwappingPoles_R_2
+  - first:
+      213: -7224775966016191091
+    second: Oars_SwappingPoles_R_3
+  - first:
+      213: -56107248528303968
+    second: Oars_Scared_R_0
+  - first:
+      213: -5051441166093752927
+    second: Oars_Scared_R_1
+  - first:
+      213: -2932792917602053639
+    second: Oars_Scared_R_2
+  - first:
+      213: 254858449706910219
+    second: Oars_Scared_R_3
+  - first:
+      213: 8005648565534894154
+    second: Oars_GoToCry_R_0
+  - first:
+      213: 8869861400902592175
+    second: Oars_GoToCry_R_1
+  - first:
+      213: 3836576096919185077
+    second: Oars_GoToCry_R_2
+  - first:
+      213: 4853461680687568104
+    second: Oars_GoToCry_R_3
+  - first:
+      213: -333820918844560371
+    second: Oars_Cry_R_0
+  - first:
+      213: 623887913308162770
+    second: Oars_Cry_R_1
+  - first:
+      213: -4631627779759982623
+    second: Oars_Cry_R_2
+  - first:
+      213: 6596990561677855375
+    second: Oars_Cry_R_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Oars_Casting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7eef651d2e2af50800000000000000
+      internalID: 6891319768565868454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Casting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8daa550dd6e3536b0800000000000000
+      internalID: -5317275143673369896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Casting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a27e12a353655ffd0800000000000000
+      internalID: -2308844447348955350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Casting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfd5db8cb9e1a62a0800000000000000
+      internalID: -6743543837597278723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Idle_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0207f06785244ab0800000000000000
+      internalID: -5024850020861017590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Idle_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eb2233cb6d1cb460800000000000000
+      internalID: 7258709048087948258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Idle_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edb8442a6d6c7fee0800000000000000
+      internalID: -1227293748287468578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Idle_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34d422ded8ec609f0800000000000000
+      internalID: -502487199441072829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Fishing_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a410521756bc9e00800000000000000
+      internalID: 1052916897983501480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Fishing_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7a73cfde3515c560800000000000000
+      internalID: 7333290928029006460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Fishing_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95e569f4e2f600c20800000000000000
+      internalID: 3170656382363262553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Fishing_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a324bd1e01d99baf0800000000000000
+      internalID: -380099997701815750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_MoveForward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 489a18cfcd2be7bb0800000000000000
+      internalID: -4936311479352579708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_MoveForward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a41a7e8f3dc0f6b0800000000000000
+      internalID: -5264482291539110745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_MoveForward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d135d9b330c3c92a0800000000000000
+      internalID: -6729437758615629027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_MoveForward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ffcb7a3350e9dbb0800000000000000
+      internalID: -4910647270602715146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_MoveBackward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10104d691738bd090800000000000000
+      internalID: -8008662988463275775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_MoveBackward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1170fdce58b1c370800000000000000
+      internalID: 8341150702188392735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_MoveBackward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23bc4cfc0558c49e0800000000000000
+      internalID: -1635785982512673998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_MoveBackward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33a6cb17286c4cbb0800000000000000
+      internalID: -4916586629625517517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Fighting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82a4a583f891c5a40800000000000000
+      internalID: 5358185759580506664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Fighting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90d92c66bb725e190800000000000000
+      internalID: -7933891482706862839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Fighting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ad171645e227f090800000000000000
+      internalID: -8000887844881621596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Fighting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b9452498cd33d820800000000000000
+      internalID: 2941762913291291058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Reeling_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4d99192117aa4f20800000000000000
+      internalID: 3407719760205028682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Reeling_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58fd019c02e8d4960800000000000000
+      internalID: 7587877218652577669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Reeling_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 751bd096e6746a7e0800000000000000
+      internalID: -1754636465279749801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Reeling_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbaf51df4d6ac77c0800000000000000
+      internalID: -4072196529340417345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Win_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 863c7d428e5e9aef0800000000000000
+      internalID: -96293131798461592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Win_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4c510ed3a0418d70800000000000000
+      internalID: 9043580599285144655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Win_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df2e1eb0ea58f9c40800000000000000
+      internalID: 5521278650749674237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Win_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6481d0e109501f210800000000000000
+      internalID: 1364878278607575110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_SwappingPoles_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b5387616e8717180800000000000000
+      internalID: -9119374840833755728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_SwappingPoles_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0804be4469b13230800000000000000
+      internalID: 3616875816223508493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_SwappingPoles_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c30e17fbd182b1f40800000000000000
+      internalID: 5700193861598568508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_SwappingPoles_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee3a4fba426edfea0800000000000000
+      internalID: -5837256496824146962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Scared_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52cc934e6d8161dc0800000000000000
+      internalID: -3668717535215629275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Scared_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abb8690221b29fb20800000000000000
+      internalID: 3168611169687997370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Scared_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8796fc5d9591fee50800000000000000
+      internalID: 6840714232628996472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Scared_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8df780a9e974948d0800000000000000
+      internalID: -2861677341702586408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_GoToCry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26ef566ffe1a98ad0800000000000000
+      internalID: -2699448449628766622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_GoToCry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 392a45112986280d0800000000000000
+      internalID: -3422057790282882413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_GoToCry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 777406f010be78e40800000000000000
+      internalID: 5658749846599780215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_GoToCry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91fb78d6f0e0013f0800000000000000
+      internalID: -932229663440781543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Cry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6c070334a26baa50800000000000000
+      internalID: 6533424141801294958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Cry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19dd4d5df4caa6960800000000000000
+      internalID: 7596073180403654033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Cry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d252afd365f45a9f0800000000000000
+      internalID: -457872555282651859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Cry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 815d47b5b598023d0800000000000000
+      internalID: -3233433506982603496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Casting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3f59ddfc1a964380800000000000000
+      internalID: -8987326557062602948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Casting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d86badf845f001470800000000000000
+      internalID: 8363201363892156045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Casting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48caa995257c88c90800000000000000
+      internalID: -7167259650455589756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Casting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17aaaf430e7262840800000000000000
+      internalID: 5198886663760816753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Idle_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a868610fe930f8130800000000000000
+      internalID: 3571077010695816842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Idle_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84c7f5e4d2577dee0800000000000000
+      internalID: -1236390735241053112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Idle_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0e181679189fc6b0800000000000000
+      internalID: -5273829403504665078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Idle_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9581d08093bf4860800000000000000
+      internalID: 7516423736322524574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Fishing_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dfd27b39c4f26db0800000000000000
+      internalID: -4800005107700539438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Fishing_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92d45cd1db4337190800000000000000
+      internalID: -7965965329035342551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Fishing_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d638d1e328d2c3cb0800000000000000
+      internalID: -4882977858565340307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Fishing_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f37652d1988a84e10800000000000000
+      internalID: 2182179326313981759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_MoveForward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eba4f712944924b60800000000000000
+      internalID: 7728902952336706238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_MoveForward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f835b8bf2009e780800000000000000
+      internalID: -8653385004053350154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_MoveForward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9fb85a9e532f57d0800000000000000
+      internalID: -2927582343544127586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_MoveForward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f9283c495c594bc0800000000000000
+      internalID: -3798403272109708808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_MoveBackward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a996f87fd564eb70800000000000000
+      internalID: 8927372371836705192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_MoveBackward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74a511fbd54c461d0800000000000000
+      internalID: -3358343515194959289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_MoveBackward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d557104589f855f0800000000000000
+      internalID: -767589385765431851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_MoveBackward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68613fc498c4957a0800000000000000
+      internalID: -6387990443863107962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Fighting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c37da4fc5413f600800000000000000
+      internalID: 500766373042811846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Fighting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 881ae6de876cde5a0800000000000000
+      internalID: -6490313265289191032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Fighting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d35b7042d0e81ec0800000000000000
+      internalID: -3595877108825762864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Fighting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0531de8f2058ea570800000000000000
+      internalID: 8479861396197938000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Reeling_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca81713c2ca5a7920800000000000000
+      internalID: 2988801095256971436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Reeling_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 915cfa1e0cdebdbd0800000000000000
+      internalID: -2604226546827803367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Reeling_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fad68a86fded62f0800000000000000
+      internalID: -977863900927698191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Reeling_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14620ac33daade6f0800000000000000
+      internalID: -653678546666903999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Win_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 875edb078ddf88ec0800000000000000
+      internalID: -3564319999017491080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Win_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75015d60758efdf80800000000000000
+      internalID: -8079483746004955049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Win_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c814d6b7d4132fbc0800000000000000
+      internalID: -3750881330793201268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Win_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e79138fda45bc940800000000000000
+      internalID: 5317436891211077602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_SwappingPoles_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c45c6295d61e3200800000000000000
+      internalID: 161591743172334789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_SwappingPoles_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df164dcb389d5a960800000000000000
+      internalID: 7612729904971670013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_SwappingPoles_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6ab634b2a8c0f6c0800000000000000
+      internalID: -4111565858655520148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_SwappingPoles_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8543d399807cbb90800000000000000
+      internalID: -7224775966016191091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Scared_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a8552631caa83ff0800000000000000
+      internalID: -56107248528303968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Scared_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a5623be50da5e9b0800000000000000
+      internalID: -5051441166093752927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Scared_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f15c8a4160ac47d0800000000000000
+      internalID: -2932792917602053639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Scared_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0289c2e860798300800000000000000
+      internalID: 254858449706910219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_GoToCry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a48a25164f6c91f60800000000000000
+      internalID: 8005648565534894154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_GoToCry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa66fb713f3181b70800000000000000
+      internalID: 8869861400902592175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_GoToCry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b66f9212a14e3530800000000000000
+      internalID: 3836576096919185077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_GoToCry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e45a501fa5fa5340800000000000000
+      internalID: 4853461680687568104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Cry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0ceca994a70e5bf0800000000000000
+      internalID: -333820918844560371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Cry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2da846c60ce78a800800000000000000
+      internalID: 623887913308162770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Cry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e7339fd21729bfb0800000000000000
+      internalID: -4631627779759982623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oars_Cry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8ac967a6f73d8b50800000000000000
+      internalID: 6596990561677855375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Fisherman_Oars_Sheet_0: -3800986426145912975
+      Fisherman_Oars_Sheet_1: -3153139116696353223
+      Fisherman_Oars_Sheet_10: -1233798329255991598
+      Fisherman_Oars_Sheet_11: 1824204008405131310
+      Fisherman_Oars_Sheet_12: -3322024533860055058
+      Fisherman_Oars_Sheet_13: -5959472985781188603
+      Fisherman_Oars_Sheet_14: 8010316133884149820
+      Fisherman_Oars_Sheet_15: 1446628261973036158
+      Fisherman_Oars_Sheet_16: 1103926670244555727
+      Fisherman_Oars_Sheet_17: 2526645418411066181
+      Fisherman_Oars_Sheet_18: -8669809639420726171
+      Fisherman_Oars_Sheet_19: -7756339756459765098
+      Fisherman_Oars_Sheet_2: 7062598262384874916
+      Fisherman_Oars_Sheet_20: -462472893436471315
+      Fisherman_Oars_Sheet_21: -2596819951983544820
+      Fisherman_Oars_Sheet_22: -3979385531176308538
+      Fisherman_Oars_Sheet_23: -2023738700210545854
+      Fisherman_Oars_Sheet_24: 3855753382293198508
+      Fisherman_Oars_Sheet_25: 3173969413616819430
+      Fisherman_Oars_Sheet_26: 4580531669973385973
+      Fisherman_Oars_Sheet_27: 7949809252322203887
+      Fisherman_Oars_Sheet_28: 1267743597214295242
+      Fisherman_Oars_Sheet_29: -1311696474069903323
+      Fisherman_Oars_Sheet_3: -2567669029942113310
+      Fisherman_Oars_Sheet_30: 4557602952538495330
+      Fisherman_Oars_Sheet_31: -861460332048301751
+      Fisherman_Oars_Sheet_32: -2245242270623831282
+      Fisherman_Oars_Sheet_33: -4517865859002643851
+      Fisherman_Oars_Sheet_34: -6054218147010910246
+      Fisherman_Oars_Sheet_35: 2171897569016854465
+      Fisherman_Oars_Sheet_36: 523016649837055447
+      Fisherman_Oars_Sheet_37: -903368339157096800
+      Fisherman_Oars_Sheet_38: 611424702720794694
+      Fisherman_Oars_Sheet_39: 6852481850989749466
+      Fisherman_Oars_Sheet_4: -7004051619572365492
+      Fisherman_Oars_Sheet_40: -3727178611009894635
+      Fisherman_Oars_Sheet_41: 4323729279350375599
+      Fisherman_Oars_Sheet_42: -8740824744210184275
+      Fisherman_Oars_Sheet_43: -2009733775367087048
+      Fisherman_Oars_Sheet_44: 6569436252739201598
+      Fisherman_Oars_Sheet_45: 7703102399506606260
+      Fisherman_Oars_Sheet_46: 6583264033449924372
+      Fisherman_Oars_Sheet_47: 3089281079498766151
+      Fisherman_Oars_Sheet_48: -2276748627411669835
+      Fisherman_Oars_Sheet_49: -2393157106383602976
+      Fisherman_Oars_Sheet_5: 8132256216024869327
+      Fisherman_Oars_Sheet_50: 1785961344194849306
+      Fisherman_Oars_Sheet_51: -3532065322862836948
+      Fisherman_Oars_Sheet_52: 6936772655741514624
+      Fisherman_Oars_Sheet_53: -8068021873756509250
+      Fisherman_Oars_Sheet_54: 4442134453029264988
+      Fisherman_Oars_Sheet_55: 6273295510423649813
+      Fisherman_Oars_Sheet_56: 568528853214112654
+      Fisherman_Oars_Sheet_57: 3651338331944613357
+      Fisherman_Oars_Sheet_58: 6683978063354818792
+      Fisherman_Oars_Sheet_59: 634718253944366068
+      Fisherman_Oars_Sheet_6: -1487139689544351171
+      Fisherman_Oars_Sheet_60: 6234965024075077322
+      Fisherman_Oars_Sheet_61: -2736339797563251504
+      Fisherman_Oars_Sheet_62: 7151665677756295458
+      Fisherman_Oars_Sheet_63: 1857927213058586048
+      Fisherman_Oars_Sheet_64: -3116929618411053575
+      Fisherman_Oars_Sheet_65: 5969365282934549498
+      Fisherman_Oars_Sheet_66: 5607979795203054441
+      Fisherman_Oars_Sheet_67: 6417073296928540571
+      Fisherman_Oars_Sheet_68: -4574903273350536379
+      Fisherman_Oars_Sheet_69: 944566085320968126
+      Fisherman_Oars_Sheet_7: 3860069636585494913
+      Fisherman_Oars_Sheet_70: 4675184526933840137
+      Fisherman_Oars_Sheet_71: 4616652405492165964
+      Fisherman_Oars_Sheet_72: 8653835877625337857
+      Fisherman_Oars_Sheet_73: -1889111355749209176
+      Fisherman_Oars_Sheet_74: 8626660556422971568
+      Fisherman_Oars_Sheet_75: -7641660732907162892
+      Fisherman_Oars_Sheet_76: -6131736286830761340
+      Fisherman_Oars_Sheet_77: 3197650546962730362
+      Fisherman_Oars_Sheet_78: -7271743192350558803
+      Fisherman_Oars_Sheet_79: 2114027803777717449
+      Fisherman_Oars_Sheet_8: 3192259142049845233
+      Fisherman_Oars_Sheet_80: 3210278484069055723
+      Fisherman_Oars_Sheet_81: -7006523225442536802
+      Fisherman_Oars_Sheet_82: 6188463500021975183
+      Fisherman_Oars_Sheet_83: -2685180246036628517
+      Fisherman_Oars_Sheet_84: 285029289051592395
+      Fisherman_Oars_Sheet_85: -6494335677956904592
+      Fisherman_Oars_Sheet_86: -7450972047109976026
+      Fisherman_Oars_Sheet_87: 4890566208617677904
+      Fisherman_Oars_Sheet_88: -5316552431287531515
+      Fisherman_Oars_Sheet_89: -3129627805873429068
+      Fisherman_Oars_Sheet_9: 1984573704961048138
+      Fisherman_Oars_Sheet_90: -8107128362713375614
+      Fisherman_Oars_Sheet_91: 3880678763225655272
+      Fisherman_Oars_Sheet_92: 6500733236363748748
+      Fisherman_Oars_Sheet_93: 9088317001628311853
+      Fisherman_Oars_Sheet_94: -7160412591082801847
+      Fisherman_Oars_Sheet_95: 4525938261214307310
+      Oars_Casting_L_0: 6891319768565868454
+      Oars_Casting_L_1: -5317275143673369896
+      Oars_Casting_L_2: -2308844447348955350
+      Oars_Casting_L_3: -6743543837597278723
+      Oars_Casting_R_0: -8987326557062602948
+      Oars_Casting_R_1: 8363201363892156045
+      Oars_Casting_R_2: -7167259650455589756
+      Oars_Casting_R_3: 5198886663760816753
+      Oars_Cry_L_0: 6533424141801294958
+      Oars_Cry_L_1: 7596073180403654033
+      Oars_Cry_L_2: -457872555282651859
+      Oars_Cry_L_3: -3233433506982603496
+      Oars_Cry_R_0: -333820918844560371
+      Oars_Cry_R_1: 623887913308162770
+      Oars_Cry_R_2: -4631627779759982623
+      Oars_Cry_R_3: 6596990561677855375
+      Oars_Fighting_L_0: 5358185759580506664
+      Oars_Fighting_L_1: -7933891482706862839
+      Oars_Fighting_L_2: -8000887844881621596
+      Oars_Fighting_L_3: 2941762913291291058
+      Oars_Fighting_R_0: 500766373042811846
+      Oars_Fighting_R_1: -6490313265289191032
+      Oars_Fighting_R_2: -3595877108825762864
+      Oars_Fighting_R_3: 8479861396197938000
+      Oars_Fishing_L_0: 1052916897983501480
+      Oars_Fishing_L_1: 7333290928029006460
+      Oars_Fishing_L_2: 3170656382363262553
+      Oars_Fishing_L_3: -380099997701815750
+      Oars_Fishing_R_0: -4800005107700539438
+      Oars_Fishing_R_1: -7965965329035342551
+      Oars_Fishing_R_2: -4882977858565340307
+      Oars_Fishing_R_3: 2182179326313981759
+      Oars_GoToCry_L_0: -2699448449628766622
+      Oars_GoToCry_L_1: -3422057790282882413
+      Oars_GoToCry_L_2: 5658749846599780215
+      Oars_GoToCry_L_3: -932229663440781543
+      Oars_GoToCry_R_0: 8005648565534894154
+      Oars_GoToCry_R_1: 8869861400902592175
+      Oars_GoToCry_R_2: 3836576096919185077
+      Oars_GoToCry_R_3: 4853461680687568104
+      Oars_Idle_L_0: -5024850020861017590
+      Oars_Idle_L_1: 7258709048087948258
+      Oars_Idle_L_2: -1227293748287468578
+      Oars_Idle_L_3: -502487199441072829
+      Oars_Idle_R_0: 3571077010695816842
+      Oars_Idle_R_1: -1236390735241053112
+      Oars_Idle_R_2: -5273829403504665078
+      Oars_Idle_R_3: 7516423736322524574
+      Oars_MoveBackward_L_0: -8008662988463275775
+      Oars_MoveBackward_L_1: 8341150702188392735
+      Oars_MoveBackward_L_2: -1635785982512673998
+      Oars_MoveBackward_L_3: -4916586629625517517
+      Oars_MoveBackward_R_0: 8927372371836705192
+      Oars_MoveBackward_R_1: -3358343515194959289
+      Oars_MoveBackward_R_2: -767589385765431851
+      Oars_MoveBackward_R_3: -6387990443863107962
+      Oars_MoveForward_L_0: -4936311479352579708
+      Oars_MoveForward_L_1: -5264482291539110745
+      Oars_MoveForward_L_2: -6729437758615629027
+      Oars_MoveForward_L_3: -4910647270602715146
+      Oars_MoveForward_R_0: 7728902952336706238
+      Oars_MoveForward_R_1: -8653385004053350154
+      Oars_MoveForward_R_2: -2927582343544127586
+      Oars_MoveForward_R_3: -3798403272109708808
+      Oars_Reeling_L_0: 3407719760205028682
+      Oars_Reeling_L_1: 7587877218652577669
+      Oars_Reeling_L_2: -1754636465279749801
+      Oars_Reeling_L_3: -4072196529340417345
+      Oars_Reeling_R_0: 2988801095256971436
+      Oars_Reeling_R_1: -2604226546827803367
+      Oars_Reeling_R_2: -977863900927698191
+      Oars_Reeling_R_3: -653678546666903999
+      Oars_Scared_L_0: -3668717535215629275
+      Oars_Scared_L_1: 3168611169687997370
+      Oars_Scared_L_2: 6840714232628996472
+      Oars_Scared_L_3: -2861677341702586408
+      Oars_Scared_R_0: -56107248528303968
+      Oars_Scared_R_1: -5051441166093752927
+      Oars_Scared_R_2: -2932792917602053639
+      Oars_Scared_R_3: 254858449706910219
+      Oars_SwappingPoles_L_0: -9119374840833755728
+      Oars_SwappingPoles_L_1: 3616875816223508493
+      Oars_SwappingPoles_L_2: 5700193861598568508
+      Oars_SwappingPoles_L_3: -5837256496824146962
+      Oars_SwappingPoles_R_0: 161591743172334789
+      Oars_SwappingPoles_R_1: 7612729904971670013
+      Oars_SwappingPoles_R_2: -4111565858655520148
+      Oars_SwappingPoles_R_3: -7224775966016191091
+      Oars_Win_L_0: -96293131798461592
+      Oars_Win_L_1: 9043580599285144655
+      Oars_Win_L_2: 5521278650749674237
+      Oars_Win_L_3: 1364878278607575110
+      Oars_Win_R_0: -3564319999017491080
+      Oars_Win_R_1: -8079483746004955049
+      Oars_Win_R_2: -3750881330793201268
+      Oars_Win_R_3: 5317436891211077602
+      Oars_r00_f0: 3631119722575726747
+      Oars_r00_f1: 7615772937270971840
+      Oars_r00_f2: 2227769785342811882
+      Oars_r00_f3: 4178336535518629219
+      Oars_r01_f0: 7616183885913544767
+      Oars_r01_f1: -4993896297796422546
+      Oars_r01_f2: 5041460689334024145
+      Oars_r01_f3: -7431199998890703664
+      Oars_r02_f0: 3187656791013194543
+      Oars_r02_f1: 686556822034419661
+      Oars_r02_f2: 1492540050706971978
+      Oars_r02_f3: -8533491852751489772
+      Oars_r03_f0: 376781478962636567
+      Oars_r03_f1: -8636254494193498778
+      Oars_r03_f2: -7458378455781894490
+      Oars_r03_f3: -4736976433395988560
+      Oars_r04_f0: -3054831923587648388
+      Oars_r04_f1: -6134393447012582312
+      Oars_r04_f2: -8101373973424659967
+      Oars_r04_f3: 4360193826129671672
+      Oars_r05_f0: 7382317185746283053
+      Oars_r05_f1: -1442830808448338450
+      Oars_r05_f2: 1327278772852857857
+      Oars_r05_f3: -5387394330581604953
+      Oars_r06_f0: -6275282532918612620
+      Oars_r06_f1: 2088526842448250584
+      Oars_r06_f2: -4811498584379029364
+      Oars_r06_f3: -1247066557737605710
+      Oars_r07_f0: 3976322362847280344
+      Oars_r07_f1: 8245654069263487609
+      Oars_r07_f2: -1701687661360297763
+      Oars_r07_f3: -952985782848285898
+      Oars_r08_f0: 5117286133422185969
+      Oars_r08_f1: -9166106811038313985
+      Oars_r08_f2: -4774112279579868304
+      Oars_r08_f3: 2181835668604932257
+      Oars_r09_f0: -2260770909913211779
+      Oars_r09_f1: -7583956872151840191
+      Oars_r09_f2: -638210562632706688
+      Oars_r09_f3: -2363834191800086293
+      Oars_r10_f0: -4636229707773766360
+      Oars_r10_f1: -49395212457991026
+      Oars_r10_f2: 7488245125394707774
+      Oars_r10_f3: -3623762839853523928
+      Oars_r11_f0: -2998172751260286670
+      Oars_r11_f1: -3409627289427059569
+      Oars_r11_f2: 6164943626677692892
+      Oars_r11_f3: -1964987546729217546
+      Oars_r12_f0: -877396474311235126
+      Oars_r12_f1: -2080889783846109616
+      Oars_r12_f2: -3082922095935246436
+      Oars_r12_f3: -5218540009271247422
+      Oars_r13_f0: 895533066805039050
+      Oars_r13_f1: -7070487972322748816
+      Oars_r13_f2: 7268681945184321048
+      Oars_r13_f3: 2928857346362002460
+      Oars_r14_f0: -3858927108327465582
+      Oars_r14_f1: -9039294247334037312
+      Oars_r14_f2: 3722288472711582959
+      Oars_r14_f3: -4240510122021725270
+      Oars_r15_f0: 3400869385428950903
+      Oars_r15_f1: 7035627530668758918
+      Oars_r15_f2: 8575924523498975805
+      Oars_r15_f3: 581046694598662409
+      Oars_r16_f0: 7705751050422842433
+      Oars_r16_f1: 307937120726789482
+      Oars_r16_f2: -1036254834598123395
+      Oars_r16_f3: -2876048445003509933
+      Oars_r17_f0: -6718396948465138284
+      Oars_r17_f1: -4489770278419735495
+      Oars_r17_f2: -6806538667840801025
+      Oars_r17_f3: 8533647569465314613
+      Oars_r18_f0: -4216222971275355206
+      Oars_r18_f1: 3041451756930203913
+      Oars_r18_f2: -28681760505158243
+      Oars_r18_f3: 568821592262217142
+      Oars_r19_f0: -1840231448698314594
+      Oars_r19_f1: 2564947714164324408
+      Oars_r19_f2: 5798381833577937580
+      Oars_r19_f3: -665033917889456239
+      Oars_r20_f0: 5622595697462350645
+      Oars_r20_f1: -7407881376580763109
+      Oars_r20_f2: -6056038023829127721
+      Oars_r20_f3: -6154503337489466933
+      Oars_r21_f0: -7819505030469427275
+      Oars_r21_f1: -4699695109352972966
+      Oars_r21_f2: -3448342378556829740
+      Oars_r21_f3: -5527590271876540510
+      Oars_r22_f0: 3558633857253576144
+      Oars_r22_f1: -6927452457268108353
+      Oars_r22_f2: 5600522173138398267
+      Oars_r22_f3: -6691254268685087192
+      Oars_r23_f0: -4242924503031019882
+      Oars_r23_f1: 4061679363989085526
+      Oars_r23_f2: 6490254660724995249
+      Oars_r23_f3: -3760123820732527570
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

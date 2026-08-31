@@ -1,0 +1,3432 @@
+fileFormatVersion: 2
+guid: 6d3051b3bf53fab4491923716df12d89
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7665889915124352684
+    second: Fisherman_Body_Red_Sheet_0
+  - first:
+      213: -6135896539152460428
+    second: Fisherman_Body_Red_Sheet_1
+  - first:
+      213: -3593152199445686562
+    second: Fisherman_Body_Red_Sheet_2
+  - first:
+      213: 2495190077643313103
+    second: Fisherman_Body_Red_Sheet_3
+  - first:
+      213: 5453117788751797306
+    second: Fisherman_Body_Red_Sheet_4
+  - first:
+      213: -1001227772374520157
+    second: Fisherman_Body_Red_Sheet_5
+  - first:
+      213: 8883698153064195858
+    second: Fisherman_Body_Red_Sheet_6
+  - first:
+      213: 4012117812023589366
+    second: Fisherman_Body_Red_Sheet_7
+  - first:
+      213: -7609111286533933044
+    second: Fisherman_Body_Red_Sheet_8
+  - first:
+      213: 7711741225437052790
+    second: Fisherman_Body_Red_Sheet_9
+  - first:
+      213: 6662967147134274328
+    second: Fisherman_Body_Red_Sheet_10
+  - first:
+      213: 3250114267740532515
+    second: Fisherman_Body_Red_Sheet_11
+  - first:
+      213: -3232612211742574077
+    second: Fisherman_Body_Red_Sheet_12
+  - first:
+      213: 3878961557499982018
+    second: Fisherman_Body_Red_Sheet_13
+  - first:
+      213: -9060703727592224384
+    second: Fisherman_Body_Red_Sheet_14
+  - first:
+      213: 7445865356917051444
+    second: Fisherman_Body_Red_Sheet_15
+  - first:
+      213: -2499042698683215925
+    second: Fisherman_Body_Red_Sheet_16
+  - first:
+      213: 1567238028874405616
+    second: Fisherman_Body_Red_Sheet_17
+  - first:
+      213: 9085660646232492340
+    second: Fisherman_Body_Red_Sheet_18
+  - first:
+      213: 8413505593743838651
+    second: Fisherman_Body_Red_Sheet_19
+  - first:
+      213: 3853366173458464827
+    second: Fisherman_Body_Red_Sheet_20
+  - first:
+      213: -8344395946277468632
+    second: Fisherman_Body_Red_Sheet_21
+  - first:
+      213: -2251384960623242754
+    second: Fisherman_Body_Red_Sheet_22
+  - first:
+      213: -5596744443482018061
+    second: Fisherman_Body_Red_Sheet_23
+  - first:
+      213: 499934997138783503
+    second: Fisherman_Body_Red_Sheet_24
+  - first:
+      213: -3915367544139466275
+    second: Fisherman_Body_Red_Sheet_25
+  - first:
+      213: 1421702112116518439
+    second: Fisherman_Body_Red_Sheet_26
+  - first:
+      213: 2842670299338538690
+    second: Fisherman_Body_Red_Sheet_27
+  - first:
+      213: -6931103437533984282
+    second: Fisherman_Body_Red_Sheet_28
+  - first:
+      213: 1700187630343162075
+    second: Fisherman_Body_Red_Sheet_29
+  - first:
+      213: -828324503634287639
+    second: Fisherman_Body_Red_Sheet_30
+  - first:
+      213: 5626311504147822531
+    second: Fisherman_Body_Red_Sheet_31
+  - first:
+      213: 377207774750422073
+    second: Fisherman_Body_Red_Sheet_32
+  - first:
+      213: 1453682431702538210
+    second: Fisherman_Body_Red_Sheet_33
+  - first:
+      213: 2398728684636426493
+    second: Fisherman_Body_Red_Sheet_34
+  - first:
+      213: -2444307040245907600
+    second: Fisherman_Body_Red_Sheet_35
+  - first:
+      213: -793121290705086892
+    second: Fisherman_Body_Red_Sheet_36
+  - first:
+      213: -2285841313979684958
+    second: Fisherman_Body_Red_Sheet_37
+  - first:
+      213: 1860532769838216918
+    second: Fisherman_Body_Red_Sheet_38
+  - first:
+      213: -4037212466432277077
+    second: Fisherman_Body_Red_Sheet_39
+  - first:
+      213: 4617505410189964432
+    second: Fisherman_Body_Red_Sheet_40
+  - first:
+      213: -3080231488655856940
+    second: Fisherman_Body_Red_Sheet_41
+  - first:
+      213: -7198624193784781044
+    second: Fisherman_Body_Red_Sheet_42
+  - first:
+      213: 8399198482419355619
+    second: Fisherman_Body_Red_Sheet_43
+  - first:
+      213: -7025630095419077787
+    second: Fisherman_Body_Red_Sheet_44
+  - first:
+      213: -9091513730122302716
+    second: Fisherman_Body_Red_Sheet_45
+  - first:
+      213: -6384804522690075473
+    second: Fisherman_Body_Red_Sheet_46
+  - first:
+      213: 1852254426709707494
+    second: Fisherman_Body_Red_Sheet_47
+  - first:
+      213: -3038663117877217618
+    second: Fisherman_Body_Red_Sheet_48
+  - first:
+      213: -2523428367046382961
+    second: Fisherman_Body_Red_Sheet_49
+  - first:
+      213: 1553844397115321138
+    second: Fisherman_Body_Red_Sheet_50
+  - first:
+      213: -8498304872924367815
+    second: Fisherman_Body_Red_Sheet_51
+  - first:
+      213: 5798934658110985881
+    second: Fisherman_Body_Red_Sheet_52
+  - first:
+      213: -2807532378815838050
+    second: Fisherman_Body_Red_Sheet_53
+  - first:
+      213: 3713845364705469740
+    second: Fisherman_Body_Red_Sheet_54
+  - first:
+      213: -7529964438938658379
+    second: Fisherman_Body_Red_Sheet_55
+  - first:
+      213: -559708686612633804
+    second: Fisherman_Body_Red_Sheet_56
+  - first:
+      213: 2913381112590928434
+    second: Fisherman_Body_Red_Sheet_57
+  - first:
+      213: 1687542191533199789
+    second: Fisherman_Body_Red_Sheet_58
+  - first:
+      213: 4100925905372514376
+    second: Fisherman_Body_Red_Sheet_59
+  - first:
+      213: -4807921274716276835
+    second: Fisherman_Body_Red_Sheet_60
+  - first:
+      213: 6615431925694456050
+    second: Fisherman_Body_Red_Sheet_61
+  - first:
+      213: -5337066852145100304
+    second: Fisherman_Body_Red_Sheet_62
+  - first:
+      213: -1250447237262865543
+    second: Fisherman_Body_Red_Sheet_63
+  - first:
+      213: 4331882785644532281
+    second: Fisherman_Body_Red_Sheet_64
+  - first:
+      213: -6805561623647835873
+    second: Fisherman_Body_Red_Sheet_65
+  - first:
+      213: -5640938774123835344
+    second: Fisherman_Body_Red_Sheet_66
+  - first:
+      213: 8175413868259615605
+    second: Fisherman_Body_Red_Sheet_67
+  - first:
+      213: -5719427363516797359
+    second: Fisherman_Body_Red_Sheet_68
+  - first:
+      213: -4224811470138854779
+    second: Fisherman_Body_Red_Sheet_69
+  - first:
+      213: 7610215217884986974
+    second: Fisherman_Body_Red_Sheet_70
+  - first:
+      213: 2763665869599821928
+    second: Fisherman_Body_Red_Sheet_71
+  - first:
+      213: -9016491554703629724
+    second: Fisherman_Body_Red_Sheet_72
+  - first:
+      213: -7696750377917857628
+    second: Fisherman_Body_Red_Sheet_73
+  - first:
+      213: -53231424292391958
+    second: Fisherman_Body_Red_Sheet_74
+  - first:
+      213: -5990779657680836323
+    second: Fisherman_Body_Red_Sheet_75
+  - first:
+      213: -6370590231410894303
+    second: Fisherman_Body_Red_Sheet_76
+  - first:
+      213: 5573696414383177519
+    second: Fisherman_Body_Red_Sheet_77
+  - first:
+      213: -799789011407892488
+    second: Fisherman_Body_Red_Sheet_78
+  - first:
+      213: -5355341618773031327
+    second: Fisherman_Body_Red_Sheet_79
+  - first:
+      213: -7914752003673190309
+    second: Fisherman_Body_Red_Sheet_80
+  - first:
+      213: 3084422016373227252
+    second: Fisherman_Body_Red_Sheet_81
+  - first:
+      213: -4131420359681687706
+    second: Fisherman_Body_Red_Sheet_82
+  - first:
+      213: -8418793262476279769
+    second: Fisherman_Body_Red_Sheet_83
+  - first:
+      213: -4550823655569483877
+    second: Fisherman_Body_Red_Sheet_84
+  - first:
+      213: -8862895718236090442
+    second: Fisherman_Body_Red_Sheet_85
+  - first:
+      213: 1865628342267555297
+    second: Fisherman_Body_Red_Sheet_86
+  - first:
+      213: -8785546933092605425
+    second: Fisherman_Body_Red_Sheet_87
+  - first:
+      213: -1600983369551493988
+    second: Fisherman_Body_Red_Sheet_88
+  - first:
+      213: -91313493534578023
+    second: Fisherman_Body_Red_Sheet_89
+  - first:
+      213: -3944403016529230476
+    second: Fisherman_Body_Red_Sheet_90
+  - first:
+      213: -5820779984232747339
+    second: Fisherman_Body_Red_Sheet_91
+  - first:
+      213: 4226905522022828235
+    second: Fisherman_Body_Red_Sheet_92
+  - first:
+      213: 5983884135631920633
+    second: Fisherman_Body_Red_Sheet_93
+  - first:
+      213: -3250040582011473638
+    second: Fisherman_Body_Red_Sheet_94
+  - first:
+      213: -586157600991100913
+    second: Fisherman_Body_Red_Sheet_95
+  - first:
+      213: -7290817645356460917
+    second: Fisherman_Body_Red_Sheet_96
+  - first:
+      213: -799615652344543497
+    second: Fisherman_Body_Red_Sheet_97
+  - first:
+      213: 5524432221689433165
+    second: Fisherman_Body_Red_Sheet_98
+  - first:
+      213: 3940420264742580955
+    second: Body_Red_r00_f0
+  - first:
+      213: 1457637835162558474
+    second: Body_Red_r00_f1
+  - first:
+      213: 561024980059913806
+    second: Body_Red_r00_f2
+  - first:
+      213: -7254182064767743720
+    second: Body_Red_r00_f3
+  - first:
+      213: 6586709669033055462
+    second: Body_Red_r01_f0
+  - first:
+      213: 6030949982103278791
+    second: Body_Red_r01_f1
+  - first:
+      213: -249165020430267633
+    second: Body_Red_r01_f2
+  - first:
+      213: 8303285865508845987
+    second: Body_Red_r01_f3
+  - first:
+      213: 8020862623933820131
+    second: Body_Red_r02_f0
+  - first:
+      213: 802656481748224446
+    second: Body_Red_r02_f1
+  - first:
+      213: 2066201051651302736
+    second: Body_Red_r02_f2
+  - first:
+      213: -1802694532367924719
+    second: Body_Red_r02_f3
+  - first:
+      213: 6735476881411526805
+    second: Body_Red_r03_f0
+  - first:
+      213: 4124077725077888204
+    second: Body_Red_r03_f1
+  - first:
+      213: 6053819165932080266
+    second: Body_Red_r03_f2
+  - first:
+      213: -4151769004149560151
+    second: Body_Red_r03_f3
+  - first:
+      213: -3637460023778852109
+    second: Body_Red_r04_f0
+  - first:
+      213: -6785910266241339322
+    second: Body_Red_r04_f1
+  - first:
+      213: -6209035209261258473
+    second: Body_Red_r04_f2
+  - first:
+      213: 5540459299083614220
+    second: Body_Red_r04_f3
+  - first:
+      213: 5080688438099837273
+    second: Body_Red_r05_f0
+  - first:
+      213: -6799350338722438861
+    second: Body_Red_r05_f1
+  - first:
+      213: 3593747160606596766
+    second: Body_Red_r05_f2
+  - first:
+      213: 106017951993016860
+    second: Body_Red_r05_f3
+  - first:
+      213: 1386839306824560072
+    second: Body_Red_r06_f0
+  - first:
+      213: -8814785045628421174
+    second: Body_Red_r06_f1
+  - first:
+      213: 6696755161403314008
+    second: Body_Red_r06_f2
+  - first:
+      213: -6376257018594527990
+    second: Body_Red_r06_f3
+  - first:
+      213: 6698941457983681155
+    second: Body_Red_r07_f0
+  - first:
+      213: 3051802457659819023
+    second: Body_Red_r07_f1
+  - first:
+      213: -1218643515232054698
+    second: Body_Red_r07_f2
+  - first:
+      213: 5620060282238129497
+    second: Body_Red_r07_f3
+  - first:
+      213: 7831405596944878593
+    second: Body_Red_r08_f0
+  - first:
+      213: -97758816674326584
+    second: Body_Red_r08_f1
+  - first:
+      213: 2009068607110583054
+    second: Body_Red_r08_f2
+  - first:
+      213: -1931190507454563639
+    second: Body_Red_r08_f3
+  - first:
+      213: 131764701200809786
+    second: Body_Red_r09_f0
+  - first:
+      213: 5236255065385816640
+    second: Body_Red_r09_f1
+  - first:
+      213: 8230293311004591534
+    second: Body_Red_r09_f2
+  - first:
+      213: -2415579121852314647
+    second: Body_Red_r09_f3
+  - first:
+      213: 586723349765854590
+    second: Body_Red_r10_f0
+  - first:
+      213: -1064382453346082160
+    second: Body_Red_r10_f1
+  - first:
+      213: -1404008829360062384
+    second: Body_Red_r10_f2
+  - first:
+      213: 1209803545150942945
+    second: Body_Red_r10_f3
+  - first:
+      213: 3087662198935831948
+    second: Body_Red_r11_f0
+  - first:
+      213: 923445085313647778
+    second: Body_Red_r11_f1
+  - first:
+      213: 185792440933428600
+    second: Body_Red_r11_f2
+  - first:
+      213: -3397219062311594008
+    second: Body_Red_r11_f3
+  - first:
+      213: -2779865756562243625
+    second: Body_Red_r12_f0
+  - first:
+      213: -2525205411173204440
+    second: Body_Red_r12_f1
+  - first:
+      213: -7378760583798444017
+    second: Body_Red_r12_f2
+  - first:
+      213: 6159877072161061650
+    second: Body_Red_r12_f3
+  - first:
+      213: -1049390235520046639
+    second: Body_Red_r13_f0
+  - first:
+      213: -3771230034258768001
+    second: Body_Red_r13_f1
+  - first:
+      213: -4849669265455321234
+    second: Body_Red_r13_f2
+  - first:
+      213: -7810624230248678698
+    second: Body_Red_r13_f3
+  - first:
+      213: 5851344203586536803
+    second: Body_Red_r14_f0
+  - first:
+      213: 7296044306813427710
+    second: Body_Red_r14_f1
+  - first:
+      213: 8526437605091077953
+    second: Body_Red_r14_f2
+  - first:
+      213: -5577895872880988713
+    second: Body_Red_r14_f3
+  - first:
+      213: -5035162012710403358
+    second: Body_Red_r15_f0
+  - first:
+      213: -6157785770331684759
+    second: Body_Red_r15_f1
+  - first:
+      213: 1793422154809258319
+    second: Body_Red_r15_f2
+  - first:
+      213: 7510827304168998019
+    second: Body_Red_r15_f3
+  - first:
+      213: -888496411274462544
+    second: Body_Red_r16_f0
+  - first:
+      213: -2093911842681480908
+    second: Body_Red_r16_f1
+  - first:
+      213: 1567032383262722441
+    second: Body_Red_r16_f2
+  - first:
+      213: 6146244565773288578
+    second: Body_Red_r16_f3
+  - first:
+      213: 2536867955455933598
+    second: Body_Red_r17_f0
+  - first:
+      213: -6201896208684506
+    second: Body_Red_r17_f1
+  - first:
+      213: 5569694688758356451
+    second: Body_Red_r17_f2
+  - first:
+      213: -5548786481312495164
+    second: Body_Red_r17_f3
+  - first:
+      213: 5086852790198147189
+    second: Body_Red_r18_f0
+  - first:
+      213: -7961931522355224147
+    second: Body_Red_r18_f1
+  - first:
+      213: 5710616867163557232
+    second: Body_Red_r18_f2
+  - first:
+      213: 7727087448459639848
+    second: Body_Red_r18_f3
+  - first:
+      213: 3705875694692376783
+    second: Body_Red_r19_f0
+  - first:
+      213: -5040728805205059491
+    second: Body_Red_r19_f1
+  - first:
+      213: -3788158451599335029
+    second: Body_Red_r19_f2
+  - first:
+      213: 2698388791915619111
+    second: Body_Red_r19_f3
+  - first:
+      213: 2774035755621314960
+    second: Body_Red_r20_f0
+  - first:
+      213: 7476454612979183482
+    second: Body_Red_r20_f1
+  - first:
+      213: -949196961985070304
+    second: Body_Red_r20_f2
+  - first:
+      213: -1618966193764264158
+    second: Body_Red_r20_f3
+  - first:
+      213: -8057688019236696437
+    second: Body_Red_r21_f0
+  - first:
+      213: 1082594409534848710
+    second: Body_Red_r21_f1
+  - first:
+      213: -3950455457096709176
+    second: Body_Red_r21_f2
+  - first:
+      213: -522591046725336129
+    second: Body_Red_r21_f3
+  - first:
+      213: 3004206820826336727
+    second: Body_Red_r22_f0
+  - first:
+      213: 6345883164362767619
+    second: Body_Red_r22_f1
+  - first:
+      213: -3025236761891484646
+    second: Body_Red_r22_f2
+  - first:
+      213: -4902632885966458630
+    second: Body_Red_r22_f3
+  - first:
+      213: 4729577767571022189
+    second: Body_Red_r23_f0
+  - first:
+      213: 7692752865559491659
+    second: Body_Red_r23_f1
+  - first:
+      213: -3545617164313443784
+    second: Body_Red_r23_f2
+  - first:
+      213: -1093892514320580724
+    second: Body_Red_r23_f3
+  - first:
+      213: -4024657649058121087
+    second: BodyRed_Casting_L_0
+  - first:
+      213: 2044631988806485860
+    second: BodyRed_Casting_L_1
+  - first:
+      213: -136761277681647806
+    second: BodyRed_Casting_L_2
+  - first:
+      213: -8827586292734201964
+    second: BodyRed_Casting_L_3
+  - first:
+      213: -248784390821965405
+    second: BodyRed_Idle_L_0
+  - first:
+      213: 2562866580735388564
+    second: BodyRed_Idle_L_1
+  - first:
+      213: 8226279800285423960
+    second: BodyRed_Idle_L_2
+  - first:
+      213: -5377570577816372281
+    second: BodyRed_Idle_L_3
+  - first:
+      213: -6828632680973525537
+    second: BodyRed_Fishing_L_0
+  - first:
+      213: 3283788830346052564
+    second: BodyRed_Fishing_L_1
+  - first:
+      213: -4086898349128606390
+    second: BodyRed_Fishing_L_2
+  - first:
+      213: -3217801346337511059
+    second: BodyRed_Fishing_L_3
+  - first:
+      213: 2732297502413969868
+    second: BodyRed_MoveForward_L_0
+  - first:
+      213: -6731209848219702193
+    second: BodyRed_MoveForward_L_1
+  - first:
+      213: -4059672456959722526
+    second: BodyRed_MoveForward_L_2
+  - first:
+      213: -6816050293739656857
+    second: BodyRed_MoveForward_L_3
+  - first:
+      213: -3858326117742352719
+    second: BodyRed_MoveBackward_L_0
+  - first:
+      213: 8044035540661833868
+    second: BodyRed_MoveBackward_L_1
+  - first:
+      213: 3826953221168196628
+    second: BodyRed_MoveBackward_L_2
+  - first:
+      213: -2363493360679660535
+    second: BodyRed_MoveBackward_L_3
+  - first:
+      213: -7985060812455129556
+    second: BodyRed_Fighting_L_0
+  - first:
+      213: -7553629063004888298
+    second: BodyRed_Fighting_L_1
+  - first:
+      213: 6445899376275172393
+    second: BodyRed_Fighting_L_2
+  - first:
+      213: 4054050110148405055
+    second: BodyRed_Fighting_L_3
+  - first:
+      213: -1191434997029849103
+    second: BodyRed_Reeling_L_0
+  - first:
+      213: 5655200120082286891
+    second: BodyRed_Reeling_L_1
+  - first:
+      213: 1348979726152589127
+    second: BodyRed_Reeling_L_2
+  - first:
+      213: -7406545168746708802
+    second: BodyRed_Reeling_L_3
+  - first:
+      213: 7829913393342340374
+    second: BodyRed_Win_L_0
+  - first:
+      213: -6945943275984902591
+    second: BodyRed_Win_L_1
+  - first:
+      213: -5559721215556169120
+    second: BodyRed_Win_L_2
+  - first:
+      213: 1783883372409034909
+    second: BodyRed_Win_L_3
+  - first:
+      213: 3691651021344881159
+    second: BodyRed_SwappingPoles_L_0
+  - first:
+      213: 6568157627662751824
+    second: BodyRed_SwappingPoles_L_1
+  - first:
+      213: 4059541266325289122
+    second: BodyRed_SwappingPoles_L_2
+  - first:
+      213: -492697508753616487
+    second: BodyRed_SwappingPoles_L_3
+  - first:
+      213: 4014270387513301195
+    second: BodyRed_Scared_L_0
+  - first:
+      213: -7803263653428391376
+    second: BodyRed_Scared_L_1
+  - first:
+      213: -3807812699742200190
+    second: BodyRed_Scared_L_2
+  - first:
+      213: -6710377084198303674
+    second: BodyRed_Scared_L_3
+  - first:
+      213: 2983795014567171239
+    second: BodyRed_GoToCry_L_0
+  - first:
+      213: 7902991555046729939
+    second: BodyRed_GoToCry_L_1
+  - first:
+      213: -892540938121242953
+    second: BodyRed_GoToCry_L_2
+  - first:
+      213: 5816778742651759458
+    second: BodyRed_GoToCry_L_3
+  - first:
+      213: -6885047832117091173
+    second: BodyRed_Cry_L_0
+  - first:
+      213: 2920900297593789253
+    second: BodyRed_Cry_L_1
+  - first:
+      213: -3163244017080350943
+    second: BodyRed_Cry_L_2
+  - first:
+      213: 8125304760313656211
+    second: BodyRed_Cry_L_3
+  - first:
+      213: -890363447900861854
+    second: BodyRed_Casting_R_0
+  - first:
+      213: -6794875413712757316
+    second: BodyRed_Casting_R_1
+  - first:
+      213: 2493387275887814490
+    second: BodyRed_Casting_R_2
+  - first:
+      213: -3142987175611716659
+    second: BodyRed_Casting_R_3
+  - first:
+      213: -8106832367635230837
+    second: BodyRed_Idle_R_0
+  - first:
+      213: 8860429445652462129
+    second: BodyRed_Idle_R_1
+  - first:
+      213: 301182767926069153
+    second: BodyRed_Idle_R_2
+  - first:
+      213: 7874520150516651490
+    second: BodyRed_Idle_R_3
+  - first:
+      213: -4587337850972708190
+    second: BodyRed_Fishing_R_0
+  - first:
+      213: 6278680582501232505
+    second: BodyRed_Fishing_R_1
+  - first:
+      213: -6419156910997063919
+    second: BodyRed_Fishing_R_2
+  - first:
+      213: -1229044290487348831
+    second: BodyRed_Fishing_R_3
+  - first:
+      213: -1076305956900675041
+    second: BodyRed_MoveForward_R_0
+  - first:
+      213: -4758296945155417374
+    second: BodyRed_MoveForward_R_1
+  - first:
+      213: -5932907122213256675
+    second: BodyRed_MoveForward_R_2
+  - first:
+      213: 1641313856399165449
+    second: BodyRed_MoveForward_R_3
+  - first:
+      213: -5115763577185308401
+    second: BodyRed_MoveBackward_R_0
+  - first:
+      213: 3930451363409689372
+    second: BodyRed_MoveBackward_R_1
+  - first:
+      213: 11431461366737271
+    second: BodyRed_MoveBackward_R_2
+  - first:
+      213: 4010156713627795200
+    second: BodyRed_MoveBackward_R_3
+  - first:
+      213: -6639783511571611148
+    second: BodyRed_Fighting_R_0
+  - first:
+      213: 3009197476848401061
+    second: BodyRed_Fighting_R_1
+  - first:
+      213: 8364389855292009006
+    second: BodyRed_Fighting_R_2
+  - first:
+      213: 4789409027346934684
+    second: BodyRed_Fighting_R_3
+  - first:
+      213: 2022305732643942959
+    second: BodyRed_Reeling_R_0
+  - first:
+      213: -1339697770756403631
+    second: BodyRed_Reeling_R_1
+  - first:
+      213: 6631478429577931719
+    second: BodyRed_Reeling_R_2
+  - first:
+      213: -6067352049609183886
+    second: BodyRed_Reeling_R_3
+  - first:
+      213: 361622490571902660
+    second: BodyRed_Win_R_0
+  - first:
+      213: 3275441385660966098
+    second: BodyRed_Win_R_1
+  - first:
+      213: -8797429573542996771
+    second: BodyRed_Win_R_2
+  - first:
+      213: -8898434489845037082
+    second: BodyRed_Win_R_3
+  - first:
+      213: -3292438957670861686
+    second: BodyRed_SwappingPoles_R_0
+  - first:
+      213: -6773458811947599825
+    second: BodyRed_SwappingPoles_R_1
+  - first:
+      213: -7519347437080226231
+    second: BodyRed_SwappingPoles_R_2
+  - first:
+      213: -7889304230863157654
+    second: BodyRed_SwappingPoles_R_3
+  - first:
+      213: -9172429287900916666
+    second: BodyRed_Scared_R_0
+  - first:
+      213: 4904880522909127130
+    second: BodyRed_Scared_R_1
+  - first:
+      213: -29152398093698577
+    second: BodyRed_Scared_R_2
+  - first:
+      213: -7545519126850916746
+    second: BodyRed_Scared_R_3
+  - first:
+      213: 8070403191057585792
+    second: BodyRed_GoToCry_R_0
+  - first:
+      213: -9176129186584638320
+    second: BodyRed_GoToCry_R_1
+  - first:
+      213: -4205537977645544995
+    second: BodyRed_GoToCry_R_2
+  - first:
+      213: 790970681638836197
+    second: BodyRed_GoToCry_R_3
+  - first:
+      213: -1091868128276758790
+    second: BodyRed_Cry_R_0
+  - first:
+      213: 7566205569870489085
+    second: BodyRed_Cry_R_1
+  - first:
+      213: -357096038654366588
+    second: BodyRed_Cry_R_2
+  - first:
+      213: 8388381899798875848
+    second: BodyRed_Cry_R_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BodyRed_Casting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18af455113b8528c0800000000000000
+      internalID: -4024657649058121087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Casting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 467063df5fdff5c10800000000000000
+      internalID: 2044631988806485860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Casting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24fb1c0b7502a1ef0800000000000000
+      internalID: -136761277681647806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Casting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49f687d890d1e7580800000000000000
+      internalID: -8827586292734201964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Idle_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a115672ae32c8cf0800000000000000
+      internalID: -248784390821965405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Idle_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49be3779391219320800000000000000
+      internalID: 2562866580735388564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Idle_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 859ebf6c4ed992270800000000000000
+      internalID: 8226279800285423960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Idle_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cbb9a21d080f55b0800000000000000
+      internalID: -5377570577816372281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Fishing_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdd13fc91c2db31a0800000000000000
+      internalID: -6828632680973525537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Fishing_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d30c2efa8c529d20800000000000000
+      internalID: 3283788830346052564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Fishing_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4d1f03da9b6847c0800000000000000
+      internalID: -4086898349128606390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Fishing_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6967c169b21853d0800000000000000
+      internalID: -3217801346337511059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_MoveForward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc952142a121be520800000000000000
+      internalID: 2732297502413969868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_MoveForward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4ce0487e40f592a0800000000000000
+      internalID: -6731209848219702193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_MoveForward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eb7a72d86529a7c0800000000000000
+      internalID: -4059672456959722526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_MoveForward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 769637eee568861a0800000000000000
+      internalID: -6816050293739656857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_MoveBackward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b6ea5496d8747ac0800000000000000
+      internalID: -3858326117742352719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_MoveBackward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8014c184b722af60800000000000000
+      internalID: 8044035540661833868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_MoveBackward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41c64c7bda11c1530800000000000000
+      internalID: 3826953221168196628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_MoveBackward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 904d1bf8f4f233fd0800000000000000
+      internalID: -2363493360679660535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Fighting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2e48bb6f7d5f2190800000000000000
+      internalID: -7985060812455129556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Fighting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 613e686536e1c2790800000000000000
+      internalID: -7553629063004888298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Fighting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92c2bc4b45f647950800000000000000
+      internalID: 6445899376275172393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Fighting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f37670d8811e24830800000000000000
+      internalID: 4054050110148405055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Reeling_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f73115ce2c277fe0800000000000000
+      internalID: -1191434997029849103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Reeling_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b294043fb8e4b7e40800000000000000
+      internalID: 5655200120082286891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Reeling_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74f578ae9e988b210800000000000000
+      internalID: 1348979726152589127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Reeling_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb087fb196aa63990800000000000000
+      internalID: -7406545168746708802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Win_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61d5e302fb079ac60800000000000000
+      internalID: 7829913393342340374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Win_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14628e4446d0b9f90800000000000000
+      internalID: -6945943275984902591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Win_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0625298d207e7d2b0800000000000000
+      internalID: -5559721215556169120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Win_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d989a2dc970a1c810800000000000000
+      internalID: 1783883372409034909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_SwappingPoles_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70a38f17b016b3330800000000000000
+      internalID: 3691651021344881159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_SwappingPoles_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0585c911098c62b50800000000000000
+      internalID: 6568157627662751824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_SwappingPoles_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a8bb5af543665830800000000000000
+      internalID: 4059541266325289122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_SwappingPoles_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9915509e9369929f0800000000000000
+      internalID: -492697508753616487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Scared_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc8991026ad85b730800000000000000
+      internalID: 4014270387513301195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Scared_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0321fa8fc0d35b390800000000000000
+      internalID: -7803263653428391376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Scared_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28e15a4368ee72bc0800000000000000
+      internalID: -3807812699742200190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Scared_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64840735893ffd2a0800000000000000
+      internalID: -6710377084198303674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_GoToCry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a49bd5c1c1986920800000000000000
+      internalID: 2983795014567171239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_GoToCry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d8e87d82f01dad60800000000000000
+      internalID: 7902991555046729939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_GoToCry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b61ac3eebe0d93f0800000000000000
+      internalID: -892540938121242953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_GoToCry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b2dc4a27959b050800000000000000
+      internalID: 5816778742651759458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Cry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b946619a9756370a0800000000000000
+      internalID: -6885047832117091173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Cry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54b1966585f198820800000000000000
+      internalID: 2920900297593789253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Cry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 127cb087356e914d0800000000000000
+      internalID: -3163244017080350943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Cry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 393394a31a1e2c070800000000000000
+      internalID: 8125304760313656211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Casting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26a80e6592bc4a3f0800000000000000
+      internalID: -890363447900861854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Casting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbd9d90efc0c3b1a0800000000000000
+      internalID: -6794875413712757316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Casting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a57a5c2548a4a9220800000000000000
+      internalID: 2493387275887814490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Casting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcb2e08e0ddd164d0800000000000000
+      internalID: -3142987175611716659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Idle_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8f8679d9eebe7f80800000000000000
+      internalID: -8106832367635230837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Idle_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13ab681e2a196fa70800000000000000
+      internalID: 8860429445652462129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Idle_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a7c3b6b1240e2400800000000000000
+      internalID: 301182767926069153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Idle_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e5533c1b5ae74d60800000000000000
+      internalID: 7874520150516651490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Fishing_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a2611087808650c0800000000000000
+      internalID: -4587337850972708190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Fishing_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97fe02259ba522750800000000000000
+      internalID: 6278680582501232505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Fishing_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 117b682bcc29ae6a0800000000000000
+      internalID: -6419156910997063919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Fishing_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a19744cabe81fee0800000000000000
+      internalID: -1229044290487348831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_MoveForward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f126c494f613011f0800000000000000
+      internalID: -1076305956900675041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_MoveForward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ea5f20932227fdb0800000000000000
+      internalID: -4758296945155417374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_MoveForward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d12081ff7641aada0800000000000000
+      internalID: -5932907122213256675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_MoveForward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 908499f914e17c610800000000000000
+      internalID: 1641313856399165449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_MoveBackward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f01fcfa81282109b0800000000000000
+      internalID: -5115763577185308401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_MoveBackward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1bfbfac0b4cb8630800000000000000
+      internalID: 3930451363409689372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_MoveBackward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77927028adc982000800000000000000
+      internalID: 11431461366737271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_MoveBackward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00fbe69c840f6a730800000000000000
+      internalID: 4010156713627795200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Fighting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f147474310cad3a0800000000000000
+      internalID: -6639783511571611148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Fighting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aafc8a6921d2c920800000000000000
+      internalID: 3009197476848401061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Fighting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2aaf87c148441470800000000000000
+      internalID: 8364389855292009006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Fighting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9b201f8226677240800000000000000
+      internalID: 4789409027346934684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Reeling_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f227a75695ca01c10800000000000000
+      internalID: 2022305732643942959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Reeling_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15e8eabb9ff686de0800000000000000
+      internalID: -1339697770756403631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Reeling_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cb68a22f7eb70c50800000000000000
+      internalID: 6631478429577931719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Reeling_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27d6ec3057f6ccba0800000000000000
+      internalID: -6067352049609183886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Win_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ce845d3dbdb40500800000000000000
+      internalID: 361622490571902660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Win_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d46fe21694b47d20800000000000000
+      internalID: 3275441385660966098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Win_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd41474e96049e580800000000000000
+      internalID: -8797429573542996771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Win_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e7c3b73af8628480800000000000000
+      internalID: -8898434489845037082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_SwappingPoles_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a84fe5b4638ee42d0800000000000000
+      internalID: -3292438957670861686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_SwappingPoles_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f28bf1d0917dff1a0800000000000000
+      internalID: -6773458811947599825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_SwappingPoles_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 946d61e5859e5a790800000000000000
+      internalID: -7519347437080226231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_SwappingPoles_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a664a62f99f838290800000000000000
+      internalID: -7889304230863157654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Scared_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 644d647092cf4b080800000000000000
+      internalID: -9172429287900916666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Scared_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad11bb139d2a11440800000000000000
+      internalID: 4904880522909127130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Scared_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe936436c0e689ff0800000000000000
+      internalID: -29152398093698577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Scared_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67ea22ef45ee84790800000000000000
+      internalID: -7545519126850916746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_GoToCry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0869a2581f4dfff60800000000000000
+      internalID: 8070403191057585792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_GoToCry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09c478c3f17d7a080800000000000000
+      internalID: -9176129186584638320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_GoToCry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd9c501cd7de2a5c0800000000000000
+      internalID: -4205537977645544995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_GoToCry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e7d4dae4a71afa00800000000000000
+      internalID: 790970681638836197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Cry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afe3e78e8b7e8d0f0800000000000000
+      internalID: -1091868128276758790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Cry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df566b9d0ef800960800000000000000
+      internalID: 7566205569870489085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Cry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48cae497b075b0bf0800000000000000
+      internalID: -357096038654366588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyRed_Cry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ce04d1f4e4896470800000000000000
+      internalID: 8388381899798875848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BodyRed_Casting_L_0: -4024657649058121087
+      BodyRed_Casting_L_1: 2044631988806485860
+      BodyRed_Casting_L_2: -136761277681647806
+      BodyRed_Casting_L_3: -8827586292734201964
+      BodyRed_Casting_R_0: -890363447900861854
+      BodyRed_Casting_R_1: -6794875413712757316
+      BodyRed_Casting_R_2: 2493387275887814490
+      BodyRed_Casting_R_3: -3142987175611716659
+      BodyRed_Cry_L_0: -6885047832117091173
+      BodyRed_Cry_L_1: 2920900297593789253
+      BodyRed_Cry_L_2: -3163244017080350943
+      BodyRed_Cry_L_3: 8125304760313656211
+      BodyRed_Cry_R_0: -1091868128276758790
+      BodyRed_Cry_R_1: 7566205569870489085
+      BodyRed_Cry_R_2: -357096038654366588
+      BodyRed_Cry_R_3: 8388381899798875848
+      BodyRed_Fighting_L_0: -7985060812455129556
+      BodyRed_Fighting_L_1: -7553629063004888298
+      BodyRed_Fighting_L_2: 6445899376275172393
+      BodyRed_Fighting_L_3: 4054050110148405055
+      BodyRed_Fighting_R_0: -6639783511571611148
+      BodyRed_Fighting_R_1: 3009197476848401061
+      BodyRed_Fighting_R_2: 8364389855292009006
+      BodyRed_Fighting_R_3: 4789409027346934684
+      BodyRed_Fishing_L_0: -6828632680973525537
+      BodyRed_Fishing_L_1: 3283788830346052564
+      BodyRed_Fishing_L_2: -4086898349128606390
+      BodyRed_Fishing_L_3: -3217801346337511059
+      BodyRed_Fishing_R_0: -4587337850972708190
+      BodyRed_Fishing_R_1: 6278680582501232505
+      BodyRed_Fishing_R_2: -6419156910997063919
+      BodyRed_Fishing_R_3: -1229044290487348831
+      BodyRed_GoToCry_L_0: 2983795014567171239
+      BodyRed_GoToCry_L_1: 7902991555046729939
+      BodyRed_GoToCry_L_2: -892540938121242953
+      BodyRed_GoToCry_L_3: 5816778742651759458
+      BodyRed_GoToCry_R_0: 8070403191057585792
+      BodyRed_GoToCry_R_1: -9176129186584638320
+      BodyRed_GoToCry_R_2: -4205537977645544995
+      BodyRed_GoToCry_R_3: 790970681638836197
+      BodyRed_Idle_L_0: -248784390821965405
+      BodyRed_Idle_L_1: 2562866580735388564
+      BodyRed_Idle_L_2: 8226279800285423960
+      BodyRed_Idle_L_3: -5377570577816372281
+      BodyRed_Idle_R_0: -8106832367635230837
+      BodyRed_Idle_R_1: 8860429445652462129
+      BodyRed_Idle_R_2: 301182767926069153
+      BodyRed_Idle_R_3: 7874520150516651490
+      BodyRed_MoveBackward_L_0: -3858326117742352719
+      BodyRed_MoveBackward_L_1: 8044035540661833868
+      BodyRed_MoveBackward_L_2: 3826953221168196628
+      BodyRed_MoveBackward_L_3: -2363493360679660535
+      BodyRed_MoveBackward_R_0: -5115763577185308401
+      BodyRed_MoveBackward_R_1: 3930451363409689372
+      BodyRed_MoveBackward_R_2: 11431461366737271
+      BodyRed_MoveBackward_R_3: 4010156713627795200
+      BodyRed_MoveForward_L_0: 2732297502413969868
+      BodyRed_MoveForward_L_1: -6731209848219702193
+      BodyRed_MoveForward_L_2: -4059672456959722526
+      BodyRed_MoveForward_L_3: -6816050293739656857
+      BodyRed_MoveForward_R_0: -1076305956900675041
+      BodyRed_MoveForward_R_1: -4758296945155417374
+      BodyRed_MoveForward_R_2: -5932907122213256675
+      BodyRed_MoveForward_R_3: 1641313856399165449
+      BodyRed_Reeling_L_0: -1191434997029849103
+      BodyRed_Reeling_L_1: 5655200120082286891
+      BodyRed_Reeling_L_2: 1348979726152589127
+      BodyRed_Reeling_L_3: -7406545168746708802
+      BodyRed_Reeling_R_0: 2022305732643942959
+      BodyRed_Reeling_R_1: -1339697770756403631
+      BodyRed_Reeling_R_2: 6631478429577931719
+      BodyRed_Reeling_R_3: -6067352049609183886
+      BodyRed_Scared_L_0: 4014270387513301195
+      BodyRed_Scared_L_1: -7803263653428391376
+      BodyRed_Scared_L_2: -3807812699742200190
+      BodyRed_Scared_L_3: -6710377084198303674
+      BodyRed_Scared_R_0: -9172429287900916666
+      BodyRed_Scared_R_1: 4904880522909127130
+      BodyRed_Scared_R_2: -29152398093698577
+      BodyRed_Scared_R_3: -7545519126850916746
+      BodyRed_SwappingPoles_L_0: 3691651021344881159
+      BodyRed_SwappingPoles_L_1: 6568157627662751824
+      BodyRed_SwappingPoles_L_2: 4059541266325289122
+      BodyRed_SwappingPoles_L_3: -492697508753616487
+      BodyRed_SwappingPoles_R_0: -3292438957670861686
+      BodyRed_SwappingPoles_R_1: -6773458811947599825
+      BodyRed_SwappingPoles_R_2: -7519347437080226231
+      BodyRed_SwappingPoles_R_3: -7889304230863157654
+      BodyRed_Win_L_0: 7829913393342340374
+      BodyRed_Win_L_1: -6945943275984902591
+      BodyRed_Win_L_2: -5559721215556169120
+      BodyRed_Win_L_3: 1783883372409034909
+      BodyRed_Win_R_0: 361622490571902660
+      BodyRed_Win_R_1: 3275441385660966098
+      BodyRed_Win_R_2: -8797429573542996771
+      BodyRed_Win_R_3: -8898434489845037082
+      Body_Red_r00_f0: 3940420264742580955
+      Body_Red_r00_f1: 1457637835162558474
+      Body_Red_r00_f2: 561024980059913806
+      Body_Red_r00_f3: -7254182064767743720
+      Body_Red_r01_f0: 6586709669033055462
+      Body_Red_r01_f1: 6030949982103278791
+      Body_Red_r01_f2: -249165020430267633
+      Body_Red_r01_f3: 8303285865508845987
+      Body_Red_r02_f0: 8020862623933820131
+      Body_Red_r02_f1: 802656481748224446
+      Body_Red_r02_f2: 2066201051651302736
+      Body_Red_r02_f3: -1802694532367924719
+      Body_Red_r03_f0: 6735476881411526805
+      Body_Red_r03_f1: 4124077725077888204
+      Body_Red_r03_f2: 6053819165932080266
+      Body_Red_r03_f3: -4151769004149560151
+      Body_Red_r04_f0: -3637460023778852109
+      Body_Red_r04_f1: -6785910266241339322
+      Body_Red_r04_f2: -6209035209261258473
+      Body_Red_r04_f3: 5540459299083614220
+      Body_Red_r05_f0: 5080688438099837273
+      Body_Red_r05_f1: -6799350338722438861
+      Body_Red_r05_f2: 3593747160606596766
+      Body_Red_r05_f3: 106017951993016860
+      Body_Red_r06_f0: 1386839306824560072
+      Body_Red_r06_f1: -8814785045628421174
+      Body_Red_r06_f2: 6696755161403314008
+      Body_Red_r06_f3: -6376257018594527990
+      Body_Red_r07_f0: 6698941457983681155
+      Body_Red_r07_f1: 3051802457659819023
+      Body_Red_r07_f2: -1218643515232054698
+      Body_Red_r07_f3: 5620060282238129497
+      Body_Red_r08_f0: 7831405596944878593
+      Body_Red_r08_f1: -97758816674326584
+      Body_Red_r08_f2: 2009068607110583054
+      Body_Red_r08_f3: -1931190507454563639
+      Body_Red_r09_f0: 131764701200809786
+      Body_Red_r09_f1: 5236255065385816640
+      Body_Red_r09_f2: 8230293311004591534
+      Body_Red_r09_f3: -2415579121852314647
+      Body_Red_r10_f0: 586723349765854590
+      Body_Red_r10_f1: -1064382453346082160
+      Body_Red_r10_f2: -1404008829360062384
+      Body_Red_r10_f3: 1209803545150942945
+      Body_Red_r11_f0: 3087662198935831948
+      Body_Red_r11_f1: 923445085313647778
+      Body_Red_r11_f2: 185792440933428600
+      Body_Red_r11_f3: -3397219062311594008
+      Body_Red_r12_f0: -2779865756562243625
+      Body_Red_r12_f1: -2525205411173204440
+      Body_Red_r12_f2: -7378760583798444017
+      Body_Red_r12_f3: 6159877072161061650
+      Body_Red_r13_f0: -1049390235520046639
+      Body_Red_r13_f1: -3771230034258768001
+      Body_Red_r13_f2: -4849669265455321234
+      Body_Red_r13_f3: -7810624230248678698
+      Body_Red_r14_f0: 5851344203586536803
+      Body_Red_r14_f1: 7296044306813427710
+      Body_Red_r14_f2: 8526437605091077953
+      Body_Red_r14_f3: -5577895872880988713
+      Body_Red_r15_f0: -5035162012710403358
+      Body_Red_r15_f1: -6157785770331684759
+      Body_Red_r15_f2: 1793422154809258319
+      Body_Red_r15_f3: 7510827304168998019
+      Body_Red_r16_f0: -888496411274462544
+      Body_Red_r16_f1: -2093911842681480908
+      Body_Red_r16_f2: 1567032383262722441
+      Body_Red_r16_f3: 6146244565773288578
+      Body_Red_r17_f0: 2536867955455933598
+      Body_Red_r17_f1: -6201896208684506
+      Body_Red_r17_f2: 5569694688758356451
+      Body_Red_r17_f3: -5548786481312495164
+      Body_Red_r18_f0: 5086852790198147189
+      Body_Red_r18_f1: -7961931522355224147
+      Body_Red_r18_f2: 5710616867163557232
+      Body_Red_r18_f3: 7727087448459639848
+      Body_Red_r19_f0: 3705875694692376783
+      Body_Red_r19_f1: -5040728805205059491
+      Body_Red_r19_f2: -3788158451599335029
+      Body_Red_r19_f3: 2698388791915619111
+      Body_Red_r20_f0: 2774035755621314960
+      Body_Red_r20_f1: 7476454612979183482
+      Body_Red_r20_f2: -949196961985070304
+      Body_Red_r20_f3: -1618966193764264158
+      Body_Red_r21_f0: -8057688019236696437
+      Body_Red_r21_f1: 1082594409534848710
+      Body_Red_r21_f2: -3950455457096709176
+      Body_Red_r21_f3: -522591046725336129
+      Body_Red_r22_f0: 3004206820826336727
+      Body_Red_r22_f1: 6345883164362767619
+      Body_Red_r22_f2: -3025236761891484646
+      Body_Red_r22_f3: -4902632885966458630
+      Body_Red_r23_f0: 4729577767571022189
+      Body_Red_r23_f1: 7692752865559491659
+      Body_Red_r23_f2: -3545617164313443784
+      Body_Red_r23_f3: -1093892514320580724
+      Fisherman_Body_Red_Sheet_0: 7665889915124352684
+      Fisherman_Body_Red_Sheet_1: -6135896539152460428
+      Fisherman_Body_Red_Sheet_10: 6662967147134274328
+      Fisherman_Body_Red_Sheet_11: 3250114267740532515
+      Fisherman_Body_Red_Sheet_12: -3232612211742574077
+      Fisherman_Body_Red_Sheet_13: 3878961557499982018
+      Fisherman_Body_Red_Sheet_14: -9060703727592224384
+      Fisherman_Body_Red_Sheet_15: 7445865356917051444
+      Fisherman_Body_Red_Sheet_16: -2499042698683215925
+      Fisherman_Body_Red_Sheet_17: 1567238028874405616
+      Fisherman_Body_Red_Sheet_18: 9085660646232492340
+      Fisherman_Body_Red_Sheet_19: 8413505593743838651
+      Fisherman_Body_Red_Sheet_2: -3593152199445686562
+      Fisherman_Body_Red_Sheet_20: 3853366173458464827
+      Fisherman_Body_Red_Sheet_21: -8344395946277468632
+      Fisherman_Body_Red_Sheet_22: -2251384960623242754
+      Fisherman_Body_Red_Sheet_23: -5596744443482018061
+      Fisherman_Body_Red_Sheet_24: 499934997138783503
+      Fisherman_Body_Red_Sheet_25: -3915367544139466275
+      Fisherman_Body_Red_Sheet_26: 1421702112116518439
+      Fisherman_Body_Red_Sheet_27: 2842670299338538690
+      Fisherman_Body_Red_Sheet_28: -6931103437533984282
+      Fisherman_Body_Red_Sheet_29: 1700187630343162075
+      Fisherman_Body_Red_Sheet_3: 2495190077643313103
+      Fisherman_Body_Red_Sheet_30: -828324503634287639
+      Fisherman_Body_Red_Sheet_31: 5626311504147822531
+      Fisherman_Body_Red_Sheet_32: 377207774750422073
+      Fisherman_Body_Red_Sheet_33: 1453682431702538210
+      Fisherman_Body_Red_Sheet_34: 2398728684636426493
+      Fisherman_Body_Red_Sheet_35: -2444307040245907600
+      Fisherman_Body_Red_Sheet_36: -793121290705086892
+      Fisherman_Body_Red_Sheet_37: -2285841313979684958
+      Fisherman_Body_Red_Sheet_38: 1860532769838216918
+      Fisherman_Body_Red_Sheet_39: -4037212466432277077
+      Fisherman_Body_Red_Sheet_4: 5453117788751797306
+      Fisherman_Body_Red_Sheet_40: 4617505410189964432
+      Fisherman_Body_Red_Sheet_41: -3080231488655856940
+      Fisherman_Body_Red_Sheet_42: -7198624193784781044
+      Fisherman_Body_Red_Sheet_43: 8399198482419355619
+      Fisherman_Body_Red_Sheet_44: -7025630095419077787
+      Fisherman_Body_Red_Sheet_45: -9091513730122302716
+      Fisherman_Body_Red_Sheet_46: -6384804522690075473
+      Fisherman_Body_Red_Sheet_47: 1852254426709707494
+      Fisherman_Body_Red_Sheet_48: -3038663117877217618
+      Fisherman_Body_Red_Sheet_49: -2523428367046382961
+      Fisherman_Body_Red_Sheet_5: -1001227772374520157
+      Fisherman_Body_Red_Sheet_50: 1553844397115321138
+      Fisherman_Body_Red_Sheet_51: -8498304872924367815
+      Fisherman_Body_Red_Sheet_52: 5798934658110985881
+      Fisherman_Body_Red_Sheet_53: -2807532378815838050
+      Fisherman_Body_Red_Sheet_54: 3713845364705469740
+      Fisherman_Body_Red_Sheet_55: -7529964438938658379
+      Fisherman_Body_Red_Sheet_56: -559708686612633804
+      Fisherman_Body_Red_Sheet_57: 2913381112590928434
+      Fisherman_Body_Red_Sheet_58: 1687542191533199789
+      Fisherman_Body_Red_Sheet_59: 4100925905372514376
+      Fisherman_Body_Red_Sheet_6: 8883698153064195858
+      Fisherman_Body_Red_Sheet_60: -4807921274716276835
+      Fisherman_Body_Red_Sheet_61: 6615431925694456050
+      Fisherman_Body_Red_Sheet_62: -5337066852145100304
+      Fisherman_Body_Red_Sheet_63: -1250447237262865543
+      Fisherman_Body_Red_Sheet_64: 4331882785644532281
+      Fisherman_Body_Red_Sheet_65: -6805561623647835873
+      Fisherman_Body_Red_Sheet_66: -5640938774123835344
+      Fisherman_Body_Red_Sheet_67: 8175413868259615605
+      Fisherman_Body_Red_Sheet_68: -5719427363516797359
+      Fisherman_Body_Red_Sheet_69: -4224811470138854779
+      Fisherman_Body_Red_Sheet_7: 4012117812023589366
+      Fisherman_Body_Red_Sheet_70: 7610215217884986974
+      Fisherman_Body_Red_Sheet_71: 2763665869599821928
+      Fisherman_Body_Red_Sheet_72: -9016491554703629724
+      Fisherman_Body_Red_Sheet_73: -7696750377917857628
+      Fisherman_Body_Red_Sheet_74: -53231424292391958
+      Fisherman_Body_Red_Sheet_75: -5990779657680836323
+      Fisherman_Body_Red_Sheet_76: -6370590231410894303
+      Fisherman_Body_Red_Sheet_77: 5573696414383177519
+      Fisherman_Body_Red_Sheet_78: -799789011407892488
+      Fisherman_Body_Red_Sheet_79: -5355341618773031327
+      Fisherman_Body_Red_Sheet_8: -7609111286533933044
+      Fisherman_Body_Red_Sheet_80: -7914752003673190309
+      Fisherman_Body_Red_Sheet_81: 3084422016373227252
+      Fisherman_Body_Red_Sheet_82: -4131420359681687706
+      Fisherman_Body_Red_Sheet_83: -8418793262476279769
+      Fisherman_Body_Red_Sheet_84: -4550823655569483877
+      Fisherman_Body_Red_Sheet_85: -8862895718236090442
+      Fisherman_Body_Red_Sheet_86: 1865628342267555297
+      Fisherman_Body_Red_Sheet_87: -8785546933092605425
+      Fisherman_Body_Red_Sheet_88: -1600983369551493988
+      Fisherman_Body_Red_Sheet_89: -91313493534578023
+      Fisherman_Body_Red_Sheet_9: 7711741225437052790
+      Fisherman_Body_Red_Sheet_90: -3944403016529230476
+      Fisherman_Body_Red_Sheet_91: -5820779984232747339
+      Fisherman_Body_Red_Sheet_92: 4226905522022828235
+      Fisherman_Body_Red_Sheet_93: 5983884135631920633
+      Fisherman_Body_Red_Sheet_94: -3250040582011473638
+      Fisherman_Body_Red_Sheet_95: -586157600991100913
+      Fisherman_Body_Red_Sheet_96: -7290817645356460917
+      Fisherman_Body_Red_Sheet_97: -799615652344543497
+      Fisherman_Body_Red_Sheet_98: 5524432221689433165
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

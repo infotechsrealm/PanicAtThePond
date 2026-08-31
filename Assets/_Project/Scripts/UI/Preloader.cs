@@ -81,6 +81,18 @@ public class Preloader : MonoBehaviour
         }
     }
 
+    // The two end markers do not always express their position the same way as the fish does.
+    // The PreloderUI prefab puts all three on a 0.5 anchor and offsets them by anchoredPosition
+    // (-512 / +512), so comparing anchoredPosition works. The Play scene instance instead anchors
+    // them to the canvas edges (-0.054 and 1.054) and leaves anchoredPosition at zero, so both
+    // markers report an anchoredPosition.x of 0. Comparing that made the fish reach "the end"
+    // on the very first frame in both directions, so it stood still and flipped every frame.
+    // localPosition is resolved from anchor + offset, so it is correct for either authoring style.
+    private static float TrackX(RectTransform t)
+    {
+        return t.localPosition.x;
+    }
+
     void Update()
     {
         if (rect == null || leftPoint == null || rightPoint == null)
@@ -88,10 +100,19 @@ public class Preloader : MonoBehaviour
             return;
         }
 
+        float leftX = TrackX(leftPoint);
+        float rightX = TrackX(rightPoint);
+
+        // A zero-or-inverted span cannot be travelled; flipping on it is the fast-spin bug.
+        if (rightX - leftX < 1f)
+        {
+            return;
+        }
+
         if (movingRight)
         {
             rect.anchoredPosition += Vector2.right * speed * Time.deltaTime;
-            if (rect.anchoredPosition.x >= rightPoint.anchoredPosition.x)
+            if (TrackX(rect) >= rightX)
             {
                 movingRight = false;
                 SetFacing(1f);
@@ -100,7 +121,7 @@ public class Preloader : MonoBehaviour
         else
         {
             rect.anchoredPosition += Vector2.left * speed * Time.deltaTime;
-            if (rect.anchoredPosition.x <= leftPoint.anchoredPosition.x)
+            if (TrackX(rect) <= leftX)
             {
                 movingRight = true;
                 SetFacing(-1f);

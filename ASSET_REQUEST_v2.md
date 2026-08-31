@@ -1,5 +1,10 @@
 # Art Spec v2 — Panic At The Pond
 
+> ⚠️ **SUPERSEDED — do not send.** Kept for history only.
+> Current documents: **`ASSET_SPECIFICATION.md`** (technical) and **`CLIENT_MESSAGE.md`** (to send).
+> The fish frame in this file (110 × 70) is out of date: as of 2026-08-12 all fish and fish hats use
+> one shared **200 × 140** canvas, with each species drawn at its own size inside it.
+
 > Client message + the measured numbers behind it.
 > Every figure verified in-editor on 2026-08-08 (Unity 6000.5.7f1). Nothing here is estimated.
 

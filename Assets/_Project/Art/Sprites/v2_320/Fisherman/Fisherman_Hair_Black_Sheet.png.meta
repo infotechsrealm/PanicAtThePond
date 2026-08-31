@@ -1,0 +1,3420 @@
+fileFormatVersion: 2
+guid: 45e3e788c60f3fb4da29857f53534acf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1581502942526802414
+    second: Fisherman_Hair_Black_Sheet_0
+  - first:
+      213: -7100143088713056503
+    second: Fisherman_Hair_Black_Sheet_1
+  - first:
+      213: 4258712411201669785
+    second: Fisherman_Hair_Black_Sheet_2
+  - first:
+      213: 3632469924747799950
+    second: Fisherman_Hair_Black_Sheet_3
+  - first:
+      213: 5182194718767066635
+    second: Fisherman_Hair_Black_Sheet_4
+  - first:
+      213: -2813612311099098390
+    second: Fisherman_Hair_Black_Sheet_5
+  - first:
+      213: -3660601035053040722
+    second: Fisherman_Hair_Black_Sheet_6
+  - first:
+      213: 5871352858175148366
+    second: Fisherman_Hair_Black_Sheet_7
+  - first:
+      213: 3344491337782449319
+    second: Fisherman_Hair_Black_Sheet_8
+  - first:
+      213: -559438283226270754
+    second: Fisherman_Hair_Black_Sheet_9
+  - first:
+      213: 4547990398903020861
+    second: Fisherman_Hair_Black_Sheet_10
+  - first:
+      213: -1379410205710944379
+    second: Fisherman_Hair_Black_Sheet_11
+  - first:
+      213: -6475581866111732014
+    second: Fisherman_Hair_Black_Sheet_12
+  - first:
+      213: 6224889759687006555
+    second: Fisherman_Hair_Black_Sheet_13
+  - first:
+      213: 535721555304393944
+    second: Fisherman_Hair_Black_Sheet_14
+  - first:
+      213: -3829658512002846532
+    second: Fisherman_Hair_Black_Sheet_15
+  - first:
+      213: -2921742820089877285
+    second: Fisherman_Hair_Black_Sheet_16
+  - first:
+      213: -1901706460007604166
+    second: Fisherman_Hair_Black_Sheet_17
+  - first:
+      213: 5143121565023330444
+    second: Fisherman_Hair_Black_Sheet_18
+  - first:
+      213: -553555721305985480
+    second: Fisherman_Hair_Black_Sheet_19
+  - first:
+      213: -2350381532571950096
+    second: Fisherman_Hair_Black_Sheet_20
+  - first:
+      213: -2200859497896710948
+    second: Fisherman_Hair_Black_Sheet_21
+  - first:
+      213: -5942292950665809192
+    second: Fisherman_Hair_Black_Sheet_22
+  - first:
+      213: -6707687439460043174
+    second: Fisherman_Hair_Black_Sheet_23
+  - first:
+      213: -27942838445416486
+    second: Fisherman_Hair_Black_Sheet_24
+  - first:
+      213: 1666667926812519485
+    second: Fisherman_Hair_Black_Sheet_25
+  - first:
+      213: 8058321480737461491
+    second: Fisherman_Hair_Black_Sheet_26
+  - first:
+      213: -7426603946341871989
+    second: Fisherman_Hair_Black_Sheet_27
+  - first:
+      213: 8337687807998550438
+    second: Fisherman_Hair_Black_Sheet_28
+  - first:
+      213: 3268533749057456129
+    second: Fisherman_Hair_Black_Sheet_29
+  - first:
+      213: -636622257024522565
+    second: Fisherman_Hair_Black_Sheet_30
+  - first:
+      213: 4700376800093331505
+    second: Fisherman_Hair_Black_Sheet_31
+  - first:
+      213: 5446780253156771222
+    second: Fisherman_Hair_Black_Sheet_32
+  - first:
+      213: -3149904775873686710
+    second: Fisherman_Hair_Black_Sheet_33
+  - first:
+      213: -8189630548192472021
+    second: Fisherman_Hair_Black_Sheet_34
+  - first:
+      213: 8329442818056093287
+    second: Fisherman_Hair_Black_Sheet_35
+  - first:
+      213: 2421350531639723115
+    second: Fisherman_Hair_Black_Sheet_36
+  - first:
+      213: -8907841883846154426
+    second: Fisherman_Hair_Black_Sheet_37
+  - first:
+      213: -1920076917214610354
+    second: Fisherman_Hair_Black_Sheet_38
+  - first:
+      213: 6989347062359821082
+    second: Fisherman_Hair_Black_Sheet_39
+  - first:
+      213: -6886643642637994236
+    second: Fisherman_Hair_Black_Sheet_40
+  - first:
+      213: -1654321443581619605
+    second: Fisherman_Hair_Black_Sheet_41
+  - first:
+      213: -7866792735533615726
+    second: Fisherman_Hair_Black_Sheet_42
+  - first:
+      213: 1557757421131410291
+    second: Fisherman_Hair_Black_Sheet_43
+  - first:
+      213: -2080908025629931403
+    second: Fisherman_Hair_Black_Sheet_44
+  - first:
+      213: -2717595894575162451
+    second: Fisherman_Hair_Black_Sheet_45
+  - first:
+      213: -5590126717049162562
+    second: Fisherman_Hair_Black_Sheet_46
+  - first:
+      213: -8847389331938428936
+    second: Fisherman_Hair_Black_Sheet_47
+  - first:
+      213: -7600542498867202190
+    second: Fisherman_Hair_Black_Sheet_48
+  - first:
+      213: -8967334972562401738
+    second: Fisherman_Hair_Black_Sheet_49
+  - first:
+      213: -7291260698421921424
+    second: Fisherman_Hair_Black_Sheet_50
+  - first:
+      213: -8919924489074933767
+    second: Fisherman_Hair_Black_Sheet_51
+  - first:
+      213: -4081800810105269533
+    second: Fisherman_Hair_Black_Sheet_52
+  - first:
+      213: 1459821990396784353
+    second: Fisherman_Hair_Black_Sheet_53
+  - first:
+      213: -6900810864532366199
+    second: Fisherman_Hair_Black_Sheet_54
+  - first:
+      213: 6386261263733703223
+    second: Fisherman_Hair_Black_Sheet_55
+  - first:
+      213: -2090935406846732420
+    second: Fisherman_Hair_Black_Sheet_56
+  - first:
+      213: -5567376916407290770
+    second: Fisherman_Hair_Black_Sheet_57
+  - first:
+      213: -3637994521545897399
+    second: Fisherman_Hair_Black_Sheet_58
+  - first:
+      213: -1533735584825354083
+    second: Fisherman_Hair_Black_Sheet_59
+  - first:
+      213: 1982816690032070646
+    second: Fisherman_Hair_Black_Sheet_60
+  - first:
+      213: -6702152343755936438
+    second: Fisherman_Hair_Black_Sheet_61
+  - first:
+      213: -6802203009701111822
+    second: Fisherman_Hair_Black_Sheet_62
+  - first:
+      213: 8564753906887553234
+    second: Fisherman_Hair_Black_Sheet_63
+  - first:
+      213: -5481480496725875439
+    second: Fisherman_Hair_Black_Sheet_64
+  - first:
+      213: -6053523140287602596
+    second: Fisherman_Hair_Black_Sheet_65
+  - first:
+      213: 1985277367789426025
+    second: Fisherman_Hair_Black_Sheet_66
+  - first:
+      213: -805318795981788084
+    second: Fisherman_Hair_Black_Sheet_67
+  - first:
+      213: 3844622261929146319
+    second: Fisherman_Hair_Black_Sheet_68
+  - first:
+      213: -7570390584909620982
+    second: Fisherman_Hair_Black_Sheet_69
+  - first:
+      213: 8714017049425379504
+    second: Fisherman_Hair_Black_Sheet_70
+  - first:
+      213: 7632998137967347744
+    second: Fisherman_Hair_Black_Sheet_71
+  - first:
+      213: -2952973018804268004
+    second: Fisherman_Hair_Black_Sheet_72
+  - first:
+      213: -3080797751769188219
+    second: Fisherman_Hair_Black_Sheet_73
+  - first:
+      213: 6539295278121514137
+    second: Fisherman_Hair_Black_Sheet_74
+  - first:
+      213: 8252140013217965457
+    second: Fisherman_Hair_Black_Sheet_75
+  - first:
+      213: -6657563901605588826
+    second: Fisherman_Hair_Black_Sheet_76
+  - first:
+      213: -3225649405080421278
+    second: Fisherman_Hair_Black_Sheet_77
+  - first:
+      213: -340253494290555829
+    second: Fisherman_Hair_Black_Sheet_78
+  - first:
+      213: 6020042820094145823
+    second: Fisherman_Hair_Black_Sheet_79
+  - first:
+      213: -1981745687424527177
+    second: Fisherman_Hair_Black_Sheet_80
+  - first:
+      213: -1875783472929139953
+    second: Fisherman_Hair_Black_Sheet_81
+  - first:
+      213: -3433875572309238885
+    second: Fisherman_Hair_Black_Sheet_82
+  - first:
+      213: -93514222321761663
+    second: Fisherman_Hair_Black_Sheet_83
+  - first:
+      213: -7045881898560320707
+    second: Fisherman_Hair_Black_Sheet_84
+  - first:
+      213: 9016282019112538309
+    second: Fisherman_Hair_Black_Sheet_85
+  - first:
+      213: 3895988913489537190
+    second: Fisherman_Hair_Black_Sheet_86
+  - first:
+      213: -8542616081870904878
+    second: Fisherman_Hair_Black_Sheet_87
+  - first:
+      213: 4209383757664531867
+    second: Fisherman_Hair_Black_Sheet_88
+  - first:
+      213: 6728985677142476720
+    second: Fisherman_Hair_Black_Sheet_89
+  - first:
+      213: -3515881277934320755
+    second: Fisherman_Hair_Black_Sheet_90
+  - first:
+      213: 3909244311731423783
+    second: Fisherman_Hair_Black_Sheet_91
+  - first:
+      213: -6728684173958918280
+    second: Fisherman_Hair_Black_Sheet_92
+  - first:
+      213: 4376432564193429199
+    second: Fisherman_Hair_Black_Sheet_93
+  - first:
+      213: 1627309414065201297
+    second: Fisherman_Hair_Black_Sheet_94
+  - first:
+      213: 2679986171869402897
+    second: Fisherman_Hair_Black_Sheet_95
+  - first:
+      213: -1743641479980551005
+    second: Hair_Black_r00_f0
+  - first:
+      213: -5243634445325802430
+    second: Hair_Black_r00_f1
+  - first:
+      213: -2786089373490271569
+    second: Hair_Black_r00_f2
+  - first:
+      213: -4395295826298818101
+    second: Hair_Black_r00_f3
+  - first:
+      213: 2866508821739054041
+    second: Hair_Black_r01_f0
+  - first:
+      213: -8120666729865257525
+    second: Hair_Black_r01_f1
+  - first:
+      213: 3616184403830722118
+    second: Hair_Black_r01_f2
+  - first:
+      213: -707465164773010170
+    second: Hair_Black_r01_f3
+  - first:
+      213: -7480166613123544568
+    second: Hair_Black_r02_f0
+  - first:
+      213: 7030538929619197716
+    second: Hair_Black_r02_f1
+  - first:
+      213: 4212638725576109013
+    second: Hair_Black_r02_f2
+  - first:
+      213: -6331587954966380978
+    second: Hair_Black_r02_f3
+  - first:
+      213: -3022554413810333527
+    second: Hair_Black_r03_f0
+  - first:
+      213: 2286987744021587528
+    second: Hair_Black_r03_f1
+  - first:
+      213: -5472741825852306159
+    second: Hair_Black_r03_f2
+  - first:
+      213: -3625835340736147029
+    second: Hair_Black_r03_f3
+  - first:
+      213: -7513066303934116699
+    second: Hair_Black_r04_f0
+  - first:
+      213: -6238644793561902921
+    second: Hair_Black_r04_f1
+  - first:
+      213: -4173846384720927773
+    second: Hair_Black_r04_f2
+  - first:
+      213: 2753983793389497720
+    second: Hair_Black_r04_f3
+  - first:
+      213: -2408727672226667107
+    second: Hair_Black_r05_f0
+  - first:
+      213: -7938157513339188924
+    second: Hair_Black_r05_f1
+  - first:
+      213: 2037484833277930574
+    second: Hair_Black_r05_f2
+  - first:
+      213: 1013251641398756540
+    second: Hair_Black_r05_f3
+  - first:
+      213: -4496982314763396345
+    second: Hair_Black_r06_f0
+  - first:
+      213: -8964313212372208154
+    second: Hair_Black_r06_f1
+  - first:
+      213: 3629214340291943825
+    second: Hair_Black_r06_f2
+  - first:
+      213: 6700679700251190715
+    second: Hair_Black_r06_f3
+  - first:
+      213: 2903760791404795109
+    second: Hair_Black_r07_f0
+  - first:
+      213: -4293313309095132074
+    second: Hair_Black_r07_f1
+  - first:
+      213: 2317180046179186551
+    second: Hair_Black_r07_f2
+  - first:
+      213: -7797404873062770810
+    second: Hair_Black_r07_f3
+  - first:
+      213: 5655923321473992167
+    second: Hair_Black_r08_f0
+  - first:
+      213: 4082770997332390055
+    second: Hair_Black_r08_f1
+  - first:
+      213: 2428800052185584184
+    second: Hair_Black_r08_f2
+  - first:
+      213: -3632435701829376801
+    second: Hair_Black_r08_f3
+  - first:
+      213: -2843253206004995764
+    second: Hair_Black_r09_f0
+  - first:
+      213: 1223023702129483568
+    second: Hair_Black_r09_f1
+  - first:
+      213: 2532172822532985315
+    second: Hair_Black_r09_f2
+  - first:
+      213: -7845325141888050389
+    second: Hair_Black_r09_f3
+  - first:
+      213: -2580414017655855911
+    second: Hair_Black_r10_f0
+  - first:
+      213: 509580636006626563
+    second: Hair_Black_r10_f1
+  - first:
+      213: 1908812909678314852
+    second: Hair_Black_r10_f2
+  - first:
+      213: -6267555757564236334
+    second: Hair_Black_r10_f3
+  - first:
+      213: 7694686806285918616
+    second: Hair_Black_r11_f0
+  - first:
+      213: -4300860520774767090
+    second: Hair_Black_r11_f1
+  - first:
+      213: 6581489904980203982
+    second: Hair_Black_r11_f2
+  - first:
+      213: 5063150852897015439
+    second: Hair_Black_r11_f3
+  - first:
+      213: 8176475367588835869
+    second: Hair_Black_r12_f0
+  - first:
+      213: 3182059260865997373
+    second: Hair_Black_r12_f1
+  - first:
+      213: -6430183065409048345
+    second: Hair_Black_r12_f2
+  - first:
+      213: 8702584686456416244
+    second: Hair_Black_r12_f3
+  - first:
+      213: -2600321503348060539
+    second: Hair_Black_r13_f0
+  - first:
+      213: 4768919466414065010
+    second: Hair_Black_r13_f1
+  - first:
+      213: -4346904094343997095
+    second: Hair_Black_r13_f2
+  - first:
+      213: 4447741633798113430
+    second: Hair_Black_r13_f3
+  - first:
+      213: -8005251420899837819
+    second: Hair_Black_r14_f0
+  - first:
+      213: -5004136474401674562
+    second: Hair_Black_r14_f1
+  - first:
+      213: 1553726273449649694
+    second: Hair_Black_r14_f2
+  - first:
+      213: -8481932895957989201
+    second: Hair_Black_r14_f3
+  - first:
+      213: -5693410062486666881
+    second: Hair_Black_r15_f0
+  - first:
+      213: -6970341817562447604
+    second: Hair_Black_r15_f1
+  - first:
+      213: -7848123141713226833
+    second: Hair_Black_r15_f2
+  - first:
+      213: 8499948338183888405
+    second: Hair_Black_r15_f3
+  - first:
+      213: -349025899465477171
+    second: Hair_Black_r16_f0
+  - first:
+      213: -6954908322370239468
+    second: Hair_Black_r16_f1
+  - first:
+      213: 135003137240522494
+    second: Hair_Black_r16_f2
+  - first:
+      213: -8175778288227600892
+    second: Hair_Black_r16_f3
+  - first:
+      213: 8053137765479920632
+    second: Hair_Black_r17_f0
+  - first:
+      213: 1238756372243333725
+    second: Hair_Black_r17_f1
+  - first:
+      213: -4092756283072120462
+    second: Hair_Black_r17_f2
+  - first:
+      213: 1501348748626772647
+    second: Hair_Black_r17_f3
+  - first:
+      213: -1316958046214911049
+    second: Hair_Black_r18_f0
+  - first:
+      213: 8974740547844196626
+    second: Hair_Black_r18_f1
+  - first:
+      213: -4492484031637671922
+    second: Hair_Black_r18_f2
+  - first:
+      213: 7977189688487346318
+    second: Hair_Black_r18_f3
+  - first:
+      213: -2755743170661090708
+    second: Hair_Black_r19_f0
+  - first:
+      213: -5103569802716463095
+    second: Hair_Black_r19_f1
+  - first:
+      213: -9030680697921469052
+    second: Hair_Black_r19_f2
+  - first:
+      213: -849071006768879768
+    second: Hair_Black_r19_f3
+  - first:
+      213: -887647365098616946
+    second: Hair_Black_r20_f0
+  - first:
+      213: 1567231376849729984
+    second: Hair_Black_r20_f1
+  - first:
+      213: -8821868876111039700
+    second: Hair_Black_r20_f2
+  - first:
+      213: 965438154906331741
+    second: Hair_Black_r20_f3
+  - first:
+      213: 5511966362464396822
+    second: Hair_Black_r21_f0
+  - first:
+      213: 2494812231412402227
+    second: Hair_Black_r21_f1
+  - first:
+      213: 5891993687806043109
+    second: Hair_Black_r21_f2
+  - first:
+      213: 6144884328950844055
+    second: Hair_Black_r21_f3
+  - first:
+      213: 6442373611803207718
+    second: Hair_Black_r22_f0
+  - first:
+      213: 1704452707046077090
+    second: Hair_Black_r22_f1
+  - first:
+      213: 8638278731656411225
+    second: Hair_Black_r22_f2
+  - first:
+      213: 3035474572090914150
+    second: Hair_Black_r22_f3
+  - first:
+      213: 8584277615084553301
+    second: Hair_Black_r23_f0
+  - first:
+      213: -7541576351506470823
+    second: Hair_Black_r23_f1
+  - first:
+      213: -597986419752399145
+    second: Hair_Black_r23_f2
+  - first:
+      213: 608150543277453733
+    second: Hair_Black_r23_f3
+  - first:
+      213: 8346386100277181812
+    second: HairBlack_Casting_L_0
+  - first:
+      213: -2548530657493297771
+    second: HairBlack_Casting_L_1
+  - first:
+      213: 5302762576079253858
+    second: HairBlack_Casting_L_2
+  - first:
+      213: -3170624289166835208
+    second: HairBlack_Casting_L_3
+  - first:
+      213: 4234590797361368546
+    second: HairBlack_Idle_L_0
+  - first:
+      213: -5465689314489422338
+    second: HairBlack_Idle_L_1
+  - first:
+      213: -1942317664030983371
+    second: HairBlack_Idle_L_2
+  - first:
+      213: -5172205447104919344
+    second: HairBlack_Idle_L_3
+  - first:
+      213: 7824030421382765037
+    second: HairBlack_Fishing_L_0
+  - first:
+      213: 1475381045622989290
+    second: HairBlack_Fishing_L_1
+  - first:
+      213: 3026812623404101313
+    second: HairBlack_Fishing_L_2
+  - first:
+      213: 7622182035152448836
+    second: HairBlack_Fishing_L_3
+  - first:
+      213: -8336295370640680655
+    second: HairBlack_MoveForward_L_0
+  - first:
+      213: 3406868197904259702
+    second: HairBlack_MoveForward_L_1
+  - first:
+      213: 4485167612354872617
+    second: HairBlack_MoveForward_L_2
+  - first:
+      213: 5668988202378167606
+    second: HairBlack_MoveForward_L_3
+  - first:
+      213: -2860885891507134888
+    second: HairBlack_MoveBackward_L_0
+  - first:
+      213: 5034683839048984922
+    second: HairBlack_MoveBackward_L_1
+  - first:
+      213: -750833815870394073
+    second: HairBlack_MoveBackward_L_2
+  - first:
+      213: -2120047194142084153
+    second: HairBlack_MoveBackward_L_3
+  - first:
+      213: 8444380879113552583
+    second: HairBlack_Fighting_L_0
+  - first:
+      213: 443381658307085419
+    second: HairBlack_Fighting_L_1
+  - first:
+      213: -7860375814334741353
+    second: HairBlack_Fighting_L_2
+  - first:
+      213: -5282286913292508310
+    second: HairBlack_Fighting_L_3
+  - first:
+      213: -5012172872003249557
+    second: HairBlack_Reeling_L_0
+  - first:
+      213: -3590468524084842948
+    second: HairBlack_Reeling_L_1
+  - first:
+      213: -145664007901572819
+    second: HairBlack_Reeling_L_2
+  - first:
+      213: 6566640296737135770
+    second: HairBlack_Reeling_L_3
+  - first:
+      213: -3395031864436515328
+    second: HairBlack_Win_L_0
+  - first:
+      213: 276817265151193846
+    second: HairBlack_Win_L_1
+  - first:
+      213: -2017759764016758846
+    second: HairBlack_Win_L_2
+  - first:
+      213: 3623791511874553240
+    second: HairBlack_Win_L_3
+  - first:
+      213: -8278656632639016630
+    second: HairBlack_SwappingPoles_L_0
+  - first:
+      213: -8907677571816566215
+    second: HairBlack_SwappingPoles_L_1
+  - first:
+      213: -8050009485742340803
+    second: HairBlack_SwappingPoles_L_2
+  - first:
+      213: 1001571096804019615
+    second: HairBlack_SwappingPoles_L_3
+  - first:
+      213: 7435249350989435245
+    second: HairBlack_Scared_L_0
+  - first:
+      213: 442356579941109997
+    second: HairBlack_Scared_L_1
+  - first:
+      213: 9172633868423962135
+    second: HairBlack_Scared_L_2
+  - first:
+      213: 3758920520857585095
+    second: HairBlack_Scared_L_3
+  - first:
+      213: 5274335247323078737
+    second: HairBlack_GoToCry_L_0
+  - first:
+      213: 5446883235155419555
+    second: HairBlack_GoToCry_L_1
+  - first:
+      213: 4491216192784994592
+    second: HairBlack_GoToCry_L_2
+  - first:
+      213: 8234610393813596623
+    second: HairBlack_GoToCry_L_3
+  - first:
+      213: 1957659377085128719
+    second: HairBlack_Cry_L_0
+  - first:
+      213: -1922127849902050081
+    second: HairBlack_Cry_L_1
+  - first:
+      213: -4070474222328653483
+    second: HairBlack_Cry_L_2
+  - first:
+      213: 7828488284196009950
+    second: HairBlack_Cry_L_3
+  - first:
+      213: -6439620412551835962
+    second: HairBlack_Casting_R_0
+  - first:
+      213: -8785096876255357691
+    second: HairBlack_Casting_R_1
+  - first:
+      213: 2020752191656904374
+    second: HairBlack_Casting_R_2
+  - first:
+      213: 7391663250919223906
+    second: HairBlack_Casting_R_3
+  - first:
+      213: 4806559469307940722
+    second: HairBlack_Idle_R_0
+  - first:
+      213: -7063453394521728224
+    second: HairBlack_Idle_R_1
+  - first:
+      213: -2704353433629335360
+    second: HairBlack_Idle_R_2
+  - first:
+      213: 6913899441203559033
+    second: HairBlack_Idle_R_3
+  - first:
+      213: -2521188969148365488
+    second: HairBlack_Fishing_R_0
+  - first:
+      213: -1615272322848235466
+    second: HairBlack_Fishing_R_1
+  - first:
+      213: 5168409281839240186
+    second: HairBlack_Fishing_R_2
+  - first:
+      213: -4139064671081045876
+    second: HairBlack_Fishing_R_3
+  - first:
+      213: 793557499458345910
+    second: HairBlack_MoveForward_R_0
+  - first:
+      213: -9055469755485035978
+    second: HairBlack_MoveForward_R_1
+  - first:
+      213: -6111737973813839976
+    second: HairBlack_MoveForward_R_2
+  - first:
+      213: -3092587855330335195
+    second: HairBlack_MoveForward_R_3
+  - first:
+      213: 7338891559519796170
+    second: HairBlack_MoveBackward_R_0
+  - first:
+      213: -9218895118172734200
+    second: HairBlack_MoveBackward_R_1
+  - first:
+      213: -5024909043981860627
+    second: HairBlack_MoveBackward_R_2
+  - first:
+      213: 3390261256252178350
+    second: HairBlack_MoveBackward_R_3
+  - first:
+      213: -8741580268186396257
+    second: HairBlack_Fighting_R_0
+  - first:
+      213: 582040293266941316
+    second: HairBlack_Fighting_R_1
+  - first:
+      213: -2035613627405836898
+    second: HairBlack_Fighting_R_2
+  - first:
+      213: -375682423859453009
+    second: HairBlack_Fighting_R_3
+  - first:
+      213: 5416663543913152337
+    second: HairBlack_Reeling_R_0
+  - first:
+      213: 2897755981429482530
+    second: HairBlack_Reeling_R_1
+  - first:
+      213: -1532504032115892703
+    second: HairBlack_Reeling_R_2
+  - first:
+      213: 8964925746586236552
+    second: HairBlack_Reeling_R_3
+  - first:
+      213: -2999126231472917187
+    second: HairBlack_Win_R_0
+  - first:
+      213: -2429606674873999151
+    second: HairBlack_Win_R_1
+  - first:
+      213: -1562900403667540430
+    second: HairBlack_Win_R_2
+  - first:
+      213: -1023072111332459895
+    second: HairBlack_Win_R_3
+  - first:
+      213: -2964444390498634657
+    second: HairBlack_SwappingPoles_R_0
+  - first:
+      213: -2927961213229239561
+    second: HairBlack_SwappingPoles_R_1
+  - first:
+      213: 4689212127130938501
+    second: HairBlack_SwappingPoles_R_2
+  - first:
+      213: -5395879919146179276
+    second: HairBlack_SwappingPoles_R_3
+  - first:
+      213: 5658067102789644452
+    second: HairBlack_Scared_R_0
+  - first:
+      213: 5002042286875173140
+    second: HairBlack_Scared_R_1
+  - first:
+      213: 8781930021925880729
+    second: HairBlack_Scared_R_2
+  - first:
+      213: 3750872440064831809
+    second: HairBlack_Scared_R_3
+  - first:
+      213: -2029202707433656862
+    second: HairBlack_GoToCry_R_0
+  - first:
+      213: -6703683005957505860
+    second: HairBlack_GoToCry_R_1
+  - first:
+      213: 6501170607617381854
+    second: HairBlack_GoToCry_R_2
+  - first:
+      213: 6942496766789562544
+    second: HairBlack_GoToCry_R_3
+  - first:
+      213: 9186806851552138258
+    second: HairBlack_Cry_R_0
+  - first:
+      213: 3327939027027043330
+    second: HairBlack_Cry_R_1
+  - first:
+      213: 1279526703193755507
+    second: HairBlack_Cry_R_2
+  - first:
+      213: 1513217516568974997
+    second: HairBlack_Cry_R_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HairBlack_Casting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47d7749efe154d370800000000000000
+      internalID: 8346386100277181812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Casting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5955be4aedcc1acd0800000000000000
+      internalID: -2548530657493297771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Casting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 261707bb772379940800000000000000
+      internalID: 5302762576079253858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Casting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f14cf7f10eaff3d0800000000000000
+      internalID: -3170624289166835208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Idle_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2edccd5f4e944ca30800000000000000
+      internalID: 4234590797361368546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Idle_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efda535e688f524b0800000000000000
+      internalID: -5465689314489422338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Idle_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53b777a10608b05e0800000000000000
+      internalID: -1942317664030983371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Idle_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d888f3ac82a838b0800000000000000
+      internalID: -5172205447104919344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Fishing_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de99e5af63a849c60800000000000000
+      internalID: 7824030421382765037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Fishing_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae1e3bc7e3b997410800000000000000
+      internalID: 1475381045622989290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Fishing_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ce6ba35b06610a20800000000000000
+      internalID: 3026812623404101313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Fishing_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44d20aa4d2e67c960800000000000000
+      internalID: 7622182035152448836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_MoveForward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1399a3a27878f4c80800000000000000
+      internalID: -8336295370640680655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_MoveForward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67a98ac5390a74f20800000000000000
+      internalID: 3406868197904259702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_MoveForward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 925cf741e248e3e30800000000000000
+      internalID: 4485167612354872617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_MoveForward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63581a60cba4cae40800000000000000
+      internalID: 5668988202378167606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_MoveBackward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85e5ac570771c48d0800000000000000
+      internalID: -2860885891507134888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_MoveBackward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a592ae6d64aced540800000000000000
+      internalID: 5034683839048984922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_MoveBackward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 721b1bf5f908495f0800000000000000
+      internalID: -750833815870394073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_MoveBackward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c3f8163f441492e0800000000000000
+      internalID: -2120047194142084153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Fighting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c20aa75ba7703570800000000000000
+      internalID: 8444380879113552583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Fighting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b644153e445372600800000000000000
+      internalID: 443381658307085419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Fighting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7948189c7d55ae290800000000000000
+      internalID: -7860375814334741353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Fighting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6361830a0c81b6b0800000000000000
+      internalID: -5282286913292508310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Reeling_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6a956b145f217ab0800000000000000
+      internalID: -5012172872003249557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Reeling_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3ea3b486e71c2ec0800000000000000
+      internalID: -3590468524084842948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Reeling_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2197784b5f7afdf0800000000000000
+      internalID: -145664007901572819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Reeling_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9c58ceee84612b50800000000000000
+      internalID: 6566640296737135770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Win_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00e1127c18c62e0d0800000000000000
+      internalID: -3395031864436515328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Win_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f2380506d377d300800000000000000
+      internalID: 276817265151193846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Win_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cf74b76f2a7ff3e0800000000000000
+      internalID: -2017759764016758846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Win_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 895cb5d2e2b4a4230800000000000000
+      internalID: 3623791511874553240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_SwappingPoles_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a41be12a7ad4c1d80800000000000000
+      internalID: -8278656632639016630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_SwappingPoles_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 932d82e7172916480800000000000000
+      internalID: -8907677571816566215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_SwappingPoles_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d358dc3060f984090800000000000000
+      internalID: -8050009485742340803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_SwappingPoles_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9d4d422b9b46ed00800000000000000
+      internalID: 1001571096804019615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Scared_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d61dd2e14ef4f2760800000000000000
+      internalID: 7435249350989435245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Scared_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de0527b37f0932600800000000000000
+      internalID: 442356579941109997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Scared_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71e902697edbb4f70800000000000000
+      internalID: 9172633868423962135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Scared_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c584a05c4e5a2430800000000000000
+      internalID: 3758920520857585095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_GoToCry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 150a30b76f3323940800000000000000
+      internalID: 5274335247323078737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_GoToCry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a1287c8177379b40800000000000000
+      internalID: 5446883235155419555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_GoToCry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0219e64f451045e30800000000000000
+      internalID: 4491216192784994592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_GoToCry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc9bffa3686374270800000000000000
+      internalID: 8234610393813596623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Cry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f002f52d4d00b2b10800000000000000
+      internalID: 1957659377085128719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Cry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd4f3b587ea3355e0800000000000000
+      internalID: -1922127849902050081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Cry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55957b6d245c287c0800000000000000
+      internalID: -4070474222328653483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Cry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed77fcb0e9064ac60800000000000000
+      internalID: 7828488284196009950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Casting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ce4e757a5fd1a6a0800000000000000
+      internalID: -6439620412551835962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Casting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 505d76dbfe0151680800000000000000
+      internalID: -8785096876255357691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Casting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b64dc279672b0c10800000000000000
+      internalID: 2020752191656904374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Casting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26279526096749660800000000000000
+      internalID: 7391663250919223906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Idle_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27fc3effe5454b240800000000000000
+      internalID: 4806559469307940722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Idle_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02b510cbf8299fd90800000000000000
+      internalID: -7063453394521728224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Idle_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c06a6161e4387ad0800000000000000
+      internalID: -2704353433629335360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Idle_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97ab5bd09ea13ff50800000000000000
+      internalID: 6913899441203559033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Fishing_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 055474a8dffe20dd0800000000000000
+      internalID: -2521188969148365488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Fishing_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6306c1561666599e0800000000000000
+      internalID: -1615272322848235466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Fishing_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af31cd1cbd0e9b740800000000000000
+      internalID: 5168409281839240186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Fishing_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8068d18c961f86c0800000000000000
+      internalID: -4139064671081045876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_MoveForward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bbdf006758430b00800000000000000
+      internalID: 793557499458345910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_MoveForward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 632650e3c32845280800000000000000
+      internalID: -9055469755485035978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_MoveForward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8977f86b1bebe2ba0800000000000000
+      internalID: -6111737973813839976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_MoveForward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52629561bbbe415d0800000000000000
+      internalID: -3092587855330335195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_MoveBackward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acb3a428dfaf8d560800000000000000
+      internalID: 7338891559519796170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_MoveBackward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80d3bbbdbb7ef0080800000000000000
+      internalID: -9218895118172734200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_MoveBackward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de040dcf8dfe34ab0800000000000000
+      internalID: -5024909043981860627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_MoveBackward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaf3ea276a0ac0f20800000000000000
+      internalID: 3390261256252178350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Fighting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f999f2b9f0bafa680800000000000000
+      internalID: -8741580268186396257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Fighting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 485e32d1092d31800800000000000000
+      internalID: 582040293266941316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Fighting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9dd786e03c00c3e0800000000000000
+      internalID: -2035613627405836898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Fighting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa3ef7173de49caf0800000000000000
+      internalID: -375682423859453009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Reeling_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15f70c26bcadb2b40800000000000000
+      internalID: 5416663543913152337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Reeling_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2242ede46b5e63820800000000000000
+      internalID: 2897755981429482530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Reeling_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12ed0ecc3b37bbae0800000000000000
+      internalID: -1532504032115892703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Reeling_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 886b603e770d96c70800000000000000
+      internalID: 8964925746586236552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Win_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3530802596f066d0800000000000000
+      internalID: -2999126231472917187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Win_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d0a7301a9d484ed0800000000000000
+      internalID: -2429606674873999151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Win_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 236e41c0d567f4ae0800000000000000
+      internalID: -1562900403667540430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Win_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98a7b60d5515dc1f0800000000000000
+      internalID: -1023072111332459895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_SwappingPoles_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f54fdeb788d2cd6d0800000000000000
+      internalID: -2964444390498634657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_SwappingPoles_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f279512acacd57d0800000000000000
+      internalID: -2927961213229239561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_SwappingPoles_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58ce71ac59d631140800000000000000
+      internalID: 4689212127130938501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_SwappingPoles_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 435e0a85dcbfd15b0800000000000000
+      internalID: -5395879919146179276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Scared_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a0b9116d0e758e40800000000000000
+      internalID: 5658067102789644452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Scared_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4116dac35f2da6540800000000000000
+      internalID: 5002042286875173140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Scared_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9930b3783deafd970800000000000000
+      internalID: 8781930021925880729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Scared_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 141fddb7c96cd0430800000000000000
+      internalID: 3750872440064831809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_GoToCry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ede72683e2d6d3e0800000000000000
+      internalID: -2029202707433656862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_GoToCry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbc741fd2dbb7f2a0800000000000000
+      internalID: -6703683005957505860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_GoToCry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed59e33193cc83a50800000000000000
+      internalID: 6501170607617381854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_GoToCry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b03ac6c604b85060800000000000000
+      internalID: 6942496766789562544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Cry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 214d3ee58281e7f70800000000000000
+      internalID: 9186806851552138258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Cry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2042b14b9e63f2e20800000000000000
+      internalID: 3327939027027043330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Cry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37f8d70e1cac1c110800000000000000
+      internalID: 1279526703193755507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairBlack_Cry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5961efe5057000510800000000000000
+      internalID: 1513217516568974997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Fisherman_Hair_Black_Sheet_0: -1581502942526802414
+      Fisherman_Hair_Black_Sheet_1: -7100143088713056503
+      Fisherman_Hair_Black_Sheet_10: 4547990398903020861
+      Fisherman_Hair_Black_Sheet_11: -1379410205710944379
+      Fisherman_Hair_Black_Sheet_12: -6475581866111732014
+      Fisherman_Hair_Black_Sheet_13: 6224889759687006555
+      Fisherman_Hair_Black_Sheet_14: 535721555304393944
+      Fisherman_Hair_Black_Sheet_15: -3829658512002846532
+      Fisherman_Hair_Black_Sheet_16: -2921742820089877285
+      Fisherman_Hair_Black_Sheet_17: -1901706460007604166
+      Fisherman_Hair_Black_Sheet_18: 5143121565023330444
+      Fisherman_Hair_Black_Sheet_19: -553555721305985480
+      Fisherman_Hair_Black_Sheet_2: 4258712411201669785
+      Fisherman_Hair_Black_Sheet_20: -2350381532571950096
+      Fisherman_Hair_Black_Sheet_21: -2200859497896710948
+      Fisherman_Hair_Black_Sheet_22: -5942292950665809192
+      Fisherman_Hair_Black_Sheet_23: -6707687439460043174
+      Fisherman_Hair_Black_Sheet_24: -27942838445416486
+      Fisherman_Hair_Black_Sheet_25: 1666667926812519485
+      Fisherman_Hair_Black_Sheet_26: 8058321480737461491
+      Fisherman_Hair_Black_Sheet_27: -7426603946341871989
+      Fisherman_Hair_Black_Sheet_28: 8337687807998550438
+      Fisherman_Hair_Black_Sheet_29: 3268533749057456129
+      Fisherman_Hair_Black_Sheet_3: 3632469924747799950
+      Fisherman_Hair_Black_Sheet_30: -636622257024522565
+      Fisherman_Hair_Black_Sheet_31: 4700376800093331505
+      Fisherman_Hair_Black_Sheet_32: 5446780253156771222
+      Fisherman_Hair_Black_Sheet_33: -3149904775873686710
+      Fisherman_Hair_Black_Sheet_34: -8189630548192472021
+      Fisherman_Hair_Black_Sheet_35: 8329442818056093287
+      Fisherman_Hair_Black_Sheet_36: 2421350531639723115
+      Fisherman_Hair_Black_Sheet_37: -8907841883846154426
+      Fisherman_Hair_Black_Sheet_38: -1920076917214610354
+      Fisherman_Hair_Black_Sheet_39: 6989347062359821082
+      Fisherman_Hair_Black_Sheet_4: 5182194718767066635
+      Fisherman_Hair_Black_Sheet_40: -6886643642637994236
+      Fisherman_Hair_Black_Sheet_41: -1654321443581619605
+      Fisherman_Hair_Black_Sheet_42: -7866792735533615726
+      Fisherman_Hair_Black_Sheet_43: 1557757421131410291
+      Fisherman_Hair_Black_Sheet_44: -2080908025629931403
+      Fisherman_Hair_Black_Sheet_45: -2717595894575162451
+      Fisherman_Hair_Black_Sheet_46: -5590126717049162562
+      Fisherman_Hair_Black_Sheet_47: -8847389331938428936
+      Fisherman_Hair_Black_Sheet_48: -7600542498867202190
+      Fisherman_Hair_Black_Sheet_49: -8967334972562401738
+      Fisherman_Hair_Black_Sheet_5: -2813612311099098390
+      Fisherman_Hair_Black_Sheet_50: -7291260698421921424
+      Fisherman_Hair_Black_Sheet_51: -8919924489074933767
+      Fisherman_Hair_Black_Sheet_52: -4081800810105269533
+      Fisherman_Hair_Black_Sheet_53: 1459821990396784353
+      Fisherman_Hair_Black_Sheet_54: -6900810864532366199
+      Fisherman_Hair_Black_Sheet_55: 6386261263733703223
+      Fisherman_Hair_Black_Sheet_56: -2090935406846732420
+      Fisherman_Hair_Black_Sheet_57: -5567376916407290770
+      Fisherman_Hair_Black_Sheet_58: -3637994521545897399
+      Fisherman_Hair_Black_Sheet_59: -1533735584825354083
+      Fisherman_Hair_Black_Sheet_6: -3660601035053040722
+      Fisherman_Hair_Black_Sheet_60: 1982816690032070646
+      Fisherman_Hair_Black_Sheet_61: -6702152343755936438
+      Fisherman_Hair_Black_Sheet_62: -6802203009701111822
+      Fisherman_Hair_Black_Sheet_63: 8564753906887553234
+      Fisherman_Hair_Black_Sheet_64: -5481480496725875439
+      Fisherman_Hair_Black_Sheet_65: -6053523140287602596
+      Fisherman_Hair_Black_Sheet_66: 1985277367789426025
+      Fisherman_Hair_Black_Sheet_67: -805318795981788084
+      Fisherman_Hair_Black_Sheet_68: 3844622261929146319
+      Fisherman_Hair_Black_Sheet_69: -7570390584909620982
+      Fisherman_Hair_Black_Sheet_7: 5871352858175148366
+      Fisherman_Hair_Black_Sheet_70: 8714017049425379504
+      Fisherman_Hair_Black_Sheet_71: 7632998137967347744
+      Fisherman_Hair_Black_Sheet_72: -2952973018804268004
+      Fisherman_Hair_Black_Sheet_73: -3080797751769188219
+      Fisherman_Hair_Black_Sheet_74: 6539295278121514137
+      Fisherman_Hair_Black_Sheet_75: 8252140013217965457
+      Fisherman_Hair_Black_Sheet_76: -6657563901605588826
+      Fisherman_Hair_Black_Sheet_77: -3225649405080421278
+      Fisherman_Hair_Black_Sheet_78: -340253494290555829
+      Fisherman_Hair_Black_Sheet_79: 6020042820094145823
+      Fisherman_Hair_Black_Sheet_8: 3344491337782449319
+      Fisherman_Hair_Black_Sheet_80: -1981745687424527177
+      Fisherman_Hair_Black_Sheet_81: -1875783472929139953
+      Fisherman_Hair_Black_Sheet_82: -3433875572309238885
+      Fisherman_Hair_Black_Sheet_83: -93514222321761663
+      Fisherman_Hair_Black_Sheet_84: -7045881898560320707
+      Fisherman_Hair_Black_Sheet_85: 9016282019112538309
+      Fisherman_Hair_Black_Sheet_86: 3895988913489537190
+      Fisherman_Hair_Black_Sheet_87: -8542616081870904878
+      Fisherman_Hair_Black_Sheet_88: 4209383757664531867
+      Fisherman_Hair_Black_Sheet_89: 6728985677142476720
+      Fisherman_Hair_Black_Sheet_9: -559438283226270754
+      Fisherman_Hair_Black_Sheet_90: -3515881277934320755
+      Fisherman_Hair_Black_Sheet_91: 3909244311731423783
+      Fisherman_Hair_Black_Sheet_92: -6728684173958918280
+      Fisherman_Hair_Black_Sheet_93: 4376432564193429199
+      Fisherman_Hair_Black_Sheet_94: 1627309414065201297
+      Fisherman_Hair_Black_Sheet_95: 2679986171869402897
+      HairBlack_Casting_L_0: 8346386100277181812
+      HairBlack_Casting_L_1: -2548530657493297771
+      HairBlack_Casting_L_2: 5302762576079253858
+      HairBlack_Casting_L_3: -3170624289166835208
+      HairBlack_Casting_R_0: -6439620412551835962
+      HairBlack_Casting_R_1: -8785096876255357691
+      HairBlack_Casting_R_2: 2020752191656904374
+      HairBlack_Casting_R_3: 7391663250919223906
+      HairBlack_Cry_L_0: 1957659377085128719
+      HairBlack_Cry_L_1: -1922127849902050081
+      HairBlack_Cry_L_2: -4070474222328653483
+      HairBlack_Cry_L_3: 7828488284196009950
+      HairBlack_Cry_R_0: 9186806851552138258
+      HairBlack_Cry_R_1: 3327939027027043330
+      HairBlack_Cry_R_2: 1279526703193755507
+      HairBlack_Cry_R_3: 1513217516568974997
+      HairBlack_Fighting_L_0: 8444380879113552583
+      HairBlack_Fighting_L_1: 443381658307085419
+      HairBlack_Fighting_L_2: -7860375814334741353
+      HairBlack_Fighting_L_3: -5282286913292508310
+      HairBlack_Fighting_R_0: -8741580268186396257
+      HairBlack_Fighting_R_1: 582040293266941316
+      HairBlack_Fighting_R_2: -2035613627405836898
+      HairBlack_Fighting_R_3: -375682423859453009
+      HairBlack_Fishing_L_0: 7824030421382765037
+      HairBlack_Fishing_L_1: 1475381045622989290
+      HairBlack_Fishing_L_2: 3026812623404101313
+      HairBlack_Fishing_L_3: 7622182035152448836
+      HairBlack_Fishing_R_0: -2521188969148365488
+      HairBlack_Fishing_R_1: -1615272322848235466
+      HairBlack_Fishing_R_2: 5168409281839240186
+      HairBlack_Fishing_R_3: -4139064671081045876
+      HairBlack_GoToCry_L_0: 5274335247323078737
+      HairBlack_GoToCry_L_1: 5446883235155419555
+      HairBlack_GoToCry_L_2: 4491216192784994592
+      HairBlack_GoToCry_L_3: 8234610393813596623
+      HairBlack_GoToCry_R_0: -2029202707433656862
+      HairBlack_GoToCry_R_1: -6703683005957505860
+      HairBlack_GoToCry_R_2: 6501170607617381854
+      HairBlack_GoToCry_R_3: 6942496766789562544
+      HairBlack_Idle_L_0: 4234590797361368546
+      HairBlack_Idle_L_1: -5465689314489422338
+      HairBlack_Idle_L_2: -1942317664030983371
+      HairBlack_Idle_L_3: -5172205447104919344
+      HairBlack_Idle_R_0: 4806559469307940722
+      HairBlack_Idle_R_1: -7063453394521728224
+      HairBlack_Idle_R_2: -2704353433629335360
+      HairBlack_Idle_R_3: 6913899441203559033
+      HairBlack_MoveBackward_L_0: -2860885891507134888
+      HairBlack_MoveBackward_L_1: 5034683839048984922
+      HairBlack_MoveBackward_L_2: -750833815870394073
+      HairBlack_MoveBackward_L_3: -2120047194142084153
+      HairBlack_MoveBackward_R_0: 7338891559519796170
+      HairBlack_MoveBackward_R_1: -9218895118172734200
+      HairBlack_MoveBackward_R_2: -5024909043981860627
+      HairBlack_MoveBackward_R_3: 3390261256252178350
+      HairBlack_MoveForward_L_0: -8336295370640680655
+      HairBlack_MoveForward_L_1: 3406868197904259702
+      HairBlack_MoveForward_L_2: 4485167612354872617
+      HairBlack_MoveForward_L_3: 5668988202378167606
+      HairBlack_MoveForward_R_0: 793557499458345910
+      HairBlack_MoveForward_R_1: -9055469755485035978
+      HairBlack_MoveForward_R_2: -6111737973813839976
+      HairBlack_MoveForward_R_3: -3092587855330335195
+      HairBlack_Reeling_L_0: -5012172872003249557
+      HairBlack_Reeling_L_1: -3590468524084842948
+      HairBlack_Reeling_L_2: -145664007901572819
+      HairBlack_Reeling_L_3: 6566640296737135770
+      HairBlack_Reeling_R_0: 5416663543913152337
+      HairBlack_Reeling_R_1: 2897755981429482530
+      HairBlack_Reeling_R_2: -1532504032115892703
+      HairBlack_Reeling_R_3: 8964925746586236552
+      HairBlack_Scared_L_0: 7435249350989435245
+      HairBlack_Scared_L_1: 442356579941109997
+      HairBlack_Scared_L_2: 9172633868423962135
+      HairBlack_Scared_L_3: 3758920520857585095
+      HairBlack_Scared_R_0: 5658067102789644452
+      HairBlack_Scared_R_1: 5002042286875173140
+      HairBlack_Scared_R_2: 8781930021925880729
+      HairBlack_Scared_R_3: 3750872440064831809
+      HairBlack_SwappingPoles_L_0: -8278656632639016630
+      HairBlack_SwappingPoles_L_1: -8907677571816566215
+      HairBlack_SwappingPoles_L_2: -8050009485742340803
+      HairBlack_SwappingPoles_L_3: 1001571096804019615
+      HairBlack_SwappingPoles_R_0: -2964444390498634657
+      HairBlack_SwappingPoles_R_1: -2927961213229239561
+      HairBlack_SwappingPoles_R_2: 4689212127130938501
+      HairBlack_SwappingPoles_R_3: -5395879919146179276
+      HairBlack_Win_L_0: -3395031864436515328
+      HairBlack_Win_L_1: 276817265151193846
+      HairBlack_Win_L_2: -2017759764016758846
+      HairBlack_Win_L_3: 3623791511874553240
+      HairBlack_Win_R_0: -2999126231472917187
+      HairBlack_Win_R_1: -2429606674873999151
+      HairBlack_Win_R_2: -1562900403667540430
+      HairBlack_Win_R_3: -1023072111332459895
+      Hair_Black_r00_f0: -1743641479980551005
+      Hair_Black_r00_f1: -5243634445325802430
+      Hair_Black_r00_f2: -2786089373490271569
+      Hair_Black_r00_f3: -4395295826298818101
+      Hair_Black_r01_f0: 2866508821739054041
+      Hair_Black_r01_f1: -8120666729865257525
+      Hair_Black_r01_f2: 3616184403830722118
+      Hair_Black_r01_f3: -707465164773010170
+      Hair_Black_r02_f0: -7480166613123544568
+      Hair_Black_r02_f1: 7030538929619197716
+      Hair_Black_r02_f2: 4212638725576109013
+      Hair_Black_r02_f3: -6331587954966380978
+      Hair_Black_r03_f0: -3022554413810333527
+      Hair_Black_r03_f1: 2286987744021587528
+      Hair_Black_r03_f2: -5472741825852306159
+      Hair_Black_r03_f3: -3625835340736147029
+      Hair_Black_r04_f0: -7513066303934116699
+      Hair_Black_r04_f1: -6238644793561902921
+      Hair_Black_r04_f2: -4173846384720927773
+      Hair_Black_r04_f3: 2753983793389497720
+      Hair_Black_r05_f0: -2408727672226667107
+      Hair_Black_r05_f1: -7938157513339188924
+      Hair_Black_r05_f2: 2037484833277930574
+      Hair_Black_r05_f3: 1013251641398756540
+      Hair_Black_r06_f0: -4496982314763396345
+      Hair_Black_r06_f1: -8964313212372208154
+      Hair_Black_r06_f2: 3629214340291943825
+      Hair_Black_r06_f3: 6700679700251190715
+      Hair_Black_r07_f0: 2903760791404795109
+      Hair_Black_r07_f1: -4293313309095132074
+      Hair_Black_r07_f2: 2317180046179186551
+      Hair_Black_r07_f3: -7797404873062770810
+      Hair_Black_r08_f0: 5655923321473992167
+      Hair_Black_r08_f1: 4082770997332390055
+      Hair_Black_r08_f2: 2428800052185584184
+      Hair_Black_r08_f3: -3632435701829376801
+      Hair_Black_r09_f0: -2843253206004995764
+      Hair_Black_r09_f1: 1223023702129483568
+      Hair_Black_r09_f2: 2532172822532985315
+      Hair_Black_r09_f3: -7845325141888050389
+      Hair_Black_r10_f0: -2580414017655855911
+      Hair_Black_r10_f1: 509580636006626563
+      Hair_Black_r10_f2: 1908812909678314852
+      Hair_Black_r10_f3: -6267555757564236334
+      Hair_Black_r11_f0: 7694686806285918616
+      Hair_Black_r11_f1: -4300860520774767090
+      Hair_Black_r11_f2: 6581489904980203982
+      Hair_Black_r11_f3: 5063150852897015439
+      Hair_Black_r12_f0: 8176475367588835869
+      Hair_Black_r12_f1: 3182059260865997373
+      Hair_Black_r12_f2: -6430183065409048345
+      Hair_Black_r12_f3: 8702584686456416244
+      Hair_Black_r13_f0: -2600321503348060539
+      Hair_Black_r13_f1: 4768919466414065010
+      Hair_Black_r13_f2: -4346904094343997095
+      Hair_Black_r13_f3: 4447741633798113430
+      Hair_Black_r14_f0: -8005251420899837819
+      Hair_Black_r14_f1: -5004136474401674562
+      Hair_Black_r14_f2: 1553726273449649694
+      Hair_Black_r14_f3: -8481932895957989201
+      Hair_Black_r15_f0: -5693410062486666881
+      Hair_Black_r15_f1: -6970341817562447604
+      Hair_Black_r15_f2: -7848123141713226833
+      Hair_Black_r15_f3: 8499948338183888405
+      Hair_Black_r16_f0: -349025899465477171
+      Hair_Black_r16_f1: -6954908322370239468
+      Hair_Black_r16_f2: 135003137240522494
+      Hair_Black_r16_f3: -8175778288227600892
+      Hair_Black_r17_f0: 8053137765479920632
+      Hair_Black_r17_f1: 1238756372243333725
+      Hair_Black_r17_f2: -4092756283072120462
+      Hair_Black_r17_f3: 1501348748626772647
+      Hair_Black_r18_f0: -1316958046214911049
+      Hair_Black_r18_f1: 8974740547844196626
+      Hair_Black_r18_f2: -4492484031637671922
+      Hair_Black_r18_f3: 7977189688487346318
+      Hair_Black_r19_f0: -2755743170661090708
+      Hair_Black_r19_f1: -5103569802716463095
+      Hair_Black_r19_f2: -9030680697921469052
+      Hair_Black_r19_f3: -849071006768879768
+      Hair_Black_r20_f0: -887647365098616946
+      Hair_Black_r20_f1: 1567231376849729984
+      Hair_Black_r20_f2: -8821868876111039700
+      Hair_Black_r20_f3: 965438154906331741
+      Hair_Black_r21_f0: 5511966362464396822
+      Hair_Black_r21_f1: 2494812231412402227
+      Hair_Black_r21_f2: 5891993687806043109
+      Hair_Black_r21_f3: 6144884328950844055
+      Hair_Black_r22_f0: 6442373611803207718
+      Hair_Black_r22_f1: 1704452707046077090
+      Hair_Black_r22_f2: 8638278731656411225
+      Hair_Black_r22_f3: 3035474572090914150
+      Hair_Black_r23_f0: 8584277615084553301
+      Hair_Black_r23_f1: -7541576351506470823
+      Hair_Black_r23_f2: -597986419752399145
+      Hair_Black_r23_f3: 608150543277453733
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

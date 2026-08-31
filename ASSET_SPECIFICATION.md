@@ -53,6 +53,11 @@ Target = measured world size × 100.
 | **Bass** | 55 × 35 | 50 | 1.10 × 0.70 | **110 × 70** | 2.00× up | 🟠 remake |
 | **Golden Fish** | 55 × 35 | 50 | 1.10 × 0.70 | **110 × 70** | 2.00× up | 🟠 remake |
 | **Trout** | 48 × 30 | 100 | 0.82 × 0.51 | **82 × 51** | 1.70× up | 🟠 remake |
+
+> **Fish targets above are content sizes.** All three are drawn inside the shared **200 × 140** fish
+> canvas (§4), not on canvases of their own. Golden Fish is measured as bass-sized today — same
+> 55 × 35 art at 50 PPU with no scale-down — so if it is meant to read smaller, that is a design
+> change still to be confirmed, not a measurement error.
 | Hook | 274 × 423 | 500 | 0.55 × 0.85 | 55 × 85 | 4.98× **down** | 🟢 keep |
 | Water drop / bubble | 164 × 164 | 200 | 0.82 × 0.82 | 82 × 82 | 2.00× **down** | 🟢 keep |
 | Junk — Boot | 58 × 64 | 100 | 0.58 × 0.64 | 58 × 64 | **1.00× exact** | ✅ correct |
@@ -88,10 +93,12 @@ FightingRight     IdleRight              OarToRightPole
 | Character | Animations | Frames | Strip size (at target res) |
 |---|---|---|---|
 | Fisherman | 26 | **4** each | **1280 × 320** |
-| Bass | Idle, Move, Eat, Fight, Joyful | **4** each | **440 × 70** |
-| Bass | **Dead** | **6** | **660 × 70** |
-| Golden Fish | Idle, Move, Eat | **4** each | **440 × 70** |
-| Golden Fish | **Dead** | **6** | **660 × 70** |
+| Bass | Idle, Move, Eat, Fight, Joyful | **4** each | **800 × 140** |
+| Bass | **Dead** | **6** | **1200 × 140** |
+| Golden Fish | Idle, Move, Eat | **4** each | **800 × 140** |
+| Golden Fish | **Dead** | **6** | **1200 × 140** |
+| Trout | Idle, Move, Eat, Fight, Joyful | **4** each | **800 × 140** |
+| Trout | **Dead** | **6** | **1200 × 140** |
 | Worm | Idle | **4** | **172 × 60** |
 | Worm | **Dance** | **5** | **215 × 60** |
 
@@ -154,8 +161,32 @@ Unity packs these into a sprite atlas at build time, so a high file count costs 
 
 | Part | Canvas |
 |---|---|
-| Fish body | 110 × 70 |
-| Fish hat | **110 × 70** — same canvas, never cropped |
+| Fish body | **200 × 140** — shared canvas, every species |
+| Fish hat | **200 × 140** — same canvas, never cropped |
+
+> **200 × 140 is the frame, not the fish.** Every species and every hat is drawn inside this one
+> canvas, at whatever size that species should actually be, with transparency around it. A bigger
+> canvas does not make a fish bigger.
+
+| Zone | Area | Purpose |
+|---|---|---|
+| Fish body | bottom **200 × 100** | up to 2.00 × 1.00 world units — roughly double today's bass |
+| Hat headroom | top **40 px** | hats sit above the fish; without reserved space tall hats clip |
+
+**Content size per species — drawn inside the shared canvas, not stretched to fill it:**
+
+| Species | Content size | Notes |
+|---|---|---|
+| Bass | 110 × 70 | unchanged from today |
+| Trout | 82 × 51 | unchanged from today |
+| Golden Fish | **TBD** | it is bass-sized today (110 × 70); confirm intended size |
+
+**Position matters as much as size.** Every fish sits on the **same baseline and the same horizontal
+centre** inside the canvas. Consistent size alone is not enough — if one species floats high in its
+frame and another sits low, a single hat file cannot line up on both.
+
+*(This frame was 110 × 70 in the previous revision. It is going back up not because that number was
+wrong, but because larger species and taller hats are now planned and both need the room.)*
 
 ---
 
@@ -277,8 +308,10 @@ RULE:              pixels = world size × 100        (100 PPU everywhere)
 
 IN-GAME
   Fisherman frame    320 × 320      strip 1280 × 320
-  Bass / Golden      110 × 70       strip  440 × 70   (Dead: 660 × 70)
-  Trout               82 × 51       strip  328 × 51
+  ALL FISH canvas    200 × 140      strip  800 × 140  (Dead: 1200 × 140)
+    fish zone          bottom 200 × 100      hat headroom  top 40 px
+    content: bass 110 × 70 · trout 82 × 51 · golden fish TBD
+    same baseline + centre in every frame, never cropped
   Worm                43 × 60       strip  172 × 60   (Dance: 215 × 60)
   Junk boot / tire    58 × 64 / 62 × 64               ✅ already correct
   Hook                55 × 85

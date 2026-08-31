@@ -1,0 +1,3420 @@
+fileFormatVersion: 2
+guid: 07c942d8ecd053142891279eb6015061
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7035667602753094360
+    second: Fisherman_Hair_Red_Sheet_0
+  - first:
+      213: 1768106782628654871
+    second: Fisherman_Hair_Red_Sheet_1
+  - first:
+      213: -1484401452920383008
+    second: Fisherman_Hair_Red_Sheet_2
+  - first:
+      213: 764326862475237209
+    second: Fisherman_Hair_Red_Sheet_3
+  - first:
+      213: -1644787352085012291
+    second: Fisherman_Hair_Red_Sheet_4
+  - first:
+      213: 5312086014617166445
+    second: Fisherman_Hair_Red_Sheet_5
+  - first:
+      213: -6337654469733516640
+    second: Fisherman_Hair_Red_Sheet_6
+  - first:
+      213: -1807093537812079269
+    second: Fisherman_Hair_Red_Sheet_7
+  - first:
+      213: -2958488430206217607
+    second: Fisherman_Hair_Red_Sheet_8
+  - first:
+      213: 7442518812443619163
+    second: Fisherman_Hair_Red_Sheet_9
+  - first:
+      213: -5857120557140972451
+    second: Fisherman_Hair_Red_Sheet_10
+  - first:
+      213: -4255151382645299745
+    second: Fisherman_Hair_Red_Sheet_11
+  - first:
+      213: -5464116195366090481
+    second: Fisherman_Hair_Red_Sheet_12
+  - first:
+      213: 3128280720503743392
+    second: Fisherman_Hair_Red_Sheet_13
+  - first:
+      213: -8963642741885384389
+    second: Fisherman_Hair_Red_Sheet_14
+  - first:
+      213: -1131177213757882894
+    second: Fisherman_Hair_Red_Sheet_15
+  - first:
+      213: 1594479180307769301
+    second: Fisherman_Hair_Red_Sheet_16
+  - first:
+      213: -7169289348053761275
+    second: Fisherman_Hair_Red_Sheet_17
+  - first:
+      213: -4543483939035949244
+    second: Fisherman_Hair_Red_Sheet_18
+  - first:
+      213: 2814374671013999774
+    second: Fisherman_Hair_Red_Sheet_19
+  - first:
+      213: -6620156653574914373
+    second: Fisherman_Hair_Red_Sheet_20
+  - first:
+      213: 1947854772800979381
+    second: Fisherman_Hair_Red_Sheet_21
+  - first:
+      213: -5169977939094466634
+    second: Fisherman_Hair_Red_Sheet_22
+  - first:
+      213: -1637090519372611308
+    second: Fisherman_Hair_Red_Sheet_23
+  - first:
+      213: 9149023309020427677
+    second: Fisherman_Hair_Red_Sheet_24
+  - first:
+      213: -4126076131666470336
+    second: Fisherman_Hair_Red_Sheet_25
+  - first:
+      213: 5453708702814969820
+    second: Fisherman_Hair_Red_Sheet_26
+  - first:
+      213: 8604555852382279099
+    second: Fisherman_Hair_Red_Sheet_27
+  - first:
+      213: 3109716591918251554
+    second: Fisherman_Hair_Red_Sheet_28
+  - first:
+      213: 7554370939772303303
+    second: Fisherman_Hair_Red_Sheet_29
+  - first:
+      213: 3468899108391997579
+    second: Fisherman_Hair_Red_Sheet_30
+  - first:
+      213: 1861711064479834140
+    second: Fisherman_Hair_Red_Sheet_31
+  - first:
+      213: -6272968870475377373
+    second: Fisherman_Hair_Red_Sheet_32
+  - first:
+      213: 3304863577800131254
+    second: Fisherman_Hair_Red_Sheet_33
+  - first:
+      213: -3209253088974803458
+    second: Fisherman_Hair_Red_Sheet_34
+  - first:
+      213: 4072056269774750548
+    second: Fisherman_Hair_Red_Sheet_35
+  - first:
+      213: 3211189010867490755
+    second: Fisherman_Hair_Red_Sheet_36
+  - first:
+      213: 3434441876391854015
+    second: Fisherman_Hair_Red_Sheet_37
+  - first:
+      213: 3976769769818770524
+    second: Fisherman_Hair_Red_Sheet_38
+  - first:
+      213: 2188093407418616775
+    second: Fisherman_Hair_Red_Sheet_39
+  - first:
+      213: 7165317682673492182
+    second: Fisherman_Hair_Red_Sheet_40
+  - first:
+      213: 5862243648309325625
+    second: Fisherman_Hair_Red_Sheet_41
+  - first:
+      213: -7698188861905550452
+    second: Fisherman_Hair_Red_Sheet_42
+  - first:
+      213: -4661040514470953735
+    second: Fisherman_Hair_Red_Sheet_43
+  - first:
+      213: 7635159673146671811
+    second: Fisherman_Hair_Red_Sheet_44
+  - first:
+      213: -3504363737430345670
+    second: Fisherman_Hair_Red_Sheet_45
+  - first:
+      213: -6444301384651319442
+    second: Fisherman_Hair_Red_Sheet_46
+  - first:
+      213: -8497215964059577122
+    second: Fisherman_Hair_Red_Sheet_47
+  - first:
+      213: -1915797680934090961
+    second: Fisherman_Hair_Red_Sheet_48
+  - first:
+      213: -8109358865717698292
+    second: Fisherman_Hair_Red_Sheet_49
+  - first:
+      213: 2004565369028699481
+    second: Fisherman_Hair_Red_Sheet_50
+  - first:
+      213: -5767892439555147919
+    second: Fisherman_Hair_Red_Sheet_51
+  - first:
+      213: -3146009361351960891
+    second: Fisherman_Hair_Red_Sheet_52
+  - first:
+      213: 2296672526404530360
+    second: Fisherman_Hair_Red_Sheet_53
+  - first:
+      213: -5643735836206221087
+    second: Fisherman_Hair_Red_Sheet_54
+  - first:
+      213: 3169070509634392083
+    second: Fisherman_Hair_Red_Sheet_55
+  - first:
+      213: -9042869668069905573
+    second: Fisherman_Hair_Red_Sheet_56
+  - first:
+      213: 4542778667580656684
+    second: Fisherman_Hair_Red_Sheet_57
+  - first:
+      213: -592934330379058795
+    second: Fisherman_Hair_Red_Sheet_58
+  - first:
+      213: -2113789067499578936
+    second: Fisherman_Hair_Red_Sheet_59
+  - first:
+      213: 120570586383837082
+    second: Fisherman_Hair_Red_Sheet_60
+  - first:
+      213: -5759971360910889603
+    second: Fisherman_Hair_Red_Sheet_61
+  - first:
+      213: 3584944025974018085
+    second: Fisherman_Hair_Red_Sheet_62
+  - first:
+      213: 4840995007089772498
+    second: Fisherman_Hair_Red_Sheet_63
+  - first:
+      213: 4484182952849974566
+    second: Fisherman_Hair_Red_Sheet_64
+  - first:
+      213: 457856745949352995
+    second: Fisherman_Hair_Red_Sheet_65
+  - first:
+      213: 1988608153609877462
+    second: Fisherman_Hair_Red_Sheet_66
+  - first:
+      213: -5146856145519595118
+    second: Fisherman_Hair_Red_Sheet_67
+  - first:
+      213: -1657057703583306464
+    second: Fisherman_Hair_Red_Sheet_68
+  - first:
+      213: -7751492963284460405
+    second: Fisherman_Hair_Red_Sheet_69
+  - first:
+      213: -4924012771544376975
+    second: Fisherman_Hair_Red_Sheet_70
+  - first:
+      213: -1927708483091748544
+    second: Fisherman_Hair_Red_Sheet_71
+  - first:
+      213: 3936436586751442635
+    second: Fisherman_Hair_Red_Sheet_72
+  - first:
+      213: -7707408430289635488
+    second: Fisherman_Hair_Red_Sheet_73
+  - first:
+      213: 6323620755971631804
+    second: Fisherman_Hair_Red_Sheet_74
+  - first:
+      213: 2228990494421239602
+    second: Fisherman_Hair_Red_Sheet_75
+  - first:
+      213: 1595048994634121278
+    second: Fisherman_Hair_Red_Sheet_76
+  - first:
+      213: 7707303042109556142
+    second: Fisherman_Hair_Red_Sheet_77
+  - first:
+      213: -8578799765945937719
+    second: Fisherman_Hair_Red_Sheet_78
+  - first:
+      213: -261951785446184615
+    second: Fisherman_Hair_Red_Sheet_79
+  - first:
+      213: 4930194631413777669
+    second: Fisherman_Hair_Red_Sheet_80
+  - first:
+      213: -6996057497114832329
+    second: Fisherman_Hair_Red_Sheet_81
+  - first:
+      213: -7838943515420487621
+    second: Fisherman_Hair_Red_Sheet_82
+  - first:
+      213: -4809749585525753146
+    second: Fisherman_Hair_Red_Sheet_83
+  - first:
+      213: -4765661382388327015
+    second: Fisherman_Hair_Red_Sheet_84
+  - first:
+      213: 5935602982124733334
+    second: Fisherman_Hair_Red_Sheet_85
+  - first:
+      213: 2761095731461291278
+    second: Fisherman_Hair_Red_Sheet_86
+  - first:
+      213: 5853624743339135003
+    second: Fisherman_Hair_Red_Sheet_87
+  - first:
+      213: -8841433513316928848
+    second: Fisherman_Hair_Red_Sheet_88
+  - first:
+      213: -7268620444645151777
+    second: Fisherman_Hair_Red_Sheet_89
+  - first:
+      213: 8286014681617511110
+    second: Fisherman_Hair_Red_Sheet_90
+  - first:
+      213: 6414598148580624221
+    second: Fisherman_Hair_Red_Sheet_91
+  - first:
+      213: 4844592905733933501
+    second: Fisherman_Hair_Red_Sheet_92
+  - first:
+      213: 8484170112086621396
+    second: Fisherman_Hair_Red_Sheet_93
+  - first:
+      213: 5936745458012175610
+    second: Fisherman_Hair_Red_Sheet_94
+  - first:
+      213: -7748028361866090849
+    second: Fisherman_Hair_Red_Sheet_95
+  - first:
+      213: -7651325922078926330
+    second: Hair_Red_r00_f0
+  - first:
+      213: 3475288700338734976
+    second: Hair_Red_r00_f1
+  - first:
+      213: 2596622999856758600
+    second: Hair_Red_r00_f2
+  - first:
+      213: 4235122853072541045
+    second: Hair_Red_r00_f3
+  - first:
+      213: -7420326581516841815
+    second: Hair_Red_r01_f0
+  - first:
+      213: 5008270188467701455
+    second: Hair_Red_r01_f1
+  - first:
+      213: -5704098548760889630
+    second: Hair_Red_r01_f2
+  - first:
+      213: -3017687411713184004
+    second: Hair_Red_r01_f3
+  - first:
+      213: 3458239323036322892
+    second: Hair_Red_r02_f0
+  - first:
+      213: -7053515575967067240
+    second: Hair_Red_r02_f1
+  - first:
+      213: 5059433814129247606
+    second: Hair_Red_r02_f2
+  - first:
+      213: 1051944348941076278
+    second: Hair_Red_r02_f3
+  - first:
+      213: -3507570075421063112
+    second: Hair_Red_r03_f0
+  - first:
+      213: 3583704961714032045
+    second: Hair_Red_r03_f1
+  - first:
+      213: -4594135060798338234
+    second: Hair_Red_r03_f2
+  - first:
+      213: -4998915846926799881
+    second: Hair_Red_r03_f3
+  - first:
+      213: -8495290547276380559
+    second: Hair_Red_r04_f0
+  - first:
+      213: -1888699489557268626
+    second: Hair_Red_r04_f1
+  - first:
+      213: -6166033890096644937
+    second: Hair_Red_r04_f2
+  - first:
+      213: 4362156670730402871
+    second: Hair_Red_r04_f3
+  - first:
+      213: -6306478579258728677
+    second: Hair_Red_r05_f0
+  - first:
+      213: 4523591290463987327
+    second: Hair_Red_r05_f1
+  - first:
+      213: -3571082946388983194
+    second: Hair_Red_r05_f2
+  - first:
+      213: -4238555098640743553
+    second: Hair_Red_r05_f3
+  - first:
+      213: -8748310857880126163
+    second: Hair_Red_r06_f0
+  - first:
+      213: 2925224430870973381
+    second: Hair_Red_r06_f1
+  - first:
+      213: 7168614038877268645
+    second: Hair_Red_r06_f2
+  - first:
+      213: -6855129981145895550
+    second: Hair_Red_r06_f3
+  - first:
+      213: -1670066486963411640
+    second: Hair_Red_r07_f0
+  - first:
+      213: -8820130240802474067
+    second: Hair_Red_r07_f1
+  - first:
+      213: -8408981843823033604
+    second: Hair_Red_r07_f2
+  - first:
+      213: -3034903940659179857
+    second: Hair_Red_r07_f3
+  - first:
+      213: 8619181284376319166
+    second: Hair_Red_r08_f0
+  - first:
+      213: -2940837237200704972
+    second: Hair_Red_r08_f1
+  - first:
+      213: -7806600832014446460
+    second: Hair_Red_r08_f2
+  - first:
+      213: 4144483404782466963
+    second: Hair_Red_r08_f3
+  - first:
+      213: -4817820970769433683
+    second: Hair_Red_r09_f0
+  - first:
+      213: 4956631243897607064
+    second: Hair_Red_r09_f1
+  - first:
+      213: -2098457143399821816
+    second: Hair_Red_r09_f2
+  - first:
+      213: 5824489565981441462
+    second: Hair_Red_r09_f3
+  - first:
+      213: 3808728191158065673
+    second: Hair_Red_r10_f0
+  - first:
+      213: -2046229108370028255
+    second: Hair_Red_r10_f1
+  - first:
+      213: 4408394867560383829
+    second: Hair_Red_r10_f2
+  - first:
+      213: 356008588919856770
+    second: Hair_Red_r10_f3
+  - first:
+      213: -7851917511998954012
+    second: Hair_Red_r11_f0
+  - first:
+      213: -5999449348627958570
+    second: Hair_Red_r11_f1
+  - first:
+      213: -6591906432119906900
+    second: Hair_Red_r11_f2
+  - first:
+      213: -2702658821800752644
+    second: Hair_Red_r11_f3
+  - first:
+      213: -4276056878065663834
+    second: Hair_Red_r12_f0
+  - first:
+      213: 6017383058337644543
+    second: Hair_Red_r12_f1
+  - first:
+      213: -8620779236308356010
+    second: Hair_Red_r12_f2
+  - first:
+      213: 6491771022592052371
+    second: Hair_Red_r12_f3
+  - first:
+      213: -903687110256462914
+    second: Hair_Red_r13_f0
+  - first:
+      213: 3366882017492647279
+    second: Hair_Red_r13_f1
+  - first:
+      213: 3967971462993730457
+    second: Hair_Red_r13_f2
+  - first:
+      213: -2786955933511951200
+    second: Hair_Red_r13_f3
+  - first:
+      213: -3079023393464886009
+    second: Hair_Red_r14_f0
+  - first:
+      213: 2959008260858323447
+    second: Hair_Red_r14_f1
+  - first:
+      213: -330735846028235960
+    second: Hair_Red_r14_f2
+  - first:
+      213: -3689476710679209153
+    second: Hair_Red_r14_f3
+  - first:
+      213: -5607230817998304431
+    second: Hair_Red_r15_f0
+  - first:
+      213: 8224146098162090459
+    second: Hair_Red_r15_f1
+  - first:
+      213: 6950981147337404077
+    second: Hair_Red_r15_f2
+  - first:
+      213: -8189758573240299493
+    second: Hair_Red_r15_f3
+  - first:
+      213: -6531179902621922697
+    second: Hair_Red_r16_f0
+  - first:
+      213: -5004282102990583006
+    second: Hair_Red_r16_f1
+  - first:
+      213: -472073863744763445
+    second: Hair_Red_r16_f2
+  - first:
+      213: 3447273515137653013
+    second: Hair_Red_r16_f3
+  - first:
+      213: -5906578768578830097
+    second: Hair_Red_r17_f0
+  - first:
+      213: 6757912545368168311
+    second: Hair_Red_r17_f1
+  - first:
+      213: 8729803002480080518
+    second: Hair_Red_r17_f2
+  - first:
+      213: -1017112442560494478
+    second: Hair_Red_r17_f3
+  - first:
+      213: -2088056672333621295
+    second: Hair_Red_r18_f0
+  - first:
+      213: 4628855768543562277
+    second: Hair_Red_r18_f1
+  - first:
+      213: 18052703474326987
+    second: Hair_Red_r18_f2
+  - first:
+      213: -3774974678039756765
+    second: Hair_Red_r18_f3
+  - first:
+      213: -365522238837005307
+    second: Hair_Red_r19_f0
+  - first:
+      213: 6340024146052888951
+    second: Hair_Red_r19_f1
+  - first:
+      213: -8014912000749023621
+    second: Hair_Red_r19_f2
+  - first:
+      213: 7559937619590195323
+    second: Hair_Red_r19_f3
+  - first:
+      213: 8652808520957169294
+    second: Hair_Red_r20_f0
+  - first:
+      213: 214307214169590502
+    second: Hair_Red_r20_f1
+  - first:
+      213: 1031103167149796254
+    second: Hair_Red_r20_f2
+  - first:
+      213: -1591584818691238036
+    second: Hair_Red_r20_f3
+  - first:
+      213: -1506791562314676419
+    second: Hair_Red_r21_f0
+  - first:
+      213: -6896671659253887886
+    second: Hair_Red_r21_f1
+  - first:
+      213: -6314345054859469087
+    second: Hair_Red_r21_f2
+  - first:
+      213: 7475883953423211676
+    second: Hair_Red_r21_f3
+  - first:
+      213: -2710080543409571613
+    second: Hair_Red_r22_f0
+  - first:
+      213: 5272878388194044145
+    second: Hair_Red_r22_f1
+  - first:
+      213: 1299129444308293575
+    second: Hair_Red_r22_f2
+  - first:
+      213: 2504798138623782927
+    second: Hair_Red_r22_f3
+  - first:
+      213: -193706602531326868
+    second: Hair_Red_r23_f0
+  - first:
+      213: -4468362583554155181
+    second: Hair_Red_r23_f1
+  - first:
+      213: -2604795905772753500
+    second: Hair_Red_r23_f2
+  - first:
+      213: 1755218009859848177
+    second: Hair_Red_r23_f3
+  - first:
+      213: -5467250631817842017
+    second: HairRed_Casting_L_0
+  - first:
+      213: -2784810111092858198
+    second: HairRed_Casting_L_1
+  - first:
+      213: -4113698154033683125
+    second: HairRed_Casting_L_2
+  - first:
+      213: -3436036211463643500
+    second: HairRed_Casting_L_3
+  - first:
+      213: 4535313124148985528
+    second: HairRed_Idle_L_0
+  - first:
+      213: 7914911882258370395
+    second: HairRed_Idle_L_1
+  - first:
+      213: 1438822597740107414
+    second: HairRed_Idle_L_2
+  - first:
+      213: -5988158687418217891
+    second: HairRed_Idle_L_3
+  - first:
+      213: 7649951488634563003
+    second: HairRed_Fishing_L_0
+  - first:
+      213: -7637715026695427239
+    second: HairRed_Fishing_L_1
+  - first:
+      213: -1806791623512363823
+    second: HairRed_Fishing_L_2
+  - first:
+      213: 6901993574790413830
+    second: HairRed_Fishing_L_3
+  - first:
+      213: 3739230674332906594
+    second: HairRed_MoveForward_L_0
+  - first:
+      213: -4782605639087052336
+    second: HairRed_MoveForward_L_1
+  - first:
+      213: -639795884414213287
+    second: HairRed_MoveForward_L_2
+  - first:
+      213: -6948154095004849295
+    second: HairRed_MoveForward_L_3
+  - first:
+      213: 1872340274468782391
+    second: HairRed_MoveBackward_L_0
+  - first:
+      213: -9041117277052054530
+    second: HairRed_MoveBackward_L_1
+  - first:
+      213: 6485561857291699929
+    second: HairRed_MoveBackward_L_2
+  - first:
+      213: -5832040528776037980
+    second: HairRed_MoveBackward_L_3
+  - first:
+      213: -5334106600689947014
+    second: HairRed_Fighting_L_0
+  - first:
+      213: -5551369893926593139
+    second: HairRed_Fighting_L_1
+  - first:
+      213: -5010581232481820026
+    second: HairRed_Fighting_L_2
+  - first:
+      213: 1666286921248840759
+    second: HairRed_Fighting_L_3
+  - first:
+      213: -820582555541753983
+    second: HairRed_Reeling_L_0
+  - first:
+      213: -374212688952520953
+    second: HairRed_Reeling_L_1
+  - first:
+      213: -3570759923399540346
+    second: HairRed_Reeling_L_2
+  - first:
+      213: 2175270844267758302
+    second: HairRed_Reeling_L_3
+  - first:
+      213: -2780698375681267920
+    second: HairRed_Win_L_0
+  - first:
+      213: -8420956285970974470
+    second: HairRed_Win_L_1
+  - first:
+      213: -2974361607356051573
+    second: HairRed_Win_L_2
+  - first:
+      213: -5521951203599368765
+    second: HairRed_Win_L_3
+  - first:
+      213: 9116395908144396542
+    second: HairRed_SwappingPoles_L_0
+  - first:
+      213: 5966312706921212111
+    second: HairRed_SwappingPoles_L_1
+  - first:
+      213: -3791586321341388178
+    second: HairRed_SwappingPoles_L_2
+  - first:
+      213: -8912749257244056587
+    second: HairRed_SwappingPoles_L_3
+  - first:
+      213: -8887997536760865237
+    second: HairRed_Scared_L_0
+  - first:
+      213: -4486588489131367536
+    second: HairRed_Scared_L_1
+  - first:
+      213: 8839084207264193032
+    second: HairRed_Scared_L_2
+  - first:
+      213: -1764983812310167058
+    second: HairRed_Scared_L_3
+  - first:
+      213: -9019879178845594549
+    second: HairRed_GoToCry_L_0
+  - first:
+      213: 7200815691278908553
+    second: HairRed_GoToCry_L_1
+  - first:
+      213: -7307978964186004006
+    second: HairRed_GoToCry_L_2
+  - first:
+      213: -481715021433273478
+    second: HairRed_GoToCry_L_3
+  - first:
+      213: 4895721482659968647
+    second: HairRed_Cry_L_0
+  - first:
+      213: 3271614322861231242
+    second: HairRed_Cry_L_1
+  - first:
+      213: -7772083435289735959
+    second: HairRed_Cry_L_2
+  - first:
+      213: -5428165921411114046
+    second: HairRed_Cry_L_3
+  - first:
+      213: 7086137247857879008
+    second: HairRed_Casting_R_0
+  - first:
+      213: 6495566451726528108
+    second: HairRed_Casting_R_1
+  - first:
+      213: 7016159152596590314
+    second: HairRed_Casting_R_2
+  - first:
+      213: -1292126410646635075
+    second: HairRed_Casting_R_3
+  - first:
+      213: -7273809524481564531
+    second: HairRed_Idle_R_0
+  - first:
+      213: 8162113772738461777
+    second: HairRed_Idle_R_1
+  - first:
+      213: 6561828601083600914
+    second: HairRed_Idle_R_2
+  - first:
+      213: 1083786499192145899
+    second: HairRed_Idle_R_3
+  - first:
+      213: 806307981578312834
+    second: HairRed_Fishing_R_0
+  - first:
+      213: 6793931680094462324
+    second: HairRed_Fishing_R_1
+  - first:
+      213: -3453138039375350619
+    second: HairRed_Fishing_R_2
+  - first:
+      213: 8506557824074769362
+    second: HairRed_Fishing_R_3
+  - first:
+      213: -423864018428687
+    second: HairRed_MoveForward_R_0
+  - first:
+      213: 6992106283463338621
+    second: HairRed_MoveForward_R_1
+  - first:
+      213: 8199228127905452850
+    second: HairRed_MoveForward_R_2
+  - first:
+      213: -201437176289617054
+    second: HairRed_MoveForward_R_3
+  - first:
+      213: 8531574594107440142
+    second: HairRed_MoveBackward_R_0
+  - first:
+      213: 163116747938435049
+    second: HairRed_MoveBackward_R_1
+  - first:
+      213: -6843548217842665275
+    second: HairRed_MoveBackward_R_2
+  - first:
+      213: 4714239803342879506
+    second: HairRed_MoveBackward_R_3
+  - first:
+      213: 4977263322355146593
+    second: HairRed_Fighting_R_0
+  - first:
+      213: -6648011102876885836
+    second: HairRed_Fighting_R_1
+  - first:
+      213: -2129275694726773449
+    second: HairRed_Fighting_R_2
+  - first:
+      213: 2727553120404859734
+    second: HairRed_Fighting_R_3
+  - first:
+      213: -5085214645671984422
+    second: HairRed_Reeling_R_0
+  - first:
+      213: 9108208839263416913
+    second: HairRed_Reeling_R_1
+  - first:
+      213: -1595303855534855737
+    second: HairRed_Reeling_R_2
+  - first:
+      213: -1876595687497387264
+    second: HairRed_Reeling_R_3
+  - first:
+      213: 6887197395813689244
+    second: HairRed_Win_R_0
+  - first:
+      213: -9073590812162127234
+    second: HairRed_Win_R_1
+  - first:
+      213: -8484888300967356698
+    second: HairRed_Win_R_2
+  - first:
+      213: 8290040726288254488
+    second: HairRed_Win_R_3
+  - first:
+      213: 1920705150479258942
+    second: HairRed_SwappingPoles_R_0
+  - first:
+      213: 5975375933622746953
+    second: HairRed_SwappingPoles_R_1
+  - first:
+      213: -7564423452550882041
+    second: HairRed_SwappingPoles_R_2
+  - first:
+      213: -6028935378795793776
+    second: HairRed_SwappingPoles_R_3
+  - first:
+      213: 2407541645783897598
+    second: HairRed_Scared_R_0
+  - first:
+      213: 7652275068034187296
+    second: HairRed_Scared_R_1
+  - first:
+      213: 1666873874309553244
+    second: HairRed_Scared_R_2
+  - first:
+      213: -8573816321051795554
+    second: HairRed_Scared_R_3
+  - first:
+      213: -7821250143468063116
+    second: HairRed_GoToCry_R_0
+  - first:
+      213: -3251028359720348498
+    second: HairRed_GoToCry_R_1
+  - first:
+      213: 8054312823948326058
+    second: HairRed_GoToCry_R_2
+  - first:
+      213: 85183718868701457
+    second: HairRed_GoToCry_R_3
+  - first:
+      213: 2932867015320930597
+    second: HairRed_Cry_R_0
+  - first:
+      213: -8060987930864276036
+    second: HairRed_Cry_R_1
+  - first:
+      213: 1626539558693160140
+    second: HairRed_Cry_R_2
+  - first:
+      213: 94752947083406559
+    second: HairRed_Cry_R_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HairRed_Casting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f92b770648c6024b0800000000000000
+      internalID: -5467250631817842017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Casting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa2e46165fd5a59d0800000000000000
+      internalID: -2784810111092858198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Casting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4564aff25539e6c0800000000000000
+      internalID: -4113698154033683125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Casting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49e9454454fb050d0800000000000000
+      internalID: -3436036211463643500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Idle_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8be311ed14ba0fe30800000000000000
+      internalID: 4535313124148985528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Idle_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5f47820c6a67dd60800000000000000
+      internalID: 7914911882258370395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Idle_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6969a198789b7f310800000000000000
+      internalID: 1438822597740107414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Idle_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5a84c18669c5eca0800000000000000
+      internalID: -5988158687418217891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Fishing_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb9a80509561a2a60800000000000000
+      internalID: 7649951488634563003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Fishing_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95be72a46a2610690800000000000000
+      internalID: -7637715026695427239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Fishing_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dce469579cfce6e0800000000000000
+      internalID: -1806791623512363823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Fishing_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60e3963869ec8cf50800000000000000
+      internalID: 6901993574790413830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_MoveForward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2647bdcac7a64e330800000000000000
+      internalID: 3739230674332906594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_MoveForward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d9af65b285c0adb0800000000000000
+      internalID: -4782605639087052336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_MoveForward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 953ebbc680dfe17f0800000000000000
+      internalID: -639795884414213287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_MoveForward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17b6f8ad9a2339f90800000000000000
+      internalID: -6948154095004849295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_MoveBackward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7318e5e3f83ebf910800000000000000
+      internalID: 1872340274468782391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_MoveBackward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef35aa80dbf778280800000000000000
+      internalID: -9041117277052054530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_MoveBackward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d6c1b0b528510a50800000000000000
+      internalID: 6485561857291699929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_MoveBackward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a97f9ed90e601fa0800000000000000
+      internalID: -5832040528776037980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Fighting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7e2fc7de4279f5b0800000000000000
+      internalID: -5334106600689947014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Fighting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8d15bf6e7295f2b0800000000000000
+      internalID: -5551369893926593139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Fighting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 682aeaf8ae6d67ab0800000000000000
+      internalID: -5010581232481820026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Fighting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73c9ae26027df1710800000000000000
+      internalID: 1666286921248840759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Reeling_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18f2d0c6384bc94f0800000000000000
+      internalID: -820582555541753983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Reeling_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70f8a84ca878ecaf0800000000000000
+      internalID: -374212688952520953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Reeling_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 681c193b4cc127ec0800000000000000
+      internalID: -3570759923399540346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Reeling_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed208dace4d103e10800000000000000
+      internalID: 2175270844267758302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Win_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03723026f89f869d0800000000000000
+      internalID: -2780698375681267920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Win_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af87b91cfd0c22b80800000000000000
+      internalID: -8420956285970974470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Win_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8f8bff70e1f8b6d0800000000000000
+      internalID: -2974361607356051573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Win_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cd3b6a03a61e53b0800000000000000
+      internalID: -5521951203599368765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_SwappingPoles_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef875c817c1f38e70800000000000000
+      internalID: 9116395908144396542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_SwappingPoles_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc820facbc99cc250800000000000000
+      internalID: 5966312706921212111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_SwappingPoles_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6a67355454916bc0800000000000000
+      internalID: -3791586321341388178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_SwappingPoles_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f367d5b5cd8f4480800000000000000
+      internalID: -8912749257244056587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Scared_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2e52d8b45d77a480800000000000000
+      internalID: -8887997536760865237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Scared_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 093e7f34a8f6cb1c0800000000000000
+      internalID: -4486588489131367536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Scared_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80a5fb9414cbaaa70800000000000000
+      internalID: 8839084207264193032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Scared_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee110f0f2948187e0800000000000000
+      internalID: -1764983812310167058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_GoToCry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4c57fb1da3f2d280800000000000000
+      internalID: -9019879178845594549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_GoToCry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98cfcbb38bf6ee360800000000000000
+      internalID: 7200815691278908553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_GoToCry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad58aa5f9d7d49a90800000000000000
+      internalID: -7307978964186004006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_GoToCry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7300808dba9059f0800000000000000
+      internalID: -481715021433273478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Cry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7863235ffb811f340800000000000000
+      internalID: 4895721482659968647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Cry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8c493494eb176d20800000000000000
+      internalID: 3271614322861231242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Cry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ec8bda3b43042490800000000000000
+      internalID: -7772083435289735959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Cry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cbd868aad74ba4b0800000000000000
+      internalID: -5428165921411114046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Casting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e7ab307844075260800000000000000
+      internalID: 7086137247857879008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Casting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6eaa1ad543e42a50800000000000000
+      internalID: 6495566451726528108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Casting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aee102a73976e5160800000000000000
+      internalID: 7016159152596590314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Casting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbdb18020e1711ee0800000000000000
+      internalID: -1292126410646635075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Idle_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d806c6996cc3e0b90800000000000000
+      internalID: -7273809524481564531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Idle_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15046684b37a54170800000000000000
+      internalID: 8162113772738461777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Idle_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 210269cb85c401b50800000000000000
+      internalID: 6561828601083600914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Idle_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be746b034126a0f00800000000000000
+      internalID: 1083786499192145899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Fishing_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28c998556d4903b00800000000000000
+      internalID: 806307981578312834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Fishing_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 471ad440ed4e84e50800000000000000
+      internalID: 6793931680094462324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Fishing_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a4b4aaaf3df310d0800000000000000
+      internalID: -3453138039375350619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Fishing_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d3eb45754d5d0670800000000000000
+      internalID: 8506557824074769362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_MoveForward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fc9fb77f7e7efff0800000000000000
+      internalID: -423864018428687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_MoveForward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7aeb997e93f80160800000000000000
+      internalID: 6992106283463338621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_MoveForward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 233123c7a8289c170800000000000000
+      internalID: 8199228127905452850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_MoveForward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b13b694f9543df0800000000000000
+      internalID: -201437176289617054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_MoveBackward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0c758024ed366670800000000000000
+      internalID: 8531574594107440142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_MoveBackward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ef89c961d1834200800000000000000
+      internalID: 163116747938435049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_MoveBackward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c8fa309725d601a0800000000000000
+      internalID: -6843548217842665275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_MoveBackward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21b7240cf185c6140800000000000000
+      internalID: 4714239803342879506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Fighting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16f1f8afe9ac21540800000000000000
+      internalID: 4977263322355146593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Fighting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bc9b26ef158db3a0800000000000000
+      internalID: -6648011102876885836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Fighting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73500fa790b4372e0800000000000000
+      internalID: -2129275694726773449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Fighting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65b6dbf9c173ad520800000000000000
+      internalID: 2727553120404859734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Reeling_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad28b1ee830bd69b0800000000000000
+      internalID: -5085214645671984422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Reeling_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1527e549eabd66e70800000000000000
+      internalID: 9108208839263416913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Reeling_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c9a80e78975cd9e0800000000000000
+      internalID: -1595303855534855737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Reeling_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00330b33a2ef4f5e0800000000000000
+      internalID: -1876595687497387264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Win_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c976873aa8d349f50800000000000000
+      internalID: 6887197395813689244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Win_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7a04d3fa31241280800000000000000
+      internalID: -9073590812162127234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Win_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e619fd8b0f9f3a80800000000000000
+      internalID: -8484888300967356698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Win_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 816cee73e142c0370800000000000000
+      internalID: 8290040726288254488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_SwappingPoles_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3554947827b7aa10800000000000000
+      internalID: 1920705150479258942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_SwappingPoles_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94f7003b0cccce250800000000000000
+      internalID: 5975375933622746953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_SwappingPoles_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70d121ca2f4c50790800000000000000
+      internalID: -7564423452550882041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_SwappingPoles_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0927715373be45ca0800000000000000
+      internalID: -6028935378795793776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Scared_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef598e20f5e496120800000000000000
+      internalID: 2407541645783897598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Scared_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02081c181a7523a60800000000000000
+      internalID: 7652275068034187296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Scared_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5c999b05fce12710800000000000000
+      internalID: 1666873874309553244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Scared_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9fd2466b7fa30980800000000000000
+      internalID: -8573816321051795554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_GoToCry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 476fc1bee66557390800000000000000
+      internalID: -7821250143468063116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_GoToCry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea4d5287ee602e2d0800000000000000
+      internalID: -3251028359720348498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_GoToCry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa4305df6daa6cf60800000000000000
+      internalID: 8054312823948326058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_GoToCry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 111d0d71422ae2100800000000000000
+      internalID: 85183718868701457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Cry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5290aade203a3b820800000000000000
+      internalID: 2932867015320930597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Cry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbdaf129f2e912090800000000000000
+      internalID: -8060987930864276036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Cry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc4c6016c11a29610800000000000000
+      internalID: 1626539558693160140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HairRed_Cry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdce358ad41a05100800000000000000
+      internalID: 94752947083406559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Fisherman_Hair_Red_Sheet_0: -7035667602753094360
+      Fisherman_Hair_Red_Sheet_1: 1768106782628654871
+      Fisherman_Hair_Red_Sheet_10: -5857120557140972451
+      Fisherman_Hair_Red_Sheet_11: -4255151382645299745
+      Fisherman_Hair_Red_Sheet_12: -5464116195366090481
+      Fisherman_Hair_Red_Sheet_13: 3128280720503743392
+      Fisherman_Hair_Red_Sheet_14: -8963642741885384389
+      Fisherman_Hair_Red_Sheet_15: -1131177213757882894
+      Fisherman_Hair_Red_Sheet_16: 1594479180307769301
+      Fisherman_Hair_Red_Sheet_17: -7169289348053761275
+      Fisherman_Hair_Red_Sheet_18: -4543483939035949244
+      Fisherman_Hair_Red_Sheet_19: 2814374671013999774
+      Fisherman_Hair_Red_Sheet_2: -1484401452920383008
+      Fisherman_Hair_Red_Sheet_20: -6620156653574914373
+      Fisherman_Hair_Red_Sheet_21: 1947854772800979381
+      Fisherman_Hair_Red_Sheet_22: -5169977939094466634
+      Fisherman_Hair_Red_Sheet_23: -1637090519372611308
+      Fisherman_Hair_Red_Sheet_24: 9149023309020427677
+      Fisherman_Hair_Red_Sheet_25: -4126076131666470336
+      Fisherman_Hair_Red_Sheet_26: 5453708702814969820
+      Fisherman_Hair_Red_Sheet_27: 8604555852382279099
+      Fisherman_Hair_Red_Sheet_28: 3109716591918251554
+      Fisherman_Hair_Red_Sheet_29: 7554370939772303303
+      Fisherman_Hair_Red_Sheet_3: 764326862475237209
+      Fisherman_Hair_Red_Sheet_30: 3468899108391997579
+      Fisherman_Hair_Red_Sheet_31: 1861711064479834140
+      Fisherman_Hair_Red_Sheet_32: -6272968870475377373
+      Fisherman_Hair_Red_Sheet_33: 3304863577800131254
+      Fisherman_Hair_Red_Sheet_34: -3209253088974803458
+      Fisherman_Hair_Red_Sheet_35: 4072056269774750548
+      Fisherman_Hair_Red_Sheet_36: 3211189010867490755
+      Fisherman_Hair_Red_Sheet_37: 3434441876391854015
+      Fisherman_Hair_Red_Sheet_38: 3976769769818770524
+      Fisherman_Hair_Red_Sheet_39: 2188093407418616775
+      Fisherman_Hair_Red_Sheet_4: -1644787352085012291
+      Fisherman_Hair_Red_Sheet_40: 7165317682673492182
+      Fisherman_Hair_Red_Sheet_41: 5862243648309325625
+      Fisherman_Hair_Red_Sheet_42: -7698188861905550452
+      Fisherman_Hair_Red_Sheet_43: -4661040514470953735
+      Fisherman_Hair_Red_Sheet_44: 7635159673146671811
+      Fisherman_Hair_Red_Sheet_45: -3504363737430345670
+      Fisherman_Hair_Red_Sheet_46: -6444301384651319442
+      Fisherman_Hair_Red_Sheet_47: -8497215964059577122
+      Fisherman_Hair_Red_Sheet_48: -1915797680934090961
+      Fisherman_Hair_Red_Sheet_49: -8109358865717698292
+      Fisherman_Hair_Red_Sheet_5: 5312086014617166445
+      Fisherman_Hair_Red_Sheet_50: 2004565369028699481
+      Fisherman_Hair_Red_Sheet_51: -5767892439555147919
+      Fisherman_Hair_Red_Sheet_52: -3146009361351960891
+      Fisherman_Hair_Red_Sheet_53: 2296672526404530360
+      Fisherman_Hair_Red_Sheet_54: -5643735836206221087
+      Fisherman_Hair_Red_Sheet_55: 3169070509634392083
+      Fisherman_Hair_Red_Sheet_56: -9042869668069905573
+      Fisherman_Hair_Red_Sheet_57: 4542778667580656684
+      Fisherman_Hair_Red_Sheet_58: -592934330379058795
+      Fisherman_Hair_Red_Sheet_59: -2113789067499578936
+      Fisherman_Hair_Red_Sheet_6: -6337654469733516640
+      Fisherman_Hair_Red_Sheet_60: 120570586383837082
+      Fisherman_Hair_Red_Sheet_61: -5759971360910889603
+      Fisherman_Hair_Red_Sheet_62: 3584944025974018085
+      Fisherman_Hair_Red_Sheet_63: 4840995007089772498
+      Fisherman_Hair_Red_Sheet_64: 4484182952849974566
+      Fisherman_Hair_Red_Sheet_65: 457856745949352995
+      Fisherman_Hair_Red_Sheet_66: 1988608153609877462
+      Fisherman_Hair_Red_Sheet_67: -5146856145519595118
+      Fisherman_Hair_Red_Sheet_68: -1657057703583306464
+      Fisherman_Hair_Red_Sheet_69: -7751492963284460405
+      Fisherman_Hair_Red_Sheet_7: -1807093537812079269
+      Fisherman_Hair_Red_Sheet_70: -4924012771544376975
+      Fisherman_Hair_Red_Sheet_71: -1927708483091748544
+      Fisherman_Hair_Red_Sheet_72: 3936436586751442635
+      Fisherman_Hair_Red_Sheet_73: -7707408430289635488
+      Fisherman_Hair_Red_Sheet_74: 6323620755971631804
+      Fisherman_Hair_Red_Sheet_75: 2228990494421239602
+      Fisherman_Hair_Red_Sheet_76: 1595048994634121278
+      Fisherman_Hair_Red_Sheet_77: 7707303042109556142
+      Fisherman_Hair_Red_Sheet_78: -8578799765945937719
+      Fisherman_Hair_Red_Sheet_79: -261951785446184615
+      Fisherman_Hair_Red_Sheet_8: -2958488430206217607
+      Fisherman_Hair_Red_Sheet_80: 4930194631413777669
+      Fisherman_Hair_Red_Sheet_81: -6996057497114832329
+      Fisherman_Hair_Red_Sheet_82: -7838943515420487621
+      Fisherman_Hair_Red_Sheet_83: -4809749585525753146
+      Fisherman_Hair_Red_Sheet_84: -4765661382388327015
+      Fisherman_Hair_Red_Sheet_85: 5935602982124733334
+      Fisherman_Hair_Red_Sheet_86: 2761095731461291278
+      Fisherman_Hair_Red_Sheet_87: 5853624743339135003
+      Fisherman_Hair_Red_Sheet_88: -8841433513316928848
+      Fisherman_Hair_Red_Sheet_89: -7268620444645151777
+      Fisherman_Hair_Red_Sheet_9: 7442518812443619163
+      Fisherman_Hair_Red_Sheet_90: 8286014681617511110
+      Fisherman_Hair_Red_Sheet_91: 6414598148580624221
+      Fisherman_Hair_Red_Sheet_92: 4844592905733933501
+      Fisherman_Hair_Red_Sheet_93: 8484170112086621396
+      Fisherman_Hair_Red_Sheet_94: 5936745458012175610
+      Fisherman_Hair_Red_Sheet_95: -7748028361866090849
+      HairRed_Casting_L_0: -5467250631817842017
+      HairRed_Casting_L_1: -2784810111092858198
+      HairRed_Casting_L_2: -4113698154033683125
+      HairRed_Casting_L_3: -3436036211463643500
+      HairRed_Casting_R_0: 7086137247857879008
+      HairRed_Casting_R_1: 6495566451726528108
+      HairRed_Casting_R_2: 7016159152596590314
+      HairRed_Casting_R_3: -1292126410646635075
+      HairRed_Cry_L_0: 4895721482659968647
+      HairRed_Cry_L_1: 3271614322861231242
+      HairRed_Cry_L_2: -7772083435289735959
+      HairRed_Cry_L_3: -5428165921411114046
+      HairRed_Cry_R_0: 2932867015320930597
+      HairRed_Cry_R_1: -8060987930864276036
+      HairRed_Cry_R_2: 1626539558693160140
+      HairRed_Cry_R_3: 94752947083406559
+      HairRed_Fighting_L_0: -5334106600689947014
+      HairRed_Fighting_L_1: -5551369893926593139
+      HairRed_Fighting_L_2: -5010581232481820026
+      HairRed_Fighting_L_3: 1666286921248840759
+      HairRed_Fighting_R_0: 4977263322355146593
+      HairRed_Fighting_R_1: -6648011102876885836
+      HairRed_Fighting_R_2: -2129275694726773449
+      HairRed_Fighting_R_3: 2727553120404859734
+      HairRed_Fishing_L_0: 7649951488634563003
+      HairRed_Fishing_L_1: -7637715026695427239
+      HairRed_Fishing_L_2: -1806791623512363823
+      HairRed_Fishing_L_3: 6901993574790413830
+      HairRed_Fishing_R_0: 806307981578312834
+      HairRed_Fishing_R_1: 6793931680094462324
+      HairRed_Fishing_R_2: -3453138039375350619
+      HairRed_Fishing_R_3: 8506557824074769362
+      HairRed_GoToCry_L_0: -9019879178845594549
+      HairRed_GoToCry_L_1: 7200815691278908553
+      HairRed_GoToCry_L_2: -7307978964186004006
+      HairRed_GoToCry_L_3: -481715021433273478
+      HairRed_GoToCry_R_0: -7821250143468063116
+      HairRed_GoToCry_R_1: -3251028359720348498
+      HairRed_GoToCry_R_2: 8054312823948326058
+      HairRed_GoToCry_R_3: 85183718868701457
+      HairRed_Idle_L_0: 4535313124148985528
+      HairRed_Idle_L_1: 7914911882258370395
+      HairRed_Idle_L_2: 1438822597740107414
+      HairRed_Idle_L_3: -5988158687418217891
+      HairRed_Idle_R_0: -7273809524481564531
+      HairRed_Idle_R_1: 8162113772738461777
+      HairRed_Idle_R_2: 6561828601083600914
+      HairRed_Idle_R_3: 1083786499192145899
+      HairRed_MoveBackward_L_0: 1872340274468782391
+      HairRed_MoveBackward_L_1: -9041117277052054530
+      HairRed_MoveBackward_L_2: 6485561857291699929
+      HairRed_MoveBackward_L_3: -5832040528776037980
+      HairRed_MoveBackward_R_0: 8531574594107440142
+      HairRed_MoveBackward_R_1: 163116747938435049
+      HairRed_MoveBackward_R_2: -6843548217842665275
+      HairRed_MoveBackward_R_3: 4714239803342879506
+      HairRed_MoveForward_L_0: 3739230674332906594
+      HairRed_MoveForward_L_1: -4782605639087052336
+      HairRed_MoveForward_L_2: -639795884414213287
+      HairRed_MoveForward_L_3: -6948154095004849295
+      HairRed_MoveForward_R_0: -423864018428687
+      HairRed_MoveForward_R_1: 6992106283463338621
+      HairRed_MoveForward_R_2: 8199228127905452850
+      HairRed_MoveForward_R_3: -201437176289617054
+      HairRed_Reeling_L_0: -820582555541753983
+      HairRed_Reeling_L_1: -374212688952520953
+      HairRed_Reeling_L_2: -3570759923399540346
+      HairRed_Reeling_L_3: 2175270844267758302
+      HairRed_Reeling_R_0: -5085214645671984422
+      HairRed_Reeling_R_1: 9108208839263416913
+      HairRed_Reeling_R_2: -1595303855534855737
+      HairRed_Reeling_R_3: -1876595687497387264
+      HairRed_Scared_L_0: -8887997536760865237
+      HairRed_Scared_L_1: -4486588489131367536
+      HairRed_Scared_L_2: 8839084207264193032
+      HairRed_Scared_L_3: -1764983812310167058
+      HairRed_Scared_R_0: 2407541645783897598
+      HairRed_Scared_R_1: 7652275068034187296
+      HairRed_Scared_R_2: 1666873874309553244
+      HairRed_Scared_R_3: -8573816321051795554
+      HairRed_SwappingPoles_L_0: 9116395908144396542
+      HairRed_SwappingPoles_L_1: 5966312706921212111
+      HairRed_SwappingPoles_L_2: -3791586321341388178
+      HairRed_SwappingPoles_L_3: -8912749257244056587
+      HairRed_SwappingPoles_R_0: 1920705150479258942
+      HairRed_SwappingPoles_R_1: 5975375933622746953
+      HairRed_SwappingPoles_R_2: -7564423452550882041
+      HairRed_SwappingPoles_R_3: -6028935378795793776
+      HairRed_Win_L_0: -2780698375681267920
+      HairRed_Win_L_1: -8420956285970974470
+      HairRed_Win_L_2: -2974361607356051573
+      HairRed_Win_L_3: -5521951203599368765
+      HairRed_Win_R_0: 6887197395813689244
+      HairRed_Win_R_1: -9073590812162127234
+      HairRed_Win_R_2: -8484888300967356698
+      HairRed_Win_R_3: 8290040726288254488
+      Hair_Red_r00_f0: -7651325922078926330
+      Hair_Red_r00_f1: 3475288700338734976
+      Hair_Red_r00_f2: 2596622999856758600
+      Hair_Red_r00_f3: 4235122853072541045
+      Hair_Red_r01_f0: -7420326581516841815
+      Hair_Red_r01_f1: 5008270188467701455
+      Hair_Red_r01_f2: -5704098548760889630
+      Hair_Red_r01_f3: -3017687411713184004
+      Hair_Red_r02_f0: 3458239323036322892
+      Hair_Red_r02_f1: -7053515575967067240
+      Hair_Red_r02_f2: 5059433814129247606
+      Hair_Red_r02_f3: 1051944348941076278
+      Hair_Red_r03_f0: -3507570075421063112
+      Hair_Red_r03_f1: 3583704961714032045
+      Hair_Red_r03_f2: -4594135060798338234
+      Hair_Red_r03_f3: -4998915846926799881
+      Hair_Red_r04_f0: -8495290547276380559
+      Hair_Red_r04_f1: -1888699489557268626
+      Hair_Red_r04_f2: -6166033890096644937
+      Hair_Red_r04_f3: 4362156670730402871
+      Hair_Red_r05_f0: -6306478579258728677
+      Hair_Red_r05_f1: 4523591290463987327
+      Hair_Red_r05_f2: -3571082946388983194
+      Hair_Red_r05_f3: -4238555098640743553
+      Hair_Red_r06_f0: -8748310857880126163
+      Hair_Red_r06_f1: 2925224430870973381
+      Hair_Red_r06_f2: 7168614038877268645
+      Hair_Red_r06_f3: -6855129981145895550
+      Hair_Red_r07_f0: -1670066486963411640
+      Hair_Red_r07_f1: -8820130240802474067
+      Hair_Red_r07_f2: -8408981843823033604
+      Hair_Red_r07_f3: -3034903940659179857
+      Hair_Red_r08_f0: 8619181284376319166
+      Hair_Red_r08_f1: -2940837237200704972
+      Hair_Red_r08_f2: -7806600832014446460
+      Hair_Red_r08_f3: 4144483404782466963
+      Hair_Red_r09_f0: -4817820970769433683
+      Hair_Red_r09_f1: 4956631243897607064
+      Hair_Red_r09_f2: -2098457143399821816
+      Hair_Red_r09_f3: 5824489565981441462
+      Hair_Red_r10_f0: 3808728191158065673
+      Hair_Red_r10_f1: -2046229108370028255
+      Hair_Red_r10_f2: 4408394867560383829
+      Hair_Red_r10_f3: 356008588919856770
+      Hair_Red_r11_f0: -7851917511998954012
+      Hair_Red_r11_f1: -5999449348627958570
+      Hair_Red_r11_f2: -6591906432119906900
+      Hair_Red_r11_f3: -2702658821800752644
+      Hair_Red_r12_f0: -4276056878065663834
+      Hair_Red_r12_f1: 6017383058337644543
+      Hair_Red_r12_f2: -8620779236308356010
+      Hair_Red_r12_f3: 6491771022592052371
+      Hair_Red_r13_f0: -903687110256462914
+      Hair_Red_r13_f1: 3366882017492647279
+      Hair_Red_r13_f2: 3967971462993730457
+      Hair_Red_r13_f3: -2786955933511951200
+      Hair_Red_r14_f0: -3079023393464886009
+      Hair_Red_r14_f1: 2959008260858323447
+      Hair_Red_r14_f2: -330735846028235960
+      Hair_Red_r14_f3: -3689476710679209153
+      Hair_Red_r15_f0: -5607230817998304431
+      Hair_Red_r15_f1: 8224146098162090459
+      Hair_Red_r15_f2: 6950981147337404077
+      Hair_Red_r15_f3: -8189758573240299493
+      Hair_Red_r16_f0: -6531179902621922697
+      Hair_Red_r16_f1: -5004282102990583006
+      Hair_Red_r16_f2: -472073863744763445
+      Hair_Red_r16_f3: 3447273515137653013
+      Hair_Red_r17_f0: -5906578768578830097
+      Hair_Red_r17_f1: 6757912545368168311
+      Hair_Red_r17_f2: 8729803002480080518
+      Hair_Red_r17_f3: -1017112442560494478
+      Hair_Red_r18_f0: -2088056672333621295
+      Hair_Red_r18_f1: 4628855768543562277
+      Hair_Red_r18_f2: 18052703474326987
+      Hair_Red_r18_f3: -3774974678039756765
+      Hair_Red_r19_f0: -365522238837005307
+      Hair_Red_r19_f1: 6340024146052888951
+      Hair_Red_r19_f2: -8014912000749023621
+      Hair_Red_r19_f3: 7559937619590195323
+      Hair_Red_r20_f0: 8652808520957169294
+      Hair_Red_r20_f1: 214307214169590502
+      Hair_Red_r20_f2: 1031103167149796254
+      Hair_Red_r20_f3: -1591584818691238036
+      Hair_Red_r21_f0: -1506791562314676419
+      Hair_Red_r21_f1: -6896671659253887886
+      Hair_Red_r21_f2: -6314345054859469087
+      Hair_Red_r21_f3: 7475883953423211676
+      Hair_Red_r22_f0: -2710080543409571613
+      Hair_Red_r22_f1: 5272878388194044145
+      Hair_Red_r22_f2: 1299129444308293575
+      Hair_Red_r22_f3: 2504798138623782927
+      Hair_Red_r23_f0: -193706602531326868
+      Hair_Red_r23_f1: -4468362583554155181
+      Hair_Red_r23_f2: -2604795905772753500
+      Hair_Red_r23_f3: 1755218009859848177
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

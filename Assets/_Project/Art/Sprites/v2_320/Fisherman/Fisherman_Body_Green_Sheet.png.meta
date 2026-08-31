@@ -1,0 +1,3428 @@
+fileFormatVersion: 2
+guid: 2ea09a0452519af4d9869d8ea0f55dde
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8578684146911722710
+    second: Fisherman_Body_Green_Sheet_0
+  - first:
+      213: -4674375547117734048
+    second: Fisherman_Body_Green_Sheet_1
+  - first:
+      213: 1305075721181631121
+    second: Fisherman_Body_Green_Sheet_2
+  - first:
+      213: 4277321253372608109
+    second: Fisherman_Body_Green_Sheet_3
+  - first:
+      213: -8980847467222710495
+    second: Fisherman_Body_Green_Sheet_4
+  - first:
+      213: 6069376998177214057
+    second: Fisherman_Body_Green_Sheet_5
+  - first:
+      213: -6558041334378986652
+    second: Fisherman_Body_Green_Sheet_6
+  - first:
+      213: 703363325808181989
+    second: Fisherman_Body_Green_Sheet_7
+  - first:
+      213: 7252810578281991978
+    second: Fisherman_Body_Green_Sheet_8
+  - first:
+      213: -747886218749321860
+    second: Fisherman_Body_Green_Sheet_9
+  - first:
+      213: 6687511884847398040
+    second: Fisherman_Body_Green_Sheet_10
+  - first:
+      213: 7143023805264628064
+    second: Fisherman_Body_Green_Sheet_11
+  - first:
+      213: -1184434884610181464
+    second: Fisherman_Body_Green_Sheet_12
+  - first:
+      213: -2413831617661833629
+    second: Fisherman_Body_Green_Sheet_13
+  - first:
+      213: 6203224806391669344
+    second: Fisherman_Body_Green_Sheet_14
+  - first:
+      213: 3646764405909934762
+    second: Fisherman_Body_Green_Sheet_15
+  - first:
+      213: -3237042584970002406
+    second: Fisherman_Body_Green_Sheet_16
+  - first:
+      213: -6442804380857447004
+    second: Fisherman_Body_Green_Sheet_17
+  - first:
+      213: 4556105658656949476
+    second: Fisherman_Body_Green_Sheet_18
+  - first:
+      213: 6978022608622539652
+    second: Fisherman_Body_Green_Sheet_19
+  - first:
+      213: -3922704002410775605
+    second: Fisherman_Body_Green_Sheet_20
+  - first:
+      213: -9006797331758516788
+    second: Fisherman_Body_Green_Sheet_21
+  - first:
+      213: -7022841311831403856
+    second: Fisherman_Body_Green_Sheet_22
+  - first:
+      213: 1672201065198180520
+    second: Fisherman_Body_Green_Sheet_23
+  - first:
+      213: -1694955904877952331
+    second: Fisherman_Body_Green_Sheet_24
+  - first:
+      213: 201712656426237741
+    second: Fisherman_Body_Green_Sheet_25
+  - first:
+      213: -5473649472669741580
+    second: Fisherman_Body_Green_Sheet_26
+  - first:
+      213: 5718030400553536636
+    second: Fisherman_Body_Green_Sheet_27
+  - first:
+      213: -2311906701855857349
+    second: Fisherman_Body_Green_Sheet_28
+  - first:
+      213: -9114708682665408162
+    second: Fisherman_Body_Green_Sheet_29
+  - first:
+      213: -69866670076359263
+    second: Fisherman_Body_Green_Sheet_30
+  - first:
+      213: -5548057639148159014
+    second: Fisherman_Body_Green_Sheet_31
+  - first:
+      213: 7453775979898765601
+    second: Fisherman_Body_Green_Sheet_32
+  - first:
+      213: -3278750977822218865
+    second: Fisherman_Body_Green_Sheet_33
+  - first:
+      213: 1370024470954571007
+    second: Fisherman_Body_Green_Sheet_34
+  - first:
+      213: -4564074420355625723
+    second: Fisherman_Body_Green_Sheet_35
+  - first:
+      213: -3333992505714452251
+    second: Fisherman_Body_Green_Sheet_36
+  - first:
+      213: 1009879249501350766
+    second: Fisherman_Body_Green_Sheet_37
+  - first:
+      213: 4257882769860832692
+    second: Fisherman_Body_Green_Sheet_38
+  - first:
+      213: -8654884486321803983
+    second: Fisherman_Body_Green_Sheet_39
+  - first:
+      213: 6344994437694954786
+    second: Fisherman_Body_Green_Sheet_40
+  - first:
+      213: 3343133172164510451
+    second: Fisherman_Body_Green_Sheet_41
+  - first:
+      213: 3722488477486454164
+    second: Fisherman_Body_Green_Sheet_42
+  - first:
+      213: -2985908506898866666
+    second: Fisherman_Body_Green_Sheet_43
+  - first:
+      213: 1037784946682085051
+    second: Fisherman_Body_Green_Sheet_44
+  - first:
+      213: -3738963364997215374
+    second: Fisherman_Body_Green_Sheet_45
+  - first:
+      213: -6914067434935374992
+    second: Fisherman_Body_Green_Sheet_46
+  - first:
+      213: -5422248815792852610
+    second: Fisherman_Body_Green_Sheet_47
+  - first:
+      213: 8819435712174513734
+    second: Fisherman_Body_Green_Sheet_48
+  - first:
+      213: 7738007139428482224
+    second: Fisherman_Body_Green_Sheet_49
+  - first:
+      213: -5252214175200630122
+    second: Fisherman_Body_Green_Sheet_50
+  - first:
+      213: 5543743832725307934
+    second: Fisherman_Body_Green_Sheet_51
+  - first:
+      213: -4262504786863551399
+    second: Fisherman_Body_Green_Sheet_52
+  - first:
+      213: 9028504100178281782
+    second: Fisherman_Body_Green_Sheet_53
+  - first:
+      213: 8934907486610768792
+    second: Fisherman_Body_Green_Sheet_54
+  - first:
+      213: 16762816643044828
+    second: Fisherman_Body_Green_Sheet_55
+  - first:
+      213: 5596047259640297303
+    second: Fisherman_Body_Green_Sheet_56
+  - first:
+      213: 5208164676459055368
+    second: Fisherman_Body_Green_Sheet_57
+  - first:
+      213: 2508456103857307786
+    second: Fisherman_Body_Green_Sheet_58
+  - first:
+      213: 4589353398952772495
+    second: Fisherman_Body_Green_Sheet_59
+  - first:
+      213: -5674400885393075669
+    second: Fisherman_Body_Green_Sheet_60
+  - first:
+      213: 3292007845759919972
+    second: Fisherman_Body_Green_Sheet_61
+  - first:
+      213: -2530772387243519846
+    second: Fisherman_Body_Green_Sheet_62
+  - first:
+      213: 5889067526604141274
+    second: Fisherman_Body_Green_Sheet_63
+  - first:
+      213: -467426953132906951
+    second: Fisherman_Body_Green_Sheet_64
+  - first:
+      213: 5912623682133917536
+    second: Fisherman_Body_Green_Sheet_65
+  - first:
+      213: -8310050123879911754
+    second: Fisherman_Body_Green_Sheet_66
+  - first:
+      213: 1897858573148490115
+    second: Fisherman_Body_Green_Sheet_67
+  - first:
+      213: -1330355531892336287
+    second: Fisherman_Body_Green_Sheet_68
+  - first:
+      213: -1324208178637271504
+    second: Fisherman_Body_Green_Sheet_69
+  - first:
+      213: 3766964418215685467
+    second: Fisherman_Body_Green_Sheet_70
+  - first:
+      213: -4237311923443500412
+    second: Fisherman_Body_Green_Sheet_71
+  - first:
+      213: -250766997263482385
+    second: Fisherman_Body_Green_Sheet_72
+  - first:
+      213: 3100844186338679706
+    second: Fisherman_Body_Green_Sheet_73
+  - first:
+      213: -3164365576641613343
+    second: Fisherman_Body_Green_Sheet_74
+  - first:
+      213: -4613669320396027147
+    second: Fisherman_Body_Green_Sheet_75
+  - first:
+      213: -203411788367362512
+    second: Fisherman_Body_Green_Sheet_76
+  - first:
+      213: -5461264038095811783
+    second: Fisherman_Body_Green_Sheet_77
+  - first:
+      213: 581924466462594904
+    second: Fisherman_Body_Green_Sheet_78
+  - first:
+      213: 4804172998266603380
+    second: Fisherman_Body_Green_Sheet_79
+  - first:
+      213: 4040729560112308899
+    second: Fisherman_Body_Green_Sheet_80
+  - first:
+      213: 2923527979300935250
+    second: Fisherman_Body_Green_Sheet_81
+  - first:
+      213: 4624119339177894213
+    second: Fisherman_Body_Green_Sheet_82
+  - first:
+      213: -7784188250593351557
+    second: Fisherman_Body_Green_Sheet_83
+  - first:
+      213: -8132975763617593701
+    second: Fisherman_Body_Green_Sheet_84
+  - first:
+      213: 9103729899962615806
+    second: Fisherman_Body_Green_Sheet_85
+  - first:
+      213: -3922328703380385024
+    second: Fisherman_Body_Green_Sheet_86
+  - first:
+      213: -5899307717838259357
+    second: Fisherman_Body_Green_Sheet_87
+  - first:
+      213: -1948437577118866162
+    second: Fisherman_Body_Green_Sheet_88
+  - first:
+      213: -2284858108437828493
+    second: Fisherman_Body_Green_Sheet_89
+  - first:
+      213: -1648099093384325296
+    second: Fisherman_Body_Green_Sheet_90
+  - first:
+      213: -1196651136676418740
+    second: Fisherman_Body_Green_Sheet_91
+  - first:
+      213: -5928221983453836632
+    second: Fisherman_Body_Green_Sheet_92
+  - first:
+      213: 568976652954163679
+    second: Fisherman_Body_Green_Sheet_93
+  - first:
+      213: 8587958168450376043
+    second: Fisherman_Body_Green_Sheet_94
+  - first:
+      213: -670791108859992596
+    second: Fisherman_Body_Green_Sheet_95
+  - first:
+      213: 3905976118817638943
+    second: Fisherman_Body_Green_Sheet_96
+  - first:
+      213: -8944747949331804769
+    second: Fisherman_Body_Green_Sheet_97
+  - first:
+      213: -4642795173485644362
+    second: Body_Green_r00_f0
+  - first:
+      213: -250358750720340520
+    second: Body_Green_r00_f1
+  - first:
+      213: 7904080002635983412
+    second: Body_Green_r00_f2
+  - first:
+      213: -1624592993051816055
+    second: Body_Green_r00_f3
+  - first:
+      213: -522606445693992291
+    second: Body_Green_r01_f0
+  - first:
+      213: 6683921459498090411
+    second: Body_Green_r01_f1
+  - first:
+      213: -4992715059394736190
+    second: Body_Green_r01_f2
+  - first:
+      213: -9116972708000080822
+    second: Body_Green_r01_f3
+  - first:
+      213: -6826093418254428310
+    second: Body_Green_r02_f0
+  - first:
+      213: -886382932681502029
+    second: Body_Green_r02_f1
+  - first:
+      213: -6705811887481490148
+    second: Body_Green_r02_f2
+  - first:
+      213: -5357889038459734881
+    second: Body_Green_r02_f3
+  - first:
+      213: -3072260084187390036
+    second: Body_Green_r03_f0
+  - first:
+      213: 6765699325123462318
+    second: Body_Green_r03_f1
+  - first:
+      213: -1716177299410140676
+    second: Body_Green_r03_f2
+  - first:
+      213: 960468005572633554
+    second: Body_Green_r03_f3
+  - first:
+      213: 1495695565245109666
+    second: Body_Green_r04_f0
+  - first:
+      213: -3476996483471512393
+    second: Body_Green_r04_f1
+  - first:
+      213: 3767517199940657186
+    second: Body_Green_r04_f2
+  - first:
+      213: -883542929746373398
+    second: Body_Green_r04_f3
+  - first:
+      213: -5827918471669818432
+    second: Body_Green_r05_f0
+  - first:
+      213: -5158369633176652688
+    second: Body_Green_r05_f1
+  - first:
+      213: 5782113549662761256
+    second: Body_Green_r05_f2
+  - first:
+      213: -52372841270712237
+    second: Body_Green_r05_f3
+  - first:
+      213: -7938741086887246317
+    second: Body_Green_r06_f0
+  - first:
+      213: 1897622793863257182
+    second: Body_Green_r06_f1
+  - first:
+      213: 6115539268547441919
+    second: Body_Green_r06_f2
+  - first:
+      213: -3022248180868115145
+    second: Body_Green_r06_f3
+  - first:
+      213: -8894437088252856764
+    second: Body_Green_r07_f0
+  - first:
+      213: -4249267718676761431
+    second: Body_Green_r07_f1
+  - first:
+      213: 1150799571368251254
+    second: Body_Green_r07_f2
+  - first:
+      213: 8585414784289081417
+    second: Body_Green_r07_f3
+  - first:
+      213: 7228034911721796651
+    second: Body_Green_r08_f0
+  - first:
+      213: -4356974446978891355
+    second: Body_Green_r08_f1
+  - first:
+      213: 1094935782739305771
+    second: Body_Green_r08_f2
+  - first:
+      213: 2964628377076668496
+    second: Body_Green_r08_f3
+  - first:
+      213: 4586673847486193907
+    second: Body_Green_r09_f0
+  - first:
+      213: -7724924513272042515
+    second: Body_Green_r09_f1
+  - first:
+      213: -4760653657151045910
+    second: Body_Green_r09_f2
+  - first:
+      213: 6119836082990891280
+    second: Body_Green_r09_f3
+  - first:
+      213: 7564542054973114947
+    second: Body_Green_r10_f0
+  - first:
+      213: -7037104800909057177
+    second: Body_Green_r10_f1
+  - first:
+      213: 4523183033339983925
+    second: Body_Green_r10_f2
+  - first:
+      213: -2640856781910556128
+    second: Body_Green_r10_f3
+  - first:
+      213: -8450222574855320728
+    second: Body_Green_r11_f0
+  - first:
+      213: -2865437980213519105
+    second: Body_Green_r11_f1
+  - first:
+      213: 5062974866576978312
+    second: Body_Green_r11_f2
+  - first:
+      213: -3418210063409015908
+    second: Body_Green_r11_f3
+  - first:
+      213: -3077595212168825642
+    second: Body_Green_r12_f0
+  - first:
+      213: 2365534422736165949
+    second: Body_Green_r12_f1
+  - first:
+      213: 5384145525200723169
+    second: Body_Green_r12_f2
+  - first:
+      213: 237672182264741004
+    second: Body_Green_r12_f3
+  - first:
+      213: -4041576201948977607
+    second: Body_Green_r13_f0
+  - first:
+      213: 6214180597754035158
+    second: Body_Green_r13_f1
+  - first:
+      213: -6037489008160097004
+    second: Body_Green_r13_f2
+  - first:
+      213: 1955752971564790655
+    second: Body_Green_r13_f3
+  - first:
+      213: -8798265549395647025
+    second: Body_Green_r14_f0
+  - first:
+      213: 616702065794048931
+    second: Body_Green_r14_f1
+  - first:
+      213: 6648511213282167117
+    second: Body_Green_r14_f2
+  - first:
+      213: 7928838738138726674
+    second: Body_Green_r14_f3
+  - first:
+      213: 3084695995553105593
+    second: Body_Green_r15_f0
+  - first:
+      213: 7739301876692094793
+    second: Body_Green_r15_f1
+  - first:
+      213: -5545468648397920358
+    second: Body_Green_r15_f2
+  - first:
+      213: -6751197996376205427
+    second: Body_Green_r15_f3
+  - first:
+      213: -1626398990512840699
+    second: Body_Green_r16_f0
+  - first:
+      213: -9111658557688008337
+    second: Body_Green_r16_f1
+  - first:
+      213: -6942235985796362143
+    second: Body_Green_r16_f2
+  - first:
+      213: -1439724121928941813
+    second: Body_Green_r16_f3
+  - first:
+      213: -1133282254594981798
+    second: Body_Green_r17_f0
+  - first:
+      213: -6538857471007240026
+    second: Body_Green_r17_f1
+  - first:
+      213: 32205108167805154
+    second: Body_Green_r17_f2
+  - first:
+      213: -4185704110148784023
+    second: Body_Green_r17_f3
+  - first:
+      213: 3647650409034506880
+    second: Body_Green_r18_f0
+  - first:
+      213: 1480900404831913212
+    second: Body_Green_r18_f1
+  - first:
+      213: -273562572536988857
+    second: Body_Green_r18_f2
+  - first:
+      213: -379486017252470260
+    second: Body_Green_r18_f3
+  - first:
+      213: 7804494496280651701
+    second: Body_Green_r19_f0
+  - first:
+      213: -7109907342034152536
+    second: Body_Green_r19_f1
+  - first:
+      213: -6436924955634104024
+    second: Body_Green_r19_f2
+  - first:
+      213: -3489935861572933834
+    second: Body_Green_r19_f3
+  - first:
+      213: -1319234126720902283
+    second: Body_Green_r20_f0
+  - first:
+      213: -1296852385225892020
+    second: Body_Green_r20_f1
+  - first:
+      213: 4168154306385982389
+    second: Body_Green_r20_f2
+  - first:
+      213: 4225874080208205687
+    second: Body_Green_r20_f3
+  - first:
+      213: -3194291879349345584
+    second: Body_Green_r21_f0
+  - first:
+      213: -5476460217574805353
+    second: Body_Green_r21_f1
+  - first:
+      213: -2727708205238580261
+    second: Body_Green_r21_f2
+  - first:
+      213: 6971844869164208835
+    second: Body_Green_r21_f3
+  - first:
+      213: -2245137372718947287
+    second: Body_Green_r22_f0
+  - first:
+      213: -1180854838022391304
+    second: Body_Green_r22_f1
+  - first:
+      213: 3675861252236015160
+    second: Body_Green_r22_f2
+  - first:
+      213: 4001371110815467725
+    second: Body_Green_r22_f3
+  - first:
+      213: 7174491721018426581
+    second: Body_Green_r23_f0
+  - first:
+      213: -7268128779066600253
+    second: Body_Green_r23_f1
+  - first:
+      213: -1359509013578026133
+    second: Body_Green_r23_f2
+  - first:
+      213: 272371546639611122
+    second: Body_Green_r23_f3
+  - first:
+      213: -7760582282877281028
+    second: BodyGreen_Casting_L_0
+  - first:
+      213: -8028472029507928997
+    second: BodyGreen_Casting_L_1
+  - first:
+      213: 1379264516912289045
+    second: BodyGreen_Casting_L_2
+  - first:
+      213: 4234975188747360669
+    second: BodyGreen_Casting_L_3
+  - first:
+      213: 4411666229837582663
+    second: BodyGreen_Idle_L_0
+  - first:
+      213: 4742654083423211565
+    second: BodyGreen_Idle_L_1
+  - first:
+      213: 5294976232569376395
+    second: BodyGreen_Idle_L_2
+  - first:
+      213: 8698907133902790692
+    second: BodyGreen_Idle_L_3
+  - first:
+      213: -1054295919198547868
+    second: BodyGreen_Fishing_L_0
+  - first:
+      213: 1494739702485632122
+    second: BodyGreen_Fishing_L_1
+  - first:
+      213: 1250140342062176555
+    second: BodyGreen_Fishing_L_2
+  - first:
+      213: -6422163934719342537
+    second: BodyGreen_Fishing_L_3
+  - first:
+      213: -2936451822512139178
+    second: BodyGreen_MoveForward_L_0
+  - first:
+      213: 6510543951679602180
+    second: BodyGreen_MoveForward_L_1
+  - first:
+      213: -3359192538268478600
+    second: BodyGreen_MoveForward_L_2
+  - first:
+      213: -7561389314380472216
+    second: BodyGreen_MoveForward_L_3
+  - first:
+      213: -9040982910850064045
+    second: BodyGreen_MoveBackward_L_0
+  - first:
+      213: 4906392171499591539
+    second: BodyGreen_MoveBackward_L_1
+  - first:
+      213: 126914693061508378
+    second: BodyGreen_MoveBackward_L_2
+  - first:
+      213: -3346392720000402296
+    second: BodyGreen_MoveBackward_L_3
+  - first:
+      213: -2937089753720102783
+    second: BodyGreen_Fighting_L_0
+  - first:
+      213: 2320395038487458349
+    second: BodyGreen_Fighting_L_1
+  - first:
+      213: 8240067662628092982
+    second: BodyGreen_Fighting_L_2
+  - first:
+      213: -9206903874374014830
+    second: BodyGreen_Fighting_L_3
+  - first:
+      213: 1165985262147020270
+    second: BodyGreen_Reeling_L_0
+  - first:
+      213: -8266590491226726945
+    second: BodyGreen_Reeling_L_1
+  - first:
+      213: -3370931308887047891
+    second: BodyGreen_Reeling_L_2
+  - first:
+      213: 8299273633328631749
+    second: BodyGreen_Reeling_L_3
+  - first:
+      213: -2421199680519012955
+    second: BodyGreen_Win_L_0
+  - first:
+      213: 7150413186702626649
+    second: BodyGreen_Win_L_1
+  - first:
+      213: -6707050095373084389
+    second: BodyGreen_Win_L_2
+  - first:
+      213: -6759706281608686851
+    second: BodyGreen_Win_L_3
+  - first:
+      213: -1296365263897428934
+    second: BodyGreen_SwappingPoles_L_0
+  - first:
+      213: -5911725113127225420
+    second: BodyGreen_SwappingPoles_L_1
+  - first:
+      213: 6970128574284318136
+    second: BodyGreen_SwappingPoles_L_2
+  - first:
+      213: 1223024211589495178
+    second: BodyGreen_SwappingPoles_L_3
+  - first:
+      213: -4371978908346135511
+    second: BodyGreen_Scared_L_0
+  - first:
+      213: -8153085492475193285
+    second: BodyGreen_Scared_L_1
+  - first:
+      213: 5985511613377527013
+    second: BodyGreen_Scared_L_2
+  - first:
+      213: -6282383497249818066
+    second: BodyGreen_Scared_L_3
+  - first:
+      213: -34760729265994667
+    second: BodyGreen_GoToCry_L_0
+  - first:
+      213: 8777850419788140575
+    second: BodyGreen_GoToCry_L_1
+  - first:
+      213: -1899178695127808777
+    second: BodyGreen_GoToCry_L_2
+  - first:
+      213: -1816791325844113229
+    second: BodyGreen_GoToCry_L_3
+  - first:
+      213: -3428878202670665362
+    second: BodyGreen_Cry_L_0
+  - first:
+      213: 6821516016377782085
+    second: BodyGreen_Cry_L_1
+  - first:
+      213: -7983783338819716773
+    second: BodyGreen_Cry_L_2
+  - first:
+      213: -8137972546389944056
+    second: BodyGreen_Cry_L_3
+  - first:
+      213: 3649026720372356233
+    second: BodyGreen_Casting_R_0
+  - first:
+      213: 4538751828046510516
+    second: BodyGreen_Casting_R_1
+  - first:
+      213: -4225063041379461085
+    second: BodyGreen_Casting_R_2
+  - first:
+      213: -3686356930228881790
+    second: BodyGreen_Casting_R_3
+  - first:
+      213: -6523071209512901831
+    second: BodyGreen_Idle_R_0
+  - first:
+      213: -2058576851799629707
+    second: BodyGreen_Idle_R_1
+  - first:
+      213: 4130767008132609241
+    second: BodyGreen_Idle_R_2
+  - first:
+      213: -3024350018213777641
+    second: BodyGreen_Idle_R_3
+  - first:
+      213: -2673964673789631614
+    second: BodyGreen_Fishing_R_0
+  - first:
+      213: 6554364430211453390
+    second: BodyGreen_Fishing_R_1
+  - first:
+      213: -6366693090684270292
+    second: BodyGreen_Fishing_R_2
+  - first:
+      213: -5295737594779411990
+    second: BodyGreen_Fishing_R_3
+  - first:
+      213: -8372091689745046705
+    second: BodyGreen_MoveForward_R_0
+  - first:
+      213: -1666461643439814373
+    second: BodyGreen_MoveForward_R_1
+  - first:
+      213: -5969915896913315154
+    second: BodyGreen_MoveForward_R_2
+  - first:
+      213: -7560986300126566209
+    second: BodyGreen_MoveForward_R_3
+  - first:
+      213: 6141951018826318044
+    second: BodyGreen_MoveBackward_R_0
+  - first:
+      213: -5609256238361489338
+    second: BodyGreen_MoveBackward_R_1
+  - first:
+      213: -6744487693209456932
+    second: BodyGreen_MoveBackward_R_2
+  - first:
+      213: -6955961791532232661
+    second: BodyGreen_MoveBackward_R_3
+  - first:
+      213: 5260495971848400340
+    second: BodyGreen_Fighting_R_0
+  - first:
+      213: 7330417584483489748
+    second: BodyGreen_Fighting_R_1
+  - first:
+      213: 1973664236518614168
+    second: BodyGreen_Fighting_R_2
+  - first:
+      213: 9128967474575973452
+    second: BodyGreen_Fighting_R_3
+  - first:
+      213: -8382858025158443899
+    second: BodyGreen_Reeling_R_0
+  - first:
+      213: 3123048384703511623
+    second: BodyGreen_Reeling_R_1
+  - first:
+      213: 1292739128439589116
+    second: BodyGreen_Reeling_R_2
+  - first:
+      213: 8610867365152247961
+    second: BodyGreen_Reeling_R_3
+  - first:
+      213: -4874857193824290143
+    second: BodyGreen_Win_R_0
+  - first:
+      213: 4896306387378019962
+    second: BodyGreen_Win_R_1
+  - first:
+      213: -7922520330348308980
+    second: BodyGreen_Win_R_2
+  - first:
+      213: 3921783039815242078
+    second: BodyGreen_Win_R_3
+  - first:
+      213: 4243008072260420153
+    second: BodyGreen_SwappingPoles_R_0
+  - first:
+      213: -7948978055204585349
+    second: BodyGreen_SwappingPoles_R_1
+  - first:
+      213: -6175158993473501737
+    second: BodyGreen_SwappingPoles_R_2
+  - first:
+      213: -2421381977005804443
+    second: BodyGreen_SwappingPoles_R_3
+  - first:
+      213: 8176804122785516573
+    second: BodyGreen_Scared_R_0
+  - first:
+      213: -1738822075304272609
+    second: BodyGreen_Scared_R_1
+  - first:
+      213: -995095445332127053
+    second: BodyGreen_Scared_R_2
+  - first:
+      213: 1300826274664272377
+    second: BodyGreen_Scared_R_3
+  - first:
+      213: -1373478353565081957
+    second: BodyGreen_GoToCry_R_0
+  - first:
+      213: 4907576224696129468
+    second: BodyGreen_GoToCry_R_1
+  - first:
+      213: 3814955854829573799
+    second: BodyGreen_GoToCry_R_2
+  - first:
+      213: 3301448567235174533
+    second: BodyGreen_GoToCry_R_3
+  - first:
+      213: -7783223554751064086
+    second: BodyGreen_Cry_R_0
+  - first:
+      213: -8459817717716058302
+    second: BodyGreen_Cry_R_1
+  - first:
+      213: -3707323004781935688
+    second: BodyGreen_Cry_R_2
+  - first:
+      213: -5750108543243651090
+    second: BodyGreen_Cry_R_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BodyGreen_Casting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfcd8e2f78fdc4490800000000000000
+      internalID: -7760582282877281028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Casting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5c3500d933259090800000000000000
+      internalID: -8028472029507928997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Casting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5159bdd35c1242310800000000000000
+      internalID: 1379264516912289045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Casting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9911ed0f77a5ca30800000000000000
+      internalID: 4234975188747360669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Idle_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7415e01ef03693d30800000000000000
+      internalID: 4411666229837582663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Idle_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d201ffed2ca41d140800000000000000
+      internalID: 4742654083423211565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Idle_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8e0f6c54d88b7940800000000000000
+      internalID: 5294976232569376395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Idle_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 420236213f9b8b870800000000000000
+      internalID: 8698907133902790692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Fishing_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 460d60882736e51f0800000000000000
+      internalID: -1054295919198547868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Fishing_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a74445607d16eb410800000000000000
+      internalID: 1494739702485632122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Fishing_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2950008404695110800000000000000
+      internalID: 1250140342062176555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Fishing_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7388abd6de3efd6a0800000000000000
+      internalID: -6422163934719342537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_MoveForward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6549d1b10a0af37d0800000000000000
+      internalID: -2936451822512139178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_MoveForward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40e3e6eca391a5a50800000000000000
+      internalID: 6510543951679602180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_MoveForward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8735d582f20c161d0800000000000000
+      internalID: -3359192538268478600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_MoveForward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 860eae30b7c801790800000000000000
+      internalID: -7561389314380472216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_MoveBackward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 351a76a91f9f78280800000000000000
+      internalID: -9040982910850064045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_MoveBackward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3779dfe4fa1071440800000000000000
+      internalID: 4906392171499591539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_MoveBackward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1d75bcad34e2c100800000000000000
+      internalID: 126914693061508378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_MoveBackward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88c3c651d893f81d0800000000000000
+      internalID: -3346392720000402296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Fighting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 180e21c2e6c5d37d0800000000000000
+      internalID: -2937089753720102783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Fighting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d22bf975ef2b33020800000000000000
+      internalID: 2320395038487458349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Fighting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63c7124a1e99a5270800000000000000
+      internalID: 8240067662628092982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Fighting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 298e4ced4b18a3080800000000000000
+      internalID: -9206903874374014830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Reeling_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee52d931b696e2010800000000000000
+      internalID: 1165985262147020270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Reeling_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdd1fca1fbb274d80800000000000000
+      internalID: -8266590491226726945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Reeling_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d218b83a5db0831d0800000000000000
+      internalID: -3370931308887047891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Reeling_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cf8158e561fc2370800000000000000
+      internalID: 8299273633328631749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Win_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5adff58f7bb266ed0800000000000000
+      internalID: -2421199680519012955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Win_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95fcda6a8ee5b3360800000000000000
+      internalID: 7150413186702626649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Win_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1999864975cbe2a0800000000000000
+      internalID: -6707050095373084389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Win_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df2dcba83f2b032a0800000000000000
+      internalID: -6759706281608686851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_SwappingPoles_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3cfc3239a2620ee0800000000000000
+      internalID: -1296365263897428934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_SwappingPoles_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b7bb4ec45555fda0800000000000000
+      internalID: -5911725113127225420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_SwappingPoles_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b5440d420fdab060800000000000000
+      internalID: 6970128574284318136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_SwappingPoles_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a897e736a0e09f010800000000000000
+      internalID: 1223024211589495178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Scared_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92c478ab85c9353c0800000000000000
+      internalID: -4371978908346135511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Scared_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3810a501fb6ade80800000000000000
+      internalID: -8153085492475193285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Scared_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ecb75a891fc01350800000000000000
+      internalID: 5985511613377527013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Scared_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2af5a7ae7d70d8a0800000000000000
+      internalID: -6282383497249818066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_GoToCry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55487f70d41848ff0800000000000000
+      internalID: -34760729265994667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_GoToCry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f105cf2237031d970800000000000000
+      internalID: 8777850419788140575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_GoToCry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f4caeff903c4a5e0800000000000000
+      internalID: -1899178695127808777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_GoToCry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b8fc083ae579c6e0800000000000000
+      internalID: -1816791325844113229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Cry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e613cbf017d2a60d0800000000000000
+      internalID: -3428878202670665362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Cry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54fd5d9cca4eaae50800000000000000
+      internalID: 6821516016377782085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Cry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b59f7fd6a57e33190800000000000000
+      internalID: -7983783338819716773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Cry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 809db8cf51d101f80800000000000000
+      internalID: -8137972546389944056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Casting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 984f3b30872f3a230800000000000000
+      internalID: 3649026720372356233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Casting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b9fd528db2ecfe30800000000000000
+      internalID: 4538751828046510516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Casting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32812f89c8f8d55c0800000000000000
+      internalID: -4225063041379461085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Casting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 286786237ed67dcc0800000000000000
+      internalID: -3686356930228881790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Idle_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 933e760bb456975a0800000000000000
+      internalID: -6523071209512901831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Idle_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57024a592477e63e0800000000000000
+      internalID: -2058576851799629707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Idle_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d4b5a945be635930800000000000000
+      internalID: 4130767008132609241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Idle_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71febef9ea95706d0800000000000000
+      internalID: -3024350018213777641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Fishing_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28363d4eb4b24ead0800000000000000
+      internalID: -2673964673789631614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Fishing_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec1953709b7c5fa50800000000000000
+      internalID: 6554364430211453390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Fishing_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2984dfbd56f4a7a0800000000000000
+      internalID: -6366693090684270292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Fishing_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae9dd7f27b2c186b0800000000000000
+      internalID: -5295737594779411990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_MoveForward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f432fb527fa50db80800000000000000
+      internalID: -8372091689745046705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_MoveForward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b19c4fee6f98fd8e0800000000000000
+      internalID: -1666461643439814373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_MoveForward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaa36892f19962da0800000000000000
+      internalID: -5969915896913315154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_MoveForward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb86c55150bf11790800000000000000
+      internalID: -7560986300126566209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_MoveBackward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd0cdf009e79c3550800000000000000
+      internalID: 6141951018826318044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_MoveBackward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 640d15a9b2be722b0800000000000000
+      internalID: -5609256238361489338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_MoveBackward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdea1464d24c662a0800000000000000
+      internalID: -6744487693209456932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_MoveBackward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b201888da95777f90800000000000000
+      internalID: -6955961791532232661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Fighting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dda5601739010940800000000000000
+      internalID: 5260495971848400340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Fighting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d75a6274ffdab560800000000000000
+      internalID: 7330417584483489748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Fighting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 894a59b8a2dd36b10800000000000000
+      internalID: 1973664236518614168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Fighting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4c12300d8b90be70800000000000000
+      internalID: 9128967474575973452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Reeling_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58cf5e75a0b1aab80800000000000000
+      internalID: -8382858025158443899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Reeling_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74c3c9295fb475b20800000000000000
+      internalID: 3123048384703511623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Reeling_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf8c3e9536bb0f110800000000000000
+      internalID: 1292739128439589116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Reeling_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99057eb0f32ff7770800000000000000
+      internalID: 8610867365152247961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Win_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aa7857d537095cb0800000000000000
+      internalID: -4874857193824290143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Win_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7e9423b7bc23f340800000000000000
+      internalID: 4896306387378019962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Win_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0657cf1cbd8d0290800000000000000
+      internalID: -7922520330348308980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Win_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e51d65e65e8fc6630800000000000000
+      internalID: 3921783039815242078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_SwappingPoles_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 932823e7c5132ea30800000000000000
+      internalID: 4243008072260420153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_SwappingPoles_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b70c724039e8fa190800000000000000
+      internalID: -7948978055204585349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_SwappingPoles_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d50472ec9d6d4aa0800000000000000
+      internalID: -6175158993473501737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_SwappingPoles_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5643903cbe5856ed0800000000000000
+      internalID: -2421381977005804443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Scared_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1c8490f608d97170800000000000000
+      internalID: 8176804122785516573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Scared_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1d91e109867ed7e0800000000000000
+      internalID: -1738822075304272609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Scared_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b29e57f6f5b032f0800000000000000
+      internalID: -995095445332127053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Scared_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f1dbdfca967d0210800000000000000
+      internalID: 1300826274664272377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_GoToCry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9e9015e6bc60fce0800000000000000
+      internalID: -1373478353565081957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_GoToCry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb75a2d23963b1440800000000000000
+      internalID: 4907576224696129468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_GoToCry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a6d9e0332271f430800000000000000
+      internalID: 3814955854829573799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_GoToCry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5806646eaf911dd20800000000000000
+      internalID: 3301448567235174533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Cry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae71c9b0a6f6cf390800000000000000
+      internalID: -7783223554751064086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Cry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24f7af69b90b89a80800000000000000
+      internalID: -8459817717716058302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Cry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b3c6509e51fc8cc0800000000000000
+      internalID: -3707323004781935688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BodyGreen_Cry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee7f50cceb28330b0800000000000000
+      internalID: -5750108543243651090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BodyGreen_Casting_L_0: -7760582282877281028
+      BodyGreen_Casting_L_1: -8028472029507928997
+      BodyGreen_Casting_L_2: 1379264516912289045
+      BodyGreen_Casting_L_3: 4234975188747360669
+      BodyGreen_Casting_R_0: 3649026720372356233
+      BodyGreen_Casting_R_1: 4538751828046510516
+      BodyGreen_Casting_R_2: -4225063041379461085
+      BodyGreen_Casting_R_3: -3686356930228881790
+      BodyGreen_Cry_L_0: -3428878202670665362
+      BodyGreen_Cry_L_1: 6821516016377782085
+      BodyGreen_Cry_L_2: -7983783338819716773
+      BodyGreen_Cry_L_3: -8137972546389944056
+      BodyGreen_Cry_R_0: -7783223554751064086
+      BodyGreen_Cry_R_1: -8459817717716058302
+      BodyGreen_Cry_R_2: -3707323004781935688
+      BodyGreen_Cry_R_3: -5750108543243651090
+      BodyGreen_Fighting_L_0: -2937089753720102783
+      BodyGreen_Fighting_L_1: 2320395038487458349
+      BodyGreen_Fighting_L_2: 8240067662628092982
+      BodyGreen_Fighting_L_3: -9206903874374014830
+      BodyGreen_Fighting_R_0: 5260495971848400340
+      BodyGreen_Fighting_R_1: 7330417584483489748
+      BodyGreen_Fighting_R_2: 1973664236518614168
+      BodyGreen_Fighting_R_3: 9128967474575973452
+      BodyGreen_Fishing_L_0: -1054295919198547868
+      BodyGreen_Fishing_L_1: 1494739702485632122
+      BodyGreen_Fishing_L_2: 1250140342062176555
+      BodyGreen_Fishing_L_3: -6422163934719342537
+      BodyGreen_Fishing_R_0: -2673964673789631614
+      BodyGreen_Fishing_R_1: 6554364430211453390
+      BodyGreen_Fishing_R_2: -6366693090684270292
+      BodyGreen_Fishing_R_3: -5295737594779411990
+      BodyGreen_GoToCry_L_0: -34760729265994667
+      BodyGreen_GoToCry_L_1: 8777850419788140575
+      BodyGreen_GoToCry_L_2: -1899178695127808777
+      BodyGreen_GoToCry_L_3: -1816791325844113229
+      BodyGreen_GoToCry_R_0: -1373478353565081957
+      BodyGreen_GoToCry_R_1: 4907576224696129468
+      BodyGreen_GoToCry_R_2: 3814955854829573799
+      BodyGreen_GoToCry_R_3: 3301448567235174533
+      BodyGreen_Idle_L_0: 4411666229837582663
+      BodyGreen_Idle_L_1: 4742654083423211565
+      BodyGreen_Idle_L_2: 5294976232569376395
+      BodyGreen_Idle_L_3: 8698907133902790692
+      BodyGreen_Idle_R_0: -6523071209512901831
+      BodyGreen_Idle_R_1: -2058576851799629707
+      BodyGreen_Idle_R_2: 4130767008132609241
+      BodyGreen_Idle_R_3: -3024350018213777641
+      BodyGreen_MoveBackward_L_0: -9040982910850064045
+      BodyGreen_MoveBackward_L_1: 4906392171499591539
+      BodyGreen_MoveBackward_L_2: 126914693061508378
+      BodyGreen_MoveBackward_L_3: -3346392720000402296
+      BodyGreen_MoveBackward_R_0: 6141951018826318044
+      BodyGreen_MoveBackward_R_1: -5609256238361489338
+      BodyGreen_MoveBackward_R_2: -6744487693209456932
+      BodyGreen_MoveBackward_R_3: -6955961791532232661
+      BodyGreen_MoveForward_L_0: -2936451822512139178
+      BodyGreen_MoveForward_L_1: 6510543951679602180
+      BodyGreen_MoveForward_L_2: -3359192538268478600
+      BodyGreen_MoveForward_L_3: -7561389314380472216
+      BodyGreen_MoveForward_R_0: -8372091689745046705
+      BodyGreen_MoveForward_R_1: -1666461643439814373
+      BodyGreen_MoveForward_R_2: -5969915896913315154
+      BodyGreen_MoveForward_R_3: -7560986300126566209
+      BodyGreen_Reeling_L_0: 1165985262147020270
+      BodyGreen_Reeling_L_1: -8266590491226726945
+      BodyGreen_Reeling_L_2: -3370931308887047891
+      BodyGreen_Reeling_L_3: 8299273633328631749
+      BodyGreen_Reeling_R_0: -8382858025158443899
+      BodyGreen_Reeling_R_1: 3123048384703511623
+      BodyGreen_Reeling_R_2: 1292739128439589116
+      BodyGreen_Reeling_R_3: 8610867365152247961
+      BodyGreen_Scared_L_0: -4371978908346135511
+      BodyGreen_Scared_L_1: -8153085492475193285
+      BodyGreen_Scared_L_2: 5985511613377527013
+      BodyGreen_Scared_L_3: -6282383497249818066
+      BodyGreen_Scared_R_0: 8176804122785516573
+      BodyGreen_Scared_R_1: -1738822075304272609
+      BodyGreen_Scared_R_2: -995095445332127053
+      BodyGreen_Scared_R_3: 1300826274664272377
+      BodyGreen_SwappingPoles_L_0: -1296365263897428934
+      BodyGreen_SwappingPoles_L_1: -5911725113127225420
+      BodyGreen_SwappingPoles_L_2: 6970128574284318136
+      BodyGreen_SwappingPoles_L_3: 1223024211589495178
+      BodyGreen_SwappingPoles_R_0: 4243008072260420153
+      BodyGreen_SwappingPoles_R_1: -7948978055204585349
+      BodyGreen_SwappingPoles_R_2: -6175158993473501737
+      BodyGreen_SwappingPoles_R_3: -2421381977005804443
+      BodyGreen_Win_L_0: -2421199680519012955
+      BodyGreen_Win_L_1: 7150413186702626649
+      BodyGreen_Win_L_2: -6707050095373084389
+      BodyGreen_Win_L_3: -6759706281608686851
+      BodyGreen_Win_R_0: -4874857193824290143
+      BodyGreen_Win_R_1: 4896306387378019962
+      BodyGreen_Win_R_2: -7922520330348308980
+      BodyGreen_Win_R_3: 3921783039815242078
+      Body_Green_r00_f0: -4642795173485644362
+      Body_Green_r00_f1: -250358750720340520
+      Body_Green_r00_f2: 7904080002635983412
+      Body_Green_r00_f3: -1624592993051816055
+      Body_Green_r01_f0: -522606445693992291
+      Body_Green_r01_f1: 6683921459498090411
+      Body_Green_r01_f2: -4992715059394736190
+      Body_Green_r01_f3: -9116972708000080822
+      Body_Green_r02_f0: -6826093418254428310
+      Body_Green_r02_f1: -886382932681502029
+      Body_Green_r02_f2: -6705811887481490148
+      Body_Green_r02_f3: -5357889038459734881
+      Body_Green_r03_f0: -3072260084187390036
+      Body_Green_r03_f1: 6765699325123462318
+      Body_Green_r03_f2: -1716177299410140676
+      Body_Green_r03_f3: 960468005572633554
+      Body_Green_r04_f0: 1495695565245109666
+      Body_Green_r04_f1: -3476996483471512393
+      Body_Green_r04_f2: 3767517199940657186
+      Body_Green_r04_f3: -883542929746373398
+      Body_Green_r05_f0: -5827918471669818432
+      Body_Green_r05_f1: -5158369633176652688
+      Body_Green_r05_f2: 5782113549662761256
+      Body_Green_r05_f3: -52372841270712237
+      Body_Green_r06_f0: -7938741086887246317
+      Body_Green_r06_f1: 1897622793863257182
+      Body_Green_r06_f2: 6115539268547441919
+      Body_Green_r06_f3: -3022248180868115145
+      Body_Green_r07_f0: -8894437088252856764
+      Body_Green_r07_f1: -4249267718676761431
+      Body_Green_r07_f2: 1150799571368251254
+      Body_Green_r07_f3: 8585414784289081417
+      Body_Green_r08_f0: 7228034911721796651
+      Body_Green_r08_f1: -4356974446978891355
+      Body_Green_r08_f2: 1094935782739305771
+      Body_Green_r08_f3: 2964628377076668496
+      Body_Green_r09_f0: 4586673847486193907
+      Body_Green_r09_f1: -7724924513272042515
+      Body_Green_r09_f2: -4760653657151045910
+      Body_Green_r09_f3: 6119836082990891280
+      Body_Green_r10_f0: 7564542054973114947
+      Body_Green_r10_f1: -7037104800909057177
+      Body_Green_r10_f2: 4523183033339983925
+      Body_Green_r10_f3: -2640856781910556128
+      Body_Green_r11_f0: -8450222574855320728
+      Body_Green_r11_f1: -2865437980213519105
+      Body_Green_r11_f2: 5062974866576978312
+      Body_Green_r11_f3: -3418210063409015908
+      Body_Green_r12_f0: -3077595212168825642
+      Body_Green_r12_f1: 2365534422736165949
+      Body_Green_r12_f2: 5384145525200723169
+      Body_Green_r12_f3: 237672182264741004
+      Body_Green_r13_f0: -4041576201948977607
+      Body_Green_r13_f1: 6214180597754035158
+      Body_Green_r13_f2: -6037489008160097004
+      Body_Green_r13_f3: 1955752971564790655
+      Body_Green_r14_f0: -8798265549395647025
+      Body_Green_r14_f1: 616702065794048931
+      Body_Green_r14_f2: 6648511213282167117
+      Body_Green_r14_f3: 7928838738138726674
+      Body_Green_r15_f0: 3084695995553105593
+      Body_Green_r15_f1: 7739301876692094793
+      Body_Green_r15_f2: -5545468648397920358
+      Body_Green_r15_f3: -6751197996376205427
+      Body_Green_r16_f0: -1626398990512840699
+      Body_Green_r16_f1: -9111658557688008337
+      Body_Green_r16_f2: -6942235985796362143
+      Body_Green_r16_f3: -1439724121928941813
+      Body_Green_r17_f0: -1133282254594981798
+      Body_Green_r17_f1: -6538857471007240026
+      Body_Green_r17_f2: 32205108167805154
+      Body_Green_r17_f3: -4185704110148784023
+      Body_Green_r18_f0: 3647650409034506880
+      Body_Green_r18_f1: 1480900404831913212
+      Body_Green_r18_f2: -273562572536988857
+      Body_Green_r18_f3: -379486017252470260
+      Body_Green_r19_f0: 7804494496280651701
+      Body_Green_r19_f1: -7109907342034152536
+      Body_Green_r19_f2: -6436924955634104024
+      Body_Green_r19_f3: -3489935861572933834
+      Body_Green_r20_f0: -1319234126720902283
+      Body_Green_r20_f1: -1296852385225892020
+      Body_Green_r20_f2: 4168154306385982389
+      Body_Green_r20_f3: 4225874080208205687
+      Body_Green_r21_f0: -3194291879349345584
+      Body_Green_r21_f1: -5476460217574805353
+      Body_Green_r21_f2: -2727708205238580261
+      Body_Green_r21_f3: 6971844869164208835
+      Body_Green_r22_f0: -2245137372718947287
+      Body_Green_r22_f1: -1180854838022391304
+      Body_Green_r22_f2: 3675861252236015160
+      Body_Green_r22_f3: 4001371110815467725
+      Body_Green_r23_f0: 7174491721018426581
+      Body_Green_r23_f1: -7268128779066600253
+      Body_Green_r23_f2: -1359509013578026133
+      Body_Green_r23_f3: 272371546639611122
+      Fisherman_Body_Green_Sheet_0: -8578684146911722710
+      Fisherman_Body_Green_Sheet_1: -4674375547117734048
+      Fisherman_Body_Green_Sheet_10: 6687511884847398040
+      Fisherman_Body_Green_Sheet_11: 7143023805264628064
+      Fisherman_Body_Green_Sheet_12: -1184434884610181464
+      Fisherman_Body_Green_Sheet_13: -2413831617661833629
+      Fisherman_Body_Green_Sheet_14: 6203224806391669344
+      Fisherman_Body_Green_Sheet_15: 3646764405909934762
+      Fisherman_Body_Green_Sheet_16: -3237042584970002406
+      Fisherman_Body_Green_Sheet_17: -6442804380857447004
+      Fisherman_Body_Green_Sheet_18: 4556105658656949476
+      Fisherman_Body_Green_Sheet_19: 6978022608622539652
+      Fisherman_Body_Green_Sheet_2: 1305075721181631121
+      Fisherman_Body_Green_Sheet_20: -3922704002410775605
+      Fisherman_Body_Green_Sheet_21: -9006797331758516788
+      Fisherman_Body_Green_Sheet_22: -7022841311831403856
+      Fisherman_Body_Green_Sheet_23: 1672201065198180520
+      Fisherman_Body_Green_Sheet_24: -1694955904877952331
+      Fisherman_Body_Green_Sheet_25: 201712656426237741
+      Fisherman_Body_Green_Sheet_26: -5473649472669741580
+      Fisherman_Body_Green_Sheet_27: 5718030400553536636
+      Fisherman_Body_Green_Sheet_28: -2311906701855857349
+      Fisherman_Body_Green_Sheet_29: -9114708682665408162
+      Fisherman_Body_Green_Sheet_3: 4277321253372608109
+      Fisherman_Body_Green_Sheet_30: -69866670076359263
+      Fisherman_Body_Green_Sheet_31: -5548057639148159014
+      Fisherman_Body_Green_Sheet_32: 7453775979898765601
+      Fisherman_Body_Green_Sheet_33: -3278750977822218865
+      Fisherman_Body_Green_Sheet_34: 1370024470954571007
+      Fisherman_Body_Green_Sheet_35: -4564074420355625723
+      Fisherman_Body_Green_Sheet_36: -3333992505714452251
+      Fisherman_Body_Green_Sheet_37: 1009879249501350766
+      Fisherman_Body_Green_Sheet_38: 4257882769860832692
+      Fisherman_Body_Green_Sheet_39: -8654884486321803983
+      Fisherman_Body_Green_Sheet_4: -8980847467222710495
+      Fisherman_Body_Green_Sheet_40: 6344994437694954786
+      Fisherman_Body_Green_Sheet_41: 3343133172164510451
+      Fisherman_Body_Green_Sheet_42: 3722488477486454164
+      Fisherman_Body_Green_Sheet_43: -2985908506898866666
+      Fisherman_Body_Green_Sheet_44: 1037784946682085051
+      Fisherman_Body_Green_Sheet_45: -3738963364997215374
+      Fisherman_Body_Green_Sheet_46: -6914067434935374992
+      Fisherman_Body_Green_Sheet_47: -5422248815792852610
+      Fisherman_Body_Green_Sheet_48: 8819435712174513734
+      Fisherman_Body_Green_Sheet_49: 7738007139428482224
+      Fisherman_Body_Green_Sheet_5: 6069376998177214057
+      Fisherman_Body_Green_Sheet_50: -5252214175200630122
+      Fisherman_Body_Green_Sheet_51: 5543743832725307934
+      Fisherman_Body_Green_Sheet_52: -4262504786863551399
+      Fisherman_Body_Green_Sheet_53: 9028504100178281782
+      Fisherman_Body_Green_Sheet_54: 8934907486610768792
+      Fisherman_Body_Green_Sheet_55: 16762816643044828
+      Fisherman_Body_Green_Sheet_56: 5596047259640297303
+      Fisherman_Body_Green_Sheet_57: 5208164676459055368
+      Fisherman_Body_Green_Sheet_58: 2508456103857307786
+      Fisherman_Body_Green_Sheet_59: 4589353398952772495
+      Fisherman_Body_Green_Sheet_6: -6558041334378986652
+      Fisherman_Body_Green_Sheet_60: -5674400885393075669
+      Fisherman_Body_Green_Sheet_61: 3292007845759919972
+      Fisherman_Body_Green_Sheet_62: -2530772387243519846
+      Fisherman_Body_Green_Sheet_63: 5889067526604141274
+      Fisherman_Body_Green_Sheet_64: -467426953132906951
+      Fisherman_Body_Green_Sheet_65: 5912623682133917536
+      Fisherman_Body_Green_Sheet_66: -8310050123879911754
+      Fisherman_Body_Green_Sheet_67: 1897858573148490115
+      Fisherman_Body_Green_Sheet_68: -1330355531892336287
+      Fisherman_Body_Green_Sheet_69: -1324208178637271504
+      Fisherman_Body_Green_Sheet_7: 703363325808181989
+      Fisherman_Body_Green_Sheet_70: 3766964418215685467
+      Fisherman_Body_Green_Sheet_71: -4237311923443500412
+      Fisherman_Body_Green_Sheet_72: -250766997263482385
+      Fisherman_Body_Green_Sheet_73: 3100844186338679706
+      Fisherman_Body_Green_Sheet_74: -3164365576641613343
+      Fisherman_Body_Green_Sheet_75: -4613669320396027147
+      Fisherman_Body_Green_Sheet_76: -203411788367362512
+      Fisherman_Body_Green_Sheet_77: -5461264038095811783
+      Fisherman_Body_Green_Sheet_78: 581924466462594904
+      Fisherman_Body_Green_Sheet_79: 4804172998266603380
+      Fisherman_Body_Green_Sheet_8: 7252810578281991978
+      Fisherman_Body_Green_Sheet_80: 4040729560112308899
+      Fisherman_Body_Green_Sheet_81: 2923527979300935250
+      Fisherman_Body_Green_Sheet_82: 4624119339177894213
+      Fisherman_Body_Green_Sheet_83: -7784188250593351557
+      Fisherman_Body_Green_Sheet_84: -8132975763617593701
+      Fisherman_Body_Green_Sheet_85: 9103729899962615806
+      Fisherman_Body_Green_Sheet_86: -3922328703380385024
+      Fisherman_Body_Green_Sheet_87: -5899307717838259357
+      Fisherman_Body_Green_Sheet_88: -1948437577118866162
+      Fisherman_Body_Green_Sheet_89: -2284858108437828493
+      Fisherman_Body_Green_Sheet_9: -747886218749321860
+      Fisherman_Body_Green_Sheet_90: -1648099093384325296
+      Fisherman_Body_Green_Sheet_91: -1196651136676418740
+      Fisherman_Body_Green_Sheet_92: -5928221983453836632
+      Fisherman_Body_Green_Sheet_93: 568976652954163679
+      Fisherman_Body_Green_Sheet_94: 8587958168450376043
+      Fisherman_Body_Green_Sheet_95: -670791108859992596
+      Fisherman_Body_Green_Sheet_96: 3905976118817638943
+      Fisherman_Body_Green_Sheet_97: -8944747949331804769
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

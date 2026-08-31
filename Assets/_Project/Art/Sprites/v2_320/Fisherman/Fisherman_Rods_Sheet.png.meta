@@ -1,0 +1,3672 @@
+fileFormatVersion: 2
+guid: ef2228e9ed755c643a64b5392e164c0a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3988148066042740884
+    second: Fisherman_Rods_Sheet_0
+  - first:
+      213: 4907144490263361458
+    second: Fisherman_Rods_Sheet_1
+  - first:
+      213: 2597900615966916142
+    second: Fisherman_Rods_Sheet_2
+  - first:
+      213: 1155772860756004089
+    second: Fisherman_Rods_Sheet_3
+  - first:
+      213: -2160995655899905585
+    second: Fisherman_Rods_Sheet_4
+  - first:
+      213: 1028627141893251900
+    second: Fisherman_Rods_Sheet_5
+  - first:
+      213: 7297485879110315989
+    second: Fisherman_Rods_Sheet_6
+  - first:
+      213: 3153277482434007511
+    second: Fisherman_Rods_Sheet_7
+  - first:
+      213: 3996769386994960589
+    second: Fisherman_Rods_Sheet_8
+  - first:
+      213: -3901355200173137141
+    second: Fisherman_Rods_Sheet_9
+  - first:
+      213: 6604769701171949274
+    second: Fisherman_Rods_Sheet_10
+  - first:
+      213: -2371360447685455111
+    second: Fisherman_Rods_Sheet_11
+  - first:
+      213: -8799102701460842112
+    second: Fisherman_Rods_Sheet_12
+  - first:
+      213: 3757304187426842940
+    second: Fisherman_Rods_Sheet_13
+  - first:
+      213: 5011571949213295064
+    second: Fisherman_Rods_Sheet_14
+  - first:
+      213: -4473292788338105166
+    second: Fisherman_Rods_Sheet_15
+  - first:
+      213: 1660265631473344733
+    second: Fisherman_Rods_Sheet_16
+  - first:
+      213: 160486731236893914
+    second: Fisherman_Rods_Sheet_17
+  - first:
+      213: 9176823322951735839
+    second: Fisherman_Rods_Sheet_18
+  - first:
+      213: -9075594218139035401
+    second: Fisherman_Rods_Sheet_19
+  - first:
+      213: -4424673953950112423
+    second: Fisherman_Rods_Sheet_20
+  - first:
+      213: 2371010548023084572
+    second: Fisherman_Rods_Sheet_21
+  - first:
+      213: -6093461343806488495
+    second: Fisherman_Rods_Sheet_22
+  - first:
+      213: -3749986587767302963
+    second: Fisherman_Rods_Sheet_23
+  - first:
+      213: -3758138856995901695
+    second: Fisherman_Rods_Sheet_24
+  - first:
+      213: -4111804654361069462
+    second: Fisherman_Rods_Sheet_25
+  - first:
+      213: 1514412380418563896
+    second: Fisherman_Rods_Sheet_26
+  - first:
+      213: -4535973210126335997
+    second: Fisherman_Rods_Sheet_27
+  - first:
+      213: -1295500575236691273
+    second: Fisherman_Rods_Sheet_28
+  - first:
+      213: -3361138403325187385
+    second: Fisherman_Rods_Sheet_29
+  - first:
+      213: 7284174761883660687
+    second: Fisherman_Rods_Sheet_30
+  - first:
+      213: -5826033185689907576
+    second: Fisherman_Rods_Sheet_31
+  - first:
+      213: 6646222321815033279
+    second: Fisherman_Rods_Sheet_32
+  - first:
+      213: -3798553353714005608
+    second: Fisherman_Rods_Sheet_33
+  - first:
+      213: -2502197671045479670
+    second: Fisherman_Rods_Sheet_34
+  - first:
+      213: -3262079020698784912
+    second: Fisherman_Rods_Sheet_35
+  - first:
+      213: -3470139359052576180
+    second: Fisherman_Rods_Sheet_36
+  - first:
+      213: 6877634677445395844
+    second: Fisherman_Rods_Sheet_37
+  - first:
+      213: -8863893571446272918
+    second: Fisherman_Rods_Sheet_38
+  - first:
+      213: 4749517054383920925
+    second: Fisherman_Rods_Sheet_39
+  - first:
+      213: -8033269359183941018
+    second: Fisherman_Rods_Sheet_40
+  - first:
+      213: 3766671495735574242
+    second: Fisherman_Rods_Sheet_41
+  - first:
+      213: -328640185438913965
+    second: Fisherman_Rods_Sheet_42
+  - first:
+      213: 2318147180328297340
+    second: Fisherman_Rods_Sheet_43
+  - first:
+      213: -3650573327581776348
+    second: Fisherman_Rods_Sheet_44
+  - first:
+      213: 93499633631937711
+    second: Fisherman_Rods_Sheet_45
+  - first:
+      213: -7838377807939370672
+    second: Fisherman_Rods_Sheet_46
+  - first:
+      213: -3661484922327454042
+    second: Fisherman_Rods_Sheet_47
+  - first:
+      213: -5048169424924434879
+    second: Fisherman_Rods_Sheet_48
+  - first:
+      213: -489455864437706762
+    second: Fisherman_Rods_Sheet_49
+  - first:
+      213: -4600668468230813959
+    second: Fisherman_Rods_Sheet_50
+  - first:
+      213: -311505984036092439
+    second: Fisherman_Rods_Sheet_51
+  - first:
+      213: 8164447766868639485
+    second: Fisherman_Rods_Sheet_52
+  - first:
+      213: 5072443869267833108
+    second: Fisherman_Rods_Sheet_53
+  - first:
+      213: 4266140048796874675
+    second: Fisherman_Rods_Sheet_54
+  - first:
+      213: 6612452061063725921
+    second: Fisherman_Rods_Sheet_55
+  - first:
+      213: -7447514692197337239
+    second: Fisherman_Rods_Sheet_56
+  - first:
+      213: 4604082806607333320
+    second: Fisherman_Rods_Sheet_57
+  - first:
+      213: -2342095266082672365
+    second: Fisherman_Rods_Sheet_58
+  - first:
+      213: 107326695497214977
+    second: Fisherman_Rods_Sheet_59
+  - first:
+      213: -6770357929703726244
+    second: Fisherman_Rods_Sheet_60
+  - first:
+      213: 8350714773316143092
+    second: Fisherman_Rods_Sheet_61
+  - first:
+      213: -7388726566830008762
+    second: Fisherman_Rods_Sheet_62
+  - first:
+      213: -2379353995368543510
+    second: Fisherman_Rods_Sheet_63
+  - first:
+      213: 1012444601460876079
+    second: Fisherman_Rods_Sheet_64
+  - first:
+      213: 1990314670902518563
+    second: Fisherman_Rods_Sheet_65
+  - first:
+      213: -9035665489877254337
+    second: Fisherman_Rods_Sheet_66
+  - first:
+      213: -1622218800595319962
+    second: Fisherman_Rods_Sheet_67
+  - first:
+      213: 8500589903455668963
+    second: Fisherman_Rods_Sheet_68
+  - first:
+      213: -4619120544253137743
+    second: Fisherman_Rods_Sheet_69
+  - first:
+      213: -8060374621294072121
+    second: Fisherman_Rods_Sheet_70
+  - first:
+      213: -2335277781841241709
+    second: Fisherman_Rods_Sheet_71
+  - first:
+      213: 4606775492834825153
+    second: Fisherman_Rods_Sheet_72
+  - first:
+      213: 6670641879285231953
+    second: Fisherman_Rods_Sheet_73
+  - first:
+      213: 1698234804753601931
+    second: Fisherman_Rods_Sheet_74
+  - first:
+      213: -8677109345682236961
+    second: Fisherman_Rods_Sheet_75
+  - first:
+      213: -180382531203176416
+    second: Fisherman_Rods_Sheet_76
+  - first:
+      213: -8612424928673350872
+    second: Fisherman_Rods_Sheet_77
+  - first:
+      213: 696517050565704429
+    second: Fisherman_Rods_Sheet_78
+  - first:
+      213: -2109682173777166541
+    second: Fisherman_Rods_Sheet_79
+  - first:
+      213: -9067660646130310016
+    second: Fisherman_Rods_Sheet_80
+  - first:
+      213: 7092699079032624603
+    second: Fisherman_Rods_Sheet_81
+  - first:
+      213: -4807529786872260394
+    second: Fisherman_Rods_Sheet_82
+  - first:
+      213: -5450059204134527933
+    second: Fisherman_Rods_Sheet_83
+  - first:
+      213: 2178648923248237317
+    second: Fisherman_Rods_Sheet_84
+  - first:
+      213: -3159494401124167909
+    second: Fisherman_Rods_Sheet_85
+  - first:
+      213: -243869267924595763
+    second: Fisherman_Rods_Sheet_86
+  - first:
+      213: -2207718675926556334
+    second: Fisherman_Rods_Sheet_87
+  - first:
+      213: -5234978005217432991
+    second: Fisherman_Rods_Sheet_88
+  - first:
+      213: -5795924498146354703
+    second: Fisherman_Rods_Sheet_89
+  - first:
+      213: 5144395614860575671
+    second: Fisherman_Rods_Sheet_90
+  - first:
+      213: 1161421355515619963
+    second: Fisherman_Rods_Sheet_91
+  - first:
+      213: 4870726731887137172
+    second: Fisherman_Rods_Sheet_92
+  - first:
+      213: 4789581637958109684
+    second: Fisherman_Rods_Sheet_93
+  - first:
+      213: -7203944824624148302
+    second: Fisherman_Rods_Sheet_94
+  - first:
+      213: 8249586030134802053
+    second: Fisherman_Rods_Sheet_95
+  - first:
+      213: -1850675129151530209
+    second: Fisherman_Rods_Sheet_96
+  - first:
+      213: -734752856428860595
+    second: Fisherman_Rods_Sheet_97
+  - first:
+      213: 6735889680415149041
+    second: Fisherman_Rods_Sheet_98
+  - first:
+      213: -3328972361285909021
+    second: Fisherman_Rods_Sheet_99
+  - first:
+      213: -40821494333818030
+    second: Fisherman_Rods_Sheet_100
+  - first:
+      213: -6650335871103591579
+    second: Fisherman_Rods_Sheet_101
+  - first:
+      213: -3592948899052215123
+    second: Fisherman_Rods_Sheet_102
+  - first:
+      213: 3425244269969526589
+    second: Fisherman_Rods_Sheet_103
+  - first:
+      213: 463106475696353064
+    second: Fisherman_Rods_Sheet_104
+  - first:
+      213: 4380589971184279752
+    second: Fisherman_Rods_Sheet_105
+  - first:
+      213: 1492253405436432601
+    second: Fisherman_Rods_Sheet_106
+  - first:
+      213: -9140191681939428094
+    second: Fisherman_Rods_Sheet_107
+  - first:
+      213: -3569883561184500802
+    second: Fisherman_Rods_Sheet_108
+  - first:
+      213: 516927841354059095
+    second: Fisherman_Rods_Sheet_109
+  - first:
+      213: -5710833363583416195
+    second: Fisherman_Rods_Sheet_110
+  - first:
+      213: -650753842382829069
+    second: Fisherman_Rods_Sheet_111
+  - first:
+      213: 8192909424022425658
+    second: Fisherman_Rods_Sheet_112
+  - first:
+      213: 6941767903694569886
+    second: Fisherman_Rods_Sheet_113
+  - first:
+      213: -6407709697764201180
+    second: Fisherman_Rods_Sheet_114
+  - first:
+      213: 4190938905720768967
+    second: Fisherman_Rods_Sheet_115
+  - first:
+      213: 2039493873235003521
+    second: Fisherman_Rods_Sheet_116
+  - first:
+      213: -9172006179596491730
+    second: Fisherman_Rods_Sheet_117
+  - first:
+      213: -4742098083738112003
+    second: Fisherman_Rods_Sheet_118
+  - first:
+      213: 8666874230174892605
+    second: Fisherman_Rods_Sheet_119
+  - first:
+      213: -5023890894291922022
+    second: Fisherman_Rods_Sheet_120
+  - first:
+      213: 2651374287915394311
+    second: Fisherman_Rods_Sheet_121
+  - first:
+      213: -2376000700945080527
+    second: Fisherman_Rods_Sheet_122
+  - first:
+      213: -5259368494734243861
+    second: Fisherman_Rods_Sheet_123
+  - first:
+      213: 53015040181255446
+    second: Fisherman_Rods_Sheet_124
+  - first:
+      213: 4039731620423641181
+    second: Fisherman_Rods_Sheet_125
+  - first:
+      213: 1528937823430900637
+    second: Fisherman_Rods_Sheet_126
+  - first:
+      213: -2435594004013108207
+    second: Fisherman_Rods_Sheet_127
+  - first:
+      213: 2033288801575275417
+    second: Fisherman_Rods_Sheet_128
+  - first:
+      213: 252052962220670022
+    second: Fisherman_Rods_Sheet_129
+  - first:
+      213: 5762892140388263268
+    second: Fisherman_Rods_Sheet_130
+  - first:
+      213: -846370014646966690
+    second: Fisherman_Rods_Sheet_131
+  - first:
+      213: 1284188348274575732
+    second: Fisherman_Rods_Sheet_132
+  - first:
+      213: 5973018708819458310
+    second: Fisherman_Rods_Sheet_133
+  - first:
+      213: 6580195983962972025
+    second: Fisherman_Rods_Sheet_134
+  - first:
+      213: 318832073858917073
+    second: Fisherman_Rods_Sheet_135
+  - first:
+      213: -6573479969055138464
+    second: Fisherman_Rods_Sheet_136
+  - first:
+      213: 8462109129231815317
+    second: Fisherman_Rods_Sheet_137
+  - first:
+      213: 944066049311832524
+    second: Fisherman_Rods_Sheet_138
+  - first:
+      213: -2758558991759861946
+    second: Fisherman_Rods_Sheet_139
+  - first:
+      213: -8898929383137088375
+    second: Fisherman_Rods_Sheet_140
+  - first:
+      213: 3201469943846466415
+    second: Fisherman_Rods_Sheet_141
+  - first:
+      213: 2037477524421119300
+    second: Fisherman_Rods_Sheet_142
+  - first:
+      213: -5223203784351924116
+    second: Fisherman_Rods_Sheet_143
+  - first:
+      213: 6512854035438744564
+    second: Fisherman_Rods_Sheet_144
+  - first:
+      213: -3247899279214213886
+    second: Fisherman_Rods_Sheet_145
+  - first:
+      213: 1588824944905155406
+    second: Fisherman_Rods_Sheet_146
+  - first:
+      213: -2457456813990088526
+    second: Fisherman_Rods_Sheet_147
+  - first:
+      213: 3616818306133981746
+    second: Fisherman_Rods_Sheet_148
+  - first:
+      213: -3048047063892793301
+    second: Fisherman_Rods_Sheet_149
+  - first:
+      213: 7521294351662067036
+    second: Fisherman_Rods_Sheet_150
+  - first:
+      213: 6182705409989908585
+    second: Fisherman_Rods_Sheet_151
+  - first:
+      213: -7138272500564582453
+    second: Fisherman_Rods_Sheet_152
+  - first:
+      213: 6270614000555669110
+    second: Fisherman_Rods_Sheet_153
+  - first:
+      213: -8687418112069303167
+    second: Fisherman_Rods_Sheet_154
+  - first:
+      213: 4434773837878133329
+    second: Fisherman_Rods_Sheet_155
+  - first:
+      213: -3966907968581109749
+    second: Fisherman_Rods_Sheet_156
+  - first:
+      213: 1689134695262020558
+    second: Fisherman_Rods_Sheet_157
+  - first:
+      213: -1680886775447455478
+    second: Fisherman_Rods_Sheet_158
+  - first:
+      213: -3089768993357384746
+    second: Rods_r00_f0
+  - first:
+      213: 3301119827324954521
+    second: Rods_r00_f1
+  - first:
+      213: -2673360744255576976
+    second: Rods_r00_f2
+  - first:
+      213: 6402338181408329116
+    second: Rods_r00_f3
+  - first:
+      213: -2372015906780748395
+    second: Rods_r01_f0
+  - first:
+      213: -3328360916658342150
+    second: Rods_r01_f1
+  - first:
+      213: -7338761380509204885
+    second: Rods_r01_f2
+  - first:
+      213: -1364573350555257981
+    second: Rods_r01_f3
+  - first:
+      213: -5911799025538161537
+    second: Rods_r02_f0
+  - first:
+      213: 5060362453075961927
+    second: Rods_r02_f1
+  - first:
+      213: 3194604567349049657
+    second: Rods_r02_f2
+  - first:
+      213: -8865399416357527584
+    second: Rods_r02_f3
+  - first:
+      213: -8388019272448036364
+    second: Rods_r03_f0
+  - first:
+      213: -7879681282803349439
+    second: Rods_r03_f1
+  - first:
+      213: -3395188769085393277
+    second: Rods_r03_f2
+  - first:
+      213: 3499942324638236575
+    second: Rods_r03_f3
+  - first:
+      213: -1450529799604104020
+    second: Rods_r04_f0
+  - first:
+      213: 7270061772360295618
+    second: Rods_r04_f1
+  - first:
+      213: 5948591144906112137
+    second: Rods_r04_f2
+  - first:
+      213: -4358826619362259211
+    second: Rods_r04_f3
+  - first:
+      213: -8313626280372393078
+    second: Rods_r05_f0
+  - first:
+      213: 5175957354585669121
+    second: Rods_r05_f1
+  - first:
+      213: -4947058694763727342
+    second: Rods_r05_f2
+  - first:
+      213: -4026732166599945044
+    second: Rods_r05_f3
+  - first:
+      213: -6207858088659978181
+    second: Rods_r06_f0
+  - first:
+      213: 535744783187297689
+    second: Rods_r06_f1
+  - first:
+      213: -611702408110451537
+    second: Rods_r06_f2
+  - first:
+      213: 5710142319302270839
+    second: Rods_r06_f3
+  - first:
+      213: 1327189230908022684
+    second: Rods_r07_f0
+  - first:
+      213: -7551246131924433125
+    second: Rods_r07_f1
+  - first:
+      213: -1739406832572858682
+    second: Rods_r07_f2
+  - first:
+      213: 1533608334353448701
+    second: Rods_r07_f3
+  - first:
+      213: 5391200087580109106
+    second: Rods_r08_f0
+  - first:
+      213: -1052091487661777590
+    second: Rods_r08_f1
+  - first:
+      213: 4474134673087301973
+    second: Rods_r08_f2
+  - first:
+      213: -9087488668011040556
+    second: Rods_r08_f3
+  - first:
+      213: 5932515687269929481
+    second: Rods_r09_f0
+  - first:
+      213: 8412529835119628265
+    second: Rods_r09_f1
+  - first:
+      213: 1262996792663629144
+    second: Rods_r09_f2
+  - first:
+      213: 8946747227300012133
+    second: Rods_r09_f3
+  - first:
+      213: -2083103588349473997
+    second: Rods_r10_f0
+  - first:
+      213: -8126365383866142139
+    second: Rods_r10_f1
+  - first:
+      213: 1323600303894767507
+    second: Rods_r10_f2
+  - first:
+      213: 4852311130463335367
+    second: Rods_r10_f3
+  - first:
+      213: -1456214900695902127
+    second: Rods_r11_f0
+  - first:
+      213: 7554990938209085294
+    second: Rods_r11_f1
+  - first:
+      213: 1128734159185683188
+    second: Rods_r11_f2
+  - first:
+      213: -8504698952779350327
+    second: Rods_r11_f3
+  - first:
+      213: -5027372551470042489
+    second: Rods_r12_f0
+  - first:
+      213: 4388288580418250814
+    second: Rods_r12_f1
+  - first:
+      213: -2084472129520157350
+    second: Rods_r12_f2
+  - first:
+      213: 2586925810088959613
+    second: Rods_r12_f3
+  - first:
+      213: 5193736666073549260
+    second: Rods_r13_f0
+  - first:
+      213: 1226830088390128612
+    second: Rods_r13_f1
+  - first:
+      213: -420254162478931400
+    second: Rods_r13_f2
+  - first:
+      213: -5415353661639373054
+    second: Rods_r13_f3
+  - first:
+      213: -2156707081590575651
+    second: Rods_r14_f0
+  - first:
+      213: 1826522127459162517
+    second: Rods_r14_f1
+  - first:
+      213: 3675826596354813922
+    second: Rods_r14_f2
+  - first:
+      213: 1660259859289949775
+    second: Rods_r14_f3
+  - first:
+      213: 224253327495833555
+    second: Rods_r15_f0
+  - first:
+      213: 5519277328076096994
+    second: Rods_r15_f1
+  - first:
+      213: 3769668605637546213
+    second: Rods_r15_f2
+  - first:
+      213: -6553974248038941840
+    second: Rods_r15_f3
+  - first:
+      213: 2600579879181748003
+    second: Rods_r16_f0
+  - first:
+      213: -3681708367716395988
+    second: Rods_r16_f1
+  - first:
+      213: 6729805770523341803
+    second: Rods_r16_f2
+  - first:
+      213: 3718198178682985443
+    second: Rods_r16_f3
+  - first:
+      213: 1592560374398987532
+    second: Rods_r17_f0
+  - first:
+      213: -8483082328183851678
+    second: Rods_r17_f1
+  - first:
+      213: -8963466121337546048
+    second: Rods_r17_f2
+  - first:
+      213: -2109329221129016259
+    second: Rods_r17_f3
+  - first:
+      213: 6374969347493602616
+    second: Rods_r18_f0
+  - first:
+      213: 5294701195111380834
+    second: Rods_r18_f1
+  - first:
+      213: -7993409619871730649
+    second: Rods_r18_f2
+  - first:
+      213: 6078592390483697238
+    second: Rods_r18_f3
+  - first:
+      213: 8714503396415853344
+    second: Rods_r19_f0
+  - first:
+      213: 3420175793081559991
+    second: Rods_r19_f1
+  - first:
+      213: -2204269718311211841
+    second: Rods_r19_f2
+  - first:
+      213: 2530391404596654808
+    second: Rods_r19_f3
+  - first:
+      213: 2343050413824832280
+    second: Rods_r20_f0
+  - first:
+      213: 287713147105827441
+    second: Rods_r20_f1
+  - first:
+      213: -3361992312835110231
+    second: Rods_r20_f2
+  - first:
+      213: 8644289203929363242
+    second: Rods_r20_f3
+  - first:
+      213: 3674368470851094228
+    second: Rods_r21_f0
+  - first:
+      213: -2628804516755802407
+    second: Rods_r21_f1
+  - first:
+      213: 4258151672052995515
+    second: Rods_r21_f2
+  - first:
+      213: 4622911885303334950
+    second: Rods_r21_f3
+  - first:
+      213: -6978747794550965146
+    second: Rods_r22_f0
+  - first:
+      213: -690190667079504316
+    second: Rods_r22_f1
+  - first:
+      213: -6205088427984855754
+    second: Rods_r22_f2
+  - first:
+      213: -5944891469454596130
+    second: Rods_r22_f3
+  - first:
+      213: -2488661127145981337
+    second: Rods_r23_f0
+  - first:
+      213: 5349681853080547486
+    second: Rods_r23_f1
+  - first:
+      213: 7339632721905130906
+    second: Rods_r23_f2
+  - first:
+      213: 5064998748103150145
+    second: Rods_r23_f3
+  - first:
+      213: -5762131120799979936
+    second: Rods_Casting_L_0
+  - first:
+      213: -4352947641222293706
+    second: Rods_Casting_L_1
+  - first:
+      213: -3620703830891823793
+    second: Rods_Casting_L_2
+  - first:
+      213: -4072297051896005585
+    second: Rods_Casting_L_3
+  - first:
+      213: -1584770557143558613
+    second: Rods_Idle_L_0
+  - first:
+      213: -6439186295340560818
+    second: Rods_Idle_L_1
+  - first:
+      213: 1271914886735025052
+    second: Rods_Idle_L_2
+  - first:
+      213: -4013850353741310385
+    second: Rods_Idle_L_3
+  - first:
+      213: -6937194238714876048
+    second: Rods_Fishing_L_0
+  - first:
+      213: -3002048196307096942
+    second: Rods_Fishing_L_1
+  - first:
+      213: -511780185198599629
+    second: Rods_Fishing_L_2
+  - first:
+      213: 1355808570327583335
+    second: Rods_Fishing_L_3
+  - first:
+      213: 75576073583698997
+    second: Rods_MoveForward_L_0
+  - first:
+      213: 5888393331941566966
+    second: Rods_MoveForward_L_1
+  - first:
+      213: 1069136045141752304
+    second: Rods_MoveForward_L_2
+  - first:
+      213: 7167907531037987205
+    second: Rods_MoveForward_L_3
+  - first:
+      213: 2154625335584340073
+    second: Rods_MoveBackward_L_0
+  - first:
+      213: -2899642604667336830
+    second: Rods_MoveBackward_L_1
+  - first:
+      213: -1094889357180350297
+    second: Rods_MoveBackward_L_2
+  - first:
+      213: -6497992322791616491
+    second: Rods_MoveBackward_L_3
+  - first:
+      213: 8390234570475466167
+    second: Rods_Fighting_L_0
+  - first:
+      213: -8562953485129909595
+    second: Rods_Fighting_L_1
+  - first:
+      213: -3773987282196754925
+    second: Rods_Fighting_L_2
+  - first:
+      213: -6796410913272401330
+    second: Rods_Fighting_L_3
+  - first:
+      213: 1886855467061891559
+    second: Rods_Reeling_L_0
+  - first:
+      213: 8886661235135300899
+    second: Rods_Reeling_L_1
+  - first:
+      213: 7391979118153022972
+    second: Rods_Reeling_L_2
+  - first:
+      213: 1498238686625533823
+    second: Rods_Reeling_L_3
+  - first:
+      213: -6636308970701980461
+    second: Rods_Win_L_0
+  - first:
+      213: -2034125864911573048
+    second: Rods_Win_L_1
+  - first:
+      213: -6085465728582569356
+    second: Rods_Win_L_2
+  - first:
+      213: -3063925763565727790
+    second: Rods_Win_L_3
+  - first:
+      213: -3899184301713429467
+    second: Rods_SwappingPoles_L_0
+  - first:
+      213: -5885492687301628915
+    second: Rods_SwappingPoles_L_1
+  - first:
+      213: -5860311618052618807
+    second: Rods_SwappingPoles_L_2
+  - first:
+      213: -3371124848043766977
+    second: Rods_SwappingPoles_L_3
+  - first:
+      213: -5730267139771237451
+    second: Rods_Scared_L_0
+  - first:
+      213: 2692153891029742012
+    second: Rods_Scared_L_1
+  - first:
+      213: 2253114708870044294
+    second: Rods_Scared_L_2
+  - first:
+      213: -3161080656210871499
+    second: Rods_Scared_L_3
+  - first:
+      213: -3853043708752102332
+    second: Rods_GoToCry_L_0
+  - first:
+      213: -3538397459080328084
+    second: Rods_GoToCry_L_1
+  - first:
+      213: 7774598145743703214
+    second: Rods_GoToCry_L_2
+  - first:
+      213: 1643018363446404294
+    second: Rods_GoToCry_L_3
+  - first:
+      213: 8129107429175205852
+    second: Rods_Cry_L_0
+  - first:
+      213: -3792660532872323923
+    second: Rods_Cry_L_1
+  - first:
+      213: -5126082243465174375
+    second: Rods_Cry_L_2
+  - first:
+      213: 3281018509612360341
+    second: Rods_Cry_L_3
+  - first:
+      213: -2548367451954179102
+    second: Rods_Casting_R_0
+  - first:
+      213: -5103247955345963104
+    second: Rods_Casting_R_1
+  - first:
+      213: -6446886655988106938
+    second: Rods_Casting_R_2
+  - first:
+      213: -7282167590477443186
+    second: Rods_Casting_R_3
+  - first:
+      213: -3560056848664122652
+    second: Rods_Idle_R_0
+  - first:
+      213: -8284630419465842525
+    second: Rods_Idle_R_1
+  - first:
+      213: 2431512932656154731
+    second: Rods_Idle_R_2
+  - first:
+      213: -1785691155366390000
+    second: Rods_Idle_R_3
+  - first:
+      213: -4010885285348907935
+    second: Rods_Fishing_R_0
+  - first:
+      213: 9078755259435259301
+    second: Rods_Fishing_R_1
+  - first:
+      213: 562099223004294896
+    second: Rods_Fishing_R_2
+  - first:
+      213: -4446740579892000119
+    second: Rods_Fishing_R_3
+  - first:
+      213: -6273891532591431493
+    second: Rods_MoveForward_R_0
+  - first:
+      213: 8427413140194339678
+    second: Rods_MoveForward_R_1
+  - first:
+      213: -601467931617030597
+    second: Rods_MoveForward_R_2
+  - first:
+      213: 901505275239762635
+    second: Rods_MoveForward_R_3
+  - first:
+      213: -5806349286762398724
+    second: Rods_MoveBackward_R_0
+  - first:
+      213: 3926199746649318241
+    second: Rods_MoveBackward_R_1
+  - first:
+      213: -6519129975348881919
+    second: Rods_MoveBackward_R_2
+  - first:
+      213: -4468939782594382810
+    second: Rods_MoveBackward_R_3
+  - first:
+      213: -6451561132342362761
+    second: Rods_Fighting_R_0
+  - first:
+      213: 8499982768421594087
+    second: Rods_Fighting_R_1
+  - first:
+      213: -5639547618054432801
+    second: Rods_Fighting_R_2
+  - first:
+      213: -4206980002673717580
+    second: Rods_Fighting_R_3
+  - first:
+      213: -4581295593016747038
+    second: Rods_Reeling_R_0
+  - first:
+      213: -2386041207216293447
+    second: Rods_Reeling_R_1
+  - first:
+      213: 3646145395906812251
+    second: Rods_Reeling_R_2
+  - first:
+      213: -5422153560427844066
+    second: Rods_Reeling_R_3
+  - first:
+      213: -7422053015993254723
+    second: Rods_Win_R_0
+  - first:
+      213: 2121046486408752001
+    second: Rods_Win_R_1
+  - first:
+      213: -3209041069996108183
+    second: Rods_Win_R_2
+  - first:
+      213: 2999642598833128233
+    second: Rods_Win_R_3
+  - first:
+      213: -2612646875152211979
+    second: Rods_SwappingPoles_R_0
+  - first:
+      213: -3755491431549800424
+    second: Rods_SwappingPoles_R_1
+  - first:
+      213: -803362218264577380
+    second: Rods_SwappingPoles_R_2
+  - first:
+      213: -7355952178863773175
+    second: Rods_SwappingPoles_R_3
+  - first:
+      213: 746931028068818471
+    second: Rods_Scared_R_0
+  - first:
+      213: -6597027868480218232
+    second: Rods_Scared_R_1
+  - first:
+      213: -208927026890758579
+    second: Rods_Scared_R_2
+  - first:
+      213: 3885790057351961215
+    second: Rods_Scared_R_3
+  - first:
+      213: 3325685819526483792
+    second: Rods_GoToCry_R_0
+  - first:
+      213: 5109512160396108649
+    second: Rods_GoToCry_R_1
+  - first:
+      213: -3840719983380172224
+    second: Rods_GoToCry_R_2
+  - first:
+      213: -4801318157420244901
+    second: Rods_GoToCry_R_3
+  - first:
+      213: 6619747966754632671
+    second: Rods_Cry_R_0
+  - first:
+      213: -1546923232558320741
+    second: Rods_Cry_R_1
+  - first:
+      213: -6207077100256425750
+    second: Rods_Cry_R_2
+  - first:
+      213: 7031128425629741209
+    second: Rods_Cry_R_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Rods_Casting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0666e73564cc800b0800000000000000
+      internalID: -5762131120799979936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Casting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6371217ee293793c0800000000000000
+      internalID: -4352947641222293706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Casting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4dfbc29c0da0cdc0800000000000000
+      internalID: -3620703830891823793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Casting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2c3ed1486b4c77c0800000000000000
+      internalID: -4072297051896005585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Idle_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b26d5f22393c10ae0800000000000000
+      internalID: -1584770557143558613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Idle_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4e89af3e2a63a6a0800000000000000
+      internalID: -6439186295340560818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Idle_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c935f50c9dfb6a110800000000000000
+      internalID: 1271914886735025052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Idle_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f465cab9e50fb48c0800000000000000
+      internalID: -4013850353741310385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Fishing_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07f638f38922abf90800000000000000
+      internalID: -6937194238714876048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Fishing_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29a638c22159656d0800000000000000
+      internalID: -3002048196307096942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Fishing_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 332672212aac5e8f0800000000000000
+      internalID: -511780185198599629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Fishing_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76a4ec916bcc0d210800000000000000
+      internalID: 1355808570327583335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_MoveForward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 534a97bd9008c0100800000000000000
+      internalID: 75576073583698997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_MoveForward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f9e7209986c7b150800000000000000
+      internalID: 5888393331941566966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_MoveForward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f97d3b819556de00800000000000000
+      internalID: 1069136045141752304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_MoveForward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 581dd5a1ce5897360800000000000000
+      internalID: 7167907531037987205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_MoveBackward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 968bf87b354c6ed10800000000000000
+      internalID: 2154625335584340073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_MoveBackward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 287073df96662c7d0800000000000000
+      internalID: -2899642604667336830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_MoveBackward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a0d8ec3eeb2ec0f0800000000000000
+      internalID: -1094889357180350297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_MoveBackward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5105ac6096e72d5a0800000000000000
+      internalID: -6497992322791616491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Fighting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bd646373e9107470800000000000000
+      internalID: 8390234570475466167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Fighting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aa73aa7c274a2980800000000000000
+      internalID: -8562953485129909595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Fighting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31e02d1ff8a10abc0800000000000000
+      internalID: -3773987282196754925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Fighting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e427fc6884c4ea1a0800000000000000
+      internalID: -6796410913272401330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Reeling_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e15ab0ec057f2a10800000000000000
+      internalID: 1886855467061891559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Reeling_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 325497f4f43c35b70800000000000000
+      internalID: 8886661235135300899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Reeling_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfdbd94f7d5959660800000000000000
+      internalID: 7391979118153022972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Reeling_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7f0011c520dac410800000000000000
+      internalID: 1498238686625533823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Win_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dcf19dd62817e3a0800000000000000
+      internalID: -6636308970701980461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Win_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cfe2899d4555c3e0800000000000000
+      internalID: -2034125864911573048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Win_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 472b50b79251c8ba0800000000000000
+      internalID: -6085465728582569356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Win_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2df4f7c50cfba75d0800000000000000
+      internalID: -3063925763565727790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_SwappingPoles_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52c679e498053e9c0800000000000000
+      internalID: -3899184301713429467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_SwappingPoles_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0c2a356597825ea0800000000000000
+      internalID: -5885492687301628915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_SwappingPoles_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c501e4f1adfbaea0800000000000000
+      internalID: -5860311618052618807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_SwappingPoles_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3bcbdacfcb5731d0800000000000000
+      internalID: -3371124848043766977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Scared_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bb77d985600a70b0800000000000000
+      internalID: -5730267139771237451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Scared_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb1738343b37c5520800000000000000
+      internalID: 2692153891029742012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Scared_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68a1864e3eba44f10800000000000000
+      internalID: 2253114708870044294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Scared_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53b313c24e59124d0800000000000000
+      internalID: -3161080656210871499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_GoToCry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44cf6c3492d378ac0800000000000000
+      internalID: -3853043708752102332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_GoToCry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6c4f59124615eec0800000000000000
+      internalID: -3538397459080328084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_GoToCry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eacc67c62dbe4eb60800000000000000
+      internalID: 7774598145743703214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_GoToCry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c4aaa81f7c2dc610800000000000000
+      internalID: 1643018363446404294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Cry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdf1af0132460d070800000000000000
+      internalID: 8129107429175205852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Cry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dac5088f653cd5bc0800000000000000
+      internalID: -3792660532872323923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Cry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99222d4db5f7cd8b0800000000000000
+      internalID: -5126082243465174375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Cry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5922dee63f4888d20800000000000000
+      internalID: 3281018509612360341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Casting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e39a15ed4162acd0800000000000000
+      internalID: -2548367451954179102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Casting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a78dd4d50f9d29b0800000000000000
+      internalID: -5103247955345963104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Casting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6497f925ebe0886a0800000000000000
+      internalID: -6446886655988106938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Casting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8fcab6b82b80fa90800000000000000
+      internalID: -7282167590477443186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Idle_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eaad2b7823289ec0800000000000000
+      internalID: -3560056848664122652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Idle_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a0d7500784170d80800000000000000
+      internalID: -8284630419465842525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Idle_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b680db921287eb120800000000000000
+      internalID: 2431512932656154731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Idle_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01754ddea53f737e0800000000000000
+      internalID: -1785691155366390000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Fishing_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 164efe365197658c0800000000000000
+      internalID: -4010885285348907935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Fishing_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a51951aec73efd70800000000000000
+      internalID: 9078755259435259301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Fishing_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fea1b3e34afcc700800000000000000
+      internalID: 562099223004294896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Fishing_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98a093f90010a42c0800000000000000
+      internalID: -4446740579892000119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_MoveForward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb08e8044e8aee8a0800000000000000
+      internalID: -6273891532591431493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_MoveForward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b2eb4c99f24f470800000000000000
+      internalID: 8427413140194339678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_MoveForward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3e8d285a1827a7f0800000000000000
+      internalID: -601467931617030597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_MoveForward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bca8ecd754ac28c00800000000000000
+      internalID: 901505275239762635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_MoveBackward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfb3fa84614bb6fa0800000000000000
+      internalID: -5806349286762398724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_MoveBackward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 163e2402ed9ac7630800000000000000
+      internalID: 3926199746649318241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_MoveBackward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1069ab6c3d56785a0800000000000000
+      internalID: -6519129975348881919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_MoveBackward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 624b9d7f1f22bf1c0800000000000000
+      internalID: -4468939782594382810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Fighting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77d340cf4537776a0800000000000000
+      internalID: -6451561132342362761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Fighting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e3e5b40b4106f570800000000000000
+      internalID: 8499982768421594087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Fighting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd717fb225d4cb1b0800000000000000
+      internalID: -5639547618054432801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Fighting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4be06732afdcd95c0800000000000000
+      internalID: -4206980002673717580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Reeling_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eb9c2f4ee7fb60c0800000000000000
+      internalID: -4581295593016747038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Reeling_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b9bd60f92413eed0800000000000000
+      internalID: -2386041207216293447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Reeling_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5993726be5b99230800000000000000
+      internalID: 3646145395906812251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Reeling_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1e24198014a0c4b0800000000000000
+      internalID: -5422153560427844066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Win_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbcfa9d0b129ff890800000000000000
+      internalID: -7422053015993254723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Win_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18beb76aa887f6d10800000000000000
+      internalID: 2121046486408752001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Win_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9661e3926223773d0800000000000000
+      internalID: -3209041069996108183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Win_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92304940d0fd0a920800000000000000
+      internalID: 2999642598833128233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_SwappingPoles_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ff940b62830ebbd0800000000000000
+      internalID: -2612646875152211979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_SwappingPoles_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8107371c070d1ebc0800000000000000
+      internalID: -3755491431549800424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_SwappingPoles_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9abe52a152e9d4f0800000000000000
+      internalID: -803362218264577380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_SwappingPoles_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90a601287786ae990800000000000000
+      internalID: -7355952178863773175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Scared_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72e52c700d1ad5a00800000000000000
+      internalID: 746931028068818471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Scared_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88b52ed2b16a274a0800000000000000
+      internalID: -6597027868480218232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Scared_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d46a23ad9fdb91df0800000000000000
+      internalID: -208927026890758579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Scared_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7a553828791de530800000000000000
+      internalID: 3885790057351961215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_GoToCry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05f0e63f1a5372e20800000000000000
+      internalID: 3325685819526483792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_GoToCry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 963e2ff0d32a8e640800000000000000
+      internalID: 5109512160396108649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_GoToCry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04271ec268503bac0800000000000000
+      internalID: -3840719983380172224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_GoToCry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b505555039a4e5db0800000000000000
+      internalID: -4801318157420244901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Cry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd3360de3b11edb50800000000000000
+      internalID: 6619747966754632671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Cry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b93ff841489388ae0800000000000000
+      internalID: -1546923232558320741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Cry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae801c983480cd9a0800000000000000
+      internalID: -6207077100256425750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rods_Cry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 990ffc3fc06939160800000000000000
+      internalID: 7031128425629741209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Fisherman_Rods_Sheet_0: -3988148066042740884
+      Fisherman_Rods_Sheet_1: 4907144490263361458
+      Fisherman_Rods_Sheet_10: 6604769701171949274
+      Fisherman_Rods_Sheet_100: -40821494333818030
+      Fisherman_Rods_Sheet_101: -6650335871103591579
+      Fisherman_Rods_Sheet_102: -3592948899052215123
+      Fisherman_Rods_Sheet_103: 3425244269969526589
+      Fisherman_Rods_Sheet_104: 463106475696353064
+      Fisherman_Rods_Sheet_105: 4380589971184279752
+      Fisherman_Rods_Sheet_106: 1492253405436432601
+      Fisherman_Rods_Sheet_107: -9140191681939428094
+      Fisherman_Rods_Sheet_108: -3569883561184500802
+      Fisherman_Rods_Sheet_109: 516927841354059095
+      Fisherman_Rods_Sheet_11: -2371360447685455111
+      Fisherman_Rods_Sheet_110: -5710833363583416195
+      Fisherman_Rods_Sheet_111: -650753842382829069
+      Fisherman_Rods_Sheet_112: 8192909424022425658
+      Fisherman_Rods_Sheet_113: 6941767903694569886
+      Fisherman_Rods_Sheet_114: -6407709697764201180
+      Fisherman_Rods_Sheet_115: 4190938905720768967
+      Fisherman_Rods_Sheet_116: 2039493873235003521
+      Fisherman_Rods_Sheet_117: -9172006179596491730
+      Fisherman_Rods_Sheet_118: -4742098083738112003
+      Fisherman_Rods_Sheet_119: 8666874230174892605
+      Fisherman_Rods_Sheet_12: -8799102701460842112
+      Fisherman_Rods_Sheet_120: -5023890894291922022
+      Fisherman_Rods_Sheet_121: 2651374287915394311
+      Fisherman_Rods_Sheet_122: -2376000700945080527
+      Fisherman_Rods_Sheet_123: -5259368494734243861
+      Fisherman_Rods_Sheet_124: 53015040181255446
+      Fisherman_Rods_Sheet_125: 4039731620423641181
+      Fisherman_Rods_Sheet_126: 1528937823430900637
+      Fisherman_Rods_Sheet_127: -2435594004013108207
+      Fisherman_Rods_Sheet_128: 2033288801575275417
+      Fisherman_Rods_Sheet_129: 252052962220670022
+      Fisherman_Rods_Sheet_13: 3757304187426842940
+      Fisherman_Rods_Sheet_130: 5762892140388263268
+      Fisherman_Rods_Sheet_131: -846370014646966690
+      Fisherman_Rods_Sheet_132: 1284188348274575732
+      Fisherman_Rods_Sheet_133: 5973018708819458310
+      Fisherman_Rods_Sheet_134: 6580195983962972025
+      Fisherman_Rods_Sheet_135: 318832073858917073
+      Fisherman_Rods_Sheet_136: -6573479969055138464
+      Fisherman_Rods_Sheet_137: 8462109129231815317
+      Fisherman_Rods_Sheet_138: 944066049311832524
+      Fisherman_Rods_Sheet_139: -2758558991759861946
+      Fisherman_Rods_Sheet_14: 5011571949213295064
+      Fisherman_Rods_Sheet_140: -8898929383137088375
+      Fisherman_Rods_Sheet_141: 3201469943846466415
+      Fisherman_Rods_Sheet_142: 2037477524421119300
+      Fisherman_Rods_Sheet_143: -5223203784351924116
+      Fisherman_Rods_Sheet_144: 6512854035438744564
+      Fisherman_Rods_Sheet_145: -3247899279214213886
+      Fisherman_Rods_Sheet_146: 1588824944905155406
+      Fisherman_Rods_Sheet_147: -2457456813990088526
+      Fisherman_Rods_Sheet_148: 3616818306133981746
+      Fisherman_Rods_Sheet_149: -3048047063892793301
+      Fisherman_Rods_Sheet_15: -4473292788338105166
+      Fisherman_Rods_Sheet_150: 7521294351662067036
+      Fisherman_Rods_Sheet_151: 6182705409989908585
+      Fisherman_Rods_Sheet_152: -7138272500564582453
+      Fisherman_Rods_Sheet_153: 6270614000555669110
+      Fisherman_Rods_Sheet_154: -8687418112069303167
+      Fisherman_Rods_Sheet_155: 4434773837878133329
+      Fisherman_Rods_Sheet_156: -3966907968581109749
+      Fisherman_Rods_Sheet_157: 1689134695262020558
+      Fisherman_Rods_Sheet_158: -1680886775447455478
+      Fisherman_Rods_Sheet_16: 1660265631473344733
+      Fisherman_Rods_Sheet_17: 160486731236893914
+      Fisherman_Rods_Sheet_18: 9176823322951735839
+      Fisherman_Rods_Sheet_19: -9075594218139035401
+      Fisherman_Rods_Sheet_2: 2597900615966916142
+      Fisherman_Rods_Sheet_20: -4424673953950112423
+      Fisherman_Rods_Sheet_21: 2371010548023084572
+      Fisherman_Rods_Sheet_22: -6093461343806488495
+      Fisherman_Rods_Sheet_23: -3749986587767302963
+      Fisherman_Rods_Sheet_24: -3758138856995901695
+      Fisherman_Rods_Sheet_25: -4111804654361069462
+      Fisherman_Rods_Sheet_26: 1514412380418563896
+      Fisherman_Rods_Sheet_27: -4535973210126335997
+      Fisherman_Rods_Sheet_28: -1295500575236691273
+      Fisherman_Rods_Sheet_29: -3361138403325187385
+      Fisherman_Rods_Sheet_3: 1155772860756004089
+      Fisherman_Rods_Sheet_30: 7284174761883660687
+      Fisherman_Rods_Sheet_31: -5826033185689907576
+      Fisherman_Rods_Sheet_32: 6646222321815033279
+      Fisherman_Rods_Sheet_33: -3798553353714005608
+      Fisherman_Rods_Sheet_34: -2502197671045479670
+      Fisherman_Rods_Sheet_35: -3262079020698784912
+      Fisherman_Rods_Sheet_36: -3470139359052576180
+      Fisherman_Rods_Sheet_37: 6877634677445395844
+      Fisherman_Rods_Sheet_38: -8863893571446272918
+      Fisherman_Rods_Sheet_39: 4749517054383920925
+      Fisherman_Rods_Sheet_4: -2160995655899905585
+      Fisherman_Rods_Sheet_40: -8033269359183941018
+      Fisherman_Rods_Sheet_41: 3766671495735574242
+      Fisherman_Rods_Sheet_42: -328640185438913965
+      Fisherman_Rods_Sheet_43: 2318147180328297340
+      Fisherman_Rods_Sheet_44: -3650573327581776348
+      Fisherman_Rods_Sheet_45: 93499633631937711
+      Fisherman_Rods_Sheet_46: -7838377807939370672
+      Fisherman_Rods_Sheet_47: -3661484922327454042
+      Fisherman_Rods_Sheet_48: -5048169424924434879
+      Fisherman_Rods_Sheet_49: -489455864437706762
+      Fisherman_Rods_Sheet_5: 1028627141893251900
+      Fisherman_Rods_Sheet_50: -4600668468230813959
+      Fisherman_Rods_Sheet_51: -311505984036092439
+      Fisherman_Rods_Sheet_52: 8164447766868639485
+      Fisherman_Rods_Sheet_53: 5072443869267833108
+      Fisherman_Rods_Sheet_54: 4266140048796874675
+      Fisherman_Rods_Sheet_55: 6612452061063725921
+      Fisherman_Rods_Sheet_56: -7447514692197337239
+      Fisherman_Rods_Sheet_57: 4604082806607333320
+      Fisherman_Rods_Sheet_58: -2342095266082672365
+      Fisherman_Rods_Sheet_59: 107326695497214977
+      Fisherman_Rods_Sheet_6: 7297485879110315989
+      Fisherman_Rods_Sheet_60: -6770357929703726244
+      Fisherman_Rods_Sheet_61: 8350714773316143092
+      Fisherman_Rods_Sheet_62: -7388726566830008762
+      Fisherman_Rods_Sheet_63: -2379353995368543510
+      Fisherman_Rods_Sheet_64: 1012444601460876079
+      Fisherman_Rods_Sheet_65: 1990314670902518563
+      Fisherman_Rods_Sheet_66: -9035665489877254337
+      Fisherman_Rods_Sheet_67: -1622218800595319962
+      Fisherman_Rods_Sheet_68: 8500589903455668963
+      Fisherman_Rods_Sheet_69: -4619120544253137743
+      Fisherman_Rods_Sheet_7: 3153277482434007511
+      Fisherman_Rods_Sheet_70: -8060374621294072121
+      Fisherman_Rods_Sheet_71: -2335277781841241709
+      Fisherman_Rods_Sheet_72: 4606775492834825153
+      Fisherman_Rods_Sheet_73: 6670641879285231953
+      Fisherman_Rods_Sheet_74: 1698234804753601931
+      Fisherman_Rods_Sheet_75: -8677109345682236961
+      Fisherman_Rods_Sheet_76: -180382531203176416
+      Fisherman_Rods_Sheet_77: -8612424928673350872
+      Fisherman_Rods_Sheet_78: 696517050565704429
+      Fisherman_Rods_Sheet_79: -2109682173777166541
+      Fisherman_Rods_Sheet_8: 3996769386994960589
+      Fisherman_Rods_Sheet_80: -9067660646130310016
+      Fisherman_Rods_Sheet_81: 7092699079032624603
+      Fisherman_Rods_Sheet_82: -4807529786872260394
+      Fisherman_Rods_Sheet_83: -5450059204134527933
+      Fisherman_Rods_Sheet_84: 2178648923248237317
+      Fisherman_Rods_Sheet_85: -3159494401124167909
+      Fisherman_Rods_Sheet_86: -243869267924595763
+      Fisherman_Rods_Sheet_87: -2207718675926556334
+      Fisherman_Rods_Sheet_88: -5234978005217432991
+      Fisherman_Rods_Sheet_89: -5795924498146354703
+      Fisherman_Rods_Sheet_9: -3901355200173137141
+      Fisherman_Rods_Sheet_90: 5144395614860575671
+      Fisherman_Rods_Sheet_91: 1161421355515619963
+      Fisherman_Rods_Sheet_92: 4870726731887137172
+      Fisherman_Rods_Sheet_93: 4789581637958109684
+      Fisherman_Rods_Sheet_94: -7203944824624148302
+      Fisherman_Rods_Sheet_95: 8249586030134802053
+      Fisherman_Rods_Sheet_96: -1850675129151530209
+      Fisherman_Rods_Sheet_97: -734752856428860595
+      Fisherman_Rods_Sheet_98: 6735889680415149041
+      Fisherman_Rods_Sheet_99: -3328972361285909021
+      Rods_Casting_L_0: -5762131120799979936
+      Rods_Casting_L_1: -4352947641222293706
+      Rods_Casting_L_2: -3620703830891823793
+      Rods_Casting_L_3: -4072297051896005585
+      Rods_Casting_R_0: -2548367451954179102
+      Rods_Casting_R_1: -5103247955345963104
+      Rods_Casting_R_2: -6446886655988106938
+      Rods_Casting_R_3: -7282167590477443186
+      Rods_Cry_L_0: 8129107429175205852
+      Rods_Cry_L_1: -3792660532872323923
+      Rods_Cry_L_2: -5126082243465174375
+      Rods_Cry_L_3: 3281018509612360341
+      Rods_Cry_R_0: 6619747966754632671
+      Rods_Cry_R_1: -1546923232558320741
+      Rods_Cry_R_2: -6207077100256425750
+      Rods_Cry_R_3: 7031128425629741209
+      Rods_Fighting_L_0: 8390234570475466167
+      Rods_Fighting_L_1: -8562953485129909595
+      Rods_Fighting_L_2: -3773987282196754925
+      Rods_Fighting_L_3: -6796410913272401330
+      Rods_Fighting_R_0: -6451561132342362761
+      Rods_Fighting_R_1: 8499982768421594087
+      Rods_Fighting_R_2: -5639547618054432801
+      Rods_Fighting_R_3: -4206980002673717580
+      Rods_Fishing_L_0: -6937194238714876048
+      Rods_Fishing_L_1: -3002048196307096942
+      Rods_Fishing_L_2: -511780185198599629
+      Rods_Fishing_L_3: 1355808570327583335
+      Rods_Fishing_R_0: -4010885285348907935
+      Rods_Fishing_R_1: 9078755259435259301
+      Rods_Fishing_R_2: 562099223004294896
+      Rods_Fishing_R_3: -4446740579892000119
+      Rods_GoToCry_L_0: -3853043708752102332
+      Rods_GoToCry_L_1: -3538397459080328084
+      Rods_GoToCry_L_2: 7774598145743703214
+      Rods_GoToCry_L_3: 1643018363446404294
+      Rods_GoToCry_R_0: 3325685819526483792
+      Rods_GoToCry_R_1: 5109512160396108649
+      Rods_GoToCry_R_2: -3840719983380172224
+      Rods_GoToCry_R_3: -4801318157420244901
+      Rods_Idle_L_0: -1584770557143558613
+      Rods_Idle_L_1: -6439186295340560818
+      Rods_Idle_L_2: 1271914886735025052
+      Rods_Idle_L_3: -4013850353741310385
+      Rods_Idle_R_0: -3560056848664122652
+      Rods_Idle_R_1: -8284630419465842525
+      Rods_Idle_R_2: 2431512932656154731
+      Rods_Idle_R_3: -1785691155366390000
+      Rods_MoveBackward_L_0: 2154625335584340073
+      Rods_MoveBackward_L_1: -2899642604667336830
+      Rods_MoveBackward_L_2: -1094889357180350297
+      Rods_MoveBackward_L_3: -6497992322791616491
+      Rods_MoveBackward_R_0: -5806349286762398724
+      Rods_MoveBackward_R_1: 3926199746649318241
+      Rods_MoveBackward_R_2: -6519129975348881919
+      Rods_MoveBackward_R_3: -4468939782594382810
+      Rods_MoveForward_L_0: 75576073583698997
+      Rods_MoveForward_L_1: 5888393331941566966
+      Rods_MoveForward_L_2: 1069136045141752304
+      Rods_MoveForward_L_3: 7167907531037987205
+      Rods_MoveForward_R_0: -6273891532591431493
+      Rods_MoveForward_R_1: 8427413140194339678
+      Rods_MoveForward_R_2: -601467931617030597
+      Rods_MoveForward_R_3: 901505275239762635
+      Rods_Reeling_L_0: 1886855467061891559
+      Rods_Reeling_L_1: 8886661235135300899
+      Rods_Reeling_L_2: 7391979118153022972
+      Rods_Reeling_L_3: 1498238686625533823
+      Rods_Reeling_R_0: -4581295593016747038
+      Rods_Reeling_R_1: -2386041207216293447
+      Rods_Reeling_R_2: 3646145395906812251
+      Rods_Reeling_R_3: -5422153560427844066
+      Rods_Scared_L_0: -5730267139771237451
+      Rods_Scared_L_1: 2692153891029742012
+      Rods_Scared_L_2: 2253114708870044294
+      Rods_Scared_L_3: -3161080656210871499
+      Rods_Scared_R_0: 746931028068818471
+      Rods_Scared_R_1: -6597027868480218232
+      Rods_Scared_R_2: -208927026890758579
+      Rods_Scared_R_3: 3885790057351961215
+      Rods_SwappingPoles_L_0: -3899184301713429467
+      Rods_SwappingPoles_L_1: -5885492687301628915
+      Rods_SwappingPoles_L_2: -5860311618052618807
+      Rods_SwappingPoles_L_3: -3371124848043766977
+      Rods_SwappingPoles_R_0: -2612646875152211979
+      Rods_SwappingPoles_R_1: -3755491431549800424
+      Rods_SwappingPoles_R_2: -803362218264577380
+      Rods_SwappingPoles_R_3: -7355952178863773175
+      Rods_Win_L_0: -6636308970701980461
+      Rods_Win_L_1: -2034125864911573048
+      Rods_Win_L_2: -6085465728582569356
+      Rods_Win_L_3: -3063925763565727790
+      Rods_Win_R_0: -7422053015993254723
+      Rods_Win_R_1: 2121046486408752001
+      Rods_Win_R_2: -3209041069996108183
+      Rods_Win_R_3: 2999642598833128233
+      Rods_r00_f0: -3089768993357384746
+      Rods_r00_f1: 3301119827324954521
+      Rods_r00_f2: -2673360744255576976
+      Rods_r00_f3: 6402338181408329116
+      Rods_r01_f0: -2372015906780748395
+      Rods_r01_f1: -3328360916658342150
+      Rods_r01_f2: -7338761380509204885
+      Rods_r01_f3: -1364573350555257981
+      Rods_r02_f0: -5911799025538161537
+      Rods_r02_f1: 5060362453075961927
+      Rods_r02_f2: 3194604567349049657
+      Rods_r02_f3: -8865399416357527584
+      Rods_r03_f0: -8388019272448036364
+      Rods_r03_f1: -7879681282803349439
+      Rods_r03_f2: -3395188769085393277
+      Rods_r03_f3: 3499942324638236575
+      Rods_r04_f0: -1450529799604104020
+      Rods_r04_f1: 7270061772360295618
+      Rods_r04_f2: 5948591144906112137
+      Rods_r04_f3: -4358826619362259211
+      Rods_r05_f0: -8313626280372393078
+      Rods_r05_f1: 5175957354585669121
+      Rods_r05_f2: -4947058694763727342
+      Rods_r05_f3: -4026732166599945044
+      Rods_r06_f0: -6207858088659978181
+      Rods_r06_f1: 535744783187297689
+      Rods_r06_f2: -611702408110451537
+      Rods_r06_f3: 5710142319302270839
+      Rods_r07_f0: 1327189230908022684
+      Rods_r07_f1: -7551246131924433125
+      Rods_r07_f2: -1739406832572858682
+      Rods_r07_f3: 1533608334353448701
+      Rods_r08_f0: 5391200087580109106
+      Rods_r08_f1: -1052091487661777590
+      Rods_r08_f2: 4474134673087301973
+      Rods_r08_f3: -9087488668011040556
+      Rods_r09_f0: 5932515687269929481
+      Rods_r09_f1: 8412529835119628265
+      Rods_r09_f2: 1262996792663629144
+      Rods_r09_f3: 8946747227300012133
+      Rods_r10_f0: -2083103588349473997
+      Rods_r10_f1: -8126365383866142139
+      Rods_r10_f2: 1323600303894767507
+      Rods_r10_f3: 4852311130463335367
+      Rods_r11_f0: -1456214900695902127
+      Rods_r11_f1: 7554990938209085294
+      Rods_r11_f2: 1128734159185683188
+      Rods_r11_f3: -8504698952779350327
+      Rods_r12_f0: -5027372551470042489
+      Rods_r12_f1: 4388288580418250814
+      Rods_r12_f2: -2084472129520157350
+      Rods_r12_f3: 2586925810088959613
+      Rods_r13_f0: 5193736666073549260
+      Rods_r13_f1: 1226830088390128612
+      Rods_r13_f2: -420254162478931400
+      Rods_r13_f3: -5415353661639373054
+      Rods_r14_f0: -2156707081590575651
+      Rods_r14_f1: 1826522127459162517
+      Rods_r14_f2: 3675826596354813922
+      Rods_r14_f3: 1660259859289949775
+      Rods_r15_f0: 224253327495833555
+      Rods_r15_f1: 5519277328076096994
+      Rods_r15_f2: 3769668605637546213
+      Rods_r15_f3: -6553974248038941840
+      Rods_r16_f0: 2600579879181748003
+      Rods_r16_f1: -3681708367716395988
+      Rods_r16_f2: 6729805770523341803
+      Rods_r16_f3: 3718198178682985443
+      Rods_r17_f0: 1592560374398987532
+      Rods_r17_f1: -8483082328183851678
+      Rods_r17_f2: -8963466121337546048
+      Rods_r17_f3: -2109329221129016259
+      Rods_r18_f0: 6374969347493602616
+      Rods_r18_f1: 5294701195111380834
+      Rods_r18_f2: -7993409619871730649
+      Rods_r18_f3: 6078592390483697238
+      Rods_r19_f0: 8714503396415853344
+      Rods_r19_f1: 3420175793081559991
+      Rods_r19_f2: -2204269718311211841
+      Rods_r19_f3: 2530391404596654808
+      Rods_r20_f0: 2343050413824832280
+      Rods_r20_f1: 287713147105827441
+      Rods_r20_f2: -3361992312835110231
+      Rods_r20_f3: 8644289203929363242
+      Rods_r21_f0: 3674368470851094228
+      Rods_r21_f1: -2628804516755802407
+      Rods_r21_f2: 4258151672052995515
+      Rods_r21_f3: 4622911885303334950
+      Rods_r22_f0: -6978747794550965146
+      Rods_r22_f1: -690190667079504316
+      Rods_r22_f2: -6205088427984855754
+      Rods_r22_f3: -5944891469454596130
+      Rods_r23_f0: -2488661127145981337
+      Rods_r23_f1: 5349681853080547486
+      Rods_r23_f2: 7339632721905130906
+      Rods_r23_f3: 5064998748103150145
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -172,7 +172,18 @@
       "Bash(grep -aB3 \"HatSyncAudit2:Main\")",
       "Bash(xargs grep -l \"CosmeticCatalog\")",
       "Bash(awk '/^--- !u!1001 &1081083723/,/^--- !u!\\(1001 &[0-9]+|[0-9]+ &\\)/{print}' Assets/_Project/Scenes/Play.unity)",
-      "Bash(grep -n -A2 \"target: {fileID: 2848158256542180953, guid: 595207e3fbf4e5d479050afed1957ccc\" Assets/_Project/Scenes/Play.unity)"
+      "Bash(grep -n -A2 \"target: {fileID: 2848158256542180953, guid: 595207e3fbf4e5d479050afed1957ccc\" Assets/_Project/Scenes/Play.unity)",
+      "Bash(grep -iE \"\\\\.md$\")",
+      "Bash(awk '{printf \"width=%d height=%d\\\\n\", $1*16777216+$2*65536+$3*256+$4, $5*16777216+$6*65536+$7*256+$8}')",
+      "Bash(pwd; echo *)",
+      "Bash(grep -rln \"D:\\\\\\\\\\\\\\\\PanicAtThePond\\\\|D:/PanicAtThePond\\\\|D--PanicAtThePond\" \"C:/Users/mitul/.claude/projects/D--Git-Unity-PanicAtThePond/memory/\")",
+      "Read(//c/Users/mitul/.claude/projects/**)",
+      "Bash(cp -n C:/Users/mitul/.claude/projects/D--PanicAtThePond/memory/*.md C:/Users/mitul/.claude/projects/D--Git-Unity-PanicAtThePond/memory/)",
+      "Bash(grep -rn 'D:\\\\\\\\PanicAtThePond\\\\|D:/PanicAtThePond' C:/Users/mitul/.claude/projects/D--Git-Unity-PanicAtThePond/memory)",
+      "Bash(mkdir -p C:/Users/mitul/.claude/projects/D--Git-Unity-PanicAtThePond/memory)",
+      "Bash(sed -i 's|cd \"D:\\\\\\\\PanicAtThePond\" && claude|cd \"D:\\\\\\\\Git\\\\\\\\Unity\\\\\\\\PanicAtThePond\" \\\\&\\\\& claude|' \"C:/Users/mitul/.claude/projects/D--Git-Unity-PanicAtThePond/memory/patp-project-facts.md\")",
+      "Bash(grep -n \"claude\\\\`\" \"C:/Users/mitul/.claude/projects/D--Git-Unity-PanicAtThePond/memory/patp-project-facts.md\")",
+      "Bash(grep -E \"\\\\.md$\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\rishi\\.claude\\projects\\e--PanicAtThePond\\314c49ab-dfb1-458c-a4e8-333600f07d5e\\tool-results"
