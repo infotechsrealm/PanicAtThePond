@@ -1247,39 +1247,39 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         {
             case "fishermanhatdefaultfishinghat":
                 return new CosmeticTransform(
-                    new Vector3(-0.127f, 0.098f, -0.01f),
+                    new Vector3(-0.28575f, 0.2205f, -0.01f),
                     new Vector3(0f, 0f, 15.92f),
-                    new Vector3(0.88957f, 1.03656f, 1.602207f));
+                    new Vector3(2.001532f, 2.33226f, 3.604966f));
             case "hat":
                 return new CosmeticTransform(
-                    new Vector3(-0.07f, 0.12f, -0.01f),
+                    new Vector3(-0.1575f, 0.27f, -0.01f),
                     new Vector3(0f, 0f, -12.618f),
-                    new Vector3(1.031834f, 1.031834f, 1.031834f));
+                    new Vector3(2.321626f, 2.321626f, 2.321626f));
             case "hat2":
                 return new CosmeticTransform(
-                    new Vector3(-0.08699f, 0.149f, -0.01f),
+                    new Vector3(-0.195727f, 0.33525f, -0.01f),
                     new Vector3(0f, 0f, 0f),
-                    new Vector3(1.133074f, 0.9941231f, 1.133074f));
+                    new Vector3(2.549416f, 2.236777f, 2.549416f));
             case "beret":
                 return new CosmeticTransform(
-                    new Vector3(-0.126f, 0.112f, -0.01f),
+                    new Vector3(-0.2835f, 0.252f, -0.01f),
                     new Vector3(0f, 0f, 21.98f),
-                    new Vector3(1.25f, 1.14f, 1.25f));
+                    new Vector3(2.8125f, 2.565f, 2.8125f));
             case "cap":
                 return new CosmeticTransform(
-                    new Vector3(-0.124f, 0.095f, -0.01f),
+                    new Vector3(-0.279f, 0.21375f, -0.01f),
                     new Vector3(0f, 0f, -7.89f),
-                    new Vector3(1.213104f, 1.213104f, 1.213104f));
+                    new Vector3(2.729484f, 2.729484f, 2.729484f));
             case "paperboat":
                 return new CosmeticTransform(
-                    new Vector3(-0.135f, 0.125f, -0.01f),
+                    new Vector3(-0.30375f, 0.28125f, -0.01f),
                     new Vector3(0f, 0f, 0f),
-                    new Vector3(1.116154f, 1.116154f, 1.116154f));
+                    new Vector3(2.511347f, 2.511347f, 2.511347f));
             default:
                 return new CosmeticTransform(
-                    new Vector3(0f, 0.15f, -0.01f),
+                    new Vector3(0f, 0.3375f, -0.01f),
                     Vector3.zero,
-                    Vector3.one * 1.35f);
+                    new Vector3(3.0375f, 3.0375f, 3.0375f));
         }
     }
 

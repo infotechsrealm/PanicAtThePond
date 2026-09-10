@@ -63,10 +63,13 @@ public class LocalPlayManager : MonoBehaviour
         TroutFishPrefabName
     };
 
+    // Per-species render scale, applied over the prefab. The trout was 3.3 when its art was a
+    // 48px sprite; the v2 sheet draws it 108px wide inside the shared 200x140 canvas (2.25x), so
+    // the multiplier drops by the same 2.25 to keep the trout exactly the size it is in game.
     private static readonly float[] FishPrefabScales =
     {
         1f,
-        3.3f
+        1.466667f
     };
 
     private static readonly string[] TroutAchievementIds =

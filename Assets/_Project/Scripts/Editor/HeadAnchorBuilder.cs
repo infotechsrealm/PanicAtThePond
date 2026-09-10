@@ -40,7 +40,14 @@ namespace PanicAtThePond.Editor
         private static readonly string[] CharacterPrefabs = { "Fisherman", "Fish", "Fish 2", "Golden Fish" };
 
         [MenuItem("Panic At The Pond/Rebuild Head Anchors")]
-        public static void Rebuild()
+        public static void Rebuild() => Rebuild(null);
+
+        /// <summary>
+        /// Rebuilds the anchors. Pass a subset of <see cref="CharacterPrefabs"/> to re-bake only
+        /// those characters; pass null for all of them. Re-baking a character whose anchors are
+        /// already correct is a needless risk, so a caller migrating one species passes just that one.
+        /// </summary>
+        public static void Rebuild(string[] only)
         {
             var textureCache = new Dictionary<string, Texture2D>();
             int prefabsTouched = 0;
@@ -52,6 +59,11 @@ namespace PanicAtThePond.Editor
             {
                 foreach (string prefabName in CharacterPrefabs)
                 {
+                    if (only != null && System.Array.IndexOf(only, prefabName) < 0)
+                    {
+                        continue;
+                    }
+
                     GameObject prefab = Resources.Load<GameObject>(prefabName);
                     if (prefab == null)
                     {
@@ -147,7 +159,7 @@ namespace PanicAtThePond.Editor
                 SpriteRenderer renderer = root.GetComponent<SpriteRenderer>();
                 if (renderer != null && renderer.sprite != null)
                 {
-                    int crownRow = MeasureCrownRow(renderer.sprite, textureCache);
+                    int crownRow = MeasureCrownRow(renderer.sprite, textureCache, out _);
                     if (crownRow >= 0)
                     {
                         restY = CrownLocalY(renderer.sprite, crownRow);
@@ -171,44 +183,97 @@ namespace PanicAtThePond.Editor
         /// </summary>
         private static int KeyAnchorInto(AnimationClip clip, Dictionary<string, Texture2D> textureCache, List<string> skipped)
         {
-            var keys = new List<Keyframe>();
-
-            foreach (EditorCurveBinding binding in AnimationUtility.GetObjectReferenceCurveBindings(clip))
-            {
-                foreach (ObjectReferenceKeyframe key in AnimationUtility.GetObjectReferenceCurve(clip, binding))
-                {
-                    if (!(key.value is Sprite sprite))
-                    {
-                        continue;
-                    }
-
-                    int crownRow = MeasureCrownRow(sprite, textureCache);
-                    if (crownRow < 0)
-                    {
-                        skipped.Add($"{clip.name}/{sprite.name}");
-                        continue;
-                    }
-
-                    keys.Add(new Keyframe(key.time, CrownLocalY(sprite, crownRow))
-                    {
-                        // Constant tangents: the anchor must snap with the sprite, not glide between.
-                        inTangent = float.PositiveInfinity,
-                        outTangent = float.PositiveInfinity
-                    });
-                }
-            }
-
-            if (keys.Count == 0)
+            EditorCurveBinding[] bindings = AnimationUtility.GetObjectReferenceCurveBindings(clip);
+            if (bindings.Length == 0)
             {
                 return 0;
             }
 
-            keys.Sort((a, b) => a.time.CompareTo(b.time));
+            // Take the head from ONE renderer. A layered character drives several SpriteRenderers
+            // from the same clip, and folding all of them into a single curve yields one key per
+            // layer per frame -- many keys sharing a timestamp, which Unity rejects outright.
+            // Prefer the layer that actually draws the head; fall back to the root renderer.
+            EditorCurveBinding headBinding = bindings[0];
+            bool found = false;
+            foreach (EditorCurveBinding candidate in bindings)
+            {
+                if (candidate.path.ToLowerInvariant().Contains("head"))
+                {
+                    headBinding = candidate;
+                    found = true;
+                    break;
+                }
+            }
 
-            var anchorBinding = EditorCurveBinding.FloatCurve(AnchorName, typeof(Transform), "m_LocalPosition.y");
-            AnimationUtility.SetEditorCurve(clip, anchorBinding, new AnimationCurve(keys.ToArray()));
+            if (!found)
+            {
+                foreach (EditorCurveBinding candidate in bindings)
+                {
+                    if (string.IsNullOrEmpty(candidate.path))
+                    {
+                        headBinding = candidate;
+                        break;
+                    }
+                }
+            }
+
+            var yKeys = new List<Keyframe>();
+            var xKeys = new List<Keyframe>();
+
+            foreach (ObjectReferenceKeyframe key in AnimationUtility.GetObjectReferenceCurve(clip, headBinding))
+            {
+                if (!(key.value is Sprite sprite))
+                {
+                    continue;
+                }
+
+                int crownCentreColumn;
+                int crownRow = MeasureCrownRow(sprite, textureCache, out crownCentreColumn);
+                if (crownRow < 0)
+                {
+                    skipped.Add($"{clip.name}/{sprite.name}");
+                    continue;
+                }
+
+                // Constant tangents: the anchor must snap with the sprite, not glide between.
+                yKeys.Add(new Keyframe(key.time, CrownLocalY(sprite, crownRow))
+                {
+                    inTangent = float.PositiveInfinity,
+                    outTangent = float.PositiveInfinity
+                });
+                xKeys.Add(new Keyframe(key.time, CrownLocalX(sprite, crownCentreColumn))
+                {
+                    inTangent = float.PositiveInfinity,
+                    outTangent = float.PositiveInfinity
+                });
+            }
+
+            if (yKeys.Count == 0)
+            {
+                return 0;
+            }
+
+            yKeys.Sort((a, b) => a.time.CompareTo(b.time));
+            xKeys.Sort((a, b) => a.time.CompareTo(b.time));
+
+            // The head travels horizontally too (the fisherman swapping pole sides, a fish bending
+            // to fight). Keying Y alone leaves a hat right in height and wrong in X on those frames.
+            AnimationUtility.SetEditorCurve(clip,
+                EditorCurveBinding.FloatCurve(AnchorName, typeof(Transform), "m_LocalPosition.y"),
+                new AnimationCurve(yKeys.ToArray()));
+            AnimationUtility.SetEditorCurve(clip,
+                EditorCurveBinding.FloatCurve(AnchorName, typeof(Transform), "m_LocalPosition.x"),
+                new AnimationCurve(xKeys.ToArray()));
             EditorUtility.SetDirty(clip);
-            return keys.Count;
+            return yKeys.Count;
+        }
+
+        /// <summary>
+        /// Local X of the centre of the head for this sprite, in the character's own units.
+        /// </summary>
+        private static float CrownLocalX(Sprite sprite, int crownCentreColumn)
+        {
+            return (crownCentreColumn - sprite.pivot.x) / sprite.pixelsPerUnit;
         }
 
         /// <summary>
@@ -236,8 +301,9 @@ namespace PanicAtThePond.Editor
         /// higher in the casting frames, and would drag the anchor up with them. Reading file bytes
         /// rather than <c>sprite.texture</c> avoids needing Read/Write enabled on 100+ textures.
         /// </remarks>
-        private static int MeasureCrownRow(Sprite sprite, Dictionary<string, Texture2D> cache)
+        private static int MeasureCrownRow(Sprite sprite, Dictionary<string, Texture2D> cache, out int crownCentreColumn)
         {
+            crownCentreColumn = 0;
             string path = AssetDatabase.GetAssetPath(sprite.texture);
             if (string.IsNullOrEmpty(path) || !File.Exists(path))
             {
@@ -262,6 +328,7 @@ namespace PanicAtThePond.Editor
                 int textureY = rectY + rectH - 1 - localY;   // sprite rows are bottom-up
                 int run = 0;
                 int longest = 0;
+                int longestEnd = 0;
 
                 for (int localX = 0; localX < rectW; localX++)
                 {
@@ -271,6 +338,7 @@ namespace PanicAtThePond.Editor
                         if (run > longest)
                         {
                             longest = run;
+                            longestEnd = localX;
                         }
                     }
                     else
@@ -281,6 +349,7 @@ namespace PanicAtThePond.Editor
 
                 if (longest >= HeadCrownTable.MinHeadRunPixels)
                 {
+                    crownCentreColumn = longestEnd - (longest / 2);
                     return localY;
                 }
             }

@@ -1,0 +1,923 @@
+fileFormatVersion: 2
+guid: e1c5690943c26af44a2ae744f7784fee
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4714410053373212869
+    second: Fish_Golden_Sheet_0
+  - first:
+      213: -141314486099663149
+    second: Fish_Golden_Sheet_1
+  - first:
+      213: -367885511513865772
+    second: Fish_Golden_Sheet_2
+  - first:
+      213: 2184247871363293688
+    second: Fish_Golden_Sheet_3
+  - first:
+      213: 5678444187899732159
+    second: Fish_Golden_Sheet_4
+  - first:
+      213: 4847747379172605062
+    second: Fish_Golden_Sheet_5
+  - first:
+      213: 1222591991043153453
+    second: Fish_Golden_Sheet_6
+  - first:
+      213: -5736275056893383389
+    second: Fish_Golden_Sheet_7
+  - first:
+      213: -1453874348203922008
+    second: Fish_Golden_Sheet_8
+  - first:
+      213: -7267558448174292746
+    second: Fish_Golden_Sheet_9
+  - first:
+      213: -1856765328758085419
+    second: Fish_Golden_Sheet_10
+  - first:
+      213: 2796178353399697037
+    second: Fish_Golden_Sheet_11
+  - first:
+      213: -7636167794579411554
+    second: Fish_Golden_Sheet_12
+  - first:
+      213: -5853690787717646584
+    second: Fish_Golden_Sheet_13
+  - first:
+      213: 1294812328824141778
+    second: Fish_Golden_Sheet_14
+  - first:
+      213: -6746233287191552297
+    second: Fish_Golden_Sheet_15
+  - first:
+      213: 6925377031040825705
+    second: Fish_Golden_Sheet_16
+  - first:
+      213: 4470537891416914916
+    second: Fish_Golden_Sheet_17
+  - first:
+      213: -1791601182712982660
+    second: Fish_Golden_Sheet_18
+  - first:
+      213: -4276192108634003460
+    second: Fish_Golden_Sheet_19
+  - first:
+      213: 6122901196820082853
+    second: Fish_Golden_Sheet_20
+  - first:
+      213: -4037094257095838510
+    second: Fish_Golden_Sheet_21
+  - first:
+      213: 3284472233503444762
+    second: Fish_Golden_Sheet_22
+  - first:
+      213: 5100240240648756132
+    second: Fish_Golden_Sheet_23
+  - first:
+      213: 3490717867583189453
+    second: Fish_Golden_Sheet_24
+  - first:
+      213: 5130325544442812465
+    second: Fish_Golden_Sheet_25
+  - first:
+      213: 434151449008695524
+    second: Golden_Idle_0
+  - first:
+      213: 7326955178838149261
+    second: Golden_Idle_1
+  - first:
+      213: 8392191836038281697
+    second: Golden_Idle_2
+  - first:
+      213: -4150206776364839984
+    second: Golden_Idle_3
+  - first:
+      213: -6487587335834234659
+    second: Golden_Move_0
+  - first:
+      213: -9078180863029659310
+    second: Golden_Move_1
+  - first:
+      213: -6906658582632227963
+    second: Golden_Move_2
+  - first:
+      213: 5427766543499716037
+    second: Golden_Move_3
+  - first:
+      213: 4742693289887272643
+    second: Golden_Eat_0
+  - first:
+      213: -282664979043086047
+    second: Golden_Eat_1
+  - first:
+      213: -6019273276863275005
+    second: Golden_Eat_2
+  - first:
+      213: 6366306048579262585
+    second: Golden_Eat_3
+  - first:
+      213: 4071756742359336821
+    second: Golden_Fight_0
+  - first:
+      213: 2611275636765803043
+    second: Golden_Fight_1
+  - first:
+      213: -9220508537371067947
+    second: Golden_Fight_2
+  - first:
+      213: 8079481246943452699
+    second: Golden_Fight_3
+  - first:
+      213: 1811965685073977715
+    second: Golden_Joyful_0
+  - first:
+      213: 1186412833785204498
+    second: Golden_Joyful_1
+  - first:
+      213: -2566378712281555595
+    second: Golden_Joyful_2
+  - first:
+      213: 3877505669138016512
+    second: Golden_Joyful_3
+  - first:
+      213: 7810683624496186175
+    second: Golden_Dead_0
+  - first:
+      213: 8030350091724769878
+    second: Golden_Dead_1
+  - first:
+      213: -4166139139876951535
+    second: Golden_Dead_2
+  - first:
+      213: -6973296424188147947
+    second: Golden_Dead_3
+  - first:
+      213: 6981845994804639240
+    second: Golden_Dead_4
+  - first:
+      213: -3730784353633650876
+    second: Golden_Dead_5
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Golden_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 700
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e862e0517a660600800000000000000
+      internalID: 434151449008695524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 700
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d884bdf4ae29ea560800000000000000
+      internalID: 7326955178838149261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 700
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e9bef9d20e077470800000000000000
+      internalID: 8392191836038281697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 700
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dbca56fce08766c0800000000000000
+      internalID: -4150206776364839984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Move_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 560
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd01746d0b577f5a0800000000000000
+      internalID: -6487587335834234659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Move_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 560
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2593e547a92d30280800000000000000
+      internalID: -9078180863029659310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Move_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 560
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58b9d45bc9e9620a0800000000000000
+      internalID: -6906658582632227963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Move_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 560
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c5ec0de9ec435b40800000000000000
+      internalID: 5427766543499716037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Eat_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ce0c565b6e61d140800000000000000
+      internalID: 4742693289887272643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Eat_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 420
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12191bdf2b5c31cf0800000000000000
+      internalID: -282664979043086047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Eat_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 420
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 300209e98de377ca0800000000000000
+      internalID: -6019273276863275005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Eat_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 420
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 978dcfcfe99a95850800000000000000
+      internalID: 6366306048579262585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Fight_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57741202f29c18830800000000000000
+      internalID: 4071756742359336821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Fight_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 280
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 322ce044b5d1d3420800000000000000
+      internalID: 2611275636765803043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Fight_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 280
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d97a8d665c2a0080800000000000000
+      internalID: -9220508537371067947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Fight_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 280
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1e9e7d1365102070800000000000000
+      internalID: 8079481246943452699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Joyful_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 140
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 371280cb035652910800000000000000
+      internalID: 1811965685073977715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Joyful_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 140
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21f4bbabf2cf67010800000000000000
+      internalID: 1186412833785204498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Joyful_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 140
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57d555f8824626cd0800000000000000
+      internalID: -2566378712281555595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Joyful_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 140
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 009e887bcdaafc530800000000000000
+      internalID: 3877505669138016512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Dead_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f334e0baf5f156c60800000000000000
+      internalID: 7810683624496186175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Dead_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65ac74f9cd8817f60800000000000000
+      internalID: 8030350091724769878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Dead_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11a68c28686ee26c0800000000000000
+      internalID: -4166139139876951535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Dead_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51783ca29dfd93f90800000000000000
+      internalID: -6973296424188147947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Dead_4
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80670dcd0ff74e060800000000000000
+      internalID: 6981845994804639240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golden_Dead_5
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 200
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 447b41c9567993cc0800000000000000
+      internalID: -3730784353633650876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Fish_Golden_Sheet_0: 4714410053373212869
+      Fish_Golden_Sheet_1: -141314486099663149
+      Fish_Golden_Sheet_10: -1856765328758085419
+      Fish_Golden_Sheet_11: 2796178353399697037
+      Fish_Golden_Sheet_12: -7636167794579411554
+      Fish_Golden_Sheet_13: -5853690787717646584
+      Fish_Golden_Sheet_14: 1294812328824141778
+      Fish_Golden_Sheet_15: -6746233287191552297
+      Fish_Golden_Sheet_16: 6925377031040825705
+      Fish_Golden_Sheet_17: 4470537891416914916
+      Fish_Golden_Sheet_18: -1791601182712982660
+      Fish_Golden_Sheet_19: -4276192108634003460
+      Fish_Golden_Sheet_2: -367885511513865772
+      Fish_Golden_Sheet_20: 6122901196820082853
+      Fish_Golden_Sheet_21: -4037094257095838510
+      Fish_Golden_Sheet_22: 3284472233503444762
+      Fish_Golden_Sheet_23: 5100240240648756132
+      Fish_Golden_Sheet_24: 3490717867583189453
+      Fish_Golden_Sheet_25: 5130325544442812465
+      Fish_Golden_Sheet_3: 2184247871363293688
+      Fish_Golden_Sheet_4: 5678444187899732159
+      Fish_Golden_Sheet_5: 4847747379172605062
+      Fish_Golden_Sheet_6: 1222591991043153453
+      Fish_Golden_Sheet_7: -5736275056893383389
+      Fish_Golden_Sheet_8: -1453874348203922008
+      Fish_Golden_Sheet_9: -7267558448174292746
+      Golden_Dead_0: 7810683624496186175
+      Golden_Dead_1: 8030350091724769878
+      Golden_Dead_2: -4166139139876951535
+      Golden_Dead_3: -6973296424188147947
+      Golden_Dead_4: 6981845994804639240
+      Golden_Dead_5: -3730784353633650876
+      Golden_Eat_0: 4742693289887272643
+      Golden_Eat_1: -282664979043086047
+      Golden_Eat_2: -6019273276863275005
+      Golden_Eat_3: 6366306048579262585
+      Golden_Fight_0: 4071756742359336821
+      Golden_Fight_1: 2611275636765803043
+      Golden_Fight_2: -9220508537371067947
+      Golden_Fight_3: 8079481246943452699
+      Golden_Idle_0: 434151449008695524
+      Golden_Idle_1: 7326955178838149261
+      Golden_Idle_2: 8392191836038281697
+      Golden_Idle_3: -4150206776364839984
+      Golden_Joyful_0: 1811965685073977715
+      Golden_Joyful_1: 1186412833785204498
+      Golden_Joyful_2: -2566378712281555595
+      Golden_Joyful_3: 3877505669138016512
+      Golden_Move_0: -6487587335834234659
+      Golden_Move_1: -9078180863029659310
+      Golden_Move_2: -6906658582632227963
+      Golden_Move_3: 5427766543499716037
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

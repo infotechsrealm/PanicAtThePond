@@ -2,6 +2,7 @@ using Mirror;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -880,9 +881,36 @@ public class FishermanController : MonoBehaviourPunCallbacks, IPunInstantiateMag
         if (animator != null) animator.ResetTrigger(triggerName);
     }
 
+    /// <summary>
+    /// Last value actually put on the wire for each animator bool, so an unchanged value is not
+    /// re-sent.
+    /// </summary>
+    /// <remarks>
+    /// <see cref="FisherManMovement"/> calls <see cref="SetBoolSync"/> from <c>Update</c> every
+    /// frame — its "no movement" branch resets each movement bool unconditionally. Sending on every
+    /// call meant an *idle* fisherman emitted roughly 120 RPCs a second: a two-player test run
+    /// measured 18,259 of them in about 90 seconds, which is well past Photon's per-room message
+    /// budget and shows up as lag and disconnects rather than as an error.
+    ///
+    /// Only the network send is gated. <c>animator.SetBool</c> still runs every call — it is local
+    /// and cheap, and skipping it could desync the local animator from the cache.
+    ///
+    /// Nothing is lost by not re-sending: the RPC targets <c>RpcTarget.Others</c> and is not
+    /// buffered, so a repeat carried no information a late joiner could have used.
+    /// </remarks>
+    private readonly Dictionary<string, bool> lastSentBools = new Dictionary<string, bool>();
+
     public void SetBoolSync(string boolName, bool value)
     {
         if (animator != null) animator.SetBool(boolName, value);
+
+        if (lastSentBools.TryGetValue(boolName, out bool previous) && previous == value)
+        {
+            return;
+        }
+
+        lastSentBools[boolName] = value;
+
         if (GS.Instance.isLan)
         {
             if (fishermanController_Mirror != null) fishermanController_Mirror.CallSetBool_Mirror(boolName, value);
