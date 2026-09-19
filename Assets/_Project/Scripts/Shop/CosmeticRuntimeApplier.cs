@@ -528,6 +528,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
         if (selectedFishermanHair != null)
         {
+            ClearFishermanHatLayer(fisherman);
             string hairName = selectedFishermanHair.name.ToLowerInvariant();
             if (hairName.Contains("red") || hairName.Contains("black"))
             {
@@ -544,6 +545,14 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
         if (selectedFishermanHat != null)
         {
+            // A v2 sheet is checked first and wins outright. The special cases below exist because
+            // the legacy cropped art could not be placed correctly; a sheet has no such problem.
+            if (TryApplyFishermanHatLayer(fisherman, selectedFishermanHat))
+            {
+                RemoveCosmetic(fisherman, FishermanHairChildName);
+                return;
+            }
+
             string hatNameCheck = selectedFishermanHat.name.ToLowerInvariant();
             if (hatNameCheck.Contains("yellow") || hatNameCheck.Contains("fishing_hat"))
             {
@@ -736,6 +745,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
         if (hairSprite != null)
         {
+            ClearFishermanHatLayer(fisherman);
             string currentHairName = hairSprite.name.ToLowerInvariant();
             if (currentHairName.Contains("red") || currentHairName.Contains("black"))
             {
@@ -752,6 +762,12 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
         if (hatSprite != null)
         {
+            if (TryApplyFishermanHatLayer(fisherman, hatSprite))
+            {
+                RemoveCosmetic(fisherman, FishermanHairChildName);
+                return;
+            }
+
             string currentHatNameCheck = hatSprite.name.ToLowerInvariant();
             if (currentHatNameCheck.Contains("yellow") || currentHatNameCheck.Contains("fishing_hat"))
             {
@@ -768,6 +784,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
 
         if (hairSprite == null && hatSprite == null)
         {
+            ClearFishermanHatLayer(fisherman);
             RemoveCosmetic(fisherman, FishermanHairChildName);
             RemoveCosmetic(fisherman, FishermanHatChildName);
         }
@@ -1280,6 +1297,73 @@ public class CosmeticRuntimeApplier : MonoBehaviour
                     new Vector3(0f, 0.3375f, -0.01f),
                     Vector3.zero,
                     new Vector3(3.0375f, 3.0375f, 3.0375f));
+        }
+    }
+
+    /// <summary>
+    /// Where a v2 fisherman hat sheet lives, named after the hat it belongs to.
+    /// </summary>
+    /// <remarks>
+    /// The other rig layers reach a build because the animation clips reference them; nothing
+    /// references a hat sheet, so it has to sit under Resources or the build strips it. The file is
+    /// named with <see cref="NormalizeSpriteName"/>, which means a new hat needs no mapping table
+    /// and no code: drop <c>Resources/FishermanHatSheets/&lt;normalized hat name&gt;.png</c> in,
+    /// sliced on the head sheet's rows, and it is picked up.
+    /// </remarks>
+    private const string FishermanHatSheetResourceFolder = "FishermanHatSheets/";
+
+    /// <summary>
+    /// Points the fisherman's <c>FM_Hat</c> layer at this hat's v2 sheet, if it has one. Returns
+    /// true when the layer took the hat, in which case the legacy cropped-sprite path must not run.
+    /// </summary>
+    /// <remarks>
+    /// A v2 sheet is drawn on the same canvas, rows and frame order as the head, so the layer needs
+    /// no position, rotation or scale — which is the whole reason the format was asked for. Hats
+    /// without a sheet keep the old hand-tuned placement, so the two can coexist while the art is
+    /// delivered one hat at a time.
+    /// </remarks>
+    private static bool TryApplyFishermanHatLayer(GameObject fisherman, Sprite hatSprite)
+    {
+        if (fisherman == null)
+        {
+            return false;
+        }
+
+        FishermanHatLayer layer = fisherman.GetComponentInChildren<FishermanHatLayer>(true);
+        if (layer == null)
+        {
+            return false; // rig predates the hat layer; nothing to drive
+        }
+
+        Sprite[] sheet = hatSprite == null
+            ? null
+            : Resources.LoadAll<Sprite>(FishermanHatSheetResourceFolder + NormalizeSpriteName(hatSprite));
+
+        if (sheet == null || sheet.Length == 0)
+        {
+            layer.SetSheet(null);
+            return false;
+        }
+
+        layer.SetSheet(sheet);
+
+        // The legacy overlay would draw a second copy of the same hat on top of the layer.
+        RemoveCosmetic(fisherman, FishermanHatChildName);
+        return true;
+    }
+
+    /// <summary>Clears the hat layer, for the paths that end with no hat on the fisherman.</summary>
+    private static void ClearFishermanHatLayer(GameObject fisherman)
+    {
+        if (fisherman == null)
+        {
+            return;
+        }
+
+        FishermanHatLayer layer = fisherman.GetComponentInChildren<FishermanHatLayer>(true);
+        if (layer != null)
+        {
+            layer.SetSheet(null);
         }
     }
 

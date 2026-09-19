@@ -1,0 +1,3023 @@
+fileFormatVersion: 2
+guid: 98df00261fdaa7845bc8781a47ec2804
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8380855342396331191
+    second: Fisherman_Hat_SodaHat_Sheet_0
+  - first:
+      213: 5305933904506643562
+    second: Fisherman_Hat_SodaHat_Sheet_1
+  - first:
+      213: -2950060130103656800
+    second: Fisherman_Hat_SodaHat_Sheet_2
+  - first:
+      213: 5283668596000540256
+    second: Fisherman_Hat_SodaHat_Sheet_3
+  - first:
+      213: 1804521654999521505
+    second: Fisherman_Hat_SodaHat_Sheet_4
+  - first:
+      213: -8885807660726702683
+    second: Fisherman_Hat_SodaHat_Sheet_5
+  - first:
+      213: 3679493422486817876
+    second: Fisherman_Hat_SodaHat_Sheet_6
+  - first:
+      213: -1486645850523051977
+    second: Fisherman_Hat_SodaHat_Sheet_7
+  - first:
+      213: 2273690598793745062
+    second: Fisherman_Hat_SodaHat_Sheet_8
+  - first:
+      213: 7206284043192053913
+    second: Fisherman_Hat_SodaHat_Sheet_9
+  - first:
+      213: 3759511648174499692
+    second: Fisherman_Hat_SodaHat_Sheet_10
+  - first:
+      213: 6243525555763576811
+    second: Fisherman_Hat_SodaHat_Sheet_11
+  - first:
+      213: -4279839951758074410
+    second: Fisherman_Hat_SodaHat_Sheet_12
+  - first:
+      213: 2819173190233949851
+    second: Fisherman_Hat_SodaHat_Sheet_13
+  - first:
+      213: 8882844321229677449
+    second: Fisherman_Hat_SodaHat_Sheet_14
+  - first:
+      213: 5655850384546020718
+    second: Fisherman_Hat_SodaHat_Sheet_15
+  - first:
+      213: -8199147960071148236
+    second: Fisherman_Hat_SodaHat_Sheet_16
+  - first:
+      213: 5680837140626916529
+    second: Fisherman_Hat_SodaHat_Sheet_17
+  - first:
+      213: 8452128978098669765
+    second: Fisherman_Hat_SodaHat_Sheet_18
+  - first:
+      213: -8804200751780101464
+    second: Fisherman_Hat_SodaHat_Sheet_19
+  - first:
+      213: 4159320199982397218
+    second: Fisherman_Hat_SodaHat_Sheet_20
+  - first:
+      213: 5983491004862540696
+    second: Fisherman_Hat_SodaHat_Sheet_21
+  - first:
+      213: 5861153257198745721
+    second: Fisherman_Hat_SodaHat_Sheet_22
+  - first:
+      213: -4060956312280796446
+    second: Fisherman_Hat_SodaHat_Sheet_23
+  - first:
+      213: -7034193370900827840
+    second: Fisherman_Hat_SodaHat_Sheet_24
+  - first:
+      213: 7581355871941773093
+    second: Fisherman_Hat_SodaHat_Sheet_25
+  - first:
+      213: 673152280764253804
+    second: Fisherman_Hat_SodaHat_Sheet_26
+  - first:
+      213: 4650551926756604553
+    second: Fisherman_Hat_SodaHat_Sheet_27
+  - first:
+      213: 2334980765751118525
+    second: Fisherman_Hat_SodaHat_Sheet_28
+  - first:
+      213: -3984688009248110437
+    second: Fisherman_Hat_SodaHat_Sheet_29
+  - first:
+      213: 2652454288198613632
+    second: Fisherman_Hat_SodaHat_Sheet_30
+  - first:
+      213: 3517189902271030971
+    second: Fisherman_Hat_SodaHat_Sheet_31
+  - first:
+      213: 3895021983455009008
+    second: Fisherman_Hat_SodaHat_Sheet_32
+  - first:
+      213: 5592127466816549032
+    second: Fisherman_Hat_SodaHat_Sheet_33
+  - first:
+      213: -4651075978611339798
+    second: Fisherman_Hat_SodaHat_Sheet_34
+  - first:
+      213: 7526667777380284161
+    second: Fisherman_Hat_SodaHat_Sheet_35
+  - first:
+      213: 323743068248385812
+    second: Fisherman_Hat_SodaHat_Sheet_36
+  - first:
+      213: 2587913381473495095
+    second: Fisherman_Hat_SodaHat_Sheet_37
+  - first:
+      213: 6927777474757885761
+    second: Fisherman_Hat_SodaHat_Sheet_38
+  - first:
+      213: -3872155582297162006
+    second: Fisherman_Hat_SodaHat_Sheet_39
+  - first:
+      213: -52067247628320575
+    second: Fisherman_Hat_SodaHat_Sheet_40
+  - first:
+      213: 1641606675491479070
+    second: Fisherman_Hat_SodaHat_Sheet_41
+  - first:
+      213: -9036590229361098886
+    second: Fisherman_Hat_SodaHat_Sheet_42
+  - first:
+      213: 7365974314210640889
+    second: Fisherman_Hat_SodaHat_Sheet_43
+  - first:
+      213: 2141131341985974369
+    second: Fisherman_Hat_SodaHat_Sheet_44
+  - first:
+      213: 1334090200951458661
+    second: Fisherman_Hat_SodaHat_Sheet_45
+  - first:
+      213: -3880338110746508959
+    second: Fisherman_Hat_SodaHat_Sheet_46
+  - first:
+      213: -6663130181099059910
+    second: Fisherman_Hat_SodaHat_Sheet_47
+  - first:
+      213: 134223496858997777
+    second: Fisherman_Hat_SodaHat_Sheet_48
+  - first:
+      213: -1424205294479561430
+    second: Fisherman_Hat_SodaHat_Sheet_49
+  - first:
+      213: 2611126449673625589
+    second: Fisherman_Hat_SodaHat_Sheet_50
+  - first:
+      213: -3881226728720566004
+    second: Fisherman_Hat_SodaHat_Sheet_51
+  - first:
+      213: 4730123907433417899
+    second: Fisherman_Hat_SodaHat_Sheet_52
+  - first:
+      213: 4335696816178117249
+    second: Fisherman_Hat_SodaHat_Sheet_53
+  - first:
+      213: -4948152495471579606
+    second: Fisherman_Hat_SodaHat_Sheet_54
+  - first:
+      213: -7274302525974169814
+    second: Fisherman_Hat_SodaHat_Sheet_55
+  - first:
+      213: -6280782036486644602
+    second: Fisherman_Hat_SodaHat_Sheet_56
+  - first:
+      213: 7879674197605298243
+    second: Fisherman_Hat_SodaHat_Sheet_57
+  - first:
+      213: 7713092081879113207
+    second: Fisherman_Hat_SodaHat_Sheet_58
+  - first:
+      213: -3945018699515452024
+    second: Fisherman_Hat_SodaHat_Sheet_59
+  - first:
+      213: 8741659364562674679
+    second: Fisherman_Hat_SodaHat_Sheet_60
+  - first:
+      213: -1892411235350256919
+    second: Fisherman_Hat_SodaHat_Sheet_61
+  - first:
+      213: 6970396906979432461
+    second: Fisherman_Hat_SodaHat_Sheet_62
+  - first:
+      213: -1296539130284345474
+    second: Fisherman_Hat_SodaHat_Sheet_63
+  - first:
+      213: 1769924832304942136
+    second: Fisherman_Hat_SodaHat_Sheet_64
+  - first:
+      213: -6613443521649455656
+    second: Fisherman_Hat_SodaHat_Sheet_65
+  - first:
+      213: -4784735081504947745
+    second: Fisherman_Hat_SodaHat_Sheet_66
+  - first:
+      213: 5059987755992435838
+    second: Fisherman_Hat_SodaHat_Sheet_67
+  - first:
+      213: 6770001121792858424
+    second: Fisherman_Hat_SodaHat_Sheet_68
+  - first:
+      213: -7081227812746541652
+    second: Fisherman_Hat_SodaHat_Sheet_69
+  - first:
+      213: -949965887187831531
+    second: Fisherman_Hat_SodaHat_Sheet_70
+  - first:
+      213: 7695715708737314404
+    second: Fisherman_Hat_SodaHat_Sheet_71
+  - first:
+      213: -3326494701321961502
+    second: Fisherman_Hat_SodaHat_Sheet_72
+  - first:
+      213: 1863212920059522234
+    second: Fisherman_Hat_SodaHat_Sheet_73
+  - first:
+      213: 1041293118748692309
+    second: Fisherman_Hat_SodaHat_Sheet_74
+  - first:
+      213: 5432717160290600631
+    second: Fisherman_Hat_SodaHat_Sheet_75
+  - first:
+      213: 7917341002447556894
+    second: Fisherman_Hat_SodaHat_Sheet_76
+  - first:
+      213: 5304948020964847653
+    second: Fisherman_Hat_SodaHat_Sheet_77
+  - first:
+      213: 8480663757621983467
+    second: Fisherman_Hat_SodaHat_Sheet_78
+  - first:
+      213: -6204345894293618343
+    second: Fisherman_Hat_SodaHat_Sheet_79
+  - first:
+      213: -451539912698919747
+    second: Fisherman_Hat_SodaHat_Sheet_80
+  - first:
+      213: 4776981956623166776
+    second: Fisherman_Hat_SodaHat_Sheet_81
+  - first:
+      213: -4209583495590851293
+    second: Fisherman_Hat_SodaHat_Sheet_82
+  - first:
+      213: 2044579404774777023
+    second: Fisherman_Hat_SodaHat_Sheet_83
+  - first:
+      213: -8261481115719637082
+    second: Fisherman_Hat_SodaHat_Sheet_84
+  - first:
+      213: -1895288188846409312
+    second: Fisherman_Hat_SodaHat_Sheet_85
+  - first:
+      213: -8808082778552291480
+    second: Fisherman_Hat_SodaHat_Sheet_86
+  - first:
+      213: -8012198864404578183
+    second: Fisherman_Hat_SodaHat_Sheet_87
+  - first:
+      213: 1582793149259531150
+    second: Fisherman_Hat_SodaHat_Sheet_88
+  - first:
+      213: 2512126266194050053
+    second: Fisherman_Hat_SodaHat_Sheet_89
+  - first:
+      213: -6763090637609781978
+    second: Fisherman_Hat_SodaHat_Sheet_90
+  - first:
+      213: 2740285100659336205
+    second: Fisherman_Hat_SodaHat_Sheet_91
+  - first:
+      213: -6749008025504680743
+    second: Fisherman_Hat_SodaHat_Sheet_92
+  - first:
+      213: 3057147670850673822
+    second: Fisherman_Hat_SodaHat_Sheet_93
+  - first:
+      213: -1860522979491651087
+    second: Fisherman_Hat_SodaHat_Sheet_94
+  - first:
+      213: 3010497185414677706
+    second: Fisherman_Hat_SodaHat_Sheet_95
+  - first:
+      213: -3729254921290318381
+    second: SodaHat_Casting_L_0
+  - first:
+      213: -5708145930068071032
+    second: SodaHat_Casting_L_1
+  - first:
+      213: -284348240590964456
+    second: SodaHat_Casting_L_2
+  - first:
+      213: -1712363307974135067
+    second: SodaHat_Casting_L_3
+  - first:
+      213: -3128667942522953086
+    second: SodaHat_Idle_L_0
+  - first:
+      213: -200546981109791293
+    second: SodaHat_Idle_L_1
+  - first:
+      213: 556051193070447750
+    second: SodaHat_Idle_L_2
+  - first:
+      213: 4088139282774135979
+    second: SodaHat_Idle_L_3
+  - first:
+      213: -7020416298472073952
+    second: SodaHat_Fishing_L_0
+  - first:
+      213: 7402116327809221660
+    second: SodaHat_Fishing_L_1
+  - first:
+      213: -4657150450401981988
+    second: SodaHat_Fishing_L_2
+  - first:
+      213: -6073803390214656561
+    second: SodaHat_Fishing_L_3
+  - first:
+      213: -2674360888879584239
+    second: SodaHat_MoveForward_L_0
+  - first:
+      213: -7182612435759304147
+    second: SodaHat_MoveForward_L_1
+  - first:
+      213: -8346816114069906304
+    second: SodaHat_MoveForward_L_2
+  - first:
+      213: 5892868070388821186
+    second: SodaHat_MoveForward_L_3
+  - first:
+      213: -3775952109503953920
+    second: SodaHat_MoveBackward_L_0
+  - first:
+      213: 8857435193652011514
+    second: SodaHat_MoveBackward_L_1
+  - first:
+      213: 6134004770618611870
+    second: SodaHat_MoveBackward_L_2
+  - first:
+      213: 6764559720848042564
+    second: SodaHat_MoveBackward_L_3
+  - first:
+      213: -1474482636378702234
+    second: SodaHat_Fighting_L_0
+  - first:
+      213: 7286944552996232264
+    second: SodaHat_Fighting_L_1
+  - first:
+      213: 1186488140302034315
+    second: SodaHat_Fighting_L_2
+  - first:
+      213: -7300639711855228513
+    second: SodaHat_Fighting_L_3
+  - first:
+      213: 8713172060197048994
+    second: SodaHat_Reeling_L_0
+  - first:
+      213: 8376162344390375194
+    second: SodaHat_Reeling_L_1
+  - first:
+      213: 8483592643091534328
+    second: SodaHat_Reeling_L_2
+  - first:
+      213: -8812772062930249638
+    second: SodaHat_Reeling_L_3
+  - first:
+      213: 8627692782134769328
+    second: SodaHat_Win_L_0
+  - first:
+      213: 9178199986968760953
+    second: SodaHat_Win_L_1
+  - first:
+      213: 4673284306784376514
+    second: SodaHat_Win_L_2
+  - first:
+      213: 8294415594283022616
+    second: SodaHat_Win_L_3
+  - first:
+      213: 2253064972031335798
+    second: SodaHat_SwappingPoles_L_0
+  - first:
+      213: 4191675479362391813
+    second: SodaHat_SwappingPoles_L_1
+  - first:
+      213: -4566658776256293122
+    second: SodaHat_SwappingPoles_L_2
+  - first:
+      213: 723362904268492492
+    second: SodaHat_SwappingPoles_L_3
+  - first:
+      213: 924339739419265992
+    second: SodaHat_Scared_L_0
+  - first:
+      213: -3550692515191716677
+    second: SodaHat_Scared_L_1
+  - first:
+      213: -4578474355434273292
+    second: SodaHat_Scared_L_2
+  - first:
+      213: 3234725549520472927
+    second: SodaHat_Scared_L_3
+  - first:
+      213: -8767369866456152254
+    second: SodaHat_GoToCry_L_0
+  - first:
+      213: 5251570520566760951
+    second: SodaHat_GoToCry_L_1
+  - first:
+      213: -7318883402080821254
+    second: SodaHat_GoToCry_L_2
+  - first:
+      213: -8351904453021646531
+    second: SodaHat_GoToCry_L_3
+  - first:
+      213: 7640610091214534312
+    second: SodaHat_Cry_L_0
+  - first:
+      213: 1695601490303238500
+    second: SodaHat_Cry_L_1
+  - first:
+      213: -1700806085668156148
+    second: SodaHat_Cry_L_2
+  - first:
+      213: -4055667007332027244
+    second: SodaHat_Cry_L_3
+  - first:
+      213: -3537218294238588353
+    second: SodaHat_Casting_R_0
+  - first:
+      213: -6334084672754936634
+    second: SodaHat_Casting_R_1
+  - first:
+      213: 8152331340912038976
+    second: SodaHat_Casting_R_2
+  - first:
+      213: 1856899757387008556
+    second: SodaHat_Casting_R_3
+  - first:
+      213: -4599315593260775698
+    second: SodaHat_Idle_R_0
+  - first:
+      213: -5793239850875201406
+    second: SodaHat_Idle_R_1
+  - first:
+      213: -7401125268268073098
+    second: SodaHat_Idle_R_2
+  - first:
+      213: -1730484953931716888
+    second: SodaHat_Idle_R_3
+  - first:
+      213: -4095851027540283294
+    second: SodaHat_Fishing_R_0
+  - first:
+      213: 8148696962290452663
+    second: SodaHat_Fishing_R_1
+  - first:
+      213: 65776808963568801
+    second: SodaHat_Fishing_R_2
+  - first:
+      213: 8054319081843577749
+    second: SodaHat_Fishing_R_3
+  - first:
+      213: 5508538046492392172
+    second: SodaHat_MoveForward_R_0
+  - first:
+      213: 2567399668260775596
+    second: SodaHat_MoveForward_R_1
+  - first:
+      213: -4105712917357810696
+    second: SodaHat_MoveForward_R_2
+  - first:
+      213: 1047190449918863579
+    second: SodaHat_MoveForward_R_3
+  - first:
+      213: -4004261839995645511
+    second: SodaHat_MoveBackward_R_0
+  - first:
+      213: 839825725059460843
+    second: SodaHat_MoveBackward_R_1
+  - first:
+      213: -5988998680256330483
+    second: SodaHat_MoveBackward_R_2
+  - first:
+      213: 2157643118220660348
+    second: SodaHat_MoveBackward_R_3
+  - first:
+      213: -5966793792158967919
+    second: SodaHat_Fighting_R_0
+  - first:
+      213: 4942813604588315503
+    second: SodaHat_Fighting_R_1
+  - first:
+      213: -4186671337186680326
+    second: SodaHat_Fighting_R_2
+  - first:
+      213: 5917528363797938830
+    second: SodaHat_Fighting_R_3
+  - first:
+      213: -24544904743727889
+    second: SodaHat_Reeling_R_0
+  - first:
+      213: 7526365258004649027
+    second: SodaHat_Reeling_R_1
+  - first:
+      213: -1632157110192563691
+    second: SodaHat_Reeling_R_2
+  - first:
+      213: 1556474735633203784
+    second: SodaHat_Reeling_R_3
+  - first:
+      213: -6771709495703924884
+    second: SodaHat_Win_R_0
+  - first:
+      213: -4083288128655872486
+    second: SodaHat_Win_R_1
+  - first:
+      213: -112108122465698997
+    second: SodaHat_Win_R_2
+  - first:
+      213: -6882540111962610420
+    second: SodaHat_Win_R_3
+  - first:
+      213: -3769166797272022798
+    second: SodaHat_SwappingPoles_R_0
+  - first:
+      213: -9111534053424389850
+    second: SodaHat_SwappingPoles_R_1
+  - first:
+      213: 3764215494592024665
+    second: SodaHat_SwappingPoles_R_2
+  - first:
+      213: 3571330458214781668
+    second: SodaHat_SwappingPoles_R_3
+  - first:
+      213: 9001069229858840605
+    second: SodaHat_Scared_R_0
+  - first:
+      213: 3949806804534873306
+    second: SodaHat_Scared_R_1
+  - first:
+      213: 6509367120938652634
+    second: SodaHat_Scared_R_2
+  - first:
+      213: -1534374155532892835
+    second: SodaHat_Scared_R_3
+  - first:
+      213: -7872357495149761698
+    second: SodaHat_GoToCry_R_0
+  - first:
+      213: -8830031734265220159
+    second: SodaHat_GoToCry_R_1
+  - first:
+      213: -5597254977588084407
+    second: SodaHat_GoToCry_R_2
+  - first:
+      213: 8541761395946920574
+    second: SodaHat_GoToCry_R_3
+  - first:
+      213: -836143563227394996
+    second: SodaHat_Cry_R_0
+  - first:
+      213: 5603094938300736620
+    second: SodaHat_Cry_R_1
+  - first:
+      213: -227954005796112602
+    second: SodaHat_Cry_R_2
+  - first:
+      213: -3406654139419182123
+    second: SodaHat_Cry_R_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SodaHat_Casting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ddfc9358660f3cc0800000000000000
+      internalID: -3729254921290318381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Casting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88d6338058798c0b0800000000000000
+      internalID: -5708145930068071032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Casting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 819711f18cacd0cf0800000000000000
+      internalID: -284348240590964456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Casting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e2f9c5d4a67c38e0800000000000000
+      internalID: -1712363307974135067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Idle_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28264c9251db494d0800000000000000
+      internalID: -3128667942522953086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Idle_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c58c2e4593873df0800000000000000
+      internalID: -200546981109791293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Idle_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68c65ef2d9d77b700800000000000000
+      internalID: 556051193070447750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Idle_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba4921e840dfbb830800000000000000
+      internalID: 4088139282774135979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Fishing_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02595328298729e90800000000000000
+      internalID: -7020416298472073952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Fishing_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c140031059999b660800000000000000
+      internalID: 7402116327809221660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Fishing_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd94d3a075a7e5fb0800000000000000
+      internalID: -4657150450401981988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Fishing_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcd21ba3ff385bba0800000000000000
+      internalID: -6073803390214656561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_MoveForward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c6221e0f2c2ead0800000000000000
+      internalID: -2674360888879584239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_MoveForward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2273477b0c325c90800000000000000
+      internalID: -7182612435759304147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_MoveForward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08c5b53b7f62a2c80800000000000000
+      internalID: -8346816114069906304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_MoveForward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cc64cbc94ca7c150800000000000000
+      internalID: 5892868070388821186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_MoveBackward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0044120ff8f199bc0800000000000000
+      internalID: -3775952109503953920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_MoveBackward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af1eba2416eebea70800000000000000
+      internalID: 8857435193652011514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_MoveBackward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e98164be6dc502550800000000000000
+      internalID: 6134004770618611870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_MoveBackward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44a2017d93b80ed50800000000000000
+      internalID: 6764559720848042564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Fighting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66e7a27bad5998be0800000000000000
+      internalID: -1474482636378702234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Fighting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84cde4b867d602560800000000000000
+      internalID: 7286944552996232264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Fighting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b85aae46da0477010800000000000000
+      internalID: 1186488140302034315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Fighting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9942cdccdaeeaa90800000000000000
+      internalID: -7300639711855228513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Reeling_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a257ea03d76be870800000000000000
+      internalID: 8713172060197048994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Reeling_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a17346ef54b1e3470800000000000000
+      internalID: 8376162344390375194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Reeling_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f196969f86cbb570800000000000000
+      internalID: 8483592643091534328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Reeling_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a585e86308eb2b580800000000000000
+      internalID: -8812772062930249638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Win_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b63856bfd8bbb770800000000000000
+      internalID: 8627692782134769328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Win_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97294cc82448f5f70800000000000000
+      internalID: 9178199986968760953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Win_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c65a402157dad040800000000000000
+      internalID: 4673284306784376514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Win_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81933bc890fab1370800000000000000
+      internalID: 8294415594283022616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_SwappingPoles_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67d9dc1a7ae744f10800000000000000
+      internalID: 2253064972031335798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_SwappingPoles_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50f4c19d3a2db2a30800000000000000
+      internalID: 4191675479362391813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_SwappingPoles_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef6d2d6c908ff90c0800000000000000
+      internalID: -4566658776256293122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_SwappingPoles_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cce4e989ab6e90a00800000000000000
+      internalID: 723362904268492492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Scared_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cbccdb781ae3dc00800000000000000
+      internalID: 924339739419265992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Scared_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb40c5548f769bec0800000000000000
+      internalID: -3550692515191716677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Scared_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f5ca1fd4ddf570c0800000000000000
+      internalID: -4578474355434273292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Scared_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5b4c0dbfbd04ec20800000000000000
+      internalID: 3234725549520472927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_GoToCry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 247ca67de8b045680800000000000000
+      internalID: -8767369866456152254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_GoToCry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f58b4f709351e840800000000000000
+      internalID: 5251570520566760951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_GoToCry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aff587aa25a1e6a90800000000000000
+      internalID: -7318883402080821254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_GoToCry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3144a77623181c80800000000000000
+      internalID: -8351904453021646531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Cry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a67b127566e80a60800000000000000
+      internalID: 7640610091214534312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Cry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 461c52e529cf78710800000000000000
+      internalID: 1695601490303238500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Cry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0d4de750e58568e0800000000000000
+      internalID: -1700806085668156148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Cry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 494f3bc385067b7c0800000000000000
+      internalID: -4055667007332027244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Casting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3255eec3b649eec0800000000000000
+      internalID: -3537218294238588353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Casting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c4123fac8fc818a0800000000000000
+      internalID: -6334084672754936634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Casting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04498526926e22170800000000000000
+      internalID: 8152331340912038976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Casting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2acf86bd7805c910800000000000000
+      internalID: 1856899757387008556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Idle_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee6c6cd06d2fb20c0800000000000000
+      internalID: -4599315593260775698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Idle_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28852fdac074a9fa0800000000000000
+      internalID: -5793239850875201406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Idle_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67fb6b608cbe94990800000000000000
+      internalID: -7401125268268073098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Idle_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e6edb75a151cf7e0800000000000000
+      internalID: -1730484953931716888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Fishing_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 260fa82f03d9827c0800000000000000
+      internalID: -4095851027540283294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Fishing_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b880aba6bcf51170800000000000000
+      internalID: 8148696962290452663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Fishing_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a47bb4c8afa9e000800000000000000
+      internalID: 65776808963568801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Fishing_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 593dfe40880b6cf60800000000000000
+      internalID: 8054319081843577749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_MoveForward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cea37e4fa22427c40800000000000000
+      internalID: 5508538046492392172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_MoveForward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca6a327456c31a320800000000000000
+      internalID: 2567399668260775596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_MoveForward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fba72bcad39507c0800000000000000
+      internalID: -4105712917357810696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_MoveForward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd8689b7a2e588e00800000000000000
+      internalID: 1047190449918863579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_MoveBackward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b1586f62110e68c0800000000000000
+      internalID: -4004261839995645511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_MoveBackward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bee676f1c09a7ab00800000000000000
+      internalID: 839825725059460843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_MoveBackward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d05c90f6e6dc2eca0800000000000000
+      internalID: -5988998680256330483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_MoveBackward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7ecb9dfbfc71fd10800000000000000
+      internalID: 2157643118220660348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Fighting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 197db52d8a0b13da0800000000000000
+      internalID: -5966793792158967919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Fighting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f63647409c6689440800000000000000
+      internalID: 4942813604588315503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Fighting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af1adabc994f5e5c0800000000000000
+      internalID: -4186671337186680326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Fighting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e828978c1b84f1250800000000000000
+      internalID: 5917528363797938830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Reeling_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fec44b70a8cc8aff0800000000000000
+      internalID: -24544904743727889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Reeling_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34455356355037860800000000000000
+      internalID: 7526365258004649027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Reeling_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51a185d71c96959e0800000000000000
+      internalID: -1632157110192563691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Reeling_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84289478685b99510800000000000000
+      internalID: 1556474735633203784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Win_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6f8d6a771e0602a0800000000000000
+      internalID: -6771709495703924884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Win_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1ea5e7c41f3557c0800000000000000
+      internalID: -4083288128655872486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Win_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4bfeffa146b17ef0800000000000000
+      internalID: -112108122465698997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Win_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c056712cb3e4c70a0800000000000000
+      internalID: -6882540111962610420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_SwappingPoles_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f0876d84ca31bbc0800000000000000
+      internalID: -3769166797272022798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_SwappingPoles_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 621a3caad045d8180800000000000000
+      internalID: -9111534053424389850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_SwappingPoles_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 950dd257c0e2d3430800000000000000
+      internalID: 3764215494592024665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_SwappingPoles_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e2dc69412aef8130800000000000000
+      internalID: 3571330458214781668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Scared_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d106f6c56c83aec70800000000000000
+      internalID: 9001069229858840605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Scared_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adcc8bb9c5880d630800000000000000
+      internalID: 3949806804534873306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Scared_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad3d72c88eae55a50800000000000000
+      internalID: 6509367120938652634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Scared_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d550ce2c5dec4bae0800000000000000
+      internalID: -1534374155532892835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_GoToCry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5be6b45194cfb290800000000000000
+      internalID: -7872357495149761698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_GoToCry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c3f1b3dbec657580800000000000000
+      internalID: -8830031734265220159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_GoToCry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 941439fd04e8252b0800000000000000
+      internalID: -5597254977588084407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_GoToCry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7a9f81cbbe6a8670800000000000000
+      internalID: 8541761395946920574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Cry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4c0a9cfbdb6564f0800000000000000
+      internalID: -836143563227394996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Cry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c646430f82132cd40800000000000000
+      internalID: 5603094938300736620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Cry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 627356b1a0526dcf0800000000000000
+      internalID: -227954005796112602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SodaHat_Cry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5db3e430c1229b0d0800000000000000
+      internalID: -3406654139419182123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Fisherman_Hat_SodaHat_Sheet_0: 8380855342396331191
+      Fisherman_Hat_SodaHat_Sheet_1: 5305933904506643562
+      Fisherman_Hat_SodaHat_Sheet_10: 3759511648174499692
+      Fisherman_Hat_SodaHat_Sheet_11: 6243525555763576811
+      Fisherman_Hat_SodaHat_Sheet_12: -4279839951758074410
+      Fisherman_Hat_SodaHat_Sheet_13: 2819173190233949851
+      Fisherman_Hat_SodaHat_Sheet_14: 8882844321229677449
+      Fisherman_Hat_SodaHat_Sheet_15: 5655850384546020718
+      Fisherman_Hat_SodaHat_Sheet_16: -8199147960071148236
+      Fisherman_Hat_SodaHat_Sheet_17: 5680837140626916529
+      Fisherman_Hat_SodaHat_Sheet_18: 8452128978098669765
+      Fisherman_Hat_SodaHat_Sheet_19: -8804200751780101464
+      Fisherman_Hat_SodaHat_Sheet_2: -2950060130103656800
+      Fisherman_Hat_SodaHat_Sheet_20: 4159320199982397218
+      Fisherman_Hat_SodaHat_Sheet_21: 5983491004862540696
+      Fisherman_Hat_SodaHat_Sheet_22: 5861153257198745721
+      Fisherman_Hat_SodaHat_Sheet_23: -4060956312280796446
+      Fisherman_Hat_SodaHat_Sheet_24: -7034193370900827840
+      Fisherman_Hat_SodaHat_Sheet_25: 7581355871941773093
+      Fisherman_Hat_SodaHat_Sheet_26: 673152280764253804
+      Fisherman_Hat_SodaHat_Sheet_27: 4650551926756604553
+      Fisherman_Hat_SodaHat_Sheet_28: 2334980765751118525
+      Fisherman_Hat_SodaHat_Sheet_29: -3984688009248110437
+      Fisherman_Hat_SodaHat_Sheet_3: 5283668596000540256
+      Fisherman_Hat_SodaHat_Sheet_30: 2652454288198613632
+      Fisherman_Hat_SodaHat_Sheet_31: 3517189902271030971
+      Fisherman_Hat_SodaHat_Sheet_32: 3895021983455009008
+      Fisherman_Hat_SodaHat_Sheet_33: 5592127466816549032
+      Fisherman_Hat_SodaHat_Sheet_34: -4651075978611339798
+      Fisherman_Hat_SodaHat_Sheet_35: 7526667777380284161
+      Fisherman_Hat_SodaHat_Sheet_36: 323743068248385812
+      Fisherman_Hat_SodaHat_Sheet_37: 2587913381473495095
+      Fisherman_Hat_SodaHat_Sheet_38: 6927777474757885761
+      Fisherman_Hat_SodaHat_Sheet_39: -3872155582297162006
+      Fisherman_Hat_SodaHat_Sheet_4: 1804521654999521505
+      Fisherman_Hat_SodaHat_Sheet_40: -52067247628320575
+      Fisherman_Hat_SodaHat_Sheet_41: 1641606675491479070
+      Fisherman_Hat_SodaHat_Sheet_42: -9036590229361098886
+      Fisherman_Hat_SodaHat_Sheet_43: 7365974314210640889
+      Fisherman_Hat_SodaHat_Sheet_44: 2141131341985974369
+      Fisherman_Hat_SodaHat_Sheet_45: 1334090200951458661
+      Fisherman_Hat_SodaHat_Sheet_46: -3880338110746508959
+      Fisherman_Hat_SodaHat_Sheet_47: -6663130181099059910
+      Fisherman_Hat_SodaHat_Sheet_48: 134223496858997777
+      Fisherman_Hat_SodaHat_Sheet_49: -1424205294479561430
+      Fisherman_Hat_SodaHat_Sheet_5: -8885807660726702683
+      Fisherman_Hat_SodaHat_Sheet_50: 2611126449673625589
+      Fisherman_Hat_SodaHat_Sheet_51: -3881226728720566004
+      Fisherman_Hat_SodaHat_Sheet_52: 4730123907433417899
+      Fisherman_Hat_SodaHat_Sheet_53: 4335696816178117249
+      Fisherman_Hat_SodaHat_Sheet_54: -4948152495471579606
+      Fisherman_Hat_SodaHat_Sheet_55: -7274302525974169814
+      Fisherman_Hat_SodaHat_Sheet_56: -6280782036486644602
+      Fisherman_Hat_SodaHat_Sheet_57: 7879674197605298243
+      Fisherman_Hat_SodaHat_Sheet_58: 7713092081879113207
+      Fisherman_Hat_SodaHat_Sheet_59: -3945018699515452024
+      Fisherman_Hat_SodaHat_Sheet_6: 3679493422486817876
+      Fisherman_Hat_SodaHat_Sheet_60: 8741659364562674679
+      Fisherman_Hat_SodaHat_Sheet_61: -1892411235350256919
+      Fisherman_Hat_SodaHat_Sheet_62: 6970396906979432461
+      Fisherman_Hat_SodaHat_Sheet_63: -1296539130284345474
+      Fisherman_Hat_SodaHat_Sheet_64: 1769924832304942136
+      Fisherman_Hat_SodaHat_Sheet_65: -6613443521649455656
+      Fisherman_Hat_SodaHat_Sheet_66: -4784735081504947745
+      Fisherman_Hat_SodaHat_Sheet_67: 5059987755992435838
+      Fisherman_Hat_SodaHat_Sheet_68: 6770001121792858424
+      Fisherman_Hat_SodaHat_Sheet_69: -7081227812746541652
+      Fisherman_Hat_SodaHat_Sheet_7: -1486645850523051977
+      Fisherman_Hat_SodaHat_Sheet_70: -949965887187831531
+      Fisherman_Hat_SodaHat_Sheet_71: 7695715708737314404
+      Fisherman_Hat_SodaHat_Sheet_72: -3326494701321961502
+      Fisherman_Hat_SodaHat_Sheet_73: 1863212920059522234
+      Fisherman_Hat_SodaHat_Sheet_74: 1041293118748692309
+      Fisherman_Hat_SodaHat_Sheet_75: 5432717160290600631
+      Fisherman_Hat_SodaHat_Sheet_76: 7917341002447556894
+      Fisherman_Hat_SodaHat_Sheet_77: 5304948020964847653
+      Fisherman_Hat_SodaHat_Sheet_78: 8480663757621983467
+      Fisherman_Hat_SodaHat_Sheet_79: -6204345894293618343
+      Fisherman_Hat_SodaHat_Sheet_8: 2273690598793745062
+      Fisherman_Hat_SodaHat_Sheet_80: -451539912698919747
+      Fisherman_Hat_SodaHat_Sheet_81: 4776981956623166776
+      Fisherman_Hat_SodaHat_Sheet_82: -4209583495590851293
+      Fisherman_Hat_SodaHat_Sheet_83: 2044579404774777023
+      Fisherman_Hat_SodaHat_Sheet_84: -8261481115719637082
+      Fisherman_Hat_SodaHat_Sheet_85: -1895288188846409312
+      Fisherman_Hat_SodaHat_Sheet_86: -8808082778552291480
+      Fisherman_Hat_SodaHat_Sheet_87: -8012198864404578183
+      Fisherman_Hat_SodaHat_Sheet_88: 1582793149259531150
+      Fisherman_Hat_SodaHat_Sheet_89: 2512126266194050053
+      Fisherman_Hat_SodaHat_Sheet_9: 7206284043192053913
+      Fisherman_Hat_SodaHat_Sheet_90: -6763090637609781978
+      Fisherman_Hat_SodaHat_Sheet_91: 2740285100659336205
+      Fisherman_Hat_SodaHat_Sheet_92: -6749008025504680743
+      Fisherman_Hat_SodaHat_Sheet_93: 3057147670850673822
+      Fisherman_Hat_SodaHat_Sheet_94: -1860522979491651087
+      Fisherman_Hat_SodaHat_Sheet_95: 3010497185414677706
+      SodaHat_Casting_L_0: -3729254921290318381
+      SodaHat_Casting_L_1: -5708145930068071032
+      SodaHat_Casting_L_2: -284348240590964456
+      SodaHat_Casting_L_3: -1712363307974135067
+      SodaHat_Casting_R_0: -3537218294238588353
+      SodaHat_Casting_R_1: -6334084672754936634
+      SodaHat_Casting_R_2: 8152331340912038976
+      SodaHat_Casting_R_3: 1856899757387008556
+      SodaHat_Cry_L_0: 7640610091214534312
+      SodaHat_Cry_L_1: 1695601490303238500
+      SodaHat_Cry_L_2: -1700806085668156148
+      SodaHat_Cry_L_3: -4055667007332027244
+      SodaHat_Cry_R_0: -836143563227394996
+      SodaHat_Cry_R_1: 5603094938300736620
+      SodaHat_Cry_R_2: -227954005796112602
+      SodaHat_Cry_R_3: -3406654139419182123
+      SodaHat_Fighting_L_0: -1474482636378702234
+      SodaHat_Fighting_L_1: 7286944552996232264
+      SodaHat_Fighting_L_2: 1186488140302034315
+      SodaHat_Fighting_L_3: -7300639711855228513
+      SodaHat_Fighting_R_0: -5966793792158967919
+      SodaHat_Fighting_R_1: 4942813604588315503
+      SodaHat_Fighting_R_2: -4186671337186680326
+      SodaHat_Fighting_R_3: 5917528363797938830
+      SodaHat_Fishing_L_0: -7020416298472073952
+      SodaHat_Fishing_L_1: 7402116327809221660
+      SodaHat_Fishing_L_2: -4657150450401981988
+      SodaHat_Fishing_L_3: -6073803390214656561
+      SodaHat_Fishing_R_0: -4095851027540283294
+      SodaHat_Fishing_R_1: 8148696962290452663
+      SodaHat_Fishing_R_2: 65776808963568801
+      SodaHat_Fishing_R_3: 8054319081843577749
+      SodaHat_GoToCry_L_0: -8767369866456152254
+      SodaHat_GoToCry_L_1: 5251570520566760951
+      SodaHat_GoToCry_L_2: -7318883402080821254
+      SodaHat_GoToCry_L_3: -8351904453021646531
+      SodaHat_GoToCry_R_0: -7872357495149761698
+      SodaHat_GoToCry_R_1: -8830031734265220159
+      SodaHat_GoToCry_R_2: -5597254977588084407
+      SodaHat_GoToCry_R_3: 8541761395946920574
+      SodaHat_Idle_L_0: -3128667942522953086
+      SodaHat_Idle_L_1: -200546981109791293
+      SodaHat_Idle_L_2: 556051193070447750
+      SodaHat_Idle_L_3: 4088139282774135979
+      SodaHat_Idle_R_0: -4599315593260775698
+      SodaHat_Idle_R_1: -5793239850875201406
+      SodaHat_Idle_R_2: -7401125268268073098
+      SodaHat_Idle_R_3: -1730484953931716888
+      SodaHat_MoveBackward_L_0: -3775952109503953920
+      SodaHat_MoveBackward_L_1: 8857435193652011514
+      SodaHat_MoveBackward_L_2: 6134004770618611870
+      SodaHat_MoveBackward_L_3: 6764559720848042564
+      SodaHat_MoveBackward_R_0: -4004261839995645511
+      SodaHat_MoveBackward_R_1: 839825725059460843
+      SodaHat_MoveBackward_R_2: -5988998680256330483
+      SodaHat_MoveBackward_R_3: 2157643118220660348
+      SodaHat_MoveForward_L_0: -2674360888879584239
+      SodaHat_MoveForward_L_1: -7182612435759304147
+      SodaHat_MoveForward_L_2: -8346816114069906304
+      SodaHat_MoveForward_L_3: 5892868070388821186
+      SodaHat_MoveForward_R_0: 5508538046492392172
+      SodaHat_MoveForward_R_1: 2567399668260775596
+      SodaHat_MoveForward_R_2: -4105712917357810696
+      SodaHat_MoveForward_R_3: 1047190449918863579
+      SodaHat_Reeling_L_0: 8713172060197048994
+      SodaHat_Reeling_L_1: 8376162344390375194
+      SodaHat_Reeling_L_2: 8483592643091534328
+      SodaHat_Reeling_L_3: -8812772062930249638
+      SodaHat_Reeling_R_0: -24544904743727889
+      SodaHat_Reeling_R_1: 7526365258004649027
+      SodaHat_Reeling_R_2: -1632157110192563691
+      SodaHat_Reeling_R_3: 1556474735633203784
+      SodaHat_Scared_L_0: 924339739419265992
+      SodaHat_Scared_L_1: -3550692515191716677
+      SodaHat_Scared_L_2: -4578474355434273292
+      SodaHat_Scared_L_3: 3234725549520472927
+      SodaHat_Scared_R_0: 9001069229858840605
+      SodaHat_Scared_R_1: 3949806804534873306
+      SodaHat_Scared_R_2: 6509367120938652634
+      SodaHat_Scared_R_3: -1534374155532892835
+      SodaHat_SwappingPoles_L_0: 2253064972031335798
+      SodaHat_SwappingPoles_L_1: 4191675479362391813
+      SodaHat_SwappingPoles_L_2: -4566658776256293122
+      SodaHat_SwappingPoles_L_3: 723362904268492492
+      SodaHat_SwappingPoles_R_0: -3769166797272022798
+      SodaHat_SwappingPoles_R_1: -9111534053424389850
+      SodaHat_SwappingPoles_R_2: 3764215494592024665
+      SodaHat_SwappingPoles_R_3: 3571330458214781668
+      SodaHat_Win_L_0: 8627692782134769328
+      SodaHat_Win_L_1: 9178199986968760953
+      SodaHat_Win_L_2: 4673284306784376514
+      SodaHat_Win_L_3: 8294415594283022616
+      SodaHat_Win_R_0: -6771709495703924884
+      SodaHat_Win_R_1: -4083288128655872486
+      SodaHat_Win_R_2: -112108122465698997
+      SodaHat_Win_R_3: -6882540111962610420
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
