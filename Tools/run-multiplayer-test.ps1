@@ -30,6 +30,10 @@ param(
     [string]$ClientFishermanHat = "",
     # Keep the built player sitting in the match instead of quitting, so the Editor can join it
     # and the result can be looked at.
+    # Window shape for both players. The default is 16:9; pass something else (1024x768,
+    # 2560x1080) to check UI on a screen shape this machine does not have.
+    [int]$ScreenWidth = 960,
+    [int]$ScreenHeight = 540,
     [switch]$Hold,
     [switch]$KeepWindows,
     [switch]$RawLogs
@@ -61,9 +65,10 @@ Get-Process -Name "PanicAtThePond" -ErrorAction SilentlyContinue | Stop-Process 
 Start-Sleep -Milliseconds 300
 
 # Small windowed players so both fit on one desktop and neither grabs exclusive fullscreen.
-$common = @("-screen-fullscreen", "0", "-screen-width", "960", "-screen-height", "540")
+$common = @("-screen-fullscreen", "0", "-screen-width", "$ScreenWidth", "-screen-height", "$ScreenHeight")
 
 Write-Host "room:   $Room"
+Write-Host "screen: ${ScreenWidth}x${ScreenHeight}"
 Write-Host "host:   $hostLog"
 Write-Host "client: $clientLog"
 Write-Host ""

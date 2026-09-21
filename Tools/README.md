@@ -15,7 +15,8 @@ takes about 22 seconds.
 Exit code is 0 only when **both** sides report `RESULT-PASS`. Raw player logs are kept in
 `Build/TestLogs/`.
 
-Useful switches: `-Room <name>` (keep it to 10 characters, see below), `-TimeoutSeconds`,
+Useful switches: `-ScreenWidth` / `-ScreenHeight` (run both players at another screen shape —
+`-ScreenWidth 1024 -ScreenHeight 768` checks 4:3, which is where aspect bugs show up), `-Room <name>` (keep it to 10 characters, see below), `-TimeoutSeconds`,
 `-KeepWindows` to leave the players open for inspection, `-RawLogs` to dump exceptions from the
 raw logs.
 
