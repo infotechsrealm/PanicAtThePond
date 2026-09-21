@@ -37,9 +37,9 @@ param(
 
 $ErrorActionPreference = "Stop"
 $root      = Split-Path -Parent $PSScriptRoot
-$hostExe   = Join-Path $root "Build\TestHost\PanicAtThePond.exe"
-$clientExe = Join-Path $root "Build\TestClient\PanicAtThePond.exe"
-$logDir    = Join-Path $root "Build\TestLogs"
+$hostExe   = Join-Path $root "TestBuilds\Host\PanicAtThePond.exe"
+$clientExe = Join-Path $root "TestBuilds\Client\PanicAtThePond.exe"
+$logDir    = Join-Path $root "TestBuilds\Logs"
 
 foreach ($exe in @($hostExe, $clientExe)) {
     if (-not (Test-Path $exe)) {

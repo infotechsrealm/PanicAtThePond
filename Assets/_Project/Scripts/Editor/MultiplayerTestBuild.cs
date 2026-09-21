@@ -27,8 +27,10 @@ namespace PanicAtThePond.Editor
         public const string HostProductName = "PATP TestHost";
         public const string ClientProductName = "PATP TestClient";
 
-        private const string HostDirectory = "Build/TestHost";
-        private const string ClientDirectory = "Build/TestClient";
+        // Deliberately NOT under Build/: something outside the project packages that folder into
+        // the tracked Build.zip, and test players sitting there inflated it from 80 MB to 315 MB.
+        private const string HostDirectory = "TestBuilds/Host";
+        private const string ClientDirectory = "TestBuilds/Client";
         private const string ExecutableName = "PanicAtThePond.exe";
 
         public static string HostExecutable => Path.GetFullPath(Path.Combine(HostDirectory, ExecutableName));

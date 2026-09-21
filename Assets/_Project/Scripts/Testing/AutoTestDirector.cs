@@ -402,7 +402,7 @@ namespace PanicAtThePond.Testing
         private IEnumerator Shot(string label)
         {
             string dir = System.IO.Path.Combine(
-                System.IO.Directory.GetCurrentDirectory(), "Build", "TestLogs", "shots");
+                System.IO.Directory.GetCurrentDirectory(), "TestBuilds", "Logs", "shots");
             try
             {
                 System.IO.Directory.CreateDirectory(dir);
