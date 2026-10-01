@@ -290,6 +290,12 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: a600dafc892b47ddabf773822a85cbf9, type: 3}
     animator: {fileID: 0}
     aliases: []
+  - id: FisherMan_Hat_-Gold_Cap
+    displayName: FisherMan Hat  Gold Cap
+    category: 5
+    icon: {fileID: 21300000, guid: ff3a29b0288b9b743a9b5e0a27fc1a20, type: 3}
+    animator: {fileID: 0}
+    aliases: []
   - id: FisherMan_Hat_-Soda_Hat
     displayName: FisherMan Hat  Soda Hat
     category: 5

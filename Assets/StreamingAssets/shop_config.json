@@ -24,6 +24,15 @@
       "unlockedByDefault": false
     },
     {
+      "id": "FisherMan_Hat_-Gold_Cap",
+      "displayName": "Gold Cap",
+      "category": "fisherman_hat",
+      "price": 200,
+      "iconResource": "ShopUI/FisherMan_Hat_-Gold_Cap",
+      "inRotation": true,
+      "unlockedByDefault": false
+    },
+    {
       "id": "FisherMan_Hat_-Chef_Hat",
       "displayName": "Chef Hat",
       "category": "fisherman_hat",

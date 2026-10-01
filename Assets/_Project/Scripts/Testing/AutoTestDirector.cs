@@ -94,9 +94,12 @@ namespace PanicAtThePond.Testing
 
         private void Awake()
         {
-            if (configured)
+            // Awake runs inside AddComponent, i.e. before StartInEditor has set `configured`. Only
+            // the command-line bootstrap may self-start; otherwise an Editor run would spawn a second,
+            // stray director with default settings that clicks the same menus as the real one.
+            if (configured || string.IsNullOrEmpty(ReadArg(RoleArg)))
             {
-                return; // StartInEditor already supplied the configuration and called Begin
+                return;
             }
 
             role = (ReadArg(RoleArg) ?? "host").Trim().ToLowerInvariant();
