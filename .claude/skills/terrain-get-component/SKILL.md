@@ -1,6 +1,8 @@
 ---
 name: terrain-get-component
 description: "Generic read: serialize a terrain-related `Component` (`Terrain` or `TerrainCollider`) on a GameObject via ReflectorNet. The escape hatch for fields not covered by the dedicated tools. Pair with 'terrain-modify-component'. Read-only."
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Terrain / Get Component (generic)

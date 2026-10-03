@@ -1,6 +1,8 @@
 ---
 name: terrain-set-size
 description: Set the world-space size of a `Terrain`'s `TerrainData` — width (X), height (Y), and length (Z). Omitted components keep their current value.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Terrain / Set Size

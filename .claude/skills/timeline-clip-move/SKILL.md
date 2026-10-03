@@ -1,6 +1,8 @@
 ---
 name: timeline-clip-move
 description: Move a clip along its track — either to an absolute `start` time or by a relative `deltaSeconds`. Duration is preserved.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Timeline / Move Clip

@@ -1,6 +1,8 @@
 ---
 name: cinemachine-camera-create
 description: Create a new GameObject with a `CinemachineCamera` (Cinemachine 3.x virtual camera) in the active scene. Optionally set name, position, rotation, priority, and Follow / LookAt targets. Returns the new GameObject reference and instanceId.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Cinemachine / Create Camera

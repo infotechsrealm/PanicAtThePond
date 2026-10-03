@@ -1,6 +1,8 @@
 ---
 name: navigation-link-add
 description: Add and configure a `NavMeshLink` on a GameObject. A NavMeshLink connects two points on (or off) the NavMesh — e.g. a jump-across or a doorway — so agents can traverse gaps the baked mesh does not cover. Points are local to the GameObject's transform.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Navigation / Add NavMeshLink

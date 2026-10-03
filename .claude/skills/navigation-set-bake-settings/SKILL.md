@@ -1,6 +1,8 @@
 ---
 name: navigation-set-bake-settings
 description: Tune NavMesh bake settings. Agent radius / height / max-slope / step-height belong to a NavMesh agent type (in project NavMesh settings) and apply to every surface baking for that type. The voxel size is a per-surface override; pass `gameObjectRef` (a NavMeshSurface) with `voxelSize` to set it.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Navigation / Set Bake Settings

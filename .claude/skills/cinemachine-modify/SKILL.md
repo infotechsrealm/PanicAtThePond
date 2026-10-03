@@ -1,6 +1,8 @@
 ---
 name: cinemachine-modify
 description: "Generic write: apply a `SerializedMember` diff to any Cinemachine `Component` on a GameObject via ReflectorNet `TryModify`. Use 'cinemachine-get' first to inspect the structure so the diff is targeted."
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Cinemachine / Modify Component

@@ -1,6 +1,8 @@
 ---
 name: timeline-get
 description: "Generic read: serialize a Timeline object via ReflectorNet — the `TimelineAsset` itself, a `TrackAsset` (by name/index), or a clip's `PlayableAsset` (track + clipIndex). Pair with 'timeline-modify' to write changes back. Read-only."
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Timeline / Get Object

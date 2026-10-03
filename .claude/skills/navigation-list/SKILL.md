@@ -1,6 +1,8 @@
 ---
 name: navigation-list
 description: List every `NavMeshSurface` and `NavMeshAgent` in the active scene with their key settings (agent type, baked-data presence for surfaces; speed, on-NavMesh state for agents). Read-only.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Navigation / List Surfaces and Agents

@@ -1,6 +1,8 @@
 ---
 name: cinemachine-set-body
 description: Add or replace the position-control (Body) component of a `CinemachineCamera`, chosen by `BodyType` (Follow, OrbitalFollow, ThirdPersonFollow, PositionComposer, HardLockToTarget, or None). Applies common params (followOffset, damping, cameraDistance) where applicable.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Cinemachine / Set Body

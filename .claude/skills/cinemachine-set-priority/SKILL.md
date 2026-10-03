@@ -1,6 +1,8 @@
 ---
 name: cinemachine-set-priority
 description: Set the `Priority.Value` of a `CinemachineCamera`. The highest-priority active camera wins control of the `CinemachineBrain`.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Cinemachine / Set Priority

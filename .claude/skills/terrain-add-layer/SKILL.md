@@ -1,6 +1,8 @@
 ---
 name: terrain-add-layer
 description: Add a `TerrainLayer` to a `Terrain`. Provide either the asset path of an existing `.terrainlayer` asset, or a texture asset path to build a new TerrainLayer from. Returns the index of the added layer.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Terrain / Add Layer

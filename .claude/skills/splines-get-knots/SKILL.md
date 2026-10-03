@@ -1,6 +1,8 @@
 ---
 name: splines-get-knots
 description: "Read all knots of a spline in a `SplineContainer`: per-knot position, in/out tangents, rotation, and tangent mode, plus the closed flag. Read-only."
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Splines / Get Knots

@@ -1,6 +1,8 @@
 ---
 name: terrain-set-heightmap-resolution
 description: Set the heightmap resolution of a `Terrain`'s `TerrainData`. The value is rounded up to a valid `2^n + 1`. Changing resolution resamples the existing heightmap.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Terrain / Set Heightmap Resolution

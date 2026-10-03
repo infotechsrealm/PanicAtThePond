@@ -1,6 +1,8 @@
 ---
 name: cinemachine-brain-ensure
 description: Ensure a `CinemachineBrain` exists on a `Camera`. Targets the referenced Camera GameObject, or `Camera.main` when none is given. Returns the brain + camera info. A CinemachineBrain is required for any CinemachineCamera to actually drive the rendering Camera.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Cinemachine / Ensure Brain

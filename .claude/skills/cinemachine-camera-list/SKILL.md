@@ -1,6 +1,8 @@
 ---
 name: cinemachine-camera-list
 description: List every `CinemachineCamera` in the active scene with its name, priority, and whether it is currently the live (active) camera according to an active `CinemachineBrain`. Read-only.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Cinemachine / List Cameras

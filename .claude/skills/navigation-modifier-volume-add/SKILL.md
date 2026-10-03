@@ -1,6 +1,8 @@
 ---
 name: navigation-modifier-volume-add
 description: Add and configure a `NavMeshModifierVolume` on a GameObject. A modifier volume marks a box-shaped region of space so that any NavMesh baked inside it is assigned a specific area (e.g. a non-walkable or higher-cost zone).
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Navigation / Add NavMeshModifierVolume

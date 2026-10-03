@@ -1,6 +1,8 @@
 ---
 name: splines-set-closed
 description: Toggle whether a spline is a closed loop. A closed spline connects its last knot back to its first, forming a continuous loop.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Splines / Set Closed

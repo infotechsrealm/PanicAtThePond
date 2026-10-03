@@ -1,6 +1,8 @@
 ---
 name: splines-add-spline
 description: Add an additional empty `Spline` to an existing `SplineContainer`. A container can hold many splines; this appends one and returns its new index.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Splines / Add Spline

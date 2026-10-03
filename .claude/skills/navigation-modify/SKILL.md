@@ -1,6 +1,8 @@
 ---
 name: navigation-modify
 description: "Generic write: apply a `SerializedMember` diff to any NavMesh `Component` on a GameObject via ReflectorNet `TryModify`. Use 'navigation-get' first to inspect the structure so the diff is targeted. Remember: fields go through the `fields` channel, properties through `props`."
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Navigation / Modify Component

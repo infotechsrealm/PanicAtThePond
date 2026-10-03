@@ -1,6 +1,8 @@
 ---
 name: cinemachine-camera-get
 description: Inspect a `CinemachineCamera` — its lens, Follow / LookAt targets, priority, and the list of pipeline components (Body / Aim / Noise / extensions) currently attached. Read-only.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Cinemachine / Get Camera

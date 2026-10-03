@@ -1,6 +1,8 @@
 ---
 name: terrain-set-detail-prototypes
 description: Replace the detail prototypes (grass / detail meshes) of a `Terrain` with a new set built from texture or prefab asset paths. Returns the resulting prototype count.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Terrain / Set Detail Prototypes

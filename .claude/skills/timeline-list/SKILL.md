@@ -1,6 +1,8 @@
 ---
 name: timeline-list
 description: List every `TimelineAsset` in the project with its path, GUID, track count and duration. Read-only.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Timeline / List TimelineAssets

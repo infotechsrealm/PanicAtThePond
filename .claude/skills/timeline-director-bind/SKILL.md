@@ -1,6 +1,8 @@
 ---
 name: timeline-director-bind
 description: Bind a `TimelineAsset` to a scene GameObject's `PlayableDirector` (adding the component if missing). Optionally set the play-on-awake flag. Returns the director's GameObject and instanceId.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Timeline / Bind PlayableDirector

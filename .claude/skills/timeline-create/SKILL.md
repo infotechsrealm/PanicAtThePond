@@ -1,6 +1,8 @@
 ---
 name: timeline-create
 description: Create a new empty `TimelineAsset` (.playable) at a project path. Optionally set the frame rate and a fixed duration mode. Returns the created asset path and GUID.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Timeline / Create TimelineAsset

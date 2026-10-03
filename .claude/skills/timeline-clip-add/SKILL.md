@@ -1,6 +1,8 @@
 ---
 name: timeline-clip-add
 description: Add a clip to a track on a `TimelineAsset`. For AnimationTracks pass an `animationClipPath`; for AudioTracks pass an `audioClipPath`; otherwise a default clip is created. Optionally set start, duration and display name.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Timeline / Add Clip

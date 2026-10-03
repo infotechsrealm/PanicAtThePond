@@ -1,6 +1,8 @@
 ---
 name: navigation-modifier-add
 description: Add and configure a `NavMeshModifier` on a GameObject. A NavMeshModifier overrides how that object (and optionally its children) is treated during baking — its NavMesh area, whether it is ignored, and link generation.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Navigation / Add NavMeshModifier

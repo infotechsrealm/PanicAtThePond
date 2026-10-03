@@ -1,6 +1,8 @@
 ---
 name: navigation-surface-bake
 description: Bake (build) the NavMesh for a `NavMeshSurface`, or clear its existing baked data. Pass `clear = true` to remove the baked NavMeshData instead of building it.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Navigation / Bake or Clear NavMeshSurface

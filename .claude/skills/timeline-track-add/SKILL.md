@@ -1,6 +1,8 @@
 ---
 name: timeline-track-add
 description: Add a track to a `TimelineAsset`. `trackType` accepts a kind keyword (Animation, Activation, Audio, Signal, Control, Playable, Group) or a full TrackAsset type name. Optionally nest the new track under an existing GroupTrack.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Timeline / Add Track

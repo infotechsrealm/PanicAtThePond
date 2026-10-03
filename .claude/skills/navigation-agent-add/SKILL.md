@@ -1,6 +1,8 @@
 ---
 name: navigation-agent-add
 description: Add and configure a `NavMeshAgent` (from the built-in `com.unity.modules.ai`) on a GameObject — or create a new GameObject to host it. Configure agent type, speed, acceleration, angular speed, stopping distance, and the area mask. Returns the GameObject reference and instanceId.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Navigation / Add NavMeshAgent

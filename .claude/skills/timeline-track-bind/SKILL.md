@@ -1,6 +1,8 @@
 ---
 name: timeline-track-bind
 description: Bind a scene object to a Timeline output track via a `PlayableDirector` generic binding — e.g. point an AnimationTrack at an `Animator`, or an ActivationTrack at a GameObject. The director must already play the timeline that owns the track.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Timeline / Bind Track

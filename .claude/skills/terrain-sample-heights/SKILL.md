@@ -1,6 +1,8 @@
 ---
 name: terrain-sample-heights
 description: Read heightmap values over a rectangular region (or the whole terrain) of a `Terrain`. Returns the normalized [0,1] heights plus min/max/average statistics. Read-only.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Terrain / Sample Heights

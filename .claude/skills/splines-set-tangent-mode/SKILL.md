@@ -1,6 +1,8 @@
 ---
 name: splines-set-tangent-mode
 description: "Set the `TangentMode` of a knot in a spline. Valid modes: Linear, Continuous, Broken, AutoSmooth, Mirrored. The mode controls how the knot's in/out tangents are computed."
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Splines / Set Tangent Mode

@@ -1,6 +1,8 @@
 ---
 name: cinemachine-set-targets
 description: Set the `Follow` (position) and/or `LookAt` (aim) targets of a `CinemachineCamera`. Pass `clearFollow` / `clearLookAt` to explicitly remove a target instead of setting one.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Cinemachine / Set Targets

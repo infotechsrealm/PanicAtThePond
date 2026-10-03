@@ -1,6 +1,8 @@
 ---
 name: cinemachine-set-aim
 description: Add or replace the rotation-control (Aim) component of a `CinemachineCamera`, chosen by `AimType` (RotationComposer, HardLookAt, PanTilt, or None). Applies common params (screen X/Y, damping) to RotationComposer where applicable.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Cinemachine / Set Aim

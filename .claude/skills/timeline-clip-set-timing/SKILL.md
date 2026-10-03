@@ -1,6 +1,8 @@
 ---
 name: timeline-clip-set-timing
 description: "Set the timing of a clip on a Timeline track: start, duration, clip-in (trim), blend-in / blend-out durations, ease-in / ease-out durations, and time scale. Only the values you supply are changed."
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Timeline / Set Clip Timing

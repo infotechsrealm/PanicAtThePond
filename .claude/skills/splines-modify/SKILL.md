@@ -1,6 +1,8 @@
 ---
 name: splines-modify
 description: "Generic write: apply a `SerializedMember` diff to any Splines `Component` on a GameObject via ReflectorNet `TryModify`. Use 'splines-get' first to inspect the structure so the diff is targeted. Fields go through the `fields` channel, properties through `props` (no cross-fallback)."
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Splines / Modify Component

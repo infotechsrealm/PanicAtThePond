@@ -1,6 +1,8 @@
 ---
 name: timeline-marker-add
 description: Add a marker at a time on a track (or the timeline marker track). `markerType` accepts 'Signal' (a SignalEmitter, default) or a full IMarker/ScriptableObject marker type name.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Timeline / Add Marker

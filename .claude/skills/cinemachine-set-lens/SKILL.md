@@ -1,6 +1,8 @@
 ---
 name: cinemachine-set-lens
 description: Set lens fields of a `CinemachineCamera`'s `LensSettings` — field of view (perspective) or orthographic size, near / far clip planes, and Dutch (roll) angle. Only the fields you pass are changed.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Cinemachine / Set Lens

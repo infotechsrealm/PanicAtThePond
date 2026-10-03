@@ -1,6 +1,8 @@
 ---
 name: splines-evaluate
 description: Evaluate a spline at normalized parameter `t` in [0,1], returning the local-space and world-space position, the tangent (direction of travel), and the up vector. Read-only.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Splines / Evaluate

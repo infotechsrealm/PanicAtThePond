@@ -1,6 +1,8 @@
 ---
 name: splines-get
 description: "Generic read: serialize any Splines `Component` (a type in the `UnityEngine.Splines` namespace, e.g. `SplineContainer`, `SplineInstantiate`, `SplineAnimate`) on a GameObject via ReflectorNet. Pair with 'splines-modify' to write changes back. Read-only."
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Splines / Get Component

@@ -1,6 +1,8 @@
 ---
 name: navigation-agent-set-destination
 description: Set the destination of a `NavMeshAgent` so it pathfinds toward a world-space point. Optionally provide a target GameObject instead of explicit coordinates. The agent must be on a baked NavMesh for a path to be computed (most relevant in play mode).
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Navigation / Set Agent Destination

@@ -1,6 +1,8 @@
 ---
 name: navigation-get
 description: "Generic read: serialize any NavMesh `Component` (NavMeshSurface / NavMeshModifier / NavMeshModifierVolume / NavMeshLink / NavMeshAgent) on a GameObject via ReflectorNet. Pair with 'navigation-modify' to write changes back. Read-only."
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Navigation / Get Component

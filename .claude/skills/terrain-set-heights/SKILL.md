@@ -1,6 +1,8 @@
 ---
 name: terrain-set-heights
 description: Set heightmap values over a rectangular region (or the whole terrain) of a `Terrain`. Either fill the region with a uniform normalized height, or supply an explicit row-major 2D heights array. Heights are normalized [0,1] of the terrain's Y size.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Terrain / Set Heights

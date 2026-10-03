@@ -1,6 +1,8 @@
 ---
 name: terrain-set-neighbors
 description: Set the neighboring `Terrain`s of a center `Terrain` (left / top / right / bottom) so Unity blends seams and LOD across tiles. Omitted neighbors are treated as null.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Terrain / Set Neighbors

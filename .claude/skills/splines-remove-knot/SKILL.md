@@ -1,6 +1,8 @@
 ---
 name: splines-remove-knot
 description: "Remove the knot at a given index from a spline, shifting later knots back. Destructive: the removed control point is gone."
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Splines / Remove Knot

@@ -1,6 +1,8 @@
 ---
 name: timeline-track-list
 description: List the tracks of a `TimelineAsset` — name, type, mute/lock state, clip count, and each track's clips (with timing). Read-only.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Timeline / List Tracks

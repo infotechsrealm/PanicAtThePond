@@ -1,6 +1,8 @@
 ---
 name: splines-set-knot
 description: Set position, in/out tangents, and/or rotation of an existing knot in a spline. Only the fields you pass are changed; the rest are preserved.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Splines / Set Knot

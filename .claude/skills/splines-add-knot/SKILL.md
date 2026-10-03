@@ -1,6 +1,8 @@
 ---
 name: splines-add-knot
 description: Append a knot to a spline in a `SplineContainer`. A knot is a `BezierKnot` with a local position plus in/out tangents and a rotation. Returns the index of the appended knot.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Splines / Add Knot

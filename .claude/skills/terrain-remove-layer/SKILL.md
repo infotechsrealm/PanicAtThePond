@@ -1,6 +1,8 @@
 ---
 name: terrain-remove-layer
 description: Remove a `TerrainLayer` from a `Terrain` by its index. Returns the remaining layer count.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Terrain / Remove Layer

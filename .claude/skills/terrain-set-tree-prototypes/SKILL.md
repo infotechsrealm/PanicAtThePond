@@ -1,6 +1,8 @@
 ---
 name: terrain-set-tree-prototypes
 description: Replace the tree prototypes of a `Terrain` with a new set built from prefab/GameObject asset paths. Returns the resulting prototype count.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Terrain / Set Tree Prototypes

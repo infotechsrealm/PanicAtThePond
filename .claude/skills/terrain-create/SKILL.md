@@ -1,6 +1,8 @@
 ---
 name: terrain-create
 description: Create a new GameObject with a `Terrain` + `TerrainCollider` backed by a freshly created `TerrainData` asset. Set heightmap resolution and the terrain world size (width/height/length). Returns the new GameObject reference and instanceId.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Terrain / Create Terrain

@@ -1,6 +1,8 @@
 ---
 name: cinemachine-add-extension
 description: Add a `CinemachineExtension`-derived component (e.g. `CinemachineDeoccluder`, `CinemachineConfiner3D`, `CinemachineFollowZoom`, `CinemachineRecomposer`) to a `CinemachineCamera` GameObject, resolved by type name. The type is validated to derive from `CinemachineExtension`.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Cinemachine / Add Extension

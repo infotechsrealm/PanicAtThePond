@@ -1,6 +1,8 @@
 ---
 name: terrain-list
 description: List every `Terrain` in the active scene with its name, world size, heightmap resolution, and TerrainLayer count. Read-only.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Terrain / List Terrains

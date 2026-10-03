@@ -1,6 +1,8 @@
 ---
 name: cinemachine-set-noise
 description: Add or configure a `CinemachineBasicMultiChannelPerlin` (procedural camera shake / handheld noise) on a `CinemachineCamera`. Sets `AmplitudeGain` and `FrequencyGain`. The noise profile asset is optional and left untouched when not supplied.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Cinemachine / Set Noise

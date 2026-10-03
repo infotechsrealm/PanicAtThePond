@@ -1,6 +1,8 @@
 ---
 name: terrain-modify-component
 description: "Generic write: apply a `SerializedMember` diff to a terrain-related `Component` (`Terrain` or `TerrainCollider`) via ReflectorNet `TryModify`. Use 'terrain-get-component' first to inspect the structure. Route fields through the `fields` channel and properties through `props`."
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Terrain / Modify Component (generic)

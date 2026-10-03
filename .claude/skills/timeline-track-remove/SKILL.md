@@ -1,6 +1,8 @@
 ---
 name: timeline-track-remove
 description: Remove a root track (and its clips/markers) from a `TimelineAsset`, identified by `trackName` or by `trackIndex`. Destructive.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Timeline / Remove Track

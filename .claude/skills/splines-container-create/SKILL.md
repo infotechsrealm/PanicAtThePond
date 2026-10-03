@@ -1,6 +1,8 @@
 ---
 name: splines-container-create
 description: Create a new GameObject with a `SplineContainer` (and one initial empty `Spline`) in the active scene. Optionally set name, position and rotation. Returns the new GameObject reference and instanceId.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Splines / Create Container

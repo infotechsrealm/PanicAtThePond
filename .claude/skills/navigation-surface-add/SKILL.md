@@ -1,6 +1,8 @@
 ---
 name: navigation-surface-add
 description: Add and configure a `NavMeshSurface` component (from `com.unity.ai.navigation`) on a GameObject — or create a new GameObject to host it. Configure agent type, geometry-collection mode, layer mask, default area, and the box volume (size/center). Returns the GameObject reference and instanceId.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Navigation / Add NavMeshSurface

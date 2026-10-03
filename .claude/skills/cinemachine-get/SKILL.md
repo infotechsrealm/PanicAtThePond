@@ -1,6 +1,8 @@
 ---
 name: cinemachine-get
 description: "Generic read: serialize any Cinemachine `Component` (a type in the `Unity.Cinemachine` namespace) on a GameObject via ReflectorNet. Pair with 'cinemachine-modify' to write changes back. Read-only."
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Cinemachine / Get Component

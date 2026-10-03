@@ -1,6 +1,8 @@
 ---
 name: timeline-modify
 description: "Generic write: apply a `SerializedMember` diff to a Timeline object (the `TimelineAsset`, a `TrackAsset`, or a clip's `PlayableAsset`) via ReflectorNet `TryModify`. Use 'timeline-get' first to inspect the structure. Remember: object *fields* must be supplied through the `fields` channel and *properties* through `props` — there is no cross-fallback."
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Timeline / Modify Object

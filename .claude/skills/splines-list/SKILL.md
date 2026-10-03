@@ -1,6 +1,8 @@
 ---
 name: splines-list
 description: List every `SplineContainer` in the active scene with its name, spline count, and the knot count of each spline. Read-only.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Splines / List Containers

@@ -1,6 +1,8 @@
 ---
 name: terrain-paint-layer
 description: Paint a `TerrainLayer` over a rectangular region (or the whole terrain) by writing the alphamap (splatmap) so the chosen layer has the given weight there and the other layers are reduced proportionally. Alphamap weights are normalized [0,1].
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Terrain / Paint Layer

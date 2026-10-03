@@ -1,6 +1,8 @@
 ---
 name: terrain-get
 description: Inspect a `Terrain` — its `TerrainData` size, heightmap / alphamap / detail resolutions, the list of TerrainLayers, tree/detail prototype counts, tree-instance count, and neighbor terrains. Read-only.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Terrain / Get Terrain

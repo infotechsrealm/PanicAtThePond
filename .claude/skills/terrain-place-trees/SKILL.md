@@ -1,6 +1,8 @@
 ---
 name: terrain-place-trees
 description: Place trees on a `Terrain` using an existing tree prototype. Either scatter `count` trees randomly across a normalized [0,1] sub-rectangle, or place trees at explicit normalized positions. Optionally clear existing trees first.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Terrain / Place Trees

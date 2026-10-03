@@ -1,6 +1,8 @@
 ---
 name: cinemachine-set-default-blend
 description: Set the `DefaultBlend` of a `CinemachineBrain` — the blend style (Cut, EaseInOut, Linear, etc.) and duration used when transitioning between CinemachineCameras. Targets the referenced Camera's brain, or `Camera.main`'s brain.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Cinemachine / Set Default Blend

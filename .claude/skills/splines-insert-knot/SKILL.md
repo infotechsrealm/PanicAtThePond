@@ -1,6 +1,8 @@
 ---
 name: splines-insert-knot
 description: Insert a knot at a specific index in a spline, shifting later knots forward. Use this to add a control point in the middle of an existing path.
+metadata:
+  generated-by: mcp-plugin-dotnet
 ---
 
 # Splines / Insert Knot
