@@ -229,6 +229,14 @@ namespace PanicAtThePond.Testing
 
             ReportRoomMembers();
 
+            // Broadcast the visibility mode the way the lobby dropdown does. Setting the GS flags on
+            // the host alone is not enough: the fish-side cover is decided on each client from its
+            // own flags, so without this every client would play the default mode.
+            menu.SetVissiblity_Photon_RPC();
+            Log("STEP", $"visibility broadcast: clear={GS.Instance.ClearWaters} murky={GS.Instance.MurkyWaters} "
+                + $"deep={GS.Instance.DeepWaters} reflective={GS.Instance.ReflectiveWater}");
+            yield return new WaitForSeconds(1f);
+
             // Only the master client can start, and customeStartGame closes the room to exactly the
             // players present before loading Play on everyone via PhotonNetwork.LoadLevel.
             yield return new WaitForSeconds(1f);

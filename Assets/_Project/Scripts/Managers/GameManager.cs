@@ -75,6 +75,20 @@ public class GameManager : MonoBehaviourPunCallbacks
     public Sprite[] possibleWaterSprites;
     [Tooltip("Animated GIF background (BG. 2.gif). Played only when the BG_2 map (possibleBGSprites[0]) is selected.")]
     public AnimatedBackground bg2AnimatedBackground;
+
+    [Header("Layered pond background (BG_2 map)")]
+    [Tooltip("Base, clouds, light rays, plants and surface waves as separate layers, behind the world.")]
+    [SerializeField] private GameObject pondBackgroundLayers;
+    [Tooltip("The same layer set inside the fish-side sky cover, so a covered surface still shows the pond.")]
+    [SerializeField] private GameObject pondSkyCoverLayers;
+    [Tooltip("The same layer set inside the fisherman-side water cover.")]
+    [SerializeField] private GameObject pondWaterCoverLayers;
+    [Tooltip("Old world-space reeds, plants, light beams and lily pads. The layered pond carries its own, so they are hidden on that map. "
+        + "Never list gameplay objects here: the Environment/Rocks carry solid colliders and must stay.")]
+    [SerializeField] private GameObject[] legacyEnvironmentDecor = new GameObject[0];
+    [Tooltip("Full-screen copy of the selected background inside the fish-side sky cover, for maps without the layered pond. "
+        + "The cover's own image is transparent, so without this the cover hid nothing on those maps.")]
+    [SerializeField] private Image legacySkyCoverImage;
     private Sprite selectedBGSprite;
     private const string FishingBackgroundSpriteName = "background-fishing";
     private const string LargeFishingBackgroundSpriteName = "background-fishing-largemap";
@@ -173,17 +187,19 @@ public class GameManager : MonoBehaviourPunCallbacks
 
                 isBG2Active = selectedBGSprite.name.Contains("BG_2");
 
-                // BG_2 (possibleBGSprites[0]) uses the animated GIF background (BG. 2.gif).
-                // Enable the frame animation only for that map; otherwise leave the static sprite.
+                // BG_2 (possibleBGSprites[0]) is now drawn by the layered pond. The baked GIF animation
+                // only runs as a fallback if the layers are missing from the scene.
+                bool usePondLayers = isBG2Active && pondBackgroundLayers != null;
                 if (bg2AnimatedBackground != null)
                 {
                     bg2AnimatedBackground.targetImage = mainBGImage;
-                    bg2AnimatedBackground.enabled = isBG2Active;
+                    bg2AnimatedBackground.enabled = isBG2Active && !usePondLayers;
                 }
 
-                // Clouds (clouds_1_5 / clouds_1_0): always hidden. On BG_2 the animated GIF already
-                // contains its own sky/clouds (so the overlay objects are redundant and the user
-                // wants them off), and the LargeMap reference has no clouds either.
+                ApplyPondLayers(usePondLayers);
+
+                // Old cloud sprites (clouds_1_5 / clouds_1_0): always hidden. The pond map draws its
+                // clouds as one of its own layers, and the LargeMap reference has no clouds.
                 Scene activeScene = SceneManager.GetActiveScene();
                 foreach (GameObject go in activeScene.GetRootGameObjects())
                 {
@@ -213,6 +229,70 @@ public class GameManager : MonoBehaviourPunCallbacks
                     waterRect.offsetMax = new Vector2(waterOffsetMax.x, -waterTop);
                 }
             }
+        }
+    }
+
+    /// <summary>
+    /// Switches between the layered pond and the single-image background.
+    /// </summary>
+    /// <remarks>
+    /// The visibility modes work by laying an opaque cover over the surface (for fish) or the
+    /// underwater area (for the fisherman). Those covers used to be crops of the baked background
+    /// art, so they must show the pond layers too, or every mode other than Clear Waters would
+    /// flash the old background. Each cover therefore carries its own masked copy of the layer set,
+    /// and its single-image sprite is switched off while the pond is in use.
+    /// </remarks>
+    private void ApplyPondLayers(bool usePond)
+    {
+        if (mainBGImage != null)
+        {
+            mainBGImage.enabled = !usePond;
+        }
+
+        if (pondBackgroundLayers != null) pondBackgroundLayers.SetActive(usePond);
+        if (pondSkyCoverLayers != null) pondSkyCoverLayers.SetActive(usePond);
+        if (pondWaterCoverLayers != null) pondWaterCoverLayers.SetActive(usePond);
+        if (legacyEnvironmentDecor != null)
+        {
+            foreach (GameObject decor in legacyEnvironmentDecor)
+            {
+                if (decor != null) decor.SetActive(!usePond);
+            }
+        }
+
+        SetCoverImageVisible(sky, !usePond);
+        SetCoverImageVisible(water, !usePond);
+
+        if (legacySkyCoverImage != null)
+        {
+            legacySkyCoverImage.gameObject.SetActive(!usePond);
+            if (!usePond && mainBGImage != null)
+            {
+                legacySkyCoverImage.sprite = mainBGImage.sprite;
+            }
+        }
+
+        // The pond's waterline sits lower than the sky cover's authored edge, and the boat hull rides
+        // in between; on this map the fish-side cover reaches down to the waterline so Murky and
+        // Reflective water hide the whole boat. Fish stay below it (ceiling -0.4 on this map).
+        var skyEdge = sky != null ? sky.GetComponent<CoverEdgeToLine>() : null;
+        if (skyEdge != null)
+        {
+            skyEdge.enabled = usePond;
+        }
+    }
+
+    private static void SetCoverImageVisible(GameObject cover, bool visible)
+    {
+        if (cover == null)
+        {
+            return;
+        }
+
+        Image coverImage = cover.GetComponent<Image>();
+        if (coverImage != null)
+        {
+            coverImage.enabled = visible;
         }
     }
 

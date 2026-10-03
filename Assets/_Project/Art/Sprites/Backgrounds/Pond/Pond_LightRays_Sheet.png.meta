@@ -1,0 +1,415 @@
+fileFormatVersion: 2
+guid: 19705663717955948882cbe25f20c0c3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3885848579538571928
+    second: Pond_LightRays_Sheet_0
+  - first:
+      213: 5353019706982058594
+    second: Pond_LightRays_Sheet_1
+  - first:
+      213: 5060577307265835399
+    second: Pond_LightRays_Sheet_2
+  - first:
+      213: -5574212103833779224
+    second: Pond_LightRays_Sheet_3
+  - first:
+      213: -7588488746949049732
+    second: Pond_LightRays_Sheet_4
+  - first:
+      213: 7658187401414156096
+    second: Pond_LightRays_Sheet_5
+  - first:
+      213: -7555582748266320931
+    second: Pond_LightRays_Sheet_6
+  - first:
+      213: -1595132220811694783
+    second: Pond_LightRays_Sheet_7
+  - first:
+      213: -4469855662853123
+    second: Pond_LightRays_Sheet_8
+  - first:
+      213: -4407136966398968933
+    second: Pond_LightRays_Sheet_9
+  - first:
+      213: 9022843135687402060
+    second: Pond_LightRays_Sheet_10
+  - first:
+      213: -5769665874315214594
+    second: Pond_LightRays_Sheet_11
+  - first:
+      213: -4599001960645742334
+    second: Pond_LightRays_Sheet_12
+  - first:
+      213: -4942804088266245055
+    second: Pond_LightRays_Sheet_13
+  - first:
+      213: 6492698035655869652
+    second: Pond_LightRays_Sheet_14
+  - first:
+      213: 6586980776614938197
+    second: Pond_LightRays_Sheet_15
+  - first:
+      213: 666957277946526536
+    second: Pond_LightRays_0
+  - first:
+      213: 2599314018933465822
+    second: Pond_LightRays_1
+  - first:
+      213: -7381653633910575201
+    second: Pond_LightRays_2
+  - first:
+      213: 17352026378907783
+    second: Pond_LightRays_3
+  - first:
+      213: 2479198943667258394
+    second: Pond_LightRays_4
+  - first:
+      213: -2843274586114261497
+    second: Pond_LightRays_5
+  - first:
+      213: -3314023836175509220
+    second: Pond_LightRays_6
+  - first:
+      213: -9062224708922937603
+    second: Pond_LightRays_7
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pond_LightRays_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3780
+        width: 960
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84b3d505c12814900800000000000000
+      internalID: 666957277946526536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pond_LightRays_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed2e836145e921420800000000000000
+      internalID: 2599314018933465822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pond_LightRays_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9fe9cf21291f8990800000000000000
+      internalID: -7381653633910575201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pond_LightRays_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 780b2787395ad3000800000000000000
+      internalID: 17352026378907783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pond_LightRays_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a148fcccd42e76220800000000000000
+      internalID: 2479198943667258394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pond_LightRays_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70e73c704d8aa88d0800000000000000
+      internalID: -2843274586114261497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pond_LightRays_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 540
+        width: 960
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c19d49321e83202d0800000000000000
+      internalID: -3314023836175509220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pond_LightRays_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 960
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfe61e514a28c3280800000000000000
+      internalID: -9062224708922937603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Pond_LightRays_0: 666957277946526536
+      Pond_LightRays_1: 2599314018933465822
+      Pond_LightRays_2: -7381653633910575201
+      Pond_LightRays_3: 17352026378907783
+      Pond_LightRays_4: 2479198943667258394
+      Pond_LightRays_5: -2843274586114261497
+      Pond_LightRays_6: -3314023836175509220
+      Pond_LightRays_7: -9062224708922937603
+      Pond_LightRays_Sheet_0: -3885848579538571928
+      Pond_LightRays_Sheet_1: 5353019706982058594
+      Pond_LightRays_Sheet_10: 9022843135687402060
+      Pond_LightRays_Sheet_11: -5769665874315214594
+      Pond_LightRays_Sheet_12: -4599001960645742334
+      Pond_LightRays_Sheet_13: -4942804088266245055
+      Pond_LightRays_Sheet_14: 6492698035655869652
+      Pond_LightRays_Sheet_15: 6586980776614938197
+      Pond_LightRays_Sheet_2: 5060577307265835399
+      Pond_LightRays_Sheet_3: -5574212103833779224
+      Pond_LightRays_Sheet_4: -7588488746949049732
+      Pond_LightRays_Sheet_5: 7658187401414156096
+      Pond_LightRays_Sheet_6: -7555582748266320931
+      Pond_LightRays_Sheet_7: -1595132220811694783
+      Pond_LightRays_Sheet_8: -4469855662853123
+      Pond_LightRays_Sheet_9: -4407136966398968933
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
