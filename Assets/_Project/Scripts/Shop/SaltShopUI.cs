@@ -110,8 +110,8 @@ public class SaltShopUI : MonoBehaviour
     [SerializeField] private float HatContentHeight = 105f;
     [Tooltip("On-screen height of the skull padlock artwork. This is what the player clicks to buy.")]
     public float LockContentHeight = 72f;
-    [Tooltip("Offset of the coin icon from the hat centre.")]
-    public Vector2 ItemCoinOffset = new Vector2(-95f, 120f);
+    [Tooltip("Gap between the coin icon and the price text; the coin is placed from the text's left edge.")]
+    public float ItemCoinGap = 10f;
     [Tooltip("Offset of the price label from the hat centre (label is left-aligned).")]
     public Vector2 ItemPriceOffset = new Vector2(15f, 120f);
     [SerializeField] private float ItemCoinSize = 60f;
@@ -890,12 +890,18 @@ public class SaltShopUI : MonoBehaviour
         Image lockImage = AddImage(lockRect, lockSprite, new Color(0.1f, 0.1f, 0.1f, 0.85f));
         lockImage.raycastTarget = true;
 
+        Vector2 priceSize = new Vector2(190f, 70f);
+
+        // The coin sits just left of the price text, measured from the text's left edge, so the two
+        // can never overlap. A fixed coin offset only worked while the old coin art had wide
+        // transparent margins; the gold coin fills its sprite and ran into the numbers.
         Vector2 coinSize = new Vector2(ItemCoinSize, ItemCoinSize);
+        float priceLeft = ItemPriceOffset.x - priceSize.x * 0.5f;
+        Vector2 coinOffset = new Vector2(priceLeft - ItemCoinGap - coinSize.x * 0.5f, ItemPriceOffset.y);
         RectTransform coinRect = CreateAnchored("Coin", itemsRoot,
-            ClampAnchor(AnchorPlusOffset(slotAnchor, ItemCoinOffset), coinSize), coinSize);
+            ClampAnchor(AnchorPlusOffset(slotAnchor, coinOffset), coinSize), coinSize);
         AddImage(coinRect, coinSprite, Color.white).raycastTarget = false;
 
-        Vector2 priceSize = new Vector2(190f, 70f);
         RectTransform priceRect = CreateAnchored("Price", itemsRoot,
             ClampAnchor(AnchorPlusOffset(slotAnchor, ItemPriceOffset), priceSize), priceSize);
         AddText(priceRect, item.price.ToString(), ItemPriceFontSize, Color.white, TextAlignmentOptions.Left);

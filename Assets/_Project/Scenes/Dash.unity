@@ -15078,7 +15078,7 @@ MonoBehaviour:
   - {x: 0.755, y: 0.135}
   HatContentHeight: 105
   LockContentHeight: 72
-  ItemCoinOffset: {x: -95, y: 120}
+  ItemCoinGap: 10
   ItemPriceOffset: {x: 15, y: 120}
   ItemCoinSize: 60
   ItemPriceFontSize: 54
