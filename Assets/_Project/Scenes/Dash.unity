@@ -3009,6 +3009,7 @@ GameObject:
   - component: {fileID: 103248583}
   - component: {fileID: 103248582}
   - component: {fileID: 103248581}
+  - component: {fileID: 103248584}
   m_Layer: 5
   m_Name: Sal - TButton
   m_TagString: Untagged
@@ -3117,6 +3118,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103248579}
   m_CullTransparentMesh: 1
+--- !u!114 &103248584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103248579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0e3528767879894eba62de2c2cc1495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PanicAtThePond::PanicAtThePond.UI.HangingSign
+  chainLink: {fileID: 21300000, guid: b6613525a57690548b921c33b61a6672, type: 3}
+  chainCentresPx:
+  - 6.5
+  - 64.5
+  signWidthPx: 69
 --- !u!1 &103889505
 GameObject:
   m_ObjectHideFlags: 0
