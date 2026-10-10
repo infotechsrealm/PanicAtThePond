@@ -127,8 +127,10 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private Vector2 DefaultHatIconSize = new Vector2(96f, 96f);
     // Fish hat icon: medium-small so the bottom-right preview isn't oversized.
     [SerializeField] private Vector3 HatIconScaleNormal = new Vector3(1.6f, 1.6f, 1f);
-    // Fisherman hats keep their original size; only their position is being pinned.
-    [SerializeField] private Vector3 HatIconScaleFisherman = new Vector3(3f, 3f, 1f);
+    // Fisherman hats: one scale for every hat, since each icon is now the 128x128 shop icon fitted
+    // into the same square box (see ApplyHatIconOverride). 2.1 fits the gap between the HAT
+    // dropdown and the panel edge; the old 3 let the wider icons run over the dropdown.
+    [SerializeField] private Vector3 HatIconScaleFisherman = new Vector3(2.1f, 2.1f, 1f);
     public Vector3 HatIconScaleTurtle = new Vector3(1f, 1f, 1f);
     [SerializeField] private Vector2 VoyageDiagramAnchoredPosition = new Vector2(-200f, 190f);
     public Vector2 VoyageDiagramSize = new Vector2(1345f, 566f);
@@ -1580,7 +1582,10 @@ public class ShopManager : MonoBehaviour
             return VoyageDiagramScale;
         }
         
-        if (n.Contains("turtle") || n.Contains("ranger") || n.Contains("renger"))
+        // Turtle and Ranger used to be small cut-outs with their own scale. They are now the same
+        // 128x128 icon as every other fisherman hat, so they share the fisherman scale below.
+        if ((n.Contains("turtle") || n.Contains("ranger") || n.Contains("renger"))
+            && !(isFishermanSelected && IsFishermanHatModeSelected()))
         {
             return HatIconScaleTurtle;
         }
@@ -1696,77 +1701,17 @@ public class ShopManager : MonoBehaviour
                     rt.sizeDelta = new Vector2(500f, 500f);
                 }
             }
-            else if (name.Contains("turtle"))
+            else
             {
-                // Fisherman Turtle hat
-                rt.anchorMin = new Vector2(1f, 0f);
-                rt.anchorMax = new Vector2(1f, 0f);
-                rt.pivot = new Vector2(1f, 0f);
-                rt.anchoredPosition = new Vector2(-200f, 170f);
-                rt.sizeDelta = new Vector2(599f, 103f);
-            }
-            else if (name.Contains("ranger") || name.Contains("renger"))
-            {
-                // Fisherman Green Ranger hat
-                rt.anchorMin = new Vector2(1f, 0f);
-                rt.anchorMax = new Vector2(1f, 0f);
-                rt.pivot = new Vector2(1f, 0f);
-                rt.anchoredPosition = new Vector2(-190f, 175f);
-                rt.sizeDelta = new Vector2(172.2f, 96f);
-            }
-            else if (name.Contains("earmuff") || name.Contains("headfon"))
-            {
-                // Fisherman Headfon hat
-                rt.anchorMin = new Vector2(1f, 0f);
-                rt.anchorMax = new Vector2(1f, 0f);
-                rt.pivot = new Vector2(1f, 0f);
-                rt.anchoredPosition = new Vector2(105f, 65f);
-                rt.sizeDelta = new Vector2(150f, 125f);
-            }
-            else if (name.Contains("chef"))
-            {
-                // Fisherman White Chef hat
-                rt.anchorMin = new Vector2(1f, 0f);
-                rt.anchorMax = new Vector2(1f, 0f);
-                rt.pivot = new Vector2(1f, 0f);
-                rt.anchoredPosition = new Vector2(-70f, 0f);
-                rt.sizeDelta = new Vector2(150f, 154.6f);
-            }
-            else if (name.Contains("red") && name.Contains("cap"))
-            {
-                // Fisherman Red Cap
-                rt.anchorMin = new Vector2(1f, 0f);
-                rt.anchorMax = new Vector2(1f, 0f);
-                rt.pivot = new Vector2(1f, 0f);
-                rt.anchoredPosition = new Vector2(-115f, 22f);
-                rt.sizeDelta = new Vector2(125f, 155f);
-            }
-            else if (name.Contains("cap") && !name.Contains("red"))
-            {
-                // Fisherman Blue Cap
+                // Every fisherman hat icon is now the artist's 128x128 shop icon, drawn on the same
+                // canvas, so one box fits them all. The per-hat sizes that stood here were tuned to
+                // the old cropped icons and made the new ones overflow or shrink to a sliver.
                 rt.anchorMin = new Vector2(1f, 0f);
                 rt.anchorMax = new Vector2(1f, 0f);
                 rt.pivot = new Vector2(1f, 0f);
                 rt.anchoredPosition = new Vector2(-105f, 15f);
-                rt.sizeDelta = new Vector2(135f, 155f);
-            }
-            else if (name.Contains("fish_hat") || (name.Contains("fish") && !name.Contains("fishing")))
-            {
-                // Fisherman Green Frog Hat
-                rt.anchorMin = new Vector2(1f, 0f);
-                rt.anchorMax = new Vector2(1f, 0f);
-                rt.pivot = new Vector2(1f, 0f);
-                rt.anchoredPosition = new Vector2(-105f, 40f);
-                rt.sizeDelta = new Vector2(125f, 155f);
-            }
-            else
-            {
-                // Yellow fishing hat (default)
-                rt.anchorMin = new Vector2(1f, 0f);
-                rt.anchorMax = new Vector2(1f, 0f);
-                rt.pivot = new Vector2(1f, 0f);
-                rt.anchoredPosition = new Vector2(-100f, 22f);
-                rt.sizeDelta = new Vector2(130f, 155f);
+                rt.sizeDelta = new Vector2(155f, 155f);
+                previewImage.preserveAspect = true;
             }
         }
     }
@@ -4175,6 +4120,12 @@ public class ShopManager : MonoBehaviour
         EnsureShopPreviewRootActive();
         ShowFishermanDisplayOnly();
 
+        if (FishermanDisplayObject != null && FishermanDisplayObject.GetComponent<FishermanRigPreview>() != null)
+        {
+            CycleFishermanSelection(direction);
+            return;
+        }
+
         List<Sprite> previews = GetActiveFishermanHairHatPreviews();
         if (previews.Count == 0)
         {
@@ -4195,6 +4146,72 @@ public class ShopManager : MonoBehaviour
         Sprite preview = previews[nextIndex];
         ShowFishermanPreviewSprite(preview);
         ApplyFishermanCosmeticFromPreview(preview);
+    }
+
+    /// <summary>
+    /// Arrow cycling for the rig-drawn display: steps the real selection, and the display follows it.
+    /// </summary>
+    /// <remarks>
+    /// Hat mode walks the wardrobe's hat cells in grid order, "no hat" first, so every hat in the
+    /// wardrobe (the Gold Cap included) is reachable and the order matches what the player sees.
+    /// Hats still locked in the Sal-T shop are skipped: the old picture cycle equipped them, which
+    /// handed out unpaid hats. Hair mode toggles the two hair colours.
+    /// </remarks>
+    private void CycleFishermanSelection(int direction)
+    {
+        int step = direction >= 0 ? 1 : -1;
+
+        // Same flags a wardrobe click sets: the bottom-right icon picks its layout from them, and
+        // without this it used the fish layout and covered the HAT dropdown.
+        isFishermanSelected = true;
+        isFishSelected = false;
+
+        if (!IsFishermanHatModeSelected())
+        {
+            bool black = CosmeticRuntimeApplier.GetSelectedFishermanHair() != null
+                && CosmeticRuntimeApplier.GetSelectedFishermanHair().name.ToLowerInvariant().Contains("black");
+            ShowFishermanHairColorPreview(!black);
+            return;
+        }
+
+        List<Button> hatButtons = GetFishermanHatCosmeticButtons();
+        var choices = new List<Sprite> { null };
+        var choiceButtons = new List<Button> { null };
+        foreach (Button button in hatButtons)
+        {
+            if (IsClearFishermanCosmeticButton(button))
+            {
+                choiceButtons[0] = button;
+                continue;
+            }
+
+            Sprite sprite = GetButtonSprite(button);
+            if (sprite != null && !IsHatLockedInShop(sprite.name))
+            {
+                choices.Add(sprite);
+                choiceButtons.Add(button);
+            }
+        }
+
+        Sprite current = CosmeticRuntimeApplier.GetSelectedFishermanHat();
+        string currentKey = current != null ? NormalizeSpriteName(current) : null;
+        int index = 0;
+        for (int i = 1; i < choices.Count; i++)
+        {
+            if (NormalizeSpriteName(choices[i]) == currentKey)
+            {
+                index = i;
+                break;
+            }
+        }
+
+        int next = (index + step + choices.Count) % choices.Count;
+        Sprite chosen = choices[next];
+        CosmeticRuntimeApplier.SelectFishermanHat(chosen);
+        selectedFishermanDisplayMode = FishermanDisplayModeHat;
+        ForceUpdateHatIconPreview(chosen);
+        ApplyItemOpacity(hatButtons, choiceButtons[next]);
+        RefreshBottomRightPreview();
     }
 
     private int GetCurrentFishermanPreviewIndex(List<Sprite> previews)

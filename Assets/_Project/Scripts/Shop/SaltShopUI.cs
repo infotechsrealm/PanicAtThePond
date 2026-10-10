@@ -33,6 +33,8 @@ namespace PanicAtThePond.Shop
 {
 public class SaltShopUI : MonoBehaviour
 {
+    // The gold coin the rest of the shop shows next to the balance (Dash UI/Shop/WormCoin). Drawn
+    // untinted: it used to be an olive placeholder tinted yellow, which read as a different currency.
     private const string CoinSpriteResource = "ShopUI/SaltShop/coin";
     private const string LockSpriteResource = "ShopUI/SaltShop/lock";
     private const string BackSignSpriteResource = "ShopUI/SaltShop/back_sign";
@@ -719,7 +721,7 @@ public class SaltShopUI : MonoBehaviour
         Sprite coinSprite = Resources.Load<Sprite>(CoinSpriteResource);
         Vector2 coinSize = new Vector2(CoinIconSize, CoinIconSize);
         RectTransform coinRect = CreateAnchored("Coin Icon", overlayRoot, ClampAnchor(CoinIconAnchor, coinSize), coinSize);
-        AddImage(coinRect, coinSprite, new Color(1f, 0.8f, 0.1f)).raycastTarget = false;
+        AddImage(coinRect, coinSprite, Color.white).raycastTarget = false;
 
         Vector2 textSize = new Vector2(180f, 70f);
         RectTransform textRect = CreateAnchored("Coin Amount", overlayRoot, ClampAnchor(CoinAmountAnchor, textSize), textSize);
@@ -739,7 +741,7 @@ public class SaltShopUI : MonoBehaviour
 
         Sprite coinSprite = Resources.Load<Sprite>(CoinSpriteResource);
         RectTransform coinRect = CreateAnchored("Coin", popupRect, new Vector2(0.31f, 0.53f), new Vector2(72f, 72f));
-        AddImage(coinRect, coinSprite, new Color(1f, 0.8f, 0.1f)).raycastTarget = false;
+        AddImage(coinRect, coinSprite, Color.white).raycastTarget = false;
 
         RectTransform priceRect = CreateAnchored("Price", popupRect, new Vector2(0.63f, 0.53f), new Vector2(200f, 80f));
         buyPriceText = AddText(priceRect, "0", 60f, new Color(0.15f, 0.15f, 0.15f), TextAlignmentOptions.Left);
@@ -891,7 +893,7 @@ public class SaltShopUI : MonoBehaviour
         Vector2 coinSize = new Vector2(ItemCoinSize, ItemCoinSize);
         RectTransform coinRect = CreateAnchored("Coin", itemsRoot,
             ClampAnchor(AnchorPlusOffset(slotAnchor, ItemCoinOffset), coinSize), coinSize);
-        AddImage(coinRect, coinSprite, new Color(1f, 0.8f, 0.1f)).raycastTarget = false;
+        AddImage(coinRect, coinSprite, Color.white).raycastTarget = false;
 
         Vector2 priceSize = new Vector2(190f, 70f);
         RectTransform priceRect = CreateAnchored("Price", itemsRoot,

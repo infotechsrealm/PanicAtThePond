@@ -1,0 +1,3031 @@
+fileFormatVersion: 2
+guid: 2d54dd2d45ca0d94fa873c17a5e93b4a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4046297669942543250
+    second: fishermanhatdefaultfishinghat_0
+  - first:
+      213: 673172878530430885
+    second: fishermanhatdefaultfishinghat_1
+  - first:
+      213: -4362115481820366049
+    second: fishermanhatdefaultfishinghat_2
+  - first:
+      213: 6705856806988477637
+    second: fishermanhatdefaultfishinghat_3
+  - first:
+      213: -8745422685141901521
+    second: fishermanhatdefaultfishinghat_4
+  - first:
+      213: 2601271186074162295
+    second: fishermanhatdefaultfishinghat_5
+  - first:
+      213: 5710823352819969160
+    second: fishermanhatdefaultfishinghat_6
+  - first:
+      213: -3842967953825585176
+    second: fishermanhatdefaultfishinghat_7
+  - first:
+      213: -1536743703239700179
+    second: fishermanhatdefaultfishinghat_8
+  - first:
+      213: -4014585755785318864
+    second: fishermanhatdefaultfishinghat_9
+  - first:
+      213: 7564201637386351291
+    second: fishermanhatdefaultfishinghat_10
+  - first:
+      213: -140534353507388026
+    second: fishermanhatdefaultfishinghat_11
+  - first:
+      213: -3418552684500087827
+    second: fishermanhatdefaultfishinghat_12
+  - first:
+      213: -2412395337762264349
+    second: fishermanhatdefaultfishinghat_13
+  - first:
+      213: -6623048921087787823
+    second: fishermanhatdefaultfishinghat_14
+  - first:
+      213: -469549762747213401
+    second: fishermanhatdefaultfishinghat_15
+  - first:
+      213: -733693286065486668
+    second: fishermanhatdefaultfishinghat_16
+  - first:
+      213: 7392343186157371488
+    second: fishermanhatdefaultfishinghat_17
+  - first:
+      213: 3612194583690205119
+    second: fishermanhatdefaultfishinghat_18
+  - first:
+      213: 4619292348280724880
+    second: fishermanhatdefaultfishinghat_19
+  - first:
+      213: -7685100345073645108
+    second: fishermanhatdefaultfishinghat_20
+  - first:
+      213: -2245128407052646700
+    second: fishermanhatdefaultfishinghat_21
+  - first:
+      213: 5752035529519894856
+    second: fishermanhatdefaultfishinghat_22
+  - first:
+      213: -6935334311342724137
+    second: fishermanhatdefaultfishinghat_23
+  - first:
+      213: 7618319323521010364
+    second: fishermanhatdefaultfishinghat_24
+  - first:
+      213: -8512876092568198944
+    second: fishermanhatdefaultfishinghat_25
+  - first:
+      213: 9192189069374477128
+    second: fishermanhatdefaultfishinghat_26
+  - first:
+      213: -8376199627479718234
+    second: fishermanhatdefaultfishinghat_27
+  - first:
+      213: 3695984632650833801
+    second: fishermanhatdefaultfishinghat_28
+  - first:
+      213: 7032305463885715076
+    second: fishermanhatdefaultfishinghat_29
+  - first:
+      213: -1713007962853955687
+    second: fishermanhatdefaultfishinghat_30
+  - first:
+      213: -355306191621137870
+    second: fishermanhatdefaultfishinghat_31
+  - first:
+      213: 7047074950370347065
+    second: fishermanhatdefaultfishinghat_32
+  - first:
+      213: 1895889945392949888
+    second: fishermanhatdefaultfishinghat_33
+  - first:
+      213: -1850550868248090477
+    second: fishermanhatdefaultfishinghat_34
+  - first:
+      213: -5450283313716962749
+    second: fishermanhatdefaultfishinghat_35
+  - first:
+      213: -6030896502780611499
+    second: fishermanhatdefaultfishinghat_36
+  - first:
+      213: 7976797959414815255
+    second: fishermanhatdefaultfishinghat_37
+  - first:
+      213: 6748499751025042694
+    second: fishermanhatdefaultfishinghat_38
+  - first:
+      213: 3869929498058887883
+    second: fishermanhatdefaultfishinghat_39
+  - first:
+      213: -8967045533850808098
+    second: fishermanhatdefaultfishinghat_40
+  - first:
+      213: 1350784549744163383
+    second: fishermanhatdefaultfishinghat_41
+  - first:
+      213: -3718166098362365063
+    second: fishermanhatdefaultfishinghat_42
+  - first:
+      213: -7644981570145140732
+    second: fishermanhatdefaultfishinghat_43
+  - first:
+      213: -6918966453599033319
+    second: fishermanhatdefaultfishinghat_44
+  - first:
+      213: 8483636134035906264
+    second: fishermanhatdefaultfishinghat_45
+  - first:
+      213: 3199285395842524837
+    second: fishermanhatdefaultfishinghat_46
+  - first:
+      213: -8126039631089706074
+    second: fishermanhatdefaultfishinghat_47
+  - first:
+      213: -8671112081774204799
+    second: fishermanhatdefaultfishinghat_48
+  - first:
+      213: 5593218671665318978
+    second: fishermanhatdefaultfishinghat_49
+  - first:
+      213: -2864766858224177352
+    second: fishermanhatdefaultfishinghat_50
+  - first:
+      213: 8681698751017217331
+    second: fishermanhatdefaultfishinghat_51
+  - first:
+      213: 6635935577550079728
+    second: fishermanhatdefaultfishinghat_52
+  - first:
+      213: -3126115574558496357
+    second: fishermanhatdefaultfishinghat_53
+  - first:
+      213: 3922272051791424798
+    second: fishermanhatdefaultfishinghat_54
+  - first:
+      213: -9097406249265373741
+    second: fishermanhatdefaultfishinghat_55
+  - first:
+      213: 9101246286925355875
+    second: fishermanhatdefaultfishinghat_56
+  - first:
+      213: 5862148470531751489
+    second: fishermanhatdefaultfishinghat_57
+  - first:
+      213: -6606145794959720244
+    second: fishermanhatdefaultfishinghat_58
+  - first:
+      213: 3130265552840887963
+    second: fishermanhatdefaultfishinghat_59
+  - first:
+      213: 8065993029874093579
+    second: fishermanhatdefaultfishinghat_60
+  - first:
+      213: -5330811454649060214
+    second: fishermanhatdefaultfishinghat_61
+  - first:
+      213: 8520939112150475241
+    second: fishermanhatdefaultfishinghat_62
+  - first:
+      213: -5308121168714282525
+    second: fishermanhatdefaultfishinghat_63
+  - first:
+      213: -3971082713274711614
+    second: fishermanhatdefaultfishinghat_64
+  - first:
+      213: -5814141404438622676
+    second: fishermanhatdefaultfishinghat_65
+  - first:
+      213: 1120432227287118147
+    second: fishermanhatdefaultfishinghat_66
+  - first:
+      213: 2905781895798604222
+    second: fishermanhatdefaultfishinghat_67
+  - first:
+      213: 3871640707324628023
+    second: fishermanhatdefaultfishinghat_68
+  - first:
+      213: 6289757078018759668
+    second: fishermanhatdefaultfishinghat_69
+  - first:
+      213: 3538308049693260221
+    second: fishermanhatdefaultfishinghat_70
+  - first:
+      213: 1423681742435419998
+    second: fishermanhatdefaultfishinghat_71
+  - first:
+      213: 3687212766214692404
+    second: fishermanhatdefaultfishinghat_72
+  - first:
+      213: -1729938421137261971
+    second: fishermanhatdefaultfishinghat_73
+  - first:
+      213: 5210396310087264643
+    second: fishermanhatdefaultfishinghat_74
+  - first:
+      213: -924481570691657466
+    second: fishermanhatdefaultfishinghat_75
+  - first:
+      213: 2433705613149178407
+    second: fishermanhatdefaultfishinghat_76
+  - first:
+      213: 4613279732688568817
+    second: fishermanhatdefaultfishinghat_77
+  - first:
+      213: -6920310579424571924
+    second: fishermanhatdefaultfishinghat_78
+  - first:
+      213: -6994642054777047335
+    second: fishermanhatdefaultfishinghat_79
+  - first:
+      213: 3954455359389580912
+    second: fishermanhatdefaultfishinghat_80
+  - first:
+      213: -2331290447960790217
+    second: fishermanhatdefaultfishinghat_81
+  - first:
+      213: -5591024601880792221
+    second: fishermanhatdefaultfishinghat_82
+  - first:
+      213: 3825023138502071865
+    second: fishermanhatdefaultfishinghat_83
+  - first:
+      213: 8140777917240221474
+    second: fishermanhatdefaultfishinghat_84
+  - first:
+      213: -5816612327666654630
+    second: fishermanhatdefaultfishinghat_85
+  - first:
+      213: 5431406822189225129
+    second: fishermanhatdefaultfishinghat_86
+  - first:
+      213: 738296248005207822
+    second: fishermanhatdefaultfishinghat_87
+  - first:
+      213: 7353400652358046493
+    second: fishermanhatdefaultfishinghat_88
+  - first:
+      213: 3170385245386786300
+    second: fishermanhatdefaultfishinghat_89
+  - first:
+      213: 5340209232441323221
+    second: fishermanhatdefaultfishinghat_90
+  - first:
+      213: -7594312544089148213
+    second: fishermanhatdefaultfishinghat_91
+  - first:
+      213: 6840674217207072936
+    second: fishermanhatdefaultfishinghat_92
+  - first:
+      213: -4712834494118787648
+    second: fishermanhatdefaultfishinghat_93
+  - first:
+      213: 1062050680080525325
+    second: fishermanhatdefaultfishinghat_94
+  - first:
+      213: -8797314806604030286
+    second: fishermanhatdefaultfishinghat_95
+  - first:
+      213: 6073309271922905080
+    second: fishermanhatdefaultfishinghat_96
+  - first:
+      213: 7404921408016354242
+    second: fishermanhatdefaultfishinghat_97
+  - first:
+      213: -4157101651693756563
+    second: FishingHat_Casting_L_0
+  - first:
+      213: 1122969470008819651
+    second: FishingHat_Casting_L_1
+  - first:
+      213: -893864958963216535
+    second: FishingHat_Casting_L_2
+  - first:
+      213: -6917896336159584356
+    second: FishingHat_Casting_L_3
+  - first:
+      213: -5168999315328455245
+    second: FishingHat_Idle_L_0
+  - first:
+      213: 4832231317151798318
+    second: FishingHat_Idle_L_1
+  - first:
+      213: 1951201286951341029
+    second: FishingHat_Idle_L_2
+  - first:
+      213: -5223279728686479691
+    second: FishingHat_Idle_L_3
+  - first:
+      213: 8530954685027824984
+    second: FishingHat_Fishing_L_0
+  - first:
+      213: 8741530424897688391
+    second: FishingHat_Fishing_L_1
+  - first:
+      213: -3282351748627454997
+    second: FishingHat_Fishing_L_2
+  - first:
+      213: -3572622291231053914
+    second: FishingHat_Fishing_L_3
+  - first:
+      213: -4394842201977300509
+    second: FishingHat_MoveForward_L_0
+  - first:
+      213: 6908716026186135766
+    second: FishingHat_MoveForward_L_1
+  - first:
+      213: -8717998199982187717
+    second: FishingHat_MoveForward_L_2
+  - first:
+      213: -2911972604087315570
+    second: FishingHat_MoveForward_L_3
+  - first:
+      213: -299019042136857884
+    second: FishingHat_MoveBackward_L_0
+  - first:
+      213: -2522046106503267635
+    second: FishingHat_MoveBackward_L_1
+  - first:
+      213: 6066439220971295669
+    second: FishingHat_MoveBackward_L_2
+  - first:
+      213: -3258209048623920762
+    second: FishingHat_MoveBackward_L_3
+  - first:
+      213: 7204382836466371596
+    second: FishingHat_Fighting_L_0
+  - first:
+      213: 7457674345800564645
+    second: FishingHat_Fighting_L_1
+  - first:
+      213: 1754713185343084613
+    second: FishingHat_Fighting_L_2
+  - first:
+      213: 7596511223202974983
+    second: FishingHat_Fighting_L_3
+  - first:
+      213: 4456123994409913053
+    second: FishingHat_Reeling_L_0
+  - first:
+      213: 9098480019422058144
+    second: FishingHat_Reeling_L_1
+  - first:
+      213: 8149918075709757667
+    second: FishingHat_Reeling_L_2
+  - first:
+      213: -8317294465588415606
+    second: FishingHat_Reeling_L_3
+  - first:
+      213: -1684598392465340518
+    second: FishingHat_Win_L_0
+  - first:
+      213: -8164052593998885056
+    second: FishingHat_Win_L_1
+  - first:
+      213: -6554843021236713245
+    second: FishingHat_Win_L_2
+  - first:
+      213: 4658866322681511287
+    second: FishingHat_Win_L_3
+  - first:
+      213: 5505171494198121051
+    second: FishingHat_SwappingPoles_L_0
+  - first:
+      213: -3232590353186404361
+    second: FishingHat_SwappingPoles_L_1
+  - first:
+      213: 4593893811313044374
+    second: FishingHat_SwappingPoles_L_2
+  - first:
+      213: -5597753532539186933
+    second: FishingHat_SwappingPoles_L_3
+  - first:
+      213: -8768441692362861791
+    second: FishingHat_Scared_L_0
+  - first:
+      213: -273872301909692751
+    second: FishingHat_Scared_L_1
+  - first:
+      213: -7246999386519553515
+    second: FishingHat_Scared_L_2
+  - first:
+      213: -5502256511975932102
+    second: FishingHat_Scared_L_3
+  - first:
+      213: 8940606915295634216
+    second: FishingHat_GoToCry_L_0
+  - first:
+      213: 7231498259115472760
+    second: FishingHat_GoToCry_L_1
+  - first:
+      213: -6404721236274732803
+    second: FishingHat_GoToCry_L_2
+  - first:
+      213: 8715673371102268225
+    second: FishingHat_GoToCry_L_3
+  - first:
+      213: 4701732547181580001
+    second: FishingHat_Cry_L_0
+  - first:
+      213: 4488869380024178457
+    second: FishingHat_Cry_L_1
+  - first:
+      213: 5159326319869438049
+    second: FishingHat_Cry_L_2
+  - first:
+      213: -3417829632436234106
+    second: FishingHat_Cry_L_3
+  - first:
+      213: 2530058112742840242
+    second: FishingHat_Casting_R_0
+  - first:
+      213: 6588974045625158068
+    second: FishingHat_Casting_R_1
+  - first:
+      213: 287444430461095339
+    second: FishingHat_Casting_R_2
+  - first:
+      213: -3863601993193741555
+    second: FishingHat_Casting_R_3
+  - first:
+      213: 5971975903867469602
+    second: FishingHat_Idle_R_0
+  - first:
+      213: 9155719905368635048
+    second: FishingHat_Idle_R_1
+  - first:
+      213: -1493334967811599324
+    second: FishingHat_Idle_R_2
+  - first:
+      213: -8370579775618808391
+    second: FishingHat_Idle_R_3
+  - first:
+      213: 3984215591956197673
+    second: FishingHat_Fishing_R_0
+  - first:
+      213: -3829977366099865800
+    second: FishingHat_Fishing_R_1
+  - first:
+      213: -5263811104305099594
+    second: FishingHat_Fishing_R_2
+  - first:
+      213: 7351274061635949775
+    second: FishingHat_Fishing_R_3
+  - first:
+      213: 5828756783807118765
+    second: FishingHat_MoveForward_R_0
+  - first:
+      213: 7793752364773864701
+    second: FishingHat_MoveForward_R_1
+  - first:
+      213: 8881654218356842959
+    second: FishingHat_MoveForward_R_2
+  - first:
+      213: -929603576986163622
+    second: FishingHat_MoveForward_R_3
+  - first:
+      213: 462742832971874578
+    second: FishingHat_MoveBackward_R_0
+  - first:
+      213: 8335341868954798599
+    second: FishingHat_MoveBackward_R_1
+  - first:
+      213: 106460361746213493
+    second: FishingHat_MoveBackward_R_2
+  - first:
+      213: 2706744507516929517
+    second: FishingHat_MoveBackward_R_3
+  - first:
+      213: -4921493384829219655
+    second: FishingHat_Fighting_R_0
+  - first:
+      213: -4985676560180972673
+    second: FishingHat_Fighting_R_1
+  - first:
+      213: -2356871412957969787
+    second: FishingHat_Fighting_R_2
+  - first:
+      213: -3736527663275361783
+    second: FishingHat_Fighting_R_3
+  - first:
+      213: 9186951903482456298
+    second: FishingHat_Reeling_R_0
+  - first:
+      213: 5327994612805919388
+    second: FishingHat_Reeling_R_1
+  - first:
+      213: -679409870016917102
+    second: FishingHat_Reeling_R_2
+  - first:
+      213: 6911035870783993843
+    second: FishingHat_Reeling_R_3
+  - first:
+      213: -8113050997746516472
+    second: FishingHat_Win_R_0
+  - first:
+      213: -2648358121651464186
+    second: FishingHat_Win_R_1
+  - first:
+      213: -6818778761187436733
+    second: FishingHat_Win_R_2
+  - first:
+      213: 8342431720167114057
+    second: FishingHat_Win_R_3
+  - first:
+      213: -2339283843704225217
+    second: FishingHat_SwappingPoles_R_0
+  - first:
+      213: 2898325477975371639
+    second: FishingHat_SwappingPoles_R_1
+  - first:
+      213: 7228036734853721161
+    second: FishingHat_SwappingPoles_R_2
+  - first:
+      213: -2461436182940957240
+    second: FishingHat_SwappingPoles_R_3
+  - first:
+      213: 4919745629076429895
+    second: FishingHat_Scared_R_0
+  - first:
+      213: -2612993354935439024
+    second: FishingHat_Scared_R_1
+  - first:
+      213: 6096977545956858194
+    second: FishingHat_Scared_R_2
+  - first:
+      213: -8478507230506381199
+    second: FishingHat_Scared_R_3
+  - first:
+      213: -4542485348066773731
+    second: FishingHat_GoToCry_R_0
+  - first:
+      213: 7275542390379217890
+    second: FishingHat_GoToCry_R_1
+  - first:
+      213: -7124951693804053070
+    second: FishingHat_GoToCry_R_2
+  - first:
+      213: -9073930844900944666
+    second: FishingHat_GoToCry_R_3
+  - first:
+      213: -1680240195616648581
+    second: FishingHat_Cry_R_0
+  - first:
+      213: -8236609314002676073
+    second: FishingHat_Cry_R_1
+  - first:
+      213: -3874378835017294633
+    second: FishingHat_Cry_R_2
+  - first:
+      213: 635624927158223388
+    second: FishingHat_Cry_R_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FishingHat_Casting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6f9a93b2120f46c0800000000000000
+      internalID: -4157101651693756563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Casting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cffb7188c6959f00800000000000000
+      internalID: 1122969470008819651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Casting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96f04d34e8a5893f0800000000000000
+      internalID: -893864958963216535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Casting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9f4b325fe1beff90800000000000000
+      internalID: -6917896336159584356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Idle_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bd2c9d52860448b0800000000000000
+      internalID: -5168999315328455245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Idle_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e24d95bd7c88f0340800000000000000
+      internalID: 4832231317151798318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Idle_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eb050a8b3f041b10800000000000000
+      internalID: 1951201286951341029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Idle_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b6c429c2ce2387b0800000000000000
+      internalID: -5223279728686479691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Fishing_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 855b90c461a046670800000000000000
+      internalID: 8530954685027824984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Fishing_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 743db495b97205970800000000000000
+      internalID: 8741530424897688391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Fishing_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be3ad2ba97eb272d0800000000000000
+      internalID: -3282351748627454997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Fishing_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7e78664fe7b6ec0800000000000000
+      internalID: -3572622291231053914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_MoveForward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e95f3b5d426203c0800000000000000
+      internalID: -4394842201977300509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_MoveForward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d87fd23f90b0ef50800000000000000
+      internalID: 6908716026186135766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_MoveForward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3b1199b3d2730780800000000000000
+      internalID: -8717998199982187717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_MoveForward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e83d4b948589697d0800000000000000
+      internalID: -2911972604087315570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_MoveBackward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e2ea54f3cba9dbf0800000000000000
+      internalID: -299019042136857884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_MoveBackward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dca37b2bd64effcd0800000000000000
+      internalID: -2522046106503267635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_MoveBackward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b3dd718452503450800000000000000
+      internalID: 6066439220971295669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_MoveBackward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689cecc022488c2d0800000000000000
+      internalID: -3258209048623920762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Fighting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0ccf71f40c1bf360800000000000000
+      internalID: 7204382836466371596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Fighting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5af7cf71e4bfe7760800000000000000
+      internalID: 7457674345800564645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Fighting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 548911f585ef95810800000000000000
+      internalID: 1754713185343084613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Fighting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70d084f95ba3c6960800000000000000
+      internalID: 7596511223202974983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Reeling_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddac5e1d92557dd30800000000000000
+      internalID: 4456123994409913053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Reeling_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a614a13f5b444e70800000000000000
+      internalID: 9098480019422058144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Reeling_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e8173b4f435a1170800000000000000
+      internalID: 8149918075709757667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Reeling_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a83b74e10c8039c80800000000000000
+      internalID: -8317294465588415606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Win_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a97c8ebffaa1f98e0800000000000000
+      internalID: -1684598392465340518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Win_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04f0717bb6573be80800000000000000
+      internalID: -8164052593998885056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Win_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e8ccb050058805a0800000000000000
+      internalID: -6554843021236713245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Win_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77d367b9c3e97a040800000000000000
+      internalID: 4658866322681511287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_SwappingPoles_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b52194b6e4c466c40800000000000000
+      internalID: 5505171494198121051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_SwappingPoles_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f748f563388323d0800000000000000
+      internalID: -3232590353186404361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_SwappingPoles_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69bed27f41ac0cf30800000000000000
+      internalID: 4593893811313044374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_SwappingPoles_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0150d002d8c052b0800000000000000
+      internalID: -5597753532539186933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Scared_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1239cfcecbc305680800000000000000
+      internalID: -8768441692362861791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Scared_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1beaadaa792033cf0800000000000000
+      internalID: -273872301909692751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Scared_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51a3707447c7d6b90800000000000000
+      internalID: -7246999386519553515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Scared_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3f3894cade04a3b0800000000000000
+      internalID: -5502256511975932102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_GoToCry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 823e89ebe9a631c70800000000000000
+      internalID: 8940606915295634216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_GoToCry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 877fe604a517b5460800000000000000
+      internalID: 7231498259115472760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_GoToCry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df0a17228fbdd17a0800000000000000
+      internalID: -6404721236274732803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_GoToCry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14bc1eed0ca44f870800000000000000
+      internalID: 8715673371102268225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Cry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ee86af37d8ef3140800000000000000
+      internalID: 4701732547181580001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Cry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91718770beaab4e30800000000000000
+      internalID: 4488869380024178457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Cry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1682420e3fb999740800000000000000
+      internalID: 5159326319869438049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Cry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68895d7ce0e6190d0800000000000000
+      internalID: -3417829632436234106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Casting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b7d12fd2729c1320800000000000000
+      internalID: 2530058112742840242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Casting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b981cf0cfcb07b50800000000000000
+      internalID: 6588974045625158068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Casting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bad4c42cf253df300800000000000000
+      internalID: 287444430461095339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Casting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d03223a157ab16ac0800000000000000
+      internalID: -3863601993193741555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Idle_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22f76359178b0e250800000000000000
+      internalID: 5971975903867469602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Idle_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a6787eaeb6af0f70800000000000000
+      internalID: 9155719905368635048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Idle_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4249be042cb964be0800000000000000
+      internalID: -1493334967811599324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Idle_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b50c261b0ab5db80800000000000000
+      internalID: -8370579775618808391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Fishing_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9213f1bb8f6ca4730800000000000000
+      internalID: 3984215591956197673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Fishing_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83fc4dba0ef29dac0800000000000000
+      internalID: -3829977366099865800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Fishing_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bc432380bf23f6b0800000000000000
+      internalID: -5263811104305099594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Fishing_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc49a527fc8f40660800000000000000
+      internalID: 7351274061635949775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_MoveForward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dadb8fca967e3e050800000000000000
+      internalID: 5828756783807118765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_MoveForward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df4f4b19b78f82c60800000000000000
+      internalID: 7793752364773864701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_MoveForward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc1620f5479f14b70800000000000000
+      internalID: 8881654218356842959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_MoveForward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a56aec3d8726913f0800000000000000
+      internalID: -929603576986163622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_MoveBackward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21185a5a72efb6600800000000000000
+      internalID: 462742832971874578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_MoveBackward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70acd7c64451da370800000000000000
+      internalID: 8335341868954798599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_MoveBackward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57aea8c82293a7100800000000000000
+      internalID: 106460361746213493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_MoveBackward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de54944e9c9409520800000000000000
+      internalID: 2706744507516929517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Fighting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bcc1d877d753bbb0800000000000000
+      internalID: -4921493384829219655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Fighting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f73fb6175915fcab0800000000000000
+      internalID: -4985676560180972673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Fighting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5820e59efe5ba4fd0800000000000000
+      internalID: -2356871412957969787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Fighting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90a3d0123ef252cc0800000000000000
+      internalID: -3736527663275361783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Reeling_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae8aba7e41c9e7f70800000000000000
+      internalID: 9186951903482456298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Reeling_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c92ed751fd6d0f940800000000000000
+      internalID: 5327994612805919388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Reeling_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2915fb8a2504296f0800000000000000
+      internalID: -679409870016917102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Reeling_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f7ff0c128ee8ef50800000000000000
+      internalID: 6911035870783993843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Win_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80eb0b23a17a86f80800000000000000
+      internalID: -8113050997746516472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Win_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60891f8e1542f3bd0800000000000000
+      internalID: -2648358121651464186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Win_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 347d17918d4de51a0800000000000000
+      internalID: -6818778761187436733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Win_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 945038b037546c370800000000000000
+      internalID: 8342431720167114057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_SwappingPoles_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f32033bfcb1398fd0800000000000000
+      internalID: -2339283843704225217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_SwappingPoles_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77faf2e8aabe83820800000000000000
+      internalID: 2898325477975371639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_SwappingPoles_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94c2e645d152f4460800000000000000
+      internalID: 7228036734853721161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_SwappingPoles_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c5c28635d837ddd0800000000000000
+      internalID: -2461436182940957240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Scared_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74c916e6592764440800000000000000
+      internalID: 4919745629076429895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Scared_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 051fd9e4368ccbbd0800000000000000
+      internalID: -2612993354935439024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Scared_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2599a4e56c0dc9450800000000000000
+      internalID: 6096977545956858194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Scared_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 170161c489a465a80800000000000000
+      internalID: -8478507230506381199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_GoToCry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d15301f94a9d5f0c0800000000000000
+      internalID: -4542485348066773731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_GoToCry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e389dea14be7f460800000000000000
+      internalID: 7275542390379217890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_GoToCry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bdddf02f261f1d90800000000000000
+      internalID: -7124951693804053070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_GoToCry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e41839e8fbe21280800000000000000
+      internalID: -9073930844900944666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Cry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b72dfe2c1769ea8e0800000000000000
+      internalID: -1680240195616648581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Cry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7965235e77fa1bd80800000000000000
+      internalID: -8236609314002676073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Cry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dc90851af07b3ac0800000000000000
+      internalID: -3874378835017294633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishingHat_Cry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1246a9e08132d800800000000000000
+      internalID: 635624927158223388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FishingHat_Casting_L_0: -4157101651693756563
+      FishingHat_Casting_L_1: 1122969470008819651
+      FishingHat_Casting_L_2: -893864958963216535
+      FishingHat_Casting_L_3: -6917896336159584356
+      FishingHat_Casting_R_0: 2530058112742840242
+      FishingHat_Casting_R_1: 6588974045625158068
+      FishingHat_Casting_R_2: 287444430461095339
+      FishingHat_Casting_R_3: -3863601993193741555
+      FishingHat_Cry_L_0: 4701732547181580001
+      FishingHat_Cry_L_1: 4488869380024178457
+      FishingHat_Cry_L_2: 5159326319869438049
+      FishingHat_Cry_L_3: -3417829632436234106
+      FishingHat_Cry_R_0: -1680240195616648581
+      FishingHat_Cry_R_1: -8236609314002676073
+      FishingHat_Cry_R_2: -3874378835017294633
+      FishingHat_Cry_R_3: 635624927158223388
+      FishingHat_Fighting_L_0: 7204382836466371596
+      FishingHat_Fighting_L_1: 7457674345800564645
+      FishingHat_Fighting_L_2: 1754713185343084613
+      FishingHat_Fighting_L_3: 7596511223202974983
+      FishingHat_Fighting_R_0: -4921493384829219655
+      FishingHat_Fighting_R_1: -4985676560180972673
+      FishingHat_Fighting_R_2: -2356871412957969787
+      FishingHat_Fighting_R_3: -3736527663275361783
+      FishingHat_Fishing_L_0: 8530954685027824984
+      FishingHat_Fishing_L_1: 8741530424897688391
+      FishingHat_Fishing_L_2: -3282351748627454997
+      FishingHat_Fishing_L_3: -3572622291231053914
+      FishingHat_Fishing_R_0: 3984215591956197673
+      FishingHat_Fishing_R_1: -3829977366099865800
+      FishingHat_Fishing_R_2: -5263811104305099594
+      FishingHat_Fishing_R_3: 7351274061635949775
+      FishingHat_GoToCry_L_0: 8940606915295634216
+      FishingHat_GoToCry_L_1: 7231498259115472760
+      FishingHat_GoToCry_L_2: -6404721236274732803
+      FishingHat_GoToCry_L_3: 8715673371102268225
+      FishingHat_GoToCry_R_0: -4542485348066773731
+      FishingHat_GoToCry_R_1: 7275542390379217890
+      FishingHat_GoToCry_R_2: -7124951693804053070
+      FishingHat_GoToCry_R_3: -9073930844900944666
+      FishingHat_Idle_L_0: -5168999315328455245
+      FishingHat_Idle_L_1: 4832231317151798318
+      FishingHat_Idle_L_2: 1951201286951341029
+      FishingHat_Idle_L_3: -5223279728686479691
+      FishingHat_Idle_R_0: 5971975903867469602
+      FishingHat_Idle_R_1: 9155719905368635048
+      FishingHat_Idle_R_2: -1493334967811599324
+      FishingHat_Idle_R_3: -8370579775618808391
+      FishingHat_MoveBackward_L_0: -299019042136857884
+      FishingHat_MoveBackward_L_1: -2522046106503267635
+      FishingHat_MoveBackward_L_2: 6066439220971295669
+      FishingHat_MoveBackward_L_3: -3258209048623920762
+      FishingHat_MoveBackward_R_0: 462742832971874578
+      FishingHat_MoveBackward_R_1: 8335341868954798599
+      FishingHat_MoveBackward_R_2: 106460361746213493
+      FishingHat_MoveBackward_R_3: 2706744507516929517
+      FishingHat_MoveForward_L_0: -4394842201977300509
+      FishingHat_MoveForward_L_1: 6908716026186135766
+      FishingHat_MoveForward_L_2: -8717998199982187717
+      FishingHat_MoveForward_L_3: -2911972604087315570
+      FishingHat_MoveForward_R_0: 5828756783807118765
+      FishingHat_MoveForward_R_1: 7793752364773864701
+      FishingHat_MoveForward_R_2: 8881654218356842959
+      FishingHat_MoveForward_R_3: -929603576986163622
+      FishingHat_Reeling_L_0: 4456123994409913053
+      FishingHat_Reeling_L_1: 9098480019422058144
+      FishingHat_Reeling_L_2: 8149918075709757667
+      FishingHat_Reeling_L_3: -8317294465588415606
+      FishingHat_Reeling_R_0: 9186951903482456298
+      FishingHat_Reeling_R_1: 5327994612805919388
+      FishingHat_Reeling_R_2: -679409870016917102
+      FishingHat_Reeling_R_3: 6911035870783993843
+      FishingHat_Scared_L_0: -8768441692362861791
+      FishingHat_Scared_L_1: -273872301909692751
+      FishingHat_Scared_L_2: -7246999386519553515
+      FishingHat_Scared_L_3: -5502256511975932102
+      FishingHat_Scared_R_0: 4919745629076429895
+      FishingHat_Scared_R_1: -2612993354935439024
+      FishingHat_Scared_R_2: 6096977545956858194
+      FishingHat_Scared_R_3: -8478507230506381199
+      FishingHat_SwappingPoles_L_0: 5505171494198121051
+      FishingHat_SwappingPoles_L_1: -3232590353186404361
+      FishingHat_SwappingPoles_L_2: 4593893811313044374
+      FishingHat_SwappingPoles_L_3: -5597753532539186933
+      FishingHat_SwappingPoles_R_0: -2339283843704225217
+      FishingHat_SwappingPoles_R_1: 2898325477975371639
+      FishingHat_SwappingPoles_R_2: 7228036734853721161
+      FishingHat_SwappingPoles_R_3: -2461436182940957240
+      FishingHat_Win_L_0: -1684598392465340518
+      FishingHat_Win_L_1: -8164052593998885056
+      FishingHat_Win_L_2: -6554843021236713245
+      FishingHat_Win_L_3: 4658866322681511287
+      FishingHat_Win_R_0: -8113050997746516472
+      FishingHat_Win_R_1: -2648358121651464186
+      FishingHat_Win_R_2: -6818778761187436733
+      FishingHat_Win_R_3: 8342431720167114057
+      fishermanhatdefaultfishinghat_0: -4046297669942543250
+      fishermanhatdefaultfishinghat_1: 673172878530430885
+      fishermanhatdefaultfishinghat_10: 7564201637386351291
+      fishermanhatdefaultfishinghat_11: -140534353507388026
+      fishermanhatdefaultfishinghat_12: -3418552684500087827
+      fishermanhatdefaultfishinghat_13: -2412395337762264349
+      fishermanhatdefaultfishinghat_14: -6623048921087787823
+      fishermanhatdefaultfishinghat_15: -469549762747213401
+      fishermanhatdefaultfishinghat_16: -733693286065486668
+      fishermanhatdefaultfishinghat_17: 7392343186157371488
+      fishermanhatdefaultfishinghat_18: 3612194583690205119
+      fishermanhatdefaultfishinghat_19: 4619292348280724880
+      fishermanhatdefaultfishinghat_2: -4362115481820366049
+      fishermanhatdefaultfishinghat_20: -7685100345073645108
+      fishermanhatdefaultfishinghat_21: -2245128407052646700
+      fishermanhatdefaultfishinghat_22: 5752035529519894856
+      fishermanhatdefaultfishinghat_23: -6935334311342724137
+      fishermanhatdefaultfishinghat_24: 7618319323521010364
+      fishermanhatdefaultfishinghat_25: -8512876092568198944
+      fishermanhatdefaultfishinghat_26: 9192189069374477128
+      fishermanhatdefaultfishinghat_27: -8376199627479718234
+      fishermanhatdefaultfishinghat_28: 3695984632650833801
+      fishermanhatdefaultfishinghat_29: 7032305463885715076
+      fishermanhatdefaultfishinghat_3: 6705856806988477637
+      fishermanhatdefaultfishinghat_30: -1713007962853955687
+      fishermanhatdefaultfishinghat_31: -355306191621137870
+      fishermanhatdefaultfishinghat_32: 7047074950370347065
+      fishermanhatdefaultfishinghat_33: 1895889945392949888
+      fishermanhatdefaultfishinghat_34: -1850550868248090477
+      fishermanhatdefaultfishinghat_35: -5450283313716962749
+      fishermanhatdefaultfishinghat_36: -6030896502780611499
+      fishermanhatdefaultfishinghat_37: 7976797959414815255
+      fishermanhatdefaultfishinghat_38: 6748499751025042694
+      fishermanhatdefaultfishinghat_39: 3869929498058887883
+      fishermanhatdefaultfishinghat_4: -8745422685141901521
+      fishermanhatdefaultfishinghat_40: -8967045533850808098
+      fishermanhatdefaultfishinghat_41: 1350784549744163383
+      fishermanhatdefaultfishinghat_42: -3718166098362365063
+      fishermanhatdefaultfishinghat_43: -7644981570145140732
+      fishermanhatdefaultfishinghat_44: -6918966453599033319
+      fishermanhatdefaultfishinghat_45: 8483636134035906264
+      fishermanhatdefaultfishinghat_46: 3199285395842524837
+      fishermanhatdefaultfishinghat_47: -8126039631089706074
+      fishermanhatdefaultfishinghat_48: -8671112081774204799
+      fishermanhatdefaultfishinghat_49: 5593218671665318978
+      fishermanhatdefaultfishinghat_5: 2601271186074162295
+      fishermanhatdefaultfishinghat_50: -2864766858224177352
+      fishermanhatdefaultfishinghat_51: 8681698751017217331
+      fishermanhatdefaultfishinghat_52: 6635935577550079728
+      fishermanhatdefaultfishinghat_53: -3126115574558496357
+      fishermanhatdefaultfishinghat_54: 3922272051791424798
+      fishermanhatdefaultfishinghat_55: -9097406249265373741
+      fishermanhatdefaultfishinghat_56: 9101246286925355875
+      fishermanhatdefaultfishinghat_57: 5862148470531751489
+      fishermanhatdefaultfishinghat_58: -6606145794959720244
+      fishermanhatdefaultfishinghat_59: 3130265552840887963
+      fishermanhatdefaultfishinghat_6: 5710823352819969160
+      fishermanhatdefaultfishinghat_60: 8065993029874093579
+      fishermanhatdefaultfishinghat_61: -5330811454649060214
+      fishermanhatdefaultfishinghat_62: 8520939112150475241
+      fishermanhatdefaultfishinghat_63: -5308121168714282525
+      fishermanhatdefaultfishinghat_64: -3971082713274711614
+      fishermanhatdefaultfishinghat_65: -5814141404438622676
+      fishermanhatdefaultfishinghat_66: 1120432227287118147
+      fishermanhatdefaultfishinghat_67: 2905781895798604222
+      fishermanhatdefaultfishinghat_68: 3871640707324628023
+      fishermanhatdefaultfishinghat_69: 6289757078018759668
+      fishermanhatdefaultfishinghat_7: -3842967953825585176
+      fishermanhatdefaultfishinghat_70: 3538308049693260221
+      fishermanhatdefaultfishinghat_71: 1423681742435419998
+      fishermanhatdefaultfishinghat_72: 3687212766214692404
+      fishermanhatdefaultfishinghat_73: -1729938421137261971
+      fishermanhatdefaultfishinghat_74: 5210396310087264643
+      fishermanhatdefaultfishinghat_75: -924481570691657466
+      fishermanhatdefaultfishinghat_76: 2433705613149178407
+      fishermanhatdefaultfishinghat_77: 4613279732688568817
+      fishermanhatdefaultfishinghat_78: -6920310579424571924
+      fishermanhatdefaultfishinghat_79: -6994642054777047335
+      fishermanhatdefaultfishinghat_8: -1536743703239700179
+      fishermanhatdefaultfishinghat_80: 3954455359389580912
+      fishermanhatdefaultfishinghat_81: -2331290447960790217
+      fishermanhatdefaultfishinghat_82: -5591024601880792221
+      fishermanhatdefaultfishinghat_83: 3825023138502071865
+      fishermanhatdefaultfishinghat_84: 8140777917240221474
+      fishermanhatdefaultfishinghat_85: -5816612327666654630
+      fishermanhatdefaultfishinghat_86: 5431406822189225129
+      fishermanhatdefaultfishinghat_87: 738296248005207822
+      fishermanhatdefaultfishinghat_88: 7353400652358046493
+      fishermanhatdefaultfishinghat_89: 3170385245386786300
+      fishermanhatdefaultfishinghat_9: -4014585755785318864
+      fishermanhatdefaultfishinghat_90: 5340209232441323221
+      fishermanhatdefaultfishinghat_91: -7594312544089148213
+      fishermanhatdefaultfishinghat_92: 6840674217207072936
+      fishermanhatdefaultfishinghat_93: -4712834494118787648
+      fishermanhatdefaultfishinghat_94: 1062050680080525325
+      fishermanhatdefaultfishinghat_95: -8797314806604030286
+      fishermanhatdefaultfishinghat_96: 6073309271922905080
+      fishermanhatdefaultfishinghat_97: 7404921408016354242
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

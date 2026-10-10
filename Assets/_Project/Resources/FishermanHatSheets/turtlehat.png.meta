@@ -1,0 +1,3023 @@
+fileFormatVersion: 2
+guid: 7516fac622b789644b5b3737bfc7d8ab
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4954512506350673158
+    second: turtlehat_0
+  - first:
+      213: -5159368345247752165
+    second: turtlehat_1
+  - first:
+      213: 8038569975320989770
+    second: turtlehat_2
+  - first:
+      213: -7654536961619644558
+    second: turtlehat_3
+  - first:
+      213: -691826796919971647
+    second: turtlehat_4
+  - first:
+      213: 5509397885265174622
+    second: turtlehat_5
+  - first:
+      213: -3175045274947774052
+    second: turtlehat_6
+  - first:
+      213: 3883964740836232245
+    second: turtlehat_7
+  - first:
+      213: -6731684394484363713
+    second: turtlehat_8
+  - first:
+      213: -6833293267750461303
+    second: turtlehat_9
+  - first:
+      213: 521614586032411330
+    second: turtlehat_10
+  - first:
+      213: 2008715402328705441
+    second: turtlehat_11
+  - first:
+      213: -6152287140685486347
+    second: turtlehat_12
+  - first:
+      213: -6456778818570893821
+    second: turtlehat_13
+  - first:
+      213: -8878205301426758749
+    second: turtlehat_14
+  - first:
+      213: 8277152753500336106
+    second: turtlehat_15
+  - first:
+      213: 1852138992003703520
+    second: turtlehat_16
+  - first:
+      213: -7771067528669497969
+    second: turtlehat_17
+  - first:
+      213: -91814825054805613
+    second: turtlehat_18
+  - first:
+      213: -5089010112256332312
+    second: turtlehat_19
+  - first:
+      213: 2228725135643049477
+    second: turtlehat_20
+  - first:
+      213: -5231282942945532947
+    second: turtlehat_21
+  - first:
+      213: 3674025236651257294
+    second: turtlehat_22
+  - first:
+      213: -6382367289789439871
+    second: turtlehat_23
+  - first:
+      213: -6075608248859901842
+    second: turtlehat_24
+  - first:
+      213: 7817092891144186467
+    second: turtlehat_25
+  - first:
+      213: -5398806663165321576
+    second: turtlehat_26
+  - first:
+      213: 1548290897373382194
+    second: turtlehat_27
+  - first:
+      213: 2216064923292379906
+    second: turtlehat_28
+  - first:
+      213: -2089132459722709136
+    second: turtlehat_29
+  - first:
+      213: 2241311187378835293
+    second: turtlehat_30
+  - first:
+      213: 5367931303786060206
+    second: turtlehat_31
+  - first:
+      213: -6075890818262254051
+    second: turtlehat_32
+  - first:
+      213: -4773450169988963262
+    second: turtlehat_33
+  - first:
+      213: 6912117721268221543
+    second: turtlehat_34
+  - first:
+      213: 7157928567801077669
+    second: turtlehat_35
+  - first:
+      213: -989189441295935925
+    second: turtlehat_36
+  - first:
+      213: 6405337019496965266
+    second: turtlehat_37
+  - first:
+      213: -4106149468046091491
+    second: turtlehat_38
+  - first:
+      213: 5213914844776252084
+    second: turtlehat_39
+  - first:
+      213: -2787008826813041581
+    second: turtlehat_40
+  - first:
+      213: -6895069772471298854
+    second: turtlehat_41
+  - first:
+      213: 781955540299919925
+    second: turtlehat_42
+  - first:
+      213: 4031750122505054803
+    second: turtlehat_43
+  - first:
+      213: -2593132774668620205
+    second: turtlehat_44
+  - first:
+      213: -575292315700738
+    second: turtlehat_45
+  - first:
+      213: 8681865548663909809
+    second: turtlehat_46
+  - first:
+      213: 3846308827721931539
+    second: turtlehat_47
+  - first:
+      213: 9060319520194238001
+    second: turtlehat_48
+  - first:
+      213: 2774890396316797711
+    second: turtlehat_49
+  - first:
+      213: 1900855734640517728
+    second: turtlehat_50
+  - first:
+      213: 3979506507621922006
+    second: turtlehat_51
+  - first:
+      213: 6601755773267726136
+    second: turtlehat_52
+  - first:
+      213: -2314510420572583478
+    second: turtlehat_53
+  - first:
+      213: 693197040994109692
+    second: turtlehat_54
+  - first:
+      213: -8155590066281992682
+    second: turtlehat_55
+  - first:
+      213: -3334803668119142766
+    second: turtlehat_56
+  - first:
+      213: -7707981163394955616
+    second: turtlehat_57
+  - first:
+      213: 7506031617641416793
+    second: turtlehat_58
+  - first:
+      213: 3663497149037405535
+    second: turtlehat_59
+  - first:
+      213: 4370731156358049026
+    second: turtlehat_60
+  - first:
+      213: 6250731355072667701
+    second: turtlehat_61
+  - first:
+      213: -6367927420737742292
+    second: turtlehat_62
+  - first:
+      213: 8433313464786306564
+    second: turtlehat_63
+  - first:
+      213: -5015018786345712415
+    second: turtlehat_64
+  - first:
+      213: 9076413623556733524
+    second: turtlehat_65
+  - first:
+      213: -5647980375177424389
+    second: turtlehat_66
+  - first:
+      213: -8943666201539258632
+    second: turtlehat_67
+  - first:
+      213: -6982160289873877716
+    second: turtlehat_68
+  - first:
+      213: -3033567942729711538
+    second: turtlehat_69
+  - first:
+      213: 2082692802008834
+    second: turtlehat_70
+  - first:
+      213: -1848832929568500808
+    second: turtlehat_71
+  - first:
+      213: 6630835244805913864
+    second: turtlehat_72
+  - first:
+      213: -4156930462006972079
+    second: turtlehat_73
+  - first:
+      213: 346709506853467643
+    second: turtlehat_74
+  - first:
+      213: 1331360369671342936
+    second: turtlehat_75
+  - first:
+      213: -3950947250193305325
+    second: turtlehat_76
+  - first:
+      213: -4166880658142756104
+    second: turtlehat_77
+  - first:
+      213: -1046386258075356598
+    second: turtlehat_78
+  - first:
+      213: 3318340506599845152
+    second: turtlehat_79
+  - first:
+      213: -5607189060248053707
+    second: turtlehat_80
+  - first:
+      213: -6414084532735851398
+    second: turtlehat_81
+  - first:
+      213: 4782341534830910483
+    second: turtlehat_82
+  - first:
+      213: 155226782760571328
+    second: turtlehat_83
+  - first:
+      213: -5918479800108933506
+    second: turtlehat_84
+  - first:
+      213: -2739298064458457396
+    second: turtlehat_85
+  - first:
+      213: -6120539555342022333
+    second: turtlehat_86
+  - first:
+      213: 7313327027080773937
+    second: turtlehat_87
+  - first:
+      213: -1416429510689620927
+    second: turtlehat_88
+  - first:
+      213: 7231467655008892997
+    second: turtlehat_89
+  - first:
+      213: 8996897527083886004
+    second: turtlehat_90
+  - first:
+      213: -2417092318884206460
+    second: turtlehat_91
+  - first:
+      213: 8490919200536651913
+    second: turtlehat_92
+  - first:
+      213: 4621877042504335776
+    second: turtlehat_93
+  - first:
+      213: 7509635534859975074
+    second: turtlehat_94
+  - first:
+      213: -5728251184455079076
+    second: turtlehat_95
+  - first:
+      213: 8306914045647208834
+    second: TurtleHat_Casting_L_0
+  - first:
+      213: -1622091071122049272
+    second: TurtleHat_Casting_L_1
+  - first:
+      213: -1897087488366011505
+    second: TurtleHat_Casting_L_2
+  - first:
+      213: -3210974124604811768
+    second: TurtleHat_Casting_L_3
+  - first:
+      213: 1448847967953961067
+    second: TurtleHat_Idle_L_0
+  - first:
+      213: 2309900934924277009
+    second: TurtleHat_Idle_L_1
+  - first:
+      213: 8940291505200087397
+    second: TurtleHat_Idle_L_2
+  - first:
+      213: -3709356963350692199
+    second: TurtleHat_Idle_L_3
+  - first:
+      213: -8268987187046652249
+    second: TurtleHat_Fishing_L_0
+  - first:
+      213: 5645136179878954732
+    second: TurtleHat_Fishing_L_1
+  - first:
+      213: -6754829686605097718
+    second: TurtleHat_Fishing_L_2
+  - first:
+      213: -5450387866354249506
+    second: TurtleHat_Fishing_L_3
+  - first:
+      213: -8155787616616073647
+    second: TurtleHat_MoveForward_L_0
+  - first:
+      213: 4941635211751059348
+    second: TurtleHat_MoveForward_L_1
+  - first:
+      213: 6504316753869410654
+    second: TurtleHat_MoveForward_L_2
+  - first:
+      213: 4133445811744576326
+    second: TurtleHat_MoveForward_L_3
+  - first:
+      213: -2597397192933816703
+    second: TurtleHat_MoveBackward_L_0
+  - first:
+      213: -3429789363354835880
+    second: TurtleHat_MoveBackward_L_1
+  - first:
+      213: -309837432530084812
+    second: TurtleHat_MoveBackward_L_2
+  - first:
+      213: -5742128763827552543
+    second: TurtleHat_MoveBackward_L_3
+  - first:
+      213: -4365473068073250487
+    second: TurtleHat_Fighting_L_0
+  - first:
+      213: -2605294824827688502
+    second: TurtleHat_Fighting_L_1
+  - first:
+      213: -5819420120675265966
+    second: TurtleHat_Fighting_L_2
+  - first:
+      213: 5744535952884149235
+    second: TurtleHat_Fighting_L_3
+  - first:
+      213: -3141770144968163235
+    second: TurtleHat_Reeling_L_0
+  - first:
+      213: 1466556751051036625
+    second: TurtleHat_Reeling_L_1
+  - first:
+      213: -1567737667749182648
+    second: TurtleHat_Reeling_L_2
+  - first:
+      213: -3792708511369381479
+    second: TurtleHat_Reeling_L_3
+  - first:
+      213: -3657890644415472261
+    second: TurtleHat_Win_L_0
+  - first:
+      213: 400839549936257361
+    second: TurtleHat_Win_L_1
+  - first:
+      213: -4337539384976642887
+    second: TurtleHat_Win_L_2
+  - first:
+      213: 3747918699291654631
+    second: TurtleHat_Win_L_3
+  - first:
+      213: -7684466617398338877
+    second: TurtleHat_SwappingPoles_L_0
+  - first:
+      213: 8452115795247939268
+    second: TurtleHat_SwappingPoles_L_1
+  - first:
+      213: -5536821403668207095
+    second: TurtleHat_SwappingPoles_L_2
+  - first:
+      213: 7118307528539033614
+    second: TurtleHat_SwappingPoles_L_3
+  - first:
+      213: -5459991560313851492
+    second: TurtleHat_Scared_L_0
+  - first:
+      213: -2871117905871064957
+    second: TurtleHat_Scared_L_1
+  - first:
+      213: 3386085999050545903
+    second: TurtleHat_Scared_L_2
+  - first:
+      213: -525620952980075451
+    second: TurtleHat_Scared_L_3
+  - first:
+      213: -5192130400224934028
+    second: TurtleHat_GoToCry_L_0
+  - first:
+      213: 8161500690481106213
+    second: TurtleHat_GoToCry_L_1
+  - first:
+      213: 41774078228834963
+    second: TurtleHat_GoToCry_L_2
+  - first:
+      213: -6295860810976501796
+    second: TurtleHat_GoToCry_L_3
+  - first:
+      213: -3247570160051106389
+    second: TurtleHat_Cry_L_0
+  - first:
+      213: -8775107445853771758
+    second: TurtleHat_Cry_L_1
+  - first:
+      213: -3126519682753793089
+    second: TurtleHat_Cry_L_2
+  - first:
+      213: -2024809834058640707
+    second: TurtleHat_Cry_L_3
+  - first:
+      213: -6453701542547315726
+    second: TurtleHat_Casting_R_0
+  - first:
+      213: -3611459237142273932
+    second: TurtleHat_Casting_R_1
+  - first:
+      213: -5693724700372506958
+    second: TurtleHat_Casting_R_2
+  - first:
+      213: -1038713426415039054
+    second: TurtleHat_Casting_R_3
+  - first:
+      213: 7783683940370469689
+    second: TurtleHat_Idle_R_0
+  - first:
+      213: -1747936613944326564
+    second: TurtleHat_Idle_R_1
+  - first:
+      213: -6594158681930401504
+    second: TurtleHat_Idle_R_2
+  - first:
+      213: -7767233592811898249
+    second: TurtleHat_Idle_R_3
+  - first:
+      213: 371422654483738011
+    second: TurtleHat_Fishing_R_0
+  - first:
+      213: -7322780985211671603
+    second: TurtleHat_Fishing_R_1
+  - first:
+      213: 314784261757963911
+    second: TurtleHat_Fishing_R_2
+  - first:
+      213: 7350703496050806253
+    second: TurtleHat_Fishing_R_3
+  - first:
+      213: 5452292475375617467
+    second: TurtleHat_MoveForward_R_0
+  - first:
+      213: -6146039501212401298
+    second: TurtleHat_MoveForward_R_1
+  - first:
+      213: -1719493145645043816
+    second: TurtleHat_MoveForward_R_2
+  - first:
+      213: -3741739159065430277
+    second: TurtleHat_MoveForward_R_3
+  - first:
+      213: -5030041009249493620
+    second: TurtleHat_MoveBackward_R_0
+  - first:
+      213: 6558290687484627300
+    second: TurtleHat_MoveBackward_R_1
+  - first:
+      213: 2859712733781815431
+    second: TurtleHat_MoveBackward_R_2
+  - first:
+      213: -6202759413284542026
+    second: TurtleHat_MoveBackward_R_3
+  - first:
+      213: 7290322814884934405
+    second: TurtleHat_Fighting_R_0
+  - first:
+      213: 8378693237973447140
+    second: TurtleHat_Fighting_R_1
+  - first:
+      213: -8914191629413581282
+    second: TurtleHat_Fighting_R_2
+  - first:
+      213: -2093493210649452853
+    second: TurtleHat_Fighting_R_3
+  - first:
+      213: -147711040029119238
+    second: TurtleHat_Reeling_R_0
+  - first:
+      213: 2100801526816459015
+    second: TurtleHat_Reeling_R_1
+  - first:
+      213: 7622920323640980703
+    second: TurtleHat_Reeling_R_2
+  - first:
+      213: 5937676477017431714
+    second: TurtleHat_Reeling_R_3
+  - first:
+      213: 6674097688899347297
+    second: TurtleHat_Win_R_0
+  - first:
+      213: 2608276041821571745
+    second: TurtleHat_Win_R_1
+  - first:
+      213: 1258186181056408204
+    second: TurtleHat_Win_R_2
+  - first:
+      213: 1946135574093889694
+    second: TurtleHat_Win_R_3
+  - first:
+      213: -4902393122853871362
+    second: TurtleHat_SwappingPoles_R_0
+  - first:
+      213: -6982678325230346590
+    second: TurtleHat_SwappingPoles_R_1
+  - first:
+      213: 3953185555361634694
+    second: TurtleHat_SwappingPoles_R_2
+  - first:
+      213: -5494782122377091600
+    second: TurtleHat_SwappingPoles_R_3
+  - first:
+      213: 3601471893729600787
+    second: TurtleHat_Scared_R_0
+  - first:
+      213: -7559831231482988764
+    second: TurtleHat_Scared_R_1
+  - first:
+      213: 4807486132867495611
+    second: TurtleHat_Scared_R_2
+  - first:
+      213: -736221102483439861
+    second: TurtleHat_Scared_R_3
+  - first:
+      213: 138479963149188076
+    second: TurtleHat_GoToCry_R_0
+  - first:
+      213: -4077345148492270324
+    second: TurtleHat_GoToCry_R_1
+  - first:
+      213: -7716521496224373616
+    second: TurtleHat_GoToCry_R_2
+  - first:
+      213: 8957313038125989030
+    second: TurtleHat_GoToCry_R_3
+  - first:
+      213: -3891395807246866069
+    second: TurtleHat_Cry_R_0
+  - first:
+      213: 2731162967249598318
+    second: TurtleHat_Cry_R_1
+  - first:
+      213: 6356704596914337713
+    second: TurtleHat_Cry_R_2
+  - first:
+      213: 1003990804104664108
+    second: TurtleHat_Cry_R_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TurtleHat_Casting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28141860056184370800000000000000
+      internalID: 8306914045647208834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Casting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 807ff68d3cc2d79e0800000000000000
+      internalID: -1622091071122049272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Casting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8b1b140bf03ca5e0800000000000000
+      internalID: -1897087488366011505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Casting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80695ffcb045073d0800000000000000
+      internalID: -3210974124604811768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Idle_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b60417fec875b1410800000000000000
+      internalID: 1448847967953961067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Idle_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 115118479aa6e0020800000000000000
+      internalID: 2309900934924277009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Idle_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 561c4eb91cb421c70800000000000000
+      internalID: 8940291505200087397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Idle_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99e3c5eae77b58cc0800000000000000
+      internalID: -3709356963350692199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Fishing_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a6e3dfd6f7ae3d80800000000000000
+      internalID: -8268987187046652249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Fishing_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce60466427d875e40800000000000000
+      internalID: 5645136179878954732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Fishing_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a05d3ab40360242a0800000000000000
+      internalID: -6754829686605097718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Fishing_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed01bd9ec155c54b0800000000000000
+      internalID: -5450387866354249506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_MoveForward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 156b118bf52d0de80800000000000000
+      internalID: -8155787616616073647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_MoveForward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49febfd0b07349440800000000000000
+      internalID: 4941635211751059348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_MoveForward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e51120550a9f34a50800000000000000
+      internalID: 6504316753869410654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_MoveForward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6439c5bd013fc5930800000000000000
+      internalID: 4133445811744576326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_MoveBackward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 186459eb30134fbd0800000000000000
+      internalID: -2597397192933816703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_MoveBackward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85462deeeb0f660d0800000000000000
+      internalID: -3429789363354835880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_MoveBackward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43cdce72f7c33bbf0800000000000000
+      internalID: -309837432530084812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_MoveBackward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ee7189ff4cdf40b0800000000000000
+      internalID: -5742128763827552543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Fighting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94195f4bf59ba63c0800000000000000
+      internalID: -4365473068073250487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Fighting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac96bf6092228dbd0800000000000000
+      internalID: -2605294824827688502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Fighting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 252d36c9b344d3fa0800000000000000
+      internalID: -5819420120675265966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Fighting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fbae176301b8bf40800000000000000
+      internalID: 5744535952884149235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Reeling_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d50ce3fe2b03664d0800000000000000
+      internalID: -3141770144968163235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Reeling_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d7195d48914a5410800000000000000
+      internalID: 1466556751051036625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Reeling_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8438fccb5e64e3ae0800000000000000
+      internalID: -1567737667749182648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Reeling_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9993a3b14b79d5bc0800000000000000
+      internalID: -3792708511369381479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Win_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7d1468d6df8c3dc0800000000000000
+      internalID: -3657890644415472261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Win_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 159c0e96271109500800000000000000
+      internalID: 400839549936257361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Win_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bc633f19e6fdc3c0800000000000000
+      internalID: -4337539384976642887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Win_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e9b25e1338430430800000000000000
+      internalID: 3747918699291654631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_SwappingPoles_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cadf95535a4b5590800000000000000
+      internalID: -7684466617398338877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_SwappingPoles_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ceb838d882fb4570800000000000000
+      internalID: 8452115795247939268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_SwappingPoles_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90aa399c4424923b0800000000000000
+      internalID: -5536821403668207095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_SwappingPoles_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e00de889bfe49c260800000000000000
+      internalID: 7118307528539033614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Scared_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c91bcdaaa963a34b0800000000000000
+      internalID: -5459991560313851492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Scared_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 380ba48f97db728d0800000000000000
+      internalID: -2871117905871064957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Scared_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fead450a64bcdfe20800000000000000
+      internalID: 3386085999050545903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Scared_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54cce13378e94b8f0800000000000000
+      internalID: -525620952980075451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_GoToCry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 477061bf8e8d1f7b0800000000000000
+      internalID: -5192130400224934028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_GoToCry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52d4b32f2a9734170800000000000000
+      internalID: 8161500690481106213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_GoToCry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39a26a58d49649000800000000000000
+      internalID: 41774078228834963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_GoToCry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdf517603fb90a8a0800000000000000
+      internalID: -6295860810976501796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Cry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: badcef255205ee2d0800000000000000
+      internalID: -3247570160051106389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Cry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2182000454e883680800000000000000
+      internalID: -8775107445853771758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Cry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb3713ed9ee5c94d0800000000000000
+      internalID: -3126519682753793089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Cry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db2973f0f2e66e3e0800000000000000
+      internalID: -2024809834058640707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Casting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f3a316e3a8df66a0800000000000000
+      internalID: -6453701542547315726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Casting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 470e45945f481edc0800000000000000
+      internalID: -3611459237142273932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Casting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b6ed693d83dbf0b0800000000000000
+      internalID: -5693724700372506958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Casting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bd4a1b54afb591f0800000000000000
+      internalID: -1038713426415039054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Idle_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 933d1b5dd43350c60800000000000000
+      internalID: 7783683940370469689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Idle_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5603fb19e41eb7e0800000000000000
+      internalID: -1747936613944326564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Idle_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 029fafabd97dc74a0800000000000000
+      internalID: -6594158681930401504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Idle_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77a37fc233e353490800000000000000
+      internalID: -7767233592811898249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Fishing_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9d2906bfee872500800000000000000
+      internalID: 371422654483738011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Fishing_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcb2970ed71406a90800000000000000
+      internalID: -7322780985211671603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Fishing_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78e87f64e965e5400800000000000000
+      internalID: 314784261757963911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Fishing_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ded845b42e1f20660800000000000000
+      internalID: 7350703496050806253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_MoveForward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb58c4e6e1f6aab40800000000000000
+      internalID: 5452292475375617467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_MoveForward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6147b203a1e4baa0800000000000000
+      internalID: -6146039501212401298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_MoveForward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89fab1428122328e0800000000000000
+      internalID: -1719493145645043816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_MoveForward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf67cb53f0ca21cc0800000000000000
+      internalID: -3741739159065430277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_MoveBackward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8d59063a54b13ab0800000000000000
+      internalID: -5030041009249493620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_MoveBackward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 469064902aab30b50800000000000000
+      internalID: 6558290687484627300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_MoveBackward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 780f9b8749dbfa720800000000000000
+      internalID: 2859712733781815431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_MoveBackward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b9e6ff5d2f5be9a0800000000000000
+      internalID: -6202759413284542026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Fighting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 503742f69fd6c2560800000000000000
+      internalID: 7290322814884934405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Fighting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e1ff539b19174470800000000000000
+      internalID: 8378693237973447140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Fighting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1efa0541fd6a4480800000000000000
+      internalID: -8914191629413581282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Fighting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bce1c87440b62f2e0800000000000000
+      internalID: -2093493210649452853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Reeling_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afc29a9779933fdf0800000000000000
+      internalID: -147711040029119238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Reeling_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7094e7dabdb872d10800000000000000
+      internalID: 2100801526816459015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Reeling_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd4f9b975ad0ac960800000000000000
+      internalID: 7622920323640980703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Reeling_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ae11d3fb4dd66250800000000000000
+      internalID: 5937676477017431714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Win_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 163e917bc782f9c50800000000000000
+      internalID: 6674097688899347297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Win_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aacfe4ad35723420800000000000000
+      internalID: 2608276041821571745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Win_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8a2c2f5aa9f57110800000000000000
+      internalID: 1258186181056408204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Win_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e900e9a5eff020b10800000000000000
+      internalID: 1946135574093889694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_SwappingPoles_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef02af2cd6337fbb0800000000000000
+      internalID: -4902393122853871362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_SwappingPoles_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ae53db1f0b881f90800000000000000
+      internalID: -6982678325230346590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_SwappingPoles_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689198651598cd630800000000000000
+      internalID: 3953185555361634694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_SwappingPoles_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f5eb85b5cc9eb3b0800000000000000
+      internalID: -5494782122377091600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Scared_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3156e4e1b9ffaf130800000000000000
+      internalID: 3601471893729600787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Scared_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4277d857c85161790800000000000000
+      internalID: -7559831231482988764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Scared_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb6fe2caa2f97b240800000000000000
+      internalID: 4807486132867495611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Scared_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0ff356deca68c5f0800000000000000
+      internalID: -736221102483439861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_GoToCry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceb3404facafbe100800000000000000
+      internalID: 138479963149188076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_GoToCry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c05b47da03c5a67c0800000000000000
+      internalID: -4077345148492270324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_GoToCry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09461e3459869e490800000000000000
+      internalID: -7716521496224373616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_GoToCry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ac797310c4ce4c70800000000000000
+      internalID: 8957313038125989030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Cry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b692b9c712cfef9c0800000000000000
+      internalID: -3891395807246866069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Cry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e673d969f3a07e520800000000000000
+      internalID: 2731162967249598318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Cry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b7fb21d62d873850800000000000000
+      internalID: 6356704596914337713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurtleHat_Cry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c24da642154eeed00800000000000000
+      internalID: 1003990804104664108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TurtleHat_Casting_L_0: 8306914045647208834
+      TurtleHat_Casting_L_1: -1622091071122049272
+      TurtleHat_Casting_L_2: -1897087488366011505
+      TurtleHat_Casting_L_3: -3210974124604811768
+      TurtleHat_Casting_R_0: -6453701542547315726
+      TurtleHat_Casting_R_1: -3611459237142273932
+      TurtleHat_Casting_R_2: -5693724700372506958
+      TurtleHat_Casting_R_3: -1038713426415039054
+      TurtleHat_Cry_L_0: -3247570160051106389
+      TurtleHat_Cry_L_1: -8775107445853771758
+      TurtleHat_Cry_L_2: -3126519682753793089
+      TurtleHat_Cry_L_3: -2024809834058640707
+      TurtleHat_Cry_R_0: -3891395807246866069
+      TurtleHat_Cry_R_1: 2731162967249598318
+      TurtleHat_Cry_R_2: 6356704596914337713
+      TurtleHat_Cry_R_3: 1003990804104664108
+      TurtleHat_Fighting_L_0: -4365473068073250487
+      TurtleHat_Fighting_L_1: -2605294824827688502
+      TurtleHat_Fighting_L_2: -5819420120675265966
+      TurtleHat_Fighting_L_3: 5744535952884149235
+      TurtleHat_Fighting_R_0: 7290322814884934405
+      TurtleHat_Fighting_R_1: 8378693237973447140
+      TurtleHat_Fighting_R_2: -8914191629413581282
+      TurtleHat_Fighting_R_3: -2093493210649452853
+      TurtleHat_Fishing_L_0: -8268987187046652249
+      TurtleHat_Fishing_L_1: 5645136179878954732
+      TurtleHat_Fishing_L_2: -6754829686605097718
+      TurtleHat_Fishing_L_3: -5450387866354249506
+      TurtleHat_Fishing_R_0: 371422654483738011
+      TurtleHat_Fishing_R_1: -7322780985211671603
+      TurtleHat_Fishing_R_2: 314784261757963911
+      TurtleHat_Fishing_R_3: 7350703496050806253
+      TurtleHat_GoToCry_L_0: -5192130400224934028
+      TurtleHat_GoToCry_L_1: 8161500690481106213
+      TurtleHat_GoToCry_L_2: 41774078228834963
+      TurtleHat_GoToCry_L_3: -6295860810976501796
+      TurtleHat_GoToCry_R_0: 138479963149188076
+      TurtleHat_GoToCry_R_1: -4077345148492270324
+      TurtleHat_GoToCry_R_2: -7716521496224373616
+      TurtleHat_GoToCry_R_3: 8957313038125989030
+      TurtleHat_Idle_L_0: 1448847967953961067
+      TurtleHat_Idle_L_1: 2309900934924277009
+      TurtleHat_Idle_L_2: 8940291505200087397
+      TurtleHat_Idle_L_3: -3709356963350692199
+      TurtleHat_Idle_R_0: 7783683940370469689
+      TurtleHat_Idle_R_1: -1747936613944326564
+      TurtleHat_Idle_R_2: -6594158681930401504
+      TurtleHat_Idle_R_3: -7767233592811898249
+      TurtleHat_MoveBackward_L_0: -2597397192933816703
+      TurtleHat_MoveBackward_L_1: -3429789363354835880
+      TurtleHat_MoveBackward_L_2: -309837432530084812
+      TurtleHat_MoveBackward_L_3: -5742128763827552543
+      TurtleHat_MoveBackward_R_0: -5030041009249493620
+      TurtleHat_MoveBackward_R_1: 6558290687484627300
+      TurtleHat_MoveBackward_R_2: 2859712733781815431
+      TurtleHat_MoveBackward_R_3: -6202759413284542026
+      TurtleHat_MoveForward_L_0: -8155787616616073647
+      TurtleHat_MoveForward_L_1: 4941635211751059348
+      TurtleHat_MoveForward_L_2: 6504316753869410654
+      TurtleHat_MoveForward_L_3: 4133445811744576326
+      TurtleHat_MoveForward_R_0: 5452292475375617467
+      TurtleHat_MoveForward_R_1: -6146039501212401298
+      TurtleHat_MoveForward_R_2: -1719493145645043816
+      TurtleHat_MoveForward_R_3: -3741739159065430277
+      TurtleHat_Reeling_L_0: -3141770144968163235
+      TurtleHat_Reeling_L_1: 1466556751051036625
+      TurtleHat_Reeling_L_2: -1567737667749182648
+      TurtleHat_Reeling_L_3: -3792708511369381479
+      TurtleHat_Reeling_R_0: -147711040029119238
+      TurtleHat_Reeling_R_1: 2100801526816459015
+      TurtleHat_Reeling_R_2: 7622920323640980703
+      TurtleHat_Reeling_R_3: 5937676477017431714
+      TurtleHat_Scared_L_0: -5459991560313851492
+      TurtleHat_Scared_L_1: -2871117905871064957
+      TurtleHat_Scared_L_2: 3386085999050545903
+      TurtleHat_Scared_L_3: -525620952980075451
+      TurtleHat_Scared_R_0: 3601471893729600787
+      TurtleHat_Scared_R_1: -7559831231482988764
+      TurtleHat_Scared_R_2: 4807486132867495611
+      TurtleHat_Scared_R_3: -736221102483439861
+      TurtleHat_SwappingPoles_L_0: -7684466617398338877
+      TurtleHat_SwappingPoles_L_1: 8452115795247939268
+      TurtleHat_SwappingPoles_L_2: -5536821403668207095
+      TurtleHat_SwappingPoles_L_3: 7118307528539033614
+      TurtleHat_SwappingPoles_R_0: -4902393122853871362
+      TurtleHat_SwappingPoles_R_1: -6982678325230346590
+      TurtleHat_SwappingPoles_R_2: 3953185555361634694
+      TurtleHat_SwappingPoles_R_3: -5494782122377091600
+      TurtleHat_Win_L_0: -3657890644415472261
+      TurtleHat_Win_L_1: 400839549936257361
+      TurtleHat_Win_L_2: -4337539384976642887
+      TurtleHat_Win_L_3: 3747918699291654631
+      TurtleHat_Win_R_0: 6674097688899347297
+      TurtleHat_Win_R_1: 2608276041821571745
+      TurtleHat_Win_R_2: 1258186181056408204
+      TurtleHat_Win_R_3: 1946135574093889694
+      turtlehat_0: 4954512506350673158
+      turtlehat_1: -5159368345247752165
+      turtlehat_10: 521614586032411330
+      turtlehat_11: 2008715402328705441
+      turtlehat_12: -6152287140685486347
+      turtlehat_13: -6456778818570893821
+      turtlehat_14: -8878205301426758749
+      turtlehat_15: 8277152753500336106
+      turtlehat_16: 1852138992003703520
+      turtlehat_17: -7771067528669497969
+      turtlehat_18: -91814825054805613
+      turtlehat_19: -5089010112256332312
+      turtlehat_2: 8038569975320989770
+      turtlehat_20: 2228725135643049477
+      turtlehat_21: -5231282942945532947
+      turtlehat_22: 3674025236651257294
+      turtlehat_23: -6382367289789439871
+      turtlehat_24: -6075608248859901842
+      turtlehat_25: 7817092891144186467
+      turtlehat_26: -5398806663165321576
+      turtlehat_27: 1548290897373382194
+      turtlehat_28: 2216064923292379906
+      turtlehat_29: -2089132459722709136
+      turtlehat_3: -7654536961619644558
+      turtlehat_30: 2241311187378835293
+      turtlehat_31: 5367931303786060206
+      turtlehat_32: -6075890818262254051
+      turtlehat_33: -4773450169988963262
+      turtlehat_34: 6912117721268221543
+      turtlehat_35: 7157928567801077669
+      turtlehat_36: -989189441295935925
+      turtlehat_37: 6405337019496965266
+      turtlehat_38: -4106149468046091491
+      turtlehat_39: 5213914844776252084
+      turtlehat_4: -691826796919971647
+      turtlehat_40: -2787008826813041581
+      turtlehat_41: -6895069772471298854
+      turtlehat_42: 781955540299919925
+      turtlehat_43: 4031750122505054803
+      turtlehat_44: -2593132774668620205
+      turtlehat_45: -575292315700738
+      turtlehat_46: 8681865548663909809
+      turtlehat_47: 3846308827721931539
+      turtlehat_48: 9060319520194238001
+      turtlehat_49: 2774890396316797711
+      turtlehat_5: 5509397885265174622
+      turtlehat_50: 1900855734640517728
+      turtlehat_51: 3979506507621922006
+      turtlehat_52: 6601755773267726136
+      turtlehat_53: -2314510420572583478
+      turtlehat_54: 693197040994109692
+      turtlehat_55: -8155590066281992682
+      turtlehat_56: -3334803668119142766
+      turtlehat_57: -7707981163394955616
+      turtlehat_58: 7506031617641416793
+      turtlehat_59: 3663497149037405535
+      turtlehat_6: -3175045274947774052
+      turtlehat_60: 4370731156358049026
+      turtlehat_61: 6250731355072667701
+      turtlehat_62: -6367927420737742292
+      turtlehat_63: 8433313464786306564
+      turtlehat_64: -5015018786345712415
+      turtlehat_65: 9076413623556733524
+      turtlehat_66: -5647980375177424389
+      turtlehat_67: -8943666201539258632
+      turtlehat_68: -6982160289873877716
+      turtlehat_69: -3033567942729711538
+      turtlehat_7: 3883964740836232245
+      turtlehat_70: 2082692802008834
+      turtlehat_71: -1848832929568500808
+      turtlehat_72: 6630835244805913864
+      turtlehat_73: -4156930462006972079
+      turtlehat_74: 346709506853467643
+      turtlehat_75: 1331360369671342936
+      turtlehat_76: -3950947250193305325
+      turtlehat_77: -4166880658142756104
+      turtlehat_78: -1046386258075356598
+      turtlehat_79: 3318340506599845152
+      turtlehat_8: -6731684394484363713
+      turtlehat_80: -5607189060248053707
+      turtlehat_81: -6414084532735851398
+      turtlehat_82: 4782341534830910483
+      turtlehat_83: 155226782760571328
+      turtlehat_84: -5918479800108933506
+      turtlehat_85: -2739298064458457396
+      turtlehat_86: -6120539555342022333
+      turtlehat_87: 7313327027080773937
+      turtlehat_88: -1416429510689620927
+      turtlehat_89: 7231467655008892997
+      turtlehat_9: -6833293267750461303
+      turtlehat_90: 8996897527083886004
+      turtlehat_91: -2417092318884206460
+      turtlehat_92: 8490919200536651913
+      turtlehat_93: 4621877042504335776
+      turtlehat_94: 7509635534859975074
+      turtlehat_95: -5728251184455079076
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

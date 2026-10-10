@@ -483,7 +483,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         // --- END MODULAR LOGIC ---
 
         Animator anim = fisherman.GetComponent<Animator>();
-        if (anim != null) 
+        if (anim != null && !ApplyV2RigHairColor(fisherman, anim, selectedFishermanHair))
         {
             string hairName = selectedFishermanHair != null ? selectedFishermanHair.name.ToLowerInvariant() : "";
             string hatName = selectedFishermanHat != null ? selectedFishermanHat.name.ToLowerInvariant() : "";
@@ -724,7 +724,7 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         // --- END MODULAR LOGIC ---
 
         Animator anim = fisherman.GetComponent<Animator>();
-        if (anim != null) 
+        if (anim != null && !ApplyV2RigHairColor(fisherman, anim, hairSprite))
         {
             string currentHairName = hairSprite != null ? hairSprite.name.ToLowerInvariant() : "";
             string currentHatName = hatSprite != null ? hatSprite.name.ToLowerInvariant() : "";
@@ -1350,6 +1350,36 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         // The legacy overlay would draw a second copy of the same hat on top of the layer.
         RemoveCosmetic(fisherman, FishermanHatChildName);
         return true;
+    }
+
+    /// <summary>
+    /// The v2 rig has one animator controller for every look. The legacy chain swaps in a whole
+    /// controller per hair colour or baked hat, which on the v2 rig drives only the root renderer
+    /// with old art and freezes the layers; so on that rig the controller is kept and the hair
+    /// colour goes to its hair layer. Returns false for a rig without the layer (legacy path).
+    /// </summary>
+    private static bool ApplyV2RigHairColor(GameObject fisherman, Animator animator, Sprite hair)
+    {
+        FishermanHairColorLayer hairLayer = fisherman.GetComponentInChildren<FishermanHairColorLayer>(true);
+        if (hairLayer == null)
+        {
+            return false;
+        }
+
+        hairLayer.RestoreRigController(animator);
+        hairLayer.SetBlack(hair != null && hair.name.ToLowerInvariant().Contains("black"));
+        return true;
+    }
+
+    /// <summary>
+    /// The v2 sheet of a fisherman hat (empty when the hat has none), for previews that draw the
+    /// rig themselves, such as the shop display.
+    /// </summary>
+    public static Sprite[] LoadFishermanHatSheet(Sprite hatSprite)
+    {
+        return hatSprite == null
+            ? new Sprite[0]
+            : Resources.LoadAll<Sprite>(FishermanHatSheetResourceFolder + NormalizeSpriteName(hatSprite));
     }
 
     /// <summary>Clears the hat layer, for the paths that end with no hat on the fisherman.</summary>

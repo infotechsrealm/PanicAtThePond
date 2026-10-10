@@ -1,0 +1,3023 @@
+fileFormatVersion: 2
+guid: c6e5043f31c1ad242abc874ff15b1d47
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 426645975017277565
+    second: fishermanhatchefhat_0
+  - first:
+      213: -4392916341843209995
+    second: fishermanhatchefhat_1
+  - first:
+      213: -5976824514394537080
+    second: fishermanhatchefhat_2
+  - first:
+      213: -8912473842149258236
+    second: fishermanhatchefhat_3
+  - first:
+      213: 3046243543210059204
+    second: fishermanhatchefhat_4
+  - first:
+      213: 6449576976522147124
+    second: fishermanhatchefhat_5
+  - first:
+      213: 3252141746493343466
+    second: fishermanhatchefhat_6
+  - first:
+      213: 7318003178254108506
+    second: fishermanhatchefhat_7
+  - first:
+      213: 4302164095709073612
+    second: fishermanhatchefhat_8
+  - first:
+      213: -7632401731392220408
+    second: fishermanhatchefhat_9
+  - first:
+      213: 2318584581201027116
+    second: fishermanhatchefhat_10
+  - first:
+      213: 1681822054930528281
+    second: fishermanhatchefhat_11
+  - first:
+      213: -6157096280228601550
+    second: fishermanhatchefhat_12
+  - first:
+      213: 7076499747397258523
+    second: fishermanhatchefhat_13
+  - first:
+      213: -3300564059767282589
+    second: fishermanhatchefhat_14
+  - first:
+      213: 2447217678207808067
+    second: fishermanhatchefhat_15
+  - first:
+      213: -6172748399798961234
+    second: fishermanhatchefhat_16
+  - first:
+      213: -6572222057297623791
+    second: fishermanhatchefhat_17
+  - first:
+      213: 4478800672486761247
+    second: fishermanhatchefhat_18
+  - first:
+      213: -1365411056913114122
+    second: fishermanhatchefhat_19
+  - first:
+      213: 6346225744890256369
+    second: fishermanhatchefhat_20
+  - first:
+      213: 1645018444694671605
+    second: fishermanhatchefhat_21
+  - first:
+      213: -6518540623294208891
+    second: fishermanhatchefhat_22
+  - first:
+      213: 2669307944847674014
+    second: fishermanhatchefhat_23
+  - first:
+      213: 7433208166931060834
+    second: fishermanhatchefhat_24
+  - first:
+      213: -5923026753894112971
+    second: fishermanhatchefhat_25
+  - first:
+      213: -3641242125184470593
+    second: fishermanhatchefhat_26
+  - first:
+      213: -542943653630381688
+    second: fishermanhatchefhat_27
+  - first:
+      213: -6183706214852571670
+    second: fishermanhatchefhat_28
+  - first:
+      213: 3192144385591776654
+    second: fishermanhatchefhat_29
+  - first:
+      213: -7227828753399172813
+    second: fishermanhatchefhat_30
+  - first:
+      213: -4300885303289364823
+    second: fishermanhatchefhat_31
+  - first:
+      213: 7260057413668508440
+    second: fishermanhatchefhat_32
+  - first:
+      213: -5590144124244597899
+    second: fishermanhatchefhat_33
+  - first:
+      213: -3376545130506188033
+    second: fishermanhatchefhat_34
+  - first:
+      213: 5451402227000966080
+    second: fishermanhatchefhat_35
+  - first:
+      213: -8489492235854991067
+    second: fishermanhatchefhat_36
+  - first:
+      213: 1554681707815305772
+    second: fishermanhatchefhat_37
+  - first:
+      213: -7903595864128244386
+    second: fishermanhatchefhat_38
+  - first:
+      213: -7464783413035960842
+    second: fishermanhatchefhat_39
+  - first:
+      213: -7536840559521539639
+    second: fishermanhatchefhat_40
+  - first:
+      213: 4235786371230960439
+    second: fishermanhatchefhat_41
+  - first:
+      213: 4196309420957012641
+    second: fishermanhatchefhat_42
+  - first:
+      213: 134023549763373
+    second: fishermanhatchefhat_43
+  - first:
+      213: 4916850857712674038
+    second: fishermanhatchefhat_44
+  - first:
+      213: 280469957029487289
+    second: fishermanhatchefhat_45
+  - first:
+      213: 6392577766247219558
+    second: fishermanhatchefhat_46
+  - first:
+      213: 3122732887725017455
+    second: fishermanhatchefhat_47
+  - first:
+      213: -4613658643865358673
+    second: fishermanhatchefhat_48
+  - first:
+      213: 8714540426901971817
+    second: fishermanhatchefhat_49
+  - first:
+      213: 3122843617222719013
+    second: fishermanhatchefhat_50
+  - first:
+      213: 24666028818597925
+    second: fishermanhatchefhat_51
+  - first:
+      213: 5452518295123973093
+    second: fishermanhatchefhat_52
+  - first:
+      213: -1329241044975143630
+    second: fishermanhatchefhat_53
+  - first:
+      213: 7223069875694413223
+    second: fishermanhatchefhat_54
+  - first:
+      213: -1289296977717682093
+    second: fishermanhatchefhat_55
+  - first:
+      213: -3358273468244846901
+    second: fishermanhatchefhat_56
+  - first:
+      213: -2955275422743635672
+    second: fishermanhatchefhat_57
+  - first:
+      213: 521804540455549914
+    second: fishermanhatchefhat_58
+  - first:
+      213: -4153747536770411217
+    second: fishermanhatchefhat_59
+  - first:
+      213: -3400472912025208775
+    second: fishermanhatchefhat_60
+  - first:
+      213: 7595033849068489643
+    second: fishermanhatchefhat_61
+  - first:
+      213: 6999750445599074080
+    second: fishermanhatchefhat_62
+  - first:
+      213: 3059418205378445713
+    second: fishermanhatchefhat_63
+  - first:
+      213: 4132747194603430372
+    second: fishermanhatchefhat_64
+  - first:
+      213: 6715157522748638983
+    second: fishermanhatchefhat_65
+  - first:
+      213: 3963647779255332328
+    second: fishermanhatchefhat_66
+  - first:
+      213: 6830435393337099285
+    second: fishermanhatchefhat_67
+  - first:
+      213: -6522220929642488653
+    second: fishermanhatchefhat_68
+  - first:
+      213: 2483550634421255877
+    second: fishermanhatchefhat_69
+  - first:
+      213: -8791285202027866714
+    second: fishermanhatchefhat_70
+  - first:
+      213: 934862087714184758
+    second: fishermanhatchefhat_71
+  - first:
+      213: 7366263011004009370
+    second: fishermanhatchefhat_72
+  - first:
+      213: 660162622440464327
+    second: fishermanhatchefhat_73
+  - first:
+      213: -8579886758403703191
+    second: fishermanhatchefhat_74
+  - first:
+      213: 6419233962042902589
+    second: fishermanhatchefhat_75
+  - first:
+      213: 8302358744207062902
+    second: fishermanhatchefhat_76
+  - first:
+      213: -5724287897805402643
+    second: fishermanhatchefhat_77
+  - first:
+      213: 5977400922323969239
+    second: fishermanhatchefhat_78
+  - first:
+      213: 1363175126315426923
+    second: fishermanhatchefhat_79
+  - first:
+      213: -2737273119176335977
+    second: fishermanhatchefhat_80
+  - first:
+      213: -7715632634059717575
+    second: fishermanhatchefhat_81
+  - first:
+      213: -7678958698452331503
+    second: fishermanhatchefhat_82
+  - first:
+      213: -4972136410230559008
+    second: fishermanhatchefhat_83
+  - first:
+      213: 4615670715035982105
+    second: fishermanhatchefhat_84
+  - first:
+      213: -4116100578871652814
+    second: fishermanhatchefhat_85
+  - first:
+      213: -7932797559191752428
+    second: fishermanhatchefhat_86
+  - first:
+      213: -6103307698800843036
+    second: fishermanhatchefhat_87
+  - first:
+      213: 8571972225566281796
+    second: fishermanhatchefhat_88
+  - first:
+      213: -4639867940965126791
+    second: fishermanhatchefhat_89
+  - first:
+      213: -5367210117969651111
+    second: fishermanhatchefhat_90
+  - first:
+      213: 5510631707349524058
+    second: fishermanhatchefhat_91
+  - first:
+      213: 3764702662745599182
+    second: fishermanhatchefhat_92
+  - first:
+      213: -74418355186901925
+    second: fishermanhatchefhat_93
+  - first:
+      213: -5886699612142648605
+    second: fishermanhatchefhat_94
+  - first:
+      213: -6994218738797548633
+    second: fishermanhatchefhat_95
+  - first:
+      213: -7314184235346245032
+    second: ChefHat_Casting_L_0
+  - first:
+      213: -7714389122895096593
+    second: ChefHat_Casting_L_1
+  - first:
+      213: 7175706764091513339
+    second: ChefHat_Casting_L_2
+  - first:
+      213: -4800922846202866908
+    second: ChefHat_Casting_L_3
+  - first:
+      213: -5201015655400065553
+    second: ChefHat_Idle_L_0
+  - first:
+      213: -2859618783892496311
+    second: ChefHat_Idle_L_1
+  - first:
+      213: -1704906964223951643
+    second: ChefHat_Idle_L_2
+  - first:
+      213: -2582881775350961772
+    second: ChefHat_Idle_L_3
+  - first:
+      213: -7334739541226047796
+    second: ChefHat_Fishing_L_0
+  - first:
+      213: 8161355956965807726
+    second: ChefHat_Fishing_L_1
+  - first:
+      213: 5593901663719356349
+    second: ChefHat_Fishing_L_2
+  - first:
+      213: 7981616089948967975
+    second: ChefHat_Fishing_L_3
+  - first:
+      213: 2394910869419157083
+    second: ChefHat_MoveForward_L_0
+  - first:
+      213: 4752801842948116504
+    second: ChefHat_MoveForward_L_1
+  - first:
+      213: 2713188476558148275
+    second: ChefHat_MoveForward_L_2
+  - first:
+      213: -4595586421488286382
+    second: ChefHat_MoveForward_L_3
+  - first:
+      213: 2471768449457064537
+    second: ChefHat_MoveBackward_L_0
+  - first:
+      213: 1179501634675392309
+    second: ChefHat_MoveBackward_L_1
+  - first:
+      213: -7201522216145690298
+    second: ChefHat_MoveBackward_L_2
+  - first:
+      213: 8273589003056319431
+    second: ChefHat_MoveBackward_L_3
+  - first:
+      213: 8841564365359021333
+    second: ChefHat_Fighting_L_0
+  - first:
+      213: -2345576719513971392
+    second: ChefHat_Fighting_L_1
+  - first:
+      213: 6608887956196765198
+    second: ChefHat_Fighting_L_2
+  - first:
+      213: -1045045380025126330
+    second: ChefHat_Fighting_L_3
+  - first:
+      213: -1068793842173297950
+    second: ChefHat_Reeling_L_0
+  - first:
+      213: 5964896917186020558
+    second: ChefHat_Reeling_L_1
+  - first:
+      213: 3638744436864501467
+    second: ChefHat_Reeling_L_2
+  - first:
+      213: -7442295915207908991
+    second: ChefHat_Reeling_L_3
+  - first:
+      213: -3269653969645557595
+    second: ChefHat_Win_L_0
+  - first:
+      213: -1279471464666754506
+    second: ChefHat_Win_L_1
+  - first:
+      213: -2206006664172868956
+    second: ChefHat_Win_L_2
+  - first:
+      213: -4961715778910205967
+    second: ChefHat_Win_L_3
+  - first:
+      213: 1032401849829000855
+    second: ChefHat_SwappingPoles_L_0
+  - first:
+      213: -1994538155143919617
+    second: ChefHat_SwappingPoles_L_1
+  - first:
+      213: 2307592816162583213
+    second: ChefHat_SwappingPoles_L_2
+  - first:
+      213: 3363161628689423174
+    second: ChefHat_SwappingPoles_L_3
+  - first:
+      213: 5412046596863577538
+    second: ChefHat_Scared_L_0
+  - first:
+      213: 4591773306420832424
+    second: ChefHat_Scared_L_1
+  - first:
+      213: -3276413893459985705
+    second: ChefHat_Scared_L_2
+  - first:
+      213: -2016955927155540695
+    second: ChefHat_Scared_L_3
+  - first:
+      213: -5020309018933543940
+    second: ChefHat_GoToCry_L_0
+  - first:
+      213: 4784665712537505429
+    second: ChefHat_GoToCry_L_1
+  - first:
+      213: -3702684141568802479
+    second: ChefHat_GoToCry_L_2
+  - first:
+      213: -311791905089304762
+    second: ChefHat_GoToCry_L_3
+  - first:
+      213: -7155683096488697329
+    second: ChefHat_Cry_L_0
+  - first:
+      213: -2448141174637923404
+    second: ChefHat_Cry_L_1
+  - first:
+      213: 7991256078189837118
+    second: ChefHat_Cry_L_2
+  - first:
+      213: -8620737877589823080
+    second: ChefHat_Cry_L_3
+  - first:
+      213: 2386313056731167995
+    second: ChefHat_Casting_R_0
+  - first:
+      213: -6961756389726790431
+    second: ChefHat_Casting_R_1
+  - first:
+      213: 3510246572788708612
+    second: ChefHat_Casting_R_2
+  - first:
+      213: -8302539108961083222
+    second: ChefHat_Casting_R_3
+  - first:
+      213: 6318998690911647719
+    second: ChefHat_Idle_R_0
+  - first:
+      213: 7094519942512411079
+    second: ChefHat_Idle_R_1
+  - first:
+      213: 3502876293419187424
+    second: ChefHat_Idle_R_2
+  - first:
+      213: 3956664090910522638
+    second: ChefHat_Idle_R_3
+  - first:
+      213: 3187601284931093009
+    second: ChefHat_Fishing_R_0
+  - first:
+      213: -4641921456164255515
+    second: ChefHat_Fishing_R_1
+  - first:
+      213: -6440608927176922265
+    second: ChefHat_Fishing_R_2
+  - first:
+      213: -661838611428239976
+    second: ChefHat_Fishing_R_3
+  - first:
+      213: 7611726621788415888
+    second: ChefHat_MoveForward_R_0
+  - first:
+      213: 4957692708777344115
+    second: ChefHat_MoveForward_R_1
+  - first:
+      213: -6490857526350305051
+    second: ChefHat_MoveForward_R_2
+  - first:
+      213: 5774810266425731392
+    second: ChefHat_MoveForward_R_3
+  - first:
+      213: 3941856574750237563
+    second: ChefHat_MoveBackward_R_0
+  - first:
+      213: 5169961802756553712
+    second: ChefHat_MoveBackward_R_1
+  - first:
+      213: -3634205171335444632
+    second: ChefHat_MoveBackward_R_2
+  - first:
+      213: 1979092883530655857
+    second: ChefHat_MoveBackward_R_3
+  - first:
+      213: 6007570343900851384
+    second: ChefHat_Fighting_R_0
+  - first:
+      213: -8569911798762326883
+    second: ChefHat_Fighting_R_1
+  - first:
+      213: 2919325770929422385
+    second: ChefHat_Fighting_R_2
+  - first:
+      213: -7379013572592431542
+    second: ChefHat_Fighting_R_3
+  - first:
+      213: 4261688526596920615
+    second: ChefHat_Reeling_R_0
+  - first:
+      213: -4599707512511898490
+    second: ChefHat_Reeling_R_1
+  - first:
+      213: 8543062845026617535
+    second: ChefHat_Reeling_R_2
+  - first:
+      213: 3375151423101358068
+    second: ChefHat_Reeling_R_3
+  - first:
+      213: 6223583484632014399
+    second: ChefHat_Win_R_0
+  - first:
+      213: -2208457532535173001
+    second: ChefHat_Win_R_1
+  - first:
+      213: 7198640586832524324
+    second: ChefHat_Win_R_2
+  - first:
+      213: -5053762172483944744
+    second: ChefHat_Win_R_3
+  - first:
+      213: 4658034136657336436
+    second: ChefHat_SwappingPoles_R_0
+  - first:
+      213: 5958735524793033709
+    second: ChefHat_SwappingPoles_R_1
+  - first:
+      213: 8912414250282916288
+    second: ChefHat_SwappingPoles_R_2
+  - first:
+      213: -2538156735915299858
+    second: ChefHat_SwappingPoles_R_3
+  - first:
+      213: 5070970769781152410
+    second: ChefHat_Scared_R_0
+  - first:
+      213: 1256413521657430258
+    second: ChefHat_Scared_R_1
+  - first:
+      213: -3961978512478624819
+    second: ChefHat_Scared_R_2
+  - first:
+      213: -4360886908197526760
+    second: ChefHat_Scared_R_3
+  - first:
+      213: 1802346063146956788
+    second: ChefHat_GoToCry_R_0
+  - first:
+      213: 2118366955948294578
+    second: ChefHat_GoToCry_R_1
+  - first:
+      213: -8894394943171370108
+    second: ChefHat_GoToCry_R_2
+  - first:
+      213: 2257323613469038182
+    second: ChefHat_GoToCry_R_3
+  - first:
+      213: 674916450647176781
+    second: ChefHat_Cry_R_0
+  - first:
+      213: 5883936532288885909
+    second: ChefHat_Cry_R_1
+  - first:
+      213: -324564577764556555
+    second: ChefHat_Cry_R_2
+  - first:
+      213: 5455291559398159276
+    second: ChefHat_Cry_R_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ChefHat_Casting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85acc6ea03cce7a90800000000000000
+      internalID: -7314184235346245032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Casting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe453be17fbf0f490800000000000000
+      internalID: -7714389122895096593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Casting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf9da0e884b359360800000000000000
+      internalID: 7175706764091513339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Casting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7360
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42355069b12bf5db0800000000000000
+      internalID: -4800922846202866908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Idle_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe532ac41d742d7b0800000000000000
+      internalID: -5201015655400065553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Idle_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 940ad01fdd79058d0800000000000000
+      internalID: -2859618783892496311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Idle_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ec77562624f658e0800000000000000
+      internalID: -1704906964223951643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Idle_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7040
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4992063c5b2c72cd0800000000000000
+      internalID: -2582881775350961772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Fishing_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc6b5359f35c53a90800000000000000
+      internalID: -7334739541226047796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Fishing_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e66177c8006f24170800000000000000
+      internalID: 8161355956965807726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Fishing_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db77576ece781ad40800000000000000
+      internalID: 5593901663719356349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Fishing_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6720
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72453fe9b8564ce60800000000000000
+      internalID: 7981616089948967975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_MoveForward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5663783fbe6c3120800000000000000
+      internalID: 2394910869419157083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_MoveForward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8109eb0481855f140800000000000000
+      internalID: 4752801842948116504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_MoveForward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b28ee95b8e27a520800000000000000
+      internalID: 2713188476558148275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_MoveForward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6400
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25505948f723930c0800000000000000
+      internalID: -4595586421488286382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_MoveBackward_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95a08ec0f4c7d4220800000000000000
+      internalID: 2471768449457064537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_MoveBackward_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53fb1dacc7e6e5010800000000000000
+      internalID: 1179501634675392309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_MoveBackward_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6416d8023bd0f0c90800000000000000
+      internalID: -7201522216145690298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_MoveBackward_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6080
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cb00c8ec51b1d270800000000000000
+      internalID: 8273589003056319431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Fighting_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51df9f712fb83ba70800000000000000
+      internalID: 8841564365359021333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Fighting_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04591f7a666d27fd0800000000000000
+      internalID: -2345576719513971392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Fighting_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0e277da49c77bb50800000000000000
+      internalID: 6608887956196765198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Fighting_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5760
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 642707583c04f71f0800000000000000
+      internalID: -1045045380025126330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Reeling_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eab22bc9a1ea21f0800000000000000
+      internalID: -1068793842173297950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Reeling_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec402be842297c250800000000000000
+      internalID: 5964896917186020558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Reeling_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd6ccb359ca6f7230800000000000000
+      internalID: 3638744436864501467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Reeling_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5440
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18121bccb47a7b890800000000000000
+      internalID: -7442295915207908991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Win_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a8a4d8b90bdf92d0800000000000000
+      internalID: -3269653969645557595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Win_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6321a485b776e3ee0800000000000000
+      internalID: -1279471464666754506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Win_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aae4d970a0b261e0800000000000000
+      internalID: -2206006664172868956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Win_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5120
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f74b9199c1742bb0800000000000000
+      internalID: -4961715778910205967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_SwappingPoles_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79683843304d35e00800000000000000
+      internalID: 1032401849829000855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_SwappingPoles_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff70fab8d1af154e0800000000000000
+      internalID: -1994538155143919617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_SwappingPoles_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da23d9da077360020800000000000000
+      internalID: 2307592816162583213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_SwappingPoles_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4800
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64bd148bea95cae20800000000000000
+      internalID: 3363161628689423174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Scared_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cd4ae1a4b37b1b40800000000000000
+      internalID: 5412046596863577538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Scared_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a8a5527e7149bf30800000000000000
+      internalID: 4591773306420832424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Scared_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dab92f4ce6d782d0800000000000000
+      internalID: -3276413893459985705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Scared_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4480
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92d764245455204e0800000000000000
+      internalID: -2016955927155540695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_GoToCry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfbb6c7cb87445ab0800000000000000
+      internalID: -5020309018933543940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_GoToCry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59e0ac48d1c866240800000000000000
+      internalID: 4784665712537505429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_GoToCry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 151c152146c6d9cc0800000000000000
+      internalID: -3702684141568802479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_GoToCry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4160
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6474f4d0aea4cabf0800000000000000
+      internalID: -311791905089304762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Cry_L_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f02268cd228e1bc90800000000000000
+      internalID: -7155683096488697329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Cry_L_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b3f2bd8294760ed0800000000000000
+      internalID: -2448141174637923404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Cry_L_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3bbfa94015a6ee60800000000000000
+      internalID: 7991256078189837118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Cry_L_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3840
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 891f080339cfc5880800000000000000
+      internalID: -8620737877589823080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Casting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfc7655f413ed1120800000000000000
+      internalID: 2386313056731167995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Casting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ec5781d27fd26f90800000000000000
+      internalID: -6961756389726790431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Casting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4057a1de8a6e6b030800000000000000
+      internalID: 3510246572788708612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Casting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3520
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa0269c4ba477cc80800000000000000
+      internalID: -8302539108961083222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Idle_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e772f374d791b750800000000000000
+      internalID: 6318998690911647719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Idle_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c18061ac4cc47260800000000000000
+      internalID: 7094519942512411079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Idle_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ec33690e67bc9030800000000000000
+      internalID: 3502876293419187424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Idle_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3200
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0df3420705e8e630800000000000000
+      internalID: 3956664090910522638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Fishing_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11285e1ea72ac3c20800000000000000
+      internalID: 3187601284931093009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Fishing_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e8c0129705949fb0800000000000000
+      internalID: -4641921456164255515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Fishing_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76be866fd4c5e96a0800000000000000
+      internalID: -6440608927176922265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Fishing_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2880
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8959e2b1a4da0d6f0800000000000000
+      internalID: -661838611428239976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_MoveForward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 097251ba80942a960800000000000000
+      internalID: 7611726621788415888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_MoveForward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37cb73c60434dc440800000000000000
+      internalID: 4957692708777344115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_MoveForward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e828364877dbe5a0800000000000000
+      internalID: -6490857526350305051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_MoveForward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2560
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 049a59f475f342050800000000000000
+      internalID: 5774810266425731392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_MoveBackward_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b73a68d7ba944b630800000000000000
+      internalID: 3941856574750237563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_MoveBackward_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fb74a33ed46fb740800000000000000
+      internalID: 5169961802756553712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_MoveBackward_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 867c9a9c6a5b09dc0800000000000000
+      internalID: -3634205171335444632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_MoveBackward_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2240
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 178295ced76277b10800000000000000
+      internalID: 1979092883530655857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Fighting_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bca167f56d2f5350800000000000000
+      internalID: 6007570343900851384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Fighting_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d94b756df9e811980800000000000000
+      internalID: -8569911798762326883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Fighting_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13044e74257838820800000000000000
+      internalID: 2919325770929422385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Fighting_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1920
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4e87dc504a789990800000000000000
+      internalID: -7379013572592431542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Reeling_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 725da23b22f842b30800000000000000
+      internalID: 4261688526596920615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Reeling_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68c580e336e8a20c0800000000000000
+      internalID: -4599707512511898490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Reeling_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb846abf46e0f8670800000000000000
+      internalID: 8543062845026617535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Reeling_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ff4c154652f6de20800000000000000
+      internalID: 3375151423101358068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Win_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3e9a7f843c9e5650800000000000000
+      internalID: 6223583484632014399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Win_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77094b7339bf951e0800000000000000
+      internalID: -2208457532535173001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Win_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 424bcd34975b6e360800000000000000
+      internalID: 7198640586832524324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Win_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1280
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8deb9c1841e6dd9b0800000000000000
+      internalID: -5053762172483944744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_SwappingPoles_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4789a133e59a4a040800000000000000
+      internalID: 4658034136657336436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_SwappingPoles_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de32ac9936ea1b250800000000000000
+      internalID: 5958735524793033709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_SwappingPoles_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c91e376a814fab70800000000000000
+      internalID: 8912414250282916288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_SwappingPoles_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eebe08b75e7a6ccd0800000000000000
+      internalID: -2538156735915299858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Scared_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9ad1374c05bf5640800000000000000
+      internalID: 5070970769781152410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Scared_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f08361f07daf6110800000000000000
+      internalID: 1256413521657430258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Scared_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc32bfbc8893409c0800000000000000
+      internalID: -3961978512478624819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Scared_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8132c3346740b73c0800000000000000
+      internalID: -4360886908197526760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_GoToCry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f7b238f138330910800000000000000
+      internalID: 1802346063146956788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_GoToCry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b14939d583f56d10800000000000000
+      internalID: 2118366955948294578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_GoToCry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4836d387ce2c09480800000000000000
+      internalID: -8894394943171370108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_GoToCry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6665cebdddf935f10800000000000000
+      internalID: 2257323613469038182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Cry_R_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4674ed9fe8cd5900800000000000000
+      internalID: 674916450647176781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Cry_R_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 594d5080a11f7a150800000000000000
+      internalID: 5883936532288885909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Cry_R_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f04ba37c3aee7bf0800000000000000
+      internalID: -324564577764556555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChefHat_Cry_R_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca33d1815c615bb40800000000000000
+      internalID: 5455291559398159276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ChefHat_Casting_L_0: -7314184235346245032
+      ChefHat_Casting_L_1: -7714389122895096593
+      ChefHat_Casting_L_2: 7175706764091513339
+      ChefHat_Casting_L_3: -4800922846202866908
+      ChefHat_Casting_R_0: 2386313056731167995
+      ChefHat_Casting_R_1: -6961756389726790431
+      ChefHat_Casting_R_2: 3510246572788708612
+      ChefHat_Casting_R_3: -8302539108961083222
+      ChefHat_Cry_L_0: -7155683096488697329
+      ChefHat_Cry_L_1: -2448141174637923404
+      ChefHat_Cry_L_2: 7991256078189837118
+      ChefHat_Cry_L_3: -8620737877589823080
+      ChefHat_Cry_R_0: 674916450647176781
+      ChefHat_Cry_R_1: 5883936532288885909
+      ChefHat_Cry_R_2: -324564577764556555
+      ChefHat_Cry_R_3: 5455291559398159276
+      ChefHat_Fighting_L_0: 8841564365359021333
+      ChefHat_Fighting_L_1: -2345576719513971392
+      ChefHat_Fighting_L_2: 6608887956196765198
+      ChefHat_Fighting_L_3: -1045045380025126330
+      ChefHat_Fighting_R_0: 6007570343900851384
+      ChefHat_Fighting_R_1: -8569911798762326883
+      ChefHat_Fighting_R_2: 2919325770929422385
+      ChefHat_Fighting_R_3: -7379013572592431542
+      ChefHat_Fishing_L_0: -7334739541226047796
+      ChefHat_Fishing_L_1: 8161355956965807726
+      ChefHat_Fishing_L_2: 5593901663719356349
+      ChefHat_Fishing_L_3: 7981616089948967975
+      ChefHat_Fishing_R_0: 3187601284931093009
+      ChefHat_Fishing_R_1: -4641921456164255515
+      ChefHat_Fishing_R_2: -6440608927176922265
+      ChefHat_Fishing_R_3: -661838611428239976
+      ChefHat_GoToCry_L_0: -5020309018933543940
+      ChefHat_GoToCry_L_1: 4784665712537505429
+      ChefHat_GoToCry_L_2: -3702684141568802479
+      ChefHat_GoToCry_L_3: -311791905089304762
+      ChefHat_GoToCry_R_0: 1802346063146956788
+      ChefHat_GoToCry_R_1: 2118366955948294578
+      ChefHat_GoToCry_R_2: -8894394943171370108
+      ChefHat_GoToCry_R_3: 2257323613469038182
+      ChefHat_Idle_L_0: -5201015655400065553
+      ChefHat_Idle_L_1: -2859618783892496311
+      ChefHat_Idle_L_2: -1704906964223951643
+      ChefHat_Idle_L_3: -2582881775350961772
+      ChefHat_Idle_R_0: 6318998690911647719
+      ChefHat_Idle_R_1: 7094519942512411079
+      ChefHat_Idle_R_2: 3502876293419187424
+      ChefHat_Idle_R_3: 3956664090910522638
+      ChefHat_MoveBackward_L_0: 2471768449457064537
+      ChefHat_MoveBackward_L_1: 1179501634675392309
+      ChefHat_MoveBackward_L_2: -7201522216145690298
+      ChefHat_MoveBackward_L_3: 8273589003056319431
+      ChefHat_MoveBackward_R_0: 3941856574750237563
+      ChefHat_MoveBackward_R_1: 5169961802756553712
+      ChefHat_MoveBackward_R_2: -3634205171335444632
+      ChefHat_MoveBackward_R_3: 1979092883530655857
+      ChefHat_MoveForward_L_0: 2394910869419157083
+      ChefHat_MoveForward_L_1: 4752801842948116504
+      ChefHat_MoveForward_L_2: 2713188476558148275
+      ChefHat_MoveForward_L_3: -4595586421488286382
+      ChefHat_MoveForward_R_0: 7611726621788415888
+      ChefHat_MoveForward_R_1: 4957692708777344115
+      ChefHat_MoveForward_R_2: -6490857526350305051
+      ChefHat_MoveForward_R_3: 5774810266425731392
+      ChefHat_Reeling_L_0: -1068793842173297950
+      ChefHat_Reeling_L_1: 5964896917186020558
+      ChefHat_Reeling_L_2: 3638744436864501467
+      ChefHat_Reeling_L_3: -7442295915207908991
+      ChefHat_Reeling_R_0: 4261688526596920615
+      ChefHat_Reeling_R_1: -4599707512511898490
+      ChefHat_Reeling_R_2: 8543062845026617535
+      ChefHat_Reeling_R_3: 3375151423101358068
+      ChefHat_Scared_L_0: 5412046596863577538
+      ChefHat_Scared_L_1: 4591773306420832424
+      ChefHat_Scared_L_2: -3276413893459985705
+      ChefHat_Scared_L_3: -2016955927155540695
+      ChefHat_Scared_R_0: 5070970769781152410
+      ChefHat_Scared_R_1: 1256413521657430258
+      ChefHat_Scared_R_2: -3961978512478624819
+      ChefHat_Scared_R_3: -4360886908197526760
+      ChefHat_SwappingPoles_L_0: 1032401849829000855
+      ChefHat_SwappingPoles_L_1: -1994538155143919617
+      ChefHat_SwappingPoles_L_2: 2307592816162583213
+      ChefHat_SwappingPoles_L_3: 3363161628689423174
+      ChefHat_SwappingPoles_R_0: 4658034136657336436
+      ChefHat_SwappingPoles_R_1: 5958735524793033709
+      ChefHat_SwappingPoles_R_2: 8912414250282916288
+      ChefHat_SwappingPoles_R_3: -2538156735915299858
+      ChefHat_Win_L_0: -3269653969645557595
+      ChefHat_Win_L_1: -1279471464666754506
+      ChefHat_Win_L_2: -2206006664172868956
+      ChefHat_Win_L_3: -4961715778910205967
+      ChefHat_Win_R_0: 6223583484632014399
+      ChefHat_Win_R_1: -2208457532535173001
+      ChefHat_Win_R_2: 7198640586832524324
+      ChefHat_Win_R_3: -5053762172483944744
+      fishermanhatchefhat_0: 426645975017277565
+      fishermanhatchefhat_1: -4392916341843209995
+      fishermanhatchefhat_10: 2318584581201027116
+      fishermanhatchefhat_11: 1681822054930528281
+      fishermanhatchefhat_12: -6157096280228601550
+      fishermanhatchefhat_13: 7076499747397258523
+      fishermanhatchefhat_14: -3300564059767282589
+      fishermanhatchefhat_15: 2447217678207808067
+      fishermanhatchefhat_16: -6172748399798961234
+      fishermanhatchefhat_17: -6572222057297623791
+      fishermanhatchefhat_18: 4478800672486761247
+      fishermanhatchefhat_19: -1365411056913114122
+      fishermanhatchefhat_2: -5976824514394537080
+      fishermanhatchefhat_20: 6346225744890256369
+      fishermanhatchefhat_21: 1645018444694671605
+      fishermanhatchefhat_22: -6518540623294208891
+      fishermanhatchefhat_23: 2669307944847674014
+      fishermanhatchefhat_24: 7433208166931060834
+      fishermanhatchefhat_25: -5923026753894112971
+      fishermanhatchefhat_26: -3641242125184470593
+      fishermanhatchefhat_27: -542943653630381688
+      fishermanhatchefhat_28: -6183706214852571670
+      fishermanhatchefhat_29: 3192144385591776654
+      fishermanhatchefhat_3: -8912473842149258236
+      fishermanhatchefhat_30: -7227828753399172813
+      fishermanhatchefhat_31: -4300885303289364823
+      fishermanhatchefhat_32: 7260057413668508440
+      fishermanhatchefhat_33: -5590144124244597899
+      fishermanhatchefhat_34: -3376545130506188033
+      fishermanhatchefhat_35: 5451402227000966080
+      fishermanhatchefhat_36: -8489492235854991067
+      fishermanhatchefhat_37: 1554681707815305772
+      fishermanhatchefhat_38: -7903595864128244386
+      fishermanhatchefhat_39: -7464783413035960842
+      fishermanhatchefhat_4: 3046243543210059204
+      fishermanhatchefhat_40: -7536840559521539639
+      fishermanhatchefhat_41: 4235786371230960439
+      fishermanhatchefhat_42: 4196309420957012641
+      fishermanhatchefhat_43: 134023549763373
+      fishermanhatchefhat_44: 4916850857712674038
+      fishermanhatchefhat_45: 280469957029487289
+      fishermanhatchefhat_46: 6392577766247219558
+      fishermanhatchefhat_47: 3122732887725017455
+      fishermanhatchefhat_48: -4613658643865358673
+      fishermanhatchefhat_49: 8714540426901971817
+      fishermanhatchefhat_5: 6449576976522147124
+      fishermanhatchefhat_50: 3122843617222719013
+      fishermanhatchefhat_51: 24666028818597925
+      fishermanhatchefhat_52: 5452518295123973093
+      fishermanhatchefhat_53: -1329241044975143630
+      fishermanhatchefhat_54: 7223069875694413223
+      fishermanhatchefhat_55: -1289296977717682093
+      fishermanhatchefhat_56: -3358273468244846901
+      fishermanhatchefhat_57: -2955275422743635672
+      fishermanhatchefhat_58: 521804540455549914
+      fishermanhatchefhat_59: -4153747536770411217
+      fishermanhatchefhat_6: 3252141746493343466
+      fishermanhatchefhat_60: -3400472912025208775
+      fishermanhatchefhat_61: 7595033849068489643
+      fishermanhatchefhat_62: 6999750445599074080
+      fishermanhatchefhat_63: 3059418205378445713
+      fishermanhatchefhat_64: 4132747194603430372
+      fishermanhatchefhat_65: 6715157522748638983
+      fishermanhatchefhat_66: 3963647779255332328
+      fishermanhatchefhat_67: 6830435393337099285
+      fishermanhatchefhat_68: -6522220929642488653
+      fishermanhatchefhat_69: 2483550634421255877
+      fishermanhatchefhat_7: 7318003178254108506
+      fishermanhatchefhat_70: -8791285202027866714
+      fishermanhatchefhat_71: 934862087714184758
+      fishermanhatchefhat_72: 7366263011004009370
+      fishermanhatchefhat_73: 660162622440464327
+      fishermanhatchefhat_74: -8579886758403703191
+      fishermanhatchefhat_75: 6419233962042902589
+      fishermanhatchefhat_76: 8302358744207062902
+      fishermanhatchefhat_77: -5724287897805402643
+      fishermanhatchefhat_78: 5977400922323969239
+      fishermanhatchefhat_79: 1363175126315426923
+      fishermanhatchefhat_8: 4302164095709073612
+      fishermanhatchefhat_80: -2737273119176335977
+      fishermanhatchefhat_81: -7715632634059717575
+      fishermanhatchefhat_82: -7678958698452331503
+      fishermanhatchefhat_83: -4972136410230559008
+      fishermanhatchefhat_84: 4615670715035982105
+      fishermanhatchefhat_85: -4116100578871652814
+      fishermanhatchefhat_86: -7932797559191752428
+      fishermanhatchefhat_87: -6103307698800843036
+      fishermanhatchefhat_88: 8571972225566281796
+      fishermanhatchefhat_89: -4639867940965126791
+      fishermanhatchefhat_9: -7632401731392220408
+      fishermanhatchefhat_90: -5367210117969651111
+      fishermanhatchefhat_91: 5510631707349524058
+      fishermanhatchefhat_92: 3764702662745599182
+      fishermanhatchefhat_93: -74418355186901925
+      fishermanhatchefhat_94: -5886699612142648605
+      fishermanhatchefhat_95: -6994218738797548633
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
