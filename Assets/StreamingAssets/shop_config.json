@@ -91,7 +91,7 @@
       "displayName": "Paper Boat Hat",
       "category": "fish_hat",
       "price": 200,
-      "iconResource": "ShopUI/paper_boat",
+      "iconResource": "ShopIcons/FishHats/paper_boat",
       "inRotation": true,
       "unlockedByDefault": false
     },
@@ -100,7 +100,7 @@
       "displayName": "Cap",
       "category": "fish_hat",
       "price": 200,
-      "iconResource": "ShopUI/cap",
+      "iconResource": "ShopIcons/FishHats/cap",
       "inRotation": true,
       "unlockedByDefault": false
     },
@@ -109,7 +109,7 @@
       "displayName": "Orange Hat",
       "category": "fish_hat",
       "price": 500,
-      "iconResource": "ShopUI/hat",
+      "iconResource": "ShopIcons/FishHats/hat",
       "inRotation": true,
       "unlockedByDefault": false
     },
@@ -118,7 +118,7 @@
       "displayName": "Top Hat",
       "category": "fish_hat",
       "price": 500,
-      "iconResource": "ShopUI/hat2",
+      "iconResource": "ShopIcons/FishHats/hat2",
       "inRotation": true,
       "unlockedByDefault": false
     },
@@ -127,7 +127,7 @@
       "displayName": "Beret",
       "category": "fish_hat",
       "price": 1000,
-      "iconResource": "ShopUI/beret",
+      "iconResource": "ShopIcons/FishHats/beret",
       "inRotation": true,
       "unlockedByDefault": false
     }

@@ -790,6 +790,36 @@ public class CosmeticRuntimeApplier : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// In-game art for a fish hat whose shop sprite has been replaced by a shop icon.
+    /// </summary>
+    /// <remarks>
+    /// A fish hat is drawn from the same sprite the shop shows, at a placement tuned per hat name to
+    /// that sprite's exact pixels (<see cref="GetDefaultFishHatTransform"/>). When the shop sprite is
+    /// swapped for new icon art, the original file goes here under the same name, so the hat on the
+    /// fish looks exactly as before. The default Fishing Hat is the case today: its sprite became the
+    /// fisherman's 128x128 shop icon, which drawn on a fish was about four times too large.
+    /// </remarks>
+    private const string FishHatInGameResourceFolder = "FishHatsInGame/";
+
+    /// <summary>Where the artist's fish hat shop icons live, each named after its hat id.</summary>
+    private const string FishHatShopIconResourceFolder = "ShopIcons/FishHats/";
+
+    /// <summary>
+    /// The picture the shop shows for a hat: its shop icon when one exists, otherwise the sprite
+    /// itself. Only for display; the selection keeps the hat's own sprite, whose name is its id.
+    /// </summary>
+    public static Sprite GetShopIcon(Sprite hat)
+    {
+        if (hat == null)
+        {
+            return null;
+        }
+
+        Sprite icon = Resources.Load<Sprite>(FishHatShopIconResourceFolder + hat.name);
+        return icon != null ? icon : hat;
+    }
+
     public static void ApplyFishHatByName(GameObject fish, string spriteName)
     {
         if (fish == null)
@@ -803,7 +833,12 @@ public class CosmeticRuntimeApplier : MonoBehaviour
             return;
         }
 
-        Sprite hatSprite = GetSpriteByName(spriteName);
+        Sprite hatSprite = Resources.Load<Sprite>(FishHatInGameResourceFolder + spriteName);
+        if (hatSprite == null)
+        {
+            hatSprite = GetSpriteByName(spriteName);
+        }
+
         if (hatSprite == null)
         {
             RemoveFishHat(fish);

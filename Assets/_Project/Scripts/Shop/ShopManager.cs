@@ -1551,7 +1551,8 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
-        previewImage.sprite = hatIcon;
+        // The shop icon when the hat has one (fish hats); the hat's own sprite stays the selection.
+        previewImage.sprite = CosmeticRuntimeApplier.GetShopIcon(hatIcon);
         previewImage.preserveAspect = true;
         previewImage.enabled = true;
         previewImage.gameObject.SetActive(true);
@@ -1565,7 +1566,7 @@ public class ShopManager : MonoBehaviour
             Image hatImg = HatDisplayObject.GetComponent<Image>();
             if (hatImg != null)
             {
-                hatImg.sprite = hatIcon;
+                hatImg.sprite = CosmeticRuntimeApplier.GetShopIcon(hatIcon);
             }
         }
 
@@ -1619,7 +1620,8 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
-        previewImage.sprite = hatIcon;
+        // The shop icon when the hat has one (fish hats); the hat's own sprite stays the selection.
+        previewImage.sprite = CosmeticRuntimeApplier.GetShopIcon(hatIcon);
         previewImage.preserveAspect = true;
         previewImage.enabled = true;
         previewImage.gameObject.SetActive(true);
@@ -1633,7 +1635,7 @@ public class ShopManager : MonoBehaviour
             Image hatImg = HatDisplayObject.GetComponent<Image>();
             if (hatImg != null)
             {
-                hatImg.sprite = hatIcon;
+                hatImg.sprite = CosmeticRuntimeApplier.GetShopIcon(hatIcon);
             }
         }
 
@@ -3524,6 +3526,11 @@ public class ShopManager : MonoBehaviour
             Sprite previousSprite = targetImage.sprite;
             Sprite newSprite = selected ? BoxSelectedSprite : BoxUnselectedSprite;
 
+            if (selected)
+            {
+                BringBoxAboveOtherBoxes(targetImage.transform);
+            }
+
             if (previousSprite != newSprite)
             {
                 targetImage.sprite = newSprite;
@@ -3541,6 +3548,35 @@ public class ShopManager : MonoBehaviour
                     Debug.Log($"[ShopManager] Unselected cosmetic: '{button.name}'. Reassigned element image '{targetName}' to '{newSpriteName}' (BoxUnselected).");
                 }
             }
+        }
+    }
+
+    /// <summary>
+    /// Draws the selected box after every other box. The grid's boxes overlap their neighbours by a
+    /// few pixels, so a box drawn earlier had its blue bottom (and right) edge covered by the row
+    /// below. Only boxes are passed: the close and page buttons that share the parent stay on top.
+    /// </summary>
+    private void BringBoxAboveOtherBoxes(Transform box)
+    {
+        Transform parent = box != null ? box.parent : null;
+        if (parent == null)
+        {
+            return;
+        }
+
+        int lastBoxIndex = -1;
+        for (int i = 0; i < parent.childCount; i++)
+        {
+            Image image = parent.GetChild(i).GetComponent<Image>();
+            if (image != null && (image.sprite == BoxSelectedSprite || image.sprite == BoxUnselectedSprite))
+            {
+                lastBoxIndex = i;
+            }
+        }
+
+        if (lastBoxIndex > box.GetSiblingIndex())
+        {
+            box.SetSiblingIndex(lastBoxIndex);
         }
     }
 
