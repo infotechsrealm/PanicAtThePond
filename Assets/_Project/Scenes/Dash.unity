@@ -14982,6 +14982,7 @@ GameObject:
   - component: {fileID: 569712924}
   - component: {fileID: 569712923}
   - component: {fileID: 569712925}
+  - component: {fileID: 569712926}
   m_Layer: 5
   m_Name: Sal -t Image BackGround
   m_TagString: Untagged
@@ -15083,6 +15084,18 @@ MonoBehaviour:
   ItemCoinSize: 60
   ItemPriceFontSize: 54
   BuyPopupSize: {x: 500, y: 430}
+--- !u!114 &569712926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569712921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bffa7042fbbd50439579e053cc68c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PanicAtThePond::PanicAtThePond.UI.CoverCanvas
 --- !u!1 &572675660
 GameObject:
   m_ObjectHideFlags: 0
@@ -32079,7 +32092,7 @@ RectTransform:
   m_AnchorMin: {x: 0.8072916, y: 0.14537035}
   m_AnchorMax: {x: 0.8072916, y: 0.14537035}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 125, y: 100}
+  m_SizeDelta: {x: 140.83324, y: 81.44573}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1245459089
 MonoBehaviour:
@@ -32157,9 +32170,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 78c9289c727ff59468eeac516cb58b8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c995e5fc05f875f4ebd480a2bc468b0e, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -51896,7 +51909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.AspectRatioFitter
   m_AspectMode: 4
-  m_AspectRatio: 1.7746967
+  m_AspectRatio: 1.7777778
 --- !u!114 &2002390224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51917,7 +51930,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ca8e60e6f295966448a1740819ccbe51, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1709bde177ac6154fac248467919d379, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

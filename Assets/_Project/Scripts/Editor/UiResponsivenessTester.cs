@@ -84,6 +84,14 @@ namespace PanicAtThePond.Editor
 
                     Canvas.ForceUpdateCanvases();
                     cam.Render();
+
+                    // Components that fit themselves to the canvas run in LateUpdate, which does not
+                    // happen between these passes; fit them once the canvas has its new size.
+                    foreach (PanicAtThePond.UI.CoverCanvas cover in canvas.GetComponentsInChildren<PanicAtThePond.UI.CoverCanvas>())
+                    {
+                        cover.Fit();
+                    }
+
                     Canvas.ForceUpdateCanvases();
                     cam.Render(); // second pass: the first sizes the canvas, the second draws it
 
