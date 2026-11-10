@@ -1,0 +1,385 @@
+fileFormatVersion: 2
+guid: 7f428cb737184134fb5e4e21387f087f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5562789933706541634
+    second: SaltT_Smoke_Sheet_0
+  - first:
+      213: -8822783162689471021
+    second: SaltT_Smoke_Sheet_1
+  - first:
+      213: -9171384646594910529
+    second: SaltT_Smoke_Sheet_2
+  - first:
+      213: 3775851226663697457
+    second: SaltT_Smoke_Sheet_3
+  - first:
+      213: 1633940359623842771
+    second: SaltT_Smoke_Sheet_4
+  - first:
+      213: 5467411402716843870
+    second: SaltT_Smoke_Sheet_5
+  - first:
+      213: -8837110709496407282
+    second: SaltT_Smoke_Sheet_6
+  - first:
+      213: 2108692474378278341
+    second: SaltT_Smoke_Sheet_7
+  - first:
+      213: -4392500527074590007
+    second: SaltT_Smoke_Sheet_8
+  - first:
+      213: -46480927382176917
+    second: SaltT_Smoke_Sheet_9
+  - first:
+      213: 1634147853599234207
+    second: SaltT_Smoke_Sheet_10
+  - first:
+      213: -8829223160278334987
+    second: SaltT_Smoke_Sheet_11
+  - first:
+      213: -5898359867931978189
+    second: SaltT_Smoke_Sheet_12
+  - first:
+      213: 6732002854763104393
+    second: SaltT_Smoke_Sheet_13
+  - first:
+      213: -3849344745190195928
+    second: SaltT_Smoke_Sheet_14
+  - first:
+      213: -9034172032860431143
+    second: SaltT_Smoke_0
+  - first:
+      213: 3698651680206128482
+    second: SaltT_Smoke_1
+  - first:
+      213: -3145890918637548582
+    second: SaltT_Smoke_2
+  - first:
+      213: -9084642358468554659
+    second: SaltT_Smoke_3
+  - first:
+      213: -5602783612949380243
+    second: SaltT_Smoke_4
+  - first:
+      213: -5493759333579084825
+    second: SaltT_Smoke_5
+  - first:
+      213: -7334869753613602086
+    second: SaltT_Smoke_6
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SaltT_Smoke_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 708
+        height: 764
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dcd595b66c20a280800000000000000
+      internalID: -9034172032860431143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SaltT_Smoke_1
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 0
+        width: 708
+        height: 764
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 265869a5b10445330800000000000000
+      internalID: 3698651680206128482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SaltT_Smoke_2
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 0
+        width: 708
+        height: 764
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adb4b7c80ec8754d0800000000000000
+      internalID: -3145890918637548582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SaltT_Smoke_3
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 0
+        width: 708
+        height: 764
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d50d30058eddce180800000000000000
+      internalID: -9084642358468554659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SaltT_Smoke_4
+      rect:
+        serializedVersion: 2
+        x: 2832
+        y: 0
+        width: 708
+        height: 764
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d63c5c42df9ee32b0800000000000000
+      internalID: -5602783612949380243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SaltT_Smoke_5
+      rect:
+        serializedVersion: 2
+        x: 3540
+        y: 0
+        width: 708
+        height: 764
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eb28884efe32c3b0800000000000000
+      internalID: -5493759333579084825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SaltT_Smoke_6
+      rect:
+        serializedVersion: 2
+        x: 4248
+        y: 0
+        width: 708
+        height: 764
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad2ba1622de453a90800000000000000
+      internalID: -7334869753613602086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SaltT_Smoke_0: -9034172032860431143
+      SaltT_Smoke_1: 3698651680206128482
+      SaltT_Smoke_2: -3145890918637548582
+      SaltT_Smoke_3: -9084642358468554659
+      SaltT_Smoke_4: -5602783612949380243
+      SaltT_Smoke_5: -5493759333579084825
+      SaltT_Smoke_6: -7334869753613602086
+      SaltT_Smoke_Sheet_0: -5562789933706541634
+      SaltT_Smoke_Sheet_1: -8822783162689471021
+      SaltT_Smoke_Sheet_10: 1634147853599234207
+      SaltT_Smoke_Sheet_11: -8829223160278334987
+      SaltT_Smoke_Sheet_12: -5898359867931978189
+      SaltT_Smoke_Sheet_13: 6732002854763104393
+      SaltT_Smoke_Sheet_14: -3849344745190195928
+      SaltT_Smoke_Sheet_2: -9171384646594910529
+      SaltT_Smoke_Sheet_3: 3775851226663697457
+      SaltT_Smoke_Sheet_4: 1633940359623842771
+      SaltT_Smoke_Sheet_5: 5467411402716843870
+      SaltT_Smoke_Sheet_6: -8837110709496407282
+      SaltT_Smoke_Sheet_7: 2108692474378278341
+      SaltT_Smoke_Sheet_8: -4392500527074590007
+      SaltT_Smoke_Sheet_9: -46480927382176917
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
